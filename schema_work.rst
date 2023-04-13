@@ -27,13 +27,32 @@
 | 3     | last_modified          | M          | 1         | Date and time of last          | ISO8601                |
 |       |                        |            |           | update to metadata record.     |                        |
 +-------+------------------------+------------+-----------+--------------------------------+------------------------+
-| 4     | series                 | O          | 0-1       |                                |                        |
+| 4     | series                 | O          | 0-1       | A series is a group of separate|                        |
+|       |                        |            |           | items related to one another by|                        |
+|       |                        |            |           | the fact that each item bears, |                        |
+|       |                        |            |           | in addition to its own title,  |                        |
+|       |                        |            |           | a collective title applying to |                        |
+|       |                        |            |           | the group as a whole.          |                        |
 +-------+------------------------+------------+-----------+--------------------------------+------------------------+
-| 5     | cast                   | O          | 0-n       |                                |                        |
+| 5     | cast                   | O          | 0-n       | A collective term for actors   |                        |
+|       |                        |            |           | and their roles. A broad       |                        |
+|       |                        |            |           | distinction is made between    |                        |
+|       |                        |            |           | cast and credits by defining   |                        |
+|       |                        |            |           | cast as those in front of the  |                        |
+|       |                        |            |           | camera and credits as those    |                        |
+|       |                        |            |           | behind the camera.             |                        |
 +-------+------------------------+------------+-----------+--------------------------------+------------------------+
-| 6     | credits                | O          | 0-n       |                                |                        |
+| 6     | credits                | O          | 0-n       | The names and functions of     |                        |
+|       |                        |            |           | persons responsible for the    |                        |
+|       |                        |            |           | production and/or artistic or  |                        |
+|       |                        |            |           | intellectual content of a      |                        |
+|       |                        |            |           | cinematographic work.          |                        |
 +-------+------------------------+------------+-----------+--------------------------------+------------------------+
-| 7     | production_company     | O          | 0-n       |                                |                        |
+| 7     | production_company     | O          | 0-n       | The name of an organisation or |                        |
+|       |                        |            |           | company under whose financial, |                        |
+|       |                        |            |           | technical and organisational   |                        |
+|       |                        |            |           | management a cinematographic   |                        |
+|       |                        |            |           | work is made.                  |                        |
 +-------+------------------------+------------+-----------+--------------------------------+------------------------+
 | 8     | country_of_reference   | O          | 0-n       |                                |                        |
 +-------+------------------------+------------+-----------+--------------------------------+------------------------+
@@ -51,7 +70,7 @@
 +-------+------------------------+------------+-----------+--------------------------------+------------------------+
 | 13.2  | end_year               | O          | 0-1       |                                |                        |
 +-------+------------------------+------------+-----------+--------------------------------+------------------------+
-| 13.3  | reference_Type         | 1          | 1         |                                | Controlled list of     | 
+| 13.3  | reference_Type         | 1          | 1         |                                | Controlled list of:    | 
 |       |                        |            |           |                                |   created,             |
 |       |                        |            |           |                                |   copyrighted,         |
 |       |                        |            |           |                                |   issued               |
