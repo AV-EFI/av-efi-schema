@@ -10,3 +10,5 @@ curl -X 'GET' \
   'http://typeapi.pidconsortium.net/dtype/schema/JSON/21.T11148/31b848e871121c47d064/?cached=true' \
   -H 'accept: application/json'
   ```
+  
+  Versions for a given date are placed in this folder in different versions
