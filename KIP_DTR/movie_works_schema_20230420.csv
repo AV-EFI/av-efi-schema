@@ -25,7 +25,7 @@ Id;Name;Cardinality;Allowed values
 9.2;audioMaterialType;0-1;controlled list of type: string
 9.3;videoMaterialFormat;0-1;controlled list of type: string
 9.4;videoMaterialType;0-1;controlled list of type: string
-1;original_languages;0-n;array of subelements
+10;original_languages;0-n;array of subelements
 11;original_length;0-n;array of subelements
 12;production_companies;0-n;array of subelements
 12.1;identifier_uri;0-1;string
