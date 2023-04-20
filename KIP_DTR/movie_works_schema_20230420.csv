@@ -1,0 +1,55 @@
+Id;Name;Cardinality;Allowed values
+1;KernelInformationProfile;0-1;string
+2;cast;0-n;array of subelements
+2.1;identifier_uri;0-1;string
+2.2;name;0-1;
+2.2.1;family-name;1;string
+2.2.2;given-name;1;string
+3;countries_of_reference;0-n;array of subelements
+4;credits;0-n;array of subelements
+4.1;identifier;0-1;
+4.1.1;identifier;1;string
+4.1.2;identifier_uri;0-1;string
+4.2;name;1;
+4.2.1;family-name;1;string
+4.2.2;given-name;1;string
+4.3;role;1;controlled list of type: string
+5;genres;0-n;controlled list of type: string
+6;identifiers;0-n;array of subelements
+6.1;identifier;1;string
+6.2;identifier_uri;0-1;string
+7;last_modified;1;string
+8;original_duration;0-1;string
+9;original_format;0-1;
+9.1;audioMaterialFormat;0-1;controlled list of type: string
+9.2;audioMaterialType;0-1;controlled list of type: string
+9.3;videoMaterialFormat;0-1;controlled list of type: string
+9.4;videoMaterialType;0-1;controlled list of type: string
+1;original_languages;0-n;array of subelements
+11;original_length;0-n;array of subelements
+12;production_companies;0-n;array of subelements
+12.1;identifier_uri;0-1;string
+12.2;name;1;string
+13;related_identifiers;0-1;
+13.1;relatedIdentifierType;0-1;string
+13.2;relatedIdentifierValue;1;string
+14;schema_version;0-1;controlled list
+15;series;0-1;
+15.1;identifier;0-1;string
+15.2;title;0-1;
+15.2.1;titleType;1;controlled list of type: string
+15.2.2;titleValue;1;string
+16;sources;1-n;array of subelements
+16.1;date;0-1;string
+16.2;identifier_uri;0-1;string
+16.3;name;1;string
+16.4;sourceAttribution;0-1;
+16.4.1;attributionDate;0-1;string
+16.4.2;attributionType;0-1;controlled list of type: string
+17;titles;1-n;array of subelements
+17.1;titleType;1;controlled list of type: string
+17.2;titleValue;1;string
+18;years_of_reference;0-n;array of subelements
+18.1;endYear;0-1;string
+18.2;referenceType;1;controlled list of type: string
+18.3;startYear;1;string
