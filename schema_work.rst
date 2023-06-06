@@ -5,8 +5,7 @@
 |      |                           |           |normally appearing in an item, naming the item or |                                      |
 |      |                           |           |the work contained in it.                         |                                      |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
-|1.1   |titleType                  |1          |                                                  |Controlled list of values             |
-|      |                           |           |                                                  |`see                                  |
+|1.1   |titleType                  |1          |                                                  |`Controlled list of values            |
 |      |                           |           |                                                  |<https://raw.githubusercontent.com/   |
 |      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
 |      |                           |           |                                                  |main/Controlled_Vocabularies/         |
