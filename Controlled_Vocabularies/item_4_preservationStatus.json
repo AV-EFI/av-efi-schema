@@ -1,0 +1,10 @@
+{
+  "$id": "item_4_preservationStatus",
+  "enum": [
+    "Archive Copy",
+    "Removed",
+    "Master",
+    "Viewing Copy",
+    "Distribution Copy"
+  ]
+}
