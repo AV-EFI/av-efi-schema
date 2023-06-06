@@ -6,10 +6,10 @@
 |      |                           |           |the work contained in it.                         |                                      |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |1.1   |titleType                  |1          |                                                  |Controlled list of values             |
-|      |                           |           |                                                  |`https://raw.githubusercontent.com/   |
+|      |                           |           |                                                  |`see <https://raw.githubusercontent.com/   |
 |      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
 |      |                           |           |                                                  |main/Controlled_Vocabularies/         |
-|      |                           |           |                                                  |work_1.1_titleType.json`_             |          
+|      |                           |           |                                                  |work_1.1_titleType.json>`_             |          
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |2     |series                     |0-1        |A series is a group of separate items related to  |                                      |
 |      |                           |           |one another by the fact that each item bears, in  |                                      |
