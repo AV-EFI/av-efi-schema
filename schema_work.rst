@@ -9,7 +9,7 @@
 |      |                           |           |                                                  |<https://raw.githubusercontent.com/   |
 |      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
 |      |                           |           |                                                  |main/Controlled_Vocabularies/         |
-|      |                           |           |                                                  |work_1.1_titleType.json>`_            |          
+|      |                           |           |                                                  |work_1.1_titleType.json>`_            |     
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |2     |series                     |0-1        |A series is a group of separate items related to  |                                      |
 |      |                           |           |one another by the fact that each item bears, in  |                                      |
@@ -23,7 +23,11 @@
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |2.2   |seriesTitle                |0-1        |                                                  |Free Text                             |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
-|2.2.1 |seriesTitleType            |1          |                                                  |Controlled list of values             |
+|2.2.1 |seriesTitleType            |1          |                                                  |`Controlled list of values            |
+|      |                           |           |                                                  |<https://raw.githubusercontent.com/   |
+|      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
+|      |                           |           |                                                  |main/Controlled_Vocabularies/         |
+|      |                           |           |                                                  |work_2.2.1_seriesTitleType.json>`_    |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |3     |cast                       |0 – n      |A collective term for actors and their roles. A   |                                      |
 |      |                           |           |broad distinction is made between cast and credits|                                      |
