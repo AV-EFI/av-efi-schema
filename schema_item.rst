@@ -15,11 +15,11 @@
 |      |                        |           |film, video, digital, etc. elements rather than   |item_2_physicalDescription.json>`_  |
 |      |                        |           |searching by all possible formats and carriers.   |                                    |
 +------+------------------------+-----------+--------------------------------------------------+------------------------------------+
-|3     |specificCarrierType     |0-1        |The physical carrier storing the digital file.For |Controlled list of values           |
-|      |                        |           |digital files, it is most important for users to  |                                    |
-|      |                        |           |immediately identify the file container or wrapper|                                    |
-|      |                        |           |(MXF, MOV, DPX, etc.) Institutions should develop |                                    |
-|      |                        |           |standard lists of terms to indicate the specific  |                                    |
+|3     |specificCarrierType     |0-1        |The physical carrier storing the digital file.For |`Controlled list of values          |
+|      |                        |           |digital files, it is most important for users to  |<https://raw.githubusercontent.com/ |
+|      |                        |           |immediately identify the file container or wrapper|AV-EFI/av-efi-schema/               |
+|      |                        |           |(MXF, MOV, DPX, etc.) Institutions should develop |main/Controlled_Vocabularies/       |
+|      |                        |           |standard lists of terms to indicate the specific  |item_3_specificCarrierType.json>`_  |
 |      |                        |           |carrier type or refer to authoritative existing   |                                    |
 |      |                        |           |lists.                                            |                                    |
 +------+------------------------+-----------+--------------------------------------------------+------------------------------------+
