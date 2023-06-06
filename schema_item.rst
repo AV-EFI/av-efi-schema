@@ -10,7 +10,7 @@
 +------+------------------------+-----------+--------------------------------------------------+------------------------------------+
 |2     |physicalDescription     |0-n        |The broad media type of the item contained in a   |`Controlled list of values          |
 |      |                        |           |dataObject (e.g., film, video, audio, optical,    |<https://raw.githubusercontent.com/ |
-|      |                        |           |digital file). Recording this high-level          ||AV-EFI/av-efi-schema/              |
+|      |                        |           |digital file). Recording this high-level          |AV-EFI/av-efi-schema/              |
 |      |                        |           |information will enable simple searching for only |main/Controlled_Vocabularies/       |
 |      |                        |           |film, video, digital, etc. elements rather than   |item_2_physicalDescription.json>`_  |
 |      |                        |           |searching by all possible formats and carriers.   |                                    |
