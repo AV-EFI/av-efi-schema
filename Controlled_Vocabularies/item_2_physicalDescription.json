@@ -1,0 +1,9 @@
+{
+  "$id": "item_2_physicalDescription",
+  "enum": [
+    "Film",
+    "Analog Video",
+    "Digital",
+    "Digital Video"
+  ]
+}
