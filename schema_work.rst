@@ -55,7 +55,11 @@
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |4.1.2 |creditsLastName            |           |                                                  |                                      |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
-|4.2   |creditsRole                |1          |                                                  |Controlled list of values             |
+|4.2   |creditsRole                |1          |                                                  |`Controlled list of values            |
+|      |                           |           |                                                  |<https://raw.githubusercontent.com/   |
+|      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
+|      |                           |           |                                                  |main/Controlled_Vocabularies/         |
+|      |                           |           |                                                  |work_4.2_creditsRole.json>`_          |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |4.3   |creditsIdentifier          |1          |                                                  |URI                                   |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
@@ -76,19 +80,39 @@
 |      |                           |           |the first known manifestation of a cinematographic|                                      |
 |      |                           |           |work was fixed.                                   |                                      |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
-|7.1   |audioMaterialFormat        |           |                                                  |Controlled list of values             |
+|7.1   |audioMaterialFormat        |           |                                                  |`Controlled list of values            |
+|      |                           |           |                                                  |<https://raw.githubusercontent.com/   |
+|      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
+|      |                           |           |                                                  |main/Controlled_Vocabularies/         |
+|      |                           |           |                                                  |work_7.1_audioMaterialFormat.json>`_  |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
-|7.2   |audioMaterialType          |           |                                                  |Controlled list of values             |
+|7.2   |audioMaterialType          |           |                                                  |`Controlled list of values            |
+|      |                           |           |                                                  |<https://raw.githubusercontent.com/   |
+|      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
+|      |                           |           |                                                  |main/Controlled_Vocabularies/         |
+|      |                           |           |                                                  |work_7.2_audioMaterialType.json>`_    |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
-|7.3   |videoMaterialFormat        |           |                                                  |Controlled list of values             |
+|7.3   |videoMaterialFormat        |           |                                                  |`Controlled list of values            |
+|      |                           |           |                                                  |<https://raw.githubusercontent.com/   |
+|      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
+|      |                           |           |                                                  |main/Controlled_Vocabularies/         |
+|      |                           |           |                                                  |work_7.3_videoMaterialFormat.json>`_  |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
-|7.4   |videoMaterialType          |           |                                                  |Controlled list of values             |
+|7.4   |videoMaterialType          |           |                                                  |`Controlled list of values            |
+|      |                           |           |                                                  |<https://raw.githubusercontent.com/   |
+|      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
+|      |                           |           |                                                  |main/Controlled_Vocabularies/         |
+|      |                           |           |                                                  |work_7.4_videoMaterialType.json>`_    |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |8     |originalLength             |0-n        |The total physical length of the first known      |Two decimals digits number            |
 |      |                           |           |manifestation of a cinematographic work, measured |                                      |
 |      |                           |           |in feet or metres.                                |                                      |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
-|8.1   |originalLengthUnit         |1          |                                                  |Controlled list of values             |
+|8.1   |originalLengthUnit         |1          |                                                  |`Controlled list of values            |
+|      |                           |           |                                                  |<https://raw.githubusercontent.com/   |
+|      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
+|      |                           |           |                                                  |main/Controlled_Vocabularies/         |
+|      |                           |           |                                                  |work_8.1_originalLengthUnit.json>`_   |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |9     |originalDuration           |0-n        |The running time of the first known manifestation |ISO 8601 PnYnMnDTnHnMnS               |
 |      |                           |           |of a cinematographic work, measured in minutes and|                                      |
@@ -107,11 +131,17 @@
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |11.2  |yearOfReferenceEnd         |0-1        |                                                  |four digit integer                    |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
-|11.3  |yearOfReferenceType        |1          |                                                  |Controlled list of values             |
+|11.3  |yearOfReferenceType        |1          |                                                  |`Controlled list of values            |
+|      |                           |           |                                                  |<https://raw.githubusercontent.com/   |
+|      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
+|      |                           |           |                                                  |main/Controlled_Vocabularies/         |
+|      |                           |           |                                                  |work_11.3_yearOfReferenceType.json>`_ |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
-|12    |genre                      |0-n        |A descriptor or descriptors, preferably from a    |Controlled list of values             |
-|      |                           |           |controlled vocabulary which characterise the      |                                      |
-|      |                           |           |general style of a cinematographic work.          |                                      |
+|12    |genre                      |0-n        |A descriptor or descriptors, preferably from a    |`Controlled list of values            |
+|      |                           |           |controlled vocabulary which characterise the      |<https://raw.githubusercontent.com/   |
+|      |                           |           |general style of a cinematographic work.          |AV-EFI/av-efi-schema/                 |
+|      |                           |           |                                                  |main/Controlled_Vocabularies/         |
+|      |                           |           |                                                  |work_12_genre.json>`_ |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |13    |relatedIdentifier          |0-n        |A reference to a related cinematographic work,    |URI                                   |
 |      |                           |           |preferably by means of a formal identification    |                                      |
@@ -131,7 +161,12 @@
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |14.3.1|sourceAttributionDate      |1          |                                                  |ISO 8601                              |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
-|14.3.2|sourceAttributionType      |1          |                                                  |Controlled list of values             |
+|14.3.2|sourceAttributionType      |1          |                                                  |`Controlled list of values            |
+|      |                           |           |                                                  |<https://raw.githubusercontent.com/   |
+|      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
+|      |                           |           |                                                  |main/Controlled_Vocabularies/         |
+|      |                           |           |                                                  |work_14.3.2_sourceAttributionType     |
+|      |                           |           |                                                  |.json>`_                              |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |15    |lastModified               |1          |Date and time of last update to metadata record.  |ISO 8601                              |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
