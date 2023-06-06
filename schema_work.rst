@@ -6,8 +6,7 @@
 |      |                           |           |the work contained in it.                         |                                      |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |1.1   |titleType                  |1          |                                                  |Controlled list of values             |
-|      |                           |           |                                                  |`see                                  |
-|      |                           |           |                                                  |https://raw.githubusercontent.com/    |
+|      |                           |           |                                                  |`https://raw.githubusercontent.com/   |
 |      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
 |      |                           |           |                                                  |main/Controlled_Vocabularies/         |
 |      |                           |           |                                                  |work_1.1_titleType.json`_             |          
