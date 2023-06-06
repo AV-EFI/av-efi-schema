@@ -1,5 +1,5 @@
 {
-  "$id": "word_1.1_titleType",
+  "$id": "work_1.1_titleType",
   "enum": [
     "OriginalTitle",
     "ReleaseTitle",
