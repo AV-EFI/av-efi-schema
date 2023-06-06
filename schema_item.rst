@@ -23,9 +23,10 @@
 |      |                        |           |carrier type or refer to authoritative existing   |                                    |
 |      |                        |           |lists.                                            |                                    |
 +------+------------------------+-----------+--------------------------------------------------+------------------------------------+
-|4     |preservationStatus      |0-1        |Description of the preservation or access status  |Controlled list of values           |
-|      |                        |           |of the dataObject, for example Master, Viewing,   |                                    |
-|      |                        |           |etc. Select term from a controlled list.          |                                    |
+|4     |preservationStatus      |0-1        |Description of the preservation or access status  |`Controlled list of values          |
+|      |                        |           |of the dataObject, for example Master, Viewing,   |<https://raw.githubusercontent.com/ |
+|      |                        |           |etc. Select term from a controlled list.          |AV-EFI/av-efi-schema/               |
+|      |                        |           |                                                  |item_4_preservationStatus.json>`_   |
 +------+------------------------+-----------+--------------------------------------------------+------------------------------------+
 |5     |supplementaryInformation|0-1        |Additional information specific to the item       |Free text                           |
 |      |                        |           |contained in the dataObject                       |                                    |
