@@ -1,0 +1,16 @@
+{
+  "$id": "work_7.1_audioMaterialFormat",
+  "enum": [
+    "AAC",
+    "AC3",
+    "AIFF",
+    "MOV",
+    "MP3",
+    "MPEG-4",
+    "MXF",
+    "PCM",
+    "QuickTime",
+    "WAVE",
+    "WMA"
+  ]
+}
