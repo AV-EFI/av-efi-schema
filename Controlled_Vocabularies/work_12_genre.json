@@ -1,0 +1,24 @@
+{
+  "$id": "work_12_genre",
+  "enum": [
+    "Amateur film",
+    "Animation",
+    "Animation with live-action",
+    "Non-fiction",
+    "Documentary-drama",
+    "Anthology film",
+    "Essay film",
+    "Experimental film",
+    "Home movie",
+    "Industrial film",
+    "Compilation film",
+    "Short film",
+    "Educational film",
+    "Music video",
+    "Propaganda film",
+    "Fiction",
+    "Trailer",
+    "Advertising film",
+    "Newsreel"
+  ]
+}
