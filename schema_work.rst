@@ -141,7 +141,7 @@
 |      |                           |           |controlled vocabulary which characterise the      |<https://raw.githubusercontent.com/   |
 |      |                           |           |general style of a cinematographic work.          |AV-EFI/av-efi-schema/                 |
 |      |                           |           |                                                  |main/Controlled_Vocabularies/         |
-|      |                           |           |                                                  |work_12_genre.json>`_ |
+|      |                           |           |                                                  |work_12_genre.json>`_                 |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |13    |relatedIdentifier          |0-n        |A reference to a related cinematographic work,    |URI                                   |
 |      |                           |           |preferably by means of a formal identification    |                                      |
