@@ -1,0 +1,9 @@
+{
+  "$id": "work_7.4_videoMaterialType",
+  "enum": [
+    "Film",
+    "Analog Video",
+    "Digital",
+    "Digital Video"
+  ]
+}
