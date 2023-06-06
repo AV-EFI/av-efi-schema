@@ -1,0 +1,10 @@
+{
+  "$id": "word_1.1_titleType",
+  "enum": [
+    "OriginalTitle",
+    "ReleaseTitle",
+    "ArchiveTitle",
+    "AlternativeTitle",
+    "SortTitle"
+  ]
+}
