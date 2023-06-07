@@ -1,5 +1,5 @@
-+------+------------------------+-----------+--------------------------------------------------+------------------------------------+
-|﻿ID   |Name                    |Cardinality|Definition                                        |Allowed values, constraints, remarks|
++------+------------------------+-----------+--------------------------------------------------+------------------------------------------+
+|ID    |Name                    |Cardinality|Definition                                        |Allowed values, constraints, remarks      |
 +======+========================+===========+==================================================+==========================================+
 |1     |title                   |0-1        |The title of an item contained in a dataObject may|Free text                                 |
 |      |                        |           |differ, either slightly or wholly, from the title |                                          |
