@@ -1,0 +1,10 @@
+{
+  "$id": "manifestation_4.1_titleType",
+  "enum": [
+    "OriginalTitle",
+    "ReleaseTitle",
+    "ArchiveTitle",
+    "AlternativeTitle",
+    "SortTitle"
+  ]
+}
