@@ -17,7 +17,11 @@
 |     |                     |           |determined from the item itself, or from any      |                                    |
 |     |                     |           |suitable secondary source.                        |                                    |
 +-----+---------------------+-----------+--------------------------------------------------+------------------------------------+
-|4.1  |titleType            |1          |                                                  |Controlled list of values           |
+|4.1  |titleType            |1          |                                                  |`Controlled list of values          |
+|     |                     |           |                                                  |<https://raw.githubusercontent.com/ |
+|     |                     |           |                                                  |AV-EFI/av-efi-schema/               |
+|     |                     |           |                                                  |main/Controlled_Vocabularies/       |
+|     |                     |           |                                                  |manifestation_4.1_titleType.json>`_ |
 +-----+---------------------+-----------+--------------------------------------------------+------------------------------------+
 |5    |releaseDate          |0-1        |Publication Date                                  |ISO 8601                            |
 +-----+---------------------+-----------+--------------------------------------------------+------------------------------------+
