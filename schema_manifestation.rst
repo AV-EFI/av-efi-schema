@@ -31,7 +31,7 @@
 |     |                     |           |the manifestation and the variant or              |<https://raw.githubusercontent.com/               |
 |     |                     |           |cinematographic work that it manifests. May be    |AV-EFI/av-efi-schema/                             |
 |     |                     |           |omitted if no other manifestation is known.       |main/Controlled_Vocabularies/                     |
-|     |                     |           |                                                  |manifestation_7_manifestationType.json>`_         |                                    |
+|     |                     |           |                                                  |manifestation_7_manifestationType.json>`_         |
 +-----+---------------------+-----------+--------------------------------------------------+--------------------------------------------------+
 |8    |hasAgent             |0-n        |An entity that is involved in the creation,       |Free text                                         |
 |     |                     |           |realization, curation or exploitation of a        |                                                  |
