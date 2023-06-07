@@ -1,0 +1,7 @@
+{
+  "$id": "item_10.3.2_sourceAttributionType",
+  "enum": [
+    "Created",
+    "Modified"
+  ]
+}
