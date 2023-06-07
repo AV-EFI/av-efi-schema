@@ -1,0 +1,14 @@
+{
+  "$id": "manifestation_7_manifestationType",
+  "enum": [
+    "Broadcast",
+    "Home viewing publication",
+    "Internet",
+    "Theatrical distribution",
+    "Unreleased",
+    "Non-theatrical distribution",
+    "Not for release",
+    "Pre-Release",
+    "Preservation/Restoration",
+    "Unknown"]
+}
