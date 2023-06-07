@@ -1,5 +1,5 @@
 +-----+---------------------+-----------+--------------------------------------------------+--------------------------------------------------+
-|ID   |Name                 |Cardinality|Definition                                        |Allowed values, constraints, remarks|             |
+|ID   |Name                 |Cardinality|Definition                                        |Allowed values, constraints, remarks              |
 +=====+=====================+===========+==================================================+==================================================+
 |1    |identifier           |1          |An unambiguous reference to the resource within a |Free text                                         |
 |     |                     |           |given context, preferably the (EFI) devloped in   |                                                  |
