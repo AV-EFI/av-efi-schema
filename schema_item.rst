@@ -41,7 +41,11 @@
 |8     |identifier              |1          |An unambiguous reference to the resource within a |Free text                           |
 |      |                        |           |given context                                     |                                    |
 +------+------------------------+-----------+--------------------------------------------------+------------------------------------+
-|9     |languageVersion         |0-n        |Language version of the item                      |Controlled list of values           |
+|9     |languageVersion         |0-n        |Language version of the item                      |`Controlled list of values          |
+|      |                        |           |                                                  |<https://raw.githubusercontent.com/ |
+|      |                        |           |                                                  |AV-EFI/av-efi-schema/               |
+|      |                        |           |                                                  |main/Controlled_Vocabularies/       |
+|      |                        |           |                                                  |item_9_languageVersion.json>`_      |
 +------+------------------------+-----------+--------------------------------------------------+------------------------------------+
 |10    |source                  |1          |The name of the archive or other organisation     |                                    |
 |      |                        |           |supplying the record.                             |                                    |

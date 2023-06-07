@@ -1,0 +1,16 @@
+{
+  "$id": "item_9_languageVersion",
+  "enum": [
+    "Original version",
+    "Original version with subtitles",
+    "Opening credits",
+    "Closing credits",
+    "Spoken language",
+    "Dubbed version",
+    "Subtitles",
+    "Subtitles for the deaf and hard of hearing (SDH)",
+    "Voice over",
+    "Intertitles",
+    "Audio description (AD)"
+  ]
+}
