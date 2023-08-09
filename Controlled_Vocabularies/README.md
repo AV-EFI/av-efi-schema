@@ -6,7 +6,7 @@ The vocabularies can be used in JSON schema by using the correct URL, e.g., for 
 https://raw.githubusercontent.com/AV-EFI/av-efi-schema/main/Controlled_Vocabularies/work_1.1_titleType.json
 
 The spelling of the vocabularies is derived from following rules:
-1) upper case with spaces (e.g. Original Titel) except of 
+1) upper case with spaces for nouns and verbs (e.g. Original Titel, Copyrighted) except of 
 2) lower case for prepositions, adjectives, adverbs (e.g. Country of Origin, Animated by)
 3) no special characters (e.g. dash, hypen)
 
