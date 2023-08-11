@@ -1,0 +1,421 @@
+{
+  "#id": "work_16_subject",
+  "definition": {
+    "architecture": {
+      "lang_de": "Architektur",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300054156",
+      "ref_GND": "https://d-nb.info/gnd/4002851-3"
+    },
+    "poverty": {
+      "lang_de": "Armut",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300055307",
+      "ref_GND": "https://d-nb.info/gnd/4144269-6"
+    },
+    "journey": {
+      "lang_de": "Ausflug",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300162867",
+      "ref_GND": "https://d-nb.info/gnd/4125439-9"
+    },
+    "exhibition": {
+      "lang_de": "Ausstellung",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300054766",
+      "ref_GND": "https://d-nb.info/gnd/4129601-1"
+    },
+    "handicraft": {
+      "lang_de": "Basteln",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300054704",
+      "ref_GND": "https://d-nb.info/gnd/4004668-0"
+    },
+    "construction": {
+      "lang_de": "Bauen",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300111640",
+      "ref_GND": "https://d-nb.info/gnd/4144140-0"
+    },
+    "occupation": {
+      "lang_de": "Beruf",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300263369",
+      "ref_GND": "https://d-nb.info/gnd/4005857-8"
+    },
+    "funeral": {
+      "lang_de": "Bestattung",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300069162",
+      "ref_GND": "https://d-nb.info/gnd/4006054-8"
+    },
+    "biology": {
+      "lang_de": "Biologie",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300054466",
+      "ref_GND": "https://d-nb.info/gnd/4006851-1"
+    },
+    "boat": {
+      "lang_de": "Boot",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300178749",
+      "ref_GND": "https://d-nb.info/gnd/4138095-2"
+    },
+    "bowling": {
+      "lang_de": "Bowling",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300239467",
+      "ref_GND": "https://d-nb.info/gnd/4121042-6"
+    },
+    "mayor": {
+      "lang_de": "Bürgermeister",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300025468",
+      "ref_GND": "https://d-nb.info/gnd/4136676-1"
+    },
+    "office": {
+      "lang_de": "Büro",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300004521",
+      "ref_GND": "https://d-nb.info/gnd/4008807-8"
+    },
+    "marriage": {
+      "lang_de": "Ehe",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300055475",
+      "ref_GND": "https://d-nb.info/gnd/4013630-9"
+    },
+    "locomotive": {
+      "lang_de": "Eisenbahn",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300113388",
+      "ref_GND": "https://d-nb.info/gnd/4014015-5"
+    },
+    "family": {
+      "lang_de": "Familie",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300055474",
+      "ref_GND": "https://d-nb.info/gnd/4016397-0"
+    },
+    "carnival": {
+      "lang_de": "Karneval",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300069042",
+      "ref_GND": "https://d-nb.info/gnd/4016518-8"
+    },
+    "cinematography": {
+      "lang_de": "Filmtechnik",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300054227",
+      "ref_GND": "https://d-nb.info/gnd/4017144-9"
+    },
+    "airplane": {
+      "lang_de": "Flugzeug",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300212616",
+      "ref_GND": "https://d-nb.info/gnd/4017672-1"
+    },
+    "leisure": {
+      "lang_de": "Freizeit",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300138173",
+      "ref_GND": "https://d-nb.info/gnd/4018382-8"
+    },
+    "gardening": {
+      "lang_de": "Gartenarbeit",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300054706",
+      "ref_GND": "https://d-nb.info/gnd/4443908-8"
+    },
+    "birth ": {
+      "lang_de": "Geburt",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300069672",
+      "ref_GND": "https://d-nb.info/gnd/4019589-2"
+    },
+    "birthday": {
+      "lang_de": "Geburtstag",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300069093",
+      "ref_GND": "https://d-nb.info/gnd/4019608-2"
+    },
+    "history": {
+      "lang_de": "Geschichte",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300054394",
+      "ref_GND": "https://d-nb.info/gnd/4020517-4"
+    },
+    "pet": {
+      "lang_de": "Haustier",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300249494",
+      "ref_GND": "https://d-nb.info/gnd/4023819-2"
+    },
+    "wedding": {
+      "lang_de": "Hochzeit",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300069158",
+      "ref_GND": "https://d-nb.info/gnd/4025292-9"
+    },
+    "homosexuality": {
+      "lang_de": "Homosexualität",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300055188",
+      "ref_GND": "https://d-nb.info/gnd/4025798-8"
+    },
+    "industry": {
+      "lang_de": "Industrie",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300025995",
+      "ref_GND": "https://d-nb.info/gnd/4026779-9"
+    },
+    "seasons": {
+      "lang_de": "Jahreszeiten",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300133091",
+      "ref_GND": "https://d-nb.info/gnd/4027999-6"
+    },
+    "youth": {
+      "lang_de": "Jugend",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300305226",
+      "ref_GND": "https://d-nb.info/gnd/4028859-6"
+    },
+    "kindergarten": {
+      "lang_de": "Kindergarten",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300343465",
+      "ref_GND": "https://d-nb.info/gnd/4030581-8"
+    },
+    "child": {
+      "lang_de": "Kind",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300025945",
+      "ref_GND": "https://d-nb.info/gnd/4031081-4"
+    },
+    "cooking": {
+      "lang_de": "kochen",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300444359",
+      "ref_GND": "https://d-nb.info/gnd/4031445-5"
+    },
+    "Lord"s Supper": {
+      "lang_de": "Kommunion",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300390993",
+      "ref_GND": "https://d-nb.info/gnd/4031890-4"
+    },
+    "confirmation": {
+      "lang_de": "Konfirmation",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300069146",
+      "ref_GND": "https://d-nb.info/gnd/4032079-0"
+    },
+    "motor vehicle": {
+      "lang_de": "Kraftfahrzeug",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300042934",
+      "ref_GND": "https://d-nb.info/gnd/4073757-3"
+    },
+    "disease": {
+      "lang_de": "Krankheit",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300055130",
+      "ref_GND": "https://d-nb.info/gnd/4032844-2"
+    },
+    "war": {
+      "lang_de": "Krieg",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300055314",
+      "ref_GND": "https://d-nb.info/gnd/4033114-3"
+    },
+    "agriculture": {
+      "lang_de": "Landwirtschaft",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300054463",
+      "ref_GND": "https://d-nb.info/gnd/4034402-2"
+    },
+    "food": {
+      "lang_de": "Lebensmittel",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300254496",
+      "ref_GND": "https://d-nb.info/gnd/4034870-2"
+    },
+    "aeronautics": {
+      "lang_de": "Luftfahrt",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300138817",
+      "ref_GND": "https://d-nb.info/gnd/4036557-8"
+    },
+    "machinery": {
+      "lang_de": "Maschine",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300024839",
+      "ref_GND": "https://d-nb.info/gnd/4037786-6"
+    },
+    "medicine": {
+      "lang_de": "Medizin",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300054518",
+      "ref_GND": "https://d-nb.info/gnd/4038243-6"
+    },
+    "migration": {
+      "lang_de": "Migration",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300055405",
+      "ref_GND": "https://d-nb.info/gnd/4120730-0"
+    },
+    "engine": {
+      "lang_de": "Motor",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300024603",
+      "ref_GND": "https://d-nb.info/gnd/4128006-4"
+    },
+    "music festival": {
+      "lang_de": "Musikfest",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300417375",
+      "ref_GND": "https://d-nb.info/gnd/4170821-0"
+    },
+    "nature": {
+      "lang_de": "Natur",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300179372",
+      "ref_GND": "https://d-nb.info/gnd/4041358-5"
+    },
+    "Easter": {
+      "lang_de": "Ostern",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300069057",
+      "ref_GND": "https://d-nb.info/gnd/4044040-0"
+    },
+    "Pentecost": {
+      "lang_de": "Pfingsten",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300404336",
+      "ref_GND": "https://d-nb.info/gnd/4174040-3"
+    },
+    "government": {
+      "lang_de": "Regierung",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300386741",
+      "ref_GND": "https://d-nb.info/gnd/4049012-9"
+    },
+    "school": {
+      "lang_de": "Schule",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300266108",
+      "ref_GND": "https://d-nb.info/gnd/4053474-1"
+    },
+    "swimming": {
+      "lang_de": "Schwimmen",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300239495",
+      "ref_GND": "https://d-nb.info/gnd/4053985-4"
+    },
+    "sociology": {
+      "lang_de": "Soziologie",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300054453",
+      "ref_GND": "https://d-nb.info/gnd/4077624-4"
+    },
+    "game": {
+      "lang_de": "Spiel",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300069657",
+      "ref_GND": "https://d-nb.info/gnd/4056218-9"
+    },
+    "toy": {
+      "lang_de": "Spielzeug",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300211037",
+      "ref_GND": "https://d-nb.info/gnd/4056248-7"
+    },
+    "sport": {
+      "lang_de": "Sport ",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300222725",
+      "ref_GND": "https://d-nb.info/gnd/4056366-2"
+    },
+    "baptism": {
+      "lang_de": "Taufe",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300069030",
+      "ref_GND": "https://d-nb.info/gnd/4059150-5"
+    },
+    "engineering": {
+      "lang_de": "Technik",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300054560",
+      "ref_GND": "https://d-nb.info/gnd/4059205-4"
+    },
+    "death": {
+      "lang_de": "Tod",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300151836",
+      "ref_GND": "https://d-nb.info/gnd/4060294-1"
+    },
+    "dream": {
+      "lang_de": "Traum",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300251611",
+      "ref_GND": "https://d-nb.info/gnd/4060747-1"
+    },
+    "corporation": {
+      "lang_de": "Unternehmen",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300025969",
+      "ref_GND": "https://d-nb.info/gnd/4061963-1"
+    },
+    "holiday": {
+      "lang_de": "Urlaub",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300069049",
+      "ref_GND": "https://d-nb.info/gnd/4062137-6"
+    },
+    "association": {
+      "lang_de": "Verein",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300025950",
+      "ref_GND": "https://d-nb.info/gnd/4062714-7"
+    },
+    "traffic": {
+      "lang_de": "Verkehr",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300055250",
+      "ref_GND": "https://d-nb.info/gnd/4062901-6"
+    },
+    "engagement": {
+      "lang_de": "Verlobung",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300393188",
+      "ref_GND": "https://d-nb.info/gnd/4063029-8"
+    },
+    "election": {
+      "lang_de": "Wahl",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300069260",
+      "ref_GND": "https://d-nb.info/gnd/4064286-0"
+    },
+    "Christmas": {
+      "lang_de": "Weihnachten",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300069053",
+      "ref_GND": "https://d-nb.info/gnd/4065075-3"
+    },
+    "labor": {
+      "lang_de": "Arbeit",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300263340",
+      "ref_GND": "https://d-nb.info/gnd/4002567-6"
+    },
+    "theater": {
+      "lang_de": "Theater",
+      "ref_AAT": "http://vocab.getty.edu/page/aat/300417582",
+      "ref_GND": "https://d-nb.info/gnd/4059702-7"
+    }
+  },
+  "enum": [
+    "architecture",
+    "poverty",
+    "journey",
+    "exhibition",
+    "handicraft",
+    "construction",
+    "occupation",
+    "funeral",
+    "biology",
+    "boat",
+    "bowling",
+    "mayor",
+    "office",
+    "marriage",
+    "locomotive",
+    "family",
+    "carnival",
+    "cinematography",
+    "airplane",
+    "leisure",
+    "gardening",
+    "birth ",
+    "birthday",
+    "history",
+    "pet",
+    "wedding",
+    "homosexuality",
+    "industry",
+    "seasons",
+    "youth",
+    "kindergarten",
+    "child",
+    "cooking",
+    "Lord"s Supper",
+    "confirmation",
+    "motor vehicle",
+    "disease",
+    "war",
+    "agriculture",
+    "food",
+    "aeronautics",
+    "machinery",
+    "medicine",
+    "migration",
+    "engine",
+    "music festival",
+    "nature",
+    "Easter",
+    "Pentecost",
+    "government",
+    "school",
+    "swimming",
+    "sociology",
+    "game",
+    "toy",
+    "sport",
+    "baptism",
+    "engineering",
+    "death",
+    "dream",
+    "corporation",
+    "holiday",
+    "association",
+    "traffic",
+    "engagement",
+    "election",
+    "Christmas",
+    "labor",
+    "theater"
+  ]
+}
