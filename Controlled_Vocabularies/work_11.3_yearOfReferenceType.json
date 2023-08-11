@@ -1,8 +1,8 @@
 {
   "$id": "work_11.3_yearOfReferenceType",
   "enum": [
-    "created",
-    "copyrighted",
-    "issued"
+    "Created",
+    "Copyrighted",
+    "Issued"
   ]
 }

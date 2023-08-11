@@ -2,13 +2,13 @@
   "$id": "manifestation_7_manifestationType",
   "enum": [
     "Broadcast",
-    "Home viewing publication",
+    "Home Viewing Publication",
     "Internet",
-    "Theatrical distribution",
+    "Theatrical Distribution",
     "Unreleased",
-    "Non-theatrical distribution",
-    "Not for release",
-    "Pre-Release",
-    "Preservation/Restoration",
+    "Non Theatrical Distribution",
+    "Not for Release",
+    "Pre Release",
+    "Preservation Restoration",
     "Unknown"]
 }

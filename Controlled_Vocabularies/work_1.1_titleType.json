@@ -1,10 +1,10 @@
 {
   "$id": "work_1.1_titleType",
   "enum": [
-    "OriginalTitle",
-    "ReleaseTitle",
-    "ArchiveTitle",
-    "AlternativeTitle",
-    "SortTitle"
+    "Original Title",
+    "Release Title",
+    "Archive Title",
+    "Alternative Title",
+    "Sort Title"
   ]
 }

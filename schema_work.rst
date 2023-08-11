@@ -170,5 +170,7 @@
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |15    |lastModified               |1          |Date and time of last update to metadata record.  |ISO 8601                              |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
-|16    |schemaVersion              |1          |Version of the used schema for a specific dataset |Controlled list of values             |
+|16    |subject                    |0-1        |subjects that describe the content of the Work    |Controlled list of values             |
++------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
+|17    |schemaVersion              |1          |Version of the used schema for a specific dataset |Controlled list of values             |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
