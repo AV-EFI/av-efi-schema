@@ -1,7 +1,7 @@
 {
   "$id": "work_12_genre",
   "enum": [
-    "Amateur film",
+    "Amateur Film",
     "Animation",
     "Animation with Live Action",
     "Non Fiction",
