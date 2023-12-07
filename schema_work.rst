@@ -170,7 +170,11 @@
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |15    |lastModified               |1          |Date and time of last update to metadata record.  |ISO 8601                              |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
-|16    |subject                    |0-1        |subjects that describe the content of the Work    |Controlled list of values             |
+|16    |subject                    |0-1        |subjects that describe the content of the Work    |`Controlled list of values            |
+|      |                           |           |                                                  |<https://raw.githubusercontent.com/   |
+|      |                           |           |                                                  |AV-EFI/av-efi-schema/                 |
+|      |                           |           |                                                  |main/Controlled_Vocabularies/         |
+|      |                           |           |                                                  |work_16_subject.json>`_               |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
 |17    |schemaVersion              |1          |Version of the used schema for a specific dataset |Controlled list of values             |
 +------+---------------------------+-----------+--------------------------------------------------+--------------------------------------+
