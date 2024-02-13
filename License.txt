@@ -1,5 +1,10 @@
-Copyright (c) 2023
-AV-EFI Working Group
+Different copyright notices and licenses apply to contents of the
+`utils/` subdirectory. See extra `LICENSE` files below `utils/` for
+further details.
+
+Everything except `utils/` is subject to the CC BY 4.0 License below.
+
+Copyright (c) 2023-2024 AV-EFI Working Group https://github.com/AV-EFI/
 
 Attribution 4.0 International
 
