@@ -81,7 +81,8 @@
                             "Pre-Release",
                             "Preservation/Restoration ",
                             "Unknown"
-                        ]
+                        ],
+                        "type": "string"
                     },
                     "type": "array"
                 },

@@ -58,7 +58,8 @@
                             "Voice over",
                             "Intertitles",
                             "Audio description (AD)"
-                        ]
+                        ],
+                        "type": "string"
                     },
                     "type": "array"
                 },
@@ -76,7 +77,8 @@
                             "Analog Video",
                             "Digital",
                             "Digital Video"
-                        ]
+                        ],
+                        "type": "string"
                     },
                     "type": "array"
                 },
@@ -88,7 +90,8 @@
                         "Master",
                         "Viewing Copy",
                         "Distribution Copy"
-                    ]
+                    ],
+                    "type": "string"
                 },
                 "same_as": {
                     "description": "This dataObject may come from a joint digitization effort of more than one institution. After the digitization it is common practice to supply all the participating institutions with the digital Objects, so there may be other dataObjects identical to this one. ( context : movie_db_ZIB ) ( ref: same_as@21.T11148/d95bff728d4dd304ae86 )",
@@ -199,7 +202,8 @@
                         "Blu-ray",
                         "CD",
                         "DVD"
-                    ]
+                    ],
+                    "type": "string"
                 },
                 "supplementary_information": {
                     "description": "Additional information specific to the Item ( context : movie_db_ZIB ) ( ref: supplementary_information@21.T11148/7d811596268aceb7a0b3 )",
