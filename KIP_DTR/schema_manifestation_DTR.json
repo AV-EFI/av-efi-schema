@@ -1,0 +1,207 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "description": "Schema for type instances derived from type description hdl:21.T11148/ef6836b80e4d64e574e3",
+    "properties": {
+        "movie_db_version": {
+            "additionalProperties": false,
+            "description": "Profile for the movie database at ZIB for versions ( context : movie_db_ZIB ) ( ref: movie_db_version@21.T11148/ef6836b80e4d64e574e3 )",
+            "properties": {
+                "KernelInformationProfile": {
+                    "description": "Handle-String in its general syntax. Problem here: Schema validation does not work properly, because implementations for ecma-262-RegExp do not seem to correctly parse hex coded regular expressions  ( ref: Handle-Identifier-General@21.T11148/3b8833cd7e19f60571a6 )",
+                    "pattern": "^([\\x00-\\x2D,\\x30-\\x3F,\\x41-\\xFF])+(\\.([\\x00-\\x2D,\\x30-\\x3F,\\x41-\\xFF])+)*\\/([\\x00-\\xFF])+$",
+                    "type": "string"
+                },
+                "has_agent": {
+                    "description": "An entity that is involved in the creation, realization, curation or exploitation of a Manifestation (Corporate Body) ( context : movie_db_ZIB ) ( ref: hasAgent@21.T11148/5a69721cca16545c03e6 )",
+                    "items": {
+                        "additionalProperties": false,
+                        "description": "The name of an organisation or company under whose financial, technical and organisational management a cinematographic work is made. ( context : movie_db_ZIB ) ( ref: production_company@21.T11148/f0ddf6d7f87029be7b8b )",
+                        "properties": {
+                            "identifier_uri": {
+                                "description": "URI: Uniform Resource Identifier ( context : generic ) ( ref: URI@21.T11148/5fd9bd37e430da57d338 )",
+                                "pattern": "^(([^:/?#]+):)(\\/\\/([^/?#]*))?([^?#]*)(\\?([^#]*))?(#(.*))?",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "string consisting of unicode characters except newline. ( ref: unicode-line-string@21.T11148/f1627ce85386d8d75078 )",
+                                "pattern": "(.)*",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "has_data_objects": {
+                    "description": "Reference to a work using ePIC PID (context: MovieArchives) ( ref: is_version_of@21.T11148/ef19de26cec8cae78ceb )",
+                    "items": {
+                        "description": "Handle-String in its ePIC ASCII numbering syntax ( ref: Handle-Identifier-ePIC-ASCII@21.T11148/b731866dc9a1daee5300 )",
+                        "pattern": "^21(\\.([0-9,A-Z,a-z])+)*\\/([!-~])+$",
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "identifier": {
+                    "description": "Handle-String in its ePIC ASCII numbering syntax ( ref: Handle-Identifier-ePIC-ASCII@21.T11148/b731866dc9a1daee5300 )",
+                    "pattern": "^21(\\.([0-9,A-Z,a-z])+)*\\/([!-~])+$",
+                    "type": "string"
+                },
+                "is_version_of": {
+                    "description": "Reference to a work using ePIC PID (context: MovieArchives) ( ref: is_version_of@21.T11148/ef19de26cec8cae78ceb )",
+                    "items": {
+                        "description": "Handle-String in its ePIC ASCII numbering syntax ( ref: Handle-Identifier-ePIC-ASCII@21.T11148/b731866dc9a1daee5300 )",
+                        "pattern": "^21(\\.([0-9,A-Z,a-z])+)*\\/([!-~])+$",
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "last_modified": {
+                    "description": "Date and time of last update to metadata record. ( context : movie_db_ZIB ) ( ref: last_modified@21.T11148/a27923f25913583b1ea6 )",
+                    "pattern": "^([0-9]{4})(-)?([0][1-9]|1[0-2])(-)?([0-2][0-9]|3[0-1])([T| ]([0-1][0-9]|2[0-3])(:)?([0-5][0-9])(:)?([0-5][0-9](\\.[0-9]*)?(Z|([\\+|-]([0-1][0-9]|2[0-3])(:)?([0-5][0-9])?))?))?$",
+                    "type": "string"
+                },
+                "manifestation_types": {
+                    "description": "implicitly created because of multiple occurence of child type \u2018manifestationType\u2019: A word or phrase denoting the relationship between the manifestation and the variant or cinematographic work that it manifests. May be omitted if no other manifestation is known. ( context : movie_db_ZIB ) ( ref: manifestationTypes@21.T11148/c72633267da87f952971 )",
+                    "items": {
+                        "description": "no description ( ref: manifastion_type@21.T11148/567d070dfa708072819b )",
+                        "enum": [
+                            "Broadcast",
+                            "Home viewing publication",
+                            "Internet",
+                            "Theatrical distribution",
+                            "Unreleased",
+                            "Non-theatrical distribution",
+                            "Not for release",
+                            "Pre-Release",
+                            "Preservation/Restoration ",
+                            "Unknown"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "production_year": {
+                    "description": "Production year or timespan ( context : movie_db_ZIB ) ( ref: productionYear@21.T11148/62e2596615d0c4f189df )",
+                    "pattern": "^([0-9]{4})$",
+                    "type": "string"
+                },
+                "release_date": {
+                    "description": "Publication Date ( context : movie_db_ZIB ) ( ref: publication_event@21.T11148/f9b4cc48754481b07f75 )",
+                    "pattern": "^([0-9]{4})-([0]?[1-9]|1[0-2])-([0-2][0-9]|3[0-1])$",
+                    "type": "string"
+                },
+                "same_as": {
+                    "description": "Reference to a work using ePIC PID (context: MovieArchives) ( ref: is_version_of@21.T11148/ef19de26cec8cae78ceb )",
+                    "items": {
+                        "description": "Handle-String in its ePIC ASCII numbering syntax ( ref: Handle-Identifier-ePIC-ASCII@21.T11148/b731866dc9a1daee5300 )",
+                        "pattern": "^21(\\.([0-9,A-Z,a-z])+)*\\/([!-~])+$",
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "schema_version": {
+                    "description": "Version for a WORK (Context: MovieArchives) ( ref: SchemaVersion@21.T11148/0ed7199092d107853421 )",
+                    "enum": [
+                        "0.1"
+                    ],
+                    "type": "string"
+                },
+                "source": {
+                    "additionalProperties": false,
+                    "description": "The name of the archive or other organisation supplying the record. ( context : movie_db_ZIB ) ( ref: source@21.T11148/828d338a9b04221c9cbe )",
+                    "properties": {
+                        "sourceAttribution": {
+                            "additionalProperties": false,
+                            "description": "(Context: MovieArchives) ( ref: sourceAttribution@21.T11148/3dc898fc1da407321cbf )",
+                            "properties": {
+                                "attributionDate": {
+                                    "description": "(Context: MovieArchives) ( ref: attributionDate@21.T11148/7d22fb807cbbbeaa376c )",
+                                    "pattern": "^(\\d{4})-(\\d{2})-(\\d{2})T(\\d{2}):(\\d{2}):(\\d{2}(?:\\.\\d*)?)((-(\\d{2}):(\\d{2})|Z)?)$",
+                                    "type": "string"
+                                },
+                                "attributionType": {
+                                    "description": "(Context: MovieArchives) ( ref: attributionType@21.T11148/62304704da8a6510e9e4 )",
+                                    "enum": [
+                                        "Created",
+                                        "Modified"
+                                    ],
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sourceDate": {
+                            "description": "combined date and time representations as string. It refers to RFC3339 and ISO 8601 and allows to give just date, week or ordinal date notation and combined date and time in UTC. Defined by regular expression. ( ref: date-time-weak@21.T11148/9ca79b6ce26f3fd4fad3 )",
+                            "pattern": "^([0-9]{4})(-)?([0][1-9]|1[0-2])(-)?([0-2][0-9]|3[0-1])([T| ]([0-1][0-9]|2[0-3])(:)?([0-5][0-9])(:)?([0-5][0-9](\\.[0-9]*)?(Z|([\\+|-]([0-1][0-9]|2[0-3])(:)?([0-5][0-9])?))?))?$",
+                            "type": "string"
+                        },
+                        "sourceIdentifier": {
+                            "description": "URI: Uniform Resource Identifier ( context : generic ) ( ref: URI@21.T11148/5fd9bd37e430da57d338 )",
+                            "pattern": "^(([^:/?#]+):)(\\/\\/([^/?#]*))?([^?#]*)(\\?([^#]*))?(#(.*))?",
+                            "type": "string"
+                        },
+                        "sourceName": {
+                            "description": "string consisting of unicode characters. ( context : generic ) ( ref: unicode-string@21.T11148/798588c5a1ec532f737b )",
+                            "pattern": "(.|\n)*",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "sourceName"
+                    ],
+                    "type": "object"
+                },
+                "titles": {
+                    "description": "A word, phrase, character, or group of characters, normally appearing in an item, naming the item or the work contained in it. (Context: MovieArchives, AV-EFI) ( ref: titles@21.T11148/50c9e3dd19460ed72a07 )",
+                    "items": {
+                        "additionalProperties": false,
+                        "description": "A word, phrase, character, or group of characters, normally appearing in an item, naming the item or the work contained in it. (Context: MovieArchives, AV-EFI)  ( ref: title@21.T11148/3c6de1b7dd91465d437e )",
+                        "properties": {
+                            "titleType": {
+                                "description": "The type of a title. Controlled List Values: [Original Title, Release Title, Archive Title, Alternative Title, Sort Title]. (context : MovieArchives) ( ref: titleType@21.T11148/2f4e516fbdfa40a52453 )",
+                                "enum": [
+                                    "Original Title",
+                                    "Release Title",
+                                    "Archive Title",
+                                    "Alternative Title",
+                                    "Sort Title"
+                                ],
+                                "type": "string"
+                            },
+                            "titleValue": {
+                                "description": "string consisting of unicode characters. ( context : generic ) ( ref: unicode-string@21.T11148/798588c5a1ec532f737b )",
+                                "pattern": "(.|\n)*",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "titleValue",
+                            "titleType"
+                        ],
+                        "type": "object"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "is_version_of",
+                "has_data_objects",
+                "source",
+                "last_modified"
+            ],
+            "type": "object"
+        }
+    },
+    "required": [
+        "movie_db_version"
+    ],
+    "type": "object"
+}

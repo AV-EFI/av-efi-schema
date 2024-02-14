@@ -1,0 +1,231 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "description": "Schema for type instances derived from type description hdl:21.T11148/b0047df54c686b9df82a",
+    "properties": {
+        "movie_db_dataobjects": {
+            "additionalProperties": false,
+            "description": "Profile for the movie database at ZIB for data objects ( ref: movie_db_dataobjects@21.T11148/b0047df54c686b9df82a )",
+            "properties": {
+                "KernelInformationProfile": {
+                    "description": "Handle-String in its general syntax. Problem here: Schema validation does not work properly, because implementations for ecma-262-RegExp do not seem to correctly parse hex coded regular expressions  ( ref: Handle-Identifier-General@21.T11148/3b8833cd7e19f60571a6 )",
+                    "pattern": "^([\\x00-\\x2D,\\x30-\\x3F,\\x41-\\xFF])+(\\.([\\x00-\\x2D,\\x30-\\x3F,\\x41-\\xFF])+)*\\/([\\x00-\\xFF])+$",
+                    "type": "string"
+                },
+                "identifier": {
+                    "additionalProperties": false,
+                    "description": "The PID of the work in the Handle System. ( context : MovieArchives) ( ref: identifier@21.T11148/fae9fd39301eb7e657d4 )",
+                    "properties": {
+                        "identifier": {
+                            "description": "Handle-String with ASCII prefix in its general syntax ( ref: Handle-Identifier-ASCII@21.T11148/3626040cadcac1571685 )",
+                            "pattern": "^([0-9,A-Z,a-z])+(\\.([0-9,A-Z,a-z])+)*\\/([!-~])+$",
+                            "type": "string"
+                        },
+                        "identifier_uri": {
+                            "description": "URI: Uniform Resource Identifier ( context : generic ) ( ref: URI@21.T11148/5fd9bd37e430da57d338 )",
+                            "pattern": "^(([^:/?#]+):)(\\/\\/([^/?#]*))?([^?#]*)(\\?([^#]*))?(#(.*))?",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "identifier"
+                    ],
+                    "type": "object"
+                },
+                "is_data_object_of": {
+                    "description": "The PID of the publication event, this dataObject is part of. ( context : movie_db_ZIB ) ( ref: is_data_object_of@21.T11148/419ba04a05d800a903a0 )",
+                    "pattern": "^([0-9,A-Z,a-z])+(\\.([0-9,A-Z,a-z])+)*\\/([!-~])+$",
+                    "type": "string"
+                },
+                "item_file_size": {
+                    "description": "same as filesize 21.T11148/cc0c1fc9a56fc2f54723 but allowing for delimiter  ( ref: filesize_with_delimiter@21.T11148/61dec38771a5e5bf44cf )",
+                    "pattern": "^[. 0-9]+(KB|MB|GB|TB|PB|B)$",
+                    "type": "string"
+                },
+                "language_versions": {
+                    "description": "implicitly created because of multiple occurence of child type 'language_version': Language version of the video. ( context : movie_db_ZIB ) ( ref: language_versions@21.T11148/7865a17891323845369f )",
+                    "items": {
+                        "description": "Language version of the video. (Context: AV-EFI) ( ref: language_version@21.T11148/ef3408f20b0d7ad43063 )",
+                        "enum": [
+                            "Original version",
+                            "Original version with subtitles",
+                            "Opening credits",
+                            "Closing credits",
+                            "Spoken language",
+                            "Dubbed version",
+                            "Subtitles",
+                            "Subtitles for the deaf and hard of hearing (SDH)",
+                            "Voice over",
+                            "Intertitles",
+                            "Audio description (AD)"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "last_modified": {
+                    "description": "Date and time of last update to metadata record. ( context : movie_db_ZIB ) ( ref: last_modified@21.T11148/a27923f25913583b1ea6 )",
+                    "pattern": "^([0-9]{4})(-)?([0][1-9]|1[0-2])(-)?([0-2][0-9]|3[0-1])([T| ]([0-1][0-9]|2[0-3])(:)?([0-5][0-9])(:)?([0-5][0-9](\\.[0-9]*)?(Z|([\\+|-]([0-1][0-9]|2[0-3])(:)?([0-5][0-9])?))?))?$",
+                    "type": "string"
+                },
+                "physical_descriptions": {
+                    "description": "implicitly created because of multiple occurence of child type 'physical_description': The broad media type of the Item (e.g., film, video, audio, optical, digital file). Recording this high-level information will enable simple searching for only film, video, digital, etc. elements rather than searching by all possible formats and carriers. ( context : movie_db_ZIB ) ( ref: physical_descriptions@21.T11148/d130a04670f3825a123b )",
+                    "items": {
+                        "description": "The broad media type of the Item (e.g., film, video, audio, optical, digital file). Recording this high-level information will enable simple searching for only film, video, digital, etc. elements rather than searching by all possible formats and carriers. ( context : movie_db_ZIB ) ( ref: physical_description@21.T11148/0fab4d3181e8ce0d91d2 )",
+                        "enum": [
+                            "Film",
+                            "Analog Video",
+                            "Digital",
+                            "Digital Video"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "preservation_access_status": {
+                    "description": "Description of the preservation or access status of the dataObject, for example Master, Viewing, etc. Select term from a controlled list. (Context: AV-EFI) ( ref: preservation_access_status@21.T11148/ec53e13cba99d01e6ff2 )",
+                    "enum": [
+                        "Archive Copy",
+                        "Removed",
+                        "Master",
+                        "Viewing Copy",
+                        "Distribution Copy"
+                    ],
+                    "type": "string"
+                },
+                "same_as": {
+                    "description": "This dataObject may come from a joint digitization effort of more than one institution. After the digitization it is common practice to supply all the participating institutions with the digital Objects, so there may be other dataObjects identical to this one. ( context : movie_db_ZIB ) ( ref: same_as@21.T11148/d95bff728d4dd304ae86 )",
+                    "items": {
+                        "description": "Handle-String with ASCII prefix in its general syntax ( ref: Handle-Identifier-ASCII@21.T11148/3626040cadcac1571685 )",
+                        "pattern": "^([0-9,A-Z,a-z])+(\\.([0-9,A-Z,a-z])+)*\\/([!-~])+$",
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "source": {
+                    "additionalProperties": false,
+                    "description": "The name of the archive or other organisation supplying the record. ( context : movie_db_ZIB ) ( ref: source@21.T11148/828d338a9b04221c9cbe )",
+                    "properties": {
+                        "sourceAttribution": {
+                            "additionalProperties": false,
+                            "description": "(Context: MovieArchives) ( ref: sourceAttribution@21.T11148/3dc898fc1da407321cbf )",
+                            "properties": {
+                                "attributionDate": {
+                                    "description": "(Context: MovieArchives) ( ref: attributionDate@21.T11148/7d22fb807cbbbeaa376c )",
+                                    "pattern": "^(\\d{4})-(\\d{2})-(\\d{2})T(\\d{2}):(\\d{2}):(\\d{2}(?:\\.\\d*)?)((-(\\d{2}):(\\d{2})|Z)?)$",
+                                    "type": "string"
+                                },
+                                "attributionType": {
+                                    "description": "(Context: MovieArchives) ( ref: attributionType@21.T11148/62304704da8a6510e9e4 )",
+                                    "enum": [
+                                        "Created",
+                                        "Modified"
+                                    ],
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sourceDate": {
+                            "description": "combined date and time representations as string. It refers to RFC3339 and ISO 8601 and allows to give just date, week or ordinal date notation and combined date and time in UTC. Defined by regular expression. ( ref: date-time-weak@21.T11148/9ca79b6ce26f3fd4fad3 )",
+                            "pattern": "^([0-9]{4})(-)?([0][1-9]|1[0-2])(-)?([0-2][0-9]|3[0-1])([T| ]([0-1][0-9]|2[0-3])(:)?([0-5][0-9])(:)?([0-5][0-9](\\.[0-9]*)?(Z|([\\+|-]([0-1][0-9]|2[0-3])(:)?([0-5][0-9])?))?))?$",
+                            "type": "string"
+                        },
+                        "sourceIdentifier": {
+                            "description": "URI: Uniform Resource Identifier ( context : generic ) ( ref: URI@21.T11148/5fd9bd37e430da57d338 )",
+                            "pattern": "^(([^:/?#]+):)(\\/\\/([^/?#]*))?([^?#]*)(\\?([^#]*))?(#(.*))?",
+                            "type": "string"
+                        },
+                        "sourceName": {
+                            "description": "string consisting of unicode characters. ( context : generic ) ( ref: unicode-string@21.T11148/798588c5a1ec532f737b )",
+                            "pattern": "(.|\n)*",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "sourceName"
+                    ],
+                    "type": "object"
+                },
+                "specific_carrier_type": {
+                    "description": "Materialiarten (Context: Movie_DB) ( ref: specific_carrier_type@21.T11148/3f564c8bc25abd6ba8e8 )",
+                    "enum": [
+                        "unspecified value",
+                        "Image Sequence",
+                        "DCDM",
+                        "DCP",
+                        "EDL",
+                        "Low Res",
+                        "Subtitles",
+                        "Intermediate Master",
+                        "DVD-Assets",
+                        "Blu-ray Image",
+                        "Audio File",
+                        "Audio Package",
+                        "Image Negative",
+                        "Color Reversal Intermediate",
+                        "Duplicate Negative",
+                        "Duplicate Positive",
+                        "Original Camera Negative",
+                        "Print",
+                        "Reversal Print",
+                        "Reversal Master",
+                        "Duplicate Sound Negative",
+                        "Sound Negative",
+                        "Sound Positive",
+                        "DAT",
+                        "MOD",
+                        "1-inch",
+                        "2-inch",
+                        "Betacam",
+                        "Betacam SP",
+                        "Betamax",
+                        "Hi8",
+                        "S-VHS",
+                        "U-Matic",
+                        "VHS",
+                        "Video 2000",
+                        "D1",
+                        "D2",
+                        "D3",
+                        "D5",
+                        "D6",
+                        "D9",
+                        "IMX",
+                        "DigiBeta",
+                        "DVCPRO",
+                        "DVCAM",
+                        "HDCam",
+                        "HDCam SR",
+                        "MiniDV",
+                        "Blu-ray",
+                        "CD",
+                        "DVD"
+                    ],
+                    "type": "string"
+                },
+                "supplementary_information": {
+                    "description": "Additional information specific to the Item ( context : movie_db_ZIB ) ( ref: supplementary_information@21.T11148/7d811596268aceb7a0b3 )",
+                    "pattern": "(.|\n)*",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "string consisting of unicode characters except newline. ( ref: unicode-line-string@21.T11148/f1627ce85386d8d75078 )",
+                    "pattern": "(.)*",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "is_data_object_of",
+                "source",
+                "last_modified"
+            ],
+            "type": "object"
+        }
+    },
+    "required": [
+        "movie_db_dataobjects"
+    ],
+    "type": "object"
+}
