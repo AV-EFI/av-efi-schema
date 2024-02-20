@@ -8,8 +8,10 @@ SCHEMA_PIDS = {
     'manifestation': '21.T11148/ef6836b80e4d64e574e3',
     'item': '21.T11148/b0047df54c686b9df82a',
 }
-TYPEAPI = 'http://typeapi.pidconsortium.net/dtype/schema/JSON/'
-REQUEST_PARAMS = '?cached=true'
+#TYPEAPI = 'http://typeapi.pidconsortium.net/dtype/schema/JSON/'
+#REQUEST_PARAMS = '/?cached=true'
+TYPEAPI = 'http://typeapi.lab.pidconsortium.net/v1/types/schema/'
+REQUEST_PARAMS = '?refresh=true'
 HERE = Path(__file__).parent
 UTILS_DIR = HERE
 WORKING_DIR = HERE.parent / 'KIP_DTR'
@@ -23,7 +25,7 @@ def task_fetch_efi_schemas():
     def fetch_efi_schema(task):
         efi_type = task.name.rpartition(':')[2]
         pid = SCHEMA_PIDS[efi_type]
-        response = urlopen(f"{TYPEAPI}{pid}/{REQUEST_PARAMS}")
+        response = urlopen(f"{TYPEAPI}{pid}{REQUEST_PARAMS}")
         jsondata = json.loads(response.read())
         if 'error' in jsondata.get('status', '').lower():
             raise RuntimeError(
