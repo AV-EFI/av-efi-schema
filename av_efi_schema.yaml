@@ -1,0 +1,257 @@
+id: https://av-efi.net/schema/av-efi-schema
+name: av-efi-schema
+title: av-efi-schema
+description: |-
+  Metadata schema for persistent film identifiers developed in the
+  AVefi project
+
+imports:
+  - linkml:types
+
+prefixes:
+  efi: https://av-efi.net/schema/av-efi-schema/
+  fiaf: https://fiafcore.org/ontology/
+  linkml: https://w3id.org/linkml/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  schema: http://schema.org/
+
+emit_prefixes:
+  - fiaf
+  - owl
+  - rdf
+  - rdfs
+  - xsd
+
+default_prefix: efi
+default_range: string
+default_curi_maps:
+  - semweb_context
+
+classes:
+
+  Entity:
+    abstract: true
+    description: >-
+      A generic grouping for any identifiable entity
+    slots:
+      - category
+
+  MovingImageRecord:
+    is_a: Entity
+    abstract: true
+    slots:
+      - has_event
+      - has_title
+
+  WorkVariant:
+    is_a: MovingImageRecord
+    slots:
+      - country
+      - type
+    slot_usage:
+      type:
+        range: WorkTypeEnum
+
+  Activity:
+    is_a: Entity
+    slots:
+      - has_agent
+      - type
+    slot_usage:
+      type:
+        range: ActivityTypeEnum
+
+  Agent:
+    is_a: Entity
+    slots:
+      - has_identifier
+      - name
+
+  CorporateBody:
+    is_a: Agent
+
+  Person:
+    is_a: Agent
+    slots:
+      - family_name
+      - given_name
+
+  Event:
+    is_a: Entity
+    slots:
+      - has_activity
+      - date
+      - type
+    slot_usage:
+      type:
+        range: EventTypeEnum
+
+  Identifier:
+    is_a: Entity
+
+  Title:
+    is_a: Entity
+    slots:
+      - type
+      - value
+    slot_usage:
+      type:
+        range: TitleTypeEnum
+
+  MovingImageRecordCollection:
+    is_a: Entity
+    description: >-
+      A holder for MovingImageRecord objects
+    slots:
+      - has_record
+    tree_root: true
+
+slots:
+
+  #-----------------------------------
+  # General purpose slots
+  #-----------------------------------
+
+  id:
+    identifier: true
+    slot_uri: schema:identifier
+    range: uriorcurie
+    description: A unique identifier for a thing
+
+  name:
+    slot_uri: schema:name
+    description: A human-readable name for a thing
+
+  description:
+    slot_uri: schema:description
+    description: A human-readable description for a thing
+
+  has_record:
+    inlined_as_list: true
+    multivalued: true
+    range: MovingImageRecord
+
+  type:
+    range: uriorcurie
+
+  category:
+    slot_uri: rdf:type
+    designates_type: true
+    range: uriorcurie
+
+  #-----------------------------------
+  # Event branch slots
+  #-----------------------------------
+
+  has_event:
+    multivalued: true
+    range: Event
+
+  date:
+    range: string
+
+  has_activity:
+    multivalued: true
+    range: Activity
+
+  has_agent:
+    multivalued: true
+    range: Agent
+
+  family_name:
+  given_name:
+
+  #-----------------------------------
+  # WorkVariant slots
+  #-----------------------------------
+
+  country:
+    multivalued: true
+
+  has_identifier:
+    multivalued: true
+    range: Identifier
+
+  has_title:
+    multivalued: true
+    range: Title
+
+  value:
+
+enums:
+  ActivityTypeEnum:
+    permissible_values:
+      Director:
+        meaning: fiaf:Director
+      Producer:
+        meaning: fiaf:Producer
+      ProductionCompany:
+        meaning: fiaf:ProductionCompany
+      ProductionDesigner:
+        meaning: fiaf:ProductionDesigner
+      ProductionManager:
+        meaning: fiaf:ProductionManager
+  EventTypeEnum:
+    permissible_values:
+      BroadcastEvent:
+      CastingEvent:
+      CensorshipEvent:
+      DigitisationEvent:
+      DistributionEvent:
+      DonationEvent:
+      DuplicationEvent:
+      ExchangeEvent:
+      FilmPrintingEvent:
+      HomeVideoPublicationEvent:
+      IndoorShootingEvent:
+      LoanEvent:
+      MasteringEvent:
+      NonTheatricalDistributionEvent:
+      NotForReleaseEvent:
+      OffAirRecordingEvent:
+      OnlineTransmissionEvent:
+      OutdoorShootingEvent:
+      PostProductionEvent:
+      PreReleaseEvent:
+      PurchaseEvent:
+      RatingEvent:
+      ReleaseEvent:
+      ReproductionEvent:
+      RevisionEvent:
+      RightsCopyrightRegistrationEvent:
+      ScanningEvent:
+      TelecineEvent:
+      TheatricalDistributionEvent:
+      TransferEvent:
+      UnknownEvent: # Unknown Publication EVent type
+      UploadingEvent:
+      VideoCopyingEvent:
+      InspectionEvent:
+      AwardsOrNominationsEvent:
+      PreservationEvent:
+      ProductionEvent:
+      AcquisitionEvent:
+      DecisionEvent:
+      ManufactureEvent:
+      PublicationEvent:
+  TitleTypeEnum:
+    permissible_values:
+      AbbreviatedTitle:
+      AcquisitionTitle:
+      CorrectedTitle:
+      IdentifyingTitle:
+      ParallelTitle:
+      PreferredTitle:
+      PreReleaseTitle:
+      SearchTitle:
+      SuppliedDevisedTitle:
+      TranslatedTitle:
+      TransliteratedTitle:
+      WorkingTitle:
+  WorkTypeEnum:
+    permissible_values:
+      Analytic:
+      Collection:
+      Monographic:
+      Serial:
