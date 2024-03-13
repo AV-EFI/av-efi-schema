@@ -7,10 +7,13 @@ has_record:
     - category: efi:Activity
       has_agent:
       - category: efi:Person
+        has_identifier:
+        - category: efi:PersonIdentifier
+          id: https://d-nb.info/gnd/116663308
         family_name: Gliese
         given_name: Rochus
       type: Director
-    date: '1930'
+    has_date: '1930'
     type: ProductionEvent
   has_title:
   - category: efi:Title
