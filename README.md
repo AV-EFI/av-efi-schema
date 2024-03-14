@@ -2,8 +2,8 @@
 
 This repository has been created in order to track the development of
 schemas and controlled vocabularies for EFI Film Identifiers. The
-following EFI types are differentiated and have their own schema,
-respectively:
+following EFI types are differentiated and have associated metadata as
+per the schema:
 
 | EFI type: | work | manifestation | item |
 |---|---|---|---|
@@ -14,10 +14,6 @@ respectively:
 
 
 [fiafmanual]: https://www.fiafnet.org/pages/E-Resources/Cataloguing-Manual.html
-
-Yet another EFI type "user" represents users known to the system. PIDs
-of this type are referenced when recording who has created or updated
-any of the EFIs.
 
 ### Example 1: Two archives have registered EFIs for the same work
 
@@ -55,3 +51,16 @@ m-->|created by|u
 mi-->|created by|u
 m---mi
 ```
+
+## Where to start
+
+The schema is reasonably well aligned with and heavily inspired by the
+[FIAFcore ontology][]. It is still very much under development, but
+here is a diagram outlining the [general structure of the
+schema](av_efi_schema.md). Using [LinkML](https://linkml.io/) as a
+development framework, we generate the diagram and other derivatives
+from this [schema representation in YAML](av_efi_schema.yaml).
+
+More documentation and sample data to follow soon.
+
+[FIAFcore ontology]: https://fiafcore.org/

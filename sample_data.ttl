@@ -1,17 +1,20 @@
 @prefix efi: <https://av-efi.net/schema/av-efi-schema/> .
 @prefix fiaf: <https://fiafcore.org/ontology/> .
+@prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a "efi:MovingImageRecordCollection"^^xsd:anyURI ;
     efi:has_record [ a "efi:WorkVariant"^^xsd:anyURI ;
             efi:country "Germany (German Reich)" ;
             efi:has_event [ a "efi:Event"^^xsd:anyURI ;
-                    efi:date "1930" ;
                     efi:has_activity [ a "efi:Activity"^^xsd:anyURI ;
                             efi:has_agent [ a "efi:Person"^^xsd:anyURI ;
                                     efi:family_name "Gliese" ;
-                                    efi:given_name "Rochus" ] ;
+                                    efi:given_name "Rochus" ;
+                                    efi:has_identifier [ a "efi:PersonIdentifier"^^xsd:anyURI ;
+                                            schema1:identifier "https://d-nb.info/gnd/116663308"^^xsd:anyURI ] ] ;
                             efi:type fiaf:Director ] ;
+                    efi:has_date "1930" ;
                     efi:type "ProductionEvent" ] ;
             efi:has_title [ a "efi:Title"^^xsd:anyURI ;
                     efi:type "PreferredTitle" ;

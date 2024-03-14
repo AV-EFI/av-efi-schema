@@ -32,10 +32,10 @@ classes:
 
   Entity:
     abstract: true
-    description: >-
-      A generic grouping for any identifiable entity
     slots:
       - category
+    description: >-
+      A generic grouping for all described entities
 
   MovingImageRecord:
     is_a: Entity
@@ -43,11 +43,17 @@ classes:
     slots:
       - has_event
       - has_title
+      - id
 
   WorkVariant:
     is_a: MovingImageRecord
     slots:
       - country
+      - has_form
+      - has_genre
+      - has_subject
+      - has_work_variant
+      - variant_type
       - type
     slot_usage:
       type:
@@ -76,12 +82,16 @@ classes:
     slots:
       - family_name
       - given_name
+      - has_identifier
+    slot_usage:
+      has_identifier:
+        range: PersonIdentifier
 
   Event:
     is_a: Entity
     slots:
       - has_activity
-      - date
+      - has_date
       - type
     slot_usage:
       type:
@@ -89,6 +99,14 @@ classes:
 
   Identifier:
     is_a: Entity
+    slots:
+      - id
+
+  PersonIdentifier:
+    is_a: Identifier
+
+  LocationIdentifier:
+    is_a: Identifier
 
   Title:
     is_a: Entity
@@ -98,6 +116,30 @@ classes:
     slot_usage:
       type:
         range: TitleTypeEnum
+
+  ManifestationOrItem:
+    is_a: MovingImageRecord
+    abstract: true
+    slots:
+      - has_format
+
+  Manifestation:
+    is_a: ManifestationOrItem
+    slots:
+      - has_item
+      - is_manifestation_of
+      - production_year
+      - release_date
+
+  Item:
+    is_a: ManifestationOrItem
+    slots:
+      - is_item_of
+      - has_holding_institution
+      # fiaf:hasHoldingInstitution
+      - has_status
+      # has_stream (für codec)
+      - is_element
 
   MovingImageRecordCollection:
     is_a: Entity
@@ -114,7 +156,7 @@ slots:
   #-----------------------------------
 
   id:
-    identifier: true
+    #identifier: true
     slot_uri: schema:identifier
     range: uriorcurie
     description: A unique identifier for a thing
@@ -148,7 +190,7 @@ slots:
     multivalued: true
     range: Event
 
-  date:
+  has_date:
     range: string
 
   has_activity:
@@ -163,15 +205,21 @@ slots:
   given_name:
 
   #-----------------------------------
-  # WorkVariant slots
+  # WorkVariant branch
   #-----------------------------------
 
   country:
     multivalued: true
 
+  has_form:
+
+  has_genre:
+
   has_identifier:
     multivalued: true
     range: Identifier
+
+  has_subject:
 
   has_title:
     multivalued: true
@@ -179,19 +227,69 @@ slots:
 
   value:
 
+  has_work_variant:
+    multivalued: true
+    range: WorkVariant
+
+  variant_type:
+
+  #-----------------------------------
+  # Manifestation branch
+  #-----------------------------------
+
+  has_format:
+
+  has_item:
+    multivalued: true
+    range: Item
+
+  is_manifestation_of:
+    multivalued: true
+    range: WorkVariant
+
+  production_year:
+
+  release_date:
+
+  #-----------------------------------
+  # Item branch
+  #-----------------------------------
+
+  is_item_of:
+    # multivalued: true
+    range: Manifestation
+
+  has_holding_institution:
+
+  has_status:
+
+  is_element:
+
 enums:
+
   ActivityTypeEnum:
     permissible_values:
       Director:
         meaning: fiaf:Director
+        description: >-
+          FIAF Glossary of Filmographic Terms B.13.9
       Producer:
         meaning: fiaf:Producer
+        description: >-
+          FIAF Glossary of Filmographic Terms B.2.3
       ProductionCompany:
         meaning: fiaf:ProductionCompany
+        description: >-
+          FIAF Glossary of Filmographic Terms B.2.1
       ProductionDesigner:
         meaning: fiaf:ProductionDesigner
+        description: >-
+          FIAF Glossary of Filmographic Terms B.6.1
       ProductionManager:
         meaning: fiaf:ProductionManager
+        description: >-
+          FIAF Glossary of Filmographic Terms B.2.9
+
   EventTypeEnum:
     permissible_values:
       BroadcastEvent:
@@ -235,6 +333,7 @@ enums:
       DecisionEvent:
       ManufactureEvent:
       PublicationEvent:
+
   TitleTypeEnum:
     permissible_values:
       AbbreviatedTitle:
@@ -249,6 +348,7 @@ enums:
       TranslatedTitle:
       TransliteratedTitle:
       WorkingTitle:
+
   WorkTypeEnum:
     permissible_values:
       Analytic:

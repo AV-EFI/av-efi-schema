@@ -103,7 +103,7 @@
                     ],
                     "type": "string"
                 },
-                "date": {
+                "event_date": {
                     "type": "string"
                 },
                 "has_activity": {
@@ -181,6 +181,108 @@
             "title": "Identifier",
             "type": "object"
         },
+        "Item": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "category": {
+                    "enum": [
+                        "efi:Item"
+                    ],
+                    "type": "string"
+                },
+                "has_event": {
+                    "items": {
+                        "$ref": "#/$defs/Event"
+                    },
+                    "type": "array"
+                },
+                "has_format": {
+                    "type": "string"
+                },
+                "has_holding_institution": {
+                    "type": "string"
+                },
+                "has_status": {
+                    "type": "string"
+                },
+                "has_title": {
+                    "items": {
+                        "$ref": "#/$defs/Title"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "is_element": {
+                    "type": "string"
+                },
+                "is_item_of": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Item",
+            "type": "object"
+        },
+        "Manifestation": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "category": {
+                    "enum": [
+                        "efi:Manifestation"
+                    ],
+                    "type": "string"
+                },
+                "has_event": {
+                    "items": {
+                        "$ref": "#/$defs/Event"
+                    },
+                    "type": "array"
+                },
+                "has_format": {
+                    "type": "string"
+                },
+                "has_item": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_title": {
+                    "items": {
+                        "$ref": "#/$defs/Title"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "is_manifestation_of": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "production_year": {
+                    "type": "string"
+                },
+                "release_date": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Manifestation",
+            "type": "object"
+        },
         "MovingImageRecordCollection": {
             "additionalProperties": false,
             "description": "A holder for MovingImageRecord objects",
@@ -193,7 +295,17 @@
                 },
                 "has_record": {
                     "items": {
-                        "$ref": "#/$defs/WorkVariant"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/WorkVariant"
+                            },
+                            {
+                                "$ref": "#/$defs/Manifestation"
+                            },
+                            {
+                                "$ref": "#/$defs/Item"
+                            }
+                        ]
                     },
                     "type": "array"
                 }
@@ -303,16 +415,41 @@
                     },
                     "type": "array"
                 },
+                "has_form": {
+                    "type": "string"
+                },
+                "has_genre": {
+                    "type": "string"
+                },
+                "has_subject": {
+                    "type": "string"
+                },
                 "has_title": {
                     "items": {
                         "$ref": "#/$defs/Title"
                     },
                     "type": "array"
                 },
+                "has_work_variant": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
                 "type": {
                     "$ref": "#/$defs/WorkTypeEnum"
+                },
+                "variant_type": {
+                    "type": "string"
                 }
             },
+            "required": [
+                "id"
+            ],
             "title": "WorkVariant",
             "type": "object"
         }
@@ -331,7 +468,17 @@
         },
         "has_record": {
             "items": {
-                "$ref": "#/$defs/WorkVariant"
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/WorkVariant"
+                    },
+                    {
+                        "$ref": "#/$defs/Manifestation"
+                    },
+                    {
+                        "$ref": "#/$defs/Item"
+                    }
+                ]
             },
             "type": "array"
         }
