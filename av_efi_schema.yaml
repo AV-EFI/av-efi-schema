@@ -355,3 +355,82 @@ enums:
       Collection:
       Monographic:
       Serial:
+
+  WorkFormEnum:
+    permissible_values:
+      AmateurFilm:
+        meaning: fiaf:AmateurFilm
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      CompilationFilm:
+        meaning: fiaf:Compilation
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      Excerpt:
+        meaning: fiaf:Excerpt
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      FeatureFilm:
+        meaning: fiaf:Feature
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      Featurette:
+        meaning: fiaf:Featurette
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      HomeMovie:
+        meaning: fiaf:HomeMovie
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      Outtake:
+        meaning: fiaf:Outtake
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      ScreenTest:
+        meaning: fiaf:ScreenTest
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      FilmSeries:
+        meaning: fiaf:Series
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      ShortFilm:
+        meaning: fiaf:Short
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      StockFootage:
+        meaning: fiaf:StockFootage
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      Trailer:
+        meaning: fiaf:Trailer
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      UneditedFootage:
+        meaning: fiaf:UneditedFootage
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      AnthologyFilm:
+        description: >-
+          FIAF Moving Image Cataloguing Manual E.2.2
+      Commercial:
+        description: >-
+          FIAF Moving Image Cataloguing Manual E.2.2
+      Educational Film:
+        description: >-
+          FIAF Moving Image Cataloguing Manual 0.1.2, D.5.3
+      Essay Film:
+        description: >-
+          FIAF Moving Image Cataloguing Manual 0.1.2
+      Experimental Film:
+        description: >-
+          FIAF Moving Image Cataloguing Manual 0.1.2
+      Industrial Film:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.3
+      Music Video:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.18
+      Newsreel:
+        description: >-
+          http://www.screenonline.org.uk/film/id/476463/index.html
