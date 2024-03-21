@@ -416,19 +416,19 @@ enums:
       Commercial:
         description: >-
           FIAF Moving Image Cataloguing Manual E.2.2
-      Educational Film:
+      EducationalFilm:
         description: >-
           FIAF Moving Image Cataloguing Manual 0.1.2, D.5.3
-      Essay Film:
+      EssayFilm:
         description: >-
           FIAF Moving Image Cataloguing Manual 0.1.2
-      Experimental Film:
+      ExperimentalFilm:
         description: >-
           FIAF Moving Image Cataloguing Manual 0.1.2
-      Industrial Film:
+      IndustrialFilm:
         description: >-
           FIAF Moving Image Cataloguing Manual D.5.3
-      Music Video:
+      MusicVideo:
         description: >-
           FIAF Moving Image Cataloguing Manual D.18
       Newsreel:
