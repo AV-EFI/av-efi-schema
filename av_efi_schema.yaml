@@ -362,7 +362,7 @@ enums:
         meaning: fiaf:AmateurFilm
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
-      CompilationFilm:
+      Compilation:
         meaning: fiaf:Compilation
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
@@ -370,7 +370,7 @@ enums:
         meaning: fiaf:Excerpt
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
-      FeatureFilm:
+      Feature:
         meaning: fiaf:Feature
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
@@ -390,11 +390,11 @@ enums:
         meaning: fiaf:ScreenTest
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
-      FilmSeries:
+      Series:
         meaning: fiaf:Series
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
-      ShortFilm:
+      Short:
         meaning: fiaf:Short
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
