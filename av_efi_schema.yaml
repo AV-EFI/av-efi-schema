@@ -154,6 +154,15 @@ classes:
       - is_manifestation_of
       - production_year
       - release_date
+      - same_as
+    slot_usage:
+      same_as:
+        range: AVEFIResource
+        description: >-
+          Link to AVefi resource registered by another data provider
+          indicating that the two manifestations are known to be the
+          same. Use this, for instance, when you have cooperated in
+          making a digital restoration of some film work
 
   Item:
     is_a: ManifestationOrItem
@@ -163,6 +172,7 @@ classes:
       # fiaf:hasHoldingInstitution
       - has_status
       # has_stream (für codec)
+      - is_copy_of
       - is_element
 
   MovingImageRecordCollection:
@@ -406,11 +416,17 @@ slots:
 
   has_item:
     multivalued: true
-    range: Item
+    range: AVEFIResource
+    description: >-
+       Indicate AVefi Items the institution has registered as part of
+       the manifestation
 
   is_manifestation_of:
     multivalued: true
-    range: WorkVariant
+    range: AVEFIResource
+    description: >-
+      Indicate AVefi WorkVariant (possibly more but no less than one)
+      that is subject of the manifestation
 
   production_year:
 
@@ -422,11 +438,22 @@ slots:
 
   is_item_of:
     # multivalued: true
-    range: Manifestation
+    range: AVEFIResource
+    description: >-
+      Indicate AVefi Manifestation the item belongs to. Every item must
+      be associated with a manifestation from the same data provider
 
   has_holding_institution:
 
   has_status:
+
+  is_copy_of:
+    inlined_as_list: true
+    multivalued: true
+    range: AVEFIResource
+    description: >-
+      Link to AVefi item registered by another institution indicating
+      that the two are known to be copies of each other
 
   is_element:
 
