@@ -9,7 +9,7 @@ imports:
   - linkml:types
 
 prefixes:
-  efi: https://av-efi.net/schema/av-efi-schema/
+  avefi: https://av-efi.net/schema/av-efi-schema/
   fiaf: https://fiafcore.org/ontology/
   linkml: https://w3id.org/linkml/
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
@@ -23,7 +23,7 @@ emit_prefixes:
   - rdfs
   - xsd
 
-default_prefix: efi
+default_prefix: avefi
 default_range: string
 default_curi_maps:
   - semweb_context
