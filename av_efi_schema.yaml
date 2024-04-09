@@ -395,8 +395,11 @@ slots:
     range: Country
 
   has_form:
+    multivalued: true
+    range: WorkFormEnum
 
   has_genre:
+    multivalued: true
 
   has_related_term:
     inlined_as_list: true
