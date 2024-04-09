@@ -54,8 +54,15 @@ classes:
       - has_subject
       - has_work_variant
       - variant_type
+      - same_as
       - type
     slot_usage:
+      same_as:
+        any_of:
+          - range: FilmportalResource
+          - range: GNDResource
+          - range: VIAFResource
+          - range: WikidataResource
       type:
         range: WorkTypeEnum
 
@@ -70,9 +77,17 @@ classes:
 
   Agent:
     is_a: Entity
+    abstract: true
     slots:
-      - has_identifier
       - name
+      - same_as
+    slot_usage:
+      same_as:
+        any_of:
+          - range: FilmportalResource
+          - range: GNDResource
+          - range: VIAFResource
+          - range: WikidataResource
 
   CorporateBody:
     is_a: Agent
@@ -82,10 +97,6 @@ classes:
     slots:
       - family_name
       - given_name
-      - has_identifier
-    slot_usage:
-      has_identifier:
-        range: PersonIdentifier
 
   Event:
     is_a: Entity
@@ -96,17 +107,6 @@ classes:
     slot_usage:
       type:
         range: EventTypeEnum
-
-  Identifier:
-    is_a: Entity
-    slots:
-      - id
-
-  PersonIdentifier:
-    is_a: Identifier
-
-  LocationIdentifier:
-    is_a: Identifier
 
   Title:
     is_a: Entity
@@ -149,6 +149,137 @@ classes:
       - has_record
     tree_root: true
 
+  #-----------------------------------
+  # Identifier classes
+  #-----------------------------------
+
+  AuthorityResource:
+    is_a: Entity
+    abstract: true
+    slots:
+      - id
+    slot_usage:
+      id:
+        range: string
+    description: >-
+      Root class for all identifiers from some kind of authority or
+      public register widely accepted in the community
+
+  DOIResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^10\\.[0-9]{4,9}(\\.[0-9]+)*(\\/|%2F)((?![\"&\'])\\S)+$
+    annotations:
+      formatter_uri_for_rdf_resource: "http://dx.doi.org/$1"
+      formatter_url_for_web_resource: "https://dx.doi.org/$1"
+      provides: >-
+        - CreativeWorkIdentifier
+    description: >-
+      Digital Object Identifier maintained by the DOI Foundation and
+      commonly used for scientific publications including films.
+    see_also:
+      - https://dx.doi.org/
+      - https://www.wikidata.org/wiki/Property:P356
+
+  AVEFIResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^21(\\.([0-9A-Za-z])+)*\\/([!-~])+$
+    annotations:
+      formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
+    todos:
+      Possibly change formatter URIs/URLs to the av-efi.net domain when
+      the details have been sorted out
+    description: >-
+      Handle with the prefix allocated for AVefi (eventually)
+
+  FilmportalResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^[\\da-f]{32}$
+    annotations:
+      formatter_uri_for_rdf_resource: https://www.filmportal.de/$1
+      formatter_uri_for_web_resource: https://www.filmportal.de/$1
+      provides: >-
+        - CreativeWorkIdentifier
+        - PersonIdentifier
+    description: >-
+      Identifier of the German Filmportal.de
+    see_also:
+      - https://www.filmportal.de/
+      - https://www.wikidata.org/entity/P2639
+
+  GNDResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^[-\\dX]+$
+    annotations:
+      formatter_uri_for_rdf_resource: https://d-nb.info/gnd/$1
+      formatter_url_for_web_resource: https://d-nb.info/gnd/$1
+      provides: >-
+        - CreativeWorkIdentifier
+        - PlaceIdentifier
+        - OrganizationIdentifier
+        - PersonIdentifier
+        - SubjectHeadingIdentifier
+    notes: >-
+      - alternative_web_resource: https://explore.gnd.network/gnd/$1/relations
+      - other_resources:
+          - https://d-nb.info/gnd/$1/about/lds
+          - https://hub.culturegraph.org/entityfacts/$1
+          - https://lobid.org/gnd/$1
+      - API documentation including auto-complete suggestions at
+          https://lobid.org/gnd/api
+    description: >-
+      Gemeinsame Normdatei (GND) identifier maintained by Deutsche
+      Nationalbibliothek (German National Library)
+    see_also:
+      - https://www.wikidata.org/entity/P227
+
+  VIAFResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^\\d+$
+    annotations:
+      formatter_uri_for_rdf_resource: http://viaf.org/viaf/$1
+      formatter_url_for_web_resource: https://viaf.org/viaf/$1
+      provides: >-
+        - CreativeWorkIdentifier
+        - PlaceIdentifier
+        - OrganizationIdentifier
+        - PersonIdentifier
+    description: >-
+      Virtual International Authority File identifier hosted by OCLC.
+      The data is accumulated from various well established authority
+      files from different parts of teh world.
+    see_also:
+      - https://viaf.org/
+      - https://www.wikidata.org/entity/P214
+
+  WikidataResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^[LPQ]\\d+$
+    annotations:
+      formatter_uri_for_rdf_resource: https://www.wikidata.org/entity/$1
+      formatter_url_for_web_resource: https://www.wikidata.org/entity/$1
+      provides: >-
+        - CreativeWorkIdentifier
+        - PlaceIdentifier
+        - OrganizationIdentifier
+        - PersonIdentifier
+        - SubjectHeadingIdentifier
+    description: >-
+      Identifier for Wikidata entities
+    see_also:
+      - https://www.wikidata.org/wiki/Wikidata:Identifiers
+
 slots:
 
   #-----------------------------------
@@ -156,7 +287,7 @@ slots:
   #-----------------------------------
 
   id:
-    #identifier: true
+    identifier: true
     slot_uri: schema:identifier
     range: uriorcurie
     description: A unique identifier for a thing
@@ -181,6 +312,11 @@ slots:
     slot_uri: rdf:type
     designates_type: true
     range: uriorcurie
+
+  same_as:
+    inlined_as_list: true
+    multivalued: true
+    range: AuthorityResource
 
   #-----------------------------------
   # Event branch slots
@@ -214,10 +350,6 @@ slots:
   has_form:
 
   has_genre:
-
-  has_identifier:
-    multivalued: true
-    range: Identifier
 
   has_subject:
 
