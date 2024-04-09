@@ -103,6 +103,7 @@ classes:
     is_a: Entity
     abstract: true
     slots:
+      - alternate_name
       - name
       - same_as
     slot_usage:
@@ -116,11 +117,17 @@ classes:
   CorporateBody:
     is_a: Agent
 
+  Family:
+    is_a: Agent
+
   Person:
     is_a: Agent
     slots:
       - family_name
       - given_name
+
+  PersonGroup:
+    is_a: Agent
 
   Event:
     is_a: Entity
