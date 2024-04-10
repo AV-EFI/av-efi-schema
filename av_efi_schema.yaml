@@ -159,6 +159,7 @@ classes:
     slots:
       - has_item
       - is_manifestation_of
+      - language
       - production_year
       - release_date
       - same_as
@@ -170,6 +171,20 @@ classes:
           indicating that the two manifestations are known to be the
           same. Use this, for instance, when you have cooperated in
           making a digital restoration of some film work
+
+  Language:
+    is_a: Entity
+    attributes:
+      code:
+        pattern: ^[a-z]{3}$
+        description: >-
+          ISO 639-2 code for the Representation of Names of Languages
+          (Part 2: Alpha-3)
+        see_also:
+          - https://id.loc.gov/vocabulary/iso639-2.html
+      usage:
+        multivalued: true
+        range: LanguageUsageEnum
 
   Item:
     is_a: ManifestationOrItem
@@ -438,6 +453,10 @@ slots:
       Indicate AVefi WorkVariant (possibly more but no less than one)
       that is subject of the manifestation
 
+  language:
+    multivalued: true
+    range: Language
+
   production_year:
 
   release_date:
@@ -535,6 +554,41 @@ enums:
       DecisionEvent:
       ManufactureEvent:
       PublicationEvent:
+
+  LanguageUsageEnum:
+    permissible_values:
+      AudioDescription:
+      Captions:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:Captions
+      ClosingCredits:
+      Intertitles:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:Intertitles
+      NoDialogue:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:NoDialogue
+      OpeningCredits:
+      SignedLanguage:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:SignedLanguage
+      SpokenLanguage:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:SpokenLanguage
+      Subtitles:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:Subtitles
+      SungLanguage:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:SungLanguage
+      VoiceOver:
 
   TitleTypeEnum:
     permissible_values:
