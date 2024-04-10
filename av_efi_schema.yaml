@@ -35,7 +35,7 @@ classes:
     slots:
       - category
     description: >-
-      A generic grouping for all described entities
+      A generic grouping for all described things
 
   MovingImageRecord:
     is_a: Entity
