@@ -507,26 +507,153 @@ enums:
 
   ActivityTypeEnum:
     permissible_values:
+      Adaptation:
+        description: FIAF Glossary of Filmographic Terms B.4.11
+        meaning: fiaf:Adaptation
+      Animation:
+        description: FIAF Glossary of Filmographic Terms B.13.1
+        meaning: fiaf:Animation
+      ArtDirector:
+        description: FIAF Glossary of Filmographic Terms B.6.2
+        meaning: fiaf:ArtDirector
+      AssistantArtDirector:
+        description: FIAF Glossary of Filmographic Terms B.6.3
+        meaning: fiaf:AssistantArtDirector
+      AssistantDirector:
+        description: FIAF Glossary of Filmographic Terms B.3.2
+        meaning: fiaf:AssistantDirector
+      AssistantFilmEditor:
+        description: FIAF Glossary of Filmographic Terms B.10.2
+        meaning: fiaf:AssistantFilmEditor
+      AssociateProducer:
+        description: FIAF Glossary of Filmographic Terms B.2.6
+        meaning: fiaf:AssociateProducer
+      CameraAssistant:
+        description: FIAF Glossary of Filmographic Terms B.5.7
+        meaning: fiaf:CameraAssistant
+      CastingDirector:
+        description: FIAF Glossary of Filmographic Terms B.3.4
+        meaning: fiaf:CastingDirector
+      Choreographer:
+        description: FIAF Glossary of Filmographic Terms B.11.15
+        meaning: fiaf:Choreographer
+      Cinematographer:
+        description: FIAF Glossary of Filmographic Terms B.5.1
+        meaning: fiaf:Cinematographer
+      Continuity:
+        description: FIAF Glossary of Filmographic Terms B.3.5
+        meaning: fiaf:Continuity
+      CostumeDesigner:
+        description: FIAF Glossary of Filmographic Terms B.6.12
+        meaning: fiaf:CostumeDesigner
       Director:
+        description: FIAF Glossary of Filmographic Terms B.3.1
         meaning: fiaf:Director
-        description: >-
-          FIAF Glossary of Filmographic Terms B.13.9
+      Electrician:
+        description: FIAF Glossary of Filmographic Terms B.5.13
+        meaning: fiaf:Electrician
+      ExecutiveProducer:
+        description: FIAF Glossary of Filmographic Terms B.2.4
+        meaning: fiaf:ExecutiveProducer
+      FilmEditor:
+        description: FIAF Glossary of Filmographic Terms B.10.1
+        meaning: fiaf:FilmEditor
+      FoleyArtist:
+        description: FIAF Glossary of Filmographic Terms B.9.9
+        meaning: fiaf:FoleyArtist
+      GafferLighting:
+        description: FIAF Glossary of Filmographic Terms B.5.11
+        meaning: fiaf:GafferLighting
+      Gowns:
+        description: FIAF Glossary of Filmographic Terms B.6.16
+        meaning: fiaf:Gowns
+      Idea:
+        description: FIAF Glossary of Filmographic Terms B.4.6
+        meaning: fiaf:Idea
+      LineProducer:
+        description: FIAF Glossary of Filmographic Terms B.2.7
+        meaning: fiaf:LineProducer
+      LoaderClapper:
+        description: FIAF Glossary of Filmographic Terms B.5.9
+        meaning: fiaf:LoaderClapper
+      LocationManager:
+        description: FIAF Glossary of Filmographic Terms B.2.12
+        meaning: fiaf:LocationManager
+      MakeUpArtist:
+        description: FIAF Glossary of Filmographic Terms B.6.19
+        meaning: fiaf:MakeUpArtist
+      MusicSupervisor:
+        description: FIAF Glossary of Filmographic Terms B.11.3
+        meaning: fiaf:MusicSupervisor
+      NarrationWriter:
+        description: FIAF Glossary of Filmographic Terms B.4.15
+        meaning: fiaf:NarrationWriter
       Producer:
+        description: FIAF Glossary of Filmographic Terms B.2.3
         meaning: fiaf:Producer
-        description: >-
-          FIAF Glossary of Filmographic Terms B.2.3
-      ProductionCompany:
-        meaning: fiaf:ProductionCompany
-        description: >-
-          FIAF Glossary of Filmographic Terms B.2.1
+      ProductionAssistant:
+        description: FIAF Glossary of Filmographic Terms B.2.14
+        meaning: fiaf:ProductionAssistant
       ProductionDesigner:
+        description: FIAF Glossary of Filmographic Terms B.6.1
         meaning: fiaf:ProductionDesigner
-        description: >-
-          FIAF Glossary of Filmographic Terms B.6.1
-      ProductionManager:
-        meaning: fiaf:ProductionManager
-        description: >-
-          FIAF Glossary of Filmographic Terms B.2.9
+      PropertyMaster:
+        description: FIAF Glossary of Filmographic Terms B.6.7
+        meaning: fiaf:PropertyMaster
+      Research:
+        description: FIAF Glossary of Filmographic Terms B.4.16
+        meaning: fiaf:Research
+      SecondUnitDirector:
+        description: FIAF Glossary of Filmographic Terms B.3.3
+        meaning: fiaf:SecondUnitDirector
+      SecondUnitDirectorofPhotography:
+        description: FIAF Glossary of Filmographic Terms B.5.2
+        meaning: fiaf:SecondUnitDirectorofPhotography
+      SetDecorator:
+        description: FIAF Glossary of Filmographic Terms B.6.6
+        meaning: fiaf:SetDecorator
+      SetDesigner:
+        description: FIAF Glossary of Filmographic Terms B.6.5
+        meaning: fiaf:SetDesigner
+      SingingVoice:
+        description: FIAF Glossary of Filmographic Terms B.11.8
+        meaning: fiaf:SingingVoice
+      SoundDesigner:
+        description: FIAF Glossary of Filmographic Terms B.9.1
+        meaning: fiaf:SoundDesigner
+      SoundEditor:
+        description: FIAF Glossary of Filmographic Terms B.9.7
+        meaning: fiaf:SoundEditor
+      SoundRecorderMixer:
+        description: FIAF Glossary of Filmographic Terms B.9.3
+        meaning: fiaf:SoundRecorderMixer
+      SourceMaterial:
+        description: FIAF Glossary of Filmographic Terms B.4.4
+        meaning: fiaf:SourceMaterial
+      SpecialEffects:
+        description: FIAF Glossary of Filmographic Terms B.8.1
+        meaning: fiaf:SpecialEffects
+      SteadicamOperator:
+        description: FIAF Glossary of Filmographic Terms B.5.6
+        meaning: fiaf:SteadicamOperator
+      StillPhotographer:
+        description: FIAF Glossary of Filmographic Terms B.5.18
+        meaning: fiaf:StillPhotographer
+      StoryboardArtist:
+        description: FIAF Glossary of Filmographic Terms B.6.4
+        meaning: fiaf:StoryboardArtist
+      StuntArranger:
+        description: FIAF Glossary of Filmographic Terms B.3.6
+        meaning: fiaf:StuntArranger
+      TitleDesigner:
+        description: FIAF Glossary of Filmographic Terms B.6.21
+        meaning: fiaf:TitleDesigner
+      VisualEffects:
+        description: FIAF Glossary of Filmographic Terms B.8.2
+        meaning: fiaf:VisualEffects
+      Writer:
+        description: FIAF Glossary of Filmographic Terms B.4.2
+        meaning: fiaf:Writer
 
   EventTypeEnum:
     permissible_values:
