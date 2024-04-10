@@ -53,9 +53,9 @@ classes:
       - has_genre
       - has_related_term
       - has_work_variant
-      - variant_type
       - same_as
       - type
+      - variant_type
     slot_usage:
       same_as:
         any_of:
@@ -64,7 +64,11 @@ classes:
           - range: VIAFResource
           - range: WikidataResource
       type:
-        range: WorkTypeEnum
+        range: WorkVariantTypeEnum
+    close_mappings:
+      - fiaf:WorkVariant
+    description: >-
+      FIAF Moving Image Cataloguing Manual 1.0
 
   Country:
     is_a: Entity
@@ -605,7 +609,7 @@ enums:
       TransliteratedTitle:
       WorkingTitle:
 
-  WorkTypeEnum:
+  WorkVariantTypeEnum:
     permissible_values:
       Analytic:
       Collection:
