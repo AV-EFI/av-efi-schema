@@ -201,13 +201,17 @@ classes:
   Item:
     is_a: ManifestationOrItem
     slots:
+      - access_status
       - is_item_of
       - has_holding_institution
       # fiaf:hasHoldingInstitution
-      - has_status
       # has_stream (für codec)
       - is_copy_of
       - is_element
+    close_mappings:
+      - fiaf:Item
+    description: >-
+      FIAF Moving Image Cataloguing Manual 3.0
 
   MovingImageRecordCollection:
     is_a: Entity
@@ -486,7 +490,8 @@ slots:
 
   has_holding_institution:
 
-  has_status:
+  access_status:
+    range: ItemAccessStatusEnum
 
   is_copy_of:
     inlined_as_list: true
@@ -566,6 +571,23 @@ enums:
       DecisionEvent:
       ManufactureEvent:
       PublicationEvent:
+
+  ItemAccessStatusEnum:
+    permissible_values:
+      Archive:
+      Distribution:
+      Master:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.7.3
+        meaning: fiaf:Master
+      Removed:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.7.3
+        meaning: fiaf:Removed
+      Viewing:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.7.3
+        meaning: fiaf:Viewing
 
   LanguageUsageEnum:
     permissible_values:
