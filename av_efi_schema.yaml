@@ -167,6 +167,7 @@ classes:
       - production_year
       - release_date
       - same_as
+      - type
     slot_usage:
       same_as:
         range: AVEFIResource
@@ -175,6 +176,13 @@ classes:
           indicating that the two manifestations are known to be the
           same. Use this, for instance, when you have cooperated in
           making a digital restoration of some film work
+      type:
+        range:
+          ManifestationTypeEnum
+    close_mappings:
+      - fiaf:Manifestation
+    description: >-
+      FIAF Moving Image Cataloguing Manual 2.0
 
   Language:
     is_a: Entity
@@ -593,6 +601,49 @@ enums:
           FIAF Moving Image Cataloguing Manual D.6
         meaning: fiaf:SungLanguage
       VoiceOver:
+
+  ManifestationTypeEnum:
+    permissible_values:
+      Broadcast:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.7
+        meaning: fiaf:BroadcastManifestation
+      HomeViewingPublication:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.6
+        meaning: fiaf:HomeViewingPublicationManifestation
+      Internet:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.8
+        meaning: fiaf:InternetManifestation
+      NonTheatricalDistribution:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.3
+        meaning: fiaf:NonTheatricalDistribution
+      NotForRelease:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.4
+        meaning: fiaf:NotForReleaseManifestation
+      PreRelease:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.1
+        meaning: fiaf:PreReleaseManifestation
+      PreservationRestoration:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.9
+        meaning: fiaf:PreservationRestorationManifestation
+      TheatricalDistribution:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.2
+        meaning: fiaf:TheatricalDistribution
+      Unknown:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.10
+        meaning: fiaf:UnknownManifestation
+      Unreleased:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.5
+        meaning: fiaf:UnreleasedManifestation
 
   TitleTypeEnum:
     permissible_values:
