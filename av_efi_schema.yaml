@@ -158,6 +158,22 @@ classes:
     slots:
       - has_format
 
+  Format:
+    is_a: Entity
+    attributes:
+      general_carrier_type:
+        range: GeneralCarrierTypeEnum
+      type:
+        any_of:
+          - range: FormatAudioTypeEnum
+          - range: FormatDigitalFileEncodingTypeEnum
+          - range: FormatDigitalFileTypeEnum
+          - range: FormatFilmTypeEnum
+          - range: FormatOpticalTypeEnum
+          - range: FormatVideoTypeEnum
+    description: >-
+      FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
+
   Manifestation:
     is_a: ManifestationOrItem
     slots:
@@ -698,6 +714,159 @@ enums:
       DecisionEvent:
       ManufactureEvent:
       PublicationEvent:
+
+  FormatAudioTypeEnum:
+    permissible_values:
+      16mmMagneticTrack:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:16mmMagneticTrack
+      35mmMagneticTrack:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:35mmMagneticTrack
+      Audiocassette:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Audiocassette
+      HalfInchAudioReel:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:HalfInchAudioReel
+      OneInchAudioReel:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:OneInchAudioReel
+      QuarterInchAudioReel:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:QuarterInchAudioReel
+      TwoInchAudioReel:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:TwoInchAudioReel
+
+  FormatDigitalFileEncodingTypeEnum:
+    permissible_values:
+      MPEG4:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:MPEG4
+      Quicktime:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Quicktime
+      RealVideo:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:RealVideo
+      SVCD:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:SVCD
+      VCD:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:VCD
+      WindowsMedia:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:WindowsMedia
+
+  FormatDigitalFileTypeEnum:
+    permissible_values:
+      AVI:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:AVI
+      DPX:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:DPX
+      MOV:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:MOV
+      MP4:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:MP4
+      MXF:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:MXF
+
+  FormatFilmTypeEnum:
+    permissible_values:
+      16mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:16mmFilm
+      17.5mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:17.5mmFilm
+      35mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:35mmFilm
+      70mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:70mmFilm
+      8mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:8mmFilm
+      9.5mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:9.5mmFilm
+      Super16mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Super16mmFilm
+      Super8mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Super8mmFilm
+
+  FormatOpticalTypeEnum:
+    permissible_values:
+      BluRay:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:BluRay
+      CD:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:CD
+      DVD:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:DVD
+      LaserDisc:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:LaserDisc
+
+  FormatVideoTypeEnum:
+    permissible_values:
+      1InchCFormat:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:1InchCFormat
+      2InchQuadruplex:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:2InchQuadruplex
+      BetacamSP:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:BetacamSP
+      D1:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:D1
+      D5:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:D5
+      DVCPROHD:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:DVCPROHD
+      DigitalBetacam:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:DigitalBetacam
+      HDCAMSR:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:HDCAMSR
+
+  GeneralCarrierTypeEnum:
+    permissible_values:
+      Audio:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Audio
+      DigitalFile:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:DigitalFile
+      DigitalFileEncoding:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:DigitalFileEncoding
+      Film:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Film
+      Optical:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Optical
+      Video:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Video
 
   ItemAccessStatusEnum:
     permissible_values:
