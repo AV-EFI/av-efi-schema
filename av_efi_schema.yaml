@@ -59,6 +59,7 @@ classes:
     slot_usage:
       same_as:
         any_of:
+          - range: DOIResource
           - range: FilmportalResource
           - range: GNDResource
           - range: VIAFResource
@@ -223,7 +224,7 @@ classes:
       # fiaf:hasHoldingInstitution
       # has_stream (für codec)
       - is_copy_of
-      - is_element
+      - element_type
     close_mappings:
       - fiaf:Item
     description: >-
@@ -517,7 +518,8 @@ slots:
       Link to AVefi item registered by another institution indicating
       that the two are known to be copies of each other
 
-  is_element:
+  element_type:
+    range: ItemElementTypeEnum
 
 enums:
 
@@ -884,6 +886,54 @@ enums:
         description: >-
           FIAF Moving Image Cataloguing Manual D.7.3
         meaning: fiaf:Viewing
+
+  ItemElementTypeEnum:
+    permissible_values:
+      ColourNegative:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:ColourNegative
+      ColourPositive:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:ColourPositive
+      CopperTonedPositive:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:CopperTonedPositive
+      CyanMatrix:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:CyanMatrix
+      DCP:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:DCP
+      DirectBWPositive:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:DirectBWPositive
+      DuplicateNegative:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:DuplicateNegative
+      DuplicatePositive:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:DuplicatePositive
+      Element:
+        description: FIAF Moving Image Cataloguing Manual 3.1.4
+        meaning: fiaf:Element
+      ImageNegative:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:ImageNegative
+      Lavender:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:Lavender
+      OriginalNegative:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:OriginalNegative
+      OriginalPositiveReversalFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:OriginalPositiveReversalFilm
+      Positive:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:Positive
+      SoundNegative:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:SoundNegative
 
   LanguageUsageEnum:
     permissible_values:
