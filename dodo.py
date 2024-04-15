@@ -13,8 +13,8 @@ SCHEMA_PIDS = {
 TYPEAPI = 'http://typeapi.lab.pidconsortium.net/v1/types/schema/'
 REQUEST_PARAMS = '?refresh=true'
 HERE = Path(__file__).parent
-UTILS_DIR = HERE
-WORKING_DIR = HERE.parent / 'KIP_DTR'
+UTILS_DIR = HERE / 'utils'
+WORKING_DIR = HERE / 'KIP_DTR'
 
 
 DOIT_CONFIG = {'action_string_formatting': 'new'}
