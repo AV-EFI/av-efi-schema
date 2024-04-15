@@ -3,6 +3,24 @@ from pathlib import Path
 from urllib.request import urlopen
 
 
+DOIT_CONFIG = {
+    'action_string_formatting': 'new',
+    'default_tasks': ['setup', 'pid_schema', 'python', 'convert'],
+}
+HERE = Path(__file__).parent
+UTILS_DIR = HERE / 'utils'
+WORKING_DIR = HERE / 'KIP_DTR'
+RUN = 'pdm run'
+YAML_SCHEMA = HERE / 'av_efi_schema.yaml'
+JSON_SCHEMA = YAML_SCHEMA.with_suffix('.json')
+PYTHON_BINDINGS = YAML_SCHEMA.with_suffix('.py')
+PID_SCHEMAS = [
+    HERE / 'av_efi_schema_workvariant.json',
+    HERE / 'av_efi_schema_manifestation.json',
+    HERE / 'av_efi_schema_item.json',
+]
+
+
 SCHEMA_PIDS = {
     'work': '21.T11148/31b848e871121c47d064',
     'manifestation': '21.T11148/ef6836b80e4d64e574e3',
@@ -12,12 +30,81 @@ SCHEMA_PIDS = {
 #REQUEST_PARAMS = '/?cached=true'
 TYPEAPI = 'http://typeapi.lab.pidconsortium.net/v1/types/schema/'
 REQUEST_PARAMS = '?refresh=true'
-HERE = Path(__file__).parent
-UTILS_DIR = HERE / 'utils'
-WORKING_DIR = HERE / 'KIP_DTR'
 
 
-DOIT_CONFIG = {'action_string_formatting': 'new'}
+def expand_and_split_json_schema(dependencies, targets):
+    """Generate separate schemas for work, manifestation and item."""
+    import copy
+    import jsonref
+    schema_path = Path(dependencies[0])
+    with schema_path.open('r') as f:
+        schema = jsonref.load(f, proxies=False, jsonschema=True)
+    for i in range(len(schema['properties']['has_record']['items']['anyOf'])):
+        name = schema['properties']['has_record']['items']['anyOf'][i]['title']
+        output = copy.deepcopy(schema)
+        output['$id'] = f"{schema['$id']}-{name.lower()}"
+        output['title'] = output['$id'].rpartition('/')[2]
+        output['description'] = \
+            f"Auto-generated from {schema['$id']} for {name} PIDs"
+        output['properties']['has_record']['items'] = \
+            output['properties']['has_record']['items']['anyOf'][i]
+        del output['$defs']
+        output_path = schema_path.with_stem(
+            f"{schema_path.stem}_{name.lower()}")
+        with output_path.open('w') as f:
+            jsonref.dump(output, f, indent=4)
+
+
+def task_pid_schema():
+    return {
+        'actions': [expand_and_split_json_schema],
+        'file_dep': [JSON_SCHEMA],
+        'targets': PID_SCHEMAS,
+    }
+
+
+def task_jsonschema():
+    """Generate JSON Schema."""
+    return {
+        'actions': [
+            f"{RUN} gen-json-schema {{dependencies}} > {{targets}}",
+        ],
+        'file_dep': [YAML_SCHEMA],
+        'targets': [JSON_SCHEMA],
+    }
+
+
+def task_python():
+    """Generate python bindings."""
+    return {
+        'actions': [
+            f"{RUN} gen-python {{dependencies}} > {{targets}}",
+        ],
+        'file_dep': [YAML_SCHEMA],
+        'targets': [PYTHON_BINDINGS],
+    }
+
+
+def task_setup():
+    """Install dependencies (for developers)."""
+    return {
+        'actions': [
+            'pdm install -d',
+            'touch {targets} stamp-update',
+        ],
+        'targets': ['.stamp-install'],
+        'uptodate': (True,),
+    }
+
+
+def task_update_linkml():
+    """Update dependencies (linkml, etc.)."""
+    return {
+        'actions': [
+            'pdm update -u',
+        ],
+        'uptodate': (True,),
+    }
 
 
 def task_fetch_efi_schemas():
