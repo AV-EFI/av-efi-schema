@@ -9,7 +9,7 @@ imports:
   - linkml:types
 
 prefixes:
-  efi: https://av-efi.net/schema/av-efi-schema/
+  avefi: https://av-efi.net/schema/av-efi-schema/
   fiaf: https://fiafcore.org/ontology/
   linkml: https://w3id.org/linkml/
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
@@ -23,7 +23,7 @@ emit_prefixes:
   - rdfs
   - xsd
 
-default_prefix: efi
+default_prefix: avefi
 default_range: string
 default_curi_maps:
   - semweb_context
@@ -35,7 +35,7 @@ classes:
     slots:
       - category
     description: >-
-      A generic grouping for all described entities
+      A generic grouping for all described things
 
   MovingImageRecord:
     is_a: Entity
@@ -48,16 +48,52 @@ classes:
   WorkVariant:
     is_a: MovingImageRecord
     slots:
-      - country
+      - has_country_of_origin
       - has_form
       - has_genre
-      - has_subject
+      - has_related_term
       - has_work_variant
-      - variant_type
+      - same_as
       - type
+      - variant_type
     slot_usage:
+      same_as:
+        any_of:
+          - range: DOIResource
+          - range: FilmportalResource
+          - range: GNDResource
+          - range: VIAFResource
+          - range: WikidataResource
       type:
-        range: WorkTypeEnum
+        range: WorkVariantTypeEnum
+    close_mappings:
+      - fiaf:WorkVariant
+    description: >-
+      FIAF Moving Image Cataloguing Manual 1.0
+
+  Country:
+    is_a: Entity
+    slots:
+      - alternate_name
+      - name
+      - same_as
+    slot_usage:
+      same_as:
+        any_of:
+          - range: GNDResource
+          - range: VIAFResource
+          - range: WikidataResource
+    close_mappings:
+      - fiaf:Country
+    description: >-
+      FIAF Moving Image Cataloguing Manual 1.3.3
+
+  SubjectHeading:
+    is_a: Entity
+    slots:
+      - alternate_name
+      - name
+      - same_as
 
   Activity:
     is_a: Entity
@@ -70,11 +106,23 @@ classes:
 
   Agent:
     is_a: Entity
+    abstract: true
     slots:
-      - has_identifier
+      - alternate_name
       - name
+      - same_as
+    slot_usage:
+      same_as:
+        any_of:
+          - range: FilmportalResource
+          - range: GNDResource
+          - range: VIAFResource
+          - range: WikidataResource
 
   CorporateBody:
+    is_a: Agent
+
+  Family:
     is_a: Agent
 
   Person:
@@ -82,10 +130,9 @@ classes:
     slots:
       - family_name
       - given_name
-      - has_identifier
-    slot_usage:
-      has_identifier:
-        range: PersonIdentifier
+
+  PersonGroup:
+    is_a: Agent
 
   Event:
     is_a: Entity
@@ -96,17 +143,6 @@ classes:
     slot_usage:
       type:
         range: EventTypeEnum
-
-  Identifier:
-    is_a: Entity
-    slots:
-      - id
-
-  PersonIdentifier:
-    is_a: Identifier
-
-  LocationIdentifier:
-    is_a: Identifier
 
   Title:
     is_a: Entity
@@ -123,23 +159,76 @@ classes:
     slots:
       - has_format
 
+  Format:
+    is_a: Entity
+    attributes:
+      general_carrier_type:
+        range: GeneralCarrierTypeEnum
+      type:
+        any_of:
+          - range: FormatAudioTypeEnum
+          - range: FormatDigitalFileEncodingTypeEnum
+          - range: FormatDigitalFileTypeEnum
+          - range: FormatFilmTypeEnum
+          - range: FormatOpticalTypeEnum
+          - range: FormatVideoTypeEnum
+    description: >-
+      FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
+
   Manifestation:
     is_a: ManifestationOrItem
     slots:
       - has_item
       - is_manifestation_of
+      - language
       - production_year
       - release_date
+      - same_as
+      - type
+    slot_usage:
+      same_as:
+        range: AVEFIResource
+        description: >-
+          Link to AVefi resource registered by another data provider
+          indicating that the two manifestations are known to be the
+          same. Use this, for instance, when you have cooperated in
+          making a digital restoration of some film work
+      type:
+        range:
+          ManifestationTypeEnum
+    close_mappings:
+      - fiaf:Manifestation
+    description: >-
+      FIAF Moving Image Cataloguing Manual 2.0
+
+  Language:
+    is_a: Entity
+    attributes:
+      code:
+        pattern: ^[a-z]{3}$
+        description: >-
+          ISO 639-2 code for the Representation of Names of Languages
+          (Part 2: Alpha-3)
+        see_also:
+          - https://id.loc.gov/vocabulary/iso639-2.html
+      usage:
+        multivalued: true
+        range: LanguageUsageEnum
 
   Item:
     is_a: ManifestationOrItem
     slots:
+      - access_status
       - is_item_of
       - has_holding_institution
       # fiaf:hasHoldingInstitution
-      - has_status
       # has_stream (für codec)
-      - is_element
+      - is_copy_of
+      - element_type
+    close_mappings:
+      - fiaf:Item
+    description: >-
+      FIAF Moving Image Cataloguing Manual 3.0
 
   MovingImageRecordCollection:
     is_a: Entity
@@ -149,6 +238,137 @@ classes:
       - has_record
     tree_root: true
 
+  #-----------------------------------
+  # Identifier classes
+  #-----------------------------------
+
+  AuthorityResource:
+    is_a: Entity
+    abstract: true
+    slots:
+      - id
+    slot_usage:
+      id:
+        range: string
+    description: >-
+      Root class for all identifiers from some kind of authority or
+      public register widely accepted in the community
+
+  DOIResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^10\\.[0-9]{4,9}(\\.[0-9]+)*(\\/|%2F)((?![\"&\'])\\S)+$
+    annotations:
+      formatter_uri_for_rdf_resource: "http://dx.doi.org/$1"
+      formatter_url_for_web_resource: "https://dx.doi.org/$1"
+      provides: >-
+        - CreativeWorkIdentifier
+    description: >-
+      Digital Object Identifier maintained by the DOI Foundation and
+      commonly used for scientific publications including films.
+    see_also:
+      - https://dx.doi.org/
+      - https://www.wikidata.org/wiki/Property:P356
+
+  AVEFIResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^21(\\.([0-9A-Za-z])+)*\\/([!-~])+$
+    annotations:
+      formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
+    todos:
+      Possibly change formatter URIs/URLs to the av-efi.net domain when
+      the details have been sorted out
+    description: >-
+      Handle with the prefix allocated for AVefi (eventually)
+
+  FilmportalResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^[\\da-f]{32}$
+    annotations:
+      formatter_uri_for_rdf_resource: https://www.filmportal.de/$1
+      formatter_uri_for_web_resource: https://www.filmportal.de/$1
+      provides: >-
+        - CreativeWorkIdentifier
+        - PersonIdentifier
+    description: >-
+      Identifier of the German Filmportal.de
+    see_also:
+      - https://www.filmportal.de/
+      - https://www.wikidata.org/entity/P2639
+
+  GNDResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^[-\\dX]+$
+    annotations:
+      formatter_uri_for_rdf_resource: https://d-nb.info/gnd/$1
+      formatter_url_for_web_resource: https://d-nb.info/gnd/$1
+      provides: >-
+        - CreativeWorkIdentifier
+        - PlaceIdentifier
+        - OrganizationIdentifier
+        - PersonIdentifier
+        - SubjectHeadingIdentifier
+    notes: >-
+      - alternative_web_resource: https://explore.gnd.network/gnd/$1/relations
+      - other_resources:
+          - https://d-nb.info/gnd/$1/about/lds
+          - https://hub.culturegraph.org/entityfacts/$1
+          - https://lobid.org/gnd/$1
+      - API documentation including auto-complete suggestions at
+          https://lobid.org/gnd/api
+    description: >-
+      Gemeinsame Normdatei (GND) identifier maintained by Deutsche
+      Nationalbibliothek (German National Library)
+    see_also:
+      - https://www.wikidata.org/entity/P227
+
+  VIAFResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^\\d+$
+    annotations:
+      formatter_uri_for_rdf_resource: http://viaf.org/viaf/$1
+      formatter_url_for_web_resource: https://viaf.org/viaf/$1
+      provides: >-
+        - CreativeWorkIdentifier
+        - PlaceIdentifier
+        - OrganizationIdentifier
+        - PersonIdentifier
+    description: >-
+      Virtual International Authority File identifier hosted by OCLC.
+      The data is accumulated from various well established authority
+      files from different parts of teh world.
+    see_also:
+      - https://viaf.org/
+      - https://www.wikidata.org/entity/P214
+
+  WikidataResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^[LPQ]\\d+$
+    annotations:
+      formatter_uri_for_rdf_resource: https://www.wikidata.org/entity/$1
+      formatter_url_for_web_resource: https://www.wikidata.org/entity/$1
+      provides: >-
+        - CreativeWorkIdentifier
+        - PlaceIdentifier
+        - OrganizationIdentifier
+        - PersonIdentifier
+        - SubjectHeadingIdentifier
+    description: >-
+      Identifier for Wikidata entities
+    see_also:
+      - https://www.wikidata.org/wiki/Wikidata:Identifiers
+
 slots:
 
   #-----------------------------------
@@ -156,7 +376,7 @@ slots:
   #-----------------------------------
 
   id:
-    #identifier: true
+    identifier: true
     slot_uri: schema:identifier
     range: uriorcurie
     description: A unique identifier for a thing
@@ -164,6 +384,10 @@ slots:
   name:
     slot_uri: schema:name
     description: A human-readable name for a thing
+
+  alternate_name:
+    slot_uri: schema:alternateName
+    multivalued: true
 
   description:
     slot_uri: schema:description
@@ -181,6 +405,11 @@ slots:
     slot_uri: rdf:type
     designates_type: true
     range: uriorcurie
+
+  same_as:
+    inlined_as_list: true
+    multivalued: true
+    range: AuthorityResource
 
   #-----------------------------------
   # Event branch slots
@@ -208,18 +437,22 @@ slots:
   # WorkVariant branch
   #-----------------------------------
 
-  country:
+  has_country_of_origin:
+    inlined_as_list: true
     multivalued: true
+    range: Country
 
   has_form:
+    multivalued: true
+    range: WorkFormEnum
 
   has_genre:
-
-  has_identifier:
     multivalued: true
-    range: Identifier
 
-  has_subject:
+  has_related_term:
+    inlined_as_list: true
+    multivalued: true
+    range: SubjectHeading
 
   has_title:
     multivalued: true
@@ -241,11 +474,21 @@ slots:
 
   has_item:
     multivalued: true
-    range: Item
+    range: AVEFIResource
+    description: >-
+       Indicate AVefi Items the institution has registered as part of
+       the manifestation
 
   is_manifestation_of:
     multivalued: true
-    range: WorkVariant
+    range: AVEFIResource
+    description: >-
+      Indicate AVefi WorkVariant (possibly more but no less than one)
+      that is subject of the manifestation
+
+  language:
+    multivalued: true
+    range: Language
 
   production_year:
 
@@ -257,38 +500,178 @@ slots:
 
   is_item_of:
     # multivalued: true
-    range: Manifestation
+    range: AVEFIResource
+    description: >-
+      Indicate AVefi Manifestation the item belongs to. Every item must
+      be associated with a manifestation from the same data provider
 
   has_holding_institution:
 
-  has_status:
+  access_status:
+    range: ItemAccessStatusEnum
 
-  is_element:
+  is_copy_of:
+    inlined_as_list: true
+    multivalued: true
+    range: AVEFIResource
+    description: >-
+      Link to AVefi item registered by another institution indicating
+      that the two are known to be copies of each other
+
+  element_type:
+    range: ItemElementTypeEnum
 
 enums:
 
   ActivityTypeEnum:
     permissible_values:
+      Adaptation:
+        description: FIAF Glossary of Filmographic Terms B.4.11
+        meaning: fiaf:Adaptation
+      Animation:
+        description: FIAF Glossary of Filmographic Terms B.13.1
+        meaning: fiaf:Animation
+      ArtDirector:
+        description: FIAF Glossary of Filmographic Terms B.6.2
+        meaning: fiaf:ArtDirector
+      AssistantArtDirector:
+        description: FIAF Glossary of Filmographic Terms B.6.3
+        meaning: fiaf:AssistantArtDirector
+      AssistantDirector:
+        description: FIAF Glossary of Filmographic Terms B.3.2
+        meaning: fiaf:AssistantDirector
+      AssistantFilmEditor:
+        description: FIAF Glossary of Filmographic Terms B.10.2
+        meaning: fiaf:AssistantFilmEditor
+      AssociateProducer:
+        description: FIAF Glossary of Filmographic Terms B.2.6
+        meaning: fiaf:AssociateProducer
+      CameraAssistant:
+        description: FIAF Glossary of Filmographic Terms B.5.7
+        meaning: fiaf:CameraAssistant
+      CastingDirector:
+        description: FIAF Glossary of Filmographic Terms B.3.4
+        meaning: fiaf:CastingDirector
+      Choreographer:
+        description: FIAF Glossary of Filmographic Terms B.11.15
+        meaning: fiaf:Choreographer
+      Cinematographer:
+        description: FIAF Glossary of Filmographic Terms B.5.1
+        meaning: fiaf:Cinematographer
+      Continuity:
+        description: FIAF Glossary of Filmographic Terms B.3.5
+        meaning: fiaf:Continuity
+      CostumeDesigner:
+        description: FIAF Glossary of Filmographic Terms B.6.12
+        meaning: fiaf:CostumeDesigner
       Director:
+        description: FIAF Glossary of Filmographic Terms B.3.1
         meaning: fiaf:Director
-        description: >-
-          FIAF Glossary of Filmographic Terms B.13.9
+      Electrician:
+        description: FIAF Glossary of Filmographic Terms B.5.13
+        meaning: fiaf:Electrician
+      ExecutiveProducer:
+        description: FIAF Glossary of Filmographic Terms B.2.4
+        meaning: fiaf:ExecutiveProducer
+      FilmEditor:
+        description: FIAF Glossary of Filmographic Terms B.10.1
+        meaning: fiaf:FilmEditor
+      FoleyArtist:
+        description: FIAF Glossary of Filmographic Terms B.9.9
+        meaning: fiaf:FoleyArtist
+      GafferLighting:
+        description: FIAF Glossary of Filmographic Terms B.5.11
+        meaning: fiaf:GafferLighting
+      Gowns:
+        description: FIAF Glossary of Filmographic Terms B.6.16
+        meaning: fiaf:Gowns
+      Idea:
+        description: FIAF Glossary of Filmographic Terms B.4.6
+        meaning: fiaf:Idea
+      LineProducer:
+        description: FIAF Glossary of Filmographic Terms B.2.7
+        meaning: fiaf:LineProducer
+      LoaderClapper:
+        description: FIAF Glossary of Filmographic Terms B.5.9
+        meaning: fiaf:LoaderClapper
+      LocationManager:
+        description: FIAF Glossary of Filmographic Terms B.2.12
+        meaning: fiaf:LocationManager
+      MakeUpArtist:
+        description: FIAF Glossary of Filmographic Terms B.6.19
+        meaning: fiaf:MakeUpArtist
+      MusicSupervisor:
+        description: FIAF Glossary of Filmographic Terms B.11.3
+        meaning: fiaf:MusicSupervisor
+      NarrationWriter:
+        description: FIAF Glossary of Filmographic Terms B.4.15
+        meaning: fiaf:NarrationWriter
       Producer:
+        description: FIAF Glossary of Filmographic Terms B.2.3
         meaning: fiaf:Producer
-        description: >-
-          FIAF Glossary of Filmographic Terms B.2.3
-      ProductionCompany:
-        meaning: fiaf:ProductionCompany
-        description: >-
-          FIAF Glossary of Filmographic Terms B.2.1
+      ProductionAssistant:
+        description: FIAF Glossary of Filmographic Terms B.2.14
+        meaning: fiaf:ProductionAssistant
       ProductionDesigner:
+        description: FIAF Glossary of Filmographic Terms B.6.1
         meaning: fiaf:ProductionDesigner
-        description: >-
-          FIAF Glossary of Filmographic Terms B.6.1
-      ProductionManager:
-        meaning: fiaf:ProductionManager
-        description: >-
-          FIAF Glossary of Filmographic Terms B.2.9
+      PropertyMaster:
+        description: FIAF Glossary of Filmographic Terms B.6.7
+        meaning: fiaf:PropertyMaster
+      Research:
+        description: FIAF Glossary of Filmographic Terms B.4.16
+        meaning: fiaf:Research
+      SecondUnitDirector:
+        description: FIAF Glossary of Filmographic Terms B.3.3
+        meaning: fiaf:SecondUnitDirector
+      SecondUnitDirectorofPhotography:
+        description: FIAF Glossary of Filmographic Terms B.5.2
+        meaning: fiaf:SecondUnitDirectorofPhotography
+      SetDecorator:
+        description: FIAF Glossary of Filmographic Terms B.6.6
+        meaning: fiaf:SetDecorator
+      SetDesigner:
+        description: FIAF Glossary of Filmographic Terms B.6.5
+        meaning: fiaf:SetDesigner
+      SingingVoice:
+        description: FIAF Glossary of Filmographic Terms B.11.8
+        meaning: fiaf:SingingVoice
+      SoundDesigner:
+        description: FIAF Glossary of Filmographic Terms B.9.1
+        meaning: fiaf:SoundDesigner
+      SoundEditor:
+        description: FIAF Glossary of Filmographic Terms B.9.7
+        meaning: fiaf:SoundEditor
+      SoundRecorderMixer:
+        description: FIAF Glossary of Filmographic Terms B.9.3
+        meaning: fiaf:SoundRecorderMixer
+      SourceMaterial:
+        description: FIAF Glossary of Filmographic Terms B.4.4
+        meaning: fiaf:SourceMaterial
+      SpecialEffects:
+        description: FIAF Glossary of Filmographic Terms B.8.1
+        meaning: fiaf:SpecialEffects
+      SteadicamOperator:
+        description: FIAF Glossary of Filmographic Terms B.5.6
+        meaning: fiaf:SteadicamOperator
+      StillPhotographer:
+        description: FIAF Glossary of Filmographic Terms B.5.18
+        meaning: fiaf:StillPhotographer
+      StoryboardArtist:
+        description: FIAF Glossary of Filmographic Terms B.6.4
+        meaning: fiaf:StoryboardArtist
+      StuntArranger:
+        description: FIAF Glossary of Filmographic Terms B.3.6
+        meaning: fiaf:StuntArranger
+      TitleDesigner:
+        description: FIAF Glossary of Filmographic Terms B.6.21
+        meaning: fiaf:TitleDesigner
+      VisualEffects:
+        description: FIAF Glossary of Filmographic Terms B.8.2
+        meaning: fiaf:VisualEffects
+      Writer:
+        description: FIAF Glossary of Filmographic Terms B.4.2
+        meaning: fiaf:Writer
 
   EventTypeEnum:
     permissible_values:
@@ -334,6 +717,302 @@ enums:
       ManufactureEvent:
       PublicationEvent:
 
+  FormatAudioTypeEnum:
+    permissible_values:
+      16mmMagneticTrack:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:16mmMagneticTrack
+      35mmMagneticTrack:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:35mmMagneticTrack
+      Audiocassette:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Audiocassette
+      HalfInchAudioReel:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:HalfInchAudioReel
+      OneInchAudioReel:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:OneInchAudioReel
+      QuarterInchAudioReel:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:QuarterInchAudioReel
+      TwoInchAudioReel:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:TwoInchAudioReel
+
+  FormatDigitalFileEncodingTypeEnum:
+    permissible_values:
+      MPEG4:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:MPEG4
+      Quicktime:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Quicktime
+      RealVideo:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:RealVideo
+      SVCD:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:SVCD
+      VCD:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:VCD
+      WindowsMedia:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:WindowsMedia
+
+  FormatDigitalFileTypeEnum:
+    permissible_values:
+      AVI:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:AVI
+      DPX:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:DPX
+      MOV:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:MOV
+      MP4:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:MP4
+      MXF:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:MXF
+
+  FormatFilmTypeEnum:
+    permissible_values:
+      16mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:16mmFilm
+      17.5mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:17.5mmFilm
+      35mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:35mmFilm
+      70mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:70mmFilm
+      8mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:8mmFilm
+      9.5mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:9.5mmFilm
+      Super16mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Super16mmFilm
+      Super8mmFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Super8mmFilm
+
+  FormatOpticalTypeEnum:
+    permissible_values:
+      BluRay:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:BluRay
+      CD:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:CD
+      DVD:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:DVD
+      LaserDisc:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:LaserDisc
+
+  FormatVideoTypeEnum:
+    permissible_values:
+      1InchCFormat:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:1InchCFormat
+      2InchQuadruplex:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:2InchQuadruplex
+      BetacamSP:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:BetacamSP
+      D1:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:D1
+      D5:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:D5
+      DVCPROHD:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:DVCPROHD
+      DigitalBetacam:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:DigitalBetacam
+      HDCAMSR:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:HDCAMSR
+
+  GeneralCarrierTypeEnum:
+    permissible_values:
+      Audio:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Audio
+      DigitalFile:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:DigitalFile
+      DigitalFileEncoding:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:DigitalFileEncoding
+      Film:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Film
+      Optical:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Optical
+      Video:
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:Video
+
+  ItemAccessStatusEnum:
+    permissible_values:
+      Archive:
+      Distribution:
+      Master:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.7.3
+        meaning: fiaf:Master
+      Removed:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.7.3
+        meaning: fiaf:Removed
+      Viewing:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.7.3
+        meaning: fiaf:Viewing
+
+  ItemElementTypeEnum:
+    permissible_values:
+      ColourNegative:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:ColourNegative
+      ColourPositive:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:ColourPositive
+      CopperTonedPositive:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:CopperTonedPositive
+      CyanMatrix:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:CyanMatrix
+      DCP:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:DCP
+      DirectBWPositive:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:DirectBWPositive
+      DuplicateNegative:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:DuplicateNegative
+      DuplicatePositive:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:DuplicatePositive
+      Element:
+        description: FIAF Moving Image Cataloguing Manual 3.1.4
+        meaning: fiaf:Element
+      ImageNegative:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:ImageNegative
+      Lavender:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:Lavender
+      OriginalNegative:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:OriginalNegative
+      OriginalPositiveReversalFilm:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:OriginalPositiveReversalFilm
+      Positive:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:Positive
+      SoundNegative:
+        description: FIAF Moving Image Cataloguing Manual D.7.8
+        meaning: fiaf:SoundNegative
+
+  LanguageUsageEnum:
+    permissible_values:
+      AudioDescription:
+      Captions:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:Captions
+      ClosingCredits:
+      Intertitles:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:Intertitles
+      NoDialogue:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:NoDialogue
+      OpeningCredits:
+      SignedLanguage:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:SignedLanguage
+      SpokenLanguage:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:SpokenLanguage
+      Subtitles:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:Subtitles
+      SungLanguage:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.6
+        meaning: fiaf:SungLanguage
+      VoiceOver:
+
+  ManifestationTypeEnum:
+    permissible_values:
+      Broadcast:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.7
+        meaning: fiaf:BroadcastManifestation
+      HomeViewingPublication:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.6
+        meaning: fiaf:HomeViewingPublicationManifestation
+      Internet:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.8
+        meaning: fiaf:InternetManifestation
+      NonTheatricalDistribution:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.3
+        meaning: fiaf:NonTheatricalDistribution
+      NotForRelease:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.4
+        meaning: fiaf:NotForReleaseManifestation
+      PreRelease:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.1
+        meaning: fiaf:PreReleaseManifestation
+      PreservationRestoration:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.9
+        meaning: fiaf:PreservationRestorationManifestation
+      TheatricalDistribution:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.2
+        meaning: fiaf:TheatricalDistribution
+      Unknown:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.10
+        meaning: fiaf:UnknownManifestation
+      Unreleased:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.5
+        meaning: fiaf:UnreleasedManifestation
+
   TitleTypeEnum:
     permissible_values:
       AbbreviatedTitle:
@@ -349,9 +1028,88 @@ enums:
       TransliteratedTitle:
       WorkingTitle:
 
-  WorkTypeEnum:
+  WorkVariantTypeEnum:
     permissible_values:
       Analytic:
       Collection:
       Monographic:
       Serial:
+
+  WorkFormEnum:
+    permissible_values:
+      AmateurFilm:
+        meaning: fiaf:AmateurFilm
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      Compilation:
+        meaning: fiaf:Compilation
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      Excerpt:
+        meaning: fiaf:Excerpt
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      Feature:
+        meaning: fiaf:Feature
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      Featurette:
+        meaning: fiaf:Featurette
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      HomeMovie:
+        meaning: fiaf:HomeMovie
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      Outtake:
+        meaning: fiaf:Outtake
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      ScreenTest:
+        meaning: fiaf:ScreenTest
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      Series:
+        meaning: fiaf:Series
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      Short:
+        meaning: fiaf:Short
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      StockFootage:
+        meaning: fiaf:StockFootage
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      Trailer:
+        meaning: fiaf:Trailer
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      UneditedFootage:
+        meaning: fiaf:UneditedFootage
+        description: >-
+          FIAF Glossary of Filmographic Terms D.1.9
+      AnthologyFilm:
+        description: >-
+          FIAF Moving Image Cataloguing Manual E.2.2
+      Commercial:
+        description: >-
+          FIAF Moving Image Cataloguing Manual E.2.2
+      EducationalFilm:
+        description: >-
+          FIAF Moving Image Cataloguing Manual 0.1.2, D.5.3
+      EssayFilm:
+        description: >-
+          FIAF Moving Image Cataloguing Manual 0.1.2
+      ExperimentalFilm:
+        description: >-
+          FIAF Moving Image Cataloguing Manual 0.1.2
+      IndustrialFilm:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.5.3
+      MusicVideo:
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.18
+      Newsreel:
+        description: >-
+          http://www.screenonline.org.uk/film/id/476463/index.html
