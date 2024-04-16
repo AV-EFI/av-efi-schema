@@ -1,0 +1,35 @@
+[project]
+name = "av-efi-schema"
+version = "0.1.0"
+description = "Schema for persistent film identifiers developed in the AVefi project"
+authors = [
+    {name = "AVefi Working Group", email = "contact@av-efi.net"},
+]
+dependencies = [
+    "linkml-runtime>=1.7.5",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+[project.optional-dependencies]
+docs = [
+    "linkml>=1.7.8",
+    "mkdocs-material>=9.5.17",
+]
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "linkml>=1.7.8",
+    "mkdocs-material>=9.5.17",
+    "mkdocs-mermaid2-plugin>=1.1.1",
+    "schemasheets>=0.2.1",
+    "jsonref>=1.1.0",
+]
