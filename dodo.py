@@ -1,14 +1,24 @@
+import copy
 import json
+import jsonref
 from pathlib import Path
 from urllib.request import urlopen
+import yaml
 
 
 DOIT_CONFIG = {
     'action_string_formatting': 'new',
-    'default_tasks': ['setup', 'pid_schema', 'python', 'convert'],
+    'default_tasks': [
+        'setup',
+        'pid_schema',
+        'vocabularies',
+        'python',
+        'convert',
+    ],
 }
 HERE = Path(__file__).parent
 UTILS_DIR = HERE / 'utils'
+VOCAB_DIR = HERE / 'Controlled_Vocabularies'
 WORKING_DIR = HERE / 'KIP_DTR'
 RUN = 'pdm run'
 YAML_SCHEMA = HERE / 'av_efi_schema.yaml'
@@ -32,10 +42,30 @@ TYPEAPI = 'http://typeapi.lab.pidconsortium.net/v1/types/schema/'
 REQUEST_PARAMS = '?refresh=true'
 
 
+def task_vocabularies():
+    return {
+        'actions': [generate_json_enum_files],
+        'file_dep': [YAML_SCHEMA],
+    }
+
+
+def generate_json_enum_files(dependencies, targets):
+    VOCAB_BASE_URL = 'https://raw.githubusercontent.com/' \
+        'AV-EFI/av-efi-schema/main/Controlled_Vocabularies/'
+    with open(dependencies[0], 'r') as f:
+        schema = yaml.safe_load(f)
+    for key, enum_dict in schema['enums'].items():
+        output = {
+            '$id': key,
+            'enum': list(enum_dict['permissible_values'].keys()),
+        }
+        output_path = VOCAB_DIR / f"{key}.json"
+        with output_path.open('w') as f:
+            f.write(json.dumps(output, indent=2, sort_keys=True))
+
+
 def expand_and_split_json_schema(dependencies, targets):
     """Generate separate schemas for work, manifestation and item."""
-    import copy
-    import jsonref
     schema_path = Path(dependencies[0])
     with schema_path.open('r') as f:
         schema = jsonref.load(f, proxies=False, jsonschema=True)
