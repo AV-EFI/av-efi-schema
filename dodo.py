@@ -76,7 +76,7 @@ def expand_and_split_json_schema(dependencies, targets):
         output['title'] = output['$id'].rpartition('/')[2]
         output['description'] = \
             f"Auto-generated from {schema['$id']} for {name} PIDs"
-        output['properties']['has_record']['items'] = \
+        output['properties']['has_record'] = \
             output['properties']['has_record']['items']['anyOf'][i]
         del output['$defs']
         output_path = schema_path.with_stem(
