@@ -9,7 +9,6 @@ import yaml
 DOIT_CONFIG = {
     'action_string_formatting': 'new',
     'default_tasks': [
-        'setup',
         'pid_schema',
         'vocabularies',
         'python',
@@ -90,6 +89,7 @@ def task_pid_schema():
     return {
         'actions': [expand_and_split_json_schema],
         'file_dep': [JSON_SCHEMA],
+        'task_dep': ['sync_dependencies'],
         'targets': PID_SCHEMAS,
     }
 
@@ -101,6 +101,7 @@ def task_jsonschema():
             f"{RUN} gen-json-schema {{dependencies}} > {{targets}}",
         ],
         'file_dep': [YAML_SCHEMA],
+        'task_dep': ['sync_dependencies'],
         'targets': [JSON_SCHEMA],
     }
 
@@ -112,6 +113,7 @@ def task_python():
             f"{RUN} gen-python {{dependencies}} > {{targets}}",
         ],
         'file_dep': [YAML_SCHEMA],
+        'task_dep': ['sync_dependencies'],
         'targets': [PYTHON_BINDINGS],
     }
 
@@ -123,19 +125,18 @@ def task_docs():
             f"{RUN} gen-doc -d {{targets}} {{dependencies}}",
         ],
         'file_dep': [YAML_SCHEMA],
+        'task_dep': ['sync_dependencies'],
         'targets': [DOCS_DIR],
     }
 
 
-def task_setup():
-    """Install dependencies (for developers)."""
+def task_sync_dependencies():
+    """Install dependencies according to pdm.lock (for developers)."""
     return {
         'actions': [
-            'pdm install -d',
-            'touch {targets} stamp-update',
+            'pdm sync',
         ],
-        'targets': ['.stamp-install'],
-        'uptodate': (True,),
+        'file_dep': ['pdm.lock'],
     }
 
 
