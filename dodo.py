@@ -17,6 +17,7 @@ DOIT_CONFIG = {
     ],
 }
 HERE = Path(__file__).parent
+DOCS_DIR = HERE / 'docs'
 UTILS_DIR = HERE / 'utils'
 VOCAB_DIR = HERE / 'Controlled_Vocabularies'
 WORKING_DIR = HERE / 'KIP_DTR'
@@ -112,6 +113,17 @@ def task_python():
         ],
         'file_dep': [YAML_SCHEMA],
         'targets': [PYTHON_BINDINGS],
+    }
+
+
+def task_docs():
+    """Build documentation from LinkML schema."""
+    return {
+        'actions': [
+            f"{RUN} gen-doc -d {{targets}} {{dependencies}}",
+        ],
+        'file_dep': [YAML_SCHEMA],
+        'targets': [DOCS_DIR],
     }
 
 
