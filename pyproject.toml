@@ -32,4 +32,5 @@ dev = [
     "mkdocs-mermaid2-plugin>=1.1.1",
     "schemasheets>=0.2.1",
     "jsonref>=1.1.0",
+    "doit>=0.36.0",
 ]
