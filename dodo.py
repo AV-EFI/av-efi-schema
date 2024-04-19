@@ -43,6 +43,7 @@ REQUEST_PARAMS = '?refresh=true'
 
 
 def task_vocabularies():
+    """Generate JSON enum lists for typeapi from LinkML schema."""
     return {
         'actions': [generate_json_enum_files],
         'file_dep': [YAML_SCHEMA],
@@ -86,6 +87,7 @@ def expand_and_split_json_schema(dependencies, targets):
 
 
 def task_pid_schema():
+    """Generate derived schemas for WorkVariant, Manifestation, Item."""
     return {
         'actions': [expand_and_split_json_schema],
         'file_dep': [JSON_SCHEMA],
@@ -95,7 +97,7 @@ def task_pid_schema():
 
 
 def task_jsonschema():
-    """Generate JSON Schema."""
+    """Generate derived JSON Schema."""
     return {
         'actions': [
             f"{RUN} gen-json-schema {{dependencies}} > {{targets}}",
