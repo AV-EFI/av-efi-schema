@@ -696,48 +696,96 @@ enums:
         meaning: fiaf:Writer
 
   EventTypeEnum:
+    notes:
+      - Limited set from FIAFcore as applicable
     permissible_values:
-      BroadcastEvent:
-      CastingEvent:
-      CensorshipEvent:
-      DigitisationEvent:
-      DistributionEvent:
-      DonationEvent:
-      DuplicationEvent:
-      ExchangeEvent:
-      FilmPrintingEvent:
-      HomeVideoPublicationEvent:
-      IndoorShootingEvent:
-      LoanEvent:
-      MasteringEvent:
-      NonTheatricalDistributionEvent:
-      NotForReleaseEvent:
-      OffAirRecordingEvent:
-      OnlineTransmissionEvent:
-      OutdoorShootingEvent:
-      PostProductionEvent:
-      PreReleaseEvent:
-      PurchaseEvent:
-      RatingEvent:
-      ReleaseEvent:
-      ReproductionEvent:
-      RevisionEvent:
-      RightsCopyrightRegistrationEvent:
-      ScanningEvent:
-      TelecineEvent:
-      TheatricalDistributionEvent:
-      TransferEvent:
-      UnknownEvent: # Unknown Publication EVent type
-      UploadingEvent:
-      VideoCopyingEvent:
-      InspectionEvent:
-      AwardsOrNominationsEvent:
-      PreservationEvent:
-      ProductionEvent:
-      AcquisitionEvent:
-      DecisionEvent:
       ManufactureEvent:
+        description: FIAF Moving Image Cataloguing Manual D.4.7
+        meaning: fiaf:ManufactureEvent
+      FilmPrintingEvent:
+        description: FIAF Moving Image Cataloguing Manual D.14
+        meaning: fiaf:FilmPrintingEvent
+      MasteringEvent:
+        description: FIAF Moving Image Cataloguing Manual D.14
+        meaning: fiaf:MasteringEvent
+      ScanningEvent:
+        description: FIAF Moving Image Cataloguing Manual D.14
+        meaning: fiaf:ScanningEvent
+      TelecineEvent:
+        description: FIAF Moving Image Cataloguing Manual D.14
+        meaning: fiaf:TelecineEvent
+      UploadingEvent:
+        description: FIAF Moving Image Cataloguing Manual D.14
+        meaning: fiaf:UploadingEvent
+      VideoCopyingEvent:
+        description: FIAF Moving Image Cataloguing Manual D.14
+        meaning: fiaf:VideoCopyingEvent
+      PreservationEvent:
+        description: FIAF Moving Image Cataloguing Manual D.4.5
+        meaning: fiaf:PreservationEvent
+      DigitisationEvent:
+        description: FIAF Moving Image Cataloguing Manual D.12
+        meaning: fiaf:DigitisationEvent
+      DuplicationEvent:
+        description: FIAF Moving Image Cataloguing Manual D.12
+        meaning: fiaf:DuplicationEvent
+      ReproductionEvent:
+        description: FIAF Moving Image Cataloguing Manual D.12
+        meaning: fiaf:ReproductionEvent
+      TransferEvent:
+        description: FIAF Moving Image Cataloguing Manual D.12
+        meaning: fiaf:TransferEvent
+      ProductionEvent:
+        description: FIAF Moving Image Cataloguing Manual D.4.3
+        meaning: fiaf:ProductionEvent
+      CastingEvent:
+        description: FIAF Moving Image Cataloguing Manual D.11
+        meaning: fiaf:CastingEvent
+      IndoorShootingEvent:
+        description: FIAF Moving Image Cataloguing Manual D.11
+        meaning: fiaf:IndoorShootingEvent
+      OutdoorShootingEvent:
+        description: FIAF Moving Image Cataloguing Manual D.11
+        meaning: fiaf:OutdoorShootingEvent
+      PostProductionEvent:
+        description: FIAF Moving Image Cataloguing Manual D.11
+        meaning: fiaf:PostProductionEvent
       PublicationEvent:
+        description: FIAF Moving Image Cataloguing Manual D.4.1
+        meaning: fiaf:PublicationEvent
+      BroadcastEvent:
+        description: FIAF Moving Image Cataloguing Manual D.10
+        meaning: fiaf:BroadcastEvent
+      DistributionEvent:
+        description: FIAF Moving Image Cataloguing Manual D.10
+        meaning: fiaf:DistributionEvent
+      HomeVideoPublicationEvent:
+        description: FIAF Moving Image Cataloguing Manual D.10
+        meaning: fiaf:HomeVideoPublicationEvent
+      NonTheatricalDistributionEvent:
+        description: FIAF Moving Image Cataloguing Manual D.10
+        meaning: fiaf:NonTheatricalDistributionEvent
+      NotForReleaseEvent:
+        description: FIAF Moving Image Cataloguing Manual D.10
+        meaning: fiaf:NotForReleaseEvent
+      OnlineTransmissionEvent:
+        description: FIAF Moving Image Cataloguing Manual D.10
+        meaning: fiaf:OnlineTransmissionEvent
+      PreReleaseEvent:
+        description: FIAF Moving Image Cataloguing Manual D.10
+        meaning: fiaf:PreReleaseEvent
+      ReleaseEvent:
+        description: FIAF Moving Image Cataloguing Manual D.10
+        meaning: fiaf:ReleaseEvent
+      TheatricalDistributionEvent:
+        description: FIAF Moving Image Cataloguing Manual D.10
+        meaning: fiaf:TheatricalDistributionEvent
+      UnknownEvent:
+        description: FIAF Moving Image Cataloguing Manual D.10
+        meaning: fiaf:UnknownEvent
+      RightsCopyrightRegistrationEvent:
+        description: FIAF Moving Image Cataloguing Manual D.4.4
+        meaning: fiaf:RightsCopyrightRegistrationEvent
 
   FormatAudioTypeEnum:
     permissible_values:
