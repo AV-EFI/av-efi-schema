@@ -1100,17 +1100,50 @@ enums:
   TitleTypeEnum:
     permissible_values:
       AbbreviatedTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.4.1
+        meaning: fiaf:AbbreviatedTitle
       AcquisitionTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.4.1
+        meaning: fiaf:AcquisitionTitle
+      AlternativeTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.4
+        meaning: fiaf:AlternativeTitle
       CorrectedTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.4.1
+        meaning: fiaf:CorrectedTitle
       IdentifyingTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.1
+        meaning: fiaf:IdentifyingTitle
       ParallelTitle:
-      PreferredTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.4.1
+        meaning: fiaf:ParallelTitle
       PreReleaseTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.4.1
+        meaning: fiaf:PreReleaseTitle
+      PreferredTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.0
+        meaning: fiaf:PreferredTitle
       SearchTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.4.1
+        meaning: fiaf:SearchTitle
+      SeriesTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.4.1
+        meaning: fiaf:SeriesTitle
       SuppliedDevisedTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.5
+        meaning: fiaf:SuppliedDevisedTitle
+      TitleProper:
+        description: FIAF Moving Image Cataloguing Manual A.2.2
+        meaning: fiaf:TitleProper
       TranslatedTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.4.1
+        meaning: fiaf:TranslatedTitle
       TransliteratedTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.4.1
+        meaning: fiaf:TransliteratedTitle
       WorkingTitle:
+        description: FIAF Moving Image Cataloguing Manual A.2.4.1
+        meaning: fiaf:WorkingTitle
 
   WorkVariantTypeEnum:
     permissible_values:
