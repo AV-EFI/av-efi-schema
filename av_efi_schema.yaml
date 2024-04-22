@@ -260,10 +260,11 @@ classes:
       id:
         pattern: ^10\\.[0-9]{4,9}(\\.[0-9]+)*(\\/|%2F)((?![\"&\'])\\S)+$
     annotations:
-      formatter_uri_for_rdf_resource: "http://dx.doi.org/$1"
-      formatter_url_for_web_resource: "https://dx.doi.org/$1"
-      provides: >-
-        - CreativeWorkIdentifier
+      - formatter_uri_for_rdf_resource: "http://dx.doi.org/$1"
+      - formatter_url_for_web_resource: "https://dx.doi.org/$1"
+      - tag: provides
+        value:
+          - CreativeWorkIdentifier
     description: >-
       Digital Object Identifier maintained by the DOI Foundation and
       commonly used for scientific publications including films.
@@ -277,7 +278,7 @@ classes:
       id:
         pattern: ^21(\\.([0-9A-Za-z])+)*\\/([!-~])+$
     annotations:
-      formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
+      - formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
     todos:
       Possibly change formatter URIs/URLs to the av-efi.net domain when
       the details have been sorted out
@@ -290,11 +291,12 @@ classes:
       id:
         pattern: ^[\\da-f]{32}$
     annotations:
-      formatter_uri_for_rdf_resource: https://www.filmportal.de/$1
-      formatter_uri_for_web_resource: https://www.filmportal.de/$1
-      provides: >-
-        - CreativeWorkIdentifier
-        - PersonIdentifier
+      - formatter_uri_for_rdf_resource: https://www.filmportal.de/$1
+      - formatter_uri_for_web_resource: https://www.filmportal.de/$1
+      - tag: provides
+        value:
+          - CreativeWorkIdentifier
+          - PersonIdentifier
     description: >-
       Identifier of the German Filmportal.de
     see_also:
@@ -307,14 +309,15 @@ classes:
       id:
         pattern: ^[-\\dX]+$
     annotations:
-      formatter_uri_for_rdf_resource: https://d-nb.info/gnd/$1
-      formatter_url_for_web_resource: https://d-nb.info/gnd/$1
-      provides: >-
-        - CreativeWorkIdentifier
-        - PlaceIdentifier
-        - OrganizationIdentifier
-        - PersonIdentifier
-        - SubjectHeadingIdentifier
+      - formatter_uri_for_rdf_resource: https://d-nb.info/gnd/$1
+      - formatter_url_for_web_resource: https://d-nb.info/gnd/$1
+      - tag: provides
+        value:
+          - CreativeWorkIdentifier
+          - PlaceIdentifier
+          - OrganizationIdentifier
+          - PersonIdentifier
+          - SubjectHeadingIdentifier
     notes: >-
       - alternative_web_resource: https://explore.gnd.network/gnd/$1/relations
       - other_resources:
@@ -335,13 +338,14 @@ classes:
       id:
         pattern: ^\\d+$
     annotations:
-      formatter_uri_for_rdf_resource: http://viaf.org/viaf/$1
-      formatter_url_for_web_resource: https://viaf.org/viaf/$1
-      provides: >-
-        - CreativeWorkIdentifier
-        - PlaceIdentifier
-        - OrganizationIdentifier
-        - PersonIdentifier
+      - formatter_uri_for_rdf_resource: http://viaf.org/viaf/$1
+      - formatter_url_for_web_resource: https://viaf.org/viaf/$1
+      - tag: provides
+        value:
+          - CreativeWorkIdentifier
+          - PlaceIdentifier
+          - OrganizationIdentifier
+          - PersonIdentifier
     description: >-
       Virtual International Authority File identifier hosted by OCLC.
       The data is accumulated from various well established authority
@@ -356,14 +360,15 @@ classes:
       id:
         pattern: ^[LPQ]\\d+$
     annotations:
-      formatter_uri_for_rdf_resource: https://www.wikidata.org/entity/$1
-      formatter_url_for_web_resource: https://www.wikidata.org/entity/$1
-      provides: >-
-        - CreativeWorkIdentifier
-        - PlaceIdentifier
-        - OrganizationIdentifier
-        - PersonIdentifier
-        - SubjectHeadingIdentifier
+      - formatter_uri_for_rdf_resource: https://www.wikidata.org/entity/$1
+      - formatter_url_for_web_resource: https://www.wikidata.org/entity/$1
+      - tag: provides
+        value:
+          - CreativeWorkIdentifier
+          - PlaceIdentifier
+          - OrganizationIdentifier
+          - PersonIdentifier
+          - SubjectHeadingIdentifier
     description: >-
       Identifier for Wikidata entities
     see_also:
