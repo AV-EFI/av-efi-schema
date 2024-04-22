@@ -332,6 +332,23 @@ classes:
     see_also:
       - https://www.wikidata.org/entity/P227
 
+  ISILResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^[A-Z]{2}-[A-Za-z\-0-9:/]{1,15}$
+    annotations:
+      - formatter_url_for_web_resource: https://w3id.org/isil/$1
+      - tag: provides
+        value:
+          - OrganizationIdentifier
+    description: >-
+      International Standard Identifier for Libraries and Related
+      Organizations including (film) archives.
+    see_also:
+      - https://biblstandard.dk/isil/index.htm
+      - https://www.wikidata.org/wiki/Property:P791
+
   VIAFResource:
     is_a: AuthorityResource
     slot_usage:
