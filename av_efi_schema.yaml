@@ -960,11 +960,18 @@ enums:
   LanguageUsageEnum:
     permissible_values:
       AudioDescription:
+        description: >-
+          Audio description for the visually impaired
       Captions:
         description: >-
           FIAF Moving Image Cataloguing Manual D.6
         meaning: fiaf:Captions
       ClosingCredits:
+        todos:
+          - Add documentation
+      Dubbed:
+        description: >-
+          FIAF Moving Image Cataloguing Manual 2.3.3
       Intertitles:
         description: >-
           FIAF Moving Image Cataloguing Manual D.6
@@ -974,6 +981,11 @@ enums:
           FIAF Moving Image Cataloguing Manual D.6
         meaning: fiaf:NoDialogue
       OpeningCredits:
+        todos:
+          - Add documentation
+      SDHSubtitles:
+        description: >-
+          Subtitles for the Deaf and Hard of hearing
       SignedLanguage:
         description: >-
           FIAF Moving Image Cataloguing Manual D.6
@@ -991,6 +1003,8 @@ enums:
           FIAF Moving Image Cataloguing Manual D.6
         meaning: fiaf:SungLanguage
       VoiceOver:
+        todos:
+          - Add documentation
 
   ManifestationTypeEnum:
     permissible_values:
