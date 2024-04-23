@@ -203,6 +203,7 @@ classes:
     attributes:
       general_carrier_type:
         range: GeneralCarrierTypeEnum
+        required: true
       type:
         any_of:
           - range: FormatAudioTypeEnum
@@ -211,6 +212,7 @@ classes:
           - range: FormatFilmTypeEnum
           - range: FormatOpticalTypeEnum
           - range: FormatVideoTypeEnum
+        required: true
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
 
@@ -245,6 +247,7 @@ classes:
     attributes:
       code:
         pattern: ^[a-z]{3}$
+        required: true
         description: >-
           ISO 639-2 code for the Representation of Names of Languages
           (Part 2: Alpha-3)
@@ -253,6 +256,7 @@ classes:
       usage:
         multivalued: true
         range: LanguageUsageEnum
+        required: true
 
   Item:
     is_a: ManifestationOrItem
@@ -491,6 +495,7 @@ slots:
   has_agent:
     multivalued: true
     range: Agent
+    required: true
 
   family_name:
   given_name:
@@ -556,6 +561,7 @@ slots:
   is_manifestation_of:
     multivalued: true
     range: AVEFIResource
+    required: true
     description: >-
       Indicate AVefi WorkVariant (possibly more but no less than one)
       that is subject of the manifestation
@@ -575,6 +581,7 @@ slots:
   is_item_of:
     # multivalued: true
     range: AVEFIResource
+    required: true
     description: >-
       Indicate AVefi Manifestation the item belongs to. Every item must
       be associated with a manifestation from the same data provider
