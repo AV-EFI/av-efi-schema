@@ -482,6 +482,7 @@ slots:
   #-----------------------------------
 
   has_event:
+    inlined_as_list: true
     multivalued: true
     range: Event
 
@@ -489,10 +490,12 @@ slots:
     range: string
 
   has_activity:
+    inlined_as_list: true
     multivalued: true
     range: Activity
 
   has_agent:
+    inlined_as_list: true
     multivalued: true
     range: Agent
     required: true
@@ -540,6 +543,7 @@ slots:
       FIAF Glossary of Filmographic Terms D.2.3
 
   has_work_variant:
+    inlined_as_list: true
     multivalued: true
     range: WorkVariant
 
@@ -552,6 +556,7 @@ slots:
   has_format:
 
   has_item:
+    inlined_as_list: true
     multivalued: true
     range: AVEFIResource
     description: >-
@@ -559,6 +564,7 @@ slots:
        the manifestation
 
   is_manifestation_of:
+    inlined_as_list: true
     multivalued: true
     range: AVEFIResource
     required: true
@@ -567,6 +573,7 @@ slots:
       that is subject of the manifestation
 
   language:
+    inlined_as_list: true
     multivalued: true
     range: Language
 
