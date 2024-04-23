@@ -545,7 +545,7 @@ slots:
   has_work_variant:
     inlined_as_list: true
     multivalued: true
-    range: WorkVariant
+    range: AVEFIResource
 
   variant_type:
 
