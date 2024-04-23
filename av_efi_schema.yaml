@@ -228,7 +228,7 @@ classes:
       - type
     slot_usage:
       same_as:
-        range: AVEFIResource
+        range: AVefiResource
         description: >-
           Link to AVefi resource registered by another data provider
           indicating that the two manifestations are known to be the
@@ -315,7 +315,7 @@ classes:
       - https://dx.doi.org/
       - https://www.wikidata.org/wiki/Property:P356
 
-  AVEFIResource:
+  AVefiResource:
     is_a: AuthorityResource
     slot_usage:
       id:
@@ -545,7 +545,7 @@ slots:
   has_work_variant:
     inlined_as_list: true
     multivalued: true
-    range: AVEFIResource
+    range: AVefiResource
 
   variant_type:
 
@@ -558,7 +558,7 @@ slots:
   has_item:
     inlined_as_list: true
     multivalued: true
-    range: AVEFIResource
+    range: AVefiResource
     description: >-
        Indicate AVefi Items the institution has registered as part of
        the manifestation
@@ -566,7 +566,7 @@ slots:
   is_manifestation_of:
     inlined_as_list: true
     multivalued: true
-    range: AVEFIResource
+    range: AVefiResource
     required: true
     description: >-
       Indicate AVefi WorkVariant (possibly more but no less than one)
@@ -587,7 +587,7 @@ slots:
 
   is_item_of:
     # multivalued: true
-    range: AVEFIResource
+    range: AVefiResource
     required: true
     description: >-
       Indicate AVefi Manifestation the item belongs to. Every item must
@@ -601,7 +601,7 @@ slots:
   is_copy_of:
     inlined_as_list: true
     multivalued: true
-    range: AVEFIResource
+    range: AVefiResource
     description: >-
       Link to AVefi item registered by another institution indicating
       that the two are known to be copies of each other
