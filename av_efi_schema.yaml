@@ -1134,12 +1134,6 @@ enums:
       CorrectedTitle:
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
         meaning: fiaf:CorrectedTitle
-      IdentifyingTitle:
-        description: FIAF Moving Image Cataloguing Manual A.2.1
-        meaning: fiaf:IdentifyingTitle
-      ParallelTitle:
-        description: FIAF Moving Image Cataloguing Manual A.2.4.1
-        meaning: fiaf:ParallelTitle
       PreReleaseTitle:
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
         meaning: fiaf:PreReleaseTitle
