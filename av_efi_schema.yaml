@@ -108,6 +108,16 @@ classes:
     description: >-
       FIAF Moving Image Cataloguing Manual 1.3.3
 
+  Genre:
+    is_a: Entity
+    slots:
+      - alternate_name
+      - name
+      - same_as
+    slot_usage:
+      same_as:
+        range: GNDResource
+
   SubjectHeading:
     is_a: Entity
     slots:
@@ -497,14 +507,32 @@ slots:
   has_form:
     multivalued: true
     range: WorkFormEnum
+    description: >-
+      Form describes the format and/or purpose of a Work, e.g.,
+      “non-fiction”, “short” and “animation”. See also: FIAF Moving
+      Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic
+      Terms D.1
 
   has_genre:
+    inlined_as_list: true
     multivalued: true
+    range: Genre
+    description: >-
+      Genre describes categories of Works, characterized by similar
+      plots, themes, settings, situations, and characters. Examples of
+      genres are “westerns” and “thrillers”. See also: FIAF Moving
+      Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic
+      Terms D.2.1
 
   has_related_term:
     inlined_as_list: true
     multivalued: true
     range: SubjectHeading
+    description: >-
+      Subject descriptor terms for the content of a film specifying
+      its period, themes, locations, etc. Not to be confused with
+      Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and
+      FIAF Glossary of Filmographic Terms D.2.3
 
   has_work_variant:
     multivalued: true
