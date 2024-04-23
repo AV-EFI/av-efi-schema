@@ -200,21 +200,70 @@ classes:
 
   Format:
     is_a: Entity
-    attributes:
-      general_carrier_type:
-        range: GeneralCarrierTypeEnum
-        required: true
-      type:
-        any_of:
-          - range: FormatAudioTypeEnum
-          - range: FormatDigitalFileEncodingTypeEnum
-          - range: FormatDigitalFileTypeEnum
-          - range: FormatFilmTypeEnum
-          - range: FormatOpticalTypeEnum
-          - range: FormatVideoTypeEnum
-        required: true
+    abstract: true
+    slots:
+      - type
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
+
+  Audio:
+    is_a: Format
+    slot_usage:
+      type:
+        range: FormatAudioTypeEnum
+    close_mappings:
+      - fiaf:Audio
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
+
+  DigitalFile:
+    is_a: Format
+    slot_usage:
+      type:
+        range: FormatDigitalFileTypeEnum
+    close_mappings:
+      - fiaf:DigitalFile
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
+
+  DigitalFileEncoding:
+    is_a: Format
+    slot_usage:
+      type:
+        range: FormatDigitalFileEncodingTypeEnum
+    close_mappings:
+      - fiaf:DigitalFileEncoding
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
+
+  Film:
+    is_a: Format
+    slot_usage:
+      type:
+        range: FormatFilmTypeEnum
+    close_mappings:
+      - fiaf:Film
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
+
+  Optical:
+    is_a: Format
+    slot_usage:
+      type:
+        range: FormatOpticalTypeEnum
+    description: FIAF Moving Image Cataloguing Manual D.7.2
+    close_mappings:
+      - fiaf:Optical
+
+  Video:
+    is_a: Format
+    slot_usage:
+      type:
+        range: FormatVideoTypeEnum
+    close_mappings:
+      - fiaf:Video
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
 
   Manifestation:
     is_a: ManifestationOrItem
@@ -554,6 +603,9 @@ slots:
   #-----------------------------------
 
   has_format:
+    inlined_as_list: true
+    multivalued: true
+    range: Format
 
   has_item:
     inlined_as_list: true
@@ -984,27 +1036,6 @@ enums:
       HDCAMSR:
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:HDCAMSR
-
-  GeneralCarrierTypeEnum:
-    permissible_values:
-      Audio:
-        description: FIAF Moving Image Cataloguing Manual D.7.2
-        meaning: fiaf:Audio
-      DigitalFile:
-        description: FIAF Moving Image Cataloguing Manual D.7.2
-        meaning: fiaf:DigitalFile
-      DigitalFileEncoding:
-        description: FIAF Moving Image Cataloguing Manual D.7.2
-        meaning: fiaf:DigitalFileEncoding
-      Film:
-        description: FIAF Moving Image Cataloguing Manual D.7.2
-        meaning: fiaf:Film
-      Optical:
-        description: FIAF Moving Image Cataloguing Manual D.7.2
-        meaning: fiaf:Optical
-      Video:
-        description: FIAF Moving Image Cataloguing Manual D.7.2
-        meaning: fiaf:Video
 
   ItemAccessStatusEnum:
     permissible_values:
