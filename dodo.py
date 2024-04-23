@@ -20,7 +20,6 @@ DOCS_DIR = HERE / 'docs'
 UTILS_DIR = HERE / 'utils'
 VOCAB_DIR = HERE / 'Controlled_Vocabularies'
 WORKING_DIR = HERE / 'KIP_DTR'
-RUN = 'pdm run'
 YAML_SCHEMA = HERE / 'av_efi_schema.yaml'
 JSON_SCHEMA = YAML_SCHEMA.with_suffix('.json')
 PYTHON_BINDINGS = YAML_SCHEMA.with_suffix('.py')
@@ -100,7 +99,7 @@ def task_jsonschema():
     """Generate derived JSON Schema."""
     return {
         'actions': [
-            f"{RUN} gen-json-schema {{dependencies}} > {{targets}}",
+            "gen-json-schema {dependencies} > {targets}",
         ],
         'file_dep': [YAML_SCHEMA],
         'task_dep': ['sync_dependencies'],
@@ -112,7 +111,7 @@ def task_python():
     """Generate python bindings."""
     return {
         'actions': [
-            f"{RUN} gen-python {{dependencies}} > {{targets}}",
+            "gen-python {dependencies} > {targets}",
         ],
         'file_dep': [YAML_SCHEMA],
         'task_dep': ['sync_dependencies'],
@@ -124,7 +123,7 @@ def task_docs():
     """Build documentation from LinkML schema."""
     return {
         'actions': [
-            f"{RUN} gen-doc -d {{targets}} {{dependencies}}",
+            "gen-doc -d {targets} {dependencies}",
         ],
         'file_dep': [YAML_SCHEMA],
         'task_dep': ['sync_dependencies'],
