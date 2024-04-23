@@ -456,6 +456,7 @@ slots:
     slot_uri: rdf:type
     designates_type: true
     range: uriorcurie
+    required: true
 
   same_as:
     inlined_as_list: true
