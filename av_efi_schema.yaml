@@ -168,7 +168,8 @@ classes:
     is_a: Entity
     slots:
       - has_activity
-      - has_date
+      - has_end_date
+      - has_start_date
       - type
     slot_usage:
       type:
@@ -536,7 +537,34 @@ slots:
     range: Event
 
   has_date:
-    range: string
+    abstract: true
+    pattern: ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?$
+    description: >-
+      Use the derived slots has_end_date and has_start_date (if
+      applicable) instead
+    see_also:
+      - https://www.w3.org/TR/xmlschema11-2/#date
+
+  has_start_date:
+    is_a: has_date
+    slot_uri: schema:startDate
+    description: >-
+      Date marking the point in time when an event starts. Only use
+      this attribute when has_end_date is going to be assigned a
+      different value, i.e. the event actually spans a period of time
+      rather than occurring at a one point in time. Dates must be
+      recorded according to ISO 8601, e.g. 2024-04-24 or 2024-04 or
+      just 2024
+
+  has_end_date:
+    is_a: has_date
+    slot_uri: schema:endDate
+    description: >-
+      Date marking the point in time when an event ends. Also, use
+      this attribute when an event is to be recorded with a single
+      date rather than spanning a period of time; leave has_start_date
+      unassigned in this case. Dates must be recorded according to ISO
+      8601, e.g. 2024-04-24 or 2024-04 or just 2024
 
   has_activity:
     inlined_as_list: true
