@@ -124,6 +124,7 @@ def task_docs():
     return {
         'actions': [
             "gen-doc -d {targets} {dependencies}",
+            "gen-erdiagram -c WorkVariant -c Manifestation -c Item {dependencies} > {targets}/structure_diagram.md",
         ],
         'file_dep': [YAML_SCHEMA],
         'task_dep': ['sync_dependencies'],
