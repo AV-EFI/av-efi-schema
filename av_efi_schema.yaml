@@ -72,6 +72,7 @@ classes:
       - has_genre
       - has_related_term
       - has_work_variant
+      - is_part_of
       - same_as
       - type
       - variant_type
@@ -642,6 +643,14 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: AVefiResource
+
+  is_part_of:
+    inlined_as_list: true
+    multivalued: true
+    range: AVefiResource
+    description: >-
+      Relate, for instance, episodes to a series / serial. See also:
+      FIAF Moving Image Cataloguing Manual D.17
 
   variant_type:
 
