@@ -68,7 +68,6 @@ classes:
   WorkVariant:
     is_a: MovingImageRecord
     slots:
-      - has_country_of_origin
       - has_form
       - has_genre
       - has_related_term
@@ -91,22 +90,29 @@ classes:
     description: >-
       FIAF Moving Image Cataloguing Manual 1.0
 
-  Country:
+  GeographicName:
     is_a: Entity
     slots:
       - alternate_name
       - name
       - same_as
     slot_usage:
+      name:
+        required: true
       same_as:
         any_of:
           - range: GNDResource
           - range: VIAFResource
           - range: WikidataResource
-    close_mappings:
+    related_mappings:
       - fiaf:Country
+      - fiaf:Location
     description: >-
-      FIAF Moving Image Cataloguing Manual 1.3.3
+      Name of country, region or other location. Names should be taken
+      from appropriate authorities (e.g. GND) and recorded as a human
+      readable string in the name attribute and as linked data in the
+      same_as attribute. See also: FIAF Moving Image Cataloguing Manual
+      1.3.3, D.4
 
   Genre:
     is_a: Entity
@@ -170,6 +176,7 @@ classes:
       - has_activity
       - has_end_date
       - has_start_date
+      - located_in
       - type
     slot_usage:
       type:
@@ -584,10 +591,10 @@ slots:
   # WorkVariant branch
   #-----------------------------------
 
-  has_country_of_origin:
+  located_in:
     inlined_as_list: true
     multivalued: true
-    range: Country
+    range: GeographicName
 
   has_form:
     multivalued: true
