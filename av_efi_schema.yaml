@@ -181,6 +181,17 @@ classes:
     slot_usage:
       type:
         range: EventTypeEnum
+        required: true
+    description: >-
+      Significant event in the lifecycle of moving image work /
+      variant, manifestation or item. Always specify the type of event
+      and if possible a date via has_end_date or a period of time via
+      has_start_date and has_end_date. Specify located_in as
+      appropriate, e.g. the country where the principal offices or
+      production facilities of the production company are located for
+      a production event. Involved parties in various roles can be
+      linked via has_activity. See also: FIAF Moving Image Cataloguing
+      Manual 1.4.2, 2.4.2, 3.3.2
 
   Title:
     is_a: Entity
