@@ -335,8 +335,9 @@ classes:
       # fiaf:hasHoldingInstitution
       # has_stream (für codec)
       - is_copy_of
+      - is_derivative_of
       - element_type
-    close_mappings:
+    broad_mappings:
       - fiaf:Item
     description: >-
       FIAF Moving Image Cataloguing Manual 3.0
@@ -703,6 +704,17 @@ slots:
     description: >-
       Link to AVefi item registered by another institution indicating
       that the two are known to be copies of each other
+
+  is_derivative_of:
+    inlined_as_list: true
+    multivalued: true
+    range: AVefiResource
+    # related_mappings:
+    #   - edm:isDerivativeOf
+    description: >-
+      Link to AVefi item from which this one has been derived in whole
+      or in part, e.g. as a result of a restoration or digitasation
+      project
 
   element_type:
     range: ItemElementTypeEnum
