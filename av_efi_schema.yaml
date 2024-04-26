@@ -64,6 +64,7 @@ classes:
     slots:
       - has_event
       - id
+      - in_language
 
   WorkVariant:
     is_a: MovingImageRecord
@@ -290,7 +291,6 @@ classes:
     slots:
       - has_item
       - is_manifestation_of
-      - language
       - same_as
       - type
     slot_usage:
@@ -678,10 +678,15 @@ slots:
       Indicate AVefi WorkVariant (possibly more but no less than one)
       that is subject of the manifestation
 
-  language:
+  in_language:
     inlined_as_list: true
     multivalued: true
     range: Language
+    related_mappings:
+      - fiaf:hasLanguage
+      - schema:inLanguage
+    description: >-
+      FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3
 
   #-----------------------------------
   # Item branch
