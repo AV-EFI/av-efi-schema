@@ -291,8 +291,6 @@ classes:
       - has_item
       - is_manifestation_of
       - language
-      - production_year
-      - release_date
       - same_as
       - type
     slot_usage:
@@ -684,10 +682,6 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: Language
-
-  production_year:
-
-  release_date:
 
   #-----------------------------------
   # Item branch
