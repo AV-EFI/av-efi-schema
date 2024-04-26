@@ -11,6 +11,7 @@ imports:
 prefixes:
   avefi: https://av-efi.net/schema/av-efi-schema/
   fiaf: https://fiafcore.org/ontology/
+  foaf: http://xmlns.com/foaf/0.1/
   linkml: https://w3id.org/linkml/
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
@@ -144,33 +145,32 @@ classes:
 
   Agent:
     is_a: Entity
-    abstract: true
     slots:
       - alternate_name
       - name
       - same_as
+      - type
     slot_usage:
+      name:
+        description: >-
+          For natural persons, always use the convention "family name,
+          given name"
       same_as:
         any_of:
           - range: FilmportalResource
           - range: GNDResource
           - range: VIAFResource
           - range: WikidataResource
-
-  CorporateBody:
-    is_a: Agent
-
-  Family:
-    is_a: Agent
-
-  Person:
-    is_a: Agent
-    slots:
-      - family_name
-      - given_name
-
-  PersonGroup:
-    is_a: Agent
+      type:
+        range: AgentTypeEnum
+        required: true
+    related_mappings:
+      - fiaf:Agent
+      - foaf:Agent
+    description: >-
+      Agent involved in some activity related to the moving image
+      resource. For agents of type "Person" specify name according to
+      the convention "family name, given name"
 
   Event:
     is_a: Entity
@@ -594,6 +594,9 @@ slots:
     multivalued: true
     range: Agent
     required: true
+    description: >-
+      Agent involved in some activity related to the moving image
+      resource
 
   family_name:
   given_name:
@@ -878,6 +881,19 @@ enums:
       Writer:
         description: FIAF Glossary of Filmographic Terms B.4.2
         meaning: fiaf:Writer
+
+  AgentTypeEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual 1.4.1
+    permissible_values:
+      CorporateBody:
+        meaning: fiaf:CorporateBody
+      Family:
+        meaning: fiaf:Family
+      Person:
+        meaning: fiaf:Person
+      PersonGroup:
+        meaning: fiaf:PersonGroup
 
   EventTypeEnum:
     notes:
