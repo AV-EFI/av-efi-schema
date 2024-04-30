@@ -214,7 +214,30 @@ classes:
     is_a: MovingImageRecord
     abstract: true
     slots:
+      - has_duration
       - has_format
+
+  Duration:
+    is_a: Entity
+    slots:
+      - has_value
+      - value_is
+    slot_usage:
+      has_value:
+        pattern: ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
+        range: string
+    description: >-
+      Total running time of the described object in ISO 8601 duration
+      format. The examples section lists possible values for the
+      has_value slot. See also: FIAF Moving Image Cataloguing Manual
+      2.3.5.3, 3.1.5.11
+    examples:
+      - value: PT2H9M
+        description: 2 hours, 9 minutes
+      - value: PT6M12S
+        description: 6 minutes, 12 seconds
+    notes:
+      - https://www.w3.org/TR/xmlschema11-2/#duration
 
   Format:
     is_a: Entity
@@ -603,6 +626,24 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: GeographicName
+
+  has_duration:
+    range: Duration
+    description: >-
+      Total running time of the described object in ISO 8601 duration
+      format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3,
+      3.1.5.11
+
+  has_value:
+    range: decimal
+    description: >-
+      Value of some quantity
+
+  value_is:
+    range: PrecisionEnum
+    description: >-
+      Qualifier indicating the precision of an extent value or
+      duration
 
   has_form:
     multivalued: true
@@ -1274,6 +1315,20 @@ enums:
         description: >-
           FIAF Moving Image Cataloguing Manual D.5.5
         meaning: fiaf:UnreleasedManifestation
+
+  PrecisionEnum:
+    description: >-
+      Qualifier indicating the precision of an extent value or
+      duration
+    permissible_values:
+      Approximate:
+        description: >-
+          Value may be inaccurate but is regarded to be close to the
+          real thing
+      Uncertain:
+        description: >-
+          Sources for the given value are deemed unreliable, so it may
+          as well be off the mark
 
   TitleTypeEnum:
     permissible_values:
