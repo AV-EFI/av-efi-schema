@@ -73,8 +73,8 @@ classes:
       - has_form
       - has_genre
       - has_related_term
-      - has_work_variant
       - is_part_of
+      - is_variant_of
       - same_as
       - type
       - variant_type
@@ -88,7 +88,7 @@ classes:
           - range: WikidataResource
       type:
         range: WorkVariantTypeEnum
-    close_mappings:
+    related_mappings:
       - fiaf:WorkVariant
     description: >-
       FIAF Moving Image Cataloguing Manual 1.0
@@ -639,10 +639,12 @@ slots:
       Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and
       FIAF Glossary of Filmographic Terms D.2.3
 
-  has_work_variant:
-    inlined_as_list: true
-    multivalued: true
+  is_variant_of:
     range: AVefiResource
+    description: >-
+      Link to the reference WorkVariant for the currently described
+      variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2,
+      1.1.2, 1.4.5
 
   is_part_of:
     inlined_as_list: true
@@ -653,6 +655,9 @@ slots:
       FIAF Moving Image Cataloguing Manual D.17
 
   variant_type:
+    range: VariantTypeEnum
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.2
 
   #-----------------------------------
   # Manifestation branch
@@ -1316,6 +1321,40 @@ enums:
       WorkingTitle:
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
         meaning: fiaf:WorkingTitle
+
+  VariantTypeEnum:
+    description: FIAF Moving Image Cataloguing Manual D.2
+    permissible_values:
+      AbridgedCondensed:
+        description: FIAF Moving Image Cataloguing Manual D.2
+        meaning: fiaf:AbridgedCondensed
+      Augmented:
+        description: FIAF Moving Image Cataloguing Manual D.2
+        meaning: fiaf:Augmented
+      BlackAndWhiteCopyOfWorkOriginallyIssuedInColour:
+        description: FIAF Moving Image Cataloguing Manual D.2
+        meaning: fiaf:BlackAndWhiteCopyOfWorkOriginallyIssuedInColour
+      Censored:
+        description: FIAF Moving Image Cataloguing Manual D.2
+        meaning: fiaf:Censored
+      Colourized:
+        description: FIAF Moving Image Cataloguing Manual D.2
+        meaning: fiaf:Colourized
+      DifferentSoundTrack:
+        description: FIAF Moving Image Cataloguing Manual D.2
+        meaning: fiaf:DifferentSoundTrack
+      Dubbed:
+        description: FIAF Moving Image Cataloguing Manual D.2
+        meaning: fiaf:Dubbed
+      PreservationRestoration:
+        description: FIAF Moving Image Cataloguing Manual D.2
+        meaning: fiaf:PreservationRestoration
+      Sonorized:
+        description: FIAF Moving Image Cataloguing Manual D.2
+        meaning: fiaf:Sonorized
+      Subtitled:
+        description: FIAF Moving Image Cataloguing Manual D.2
+        meaning: fiaf:Subtitled
 
   WorkVariantTypeEnum:
     permissible_values:
