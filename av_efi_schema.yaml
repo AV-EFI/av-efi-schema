@@ -174,8 +174,7 @@ classes:
     is_a: Entity
     slots:
       - has_activity
-      - has_end_date
-      - has_start_date
+      - has_date
       - located_in
       - type
     slot_usage:
@@ -554,34 +553,30 @@ slots:
     range: Event
 
   has_date:
-    abstract: true
-    pattern: ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?$
-    description: >-
-      Use the derived slots has_end_date and has_start_date (if
-      applicable) instead
-    see_also:
+    pattern: ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$
+    notes:
       - https://www.w3.org/TR/xmlschema11-2/#date
-
-  has_start_date:
-    is_a: has_date
-    slot_uri: schema:startDate
     description: >-
-      Date marking the point in time when an event starts. Only use
-      this attribute when has_end_date is going to be assigned a
-      different value, i.e. the event actually spans a period of time
-      rather than occurring at a one point in time. Dates must be
-      recorded according to ISO 8601, e.g. 2024-04-24 or 2024-04 or
-      just 2024
-
-  has_end_date:
-    is_a: has_date
-    slot_uri: schema:endDate
-    description: >-
-      Date marking the point in time when an event ends. Also, use
-      this attribute when an event is to be recorded with a single
-      date rather than spanning a period of time; leave has_start_date
-      unassigned in this case. Dates must be recorded according to ISO
-      8601, e.g. 2024-04-24 or 2024-04 or just 2024
+      Date (or interval/period) when an event has taken place. A
+      subset of ISO 8601 is supported, more specifically, EDTF
+      conformance level 0 as well as qualifiers ? (uncertain date) and
+      ~ (approximate date). See examples and references for more
+      information
+    examples:
+      - value: '2024-04-24'
+        description: complete date, i.e. year, month and day
+      - value: '2024-04'
+        description: year and month
+      - value: '2024'
+        description: year only
+      - value: '2024~'
+        description: approximate date (2024 or at least close to 2024)
+      - value: '2024?'
+        description: uncertain date (2024 or may be something different)
+      - value: '2023/2024'
+        description: interval (2023 until 2024)
+    see_also:
+      - https://www.loc.gov/standards/datetime/
 
   has_activity:
     inlined_as_list: true
