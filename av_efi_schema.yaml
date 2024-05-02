@@ -82,13 +82,14 @@ classes:
       - type
       - variant_type
     slot_usage:
-      same_as:
-        any_of:
-          - range: DOIResource
-          - range: FilmportalResource
-          - range: GNDResource
-          - range: VIAFResource
-          - range: WikidataResource
+      ## Apparently not supported by jsonschema generator, unfortunately
+      # same_as:
+      #   any_of:
+      #     - range: DOIResource
+      #     - range: FilmportalResource
+      #     - range: GNDResource
+      #     - range: VIAFResource
+      #     - range: WikidataResource
       type:
         range: WorkVariantTypeEnum
         required: true
@@ -103,12 +104,13 @@ classes:
       - alternate_name
       - name
       - same_as
-    slot_usage:
-      same_as:
-        any_of:
-          - range: GNDResource
-          - range: VIAFResource
-          - range: WikidataResource
+    ## Apparently not supported by jsonschema generator, unfortunately
+    # slot_usage:
+    #   same_as:
+    #     any_of:
+    #       - range: GNDResource
+    #       - range: VIAFResource
+    #       - range: WikidataResource
     related_mappings:
       - fiaf:Country
       - fiaf:Location
@@ -173,12 +175,13 @@ classes:
         description: >-
           For natural persons, always use the convention "family name,
           given name"
-      same_as:
-        any_of:
-          - range: FilmportalResource
-          - range: GNDResource
-          - range: VIAFResource
-          - range: WikidataResource
+      ## Apparently not supported by jsonschema generator, unfortunately
+      # same_as:
+      #   any_of:
+      #     - range: FilmportalResource
+      #     - range: GNDResource
+      #     - range: VIAFResource
+      #     - range: WikidataResource
       type:
         range: AgentTypeEnum
         required: true
