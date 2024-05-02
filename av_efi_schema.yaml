@@ -354,8 +354,7 @@ classes:
           same. Use this, for instance, when you have cooperated in
           making a digital restoration of some film work
       type:
-        range:
-          ManifestationTypeEnum
+        range: ManifestationTypeEnum
     close_mappings:
       - fiaf:Manifestation
     description: >-
