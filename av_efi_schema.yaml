@@ -424,6 +424,19 @@ classes:
       Root class for all identifiers from some kind of authority or
       public register widely accepted in the community
 
+  AVefiResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^21(\\.([0-9A-Za-z])+)*\\/([!-~])+$
+    annotations:
+      - formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
+    todos:
+      Possibly change formatter URIs/URLs to the av-efi.net domain when
+      the details have been sorted out
+    description: >-
+      Handle with the prefix allocated for AVefi (eventually)
+
   DOIResource:
     is_a: AuthorityResource
     slot_usage:
@@ -441,19 +454,6 @@ classes:
     see_also:
       - https://dx.doi.org/
       - https://www.wikidata.org/wiki/Property:P356
-
-  AVefiResource:
-    is_a: AuthorityResource
-    slot_usage:
-      id:
-        pattern: ^21(\\.([0-9A-Za-z])+)*\\/([!-~])+$
-    annotations:
-      - formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
-    todos:
-      Possibly change formatter URIs/URLs to the av-efi.net domain when
-      the details have been sorted out
-    description: >-
-      Handle with the prefix allocated for AVefi (eventually)
 
   FilmportalResource:
     is_a: AuthorityResource
