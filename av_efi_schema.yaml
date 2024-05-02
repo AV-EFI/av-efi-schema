@@ -519,6 +519,24 @@ classes:
       - https://biblstandard.dk/isil/index.htm
       - https://www.wikidata.org/wiki/Property:P791
 
+  TGNResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^[1-9][0-9]{6}$
+    annotations:
+      - formatter_uri_for_rdf_resource: http://vocab.getty.edu/tgn/$1
+      - formatter_url_for_web_resource: https://vocab.getty.edu/page/tgn/$1
+      - tag: provides
+        value:
+          - PlaceIdentifier
+    description: >-
+      Getty Thesaurus of Geographic Names ID
+    see_also:
+      - https://www.getty.edu/research/tools/vocabularies/tgn/index.html
+      - https://vocab.getty.edu/resource?uri=http://vocab.getty.edu/dataset/tgn
+      - https://www.wikidata.org/wiki/Property:P1667
+
   VIAFResource:
     is_a: AuthorityResource
     slot_usage:
