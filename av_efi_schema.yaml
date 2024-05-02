@@ -120,6 +120,12 @@ classes:
     slot_usage:
       same_as:
         range: GNDResource
+    description: >-
+      Genre describes categories of Works, characterized by similar
+      plots, themes, settings, situations, and characters. Examples of
+      genres are “westerns” and “thrillers”. See also: FIAF Moving
+      Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic
+      Terms D.2.1
 
   SubjectHeading:
     is_a: Entity
@@ -127,6 +133,13 @@ classes:
       - alternate_name
       - name
       - same_as
+    description: >-
+      Subject descriptor terms for the content of a film specifying
+      its period, themes, locations, etc. Not to be confused with
+      Genre. Provide name and if at all possible identifier(s) from
+      supported authorities in the same_as slot. See also: FIAF Moving
+      Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic
+      Terms D.2.3
 
   Activity:
     is_a: Entity
@@ -136,6 +149,8 @@ classes:
     slot_usage:
       type:
         range: ActivityTypeEnum
+    description: >-
+      FIAF Moving Image Cataloguing Manual 1.4.1.1
 
   Agent:
     is_a: Entity
@@ -353,6 +368,10 @@ classes:
         multivalued: true
         range: LanguageUsageEnum
         required: true
+    description: >-
+      Provide language code from ISO 639-2 (Part 2: Alpha-3) and a
+      list of language usage terms from our controlled vocabulary. See
+      also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3
 
   Item:
     is_a: ManifestationOrItem
@@ -590,6 +609,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: Event
+    description: >-
+      Associate event(s) with a moving image record
 
   has_date:
     pattern: ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$
@@ -621,6 +642,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: Activity
+    description: >-
+      Associate activity (and subsequently agents) with event
 
   has_agent:
     inlined_as_list: true
@@ -800,6 +823,8 @@ slots:
 enums:
 
   ActivityTypeEnum:
+    description: >-
+      FIAF Glossary of Filmographic Terms B
     permissible_values:
       Adaptation:
         description: FIAF Glossary of Filmographic Terms B.4.11
@@ -963,6 +988,8 @@ enums:
         meaning: fiaf:PersonGroup
 
   EventTypeEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual D
     notes:
       - Limited set from FIAFcore as applicable
     permissible_values:
@@ -1055,6 +1082,8 @@ enums:
         meaning: fiaf:RightsCopyrightRegistrationEvent
 
   FormatAudioTypeEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
       16mmMagneticTrack:
         description: FIAF Moving Image Cataloguing Manual D.7.2
@@ -1079,6 +1108,8 @@ enums:
         meaning: fiaf:TwoInchAudioReel
 
   FormatDigitalFileEncodingTypeEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
       MPEG4:
         description: FIAF Moving Image Cataloguing Manual D.7.2
@@ -1100,6 +1131,8 @@ enums:
         meaning: fiaf:WindowsMedia
 
   FormatDigitalFileTypeEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
       AVI:
         description: FIAF Moving Image Cataloguing Manual D.7.2
@@ -1118,6 +1151,8 @@ enums:
         meaning: fiaf:MXF
 
   FormatFilmTypeEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
       16mmFilm:
         description: FIAF Moving Image Cataloguing Manual D.7.2
@@ -1145,6 +1180,8 @@ enums:
         meaning: fiaf:Super8mmFilm
 
   FormatOpticalTypeEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
       BluRay:
         description: FIAF Moving Image Cataloguing Manual D.7.2
@@ -1160,6 +1197,8 @@ enums:
         meaning: fiaf:LaserDisc
 
   FormatVideoTypeEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
       1InchCFormat:
         description: FIAF Moving Image Cataloguing Manual D.7.2
@@ -1187,6 +1226,8 @@ enums:
         meaning: fiaf:HDCAMSR
 
   ItemAccessStatusEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.3
     permissible_values:
       Archive:
       Distribution:
@@ -1204,6 +1245,8 @@ enums:
         meaning: fiaf:Viewing
 
   ItemElementTypeEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.8
     permissible_values:
       ColourNegative:
         description: FIAF Moving Image Cataloguing Manual D.7.8
@@ -1252,6 +1295,8 @@ enums:
         meaning: fiaf:SoundNegative
 
   LanguageUsageEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual 2.3.3, D.6
     permissible_values:
       AudioDescription:
         description: >-
@@ -1301,6 +1346,8 @@ enums:
           - Add documentation
 
   ManifestationTypeEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.5
     permissible_values:
       Broadcast:
         description: >-
@@ -1497,6 +1544,8 @@ enums:
         meaning: fiaf:Serial
 
   WorkFormEnum:
+    description: >-
+      FIAF Glossary of Filmographic Terms D.1.9
     permissible_values:
       AmateurFilm:
         meaning: fiaf:AmateurFilm
