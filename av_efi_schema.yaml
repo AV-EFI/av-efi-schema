@@ -514,7 +514,7 @@ classes:
           - OrganizationIdentifier
     description: >-
       International Standard Identifier for Libraries and Related
-      Organizations including (film) archives.
+      Organizations including (film) archives
     see_also:
       - https://biblstandard.dk/isil/index.htm
       - https://www.wikidata.org/wiki/Property:P791
@@ -536,7 +536,7 @@ classes:
     description: >-
       Virtual International Authority File identifier hosted by OCLC.
       The data is accumulated from various well established authority
-      files from different parts of teh world.
+      files from different parts of teh world
     see_also:
       - https://viaf.org/
       - https://www.wikidata.org/entity/P214
