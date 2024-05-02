@@ -1462,11 +1462,33 @@ enums:
         meaning: fiaf:Subtitled
 
   WorkVariantTypeEnum:
+    description: >-
+      Work/Variant description type. See also: FIAF Moving Image
+      Cataloguing Manual 1.2.1, D.1
     permissible_values:
       Analytic:
+        description: >-
+          Content that is contained in another content
+        meaning: fiaf:Analytic
       Collection:
+        description: >-
+          Content issued in several independent parts; an ‘umbrella’
+          work title covering a number of different
+          Works/Variants/Manifestations
+        meaning: fiaf:Collection
       Monographic:
+        description: >-
+          Complete content in one part or intended to be completed in
+          a finite number of parts
+        meaning: fiaf:Monographic
       Serial:
+        description: >-
+          Content issued in successive parts and intended to be
+          continued indefinitely, or across a span of time. A Work
+          record for a television series is catalogued as a “Serial”,
+          individual episodes may be catalogued as a Monographic
+          record
+        meaning: fiaf:Serial
 
   WorkFormEnum:
     permissible_values:
