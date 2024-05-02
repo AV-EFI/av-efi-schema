@@ -16,6 +16,7 @@ prefixes:
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   schema: http://schema.org/
+  unit: http://qudt.org/vocab/unit/
 
 emit_prefixes:
   - fiaf
@@ -215,6 +216,7 @@ classes:
     abstract: true
     slots:
       - has_duration
+      - has_extent
       - has_format
 
   Duration:
@@ -238,6 +240,16 @@ classes:
         description: 6 minutes, 12 seconds
     notes:
       - https://www.w3.org/TR/xmlschema11-2/#duration
+
+  Extent:
+    is_a: Entity
+    slots:
+      - has_unit
+      - has_value
+      - value_is
+    description: >-
+      Physical length or size of the described object. See also: FIAF
+      Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
 
   Format:
     is_a: Entity
@@ -633,6 +645,17 @@ slots:
       Total running time of the described object in ISO 8601 duration
       format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3,
       3.1.5.11
+
+  has_extent:
+    range: Extent
+    description: >-
+      Physical length or size of the described object. See also: FIAF
+      Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
+
+  has_unit:
+    range: UnitEnum
+    description: >-
+      Unit of some quantity
 
   has_value:
     range: decimal
@@ -1371,6 +1394,38 @@ enums:
       WorkingTitle:
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
         meaning: fiaf:WorkingTitle
+
+  UnitEnum:
+    description: >-
+      Units of measurement. Definitions are taken from the Quantities,
+      Units, Dimensions and Data Types Ontologies (QUDT)
+    see_also:
+      - https://www.qudt.org/doc/DOC_VOCAB-UNITS.html
+    permissible_values:
+      Feet:
+        description: >-
+          Unit of length defined as being 0.3048 metres
+        meaning: unit:FT
+      GigaByte:
+        description: >-
+          Unit for digital information equivalent to 1000 megabytes
+        meaning: unit:GigaBYTE
+      KiloByte:
+        description: >-
+          Unit for digital information equivalent to 1000 bytes
+        meaning: unit:KiloBYTE
+      Metre:
+        description: >-
+          Metric and SI base unit of distance
+        meaning: unit:M
+      MegaByte:
+        description: >-
+          Unit for digital information equivalent to 1000 kilobytes
+        meaning: unit:MegaBYTE
+      TeraByte:
+        description: >-
+          Unit for digital information equivalent to 1000 gigabytes
+        meaning: unit:TeraBYTE
 
   VariantTypeEnum:
     description: FIAF Moving Image Cataloguing Manual D.2
