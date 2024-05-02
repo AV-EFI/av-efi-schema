@@ -39,8 +39,16 @@ classes:
     description: >-
       A generic grouping for all described things
 
-  MovingImageRecord:
+  PIDRecord:
     is_a: Entity
+    abstract: true
+    slots:
+      - id
+    description: >-
+      Grouping for all entities that represent a PID metadata record
+
+  MovingImageRecord:
+    is_a: PIDRecord
     abstract: true
     attributes:
       alternative_title:
@@ -60,7 +68,6 @@ classes:
           type must be SuppliedDevisedTitle, instead.
     slots:
       - has_event
-      - id
       - in_language
 
   WorkVariant:
