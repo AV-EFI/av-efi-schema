@@ -58,11 +58,6 @@ classes:
           type should be PreferredTitle for works / variants and
           TitleProper for manifestations / items. If not available,
           type must be SuppliedDevisedTitle, instead.
-      sort_name:
-        range: string
-        description: >-
-          Altered value of primary_title if required for proper
-          sorting in search result lists. Leave empty if not required.
     slots:
       - has_event
       - id
@@ -196,20 +191,22 @@ classes:
   Title:
     is_a: Entity
     attributes:
-      value:
-        required: true
-        close_mappings:
-          - fiaf:hasTitleValue
-        description: >-
-          FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
     slots:
+      - name
+      - sort_name
       - type
     slot_usage:
+      name:
+        close_mappings:
+          - fiaf:hasTitleValue
+          - schema:name
       type:
         range: TitleTypeEnum
         required: true
         description: >-
           FIAF Moving Image Cataloguing Manual A.2
+    description: >-
+      FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
 
   ManifestationOrItem:
     is_a: MovingImageRecord
@@ -554,6 +551,13 @@ slots:
   alternate_name:
     slot_uri: schema:alternateName
     multivalued: true
+
+  sort_name:
+    description: >-
+      Provide normalised form for sorting by title
+    examples:
+      - value: American in Paris, An
+        description: "When display title is: An American in Paris"
 
   description:
     slot_uri: schema:description
@@ -1354,6 +1358,8 @@ enums:
           as well be off the mark
 
   TitleTypeEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual A.2
     permissible_values:
       AbbreviatedTitle:
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
