@@ -91,6 +91,7 @@ classes:
           - range: WikidataResource
       type:
         range: WorkVariantTypeEnum
+        required: true
     related_mappings:
       - fiaf:WorkVariant
     description: >-
