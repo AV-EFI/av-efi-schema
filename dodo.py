@@ -99,7 +99,7 @@ def task_jsonschema():
     """Generate derived JSON Schema."""
     return {
         'actions': [
-            "gen-json-schema {dependencies} > {targets}",
+            "gen-json-schema --closed {dependencies} > {targets}",
         ],
         'file_dep': [YAML_SCHEMA],
         'task_dep': ['sync_dependencies'],
