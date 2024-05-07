@@ -229,7 +229,6 @@ classes:
 
   Title:
     is_a: Entity
-    attributes:
     slots:
       - name
       - sort_name
@@ -403,9 +402,6 @@ classes:
     slots:
       - access_status
       - is_item_of
-      - has_holding_institution
-      # fiaf:hasHoldingInstitution
-      # has_stream (für codec)
       - is_copy_of
       - is_derivative_of
       - element_type
@@ -621,10 +617,6 @@ slots:
       - value: American in Paris, An
         description: "When display title is: An American in Paris"
 
-  description:
-    slot_uri: schema:description
-    description: A human-readable description for a thing
-
   has_record:
     inlined_as_list: true
     multivalued: true
@@ -740,9 +732,6 @@ slots:
     description: >-
       Agent involved in some activity related to the moving image
       resource
-
-  family_name:
-  given_name:
 
   #-----------------------------------
   # WorkVariant branch
@@ -891,8 +880,6 @@ slots:
     description: >-
       Indicate AVefi Manifestation the item belongs to. Every item must
       be associated with a manifestation from the same data provider
-
-  has_holding_institution:
 
   access_status:
     range: ItemAccessStatusEnum
