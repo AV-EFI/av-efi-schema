@@ -242,6 +242,8 @@ classes:
       - has_duration
       - has_extent
       - has_format
+      - has_note
+      - has_webresource
 
   Duration:
     is_a: Entity
@@ -790,6 +792,18 @@ slots:
     description: >-
        Indicate AVefi Items the institution has registered as part of
        the manifestation
+
+  has_note:
+    inlined_as_list: true
+    multivalued: true
+    description: >-
+      FIAF Moving Image Cataloguing Manual Appendix B
+
+  has_webresource:
+    range: uri
+    description: >-
+      Link to data provider's own presentation of manifestation or
+      item on the web
 
   is_manifestation_of:
     inlined_as_list: true
