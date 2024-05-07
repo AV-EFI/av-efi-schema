@@ -17,6 +17,7 @@ prefixes:
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   schema: http://schema.org/
   unit: http://qudt.org/vocab/unit/
+  wdrs: http://www.w3.org/2007/05/powder-s#
 
 emit_prefixes:
   - fiaf
@@ -67,8 +68,19 @@ classes:
           TitleProper for manifestations / items. If not available,
           type must be SuppliedDevisedTitle, instead.
     slots:
+      - described_by
       - has_event
       - in_language
+
+  DescriptionResource:
+    slots:
+      - has_history
+      - issuer_id
+      - issuer_name
+      - last_modified
+    description: >-
+      Metadata about the PID rather than the identified object, i.e.
+      who modified the PID metadata record when, making what changes
 
   WorkVariant:
     is_a: MovingImageRecord
@@ -631,6 +643,50 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: AuthorityResource
+
+  described_by:
+    slot_uri: wdrs:describedby
+    inlined: true
+    range: DescriptionResource
+    required: true
+    description: >-
+      Also record some metadata about the PID itself rather than the
+      identified object
+
+  has_history:
+    range: uri
+    description: >-
+      Link to revision history of this PID
+
+  issuer_id:
+    slot_uri: wdrs:issuedby
+    range: uri
+    required: true
+    description: >-
+      Identifier for the responsible party as an URI suitable for
+      linked data
+    examples:
+      - value: https://ld.zdb-services.de/resource/organisations/DE-MUS-432511
+        description: ISIL of the Filmmuseum Düsseldorf
+
+  issuer_name:
+    slot_uri: dcterms:contributor
+    range: string
+    required: true
+    description: >-
+      Name of the responsible party
+    examples:
+      - value: Filmmuseum Düsseldorf
+        description: Human readable name of the issuer
+
+  last_modified:
+    slot_uri: dcterms:modified
+    pattern: ^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?Z$
+    range: datetime
+    required: true
+    description: >-
+      Timestamp (in UTC) for the latest modification to any field in
+      the PID metadata record
 
   #-----------------------------------
   # Event branch slots
