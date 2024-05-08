@@ -52,14 +52,14 @@ classes:
     is_a: PIDRecord
     abstract: true
     attributes:
-      alternative_title:
+      has_alternative_title:
         multivalued: true
         inlined_as_list: true
         range: Title
         description: >-
           Additional title(s) associated with the work / variant,
           manifestation, or item.
-      primary_title:
+      has_primary_title:
         range: Title
         required: true
         description: >-
@@ -75,8 +75,8 @@ classes:
   DescriptionResource:
     slots:
       - has_history
-      - issuer_id
-      - issuer_name
+      - has_issuer_id
+      - has_issuer_name
       - last_modified
     description: >-
       Metadata about the PID rather than the identified object, i.e.
@@ -113,8 +113,8 @@ classes:
   GeographicName:
     is_a: Entity
     slots:
-      - alternate_name
-      - name
+      - has_alternate_name
+      - has_name
       - same_as
     ## Apparently not supported by jsonschema generator, unfortunately
     # slot_usage:
@@ -136,8 +136,8 @@ classes:
   Genre:
     is_a: Entity
     slots:
-      - alternate_name
-      - name
+      - has_alternate_name
+      - has_name
       - same_as
     slot_usage:
       same_as:
@@ -152,8 +152,8 @@ classes:
   SubjectHeading:
     is_a: Entity
     slots:
-      - alternate_name
-      - name
+      - has_alternate_name
+      - has_name
       - same_as
     description: >-
       Subject descriptor terms for the content of a film specifying
@@ -178,12 +178,12 @@ classes:
   Agent:
     is_a: Entity
     slots:
-      - alternate_name
-      - name
+      - has_alternate_name
+      - has_name
       - same_as
       - type
     slot_usage:
-      name:
+      has_name:
         description: >-
           For natural persons, always use the convention "family name,
           given name"
@@ -230,11 +230,11 @@ classes:
   Title:
     is_a: Entity
     slots:
-      - name
-      - sort_name
+      - has_name
+      - has_ordering_name
       - type
     slot_usage:
-      name:
+      has_name:
         close_mappings:
           - fiaf:hasTitleValue
           - schema:name
@@ -400,11 +400,11 @@ classes:
   Item:
     is_a: ManifestationOrItem
     slots:
-      - access_status
-      - is_item_of
+      - element_type
+      - has_access_status
       - is_copy_of
       - is_derivative_of
-      - element_type
+      - is_item_of
     broad_mappings:
       - fiaf:Item
     description: >-
@@ -601,16 +601,16 @@ slots:
     range: uriorcurie
     description: A unique identifier for a thing
 
-  name:
+  has_name:
     slot_uri: schema:name
     required: true
     description: A human-readable name for a thing
 
-  alternate_name:
+  has_alternate_name:
     slot_uri: schema:alternateName
     multivalued: true
 
-  sort_name:
+  has_ordering_name:
     description: >-
       Provide normalised form for sorting by title
     examples:
@@ -650,7 +650,7 @@ slots:
     description: >-
       Link to revision history of this PID
 
-  issuer_id:
+  has_issuer_id:
     slot_uri: wdrs:issuedby
     range: uri
     required: true
@@ -661,7 +661,7 @@ slots:
       - value: https://ld.zdb-services.de/resource/organisations/DE-MUS-432511
         description: ISIL of the Filmmuseum Düsseldorf
 
-  issuer_name:
+  has_issuer_name:
     slot_uri: dcterms:contributor
     range: string
     required: true
@@ -881,7 +881,7 @@ slots:
       Indicate AVefi Manifestation the item belongs to. Every item must
       be associated with a manifestation from the same data provider
 
-  access_status:
+  has_access_status:
     range: ItemAccessStatusEnum
 
   is_copy_of:
