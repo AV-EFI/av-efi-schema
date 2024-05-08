@@ -1,0 +1,911 @@
+id: https://av-efi.net/avefi_schema/model
+name: model
+title: AVefi data model
+description: |-
+  Metadata schema for persistent film identifiers developed in the
+  AVefi project
+
+imports:
+  - linkml:types
+  - vocab
+
+prefixes:
+  avefi: https://av-efi.net/avefi_schema/
+  fiaf: https://fiafcore.org/ontology/
+  foaf: http://xmlns.com/foaf/0.1/
+  linkml: https://w3id.org/linkml/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  schema: http://schema.org/
+  unit: http://qudt.org/vocab/unit/
+  wdrs: http://www.w3.org/2007/05/powder-s#
+
+emit_prefixes:
+  - fiaf
+  - owl
+  - rdf
+  - rdfs
+  - xsd
+
+default_prefix: avefi
+default_range: string
+default_curi_maps:
+  - semweb_context
+
+classes:
+
+  Entity:
+    abstract: true
+    slots:
+      - category
+    description: >-
+      A generic grouping for all described things
+
+  PIDRecord:
+    is_a: Entity
+    abstract: true
+    slots:
+      - id
+    description: >-
+      Grouping for all entities that represent a PID metadata record
+
+  MovingImageRecord:
+    is_a: PIDRecord
+    abstract: true
+    attributes:
+      has_alternative_title:
+        multivalued: true
+        inlined_as_list: true
+        range: Title
+        description: >-
+          Additional title(s) associated with the work / variant,
+          manifestation, or item.
+      has_primary_title:
+        range: Title
+        required: true
+        description: >-
+          Primary title to be displayed in search results etc. The
+          type should be PreferredTitle for works / variants and
+          TitleProper for manifestations / items. If not available,
+          type must be SuppliedDevisedTitle, instead.
+    slots:
+      - described_by
+      - has_event
+      - in_language
+
+  DescriptionResource:
+    slots:
+      - has_history
+      - has_issuer_id
+      - has_issuer_name
+      - last_modified
+    description: >-
+      Metadata about the PID rather than the identified object, i.e.
+      who modified the PID metadata record when, making what changes
+
+  WorkVariant:
+    is_a: MovingImageRecord
+    slots:
+      - has_form
+      - has_genre
+      - has_subject
+      - is_part_of
+      - is_variant_of
+      - same_as
+      - type
+      - variant_type
+    slot_usage:
+      ## Apparently not supported by jsonschema generator, unfortunately
+      # same_as:
+      #   any_of:
+      #     - range: DOIResource
+      #     - range: FilmportalResource
+      #     - range: GNDResource
+      #     - range: VIAFResource
+      #     - range: WikidataResource
+      type:
+        range: WorkVariantTypeEnum
+        required: true
+    related_mappings:
+      - fiaf:WorkVariant
+    description: >-
+      FIAF Moving Image Cataloguing Manual 1.0
+
+  GeographicName:
+    is_a: Entity
+    slots:
+      - has_alternate_name
+      - has_name
+      - same_as
+    ## Apparently not supported by jsonschema generator, unfortunately
+    # slot_usage:
+    #   same_as:
+    #     any_of:
+    #       - range: GNDResource
+    #       - range: VIAFResource
+    #       - range: WikidataResource
+    related_mappings:
+      - fiaf:Country
+      - fiaf:Location
+    description: >-
+      Name of country, region or other location. Names should be taken
+      from appropriate authorities (e.g. GND) and recorded as a human
+      readable string in the name attribute and as linked data in the
+      same_as attribute. See also: FIAF Moving Image Cataloguing Manual
+      1.3.3, D.4
+
+  Genre:
+    is_a: Entity
+    slots:
+      - has_alternate_name
+      - has_name
+      - same_as
+    slot_usage:
+      same_as:
+        range: GNDResource
+    description: >-
+      Genre describes categories of Works, characterized by similar
+      plots, themes, settings, situations, and characters. Examples of
+      genres are “westerns” and “thrillers”. See also: FIAF Moving
+      Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic
+      Terms D.2.1
+
+  Subject:
+    is_a: Entity
+    slots:
+      - has_alternate_name
+      - has_name
+      - same_as
+    description: >-
+      Subject descriptor terms for the content of a film specifying
+      its period, themes, locations, etc. Not to be confused with
+      Genre. Provide name and if at all possible identifier(s) from
+      supported authorities in the same_as slot. See also: FIAF Moving
+      Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic
+      Terms D.2.3
+
+  Activity:
+    is_a: Entity
+    slots:
+      - has_agent
+      - type
+    slot_usage:
+      type:
+        range: ActivityTypeEnum
+        required: true
+    description: >-
+      FIAF Moving Image Cataloguing Manual 1.4.1.1
+
+  Agent:
+    is_a: Entity
+    slots:
+      - has_alternate_name
+      - has_name
+      - same_as
+      - type
+    slot_usage:
+      has_name:
+        description: >-
+          For natural persons, always use the convention "family name,
+          given name"
+      ## Apparently not supported by jsonschema generator, unfortunately
+      # same_as:
+      #   any_of:
+      #     - range: FilmportalResource
+      #     - range: GNDResource
+      #     - range: VIAFResource
+      #     - range: WikidataResource
+      type:
+        range: AgentTypeEnum
+        required: true
+    related_mappings:
+      - fiaf:Agent
+      - foaf:Agent
+    description: >-
+      Agent involved in some activity related to the moving image
+      resource. For agents of type "Person" specify name according to
+      the convention "family name, given name"
+
+  Event:
+    is_a: Entity
+    slots:
+      - has_activity
+      - has_date
+      - located_in
+      - type
+    slot_usage:
+      type:
+        range: EventTypeEnum
+        required: true
+    description: >-
+      Significant event in the lifecycle of moving image work /
+      variant, manifestation or item. Always specify the type of event
+      and if possible a date or a period of time via has_date. Specify
+      located_in as appropriate, e.g. the country where the principal
+      offices or production facilities of the production company are
+      located for a production event. Involved parties in various
+      roles can be linked via has_activity. See also: FIAF Moving
+      Image Cataloguing Manual 1.4.2, 2.4.2, 3.3.2
+
+  Title:
+    is_a: Entity
+    slots:
+      - has_name
+      - has_ordering_name
+      - type
+    slot_usage:
+      has_name:
+        close_mappings:
+          - fiaf:hasTitleValue
+          - schema:name
+      type:
+        range: TitleTypeEnum
+        required: true
+        description: >-
+          FIAF Moving Image Cataloguing Manual A.2
+    description: >-
+      FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
+
+  ManifestationOrItem:
+    is_a: MovingImageRecord
+    abstract: true
+    slots:
+      - has_duration
+      - has_extent
+      - has_format
+      - has_note
+      - has_webresource
+
+  Duration:
+    is_a: Entity
+    slots:
+      - has_value
+      - value_is
+    slot_usage:
+      has_value:
+        pattern: ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
+        range: string
+    description: >-
+      Total running time of the described object in ISO 8601 duration
+      format. The examples section lists possible values for the
+      has_value slot. See also: FIAF Moving Image Cataloguing Manual
+      2.3.5.3, 3.1.5.11
+    examples:
+      - value: PT3H18M45S
+        description: 3 hours, 18 minutes, 45 seconds
+      - value: PT2H9M
+        description: 2 hours, 9 minutes
+      - value: PT6M12S
+        description: 6 minutes, 12 seconds
+    notes:
+      - https://www.w3.org/TR/xmlschema11-2/#duration
+
+  Extent:
+    is_a: Entity
+    slots:
+      - has_unit
+      - has_value
+      - value_is
+    description: >-
+      Physical length or size of the described object. See also: FIAF
+      Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
+
+  Format:
+    is_a: Entity
+    abstract: true
+    slots:
+      - type
+    description: >-
+      FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
+
+  Audio:
+    is_a: Format
+    slot_usage:
+      type:
+        range: FormatAudioTypeEnum
+    close_mappings:
+      - fiaf:Audio
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
+
+  DigitalFile:
+    is_a: Format
+    slot_usage:
+      type:
+        range: FormatDigitalFileTypeEnum
+    close_mappings:
+      - fiaf:DigitalFile
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
+
+  DigitalFileEncoding:
+    is_a: Format
+    slot_usage:
+      type:
+        range: FormatDigitalFileEncodingTypeEnum
+    close_mappings:
+      - fiaf:DigitalFileEncoding
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
+
+  Film:
+    is_a: Format
+    slot_usage:
+      type:
+        range: FormatFilmTypeEnum
+    close_mappings:
+      - fiaf:Film
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
+
+  Optical:
+    is_a: Format
+    slot_usage:
+      type:
+        range: FormatOpticalTypeEnum
+    description: FIAF Moving Image Cataloguing Manual D.7.2
+    close_mappings:
+      - fiaf:Optical
+
+  Video:
+    is_a: Format
+    slot_usage:
+      type:
+        range: FormatVideoTypeEnum
+    close_mappings:
+      - fiaf:Video
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.2
+
+  Manifestation:
+    is_a: ManifestationOrItem
+    slots:
+      - has_item
+      - is_manifestation_of
+      - same_as
+      - type
+    slot_usage:
+      same_as:
+        range: AVefiResource
+        description: >-
+          Link to AVefi resource registered by another data provider
+          indicating that the two manifestations are known to be the
+          same. Use this, for instance, when you have cooperated in
+          making a digital restoration of some film work
+      type:
+        range: ManifestationTypeEnum
+    close_mappings:
+      - fiaf:Manifestation
+    description: >-
+      FIAF Moving Image Cataloguing Manual 2.0
+
+  Language:
+    is_a: Entity
+    attributes:
+      code:
+        pattern: ^[a-z]{3}$
+        required: true
+        description: >-
+          ISO 639-2 code for the Representation of Names of Languages
+          (Part 2: Alpha-3)
+        see_also:
+          - https://id.loc.gov/vocabulary/iso639-2.html
+      usage:
+        multivalued: true
+        range: LanguageUsageEnum
+        required: true
+    description: >-
+      Provide language code from ISO 639-2 (Part 2: Alpha-3) and a
+      list of language usage terms from our controlled vocabulary. See
+      also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3
+
+  Item:
+    is_a: ManifestationOrItem
+    slots:
+      - element_type
+      - has_access_status
+      - is_copy_of
+      - is_derivative_of
+      - is_item_of
+    broad_mappings:
+      - fiaf:Item
+    description: >-
+      FIAF Moving Image Cataloguing Manual 3.0
+
+  MovingImageRecordCollection:
+    is_a: Entity
+    description: >-
+      A holder for MovingImageRecord objects
+    slots:
+      - has_record
+    tree_root: true
+
+  #-----------------------------------
+  # Identifier classes
+  #-----------------------------------
+
+  AuthorityResource:
+    is_a: Entity
+    abstract: true
+    slots:
+      - id
+    slot_usage:
+      id:
+        range: string
+    description: >-
+      Root class for all identifiers from some kind of authority or
+      public register widely accepted in the community
+
+  AVefiResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^21(\\.([0-9A-Za-z])+)*\\/([!-~])+$
+    annotations:
+      - formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
+    todos:
+      Possibly change formatter URIs/URLs to the av-efi.net domain when
+      the details have been sorted out
+    description: >-
+      Handle with the prefix allocated for AVefi (eventually)
+
+  DOIResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^10\\.[0-9]{4,9}(\\.[0-9]+)*(\\/|%2F)((?![\"&\'])\\S)+$
+    annotations:
+      - formatter_uri_for_rdf_resource: "http://dx.doi.org/$1"
+      - formatter_url_for_web_resource: "https://dx.doi.org/$1"
+      - tag: provides
+        value:
+          - CreativeWorkIdentifier
+    description: >-
+      Digital Object Identifier maintained by the DOI Foundation and
+      commonly used for scientific publications including films.
+    see_also:
+      - https://dx.doi.org/
+      - https://www.wikidata.org/wiki/Property:P356
+
+  FilmportalResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^[\\da-f]{32}$
+    annotations:
+      - formatter_uri_for_rdf_resource: https://www.filmportal.de/$1
+      - formatter_uri_for_web_resource: https://www.filmportal.de/$1
+      - tag: provides
+        value:
+          - CreativeWorkIdentifier
+          - PersonIdentifier
+    description: >-
+      Identifier of the German Filmportal.de
+    see_also:
+      - https://www.filmportal.de/
+      - https://www.wikidata.org/entity/P2639
+
+  GNDResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^[-\\dX]+$
+    annotations:
+      - formatter_uri_for_rdf_resource: https://d-nb.info/gnd/$1
+      - formatter_url_for_web_resource: https://d-nb.info/gnd/$1
+      - tag: provides
+        value:
+          - CreativeWorkIdentifier
+          - PlaceIdentifier
+          - OrganizationIdentifier
+          - PersonIdentifier
+          - SubjectHeadingIdentifier
+    notes: >-
+      - alternative_web_resource: https://explore.gnd.network/gnd/$1/relations
+      - other_resources:
+          - https://d-nb.info/gnd/$1/about/lds
+          - https://hub.culturegraph.org/entityfacts/$1
+          - https://lobid.org/gnd/$1
+      - API documentation including auto-complete suggestions at
+          https://lobid.org/gnd/api
+    description: >-
+      Gemeinsame Normdatei (GND) identifier maintained by Deutsche
+      Nationalbibliothek (German National Library)
+    see_also:
+      - https://www.wikidata.org/entity/P227
+
+  ISILResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^[A-Z]{2}-[A-Za-z\-0-9:/]{1,15}$
+    annotations:
+      - formatter_url_for_web_resource: https://w3id.org/isil/$1
+      - tag: provides
+        value:
+          - OrganizationIdentifier
+    description: >-
+      International Standard Identifier for Libraries and Related
+      Organizations including (film) archives
+    see_also:
+      - https://biblstandard.dk/isil/index.htm
+      - https://www.wikidata.org/wiki/Property:P791
+
+  TGNResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^[1-9][0-9]{6}$
+    annotations:
+      - formatter_uri_for_rdf_resource: http://vocab.getty.edu/tgn/$1
+      - formatter_url_for_web_resource: https://vocab.getty.edu/page/tgn/$1
+      - tag: provides
+        value:
+          - PlaceIdentifier
+    description: >-
+      Getty Thesaurus of Geographic Names ID
+    see_also:
+      - https://www.getty.edu/research/tools/vocabularies/tgn/index.html
+      - https://vocab.getty.edu/resource?uri=http://vocab.getty.edu/dataset/tgn
+      - https://www.wikidata.org/wiki/Property:P1667
+
+  VIAFResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^\\d+$
+    annotations:
+      - formatter_uri_for_rdf_resource: http://viaf.org/viaf/$1
+      - formatter_url_for_web_resource: https://viaf.org/viaf/$1
+      - tag: provides
+        value:
+          - CreativeWorkIdentifier
+          - PlaceIdentifier
+          - OrganizationIdentifier
+          - PersonIdentifier
+    description: >-
+      Virtual International Authority File identifier hosted by OCLC.
+      The data is accumulated from various well established authority
+      files from different parts of teh world
+    see_also:
+      - https://viaf.org/
+      - https://www.wikidata.org/entity/P214
+
+  WikidataResource:
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        pattern: ^[LPQ]\\d+$
+    annotations:
+      - formatter_uri_for_rdf_resource: https://www.wikidata.org/entity/$1
+      - formatter_url_for_web_resource: https://www.wikidata.org/entity/$1
+      - tag: provides
+        value:
+          - CreativeWorkIdentifier
+          - PlaceIdentifier
+          - OrganizationIdentifier
+          - PersonIdentifier
+          - SubjectHeadingIdentifier
+    description: >-
+      Identifier for Wikidata entities
+    see_also:
+      - https://www.wikidata.org/wiki/Wikidata:Identifiers
+
+slots:
+
+  #-----------------------------------
+  # General purpose slots
+  #-----------------------------------
+
+  id:
+    identifier: true
+    slot_uri: schema:identifier
+    range: uriorcurie
+    description: A unique identifier for a thing
+
+  has_name:
+    slot_uri: schema:name
+    required: true
+    description: A human-readable name for a thing
+
+  has_alternate_name:
+    slot_uri: schema:alternateName
+    multivalued: true
+
+  has_ordering_name:
+    description: >-
+      Provide normalised form, e.g. for sorting by title
+    examples:
+      - value: American in Paris, An
+        description: "For display title: An American in Paris"
+      - value: "Star Wars: Episode 9 – Der Aufstieg Skywalkers"
+        description: "For display title: Star Wars: Episode IX – Der Aufstieg Skywalkers"
+
+  has_record:
+    inlined_as_list: true
+    multivalued: true
+    range: MovingImageRecord
+
+  type:
+    range: uriorcurie
+
+  category:
+    slot_uri: rdf:type
+    designates_type: true
+    range: uriorcurie
+    required: true
+
+  same_as:
+    inlined_as_list: true
+    multivalued: true
+    range: AuthorityResource
+
+  described_by:
+    slot_uri: wdrs:describedby
+    inlined: true
+    range: DescriptionResource
+    required: true
+    description: >-
+      Also record some metadata about the PID itself rather than the
+      identified object
+
+  has_history:
+    range: uri
+    description: >-
+      Link to revision history of this PID
+
+  has_issuer_id:
+    slot_uri: wdrs:issuedby
+    range: uri
+    required: true
+    description: >-
+      Identifier for the responsible party as an URI suitable for
+      linked data
+    examples:
+      - value: https://ld.zdb-services.de/resource/organisations/DE-MUS-432511
+        description: ISIL of the Filmmuseum Düsseldorf
+
+  has_issuer_name:
+    slot_uri: dcterms:contributor
+    range: string
+    required: true
+    description: >-
+      Name of the responsible party
+    examples:
+      - value: Filmmuseum Düsseldorf
+        description: Human readable name of the issuer
+
+  last_modified:
+    slot_uri: dcterms:modified
+    pattern: ^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?Z$
+    range: datetime
+    required: true
+    description: >-
+      Timestamp (in UTC) for the latest modification to any field in
+      the PID metadata record
+
+  #-----------------------------------
+  # Event branch slots
+  #-----------------------------------
+
+  has_event:
+    inlined_as_list: true
+    multivalued: true
+    range: Event
+    description: >-
+      Associate event(s) with a moving image record
+
+  has_date:
+    pattern: ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$
+    notes:
+      - https://www.w3.org/TR/xmlschema11-2/#date
+    description: >-
+      Date (or interval/period) when an event has taken place. A
+      subset of ISO 8601 is supported, more specifically, EDTF
+      conformance level 0 as well as qualifiers ? (uncertain date) and
+      ~ (approximate date). See examples and references for more
+      information
+    examples:
+      - value: '2024-04-24'
+        description: complete date, i.e. year, month and day
+      - value: '2024-04'
+        description: year and month
+      - value: '2024'
+        description: year only
+      - value: '2024~'
+        description: approximate date (2024 or at least close to 2024)
+      - value: '2024?'
+        description: uncertain date (2024 or may be something different)
+      - value: '2023/2024'
+        description: interval (2023 until 2024)
+    see_also:
+      - https://www.loc.gov/standards/datetime/
+
+  has_activity:
+    inlined_as_list: true
+    multivalued: true
+    range: Activity
+    description: >-
+      Associate activity (and subsequently agents) with event
+
+  has_agent:
+    inlined_as_list: true
+    multivalued: true
+    range: Agent
+    required: true
+    description: >-
+      Agent involved in some activity related to the moving image
+      resource
+
+  #-----------------------------------
+  # WorkVariant branch
+  #-----------------------------------
+
+  located_in:
+    inlined_as_list: true
+    multivalued: true
+    range: GeographicName
+
+  has_duration:
+    range: Duration
+    description: >-
+      Total running time of the described object in ISO 8601 duration
+      format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3,
+      3.1.5.11
+
+  has_extent:
+    range: Extent
+    description: >-
+      Physical length or size of the described object. See also: FIAF
+      Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
+
+  has_unit:
+    range: UnitEnum
+    description: >-
+      Unit of some quantity
+
+  has_value:
+    range: decimal
+    description: >-
+      Value of some quantity
+
+  value_is:
+    range: PrecisionEnum
+    description: >-
+      Qualifier indicating the precision of an extent value or
+      duration
+
+  has_form:
+    multivalued: true
+    range: WorkFormEnum
+    description: >-
+      Form describes the format and/or purpose of a Work, e.g.,
+      “non-fiction”, “short” and “animation”. See also: FIAF Moving
+      Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic
+      Terms D.1
+
+  has_genre:
+    inlined_as_list: true
+    multivalued: true
+    range: Genre
+    description: >-
+      Genre describes categories of Works, characterized by similar
+      plots, themes, settings, situations, and characters. Examples of
+      genres are “westerns” and “thrillers”. See also: FIAF Moving
+      Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic
+      Terms D.2.1
+
+  has_subject:
+    inlined_as_list: true
+    multivalued: true
+    range: Subject
+    description: >-
+      Subject descriptor terms for the content of a film specifying
+      its period, themes, locations, etc. Not to be confused with
+      Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and
+      FIAF Glossary of Filmographic Terms D.2.3
+
+  is_variant_of:
+    range: AVefiResource
+    description: >-
+      Link to the reference WorkVariant for the currently described
+      variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2,
+      1.1.2, 1.4.5
+
+  is_part_of:
+    inlined_as_list: true
+    multivalued: true
+    range: AVefiResource
+    description: >-
+      Relate, for instance, episodes to a series / serial. See also:
+      FIAF Moving Image Cataloguing Manual D.17
+
+  variant_type:
+    range: VariantTypeEnum
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.2
+
+  #-----------------------------------
+  # Manifestation branch
+  #-----------------------------------
+
+  has_format:
+    inlined_as_list: true
+    multivalued: true
+    range: Format
+
+  has_item:
+    inlined_as_list: true
+    multivalued: true
+    range: AVefiResource
+    description: >-
+       Indicate AVefi Items the institution has registered as part of
+       the manifestation
+
+  has_note:
+    inlined_as_list: true
+    multivalued: true
+    description: >-
+      FIAF Moving Image Cataloguing Manual Appendix B
+
+  has_webresource:
+    range: uri
+    description: >-
+      Link to data provider's own presentation of manifestation or
+      item on the web
+
+  is_manifestation_of:
+    inlined_as_list: true
+    multivalued: true
+    range: AVefiResource
+    required: true
+    description: >-
+      Indicate AVefi WorkVariant (possibly more but no less than one)
+      that is subject of the manifestation
+
+  in_language:
+    inlined_as_list: true
+    multivalued: true
+    range: Language
+    related_mappings:
+      - fiaf:hasLanguage
+      - schema:inLanguage
+    description: >-
+      FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3
+
+  #-----------------------------------
+  # Item branch
+  #-----------------------------------
+
+  is_item_of:
+    # multivalued: true
+    range: AVefiResource
+    required: true
+    description: >-
+      Indicate AVefi Manifestation the item belongs to. Every item must
+      be associated with a manifestation from the same data provider
+
+  has_access_status:
+    range: ItemAccessStatusEnum
+
+  is_copy_of:
+    inlined_as_list: true
+    multivalued: true
+    range: AVefiResource
+    description: >-
+      Link to AVefi item registered by another institution indicating
+      that the two are known to be copies of each other
+
+  is_derivative_of:
+    inlined_as_list: true
+    multivalued: true
+    range: AVefiResource
+    # related_mappings:
+    #   - edm:isDerivativeOf
+    description: >-
+      Link to AVefi item from which this one has been derived in whole
+      or in part, e.g. as a result of a restoration or digitasation
+      project
+
+  element_type:
+    range: ItemElementTypeEnum
