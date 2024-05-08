@@ -613,10 +613,12 @@ slots:
 
   has_ordering_name:
     description: >-
-      Provide normalised form for sorting by title
+      Provide normalised form, e.g. for sorting by title
     examples:
       - value: American in Paris, An
-        description: "When display title is: An American in Paris"
+        description: "For display title: An American in Paris"
+      - value: "Star Wars: Episode 9 – Der Aufstieg Skywalkers"
+        description: "For display title: Star Wars: Episode IX – Der Aufstieg Skywalkers"
 
   has_record:
     inlined_as_list: true
