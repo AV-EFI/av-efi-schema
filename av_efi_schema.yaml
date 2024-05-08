@@ -87,7 +87,7 @@ classes:
     slots:
       - has_form
       - has_genre
-      - has_related_term
+      - has_subject
       - is_part_of
       - is_variant_of
       - same_as
@@ -149,7 +149,7 @@ classes:
       Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic
       Terms D.2.1
 
-  SubjectHeading:
+  Subject:
     is_a: Entity
     slots:
       - has_alternate_name
@@ -794,10 +794,10 @@ slots:
       Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic
       Terms D.2.1
 
-  has_related_term:
+  has_subject:
     inlined_as_list: true
     multivalued: true
-    range: SubjectHeading
+    range: Subject
     description: >-
       Subject descriptor terms for the content of a film specifying
       its period, themes, locations, etc. Not to be confused with
