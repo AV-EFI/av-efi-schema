@@ -150,6 +150,25 @@ def task_python():
         }
 
 
+def task_typescript():
+    """Generate typescript derivatives."""
+    typescript_path = PROJECT_DIR / 'typescript' / f"{SCHEMA_NAME}.ts"
+    for cmd, target in [
+            ('gen-typescript', typescript_path),
+            ('gen-typescript --gen-type-utils', typescript_path.with_stem(
+                f"{typescript_path.stem}_type_utils")),
+    ]:
+        yield {
+            'name': cmd,
+            'actions': [
+                f"{cmd} {SRC_MODEL} > {{targets}}",
+            ],
+            'task_dep': ['sync_dependencies'],
+            'file_dep': SRC_SCHEMA_DEPENDENCIES,
+            'targets': [target],
+        }
+
+
 def task_docs():
     """Build documentation from LinkML schema."""
     return {
