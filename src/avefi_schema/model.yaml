@@ -616,7 +616,8 @@ slots:
 
   has_ordering_name:
     description: >-
-      Provide normalised form, e.g. for sorting by title
+      Provide normalised form, e.g. for sorting by title. Only use
+      this slot if value actually if different from has_name
     examples:
       - value: American in Paris, An
         description: "For display title: An American in Paris"
