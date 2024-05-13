@@ -844,9 +844,6 @@ enums:
       DuplicatePositive:
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:DuplicatePositive
-      Element:
-        description: FIAF Moving Image Cataloguing Manual 3.1.4
-        meaning: fiaf:Element
       ImageNegative:
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:ImageNegative
