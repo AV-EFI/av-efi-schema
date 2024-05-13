@@ -530,6 +530,35 @@ enums:
       PersonGroup:
         meaning: fiaf:PersonGroup
 
+  ColourTypeEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11
+    permissible_values:
+      BlackAndWhite:
+        description: FIAF Moving Image Cataloguing Manual D.7.11
+        meaning: fiaf:BlackAndWhite
+      BlackAndWhiteTinted:
+        description: FIAF Moving Image Cataloguing Manual D.7.11
+        meaning: fiaf:BlackAndWhiteTinted
+      BlackAndWhiteTintedAndToned:
+        description: FIAF Moving Image Cataloguing Manual D.7.11
+        meaning: fiaf:BlackAndWhiteTintedAndToned
+      BlackAndWhiteToned:
+        description: FIAF Moving Image Cataloguing Manual D.7.11
+        meaning: fiaf:BlackAndWhiteToned
+      Colour:
+        description: FIAF Moving Image Cataloguing Manual D.7.11
+        meaning: fiaf:Colour
+      ColourBlackAndWhite:
+        description: FIAF Moving Image Cataloguing Manual D.7.11
+        meaning: fiaf:ColourBlackAndWhite
+      Sepia:
+        description: FIAF Moving Image Cataloguing Manual D.7.11
+        meaning: fiaf:Sepia
+      Tinted:
+        description: FIAF Moving Image Cataloguing Manual D.7.11
+        meaning: fiaf:Tinted
+
   EventTypeEnum:
     description: >-
       FIAF Moving Image Cataloguing Manual D
@@ -946,6 +975,35 @@ enums:
         description: >-
           Sources for the given value are deemed unreliable, so it may
           as well be off the mark
+
+  SoundTypeEnum:
+    description: >-
+      FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4
+    permissible_values:
+      Combined:
+        description: FIAF Moving Image Cataloguing Manual D.7.4
+        meaning: fiaf:Combined
+      CombinedAsMute:
+        description: FIAF Moving Image Cataloguing Manual D.7.4
+        meaning: fiaf:CombinedAsMute
+      CombinedAsSound:
+        description: FIAF Moving Image Cataloguing Manual D.7.4
+        meaning: fiaf:CombinedAsSound
+      MixedSound:
+        description: FIAF Moving Image Cataloguing Manual D.7.4
+        meaning: fiaf:MixedSound
+      Mute:
+        description: FIAF Moving Image Cataloguing Manual D.7.4
+        meaning: fiaf:Mute
+      Silent:
+        description: FIAF Moving Image Cataloguing Manual D.7.4
+        meaning: fiaf:Silent
+      Sound:
+        description: FIAF Moving Image Cataloguing Manual D.7.4
+        meaning: fiaf:Sound
+      Temporary:
+        description: FIAF Moving Image Cataloguing Manual D.7.4
+        meaning: fiaf:Temporary
 
   TitleTypeEnum:
     description: >-

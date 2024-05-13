@@ -360,7 +360,9 @@ classes:
   Manifestation:
     is_a: ManifestationOrItem
     slots:
+      - has_colour_type
       - has_item
+      - has_sound_type
       - is_manifestation_of
       - same_as
       - type
@@ -829,6 +831,11 @@ slots:
   # Manifestation branch
   #-----------------------------------
 
+  has_colour_type:
+    range: ColourTypeEnum
+    description: >-
+      FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11
+
   has_format:
     inlined_as_list: true
     multivalued: true
@@ -847,6 +854,11 @@ slots:
     multivalued: true
     description: >-
       FIAF Moving Image Cataloguing Manual Appendix B
+
+  has_sound_type:
+    range: SoundTypeEnum
+    description: >-
+      FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4
 
   has_webresource:
     range: uri
