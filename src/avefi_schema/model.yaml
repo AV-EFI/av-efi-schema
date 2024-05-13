@@ -260,7 +260,7 @@ classes:
     is_a: Entity
     slots:
       - has_value
-      - value_is
+      - has_precision
     slot_usage:
       has_value:
         pattern: ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
@@ -285,7 +285,7 @@ classes:
     slots:
       - has_unit
       - has_value
-      - value_is
+      - has_precision
     description: >-
       Physical length or size of the described object. See also: FIAF
       Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
@@ -771,7 +771,7 @@ slots:
     description: >-
       Value of some quantity
 
-  value_is:
+  has_precision:
     range: PrecisionEnum
     description: >-
       Qualifier indicating the precision of an extent value or
