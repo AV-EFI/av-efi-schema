@@ -1,7 +1,0 @@
-{
-  "$id": "work_8.1_originalLengthUnit",
-  "enum": [
-    "Meters",
-    "Feet"
-  ]
-}

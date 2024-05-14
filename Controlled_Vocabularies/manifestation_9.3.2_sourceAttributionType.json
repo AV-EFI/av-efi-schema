@@ -1,7 +1,0 @@
-{
-  "$id": "manifestation_9.3.2_sourceAttributionType",
-  "enum": [
-    "Created",
-    "Modified"
-  ]
-}

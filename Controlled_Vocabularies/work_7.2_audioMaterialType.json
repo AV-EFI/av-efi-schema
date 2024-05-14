@@ -1,9 +1,0 @@
-{
-  "$id": "work_7.2_audioMaterialType",
-  "enum": [
-    "Film",
-    "Analog Video",
-    "Digital",
-    "Digital Video"
-  ]
-}
