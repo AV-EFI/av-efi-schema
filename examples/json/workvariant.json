@@ -1,0 +1,194 @@
+{
+  "category": "avefi:MovingImageRecordCollection",
+  "has_record": [
+    {
+      "category": "avefi:WorkVariant",
+      "id": "21.T11998/60BC0D95-6F00-4E84-B77B-F3174C211C12",
+      "has_primary_title": {
+        "category": "avefi:Title",
+        "has_name": "Menschen am Sonntag – Das Dokument der Gegenwart",
+        "type": "PreferredTitle"
+      },
+      "described_by": {
+        "has_issuer_id": "DE-MUS-407010",
+        "has_issuer_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+        "last_modified": "2024-05-13T15:12:41+00:00"
+      },
+      "has_event": [
+        {
+          "category": "avefi:Event",
+          "type": "ProductionEvent",
+          "has_activity": [
+            {
+              "category": "avefi:Activity",
+              "has_agent": [
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Borchert, Brigitte",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "173787681"
+                    }
+                  ]
+                },
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Splettstößer, Erwin",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "1061393046"
+                    }
+                  ]
+                },
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Waltershausen, Wolfgang von",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "173857868"
+                    }
+                  ]
+                }
+              ],
+              "type": "CastMember"
+            },
+            {
+              "category": "avefi:Activity",
+              "has_agent": [
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Wilder, Billy",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "118632795"
+                    }
+                  ]
+                }
+              ],
+              "type": "Writer"
+            },
+            {
+              "category": "avefi:Activity",
+              "has_agent": [
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Siodmak, Robert",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "11861472X"
+                    }
+                  ]
+                },
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Ulmer, Edgar G.",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "124471196"
+                    }
+                  ]
+                },
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Gliese, Rochus",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "116663308"
+                    }
+                  ]
+                }
+              ],
+              "type": "Director"
+            },
+            {
+              "category": "avefi:Activity",
+              "has_agent": [
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Schüfftan, Eugen",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "12495748X"
+                    }
+                  ]
+                }
+              ],
+              "type": "CameraOperator"
+            },
+            {
+              "category": "avefi:Activity",
+              "has_agent": [
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Siodmak, Robert",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "11861472X"
+                    }
+                  ]
+                }
+              ],
+              "type": "FilmEditor"
+            },
+            {
+              "category": "avefi:Activity",
+              "has_agent": [
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Stenzel, Otto",
+                  "type": "Person"
+                }
+              ],
+              "type": "Composer"
+            }
+          ],
+          "has_date": "1929/1930",
+          "located_in": [
+            {
+              "category": "avefi:GeographicName",
+              "has_name": "Germany (German Reich)",
+              "same_as": [
+                {
+                  "category": "avefi:GNDResource",
+                  "id": "4011882-4"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "Monographic",
+      "has_genre": [
+        {
+          "category": "avefi:Genre",
+          "has_name": "Fiction"
+        }
+      ],
+      "same_as": [
+        {
+          "category": "avefi:FilmportalResource",
+          "id": "f570e1abdad841dc8d5b25b0f7737065"
+        }
+      ]
+    }
+  ],
+  "@type": "MovingImageRecordCollection"
+}
