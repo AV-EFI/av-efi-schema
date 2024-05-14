@@ -631,7 +631,9 @@ slots:
     slot_uri: rdf:type
     designates_type: true
     range: uriorcurie
-    required: true
+    description: >-
+      Designates type, e.g. to distinguish different identifiers
+      (GNDResource vs. VIAFResource)
 
   same_as:
     inlined_as_list: true
