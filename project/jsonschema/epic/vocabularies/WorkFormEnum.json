@@ -1,0 +1,29 @@
+{
+  "$id": "WorkFormEnum",
+  "description": "FIAF Glossary of Filmographic Terms D.1.9",
+  "enum": [
+    "AmateurFilm",
+    "Compilation",
+    "Excerpt",
+    "Feature",
+    "Featurette",
+    "HomeMovie",
+    "Outtake",
+    "ScreenTest",
+    "Series",
+    "Short",
+    "StockFootage",
+    "Trailer",
+    "UneditedFootage",
+    "AnthologyFilm",
+    "Commercial",
+    "EducationalFilm",
+    "EssayFilm",
+    "ExperimentalFilm",
+    "IndustrialFilm",
+    "MusicVideo",
+    "Newsreel"
+  ],
+  "title": "WorkFormEnum",
+  "type": "string"
+}

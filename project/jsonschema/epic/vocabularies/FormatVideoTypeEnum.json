@@ -1,0 +1,16 @@
+{
+  "$id": "FormatVideoTypeEnum",
+  "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+  "enum": [
+    "1InchCFormat",
+    "2InchQuadruplex",
+    "BetacamSP",
+    "D1",
+    "D5",
+    "DVCPROHD",
+    "DigitalBetacam",
+    "HDCAMSR"
+  ],
+  "title": "FormatVideoTypeEnum",
+  "type": "string"
+}

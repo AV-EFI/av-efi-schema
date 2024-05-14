@@ -1,0 +1,14 @@
+{
+  "$id": "UnitEnum",
+  "description": "Units of measurement. Definitions are taken from the Quantities, Units, Dimensions and Data Types Ontologies (QUDT)",
+  "enum": [
+    "Feet",
+    "GigaByte",
+    "KiloByte",
+    "Metre",
+    "MegaByte",
+    "TeraByte"
+  ],
+  "title": "UnitEnum",
+  "type": "string"
+}

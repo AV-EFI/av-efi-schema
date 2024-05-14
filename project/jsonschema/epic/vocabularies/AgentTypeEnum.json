@@ -1,0 +1,12 @@
+{
+  "$id": "AgentTypeEnum",
+  "description": "FIAF Moving Image Cataloguing Manual 1.4.1",
+  "enum": [
+    "CorporateBody",
+    "Family",
+    "Person",
+    "PersonGroup"
+  ],
+  "title": "AgentTypeEnum",
+  "type": "string"
+}

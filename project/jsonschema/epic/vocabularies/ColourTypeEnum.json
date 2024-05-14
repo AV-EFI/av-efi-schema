@@ -1,0 +1,16 @@
+{
+  "$id": "ColourTypeEnum",
+  "description": "FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11",
+  "enum": [
+    "BlackAndWhite",
+    "BlackAndWhiteTinted",
+    "BlackAndWhiteTintedAndToned",
+    "BlackAndWhiteToned",
+    "Colour",
+    "ColourBlackAndWhite",
+    "Sepia",
+    "Tinted"
+  ],
+  "title": "ColourTypeEnum",
+  "type": "string"
+}

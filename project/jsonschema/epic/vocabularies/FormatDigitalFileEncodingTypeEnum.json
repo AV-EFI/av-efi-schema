@@ -1,0 +1,14 @@
+{
+  "$id": "FormatDigitalFileEncodingTypeEnum",
+  "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+  "enum": [
+    "MPEG4",
+    "Quicktime",
+    "RealVideo",
+    "SVCD",
+    "VCD",
+    "WindowsMedia"
+  ],
+  "title": "FormatDigitalFileEncodingTypeEnum",
+  "type": "string"
+}

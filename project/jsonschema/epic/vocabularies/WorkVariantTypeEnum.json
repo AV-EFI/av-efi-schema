@@ -1,0 +1,12 @@
+{
+  "$id": "WorkVariantTypeEnum",
+  "description": "Work/Variant description type. See also: FIAF Moving Image Cataloguing Manual 1.2.1, D.1",
+  "enum": [
+    "Analytic",
+    "Collection",
+    "Monographic",
+    "Serial"
+  ],
+  "title": "WorkVariantTypeEnum",
+  "type": "string"
+}

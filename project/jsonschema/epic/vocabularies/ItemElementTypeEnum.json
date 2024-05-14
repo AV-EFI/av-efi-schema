@@ -1,0 +1,22 @@
+{
+  "$id": "ItemElementTypeEnum",
+  "description": "FIAF Moving Image Cataloguing Manual D.7.8",
+  "enum": [
+    "ColourNegative",
+    "ColourPositive",
+    "CopperTonedPositive",
+    "CyanMatrix",
+    "DCP",
+    "DirectBWPositive",
+    "DuplicateNegative",
+    "DuplicatePositive",
+    "ImageNegative",
+    "Lavender",
+    "OriginalNegative",
+    "OriginalPositiveReversalFilm",
+    "Positive",
+    "SoundNegative"
+  ],
+  "title": "ItemElementTypeEnum",
+  "type": "string"
+}

@@ -1,0 +1,18 @@
+{
+  "$id": "VariantTypeEnum",
+  "description": "FIAF Moving Image Cataloguing Manual D.2",
+  "enum": [
+    "AbridgedCondensed",
+    "Augmented",
+    "BlackAndWhiteCopyOfWorkOriginallyIssuedInColour",
+    "Censored",
+    "Colourized",
+    "DifferentSoundTrack",
+    "Dubbed",
+    "PreservationRestoration",
+    "Sonorized",
+    "Subtitled"
+  ],
+  "title": "VariantTypeEnum",
+  "type": "string"
+}

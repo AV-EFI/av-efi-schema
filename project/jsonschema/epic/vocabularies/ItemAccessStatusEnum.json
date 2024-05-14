@@ -1,0 +1,13 @@
+{
+  "$id": "ItemAccessStatusEnum",
+  "description": "FIAF Moving Image Cataloguing Manual D.7.3",
+  "enum": [
+    "Archive",
+    "Distribution",
+    "Master",
+    "Removed",
+    "Viewing"
+  ],
+  "title": "ItemAccessStatusEnum",
+  "type": "string"
+}

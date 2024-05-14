@@ -1,0 +1,21 @@
+{
+  "$id": "LanguageUsageEnum",
+  "description": "FIAF Moving Image Cataloguing Manual 2.3.3, D.6",
+  "enum": [
+    "AudioDescription",
+    "Captions",
+    "ClosingCredits",
+    "Dubbed",
+    "Intertitles",
+    "NoDialogue",
+    "OpeningCredits",
+    "SDHSubtitles",
+    "SignedLanguage",
+    "SpokenLanguage",
+    "Subtitles",
+    "SungLanguage",
+    "VoiceOver"
+  ],
+  "title": "LanguageUsageEnum",
+  "type": "string"
+}

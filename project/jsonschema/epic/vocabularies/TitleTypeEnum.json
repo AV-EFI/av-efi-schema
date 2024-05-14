@@ -1,0 +1,21 @@
+{
+  "$id": "TitleTypeEnum",
+  "description": "FIAF Moving Image Cataloguing Manual A.2",
+  "enum": [
+    "AbbreviatedTitle",
+    "AcquisitionTitle",
+    "AlternativeTitle",
+    "CorrectedTitle",
+    "PreReleaseTitle",
+    "PreferredTitle",
+    "SearchTitle",
+    "SeriesTitle",
+    "SuppliedDevisedTitle",
+    "TitleProper",
+    "TranslatedTitle",
+    "TransliteratedTitle",
+    "WorkingTitle"
+  ],
+  "title": "TitleTypeEnum",
+  "type": "string"
+}

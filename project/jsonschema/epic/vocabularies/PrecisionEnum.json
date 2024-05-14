@@ -1,0 +1,10 @@
+{
+  "$id": "PrecisionEnum",
+  "description": "Qualifier indicating the precision of an extent value or duration",
+  "enum": [
+    "Approximate",
+    "Uncertain"
+  ],
+  "title": "PrecisionEnum",
+  "type": "string"
+}

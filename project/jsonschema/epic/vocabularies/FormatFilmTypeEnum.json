@@ -1,0 +1,16 @@
+{
+  "$id": "FormatFilmTypeEnum",
+  "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+  "enum": [
+    "16mmFilm",
+    "17.5mmFilm",
+    "35mmFilm",
+    "70mmFilm",
+    "8mmFilm",
+    "9.5mmFilm",
+    "Super16mmFilm",
+    "Super8mmFilm"
+  ],
+  "title": "FormatFilmTypeEnum",
+  "type": "string"
+}

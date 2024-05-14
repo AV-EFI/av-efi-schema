@@ -1,0 +1,18 @@
+{
+  "$id": "ManifestationTypeEnum",
+  "description": "FIAF Moving Image Cataloguing Manual D.5",
+  "enum": [
+    "Broadcast",
+    "HomeViewingPublication",
+    "Internet",
+    "NonTheatricalDistribution",
+    "NotForRelease",
+    "PreRelease",
+    "PreservationRestoration",
+    "TheatricalDistribution",
+    "Unknown",
+    "Unreleased"
+  ],
+  "title": "ManifestationTypeEnum",
+  "type": "string"
+}

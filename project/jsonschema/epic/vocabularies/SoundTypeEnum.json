@@ -1,0 +1,16 @@
+{
+  "$id": "SoundTypeEnum",
+  "description": "FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4",
+  "enum": [
+    "Combined",
+    "CombinedAsMute",
+    "CombinedAsSound",
+    "MixedSound",
+    "Mute",
+    "Silent",
+    "Sound",
+    "Temporary"
+  ],
+  "title": "SoundTypeEnum",
+  "type": "string"
+}

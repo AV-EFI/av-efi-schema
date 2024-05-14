@@ -1,0 +1,13 @@
+{
+  "$id": "FormatDigitalFileTypeEnum",
+  "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+  "enum": [
+    "AVI",
+    "DPX",
+    "MOV",
+    "MP4",
+    "MXF"
+  ],
+  "title": "FormatDigitalFileTypeEnum",
+  "type": "string"
+}

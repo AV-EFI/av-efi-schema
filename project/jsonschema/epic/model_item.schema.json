@@ -1,0 +1,1238 @@
+{
+    "$id": "https://av-efi.net/avefi_schema/model-item",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": false,
+    "description": "Auto-generated from https://av-efi.net/avefi_schema/model for Item PIDs",
+    "metamodel_version": "1.7.0",
+    "properties": {
+        "category": {
+            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+            "enum": [
+                "avefi:MovingImageRecordCollection"
+            ],
+            "type": "string"
+        },
+        "has_record": {
+            "additionalProperties": false,
+            "description": "FIAF Moving Image Cataloguing Manual 3.0",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:Item"
+                    ],
+                    "type": "string"
+                },
+                "described_by": {
+                    "additionalProperties": false,
+                    "description": "Metadata about the PID rather than the identified object, i.e. who modified the PID metadata record when, making what changes",
+                    "properties": {
+                        "has_history": {
+                            "description": "Link to revision history of this PID",
+                            "type": "string"
+                        },
+                        "has_issuer_id": {
+                            "description": "Identifier for the responsible party as an URI suitable for linked data",
+                            "type": "string"
+                        },
+                        "has_issuer_name": {
+                            "description": "Name of the responsible party",
+                            "type": "string"
+                        },
+                        "last_modified": {
+                            "description": "Timestamp (in UTC) for the latest modification to any field in the PID metadata record",
+                            "format": "date-time",
+                            "pattern": "^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|\\+00:00)$",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "has_issuer_id",
+                        "has_issuer_name",
+                        "last_modified"
+                    ],
+                    "title": "DescriptionResource",
+                    "type": "object"
+                },
+                "element_type": {
+                    "description": "FIAF Moving Image Cataloguing Manual D.7.8",
+                    "enum": [
+                        "ColourNegative",
+                        "ColourPositive",
+                        "CopperTonedPositive",
+                        "CyanMatrix",
+                        "DCP",
+                        "DirectBWPositive",
+                        "DuplicateNegative",
+                        "DuplicatePositive",
+                        "ImageNegative",
+                        "Lavender",
+                        "OriginalNegative",
+                        "OriginalPositiveReversalFilm",
+                        "Positive",
+                        "SoundNegative"
+                    ],
+                    "title": "ItemElementTypeEnum",
+                    "type": "string"
+                },
+                "has_access_status": {
+                    "description": "FIAF Moving Image Cataloguing Manual D.7.3",
+                    "enum": [
+                        "Archive",
+                        "Distribution",
+                        "Master",
+                        "Removed",
+                        "Viewing"
+                    ],
+                    "title": "ItemAccessStatusEnum",
+                    "type": "string"
+                },
+                "has_alternative_title": {
+                    "description": "Additional title(s) associated with the work / variant, manifestation, or item.",
+                    "items": {
+                        "additionalProperties": false,
+                        "description": "FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2",
+                        "properties": {
+                            "category": {
+                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                "enum": [
+                                    "avefi:Title"
+                                ],
+                                "type": "string"
+                            },
+                            "has_name": {
+                                "description": "A human-readable name for a thing",
+                                "type": "string"
+                            },
+                            "has_ordering_name": {
+                                "description": "Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name",
+                                "type": "string"
+                            },
+                            "type": {
+                                "description": "FIAF Moving Image Cataloguing Manual A.2",
+                                "enum": [
+                                    "AbbreviatedTitle",
+                                    "AcquisitionTitle",
+                                    "AlternativeTitle",
+                                    "CorrectedTitle",
+                                    "PreReleaseTitle",
+                                    "PreferredTitle",
+                                    "SearchTitle",
+                                    "SeriesTitle",
+                                    "SuppliedDevisedTitle",
+                                    "TitleProper",
+                                    "TranslatedTitle",
+                                    "TransliteratedTitle",
+                                    "WorkingTitle"
+                                ],
+                                "title": "TitleTypeEnum",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "has_name",
+                            "type"
+                        ],
+                        "title": "Title",
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "has_duration": {
+                    "additionalProperties": false,
+                    "description": "Total running time of the described object in ISO 8601 duration format. The examples section lists possible values for the has_value slot. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11",
+                    "properties": {
+                        "category": {
+                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                            "enum": [
+                                "avefi:Duration"
+                            ],
+                            "type": "string"
+                        },
+                        "has_precision": {
+                            "description": "Qualifier indicating the precision of an extent value or duration",
+                            "enum": [
+                                "Approximate",
+                                "Uncertain"
+                            ],
+                            "title": "PrecisionEnum",
+                            "type": "string"
+                        },
+                        "has_value": {
+                            "description": "Value of some quantity",
+                            "pattern": "^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$",
+                            "type": "string"
+                        }
+                    },
+                    "title": "Duration",
+                    "type": "object"
+                },
+                "has_event": {
+                    "description": "Associate event(s) with a moving image record",
+                    "items": {
+                        "additionalProperties": false,
+                        "description": "Significant event in the lifecycle of moving image work / variant, manifestation or item. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the country where the principal offices or production facilities of the production company are located for a production event. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual 1.4.2, 2.4.2, 3.3.2",
+                        "properties": {
+                            "category": {
+                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                "enum": [
+                                    "avefi:Event"
+                                ],
+                                "type": "string"
+                            },
+                            "has_activity": {
+                                "description": "Associate activity (and subsequently agents) with event",
+                                "items": {
+                                    "additionalProperties": false,
+                                    "description": "FIAF Moving Image Cataloguing Manual 1.4.1.1",
+                                    "properties": {
+                                        "category": {
+                                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                            "enum": [
+                                                "avefi:Activity"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "has_agent": {
+                                            "description": "Agent involved in some activity related to the moving image resource",
+                                            "items": {
+                                                "additionalProperties": false,
+                                                "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
+                                                "properties": {
+                                                    "category": {
+                                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                        "enum": [
+                                                            "avefi:Agent"
+                                                        ],
+                                                        "type": "string"
+                                                    },
+                                                    "has_alternate_name": {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "has_name": {
+                                                        "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                        "type": "string"
+                                                    },
+                                                    "same_as": {
+                                                        "items": {
+                                                            "anyOf": [
+                                                                {
+                                                                    "additionalProperties": false,
+                                                                    "description": "Handle with the prefix allocated for AVefi (eventually)",
+                                                                    "properties": {
+                                                                        "category": {
+                                                                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                            "enum": [
+                                                                                "avefi:AVefiResource"
+                                                                            ],
+                                                                            "type": "string"
+                                                                        },
+                                                                        "id": {
+                                                                            "description": "A unique identifier for a thing",
+                                                                            "pattern": "^21(\\\\.([0-9A-Za-z])+)*/[!-~]+$",
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "title": "AVefiResource",
+                                                                    "type": "object"
+                                                                },
+                                                                {
+                                                                    "additionalProperties": false,
+                                                                    "description": "Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.",
+                                                                    "properties": {
+                                                                        "category": {
+                                                                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                            "enum": [
+                                                                                "avefi:DOIResource"
+                                                                            ],
+                                                                            "type": "string"
+                                                                        },
+                                                                        "id": {
+                                                                            "description": "A unique identifier for a thing",
+                                                                            "pattern": "^10\\\\.[0-9]{4,9}(\\\\.[0-9]+)*(\\\\/|%2F)((?![\\\"&\\'])\\\\S)+$",
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "title": "DOIResource",
+                                                                    "type": "object"
+                                                                },
+                                                                {
+                                                                    "additionalProperties": false,
+                                                                    "description": "Identifier of the German Filmportal.de",
+                                                                    "properties": {
+                                                                        "category": {
+                                                                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                            "enum": [
+                                                                                "avefi:FilmportalResource"
+                                                                            ],
+                                                                            "type": "string"
+                                                                        },
+                                                                        "id": {
+                                                                            "description": "A unique identifier for a thing",
+                                                                            "pattern": "^[\\da-f]{32}$",
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "title": "FilmportalResource",
+                                                                    "type": "object"
+                                                                },
+                                                                {
+                                                                    "additionalProperties": false,
+                                                                    "description": "Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)",
+                                                                    "properties": {
+                                                                        "category": {
+                                                                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                            "enum": [
+                                                                                "avefi:GNDResource"
+                                                                            ],
+                                                                            "type": "string"
+                                                                        },
+                                                                        "id": {
+                                                                            "description": "A unique identifier for a thing",
+                                                                            "pattern": "^[-\\dX]+$",
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "title": "GNDResource",
+                                                                    "type": "object"
+                                                                },
+                                                                {
+                                                                    "additionalProperties": false,
+                                                                    "description": "International Standard Identifier for Libraries and Related Organizations including (film) archives",
+                                                                    "properties": {
+                                                                        "category": {
+                                                                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                            "enum": [
+                                                                                "avefi:ISILResource"
+                                                                            ],
+                                                                            "type": "string"
+                                                                        },
+                                                                        "id": {
+                                                                            "description": "A unique identifier for a thing",
+                                                                            "pattern": "^[A-Z]{2}-[A-Za-z\\-0-9:/]{1,15}$",
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "title": "ISILResource",
+                                                                    "type": "object"
+                                                                },
+                                                                {
+                                                                    "additionalProperties": false,
+                                                                    "description": "Getty Thesaurus of Geographic Names ID",
+                                                                    "properties": {
+                                                                        "category": {
+                                                                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                            "enum": [
+                                                                                "avefi:TGNResource"
+                                                                            ],
+                                                                            "type": "string"
+                                                                        },
+                                                                        "id": {
+                                                                            "description": "A unique identifier for a thing",
+                                                                            "pattern": "^[1-9][0-9]{6}$",
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "title": "TGNResource",
+                                                                    "type": "object"
+                                                                },
+                                                                {
+                                                                    "additionalProperties": false,
+                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of teh world",
+                                                                    "properties": {
+                                                                        "category": {
+                                                                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                            "enum": [
+                                                                                "avefi:VIAFResource"
+                                                                            ],
+                                                                            "type": "string"
+                                                                        },
+                                                                        "id": {
+                                                                            "description": "A unique identifier for a thing",
+                                                                            "pattern": "^\\d+$",
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "title": "VIAFResource",
+                                                                    "type": "object"
+                                                                },
+                                                                {
+                                                                    "additionalProperties": false,
+                                                                    "description": "Identifier for Wikidata entities",
+                                                                    "properties": {
+                                                                        "category": {
+                                                                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                            "enum": [
+                                                                                "avefi:WikidataResource"
+                                                                            ],
+                                                                            "type": "string"
+                                                                        },
+                                                                        "id": {
+                                                                            "description": "A unique identifier for a thing",
+                                                                            "pattern": "^[LPQ]\\d+$",
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "title": "WikidataResource",
+                                                                    "type": "object"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "type": {
+                                                        "description": "FIAF Moving Image Cataloguing Manual 1.4.1",
+                                                        "enum": [
+                                                            "CorporateBody",
+                                                            "Family",
+                                                            "Person",
+                                                            "PersonGroup"
+                                                        ],
+                                                        "title": "AgentTypeEnum",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "has_name",
+                                                    "type"
+                                                ],
+                                                "title": "Agent",
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "type": {
+                                            "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B",
+                                            "enum": [
+                                                "Animation",
+                                                "AnimationDirector",
+                                                "AnimationLighter",
+                                                "Animator",
+                                                "CharacterDesigner",
+                                                "Cleanup",
+                                                "LeadAnimator",
+                                                "ModelMaker",
+                                                "AnimalTrainer",
+                                                "CastMember",
+                                                "Dancer",
+                                                "DialogueCoach",
+                                                "Double",
+                                                "Extra",
+                                                "Interviewer",
+                                                "Narrator",
+                                                "Singer",
+                                                "StandIn",
+                                                "StuntPerformer",
+                                                "Voices",
+                                                "Wrangler",
+                                                "Censor",
+                                                "AerialPhotography",
+                                                "BestBoy",
+                                                "CameraAssistant",
+                                                "CameraOperator",
+                                                "Cinematographer",
+                                                "ColorConsultant",
+                                                "CraneOperator",
+                                                "DollyGrip",
+                                                "Electrician",
+                                                "FocusPuller",
+                                                "GafferLighting",
+                                                "GeneratorOperator",
+                                                "Grip",
+                                                "Lenses",
+                                                "LoaderClapper",
+                                                "SecondUnitDirectorofPhotography",
+                                                "SteadicamOperator",
+                                                "StillPhotographer",
+                                                "UnderwaterPhotography",
+                                                "VideoAssist",
+                                                "Distributor",
+                                                "NationalDistributor",
+                                                "OriginalCopyrightOwner",
+                                                "OriginalDistributor",
+                                                "PresentCopyrightOwner",
+                                                "RegionalDistributor",
+                                                "WorldDistributor",
+                                                "AssistantDirector",
+                                                "CastingDirector",
+                                                "Continuity",
+                                                "Director",
+                                                "FightArranger",
+                                                "SecondUnitDirector",
+                                                "StuntArranger",
+                                                "AssistantFilmEditor",
+                                                "FilmEditor",
+                                                "Colorist",
+                                                "Laboratory",
+                                                "LaboratoryTechnician",
+                                                "NegativeCutter",
+                                                "Choreographer",
+                                                "Composer",
+                                                "Lyricist",
+                                                "MusicArranger",
+                                                "MusicConductor",
+                                                "MusicContractor",
+                                                "MusicEditor",
+                                                "MusicPerformer",
+                                                "MusicSupervisor",
+                                                "SingingVoice",
+                                                "SongComposer",
+                                                "Advisor",
+                                                "AssistantProducer",
+                                                "AssociateProducer",
+                                                "Cooperation",
+                                                "Coproducer",
+                                                "ExecutiveProducer",
+                                                "LineProducer",
+                                                "LocationManager",
+                                                "PostProductionSupervisor",
+                                                "Presenter",
+                                                "Producer",
+                                                "ProductionAccountant",
+                                                "ProductionAssistant",
+                                                "ProductionCompany",
+                                                "ProductionCoordinator",
+                                                "ProductionManager",
+                                                "Publicist",
+                                                "SeriesProducer",
+                                                "Sponsor",
+                                                "Studio",
+                                                "TransportationManager",
+                                                "ArtDirector",
+                                                "AssistantArtDirector",
+                                                "ConstructionCoordinator",
+                                                "CostumeDesigner",
+                                                "CostumeMaker",
+                                                "CostumeSupervisor",
+                                                "CostumeSupplier",
+                                                "Costumer",
+                                                "Gowns",
+                                                "Greensperson",
+                                                "HairStylist",
+                                                "LeadPerson",
+                                                "MakeUpArtist",
+                                                "ProductionDesigner",
+                                                "PropertyMaster",
+                                                "ScenicArtist",
+                                                "SetDecorator",
+                                                "SetDesigner",
+                                                "StoryboardArtist",
+                                                "TitleDesigner",
+                                                "WardrobeSupervisor",
+                                                "Puppeteer",
+                                                "BoomOperator",
+                                                "DialogueEditor",
+                                                "DubbingDirector",
+                                                "DubbingEditor",
+                                                "DubbingMixer",
+                                                "DubbingSpeaker",
+                                                "FoleyArtist",
+                                                "SoundDesigner",
+                                                "SoundEditor",
+                                                "SoundEngineer",
+                                                "SoundRecorderMixer",
+                                                "SoundSupervisor",
+                                                "SupervisingSoundEditor",
+                                                "Animatronics",
+                                                "Armorer",
+                                                "CGIArtist",
+                                                "Compositor",
+                                                "MatteArtist",
+                                                "MechanicalEffects",
+                                                "MotionCapture",
+                                                "Prosthetics",
+                                                "Pyrotechnics",
+                                                "RotoscopeArtist",
+                                                "SpecialEffects",
+                                                "VisualEffects",
+                                                "Adaptation",
+                                                "BasedonCharactersCreatedby",
+                                                "Idea",
+                                                "NarrationWriter",
+                                                "Research",
+                                                "ScreenStory",
+                                                "SeriesCreatedby",
+                                                "SourceMaterial",
+                                                "Stagedby",
+                                                "Writer",
+                                                "Broadcaster",
+                                                "DistributorNonTheatrical",
+                                                "DistributorTheatrical",
+                                                "Publisher"
+                                            ],
+                                            "title": "ActivityTypeEnum",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "has_agent",
+                                        "type"
+                                    ],
+                                    "title": "Activity",
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "has_date": {
+                                "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information",
+                                "pattern": "^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
+                                "type": "string"
+                            },
+                            "located_in": {
+                                "items": {
+                                    "additionalProperties": false,
+                                    "description": "Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4",
+                                    "properties": {
+                                        "category": {
+                                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                            "enum": [
+                                                "avefi:GeographicName"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "has_alternate_name": {
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "has_name": {
+                                            "description": "A human-readable name for a thing",
+                                            "type": "string"
+                                        },
+                                        "same_as": {
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "additionalProperties": false,
+                                                        "description": "Handle with the prefix allocated for AVefi (eventually)",
+                                                        "properties": {
+                                                            "category": {
+                                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                "enum": [
+                                                                    "avefi:AVefiResource"
+                                                                ],
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "description": "A unique identifier for a thing",
+                                                                "pattern": "^21(\\\\.([0-9A-Za-z])+)*/[!-~]+$",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "title": "AVefiResource",
+                                                        "type": "object"
+                                                    },
+                                                    {
+                                                        "additionalProperties": false,
+                                                        "description": "Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.",
+                                                        "properties": {
+                                                            "category": {
+                                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                "enum": [
+                                                                    "avefi:DOIResource"
+                                                                ],
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "description": "A unique identifier for a thing",
+                                                                "pattern": "^10\\\\.[0-9]{4,9}(\\\\.[0-9]+)*(\\\\/|%2F)((?![\\\"&\\'])\\\\S)+$",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "title": "DOIResource",
+                                                        "type": "object"
+                                                    },
+                                                    {
+                                                        "additionalProperties": false,
+                                                        "description": "Identifier of the German Filmportal.de",
+                                                        "properties": {
+                                                            "category": {
+                                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                "enum": [
+                                                                    "avefi:FilmportalResource"
+                                                                ],
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "description": "A unique identifier for a thing",
+                                                                "pattern": "^[\\da-f]{32}$",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "title": "FilmportalResource",
+                                                        "type": "object"
+                                                    },
+                                                    {
+                                                        "additionalProperties": false,
+                                                        "description": "Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)",
+                                                        "properties": {
+                                                            "category": {
+                                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                "enum": [
+                                                                    "avefi:GNDResource"
+                                                                ],
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "description": "A unique identifier for a thing",
+                                                                "pattern": "^[-\\dX]+$",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "title": "GNDResource",
+                                                        "type": "object"
+                                                    },
+                                                    {
+                                                        "additionalProperties": false,
+                                                        "description": "International Standard Identifier for Libraries and Related Organizations including (film) archives",
+                                                        "properties": {
+                                                            "category": {
+                                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                "enum": [
+                                                                    "avefi:ISILResource"
+                                                                ],
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "description": "A unique identifier for a thing",
+                                                                "pattern": "^[A-Z]{2}-[A-Za-z\\-0-9:/]{1,15}$",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "title": "ISILResource",
+                                                        "type": "object"
+                                                    },
+                                                    {
+                                                        "additionalProperties": false,
+                                                        "description": "Getty Thesaurus of Geographic Names ID",
+                                                        "properties": {
+                                                            "category": {
+                                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                "enum": [
+                                                                    "avefi:TGNResource"
+                                                                ],
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "description": "A unique identifier for a thing",
+                                                                "pattern": "^[1-9][0-9]{6}$",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "title": "TGNResource",
+                                                        "type": "object"
+                                                    },
+                                                    {
+                                                        "additionalProperties": false,
+                                                        "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of teh world",
+                                                        "properties": {
+                                                            "category": {
+                                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                "enum": [
+                                                                    "avefi:VIAFResource"
+                                                                ],
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "description": "A unique identifier for a thing",
+                                                                "pattern": "^\\d+$",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "title": "VIAFResource",
+                                                        "type": "object"
+                                                    },
+                                                    {
+                                                        "additionalProperties": false,
+                                                        "description": "Identifier for Wikidata entities",
+                                                        "properties": {
+                                                            "category": {
+                                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                "enum": [
+                                                                    "avefi:WikidataResource"
+                                                                ],
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "description": "A unique identifier for a thing",
+                                                                "pattern": "^[LPQ]\\d+$",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "title": "WikidataResource",
+                                                        "type": "object"
+                                                    }
+                                                ]
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "has_name"
+                                    ],
+                                    "title": "GeographicName",
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "type": {
+                                "description": "FIAF Moving Image Cataloguing Manual D",
+                                "enum": [
+                                    "ManufactureEvent",
+                                    "FilmPrintingEvent",
+                                    "MasteringEvent",
+                                    "ScanningEvent",
+                                    "TelecineEvent",
+                                    "UploadingEvent",
+                                    "VideoCopyingEvent",
+                                    "PreservationEvent",
+                                    "DigitisationEvent",
+                                    "DuplicationEvent",
+                                    "ReproductionEvent",
+                                    "TransferEvent",
+                                    "ProductionEvent",
+                                    "CastingEvent",
+                                    "IndoorShootingEvent",
+                                    "OutdoorShootingEvent",
+                                    "PostProductionEvent",
+                                    "PublicationEvent",
+                                    "BroadcastEvent",
+                                    "DistributionEvent",
+                                    "HomeVideoPublicationEvent",
+                                    "NonTheatricalDistributionEvent",
+                                    "NotForReleaseEvent",
+                                    "OnlineTransmissionEvent",
+                                    "PreReleaseEvent",
+                                    "ReleaseEvent",
+                                    "TheatricalDistributionEvent",
+                                    "UnknownEvent",
+                                    "RightsCopyrightRegistrationEvent"
+                                ],
+                                "title": "EventTypeEnum",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ],
+                        "title": "Event",
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "has_extent": {
+                    "additionalProperties": false,
+                    "description": "Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8",
+                    "properties": {
+                        "category": {
+                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                            "enum": [
+                                "avefi:Extent"
+                            ],
+                            "type": "string"
+                        },
+                        "has_precision": {
+                            "description": "Qualifier indicating the precision of an extent value or duration",
+                            "enum": [
+                                "Approximate",
+                                "Uncertain"
+                            ],
+                            "title": "PrecisionEnum",
+                            "type": "string"
+                        },
+                        "has_unit": {
+                            "description": "Units of measurement. Definitions are taken from the Quantities, Units, Dimensions and Data Types Ontologies (QUDT)",
+                            "enum": [
+                                "Feet",
+                                "GigaByte",
+                                "KiloByte",
+                                "Metre",
+                                "MegaByte",
+                                "TeraByte"
+                            ],
+                            "title": "UnitEnum",
+                            "type": "string"
+                        },
+                        "has_value": {
+                            "description": "Value of some quantity",
+                            "type": "number"
+                        }
+                    },
+                    "title": "Extent",
+                    "type": "object"
+                },
+                "has_format": {
+                    "items": {
+                        "anyOf": [
+                            {
+                                "additionalProperties": false,
+                                "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+                                "properties": {
+                                    "category": {
+                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "enum": [
+                                            "avefi:Audio"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+                                        "enum": [
+                                            "16mmMagneticTrack",
+                                            "35mmMagneticTrack",
+                                            "Audiocassette",
+                                            "HalfInchAudioReel",
+                                            "OneInchAudioReel",
+                                            "QuarterInchAudioReel",
+                                            "TwoInchAudioReel"
+                                        ],
+                                        "title": "FormatAudioTypeEnum",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Audio",
+                                "type": "object"
+                            },
+                            {
+                                "additionalProperties": false,
+                                "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+                                "properties": {
+                                    "category": {
+                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "enum": [
+                                            "avefi:DigitalFile"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+                                        "enum": [
+                                            "AVI",
+                                            "DPX",
+                                            "MOV",
+                                            "MP4",
+                                            "MXF"
+                                        ],
+                                        "title": "FormatDigitalFileTypeEnum",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "DigitalFile",
+                                "type": "object"
+                            },
+                            {
+                                "additionalProperties": false,
+                                "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+                                "properties": {
+                                    "category": {
+                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "enum": [
+                                            "avefi:DigitalFileEncoding"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+                                        "enum": [
+                                            "MPEG4",
+                                            "Quicktime",
+                                            "RealVideo",
+                                            "SVCD",
+                                            "VCD",
+                                            "WindowsMedia"
+                                        ],
+                                        "title": "FormatDigitalFileEncodingTypeEnum",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "DigitalFileEncoding",
+                                "type": "object"
+                            },
+                            {
+                                "additionalProperties": false,
+                                "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+                                "properties": {
+                                    "category": {
+                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "enum": [
+                                            "avefi:Film"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+                                        "enum": [
+                                            "16mmFilm",
+                                            "17.5mmFilm",
+                                            "35mmFilm",
+                                            "70mmFilm",
+                                            "8mmFilm",
+                                            "9.5mmFilm",
+                                            "Super16mmFilm",
+                                            "Super8mmFilm"
+                                        ],
+                                        "title": "FormatFilmTypeEnum",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Film",
+                                "type": "object"
+                            },
+                            {
+                                "additionalProperties": false,
+                                "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+                                "properties": {
+                                    "category": {
+                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "enum": [
+                                            "avefi:Optical"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+                                        "enum": [
+                                            "BluRay",
+                                            "CD",
+                                            "DVD",
+                                            "LaserDisc"
+                                        ],
+                                        "title": "FormatOpticalTypeEnum",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Optical",
+                                "type": "object"
+                            },
+                            {
+                                "additionalProperties": false,
+                                "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+                                "properties": {
+                                    "category": {
+                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "enum": [
+                                            "avefi:Video"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "description": "FIAF Moving Image Cataloguing Manual D.7.2",
+                                        "enum": [
+                                            "1InchCFormat",
+                                            "2InchQuadruplex",
+                                            "BetacamSP",
+                                            "D1",
+                                            "D5",
+                                            "DVCPROHD",
+                                            "DigitalBetacam",
+                                            "HDCAMSR"
+                                        ],
+                                        "title": "FormatVideoTypeEnum",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Video",
+                                "type": "object"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "has_note": {
+                    "description": "FIAF Moving Image Cataloguing Manual Appendix B",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_primary_title": {
+                    "additionalProperties": false,
+                    "description": "FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2",
+                    "properties": {
+                        "category": {
+                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                            "enum": [
+                                "avefi:Title"
+                            ],
+                            "type": "string"
+                        },
+                        "has_name": {
+                            "description": "A human-readable name for a thing",
+                            "type": "string"
+                        },
+                        "has_ordering_name": {
+                            "description": "Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name",
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "FIAF Moving Image Cataloguing Manual A.2",
+                            "enum": [
+                                "AbbreviatedTitle",
+                                "AcquisitionTitle",
+                                "AlternativeTitle",
+                                "CorrectedTitle",
+                                "PreReleaseTitle",
+                                "PreferredTitle",
+                                "SearchTitle",
+                                "SeriesTitle",
+                                "SuppliedDevisedTitle",
+                                "TitleProper",
+                                "TranslatedTitle",
+                                "TransliteratedTitle",
+                                "WorkingTitle"
+                            ],
+                            "title": "TitleTypeEnum",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "has_name",
+                        "type"
+                    ],
+                    "title": "Title",
+                    "type": "object"
+                },
+                "has_webresource": {
+                    "description": "Link to data provider's own presentation of manifestation or item on the web",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "in_language": {
+                    "description": "FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3",
+                    "items": {
+                        "additionalProperties": false,
+                        "description": "Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled vocabulary. See also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3",
+                        "properties": {
+                            "category": {
+                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                "enum": [
+                                    "avefi:Language"
+                                ],
+                                "type": "string"
+                            },
+                            "code": {
+                                "description": "ISO 639-2 code for the Representation of Names of Languages (Part 2: Alpha-3)",
+                                "pattern": "^[a-z]{3}$",
+                                "type": "string"
+                            },
+                            "usage": {
+                                "items": {
+                                    "description": "FIAF Moving Image Cataloguing Manual 2.3.3, D.6",
+                                    "enum": [
+                                        "AudioDescription",
+                                        "Captions",
+                                        "ClosingCredits",
+                                        "Dubbed",
+                                        "Intertitles",
+                                        "NoDialogue",
+                                        "OpeningCredits",
+                                        "SDHSubtitles",
+                                        "SignedLanguage",
+                                        "SpokenLanguage",
+                                        "Subtitles",
+                                        "SungLanguage",
+                                        "VoiceOver"
+                                    ],
+                                    "title": "LanguageUsageEnum",
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "code",
+                            "usage"
+                        ],
+                        "title": "Language",
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "is_copy_of": {
+                    "description": "Link to AVefi item registered by another institution indicating that the two are known to be copies of each other",
+                    "items": {
+                        "additionalProperties": false,
+                        "description": "Handle with the prefix allocated for AVefi (eventually)",
+                        "properties": {
+                            "category": {
+                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                "enum": [
+                                    "avefi:AVefiResource"
+                                ],
+                                "type": "string"
+                            },
+                            "id": {
+                                "description": "A unique identifier for a thing",
+                                "pattern": "^21(\\\\.([0-9A-Za-z])+)*/[!-~]+$",
+                                "type": "string"
+                            }
+                        },
+                        "title": "AVefiResource",
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "is_derivative_of": {
+                    "description": "Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project",
+                    "items": {
+                        "additionalProperties": false,
+                        "description": "Handle with the prefix allocated for AVefi (eventually)",
+                        "properties": {
+                            "category": {
+                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                "enum": [
+                                    "avefi:AVefiResource"
+                                ],
+                                "type": "string"
+                            },
+                            "id": {
+                                "description": "A unique identifier for a thing",
+                                "pattern": "^21(\\\\.([0-9A-Za-z])+)*/[!-~]+$",
+                                "type": "string"
+                            }
+                        },
+                        "title": "AVefiResource",
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "is_item_of": {
+                    "additionalProperties": false,
+                    "description": "Handle with the prefix allocated for AVefi (eventually)",
+                    "properties": {
+                        "category": {
+                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                            "enum": [
+                                "avefi:AVefiResource"
+                            ],
+                            "type": "string"
+                        },
+                        "id": {
+                            "description": "A unique identifier for a thing",
+                            "pattern": "^21(\\\\.([0-9A-Za-z])+)*/[!-~]+$",
+                            "type": "string"
+                        }
+                    },
+                    "title": "AVefiResource",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "is_item_of",
+                "has_primary_title"
+            ],
+            "title": "Item",
+            "type": "object"
+        }
+    },
+    "title": "AVefi data model for Item",
+    "type": "object",
+    "version": null
+}
