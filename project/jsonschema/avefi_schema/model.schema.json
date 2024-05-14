@@ -13,7 +13,7 @@
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
-                    "pattern": "^21(\\\\.([0-9A-Za-z])+)*/[!-~]+$",
+                    "pattern": "^21(\\.([0-9A-Za-z])+)*/[!-~]+$",
                     "type": "string"
                 }
             },

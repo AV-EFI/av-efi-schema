@@ -1189,7 +1189,7 @@ class AVefiResource(AuthorityResource):
 
     @field_validator('id')
     def pattern_id(cls, v):
-        pattern=re.compile(r"^21(\\.([0-9A-Za-z])+)*/[!-~]+$")
+        pattern=re.compile(r"^21(\.([0-9A-Za-z])+)*/[!-~]+$")
         if isinstance(v,list):
             for element in v:
                 if not pattern.match(element):

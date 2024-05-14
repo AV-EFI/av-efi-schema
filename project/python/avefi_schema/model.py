@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-14T11:23:16
+# Generation date: 2024-05-14T15:47:48
 # Schema: model
 #
 # id: https://av-efi.net/avefi_schema/model
@@ -2867,7 +2867,7 @@ slots.Manifestation_type = Slot(uri=AVEFI.type, name="Manifestation_type", curie
 
 slots.AVefiResource_id = Slot(uri=AVEFI.id, name="AVefiResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.AVefiResource_id, domain=AVefiResource, range=Optional[str],
-                   pattern=re.compile(r'^21(\\.([0-9A-Za-z])+)*/[!-~]+$'))
+                   pattern=re.compile(r'^21(\.([0-9A-Za-z])+)*/[!-~]+$'))
 
 slots.DOIResource_id = Slot(uri=AVEFI.id, name="DOIResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.DOIResource_id, domain=DOIResource, range=Optional[str],
