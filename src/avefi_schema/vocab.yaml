@@ -501,6 +501,8 @@ enums:
         description: FIAF Glossary of Filmographic Terms B.4.8
         meaning: fiaf:Stagedby
       Writer:
+        aliases:
+          - ScreenPlay
         description: FIAF Glossary of Filmographic Terms B.4.2
         meaning: fiaf:Writer
       # ?subject rdfs:subClassOf fiaf:ManifestationActivity
