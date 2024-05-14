@@ -459,7 +459,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^10\\.[0-9]{4,9}(\\.[0-9]+)*(\\/|%2F)((?![\"&\'])\\S)+$
+        pattern: ^10\.[0-9]{4,9}(\.[0-9]+)*(/|%2F)((?![\"&\'])\S)+$
     annotations:
       - formatter_uri_for_rdf_resource: "http://dx.doi.org/$1"
       - formatter_url_for_web_resource: "https://dx.doi.org/$1"
