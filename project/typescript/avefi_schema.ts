@@ -1138,7 +1138,7 @@ export interface TGNResource extends AuthorityResource {
 
 
 /**
- * Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of teh world
+ * Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world
  */
 export interface VIAFResource extends AuthorityResource {
 }

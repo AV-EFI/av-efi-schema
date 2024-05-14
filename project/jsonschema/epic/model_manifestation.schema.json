@@ -234,7 +234,7 @@
                                                                         },
                                                                         "id": {
                                                                             "description": "A unique identifier for a thing",
-                                                                            "pattern": "^10\\\\.[0-9]{4,9}(\\\\.[0-9]+)*(\\\\/|%2F)((?![\\\"&\\'])\\\\S)+$",
+                                                                            "pattern": "^10\\.[0-9]{4,9}(\\.[0-9]+)*(/|%2F)((?![\\\"&\\'])\\S)+$",
                                                                             "type": "string"
                                                                         }
                                                                     },
@@ -323,7 +323,7 @@
                                                                 },
                                                                 {
                                                                     "additionalProperties": false,
-                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of teh world",
+                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
                                                                     "properties": {
                                                                         "category": {
                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -621,7 +621,7 @@
                                                             },
                                                             "id": {
                                                                 "description": "A unique identifier for a thing",
-                                                                "pattern": "^10\\\\.[0-9]{4,9}(\\\\.[0-9]+)*(\\\\/|%2F)((?![\\\"&\\'])\\\\S)+$",
+                                                                "pattern": "^10\\.[0-9]{4,9}(\\.[0-9]+)*(/|%2F)((?![\\\"&\\'])\\S)+$",
                                                                 "type": "string"
                                                             }
                                                         },
@@ -710,7 +710,7 @@
                                                     },
                                                     {
                                                         "additionalProperties": false,
-                                                        "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of teh world",
+                                                        "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
                                                         "properties": {
                                                             "category": {
                                                                 "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",

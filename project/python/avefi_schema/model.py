@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-14T15:47:48
+# Generation date: 2024-05-14T20:37:53
 # Schema: model
 #
 # id: https://av-efi.net/avefi_schema/model
@@ -1069,7 +1069,7 @@ class TGNResource(AuthorityResource):
 class VIAFResource(AuthorityResource):
     """
     Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well
-    established authority files from different parts of teh world
+    established authority files from different parts of the world
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2871,7 +2871,7 @@ slots.AVefiResource_id = Slot(uri=AVEFI.id, name="AVefiResource_id", curie=AVEFI
 
 slots.DOIResource_id = Slot(uri=AVEFI.id, name="DOIResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.DOIResource_id, domain=DOIResource, range=Optional[str],
-                   pattern=re.compile(r'^10\\.[0-9]{4,9}(\\.[0-9]+)*(\\/|%2F)((?![\"&\'])\\S)+$'))
+                   pattern=re.compile(r'^10\.[0-9]{4,9}(\.[0-9]+)*(/|%2F)((?![\"&\'])\S)+$'))
 
 slots.FilmportalResource_id = Slot(uri=AVEFI.id, name="FilmportalResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.FilmportalResource_id, domain=FilmportalResource, range=Optional[str],

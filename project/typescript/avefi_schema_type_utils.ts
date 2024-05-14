@@ -1676,7 +1676,7 @@ export function toTGNResource(o: TGNResource): TGNResource {
 }
 
 /**
- * Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of teh world
+ * Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world
  */
 export interface VIAFResource extends AuthorityResource {
 }

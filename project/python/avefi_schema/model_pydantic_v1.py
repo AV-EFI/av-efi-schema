@@ -1210,7 +1210,7 @@ class DOIResource(AuthorityResource):
 
     @validator('id', allow_reuse=True)
     def pattern_id(cls, v):
-        pattern=re.compile(r"^10\\.[0-9]{4,9}(\\.[0-9]+)*(\\/|%2F)((?![\"&\'])\\S)+$")
+        pattern=re.compile(r"^10\.[0-9]{4,9}(\.[0-9]+)*(/|%2F)((?![\"&\'])\S)+$")
         if isinstance(v,list):
             for element in v:
                 if not pattern.match(element):
@@ -1303,7 +1303,7 @@ class TGNResource(AuthorityResource):
 
 class VIAFResource(AuthorityResource):
     """
-    Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of teh world
+    Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world
     """
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/avefi_schema/VIAFResource","avefi:VIAFResource"] = Field("avefi:VIAFResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
