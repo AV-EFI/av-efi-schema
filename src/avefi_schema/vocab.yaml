@@ -39,138 +39,138 @@ enums:
       Animation:
         structured_aliases:
           - literal_form: Animation
-          in_language: de
+            in_language: de
           - literal_form: Animation
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.13.1
         meaning: fiaf:Animation
       AnimationDirector:
         structured_aliases:
           - literal_form: Animationsdirektor
-          in_language: de
+            in_language: de
           - literal_form: Animation Director
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.13.9
         meaning: fiaf:AnimationDirector
       AnimationLighter:
         structured_aliases:
           - literal_form: Animation Lighter
-          in_language: de
+            in_language: de
           - literal_form: Animation Lighter
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.13.19
         meaning: fiaf:AnimationLighter
       Animator:
         structured_aliases:
           - literal_form: Trickzeichner
-          in_language: de
+            in_language: de
           - literal_form: Animator
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.13.11
         meaning: fiaf:Animator
       CharacterDesigner:
         structured_aliases:
           - literal_form: Charakterdesigner
-          in_language: de
+            in_language: de
           - literal_form: Character Designer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.13.14
         meaning: fiaf:CharacterDesigner
       Cleanup:
         structured_aliases:
           - literal_form: Reinzeichner
-          in_language: de
+            in_language: de
           - literal_form: Cleanup
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.13.15
         meaning: fiaf:Cleanup
       LeadAnimator:
         structured_aliases:
           - literal_form: Leitender Zeichner
-          in_language: de
+            in_language: de
           - literal_form: Lead Animator
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.13.10
         meaning: fiaf:LeadAnimator
       ModelMaker:
         structured_aliases:
           - literal_form: Modellbauer
-          in_language: de
+            in_language: de
           - literal_form: Model Maker
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.13.17
         meaning: fiaf:ModelMaker
       # ?subject rdfs:subClassOf fiaf:CastActivity
       AnimalTrainer:
         structured_aliases:
           - literal_form: Tiertrainer
-          in_language: de
+            in_language: de
           - literal_form: Animal Trainer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.12
         meaning: fiaf:AnimalTrainer
       CastMember:
         structured_aliases:
           - literal_form: Besetzung
-          in_language: de
+            in_language: de
           - literal_form: Cast Member
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.1
         meaning: fiaf:CastMember
       Dancer:
         structured_aliases:
           - literal_form: Tänzer
-          in_language: de
+            in_language: de
           - literal_form: Dancer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.5
         meaning: fiaf:Dancer
       DialogueCoach:
         structured_aliases:
           - literal_form: Dialogtrainer
-          in_language: de
+            in_language: de
           - literal_form: Dialogue Coach
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.8
         meaning: fiaf:DialogueCoach
       Double:
         structured_aliases:
           - literal_form: Double
-          in_language: de
+            in_language: de
           - literal_form: Double
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.2
         meaning: fiaf:Double
       Extra:
         structured_aliases:
           - literal_form: Statist
-          in_language: de
+            in_language: de
           - literal_form: Extra
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.4
         meaning: fiaf:Extra
       Interviewer:
         structured_aliases:
           - literal_form: Interviewer
-          in_language: de
+            in_language: de
           - literal_form: Interviewer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.9
         meaning: fiaf:Interviewer
       Narrator:
         structured_aliases:
           - literal_form: Sprecher
-          in_language: de
+            in_language: de
           - literal_form: Narrator
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.10
         meaning: fiaf:Narrator
       Singer:
         structured_aliases:
           - literal_form: Sänger
-          in_language: de
+            in_language: de
           - literal_form: Singer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.6
         meaning: fiaf:Singer
       StandIn:
@@ -179,481 +179,481 @@ enums:
       StuntPerformer:
         structured_aliases:
           - literal_form: Stuntman
-          in_language: de
+            in_language: de
           - literal_form: Stunt Performer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.11
         meaning: fiaf:StuntPerformer
       Voices:
         structured_aliases:
           - literal_form: Stimmen
-          in_language: de
+            in_language: de
           - literal_form: Voices
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.7
         meaning: fiaf:Voices
       Wrangler:
         structured_aliases:
           - literal_form: Tierbetreuer
-          in_language: de
+            in_language: de
           - literal_form: Wrangler
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.13
         meaning: fiaf:Wrangler
       # ?subject rdfs:subClassOf fiaf:CensorshipActivity
       Censor:
         structured_aliases:
           - literal_form: Zensur
-          in_language: de
+            in_language: de
           - literal_form: Censor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms C.1.1
         meaning: fiaf:Censor
       # ?subject rdfs:subClassOf fiaf:CinematographyActivity
       AerialPhotography:
         structured_aliases:
           - literal_form: Luftaufnahmen
-          in_language: de
+            in_language: de
           - literal_form: Aerial Photography
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.4
         meaning: fiaf:AerialPhotography
       BestBoy:
         structured_aliases:
           - literal_form: Best Boy
-          in_language: de
+            in_language: de
           - literal_form: Best Boy
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.12
         meaning: fiaf:BestBoy
       CameraAssistant:
         structured_aliases:
           - literal_form: Kameraassistent
-          in_language: de
+            in_language: de
           - literal_form: Camera Assistant
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.7
         meaning: fiaf:CameraAssistant
       CameraOperator:
         structured_aliases:
           - literal_form: Schwenker
-          in_language: de
+            in_language: de
           - literal_form: Camera Operator
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.3
         meaning: fiaf:CameraOperator
       Cinematographer:
         structured_aliases:
           - literal_form: Kamera
-          in_language: de
+            in_language: de
           - literal_form: Cinematographer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.1
         meaning: fiaf:Cinematographer
       ColorConsultant:
         structured_aliases:
           - literal_form: Farbberater
-          in_language: de
+            in_language: de
           - literal_form: Color Consultant
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.19
         meaning: fiaf:ColorConsultant
       CraneOperator:
         structured_aliases:
           - literal_form: Kran-Operateur
-          in_language: de
+            in_language: de
           - literal_form: Crane Operator
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.16
         meaning: fiaf:CraneOperator
       DollyGrip:
         structured_aliases:
           - literal_form: Dollyfahrer
-          in_language: de
+            in_language: de
           - literal_form: Dolly Grip
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.15
         meaning: fiaf:DollyGrip
       Electrician:
         structured_aliases:
           - literal_form: Beleuchter
-          in_language: de
+            in_language: de
           - literal_form: Electrician
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.13
         meaning: fiaf:Electrician
       FocusPuller:
         structured_aliases:
           - literal_form: Schärfezieher
-          in_language: de
+            in_language: de
           - literal_form: Focus Puller
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.8
         meaning: fiaf:FocusPuller
       GafferLighting:
         structured_aliases:
           - literal_form: Oberbeleuchter
-          in_language: de
+            in_language: de
           - literal_form: Gaffer/Lighting
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.11
         meaning: fiaf:GafferLighting
       GeneratorOperator:
         structured_aliases:
           - literal_form: Aggegatsfahrer
-          in_language: de
+            in_language: de
           - literal_form: Generator Operator
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.17
         meaning: fiaf:GeneratorOperator
       Grip:
         structured_aliases:
           - literal_form: Key Grip
-          in_language: de
+            in_language: de
           - literal_form: Grip
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.14
         meaning: fiaf:Grip
       Lenses:
         structured_aliases:
           - literal_form: Luftaufnahmen
-          in_language: de
+            in_language: de
           - literal_form: Lenses
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.20
         meaning: fiaf:Lenses
       LoaderClapper:
         structured_aliases:
           - literal_form: Materialassistent
-          in_language: de
+            in_language: de
           - literal_form: Loader/Clapper
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.9
         meaning: fiaf:LoaderClapper
       SecondUnitDirectorofPhotography:
         structured_aliases:
           - literal_form: Kameramann des zweiten Drehteams
-          in_language: de
+            in_language: de
           - literal_form: Second Unit Director of Photography
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.2
         meaning: fiaf:SecondUnitDirectorofPhotography
       SteadicamOperator:
         structured_aliases:
           - literal_form: Steadicam-Operateur
-          in_language: de
+            in_language: de
           - literal_form: Steadicam Operator
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.6
         meaning: fiaf:SteadicamOperator
       StillPhotographer:
         structured_aliases:
           - literal_form: Standfotograf
-          in_language: de
+            in_language: de
           - literal_form: Still Photographer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.18
         meaning: fiaf:StillPhotographer
       UnderwaterPhotography:
         structured_aliases:
           - literal_form: Unterwasseraufnahmen
-          in_language: de
+            in_language: de
           - literal_form: Underwater Photography
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.5
         meaning: fiaf:UnderwaterPhotography
       VideoAssist:
         structured_aliases:
           - literal_form: Videotechniker
-          in_language: de
+            in_language: de
           - literal_form: Video Assist
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.10
         meaning: fiaf:VideoAssist
       # ?subject rdfs:subClassOf fiaf:CopyrightandDistributionActivity
       Distributor:
         structured_aliases:
           - literal_form: Verleiher
-          in_language: de
+            in_language: de
           - literal_form: Distributor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms C.2.3
         meaning: fiaf:Distributor
       NationalDistributor:
         structured_aliases:
           - literal_form: Verleih (National - Inland)
-          in_language: de
+            in_language: de
           - literal_form: National Distributor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms C.2.6
         meaning: fiaf:NationalDistributor
       OriginalCopyrightOwner:
         structured_aliases:
           - literal_form: Inhaber der Rechte (Original)
-          in_language: de
+            in_language: de
           - literal_form: Original Copyright Owner
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms C.2.1
         meaning: fiaf:OriginalCopyrightOwner
       OriginalDistributor:
         structured_aliases:
           - literal_form: Verleiher (Erstverleiher)
-          in_language: de
+            in_language: de
           - literal_form: Original Distributor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms C.2.4
         meaning: fiaf:OriginalDistributor
       PresentCopyrightOwner:
         structured_aliases:
           - literal_form: Inhaber der Rechte (gegenwärtig)
-          in_language: de
+            in_language: de
           - literal_form: Present Copyright Owner
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms C.2.2
         meaning: fiaf:PresentCopyrightOwner
       RegionalDistributor:
         structured_aliases:
           - literal_form: Verleih (Regional)
-          in_language: de
+            in_language: de
           - literal_form: Regional Distributor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms C.2.7
         meaning: fiaf:RegionalDistributor
       WorldDistributor:
         structured_aliases:
           - literal_form: Verleiher (International)
-          in_language: de
+            in_language: de
           - literal_form: World Distributor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms C.2.5
         meaning: fiaf:WorldDistributor
       # ?subject rdfs:subClassOf fiaf:DirectingActivity
       AssistantDirector:
         structured_aliases:
           - literal_form: Regieassistent
-          in_language: de
+            in_language: de
           - literal_form: Assistant Director
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.3.2
         meaning: fiaf:AssistantDirector
       CastingDirector:
         structured_aliases:
           - literal_form: Besetzungsleiter
-          in_language: de
+            in_language: de
           - literal_form: Casting Director
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.3.4
         meaning: fiaf:CastingDirector
       Continuity:
         structured_aliases:
           - literal_form: Continuity
-          in_language: de
+            in_language: de
           - literal_form: Continuity
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.3.5
         meaning: fiaf:Continuity
       Director:
         structured_aliases:
           - literal_form: Regisseur
-          in_language: de
+            in_language: de
           - literal_form: Director
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.3.1
         meaning: fiaf:Director
       FightArranger:
         structured_aliases:
           - literal_form: Choreograf der Kampf- oder Fechtszenen
-          in_language: de
+            in_language: de
           - literal_form: Fight Arranger
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.3.7
         meaning: fiaf:FightArranger
       SecondUnitDirector:
         structured_aliases:
           - literal_form: Regisseur des zweiten Drehteams
-          in_language: de
+            in_language: de
           - literal_form: Second Unit Director
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.3.3
         meaning: fiaf:SecondUnitDirector
       StuntArranger:
         structured_aliases:
           - literal_form: Stuntkoordinator
-          in_language: de
+            in_language: de
           - literal_form: Stunt Arranger
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.3.6
         meaning: fiaf:StuntArranger
       # ?subject rdfs:subClassOf fiaf:EditingActivity
       AssistantFilmEditor:
         structured_aliases:
           - literal_form: Cutterassistent
-          in_language: de
+            in_language: de
           - literal_form: Assistant Film Editor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.10.2
         meaning: fiaf:AssistantFilmEditor
       FilmEditor:
         structured_aliases:
           - literal_form: Cutter
-          in_language: de
+            in_language: de
           - literal_form: Film Editor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.10.1
         meaning: fiaf:FilmEditor
       # ?subject rdfs:subClassOf fiaf:LaboratoryActivity
       Colorist:
         structured_aliases:
           - literal_form: Lichtbestimmer
-          in_language: de
+            in_language: de
           - literal_form: Colorist
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.12.4
         meaning: fiaf:Colorist
       Laboratory:
         structured_aliases:
           - literal_form: Kopierwerk
-          in_language: de
+            in_language: de
           - literal_form: Laboratory
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.12.1
         meaning: fiaf:Laboratory
       LaboratoryTechnician:
         structured_aliases:
           - literal_form: Labortechniker
-          in_language: de
+            in_language: de
           - literal_form: Laboratory Technician
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.12.2
         meaning: fiaf:LaboratoryTechnician
       NegativeCutter:
         structured_aliases:
           - literal_form: Negativcutter
-          in_language: de
+            in_language: de
           - literal_form: Negative Cutter
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.12.3
         meaning: fiaf:NegativeCutter
       # ?subject rdfs:subClassOf fiaf:MusicActivity
       Choreographer:
         structured_aliases:
           - literal_form: Choreograf
-          in_language: de
+            in_language: de
           - literal_form: Choreographer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.11.15
         meaning: fiaf:Choreographer
       Composer:
         structured_aliases:
           - literal_form: Komponist
-          in_language: de
+            in_language: de
           - literal_form: Composer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.11.1
         meaning: fiaf:Composer
       Lyricist:
         structured_aliases:
           - literal_form: Texter
-          in_language: de
+            in_language: de
           - literal_form: Lyricist
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.11.13
         meaning: fiaf:Lyricist
       MusicArranger:
         structured_aliases:
           - literal_form: Arrangeur
-          in_language: de
+            in_language: de
           - literal_form: Music Arranger
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.11.4
         meaning: fiaf:MusicArranger
       MusicConductor:
         structured_aliases:
           - literal_form: Dirigent
-          in_language: de
+            in_language: de
           - literal_form: Music Conductor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.11.6
         meaning: fiaf:MusicConductor
       MusicContractor:
         structured_aliases:
           - literal_form: Music Contractor
-          in_language: de
+            in_language: de
           - literal_form: Music Contractor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.11.9
         meaning: fiaf:MusicContractor
       MusicEditor:
         structured_aliases:
           - literal_form: Musikcutter
-          in_language: de
+            in_language: de
           - literal_form: Music Editor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.11.14
         meaning: fiaf:MusicEditor
       MusicPerformer:
         structured_aliases:
           - literal_form: Musiker
-          in_language: de
+            in_language: de
           - literal_form: Music Performer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.11.7
         meaning: fiaf:MusicPerformer
       MusicSupervisor:
         structured_aliases:
           - literal_form: Musikalische Leitung
-          in_language: de
+            in_language: de
           - literal_form: Music Supervisor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.11.3
         meaning: fiaf:MusicSupervisor
       SingingVoice:
         structured_aliases:
           - literal_form: Singstimme
-          in_language: de
+            in_language: de
           - literal_form: Singing Voice
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.11.8
         meaning: fiaf:SingingVoice
       SongComposer:
         structured_aliases:
           - literal_form: Liedkomponist
-          in_language: de
+            in_language: de
           - literal_form: Song Composer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.11.12
         meaning: fiaf:SongComposer
       # ?subject rdfs:subClassOf fiaf:ProducingActivity
       Advisor:
         structured_aliases:
           - literal_form: Berater
-          in_language: de
+            in_language: de
           - literal_form: Advisor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.19
         meaning: fiaf:Advisor
       AssistantProducer:
         structured_aliases:
           - literal_form: Leiter des Besetzungsbüros
-          in_language: de
+            in_language: de
           - literal_form: Assistant Producer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.8
         meaning: fiaf:AssistantProducer
       AssociateProducer:
         structured_aliases:
           - literal_form: Mitproduzent
-          in_language: de
+            in_language: de
           - literal_form: Associate Producer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.6
         meaning: fiaf:AssociateProducer
       Cooperation:
         structured_aliases:
           - literal_form: Mit Unterstützung von
-          in_language: de
+            in_language: de
           - literal_form: Cooperation
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.22
         meaning: fiaf:Cooperation
       Coproducer:
@@ -662,25 +662,25 @@ enums:
       ExecutiveProducer:
         structured_aliases:
           - literal_form: Herstellungsleitung
-          in_language: de
+            in_language: de
           - literal_form: Executive Producer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.4
         meaning: fiaf:ExecutiveProducer
       LineProducer:
         structured_aliases:
           - literal_form: Herstellungsleiter
-          in_language: de
+            in_language: de
           - literal_form: Line Producer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.7
         meaning: fiaf:LineProducer
       LocationManager:
         structured_aliases:
           - literal_form: Zweiter Aufnahmeleiter
-          in_language: de
+            in_language: de
           - literal_form: Location Manager
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.12
         meaning: fiaf:LocationManager
       PostProductionSupervisor:
@@ -689,194 +689,194 @@ enums:
       Presenter:
         structured_aliases:
           - literal_form: Präsentiert von
-          in_language: de
+            in_language: de
           - literal_form: Presenter
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.21
         meaning: fiaf:Presenter
       Producer:
         structured_aliases:
           - literal_form: Produzent
-          in_language: de
+            in_language: de
           - literal_form: Producer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.3
         meaning: fiaf:Producer
       ProductionAccountant:
         structured_aliases:
           - literal_form: Filmgeschäftsführer
-          in_language: de
+            in_language: de
           - literal_form: Production Accountant
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.11
         meaning: fiaf:ProductionAccountant
       ProductionAssistant:
         structured_aliases:
           - literal_form: Produktionsassistent
-          in_language: de
+            in_language: de
           - literal_form: Production Assistant
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.14
         meaning: fiaf:ProductionAssistant
       ProductionCompany:
         structured_aliases:
           - literal_form: Produktionsfirma
-          in_language: de
+            in_language: de
           - literal_form: Production Company
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.1
         meaning: fiaf:ProductionCompany
       ProductionCoordinator:
         structured_aliases:
           - literal_form: Produktionskoordinator
-          in_language: de
+            in_language: de
           - literal_form: Production Coordinator
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.10
         meaning: fiaf:ProductionCoordinator
       ProductionManager:
         structured_aliases:
           - literal_form: Aufnahmeleiter
-          in_language: de
+            in_language: de
           - literal_form: Production Manager
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.9
         meaning: fiaf:ProductionManager
       Publicist:
         structured_aliases:
           - literal_form: Leiter der Öffentlichkeitsarbeit
-          in_language: de
+            in_language: de
           - literal_form: Publicist
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.16
         meaning: fiaf:Publicist
       SeriesProducer:
         structured_aliases:
           - literal_form: Produzent der Serie
-          in_language: de
+            in_language: de
           - literal_form: Series Producer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.17
         meaning: fiaf:SeriesProducer
       Sponsor:
         structured_aliases:
           - literal_form: Sponsor
-          in_language: de
+            in_language: de
           - literal_form: Sponsor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.20
         meaning: fiaf:Sponsor
       Studio:
         structured_aliases:
           - literal_form: Studio
-          in_language: de
+            in_language: de
           - literal_form: Studio
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.23
         meaning: fiaf:Studio
       TransportationManager:
         structured_aliases:
           - literal_form: Transportkoordinator
-          in_language: de
+            in_language: de
           - literal_form: Transportation Manager
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.13
         meaning: fiaf:TransportationManager
       # ?subject rdfs:subClassOf fiaf:ProductionDesignActivity
       ArtDirector:
         structured_aliases:
           - literal_form: Ausstatter
-          in_language: de
+            in_language: de
           - literal_form: Art Director
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.2
         meaning: fiaf:ArtDirector
       AssistantArtDirector:
         structured_aliases:
           - literal_form: Assistent des Ausstatters
-          in_language: de
+            in_language: de
           - literal_form: Assistant Art Director
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.3
         meaning: fiaf:AssistantArtDirector
       ConstructionCoordinator:
         structured_aliases:
           - literal_form: Bauleiter
-          in_language: de
+            in_language: de
           - literal_form: Construction Coordinator
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.8
         meaning: fiaf:ConstructionCoordinator
       CostumeDesigner:
         structured_aliases:
           - literal_form: Kostümdesigner
-          in_language: de
+            in_language: de
           - literal_form: Costume Designer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.12
         meaning: fiaf:CostumeDesigner
       CostumeMaker:
         structured_aliases:
           - literal_form: Schneider
-          in_language: de
+            in_language: de
           - literal_form: Costume Maker
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.17
         meaning: fiaf:CostumeMaker
       CostumeSupervisor:
         structured_aliases:
           - literal_form: Garderobenleiter
-          in_language: de
+            in_language: de
           - literal_form: Costume Supervisor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.13
         meaning: fiaf:CostumeSupervisor
       CostumeSupplier:
         structured_aliases:
           - literal_form: Kostüme zur Verfügung gestellt von
-          in_language: de
+            in_language: de
           - literal_form: Costume Supplier
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.18
         meaning: fiaf:CostumeSupplier
       Costumer:
         structured_aliases:
           - literal_form: Kostümbildner
-          in_language: de
+            in_language: de
           - literal_form: Costumer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.14
         meaning: fiaf:Costumer
       Gowns:
         structured_aliases:
           - literal_form: Kleider von
-          in_language: de
+            in_language: de
           - literal_form: Gowns
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.16
         meaning: fiaf:Gowns
       Greensperson:
         structured_aliases:
           - literal_form: Gärtner
-          in_language: de
+            in_language: de
           - literal_form: Greensperson
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.11
         meaning: fiaf:Greensperson
       HairStylist:
         structured_aliases:
           - literal_form: Friseur
-          in_language: de
+            in_language: de
           - literal_form: Hair Stylist
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.20
         meaning: fiaf:HairStylist
       LeadPerson:
         structured_aliases:
           - literal_form: Leiter des Bauteams
-          in_language: de
+            in_language: de
           - literal_form: Lead Person
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.9
         meaning: fiaf:LeadPerson
       MakeUpArtist:
@@ -885,357 +885,357 @@ enums:
       ProductionDesigner:
         structured_aliases:
           - literal_form: Produktionsdesign
-          in_language: de
+            in_language: de
           - literal_form: Production Designer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.1
         meaning: fiaf:ProductionDesigner
       PropertyMaster:
         structured_aliases:
           - literal_form: Requisiteur
-          in_language: de
+            in_language: de
           - literal_form: Property Master
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.7
         meaning: fiaf:PropertyMaster
       ScenicArtist:
         structured_aliases:
           - literal_form: Kunstmaler
-          in_language: de
+            in_language: de
           - literal_form: Scenic Artist
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.10
         meaning: fiaf:ScenicArtist
       SetDecorator:
         structured_aliases:
           - literal_form: Innenrequisiteur
-          in_language: de
+            in_language: de
           - literal_form: Set Decorator
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.6
         meaning: fiaf:SetDecorator
       SetDesigner:
         structured_aliases:
           - literal_form: Szenenbild
-          in_language: de
+            in_language: de
           - literal_form: Set Designer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.5
         meaning: fiaf:SetDesigner
       StoryboardArtist:
         structured_aliases:
           - literal_form: Storyboardzeichner
-          in_language: de
+            in_language: de
           - literal_form: Storyboard Artist
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.4
         meaning: fiaf:StoryboardArtist
       TitleDesigner:
         structured_aliases:
           - literal_form: Titelgestalter
-          in_language: de
+            in_language: de
           - literal_form: Title Designer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.21
         meaning: fiaf:TitleDesigner
       WardrobeSupervisor:
         structured_aliases:
           - literal_form: Garderobier
-          in_language: de
+            in_language: de
           - literal_form: Wardrobe Supervisor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.15
         meaning: fiaf:WardrobeSupervisor
       # ?subject rdfs:subClassOf fiaf:PuppetActivity
       Puppeteer:
         structured_aliases:
           - literal_form: Puppenspieler
-          in_language: de
+            in_language: de
           - literal_form: Puppeteer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.14.7
         meaning: fiaf:Puppeteer
       # ?subject rdfs:subClassOf fiaf:SoundActivity
       BoomOperator:
         structured_aliases:
           - literal_form: Tonassistent mit Mikrofonangel
-          in_language: de
+            in_language: de
           - literal_form: Boom Operator
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.4
         meaning: fiaf:BoomOperator
       DialogueEditor:
         structured_aliases:
           - literal_form: Dialogcutter
-          in_language: de
+            in_language: de
           - literal_form: Dialogue Editor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.8
         meaning: fiaf:DialogueEditor
       DubbingDirector:
         structured_aliases:
           - literal_form: Synchronregie
-          in_language: de
+            in_language: de
           - literal_form: Dubbing Director
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.13
         meaning: fiaf:DubbingDirector
       DubbingEditor:
         structured_aliases:
           - literal_form: Synchroncutter
-          in_language: de
+            in_language: de
           - literal_form: Dubbing Editor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.14
         meaning: fiaf:DubbingEditor
       DubbingMixer:
         structured_aliases:
           - literal_form: Tontechniker
-          in_language: de
+            in_language: de
           - literal_form: Dubbing Mixer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.11
         meaning: fiaf:DubbingMixer
       DubbingSpeaker:
         structured_aliases:
           - literal_form: Synchronsprecher
-          in_language: de
+            in_language: de
           - literal_form: Dubbing Speaker
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.15
         meaning: fiaf:DubbingSpeaker
       FoleyArtist:
         structured_aliases:
           - literal_form: Geräuschemacher
-          in_language: de
+            in_language: de
           - literal_form: Foley Artist
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.9
         meaning: fiaf:FoleyArtist
       SoundDesigner:
         structured_aliases:
           - literal_form: Tondesigner
-          in_language: de
+            in_language: de
           - literal_form: Sound Designer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.1
         meaning: fiaf:SoundDesigner
       SoundEditor:
         structured_aliases:
           - literal_form: Toncutter
-          in_language: de
+            in_language: de
           - literal_form: Sound Editor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.7
         meaning: fiaf:SoundEditor
       SoundEngineer:
         structured_aliases:
           - literal_form: Toningenieur
-          in_language: de
+            in_language: de
           - literal_form: Sound Engineer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.5
         meaning: fiaf:SoundEngineer
       SoundRecorderMixer:
         structured_aliases:
           - literal_form: Tonmeister
-          in_language: de
+            in_language: de
           - literal_form: Sound Recorder/Mixer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.3
         meaning: fiaf:SoundRecorderMixer
       SoundSupervisor:
         structured_aliases:
           - literal_form: Leitung Tontechnik
-          in_language: de
+            in_language: de
           - literal_form: Sound Supervisor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.2
         meaning: fiaf:SoundSupervisor
       SupervisingSoundEditor:
         structured_aliases:
           - literal_form: Tonschnittleitung
-          in_language: de
+            in_language: de
           - literal_form: Supervising Sound Editor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.6
         meaning: fiaf:SupervisingSoundEditor
       # ?subject rdfs:subClassOf fiaf:SpecialEffectsActivity
       Animatronics:
         structured_aliases:
           - literal_form: Animatronic
-          in_language: de
+            in_language: de
           - literal_form: Animatronics
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.8.4
         meaning: fiaf:Animatronics
       Armorer:
         structured_aliases:
           - literal_form: Waffenmeister
-          in_language: de
+            in_language: de
           - literal_form: Armorer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.8.7
         meaning: fiaf:Armorer
       CGIArtist:
         structured_aliases:
           - literal_form: Computergrafik
-          in_language: de
+            in_language: de
           - literal_form: CGI Artist
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.8.12
         meaning: fiaf:CGIArtist
       Compositor:
         structured_aliases:
           - literal_form: Digital Compositing
-          in_language: de
+            in_language: de
           - literal_form: Compositor
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.8.10
         meaning: fiaf:Compositor
       MatteArtist:
         structured_aliases:
           - literal_form: Matte
-          in_language: de
+            in_language: de
           - literal_form: Matte Artist
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.8.8
         meaning: fiaf:MatteArtist
       MechanicalEffects:
         structured_aliases:
           - literal_form: Mechanische Effekte
-          in_language: de
+            in_language: de
           - literal_form: Mechanical Effects
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.8.3
         meaning: fiaf:MechanicalEffects
       MotionCapture:
         structured_aliases:
           - literal_form: Motion Capture
-          in_language: de
+            in_language: de
           - literal_form: Motion Capture
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.8.13
         meaning: fiaf:MotionCapture
       Prosthetics:
         structured_aliases:
           - literal_form: Prothetik
-          in_language: de
+            in_language: de
           - literal_form: Prosthetics
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.8.5
         meaning: fiaf:Prosthetics
       Pyrotechnics:
         structured_aliases:
           - literal_form: Pyrotechnik
-          in_language: de
+            in_language: de
           - literal_form: Pyrotechnics
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.8.6
         meaning: fiaf:Pyrotechnics
       RotoscopeArtist:
         structured_aliases:
           - literal_form: Rotoskopie
-          in_language: de
+            in_language: de
           - literal_form: Rotoscope Artist
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.8.9
         meaning: fiaf:RotoscopeArtist
       SpecialEffects:
         structured_aliases:
           - literal_form: Spezialeffekte
-          in_language: de
+            in_language: de
           - literal_form: Special Effects
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.8.1
         meaning: fiaf:SpecialEffects
       VisualEffects:
         structured_aliases:
           - literal_form: Visuelle Effekte
-          in_language: de
+            in_language: de
           - literal_form: Visual Effects
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.8.2
         meaning: fiaf:VisualEffects
       # ?subject rdfs:subClassOf fiaf:WritingActivity
       Adaptation:
         structured_aliases:
           - literal_form: Bearbeitung
-          in_language: de
+            in_language: de
           - literal_form: Adaptation
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.4.11
         meaning: fiaf:Adaptation
       BasedonCharactersCreatedby:
         structured_aliases:
           - literal_form: Nach Charakteren von
-          in_language: de
+            in_language: de
           - literal_form: Based on Characters Created by
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.4.5
         meaning: fiaf:BasedonCharactersCreatedby
       Idea:
         structured_aliases:
           - literal_form: Nach einer Idee von
-          in_language: de
+            in_language: de
           - literal_form: Idea
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.4.6
         meaning: fiaf:Idea
       NarrationWriter:
         structured_aliases:
           - literal_form: Erzählung von
-          in_language: de
+            in_language: de
           - literal_form: Narration Writer
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.4.15
         meaning: fiaf:NarrationWriter
       Research:
         structured_aliases:
           - literal_form: Recherche
-          in_language: de
+            in_language: de
           - literal_form: Research
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.4.16
         meaning: fiaf:Research
       ScreenStory:
         structured_aliases:
           - literal_form: Originalstoff
-          in_language: de
+            in_language: de
           - literal_form: Screen Story
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.4.3
         meaning: fiaf:ScreenStory
       SeriesCreatedby:
         structured_aliases:
           - literal_form: Serie nach
-          in_language: de
+            in_language: de
           - literal_form: Series Created by
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.4.7
         meaning: fiaf:SeriesCreatedby
       SourceMaterial:
         structured_aliases:
           - literal_form: Originalvorlage
-          in_language: de
+            in_language: de
           - literal_form: Source Material
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.4.4
         meaning: fiaf:SourceMaterial
       Stagedby:
         structured_aliases:
           - literal_form: Inszeniert von
-          in_language: de
+            in_language: de
           - literal_form: Staged by
-          in_language: en
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.4.8
         meaning: fiaf:Stagedby
       Writer:
         structured_aliases:
           - literal_form: Drehbuch von
-          in_language: de
+            in_language: de
           - literal_form: Writer
-          in_language: en
+            in_language: en
         aliases:
           - ScreenPlay
         description: FIAF Glossary of Filmographic Terms B.4.2
@@ -1397,57 +1397,57 @@ enums:
       16mmMagneticTrack:
         structured_aliases:
           - literal_form: 16mm Magnetband
-          in_language: de
+            in_language: de
           - literal_form: 16mm magnetic track
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:16mmMagneticTrack
       35mmMagneticTrack:
         structured_aliases:
           - literal_form: 35mm Magnetband
-          in_language: de
+            in_language: de
           - literal_form: 35mm magnetic track
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:35mmMagneticTrack
       Audiocassette:
         structured_aliases:
           - literal_form: Audiokassette
-          in_language: de
+            in_language: de
           - literal_form: Audiocassette
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:Audiocassette
       HalfInchAudioReel:
         structured_aliases:
           - literal_form: 1/2-Zoll Audioreel
-          in_language: de
+            in_language: de
           - literal_form: 1/2-inch Audioreel
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:HalfInchAudioReel
       OneInchAudioReel:
         structured_aliases:
           - literal_form: 1-Zoll Audioreel
-          in_language: de
+            in_language: de
           - literal_form: 1-inch Audioreel
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:OneInchAudioReel
       QuarterInchAudioReel:
         structured_aliases:
           - literal_form: 1/4-Zoll Audioreel
-          in_language: de
+            in_language: de
           - literal_form: 1/4-inch Audioreel
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:QuarterInchAudioReel
       TwoInchAudioReel:
         structured_aliases:
           - literal_form: 2-Zoll Audioreel
-          in_language: de
+            in_language: de
           - literal_form: 2-inch Audioreel
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:TwoInchAudioReel
 
@@ -1458,49 +1458,49 @@ enums:
       MPEG4:
         structured_aliases:
           - literal_form: MPEG-4
-          in_language: de
+            in_language: de
           - literal_form: MPEG-4
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:MPEG4
       Quicktime:
         structured_aliases:
           - literal_form: Quicktime
-          in_language: de
+            in_language: de
           - literal_form: Quicktime
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:Quicktime
       RealVideo:
         structured_aliases:
           - literal_form: Real Video
-          in_language: de
+            in_language: de
           - literal_form: Real Video
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:RealVideo
       SVCD:
         structured_aliases:
           - literal_form: SVCD
-          in_language: de
+            in_language: de
           - literal_form: SVCD
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:SVCD
       VCD:
         structured_aliases:
           - literal_form: VCD
-          in_language: de
+            in_language: de
           - literal_form: VCD
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:VCD
       WindowsMedia:
         structured_aliases:
           - literal_form: Windows Media
-          in_language: de
+            in_language: de
           - literal_form: Windows Media
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:WindowsMedia
 
@@ -1511,41 +1511,41 @@ enums:
       AVI:
         structured_aliases:
           - literal_form: AVI
-          in_language: de
+            in_language: de
           - literal_form: AVI
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:AVI
       DPX:
         structured_aliases:
           - literal_form: DPX
-          in_language: de
+            in_language: de
           - literal_form: DPX
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:DPX
       MOV:
         structured_aliases:
           - literal_form: MOV
-          in_language: de
+            in_language: de
           - literal_form: MOV
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:MOV
       MP4:
         structured_aliases:
           - literal_form: MP4
-          in_language: de
+            in_language: de
           - literal_form: MP4
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:MP4
       MXF:
         structured_aliases:
           - literal_form: MXF
-          in_language: de
+            in_language: de
           - literal_form: MXF
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:MXF
 
@@ -1556,65 +1556,65 @@ enums:
       16mmFilm:
         structured_aliases:
           - literal_form: 16mm Film
-          in_language: de
+            in_language: de
           - literal_form: 16mm Film
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:16mmFilm
       17.5mmFilm:
         structured_aliases:
           - literal_form: 17,5mm Film
-          in_language: de
+            in_language: de
           - literal_form: 17.5mm Film
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:17.5mmFilm
       35mmFilm:
         structured_aliases:
           - literal_form: 35mm Film
-          in_language: de
+            in_language: de
           - literal_form: 35mm Film
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:35mmFilm
       70mmFilm:
         structured_aliases:
           - literal_form: 70mm Film
-          in_language: de
+            in_language: de
           - literal_form: 70mm Film
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:70mmFilm
       8mmFilm:
         structured_aliases:
           - literal_form: 8mm Film
-          in_language: de
+            in_language: de
           - literal_form: 8mm Film
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:8mmFilm
       9.5mmFilm:
         structured_aliases:
           - literal_form: 9,5mm Film
-          in_language: de
+            in_language: de
           - literal_form: 9.5mm Film
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:9.5mmFilm
       Super16mmFilm:
         structured_aliases:
           - literal_form: Super16mm Film
-          in_language: de
+            in_language: de
           - literal_form: Super16mm Film
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:Super16mmFilm
       Super8mmFilm:
         structured_aliases:
           - literal_form: Super8mm Film
-          in_language: de
+            in_language: de
           - literal_form: Super8mm Film
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:Super8mmFilm
 
@@ -1625,33 +1625,33 @@ enums:
       BluRay:
         structured_aliases:
           - literal_form: Blu-Ray
-          in_language: de
+            in_language: de
           - literal_form: Blu-Ray
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:BluRay
       CD:
         structured_aliases:
           - literal_form: CD
-          in_language: de
+            in_language: de
           - literal_form: CD
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:CD
       DVD:
         structured_aliases:
           - literal_form: DVD
-          in_language: de
+            in_language: de
           - literal_form: DVD
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:DVD
       LaserDisc:
         structured_aliases:
           - literal_form: Laser Disc
-          in_language: de
+            in_language: de
           - literal_form: Laser Disc
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:LaserDisc
 
@@ -1668,49 +1668,49 @@ enums:
       BetacamSP:
         structured_aliases:
           - literal_form: Betacam SP
-          in_language: de
+            in_language: de
           - literal_form: Betacam SP
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:BetacamSP
       D1:
         structured_aliases:
           - literal_form: D1
-          in_language: de
+            in_language: de
           - literal_form: D1
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:D1
       D5:
         structured_aliases:
           - literal_form: D5
-          in_language: de
+            in_language: de
           - literal_form: D5
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:D5
       DVCPROHD:
         structured_aliases:
           - literal_form: DVCPRO HD
-          in_language: de
+            in_language: de
           - literal_form: DVCPRO HD
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:DVCPROHD
       DigitalBetacam:
         structured_aliases:
           - literal_form: Digital Betacam
-          in_language: de
+            in_language: de
           - literal_form: Digital Betacam
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:DigitalBetacam
       HDCAMSR:
         structured_aliases:
           - literal_form: HDCAM SR
-          in_language: de
+            in_language: de
           - literal_form: HDCAM SR
-          in_language: en
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:HDCAMSR
 
