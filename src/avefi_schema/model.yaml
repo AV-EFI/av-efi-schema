@@ -642,7 +642,6 @@ slots:
     slot_uri: wdrs:describedby
     inlined: true
     range: DescriptionResource
-    required: true
     description: >-
       Also record some metadata about the PID itself rather than the
       identified object
