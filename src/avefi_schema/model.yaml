@@ -400,6 +400,13 @@ classes:
       Provide language code from ISO 639-2 (Part 2: Alpha-3) and a
       list of language usage terms from our controlled vocabulary. See
       also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3
+    examples:
+      - value: eng
+        description: English
+      - value: deu
+        description: German
+      - value: ara
+        description: Arabic
 
   Item:
     is_a: ManifestationOrItem
@@ -462,6 +469,11 @@ classes:
     description: >-
       Digital Object Identifier maintained by the DOI Foundation and
       commonly used for scientific publications including films.
+    examples:
+      - value: 10.2307/j.ctt2005t2g
+        description: DOI for "The FIAF Moving Image Cataloguing Manual"
+      - value: 10.1000/182 
+        description: DOI for "DOI Handbook"
     see_also:
       - https://dx.doi.org/
       - https://www.wikidata.org/wiki/Property:P356
@@ -480,6 +492,11 @@ classes:
           - PersonIdentifier
     description: >-
       Identifier of the German Filmportal.de
+    examples:
+      - value: d70835e558264328a39112994449d17f
+        description: Filmportal-ID for creative work "Nosferatu"
+      - value: a89f90efdb664915ad2651ff0406736f
+        description: Filmportal-ID for person "Rainer Werner Fassbinder"
     see_also:
       - https://www.filmportal.de/
       - https://www.wikidata.org/entity/P2639
@@ -510,6 +527,17 @@ classes:
     description: >-
       Gemeinsame Normdatei (GND) identifier maintained by Deutsche
       Nationalbibliothek (German National Library)
+    examples:
+      - value: 4228455-7
+        description: GND-ID for creative work "Nosferatu"
+      - value: 4018118-2
+        description: GND-ID for place "Frankfurt am Main"
+      - value: 10140798-1
+        description: GND-ID for organization "Deutsche Nationalbibliothek"
+      - value: 118532022
+        description: GND-ID for person "Rainer Werner Fassbinder"
+      - value: 4187368-3
+        description: GND-ID for subject heading "Vampir"
     see_also:
       - https://www.wikidata.org/entity/P227
 
@@ -526,6 +554,11 @@ classes:
     description: >-
       International Standard Identifier for Libraries and Related
       Organizations including (film) archives
+    examples:
+      - value: DE-MUS-432511
+        description: ISIL-ID for organization "Filmmuseum Düsseldorf"
+      - value: DE-B1528
+        description: ISIL-ID for organization "Deutsche Kinemathek"
     see_also:
       - https://biblstandard.dk/isil/index.htm
       - https://www.wikidata.org/wiki/Property:P791
@@ -543,6 +576,11 @@ classes:
           - PlaceIdentifier
     description: >-
       Getty Thesaurus of Geographic Names ID
+    examples:
+      - value: 7183809
+        description: TGN-ID for place "Göttingen"
+      - value: 7013260
+        description: TGN-ID for place "Hannover"
     see_also:
       - https://www.getty.edu/research/tools/vocabularies/tgn/index.html
       - https://vocab.getty.edu/resource?uri=http://vocab.getty.edu/dataset/tgn
@@ -565,7 +603,16 @@ classes:
     description: >-
       Virtual International Authority File identifier hosted by OCLC.
       The data is accumulated from various well established authority
-      files from different parts of teh world
+      files from different parts of the world
+    examples:
+      - value: 316753491
+        description: VIAF-ID for creative work "Nosferatu"
+      - value: 122530980
+        description: VIAF-ID for place "Berlin"
+      - value: 7183809
+        description: VIAF-ID for organization "International Federation of Film Archives"
+      - value: 66467014
+        description: VIAF-ID for person "Rainer Werner Fassbinder"
     see_also:
       - https://viaf.org/
       - https://www.wikidata.org/entity/P214
@@ -587,6 +634,17 @@ classes:
           - SubjectHeadingIdentifier
     description: >-
       Identifier for Wikidata entities
+    examples:
+      - value: Q151895
+        description: Wikidata-ID for creative work "Nosferatu"
+      - value: Q64
+        description: Wikidata-ID for place "Berlin"
+      - value: Q586693
+        description: Wikidata-ID for organization "International Federation of Film Archives"
+      - value: Q44426
+        description: Wikidata-ID for person "Rainer Werner Fassbinder"
+      - value: Q46721
+        description: Wikidata-ID for subject heading "Vampire"
     see_also:
       - https://www.wikidata.org/wiki/Wikidata:Identifiers
 
