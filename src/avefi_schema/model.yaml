@@ -431,9 +431,6 @@ classes:
     abstract: true
     slots:
       - id
-    slot_usage:
-      id:
-        range: string
     description: >-
       Root class for all identifiers from some kind of authority or
       public register widely accepted in the community
@@ -600,9 +597,7 @@ slots:
   #-----------------------------------
 
   id:
-    identifier: true
-    slot_uri: schema:identifier
-    range: uriorcurie
+    range: string
     description: A unique identifier for a thing
 
   has_name:
