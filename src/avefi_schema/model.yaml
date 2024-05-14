@@ -439,7 +439,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^21(\\.([0-9A-Za-z])+)*\\/([!-~])+$
+        pattern: ^21(\\.([0-9A-Za-z])+)*/[!-~]+$
     annotations:
       - formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
     todos:
@@ -470,7 +470,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^[\\da-f]{32}$
+        pattern: ^[\da-f]{32}$
     annotations:
       - formatter_uri_for_rdf_resource: https://www.filmportal.de/$1
       - formatter_uri_for_web_resource: https://www.filmportal.de/$1
@@ -488,7 +488,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^[-\\dX]+$
+        pattern: ^[-\dX]+$
     annotations:
       - formatter_uri_for_rdf_resource: https://d-nb.info/gnd/$1
       - formatter_url_for_web_resource: https://d-nb.info/gnd/$1
@@ -552,7 +552,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^\\d+$
+        pattern: ^\d+$
     annotations:
       - formatter_uri_for_rdf_resource: http://viaf.org/viaf/$1
       - formatter_url_for_web_resource: https://viaf.org/viaf/$1
@@ -574,7 +574,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^[LPQ]\\d+$
+        pattern: ^[LPQ]\d+$
     annotations:
       - formatter_uri_for_rdf_resource: https://www.wikidata.org/entity/$1
       - formatter_url_for_web_resource: https://www.wikidata.org/entity/$1
