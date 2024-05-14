@@ -1,0 +1,271 @@
+{
+  "category": "avefi:MovingImageRecordCollection",
+  "has_record": [
+    {
+      "category": "avefi:WorkVariant",
+      "id": "21.T11998/60BC0D95-6F00-4E84-B77B-F3174C211C12",
+      "has_primary_title": {
+        "category": "avefi:Title",
+        "has_name": "Menschen am Sonntag – Das Dokument der Gegenwart",
+        "type": "PreferredTitle"
+      },
+      "described_by": {
+        "has_issuer_id": "DE-MUS-407010",
+        "has_issuer_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+        "last_modified": "2024-05-13T15:12:41+00:00"
+      },
+      "has_event": [
+        {
+          "category": "avefi:Event",
+          "type": "ProductionEvent",
+          "has_activity": [
+            {
+              "category": "avefi:Activity",
+              "has_agent": [
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Borchert, Brigitte",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "173787681"
+                    }
+                  ]
+                },
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Splettstößer, Erwin",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "1061393046"
+                    }
+                  ]
+                },
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Waltershausen, Wolfgang von",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "173857868"
+                    }
+                  ]
+                }
+              ],
+              "type": "CastMember"
+            },
+            {
+              "category": "avefi:Activity",
+              "has_agent": [
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Wilder, Billy",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "118632795"
+                    }
+                  ]
+                }
+              ],
+              "type": "Writer"
+            },
+            {
+              "category": "avefi:Activity",
+              "has_agent": [
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Siodmak, Robert",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "11861472X"
+                    }
+                  ]
+                },
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Ulmer, Edgar G.",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "124471196"
+                    }
+                  ]
+                },
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Gliese, Rochus",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "116663308"
+                    }
+                  ]
+                }
+              ],
+              "type": "Director"
+            },
+            {
+              "category": "avefi:Activity",
+              "has_agent": [
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Schüfftan, Eugen",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "12495748X"
+                    }
+                  ]
+                }
+              ],
+              "type": "CameraOperator"
+            },
+            {
+              "category": "avefi:Activity",
+              "has_agent": [
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Siodmak, Robert",
+                  "type": "Person",
+                  "same_as": [
+                    {
+                      "category": "avefi:GNDResource",
+                      "id": "11861472X"
+                    }
+                  ]
+                }
+              ],
+              "type": "FilmEditor"
+            },
+            {
+              "category": "avefi:Activity",
+              "has_agent": [
+                {
+                  "category": "avefi:Agent",
+                  "has_name": "Stenzel, Otto",
+                  "type": "Person"
+                }
+              ],
+              "type": "Composer"
+            }
+          ],
+          "has_date": "1929/1930",
+          "located_in": [
+            {
+              "category": "avefi:GeographicName",
+              "has_name": "Germany (German Reich)",
+              "same_as": [
+                {
+                  "category": "avefi:GNDResource",
+                  "id": "4011882-4"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "Monographic",
+      "has_genre": [
+        {
+          "category": "avefi:Genre",
+          "has_name": "Fiction"
+        }
+      ],
+      "same_as": [
+        {
+          "category": "avefi:FilmportalResource",
+          "id": "f570e1abdad841dc8d5b25b0f7737065"
+        }
+      ]
+    },
+    {
+      "category": "avefi:Manifestation",
+      "id": "21.T11998/F5471B8A-FF4D-407A-BC72-D63A8E53EAC0",
+      "has_primary_title": {
+        "category": "avefi:Title",
+        "has_name": "Menschen am Sonntag",
+        "type": "TitleProper"
+      },
+      "has_event": [
+        {
+          "category": "avefi:Event",
+          "type": "ProductionEvent",
+          "has_date": "2013/2014"
+        },
+        {
+          "category": "avefi:Event",
+          "type": "ReleaseEvent",
+          "has_date": "2014"
+        }
+      ],
+      "in_language": [
+        {
+          "category": "avefi:Language",
+          "code": "ger",
+          "usage": [
+            "Intertitles"
+          ]
+        },
+        {
+          "category": "avefi:Language",
+          "code": "eng",
+          "usage": [
+            "Subtitles"
+          ]
+        },
+        {
+          "category": "avefi:Language",
+          "code": "fra",
+          "usage": [
+            "Subtitles"
+          ]
+        }
+      ],
+      "is_manifestation_of": [
+        {
+          "category": "avefi:AVefiResource",
+          "id": "21.T11998/60BC0D95-6F00-4E84-B77B-F3174C211C12"
+        }
+      ],
+      "has_item": [
+        {
+          "category": "avefi:AVefiResource",
+          "id": "21.T11998/5CB143FE-756A-456E-B839-D2E8BB04E9D4"
+        }
+      ],
+      "type": "PreservationRestoration"
+    },
+    {
+      "category": "avefi:Item",
+      "id": "21.T11998/5CB143FE-756A-456E-B839-D2E8BB04E9D4",
+      "has_primary_title": {
+        "category": "avefi:Title",
+        "has_name": "Menschen am Sonntag",
+        "type": "TitleProper"
+      },
+      "has_extent": {
+        "category": "avefi:Extent",
+        "has_unit": "GigaByte",
+        "has_value": 113
+      },
+      "is_item_of": {
+        "category": "avefi:AVefiResource",
+        "id": "21.T11998/F5471B8A-FF4D-407A-BC72-D63A8E53EAC0"
+      },
+      "element_type": "DCP",
+      "has_access_status": "Distribution"
+    }
+  ],
+  "@type": "MovingImageRecordCollection"
+}
