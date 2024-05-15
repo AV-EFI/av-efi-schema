@@ -1,8 +1,8 @@
 {
-    "$id": "https://av-efi.net/avefi_schema/model-workvariant",
+    "$id": "https://av-efi.net/av-efi-schema/model-workvariant",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": false,
-    "description": "Auto-generated from https://av-efi.net/avefi_schema/model for WorkVariant PIDs",
+    "description": "Auto-generated from https://av-efi.net/av-efi-schema/model for WorkVariant PIDs",
     "metamodel_version": "1.7.0",
     "properties": {
         "category": {

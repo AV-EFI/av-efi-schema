@@ -848,7 +848,7 @@ class Entity(ConfiguredBaseModel):
     """
     A generic grouping for all described things
     """
-    category: Literal["https://av-efi.net/avefi_schema/Entity","avefi:Entity"] = Field("avefi:Entity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Entity","avefi:Entity"] = Field("avefi:Entity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class PIDRecord(Entity):
@@ -856,7 +856,7 @@ class PIDRecord(Entity):
     Grouping for all entities that represent a PID metadata record
     """
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/PIDRecord","avefi:PIDRecord"] = Field("avefi:PIDRecord", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/PIDRecord","avefi:PIDRecord"] = Field("avefi:PIDRecord", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class MovingImageRecord(PIDRecord):
@@ -866,7 +866,7 @@ class MovingImageRecord(PIDRecord):
     has_alternative_title: Optional[List[Title]] = Field(default_factory=list, description="""Additional title(s) associated with the work / variant, manifestation, or item.""")
     has_primary_title: Title = Field(..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""")
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/MovingImageRecord","avefi:MovingImageRecord"] = Field("avefi:MovingImageRecord", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/MovingImageRecord","avefi:MovingImageRecord"] = Field("avefi:MovingImageRecord", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class DescriptionResource(ConfiguredBaseModel):
@@ -909,7 +909,7 @@ class WorkVariant(MovingImageRecord):
     has_alternative_title: Optional[List[Title]] = Field(default_factory=list, description="""Additional title(s) associated with the work / variant, manifestation, or item.""")
     has_primary_title: Title = Field(..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""")
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/WorkVariant","avefi:WorkVariant"] = Field("avefi:WorkVariant", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/WorkVariant","avefi:WorkVariant"] = Field("avefi:WorkVariant", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class GeographicName(Entity):
@@ -919,7 +919,7 @@ class GeographicName(Entity):
     has_alternate_name: Optional[List[str]] = Field(default_factory=list)
     has_name: str = Field(..., description="""A human-readable name for a thing""")
     same_as: Optional[List[Union[AuthorityResource,AVefiResource,DOIResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource]]] = Field(default_factory=list)
-    category: Literal["https://av-efi.net/avefi_schema/GeographicName","avefi:GeographicName"] = Field("avefi:GeographicName", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/GeographicName","avefi:GeographicName"] = Field("avefi:GeographicName", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Genre(Entity):
@@ -929,7 +929,7 @@ class Genre(Entity):
     has_alternate_name: Optional[List[str]] = Field(default_factory=list)
     has_name: str = Field(..., description="""A human-readable name for a thing""")
     same_as: Optional[List[GNDResource]] = Field(default_factory=list)
-    category: Literal["https://av-efi.net/avefi_schema/Genre","avefi:Genre"] = Field("avefi:Genre", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Genre","avefi:Genre"] = Field("avefi:Genre", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Subject(Entity):
@@ -939,7 +939,7 @@ class Subject(Entity):
     has_alternate_name: Optional[List[str]] = Field(default_factory=list)
     has_name: str = Field(..., description="""A human-readable name for a thing""")
     same_as: Optional[List[Union[AuthorityResource,AVefiResource,DOIResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource]]] = Field(default_factory=list)
-    category: Literal["https://av-efi.net/avefi_schema/Subject","avefi:Subject"] = Field("avefi:Subject", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Subject","avefi:Subject"] = Field("avefi:Subject", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Activity(Entity):
@@ -948,7 +948,7 @@ class Activity(Entity):
     """
     has_agent: List[Agent] = Field(default_factory=list, description="""Agent involved in some activity related to the moving image resource""")
     type: ActivityTypeEnum = Field(...)
-    category: Literal["https://av-efi.net/avefi_schema/Activity","avefi:Activity"] = Field("avefi:Activity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Activity","avefi:Activity"] = Field("avefi:Activity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Agent(Entity):
@@ -959,7 +959,7 @@ class Agent(Entity):
     has_name: str = Field(..., description="""For natural persons, always use the convention \"family name, given name\"""")
     same_as: Optional[List[Union[AuthorityResource,AVefiResource,DOIResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource]]] = Field(default_factory=list)
     type: AgentTypeEnum = Field(...)
-    category: Literal["https://av-efi.net/avefi_schema/Agent","avefi:Agent"] = Field("avefi:Agent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Agent","avefi:Agent"] = Field("avefi:Agent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Event(Entity):
@@ -970,7 +970,7 @@ class Event(Entity):
     has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information""")
     located_in: Optional[List[GeographicName]] = Field(default_factory=list)
     type: EventTypeEnum = Field(...)
-    category: Literal["https://av-efi.net/avefi_schema/Event","avefi:Event"] = Field("avefi:Event", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Event","avefi:Event"] = Field("avefi:Event", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @validator('has_date', allow_reuse=True)
     def pattern_has_date(cls, v):
@@ -992,7 +992,7 @@ class Title(Entity):
     has_name: str = Field(..., description="""A human-readable name for a thing""")
     has_ordering_name: Optional[str] = Field(None, description="""Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name""")
     type: TitleTypeEnum = Field(..., description="""FIAF Moving Image Cataloguing Manual A.2""")
-    category: Literal["https://av-efi.net/avefi_schema/Title","avefi:Title"] = Field("avefi:Title", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Title","avefi:Title"] = Field("avefi:Title", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class ManifestationOrItem(MovingImageRecord):
@@ -1007,7 +1007,7 @@ class ManifestationOrItem(MovingImageRecord):
     has_alternative_title: Optional[List[Title]] = Field(default_factory=list, description="""Additional title(s) associated with the work / variant, manifestation, or item.""")
     has_primary_title: Title = Field(..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""")
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/ManifestationOrItem","avefi:ManifestationOrItem"] = Field("avefi:ManifestationOrItem", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/ManifestationOrItem","avefi:ManifestationOrItem"] = Field("avefi:ManifestationOrItem", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Duration(Entity):
@@ -1016,7 +1016,7 @@ class Duration(Entity):
     """
     has_value: Optional[str] = Field(None, description="""Value of some quantity""")
     has_precision: Optional[PrecisionEnum] = Field(None, description="""Qualifier indicating the precision of an extent value or duration""")
-    category: Literal["https://av-efi.net/avefi_schema/Duration","avefi:Duration"] = Field("avefi:Duration", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Duration","avefi:Duration"] = Field("avefi:Duration", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @validator('has_value', allow_reuse=True)
     def pattern_has_value(cls, v):
@@ -1038,7 +1038,7 @@ class Extent(Entity):
     has_unit: Optional[UnitEnum] = Field(None, description="""Unit of some quantity""")
     has_value: Optional[Decimal] = Field(None, description="""Value of some quantity""")
     has_precision: Optional[PrecisionEnum] = Field(None, description="""Qualifier indicating the precision of an extent value or duration""")
-    category: Literal["https://av-efi.net/avefi_schema/Extent","avefi:Extent"] = Field("avefi:Extent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Extent","avefi:Extent"] = Field("avefi:Extent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Format(Entity):
@@ -1046,7 +1046,7 @@ class Format(Entity):
     FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
     """
     type: Optional[str] = Field(None)
-    category: Literal["https://av-efi.net/avefi_schema/Format","avefi:Format"] = Field("avefi:Format", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Format","avefi:Format"] = Field("avefi:Format", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Audio(Format):
@@ -1054,7 +1054,7 @@ class Audio(Format):
     FIAF Moving Image Cataloguing Manual D.7.2
     """
     type: Optional[FormatAudioTypeEnum] = Field(None)
-    category: Literal["https://av-efi.net/avefi_schema/Audio","avefi:Audio"] = Field("avefi:Audio", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Audio","avefi:Audio"] = Field("avefi:Audio", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class DigitalFile(Format):
@@ -1062,7 +1062,7 @@ class DigitalFile(Format):
     FIAF Moving Image Cataloguing Manual D.7.2
     """
     type: Optional[FormatDigitalFileTypeEnum] = Field(None)
-    category: Literal["https://av-efi.net/avefi_schema/DigitalFile","avefi:DigitalFile"] = Field("avefi:DigitalFile", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/DigitalFile","avefi:DigitalFile"] = Field("avefi:DigitalFile", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class DigitalFileEncoding(Format):
@@ -1070,7 +1070,7 @@ class DigitalFileEncoding(Format):
     FIAF Moving Image Cataloguing Manual D.7.2
     """
     type: Optional[FormatDigitalFileEncodingTypeEnum] = Field(None)
-    category: Literal["https://av-efi.net/avefi_schema/DigitalFileEncoding","avefi:DigitalFileEncoding"] = Field("avefi:DigitalFileEncoding", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/DigitalFileEncoding","avefi:DigitalFileEncoding"] = Field("avefi:DigitalFileEncoding", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Film(Format):
@@ -1078,7 +1078,7 @@ class Film(Format):
     FIAF Moving Image Cataloguing Manual D.7.2
     """
     type: Optional[FormatFilmTypeEnum] = Field(None)
-    category: Literal["https://av-efi.net/avefi_schema/Film","avefi:Film"] = Field("avefi:Film", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Film","avefi:Film"] = Field("avefi:Film", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Optical(Format):
@@ -1086,7 +1086,7 @@ class Optical(Format):
     FIAF Moving Image Cataloguing Manual D.7.2
     """
     type: Optional[FormatOpticalTypeEnum] = Field(None)
-    category: Literal["https://av-efi.net/avefi_schema/Optical","avefi:Optical"] = Field("avefi:Optical", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Optical","avefi:Optical"] = Field("avefi:Optical", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Video(Format):
@@ -1094,7 +1094,7 @@ class Video(Format):
     FIAF Moving Image Cataloguing Manual D.7.2
     """
     type: Optional[FormatVideoTypeEnum] = Field(None)
-    category: Literal["https://av-efi.net/avefi_schema/Video","avefi:Video"] = Field("avefi:Video", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Video","avefi:Video"] = Field("avefi:Video", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Manifestation(ManifestationOrItem):
@@ -1118,7 +1118,7 @@ class Manifestation(ManifestationOrItem):
     has_alternative_title: Optional[List[Title]] = Field(default_factory=list, description="""Additional title(s) associated with the work / variant, manifestation, or item.""")
     has_primary_title: Title = Field(..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""")
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/Manifestation","avefi:Manifestation"] = Field("avefi:Manifestation", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Manifestation","avefi:Manifestation"] = Field("avefi:Manifestation", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Language(Entity):
@@ -1127,7 +1127,7 @@ class Language(Entity):
     """
     code: str = Field(..., description="""ISO 639-2 code for the Representation of Names of Languages (Part 2: Alpha-3)""")
     usage: List[LanguageUsageEnum] = Field(default_factory=list)
-    category: Literal["https://av-efi.net/avefi_schema/Language","avefi:Language"] = Field("avefi:Language", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Language","avefi:Language"] = Field("avefi:Language", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @validator('code', allow_reuse=True)
     def pattern_code(cls, v):
@@ -1162,7 +1162,7 @@ class Item(ManifestationOrItem):
     has_alternative_title: Optional[List[Title]] = Field(default_factory=list, description="""Additional title(s) associated with the work / variant, manifestation, or item.""")
     has_primary_title: Title = Field(..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""")
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/Item","avefi:Item"] = Field("avefi:Item", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/Item","avefi:Item"] = Field("avefi:Item", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class MovingImageRecordCollection(Entity):
@@ -1170,7 +1170,7 @@ class MovingImageRecordCollection(Entity):
     A holder for MovingImageRecord objects
     """
     has_record: Optional[List[Union[MovingImageRecord,WorkVariant,ManifestationOrItem,Manifestation,Item]]] = Field(default_factory=list)
-    category: Literal["https://av-efi.net/avefi_schema/MovingImageRecordCollection","avefi:MovingImageRecordCollection"] = Field("avefi:MovingImageRecordCollection", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/MovingImageRecordCollection","avefi:MovingImageRecordCollection"] = Field("avefi:MovingImageRecordCollection", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class AuthorityResource(Entity):
@@ -1178,7 +1178,7 @@ class AuthorityResource(Entity):
     Root class for all identifiers from some kind of authority or public register widely accepted in the community
     """
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/AuthorityResource","avefi:AuthorityResource"] = Field("avefi:AuthorityResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/AuthorityResource","avefi:AuthorityResource"] = Field("avefi:AuthorityResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class AVefiResource(AuthorityResource):
@@ -1186,7 +1186,7 @@ class AVefiResource(AuthorityResource):
     Handle with the prefix allocated for AVefi (eventually)
     """
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/AVefiResource","avefi:AVefiResource"] = Field("avefi:AVefiResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/AVefiResource","avefi:AVefiResource"] = Field("avefi:AVefiResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @validator('id', allow_reuse=True)
     def pattern_id(cls, v):
@@ -1206,7 +1206,7 @@ class DOIResource(AuthorityResource):
     Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.
     """
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/DOIResource","avefi:DOIResource"] = Field("avefi:DOIResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/DOIResource","avefi:DOIResource"] = Field("avefi:DOIResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @validator('id', allow_reuse=True)
     def pattern_id(cls, v):
@@ -1226,7 +1226,7 @@ class FilmportalResource(AuthorityResource):
     Identifier of the German Filmportal.de
     """
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/FilmportalResource","avefi:FilmportalResource"] = Field("avefi:FilmportalResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/FilmportalResource","avefi:FilmportalResource"] = Field("avefi:FilmportalResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @validator('id', allow_reuse=True)
     def pattern_id(cls, v):
@@ -1246,7 +1246,7 @@ class GNDResource(AuthorityResource):
     Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)
     """
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/GNDResource","avefi:GNDResource"] = Field("avefi:GNDResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/GNDResource","avefi:GNDResource"] = Field("avefi:GNDResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @validator('id', allow_reuse=True)
     def pattern_id(cls, v):
@@ -1266,7 +1266,7 @@ class ISILResource(AuthorityResource):
     International Standard Identifier for Libraries and Related Organizations including (film) archives
     """
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/ISILResource","avefi:ISILResource"] = Field("avefi:ISILResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/ISILResource","avefi:ISILResource"] = Field("avefi:ISILResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @validator('id', allow_reuse=True)
     def pattern_id(cls, v):
@@ -1286,7 +1286,7 @@ class TGNResource(AuthorityResource):
     Getty Thesaurus of Geographic Names ID
     """
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/TGNResource","avefi:TGNResource"] = Field("avefi:TGNResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/TGNResource","avefi:TGNResource"] = Field("avefi:TGNResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @validator('id', allow_reuse=True)
     def pattern_id(cls, v):
@@ -1306,7 +1306,7 @@ class VIAFResource(AuthorityResource):
     Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world
     """
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/VIAFResource","avefi:VIAFResource"] = Field("avefi:VIAFResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/VIAFResource","avefi:VIAFResource"] = Field("avefi:VIAFResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @validator('id', allow_reuse=True)
     def pattern_id(cls, v):
@@ -1326,7 +1326,7 @@ class WikidataResource(AuthorityResource):
     Identifier for Wikidata entities
     """
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/avefi_schema/WikidataResource","avefi:WikidataResource"] = Field("avefi:WikidataResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+    category: Literal["https://av-efi.net/av-efi-schema/WikidataResource","avefi:WikidataResource"] = Field("avefi:WikidataResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @validator('id', allow_reuse=True)
     def pattern_id(cls, v):

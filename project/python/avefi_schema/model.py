@@ -1,8 +1,8 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-14T20:37:53
+# Generation date: 2024-05-15T08:31:47
 # Schema: model
 #
-# id: https://av-efi.net/avefi_schema/model
+# id: https://av-efi.net/av-efi-schema/model
 # description: Metadata schema for persistent film identifiers developed in the
 #   AVefi project
 # license: https://creativecommons.org/publicdomain/zero/1.0/
@@ -33,7 +33,7 @@ version = None
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
-AVEFI = CurieNamespace('avefi', 'https://av-efi.net/avefi_schema/')
+AVEFI = CurieNamespace('avefi', 'https://av-efi.net/av-efi-schema/')
 DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
 FIAF = CurieNamespace('fiaf', 'https://fiafcore.org/ontology/')
 FOAF = CurieNamespace('foaf', 'http://xmlns.com/foaf/0.1/')
