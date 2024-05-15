@@ -1,0 +1,30 @@
+{
+  "category": "avefi:MovingImageRecordCollection",
+  "has_record":
+    {
+      "category": "avefi:Item",
+      "id": "21.T11998/5CB143FE-756A-456E-B839-D2E8BB04E9D4",
+      "has_primary_title": {
+        "category": "avefi:Title",
+        "has_name": "Menschen am Sonntag",
+        "type": "TitleProper"
+      },
+      "has_extent": {
+        "category": "avefi:Extent",
+        "has_unit": "GigaByte",
+        "has_value": 113
+      },
+      "has_format": [
+        {
+          "category": "avefi:DigitalFile",
+          "type": "MXF"
+        }
+      ],
+      "is_item_of": {
+        "category": "avefi:AVefiResource",
+        "id": "21.T11998/F5471B8A-FF4D-407A-BC72-D63A8E53EAC0"
+      },
+      "element_type": "DCP",
+      "has_access_status": "Distribution"
+    }
+}

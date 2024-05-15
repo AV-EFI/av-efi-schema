@@ -1,0 +1,63 @@
+{
+  "category": "avefi:MovingImageRecordCollection",
+  "has_record":
+    {
+      "category": "avefi:Manifestation",
+      "id": "21.T11998/F5471B8A-FF4D-407A-BC72-D63A8E53EAC0",
+      "has_primary_title": {
+        "category": "avefi:Title",
+        "has_name": "Menschen am Sonntag",
+        "type": "TitleProper"
+      },
+      "has_event": [
+        {
+          "category": "avefi:Event",
+          "type": "ProductionEvent",
+          "has_date": "2013/2014"
+        },
+        {
+          "category": "avefi:Event",
+          "type": "ReleaseEvent",
+          "has_date": "2014"
+        }
+      ],
+      "in_language": [
+        {
+          "category": "avefi:Language",
+          "code": "deu",
+          "usage": [
+            "Intertitles"
+          ]
+        },
+        {
+          "category": "avefi:Language",
+          "code": "eng",
+          "usage": [
+            "Subtitles"
+          ]
+        },
+        {
+          "category": "avefi:Language",
+          "code": "fra",
+          "usage": [
+            "Subtitles"
+          ]
+        }
+      ],
+      "is_manifestation_of": [
+        {
+          "category": "avefi:AVefiResource",
+          "id": "21.T11998/60BC0D95-6F00-4E84-B77B-F3174C211C12"
+        }
+      ],
+      "has_colour_type": "BlackAndWhite",
+      "has_item": [
+        {
+          "category": "avefi:AVefiResource",
+          "id": "21.T11998/5CB143FE-756A-456E-B839-D2E8BB04E9D4"
+        }
+      ],
+      "has_sound_type": "Sound",
+      "type": "PreservationRestoration"
+    }
+}
