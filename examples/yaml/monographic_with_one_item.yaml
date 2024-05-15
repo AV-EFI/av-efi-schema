@@ -14,7 +14,7 @@ has_record:
     - has_name: Germany (German Reich)
       same_as:
       - category: avefi:GNDResource
-        id: 4011882-4
+        id: 2008993-4
     has_activity:
     - type: CastMember
       has_agent:
@@ -57,7 +57,7 @@ has_record:
         same_as:
         - category: avefi:GNDResource
           id: '116663308'
-    - type: CameraOperator
+    - type: Cinematographer
       has_agent:
       - type: Person
         has_name: Schüfftan, Eugen
