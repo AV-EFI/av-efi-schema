@@ -1,622 +1,622 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/AVefiResource/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/AVefiResource/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Activity/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Activity/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/ActivityTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/ActivityTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Agent/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Agent/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/AgentTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/AgentTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Audio/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Audio/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/AuthorityResource/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/AuthorityResource/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Boolean/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Boolean/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/ColourTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/ColourTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Curie/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Curie/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/DOIResource/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/DOIResource/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Date/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Date/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/DateOrDatetime/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/DateOrDatetime/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Datetime/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Datetime/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Decimal/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Decimal/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/DescriptionResource/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/DescriptionResource/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/DigitalFile/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/DigitalFile/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/DigitalFileEncoding/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/DigitalFileEncoding/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Double/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Double/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Duration/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Duration/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Entity/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Entity/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Event/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Event/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/EventTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/EventTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Extent/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Extent/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Film/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Film/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/FilmportalResource/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/FilmportalResource/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Float/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Float/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Format/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Format/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/FormatAudioTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/FormatAudioTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/FormatDigitalFileEncodingTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/FormatDigitalFileEncodingTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/FormatDigitalFileTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/FormatDigitalFileTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/FormatFilmTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/FormatFilmTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/FormatOpticalTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/FormatOpticalTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/FormatVideoTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/FormatVideoTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/GNDResource/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/GNDResource/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Genre/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Genre/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/GeographicName/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/GeographicName/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/ISILResource/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/ISILResource/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Integer/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Integer/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Item/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Item/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/ItemAccessStatusEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/ItemAccessStatusEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/ItemElementTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/ItemElementTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Jsonpath/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Jsonpath/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Jsonpointer/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Jsonpointer/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Language/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Language/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/LanguageUsageEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/LanguageUsageEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Manifestation/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Manifestation/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/ManifestationOrItem/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/ManifestationOrItem/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/ManifestationTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/ManifestationTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/MovingImageRecord/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/MovingImageRecord/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/MovingImageRecordCollection/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/MovingImageRecordCollection/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Ncname/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Ncname/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Nodeidentifier/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Nodeidentifier/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Objectidentifier/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Objectidentifier/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Optical/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Optical/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/PIDRecord/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/PIDRecord/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/PrecisionEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/PrecisionEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/SoundTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/SoundTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Sparqlpath/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Sparqlpath/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/String/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/String/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Subject/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Subject/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/TGNResource/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/TGNResource/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Time/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Time/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Title/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Title/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/TitleTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/TitleTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/UnitEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/UnitEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Uri/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Uri/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Uriorcurie/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Uriorcurie/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/VIAFResource/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/VIAFResource/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/VariantTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/VariantTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/Video/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/Video/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/WikidataResource/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/WikidataResource/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/WorkFormEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/WorkFormEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/WorkVariant/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/WorkVariant/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/WorkVariantTypeEnum/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/WorkVariantTypeEnum/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/category/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/category/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/code/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/code/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/described_by/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/described_by/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/element_type/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/element_type/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_access_status/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_access_status/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_activity/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_activity/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_agent/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_agent/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_alternate_name/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_alternate_name/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_alternative_title/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_alternative_title/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_colour_type/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_colour_type/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_date/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_date/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_duration/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_duration/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_event/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_event/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_extent/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_extent/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_form/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_form/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_format/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_format/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_genre/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_genre/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_history/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_history/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_issuer_id/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_issuer_id/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_issuer_name/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_issuer_name/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_item/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_item/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_name/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_name/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_note/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_note/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_ordering_name/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_ordering_name/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_precision/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_precision/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_primary_title/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_primary_title/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_record/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_record/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_sound_type/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_sound_type/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_subject/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_subject/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_unit/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_unit/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_value/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_value/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/has_webresource/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/has_webresource/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/id/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/id/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/in_language/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/in_language/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/is_copy_of/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/is_copy_of/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/is_derivative_of/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/is_derivative_of/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/is_item_of/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/is_item_of/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/is_manifestation_of/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/is_manifestation_of/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/is_part_of/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/is_part_of/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/is_variant_of/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/is_variant_of/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/last_modified/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/last_modified/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/located_in/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/located_in/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/model/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/model/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/same_as/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/same_as/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/structure_diagram/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/structure_diagram/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/type/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/type/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/usage/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/usage/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://AV-EFI.github.io/av-efi-schema/variant_type/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/variant_type/</loc>
          <lastmod>2024-05-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
