@@ -233,7 +233,7 @@
 <h1 id="class-duration">Class: Duration</h1>
 <p><em>Total running time of the described object in ISO 8601 duration format. The examples section lists possible values for the has_value slot. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11</em></p>
 <p>URI: <a href="https://av-efi.net/av-efi-schema/Duration">avefi:Duration</a></p>
-<div class="mermaid"> classDiagram
+<pre class="mermaid"><code> classDiagram
     class Duration
     click Duration href "../Duration"
       Entity &lt;|-- Duration
@@ -252,8 +252,7 @@
 
       Duration : has_value
 
-
-</div>
+</code></pre>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../Entity/">Entity</a><ul>
@@ -370,99 +369,97 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: Duration
-description: 'Total running time of the described object in ISO 8601 duration format.
-  The examples section lists possible values for the has_value slot. See also: FIAF
-  Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11'
-notes:
-- https://www.w3.org/TR/xmlschema11-2/#duration
-examples:
-- value: PT3H18M45S
-  description: 3 hours, 18 minutes, 45 seconds
-- value: PT2H9M
-  description: 2 hours, 9 minutes
-- value: PT6M12S
-  description: 6 minutes, 12 seconds
-from_schema: https://av-efi.net/av-efi-schema/model
-is_a: Entity
-slots:
-- has_value
-- has_precision
-slot_usage:
-  has_value:
-    name: has_value
-    domain_of:
-    - Duration
-    - Extent
-    range: string
-    pattern: ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Duration</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Total</span><span class="nv"> </span><span class="s">running</span><span class="nv"> </span><span class="s">time</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">described</span><span class="nv"> </span><span class="s">object</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">ISO</span><span class="nv"> </span><span class="s">8601</span><span class="nv"> </span><span class="s">duration</span><span class="nv"> </span><span class="s">format.</span>
+<span class="w">  </span><span class="s">The</span><span class="nv"> </span><span class="s">examples</span><span class="nv"> </span><span class="s">section</span><span class="nv"> </span><span class="s">lists</span><span class="nv"> </span><span class="s">possible</span><span class="nv"> </span><span class="s">values</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">has_value</span><span class="nv"> </span><span class="s">slot.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">also:</span><span class="nv"> </span><span class="s">FIAF</span>
+<span class="w">  </span><span class="s">Moving</span><span class="nv"> </span><span class="s">Image</span><span class="nv"> </span><span class="s">Cataloguing</span><span class="nv"> </span><span class="s">Manual</span><span class="nv"> </span><span class="s">2.3.5.3,</span><span class="nv"> </span><span class="s">3.1.5.11'</span>
+<span class="nt">notes</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.w3.org/TR/xmlschema11-2/#duration</span>
+<span class="nt">examples</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PT3H18M45S</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3 hours, 18 minutes, 45 seconds</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PT2H9M</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2 hours, 9 minutes</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PT6M12S</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6 minutes, 12 seconds</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="nt">slots</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_value</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_precision</span>
+<span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">has_value</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_value</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Duration</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extent</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$</span>
+</code></pre></div>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: Duration
-description: 'Total running time of the described object in ISO 8601 duration format.
-  The examples section lists possible values for the has_value slot. See also: FIAF
-  Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11'
-notes:
-- https://www.w3.org/TR/xmlschema11-2/#duration
-examples:
-- value: PT3H18M45S
-  description: 3 hours, 18 minutes, 45 seconds
-- value: PT2H9M
-  description: 2 hours, 9 minutes
-- value: PT6M12S
-  description: 6 minutes, 12 seconds
-from_schema: https://av-efi.net/av-efi-schema/model
-is_a: Entity
-slot_usage:
-  has_value:
-    name: has_value
-    domain_of:
-    - Duration
-    - Extent
-    range: string
-    pattern: ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
-attributes:
-  has_value:
-    name: has_value
-    description: Value of some quantity
-    from_schema: https://av-efi.net/av-efi-schema/model
-    rank: 1000
-    alias: has_value
-    owner: Duration
-    domain_of:
-    - Duration
-    - Extent
-    range: string
-    pattern: ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
-  has_precision:
-    name: has_precision
-    description: Qualifier indicating the precision of an extent value or duration
-    from_schema: https://av-efi.net/av-efi-schema/model
-    rank: 1000
-    alias: has_precision
-    owner: Duration
-    domain_of:
-    - Duration
-    - Extent
-    range: PrecisionEnum
-  category:
-    name: category
-    description: Designates type, e.g. to distinguish different identifiers (GNDResource
-      vs. VIAFResource)
-    from_schema: https://av-efi.net/av-efi-schema/model
-    rank: 1000
-    slot_uri: rdf:type
-    designates_type: true
-    alias: category
-    owner: Duration
-    domain_of:
-    - Entity
-    range: uriorcurie
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Duration</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Total</span><span class="nv"> </span><span class="s">running</span><span class="nv"> </span><span class="s">time</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">described</span><span class="nv"> </span><span class="s">object</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">ISO</span><span class="nv"> </span><span class="s">8601</span><span class="nv"> </span><span class="s">duration</span><span class="nv"> </span><span class="s">format.</span>
+<span class="w">  </span><span class="s">The</span><span class="nv"> </span><span class="s">examples</span><span class="nv"> </span><span class="s">section</span><span class="nv"> </span><span class="s">lists</span><span class="nv"> </span><span class="s">possible</span><span class="nv"> </span><span class="s">values</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">has_value</span><span class="nv"> </span><span class="s">slot.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">also:</span><span class="nv"> </span><span class="s">FIAF</span>
+<span class="w">  </span><span class="s">Moving</span><span class="nv"> </span><span class="s">Image</span><span class="nv"> </span><span class="s">Cataloguing</span><span class="nv"> </span><span class="s">Manual</span><span class="nv"> </span><span class="s">2.3.5.3,</span><span class="nv"> </span><span class="s">3.1.5.11'</span>
+<span class="nt">notes</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.w3.org/TR/xmlschema11-2/#duration</span>
+<span class="nt">examples</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PT3H18M45S</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3 hours, 18 minutes, 45 seconds</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PT2H9M</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2 hours, 9 minutes</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PT6M12S</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6 minutes, 12 seconds</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">has_value</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_value</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Duration</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extent</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$</span>
+<span class="nt">attributes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">has_value</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_value</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Value of some quantity</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_value</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Duration</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Duration</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extent</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$</span>
+<span class="w">  </span><span class="nt">has_precision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_precision</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Qualifier indicating the precision of an extent value or duration</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_precision</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Duration</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Duration</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extent</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PrecisionEnum</span>
+<span class="w">  </span><span class="nt">category</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Designates type, e.g. to distinguish different identifiers (GNDResource</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">vs. VIAFResource)</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdf:type</span>
+<span class="w">    </span><span class="nt">designates_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Duration</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+</code></pre></div>
 </details>
 </article>
 </div>
@@ -490,6 +487,5 @@ attributes:
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({});</script></body>
+</body>
 </html>

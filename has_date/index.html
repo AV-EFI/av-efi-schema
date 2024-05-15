@@ -437,39 +437,36 @@
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
-
-<pre><code class="language-yaml">name: has_date
-description: Date (or interval/period) when an event has taken place. A subset of
-  ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers
-  ? (uncertain date) and ~ (approximate date). See examples and references for more
-  information
-notes:
-- https://www.w3.org/TR/xmlschema11-2/#date
-examples:
-- value: '2024-04-24'
-  description: complete date, i.e. year, month and day
-- value: 2024-04
-  description: year and month
-- value: '2024'
-  description: year only
-- value: 2024~
-  description: approximate date (2024 or at least close to 2024)
-- value: 2024?
-  description: uncertain date (2024 or may be something different)
-- value: 2023/2024
-  description: interval (2023 until 2024)
-from_schema: https://av-efi.net/av-efi-schema/model
-see_also:
-- https://www.loc.gov/standards/datetime/
-rank: 1000
-alias: has_date
-domain_of:
-- Event
-range: string
-pattern: ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$
-
-</code></pre>
-
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_date</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Date (or interval/period) when an event has taken place. A subset of</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">? (uncertain date) and ~ (approximate date). See examples and references for more</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">information</span>
+<span class="nt">notes</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.w3.org/TR/xmlschema11-2/#date</span>
+<span class="nt">examples</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2024-04-24&#39;</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">complete date, i.e. year, month and day</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2024-04</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">year and month</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2024&#39;</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">year only</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2024~</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">approximate date (2024 or at least close to 2024)</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2024?</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uncertain date (2024 or may be something different)</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2023/2024</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">interval (2023 until 2024)</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="nt">see_also</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.loc.gov/standards/datetime/</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_date</span>
+<span class="nt">domain_of</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Event</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$</span>
+</code></pre></div>
 </details>
 
 

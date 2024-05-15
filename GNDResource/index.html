@@ -247,7 +247,7 @@
 <h1 id="class-gndresource">Class: GNDResource</h1>
 <p><em>Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)</em></p>
 <p>URI: <a href="https://av-efi.net/av-efi-schema/GNDResource">avefi:GNDResource</a></p>
-<div class="mermaid"> classDiagram
+<pre class="mermaid"><code> classDiagram
     class GNDResource
     click GNDResource href "../GNDResource"
       AuthorityResource &lt;|-- GNDResource
@@ -257,8 +257,7 @@
 
       GNDResource : id
 
-
-</div>
+</code></pre>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../Entity/">Entity</a><ul>
@@ -385,129 +384,127 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: GNDResource
-annotations:
-  formatter_uri_for_rdf_resource:
-    tag: formatter_uri_for_rdf_resource
-    value: https://d-nb.info/gnd/$1
-  formatter_url_for_web_resource:
-    tag: formatter_url_for_web_resource
-    value: https://d-nb.info/gnd/$1
-  provides:
-    tag: provides
-    value:
-    - CreativeWorkIdentifier
-    - PlaceIdentifier
-    - OrganizationIdentifier
-    - PersonIdentifier
-    - SubjectHeadingIdentifier
-description: Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek
-  (German National Library)
-notes:
-- "- alternative_web_resource: https://explore.gnd.network/gnd/$1/relations - other_resources:\n\
-  \    - https://d-nb.info/gnd/$1/about/lds\n    - https://hub.culturegraph.org/entityfacts/$1\n\
-  \    - https://lobid.org/gnd/$1\n- API documentation including auto-complete suggestions\
-  \ at\n    https://lobid.org/gnd/api"
-examples:
-- value: 4228455-7
-  description: GND-ID for creative work "Nosferatu"
-- value: 4018118-2
-  description: GND-ID for place "Frankfurt am Main"
-- value: 10140798-1
-  description: GND-ID for organization "Deutsche Nationalbibliothek"
-- value: '118532022'
-  description: GND-ID for person "Rainer Werner Fassbinder"
-- value: 4187368-3
-  description: GND-ID for subject heading "Vampir"
-from_schema: https://av-efi.net/av-efi-schema/model
-see_also:
-- https://www.wikidata.org/entity/P227
-is_a: AuthorityResource
-slot_usage:
-  id:
-    name: id
-    domain_of:
-    - PIDRecord
-    - AuthorityResource
-    pattern: ^[-\dX]+$
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GNDResource</span>
+<span class="nt">annotations</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">formatter_uri_for_rdf_resource</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">formatter_uri_for_rdf_resource</span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://d-nb.info/gnd/$1</span>
+<span class="w">  </span><span class="nt">formatter_url_for_web_resource</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">formatter_url_for_web_resource</span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://d-nb.info/gnd/$1</span>
+<span class="w">  </span><span class="nt">provides</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">provides</span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CreativeWorkIdentifier</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PlaceIdentifier</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationIdentifier</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersonIdentifier</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectHeadingIdentifier</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">(German National Library)</span>
+<span class="nt">notes</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"-</span><span class="nv"> </span><span class="s">alternative_web_resource:</span><span class="nv"> </span><span class="s">https://explore.gnd.network/gnd/$1/relations</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">other_resources:\n\</span>
+<span class="w">  </span><span class="s">\ </span><span class="nv">   </span><span class="s">-</span><span class="nv"> </span><span class="s">https://d-nb.info/gnd/$1/about/lds\n</span><span class="nv">    </span><span class="s">-</span><span class="nv"> </span><span class="s">https://hub.culturegraph.org/entityfacts/$1\n\</span>
+<span class="w">  </span><span class="s">\ </span><span class="nv">   </span><span class="s">-</span><span class="nv"> </span><span class="s">https://lobid.org/gnd/$1\n-</span><span class="nv"> </span><span class="s">API</span><span class="nv"> </span><span class="s">documentation</span><span class="nv"> </span><span class="s">including</span><span class="nv"> </span><span class="s">auto-complete</span><span class="nv"> </span><span class="s">suggestions\</span>
+<span class="w">  </span><span class="s">\ at\n</span><span class="nv">    </span><span class="s">https://lobid.org/gnd/api"</span>
+<span class="nt">examples</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4228455-7</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GND-ID for creative work "Nosferatu"</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4018118-2</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GND-ID for place "Frankfurt am Main"</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10140798-1</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GND-ID for organization "Deutsche Nationalbibliothek"</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">'118532022'</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GND-ID for person "Rainer Werner Fassbinder"</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4187368-3</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GND-ID for subject heading "Vampir"</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="nt">see_also</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.wikidata.org/entity/P227</span>
+<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuthorityResource</span>
+<span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PIDRecord</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuthorityResource</span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^[-\dX]+$</span>
+</code></pre></div>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: GNDResource
-annotations:
-  formatter_uri_for_rdf_resource:
-    tag: formatter_uri_for_rdf_resource
-    value: https://d-nb.info/gnd/$1
-  formatter_url_for_web_resource:
-    tag: formatter_url_for_web_resource
-    value: https://d-nb.info/gnd/$1
-  provides:
-    tag: provides
-    value:
-    - CreativeWorkIdentifier
-    - PlaceIdentifier
-    - OrganizationIdentifier
-    - PersonIdentifier
-    - SubjectHeadingIdentifier
-description: Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek
-  (German National Library)
-notes:
-- "- alternative_web_resource: https://explore.gnd.network/gnd/$1/relations - other_resources:\n\
-  \    - https://d-nb.info/gnd/$1/about/lds\n    - https://hub.culturegraph.org/entityfacts/$1\n\
-  \    - https://lobid.org/gnd/$1\n- API documentation including auto-complete suggestions\
-  \ at\n    https://lobid.org/gnd/api"
-examples:
-- value: 4228455-7
-  description: GND-ID for creative work "Nosferatu"
-- value: 4018118-2
-  description: GND-ID for place "Frankfurt am Main"
-- value: 10140798-1
-  description: GND-ID for organization "Deutsche Nationalbibliothek"
-- value: '118532022'
-  description: GND-ID for person "Rainer Werner Fassbinder"
-- value: 4187368-3
-  description: GND-ID for subject heading "Vampir"
-from_schema: https://av-efi.net/av-efi-schema/model
-see_also:
-- https://www.wikidata.org/entity/P227
-is_a: AuthorityResource
-slot_usage:
-  id:
-    name: id
-    domain_of:
-    - PIDRecord
-    - AuthorityResource
-    pattern: ^[-\dX]+$
-attributes:
-  id:
-    name: id
-    description: A unique identifier for a thing
-    from_schema: https://av-efi.net/av-efi-schema/model
-    rank: 1000
-    alias: id
-    owner: GNDResource
-    domain_of:
-    - PIDRecord
-    - AuthorityResource
-    range: string
-    pattern: ^[-\dX]+$
-  category:
-    name: category
-    description: Designates type, e.g. to distinguish different identifiers (GNDResource
-      vs. VIAFResource)
-    from_schema: https://av-efi.net/av-efi-schema/model
-    rank: 1000
-    slot_uri: rdf:type
-    designates_type: true
-    alias: category
-    owner: GNDResource
-    domain_of:
-    - Entity
-    range: uriorcurie
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GNDResource</span>
+<span class="nt">annotations</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">formatter_uri_for_rdf_resource</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">formatter_uri_for_rdf_resource</span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://d-nb.info/gnd/$1</span>
+<span class="w">  </span><span class="nt">formatter_url_for_web_resource</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">formatter_url_for_web_resource</span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://d-nb.info/gnd/$1</span>
+<span class="w">  </span><span class="nt">provides</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">provides</span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CreativeWorkIdentifier</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PlaceIdentifier</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationIdentifier</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersonIdentifier</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectHeadingIdentifier</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">(German National Library)</span>
+<span class="nt">notes</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"-</span><span class="nv"> </span><span class="s">alternative_web_resource:</span><span class="nv"> </span><span class="s">https://explore.gnd.network/gnd/$1/relations</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">other_resources:\n\</span>
+<span class="w">  </span><span class="s">\ </span><span class="nv">   </span><span class="s">-</span><span class="nv"> </span><span class="s">https://d-nb.info/gnd/$1/about/lds\n</span><span class="nv">    </span><span class="s">-</span><span class="nv"> </span><span class="s">https://hub.culturegraph.org/entityfacts/$1\n\</span>
+<span class="w">  </span><span class="s">\ </span><span class="nv">   </span><span class="s">-</span><span class="nv"> </span><span class="s">https://lobid.org/gnd/$1\n-</span><span class="nv"> </span><span class="s">API</span><span class="nv"> </span><span class="s">documentation</span><span class="nv"> </span><span class="s">including</span><span class="nv"> </span><span class="s">auto-complete</span><span class="nv"> </span><span class="s">suggestions\</span>
+<span class="w">  </span><span class="s">\ at\n</span><span class="nv">    </span><span class="s">https://lobid.org/gnd/api"</span>
+<span class="nt">examples</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4228455-7</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GND-ID for creative work "Nosferatu"</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4018118-2</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GND-ID for place "Frankfurt am Main"</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10140798-1</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GND-ID for organization "Deutsche Nationalbibliothek"</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">'118532022'</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GND-ID for person "Rainer Werner Fassbinder"</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4187368-3</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GND-ID for subject heading "Vampir"</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="nt">see_also</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.wikidata.org/entity/P227</span>
+<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuthorityResource</span>
+<span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PIDRecord</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuthorityResource</span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^[-\dX]+$</span>
+<span class="nt">attributes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A unique identifier for a thing</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GNDResource</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PIDRecord</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuthorityResource</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^[-\dX]+$</span>
+<span class="w">  </span><span class="nt">category</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Designates type, e.g. to distinguish different identifiers (GNDResource</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">vs. VIAFResource)</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdf:type</span>
+<span class="w">    </span><span class="nt">designates_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GNDResource</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+</code></pre></div>
 </details>
 </article>
 </div>
@@ -535,6 +532,5 @@ attributes:
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({});</script></body>
+</body>
 </html>

@@ -146,7 +146,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1>Visualisation</h1>
-<div class="mermaid">erDiagram
+<pre class="mermaid"><code>erDiagram
 Item {
     ItemElementTypeEnum element_type  
     ItemAccessStatusEnum has_access_status  
@@ -285,8 +285,7 @@ WorkVariant ||--}o Title : "has_alternative_title"
 WorkVariant ||--|| Title : "has_primary_title"
 Subject ||--}o AuthorityResource : "same_as"
 Genre ||--}o GNDResource : "same_as"
-
-</div>
+</code></pre>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -313,6 +312,5 @@ Genre ||--}o GNDResource : "same_as"
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({});</script></body>
+</body>
 </html>

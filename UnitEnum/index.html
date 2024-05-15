@@ -429,42 +429,39 @@
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
-
-<pre><code class="language-yaml">name: UnitEnum
-description: Units of measurement. Definitions are taken from the Quantities, Units,
-  Dimensions and Data Types Ontologies (QUDT)
-from_schema: https://av-efi.net/av-efi-schema/model
-see_also:
-- https://www.qudt.org/doc/DOC_VOCAB-UNITS.html
-rank: 1000
-permissible_values:
-  Feet:
-    text: Feet
-    description: Unit of length defined as being 0.3048 metres
-    meaning: unit:FT
-  GigaByte:
-    text: GigaByte
-    description: Unit for digital information equivalent to 1000 megabytes
-    meaning: unit:GigaBYTE
-  KiloByte:
-    text: KiloByte
-    description: Unit for digital information equivalent to 1000 bytes
-    meaning: unit:KiloBYTE
-  Metre:
-    text: Metre
-    description: Metric and SI base unit of distance
-    meaning: unit:M
-  MegaByte:
-    text: MegaByte
-    description: Unit for digital information equivalent to 1000 kilobytes
-    meaning: unit:MegaBYTE
-  TeraByte:
-    text: TeraByte
-    description: Unit for digital information equivalent to 1000 gigabytes
-    meaning: unit:TeraBYTE
-
-</code></pre>
-
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UnitEnum</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Units of measurement. Definitions are taken from the Quantities, Units,</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Dimensions and Data Types Ontologies (QUDT)</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="nt">see_also</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.qudt.org/doc/DOC_VOCAB-UNITS.html</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">permissible_values</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Feet</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Feet</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unit of length defined as being 0.3048 metres</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unit:FT</span>
+<span class="w">  </span><span class="nt">GigaByte</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GigaByte</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unit for digital information equivalent to 1000 megabytes</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unit:GigaBYTE</span>
+<span class="w">  </span><span class="nt">KiloByte</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KiloByte</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unit for digital information equivalent to 1000 bytes</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unit:KiloBYTE</span>
+<span class="w">  </span><span class="nt">Metre</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Metre</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Metric and SI base unit of distance</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unit:M</span>
+<span class="w">  </span><span class="nt">MegaByte</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaByte</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unit for digital information equivalent to 1000 kilobytes</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unit:MegaBYTE</span>
+<span class="w">  </span><span class="nt">TeraByte</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TeraByte</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unit for digital information equivalent to 1000 gigabytes</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unit:TeraBYTE</span>
+</code></pre></div>
 </details>
 
 

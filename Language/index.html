@@ -233,7 +233,7 @@
 <h1 id="class-language">Class: Language</h1>
 <p><em>Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled vocabulary. See also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3</em></p>
 <p>URI: <a href="https://av-efi.net/av-efi-schema/Language">avefi:Language</a></p>
-<div class="mermaid"> classDiagram
+<pre class="mermaid"><code> classDiagram
     class Language
     click Language href "../Language"
       Entity &lt;|-- Language
@@ -252,8 +252,7 @@
     click LanguageUsageEnum href "../LanguageUsageEnum"
 
 
-
-</div>
+</code></pre>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../Entity/">Entity</a><ul>
@@ -382,103 +381,101 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: Language
-description: 'Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of
-  language usage terms from our controlled vocabulary. See also: FIAF Moving Image
-  Cataloguing Manual 1.3.5, 2.3.3'
-examples:
-- value: eng
-  description: English
-- value: deu
-  description: German
-- value: ara
-  description: Arabic
-from_schema: https://av-efi.net/av-efi-schema/model
-rank: 21
-is_a: Entity
-attributes:
-  code:
-    name: code
-    description: 'ISO 639-2 code for the Representation of Names of Languages (Part
-      2: Alpha-3)'
-    from_schema: https://av-efi.net/av-efi-schema/model
-    see_also:
-    - https://id.loc.gov/vocabulary/iso639-2.html
-    rank: 1000
-    domain_of:
-    - Language
-    required: true
-    pattern: ^[a-z]{3}$
-  usage:
-    name: usage
-    from_schema: https://av-efi.net/av-efi-schema/model
-    rank: 1000
-    multivalued: true
-    domain_of:
-    - Language
-    range: LanguageUsageEnum
-    required: true
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Language</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Provide</span><span class="nv"> </span><span class="s">language</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">ISO</span><span class="nv"> </span><span class="s">639-2</span><span class="nv"> </span><span class="s">(Part</span><span class="nv"> </span><span class="s">2:</span><span class="nv"> </span><span class="s">Alpha-3)</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">of</span>
+<span class="w">  </span><span class="s">language</span><span class="nv"> </span><span class="s">usage</span><span class="nv"> </span><span class="s">terms</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">our</span><span class="nv"> </span><span class="s">controlled</span><span class="nv"> </span><span class="s">vocabulary.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">also:</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Moving</span><span class="nv"> </span><span class="s">Image</span>
+<span class="w">  </span><span class="s">Cataloguing</span><span class="nv"> </span><span class="s">Manual</span><span class="nv"> </span><span class="s">1.3.5,</span><span class="nv"> </span><span class="s">2.3.3'</span>
+<span class="nt">examples</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eng</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">English</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deu</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">German</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ara</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Arabic</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21</span>
+<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="nt">attributes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">code</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">code</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'ISO</span><span class="nv"> </span><span class="s">639-2</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Representation</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Names</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Languages</span><span class="nv"> </span><span class="s">(Part</span>
+<span class="w">      </span><span class="s">2:</span><span class="nv"> </span><span class="s">Alpha-3)'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="w">    </span><span class="nt">see_also</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://id.loc.gov/vocabulary/iso639-2.html</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Language</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^[a-z]{3}$</span>
+<span class="w">  </span><span class="nt">usage</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usage</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Language</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LanguageUsageEnum</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: Language
-description: 'Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of
-  language usage terms from our controlled vocabulary. See also: FIAF Moving Image
-  Cataloguing Manual 1.3.5, 2.3.3'
-examples:
-- value: eng
-  description: English
-- value: deu
-  description: German
-- value: ara
-  description: Arabic
-from_schema: https://av-efi.net/av-efi-schema/model
-rank: 21
-is_a: Entity
-attributes:
-  code:
-    name: code
-    description: 'ISO 639-2 code for the Representation of Names of Languages (Part
-      2: Alpha-3)'
-    from_schema: https://av-efi.net/av-efi-schema/model
-    see_also:
-    - https://id.loc.gov/vocabulary/iso639-2.html
-    rank: 1000
-    alias: code
-    owner: Language
-    domain_of:
-    - Language
-    range: string
-    required: true
-    pattern: ^[a-z]{3}$
-  usage:
-    name: usage
-    from_schema: https://av-efi.net/av-efi-schema/model
-    rank: 1000
-    multivalued: true
-    alias: usage
-    owner: Language
-    domain_of:
-    - Language
-    range: LanguageUsageEnum
-    required: true
-  category:
-    name: category
-    description: Designates type, e.g. to distinguish different identifiers (GNDResource
-      vs. VIAFResource)
-    from_schema: https://av-efi.net/av-efi-schema/model
-    rank: 1000
-    slot_uri: rdf:type
-    designates_type: true
-    alias: category
-    owner: Language
-    domain_of:
-    - Entity
-    range: uriorcurie
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Language</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Provide</span><span class="nv"> </span><span class="s">language</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">ISO</span><span class="nv"> </span><span class="s">639-2</span><span class="nv"> </span><span class="s">(Part</span><span class="nv"> </span><span class="s">2:</span><span class="nv"> </span><span class="s">Alpha-3)</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">of</span>
+<span class="w">  </span><span class="s">language</span><span class="nv"> </span><span class="s">usage</span><span class="nv"> </span><span class="s">terms</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">our</span><span class="nv"> </span><span class="s">controlled</span><span class="nv"> </span><span class="s">vocabulary.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">also:</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Moving</span><span class="nv"> </span><span class="s">Image</span>
+<span class="w">  </span><span class="s">Cataloguing</span><span class="nv"> </span><span class="s">Manual</span><span class="nv"> </span><span class="s">1.3.5,</span><span class="nv"> </span><span class="s">2.3.3'</span>
+<span class="nt">examples</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eng</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">English</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deu</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">German</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ara</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Arabic</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21</span>
+<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="nt">attributes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">code</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">code</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'ISO</span><span class="nv"> </span><span class="s">639-2</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Representation</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Names</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Languages</span><span class="nv"> </span><span class="s">(Part</span>
+<span class="w">      </span><span class="s">2:</span><span class="nv"> </span><span class="s">Alpha-3)'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="w">    </span><span class="nt">see_also</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://id.loc.gov/vocabulary/iso639-2.html</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">code</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Language</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Language</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^[a-z]{3}$</span>
+<span class="w">  </span><span class="nt">usage</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usage</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usage</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Language</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Language</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LanguageUsageEnum</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">category</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Designates type, e.g. to distinguish different identifiers (GNDResource</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">vs. VIAFResource)</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdf:type</span>
+<span class="w">    </span><span class="nt">designates_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Language</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+</code></pre></div>
 </details>
 </article>
 </div>
@@ -506,6 +503,5 @@ attributes:
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({});</script></body>
+</body>
 </html>

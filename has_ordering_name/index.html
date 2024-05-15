@@ -407,24 +407,21 @@
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
-
-<pre><code class="language-yaml">name: has_ordering_name
-description: Provide normalised form, e.g. for sorting by title. Only use this slot
-  if value actually if different from has_name
-examples:
-- value: American in Paris, An
-  description: 'For display title: An American in Paris'
-- value: 'Star Wars: Episode 9 – Der Aufstieg Skywalkers'
-  description: 'For display title: Star Wars: Episode IX – Der Aufstieg Skywalkers'
-from_schema: https://av-efi.net/av-efi-schema/model
-rank: 1000
-alias: has_ordering_name
-domain_of:
-- Title
-range: string
-
-</code></pre>
-
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_ordering_name</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Provide normalised form, e.g. for sorting by title. Only use this slot</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">if value actually if different from has_name</span>
+<span class="nt">examples</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">American in Paris, An</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;For</span><span class="nv"> </span><span class="s">display</span><span class="nv"> </span><span class="s">title:</span><span class="nv"> </span><span class="s">An</span><span class="nv"> </span><span class="s">American</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">Paris&#39;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Star</span><span class="nv"> </span><span class="s">Wars:</span><span class="nv"> </span><span class="s">Episode</span><span class="nv"> </span><span class="s">9</span><span class="nv"> </span><span class="s">–</span><span class="nv"> </span><span class="s">Der</span><span class="nv"> </span><span class="s">Aufstieg</span><span class="nv"> </span><span class="s">Skywalkers&#39;</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;For</span><span class="nv"> </span><span class="s">display</span><span class="nv"> </span><span class="s">title:</span><span class="nv"> </span><span class="s">Star</span><span class="nv"> </span><span class="s">Wars:</span><span class="nv"> </span><span class="s">Episode</span><span class="nv"> </span><span class="s">IX</span><span class="nv"> </span><span class="s">–</span><span class="nv"> </span><span class="s">Der</span><span class="nv"> </span><span class="s">Aufstieg</span><span class="nv"> </span><span class="s">Skywalkers&#39;</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_ordering_name</span>
+<span class="nt">domain_of</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Title</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+</code></pre></div>
 </details>
 
 

@@ -451,64 +451,61 @@
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
-
-<pre><code class="language-yaml">name: LanguageUsageEnum
-description: FIAF Moving Image Cataloguing Manual 2.3.3, D.6
-from_schema: https://av-efi.net/av-efi-schema/model
-rank: 1000
-permissible_values:
-  AudioDescription:
-    text: AudioDescription
-    description: Audio description for the visually impaired
-  Captions:
-    text: Captions
-    description: FIAF Moving Image Cataloguing Manual D.6
-    meaning: fiaf:Captions
-  ClosingCredits:
-    text: ClosingCredits
-    todos:
-    - Add documentation
-  Dubbed:
-    text: Dubbed
-    description: FIAF Moving Image Cataloguing Manual 2.3.3
-  Intertitles:
-    text: Intertitles
-    description: FIAF Moving Image Cataloguing Manual D.6
-    meaning: fiaf:Intertitles
-  NoDialogue:
-    text: NoDialogue
-    description: FIAF Moving Image Cataloguing Manual D.6
-    meaning: fiaf:NoDialogue
-  OpeningCredits:
-    text: OpeningCredits
-    todos:
-    - Add documentation
-  SDHSubtitles:
-    text: SDHSubtitles
-    description: Subtitles for the Deaf and Hard of hearing
-  SignedLanguage:
-    text: SignedLanguage
-    description: FIAF Moving Image Cataloguing Manual D.6
-    meaning: fiaf:SignedLanguage
-  SpokenLanguage:
-    text: SpokenLanguage
-    description: FIAF Moving Image Cataloguing Manual D.6
-    meaning: fiaf:SpokenLanguage
-  Subtitles:
-    text: Subtitles
-    description: FIAF Moving Image Cataloguing Manual D.6
-    meaning: fiaf:Subtitles
-  SungLanguage:
-    text: SungLanguage
-    description: FIAF Moving Image Cataloguing Manual D.6
-    meaning: fiaf:SungLanguage
-  VoiceOver:
-    text: VoiceOver
-    todos:
-    - Add documentation
-
-</code></pre>
-
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LanguageUsageEnum</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual 2.3.3, D.6</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">permissible_values</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">AudioDescription</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AudioDescription</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Audio description for the visually impaired</span>
+<span class="w">  </span><span class="nt">Captions</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Captions</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.6</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:Captions</span>
+<span class="w">  </span><span class="nt">ClosingCredits</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClosingCredits</span>
+<span class="w">    </span><span class="nt">todos</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Add documentation</span>
+<span class="w">  </span><span class="nt">Dubbed</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dubbed</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual 2.3.3</span>
+<span class="w">  </span><span class="nt">Intertitles</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Intertitles</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.6</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:Intertitles</span>
+<span class="w">  </span><span class="nt">NoDialogue</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NoDialogue</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.6</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:NoDialogue</span>
+<span class="w">  </span><span class="nt">OpeningCredits</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OpeningCredits</span>
+<span class="w">    </span><span class="nt">todos</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Add documentation</span>
+<span class="w">  </span><span class="nt">SDHSubtitles</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SDHSubtitles</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Subtitles for the Deaf and Hard of hearing</span>
+<span class="w">  </span><span class="nt">SignedLanguage</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SignedLanguage</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.6</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:SignedLanguage</span>
+<span class="w">  </span><span class="nt">SpokenLanguage</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SpokenLanguage</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.6</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:SpokenLanguage</span>
+<span class="w">  </span><span class="nt">Subtitles</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Subtitles</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.6</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:Subtitles</span>
+<span class="w">  </span><span class="nt">SungLanguage</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SungLanguage</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.6</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:SungLanguage</span>
+<span class="w">  </span><span class="nt">VoiceOver</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VoiceOver</span>
+<span class="w">    </span><span class="nt">todos</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Add documentation</span>
+</code></pre></div>
 </details>
 
 

@@ -421,92 +421,89 @@
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
-
-<pre><code class="language-yaml">name: FormatAudioTypeEnum
-description: FIAF Moving Image Cataloguing Manual D.7.2
-from_schema: https://av-efi.net/av-efi-schema/model
-rank: 1000
-permissible_values:
-  16mmMagneticTrack:
-    text: 16mmMagneticTrack
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:16mmMagneticTrack
-    structured_aliases:
-      16mm Magnetband:
-        literal_form: 16mm Magnetband
-        in_language: de
-      16mm magnetic track:
-        literal_form: 16mm magnetic track
-        in_language: en
-  35mmMagneticTrack:
-    text: 35mmMagneticTrack
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:35mmMagneticTrack
-    structured_aliases:
-      35mm Magnetband:
-        literal_form: 35mm Magnetband
-        in_language: de
-      35mm magnetic track:
-        literal_form: 35mm magnetic track
-        in_language: en
-  Audiocassette:
-    text: Audiocassette
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:Audiocassette
-    structured_aliases:
-      Audiokassette:
-        literal_form: Audiokassette
-        in_language: de
-      Audiocassette:
-        literal_form: Audiocassette
-        in_language: en
-  HalfInchAudioReel:
-    text: HalfInchAudioReel
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:HalfInchAudioReel
-    structured_aliases:
-      1/2-Zoll Audioreel:
-        literal_form: 1/2-Zoll Audioreel
-        in_language: de
-      1/2-inch Audioreel:
-        literal_form: 1/2-inch Audioreel
-        in_language: en
-  OneInchAudioReel:
-    text: OneInchAudioReel
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:OneInchAudioReel
-    structured_aliases:
-      1-Zoll Audioreel:
-        literal_form: 1-Zoll Audioreel
-        in_language: de
-      1-inch Audioreel:
-        literal_form: 1-inch Audioreel
-        in_language: en
-  QuarterInchAudioReel:
-    text: QuarterInchAudioReel
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:QuarterInchAudioReel
-    structured_aliases:
-      1/4-Zoll Audioreel:
-        literal_form: 1/4-Zoll Audioreel
-        in_language: de
-      1/4-inch Audioreel:
-        literal_form: 1/4-inch Audioreel
-        in_language: en
-  TwoInchAudioReel:
-    text: TwoInchAudioReel
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:TwoInchAudioReel
-    structured_aliases:
-      2-Zoll Audioreel:
-        literal_form: 2-Zoll Audioreel
-        in_language: de
-      2-inch Audioreel:
-        literal_form: 2-inch Audioreel
-        in_language: en
-
-</code></pre>
-
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FormatAudioTypeEnum</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">permissible_values</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">16mmMagneticTrack</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16mmMagneticTrack</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:16mmMagneticTrack</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">16mm Magnetband</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16mm Magnetband</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">      </span><span class="nt">16mm magnetic track</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16mm magnetic track</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">  </span><span class="nt">35mmMagneticTrack</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">35mmMagneticTrack</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:35mmMagneticTrack</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">35mm Magnetband</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">35mm Magnetband</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">      </span><span class="nt">35mm magnetic track</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">35mm magnetic track</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">  </span><span class="nt">Audiocassette</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Audiocassette</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:Audiocassette</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">Audiokassette</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Audiokassette</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">      </span><span class="nt">Audiocassette</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Audiocassette</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">  </span><span class="nt">HalfInchAudioReel</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HalfInchAudioReel</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:HalfInchAudioReel</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">1/2-Zoll Audioreel</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1/2-Zoll Audioreel</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">      </span><span class="nt">1/2-inch Audioreel</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1/2-inch Audioreel</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">  </span><span class="nt">OneInchAudioReel</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OneInchAudioReel</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:OneInchAudioReel</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">1-Zoll Audioreel</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-Zoll Audioreel</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">      </span><span class="nt">1-inch Audioreel</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-inch Audioreel</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">  </span><span class="nt">QuarterInchAudioReel</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuarterInchAudioReel</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:QuarterInchAudioReel</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">1/4-Zoll Audioreel</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1/4-Zoll Audioreel</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">      </span><span class="nt">1/4-inch Audioreel</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1/4-inch Audioreel</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">  </span><span class="nt">TwoInchAudioReel</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TwoInchAudioReel</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:TwoInchAudioReel</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">2-Zoll Audioreel</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2-Zoll Audioreel</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">      </span><span class="nt">2-inch Audioreel</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2-inch Audioreel</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+</code></pre></div>
 </details>
 
 

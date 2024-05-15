@@ -426,85 +426,82 @@
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
-
-<pre><code class="language-yaml">name: FormatFilmTypeEnum
-description: FIAF Moving Image Cataloguing Manual D.7.2
-from_schema: https://av-efi.net/av-efi-schema/model
-rank: 1000
-permissible_values:
-  16mmFilm:
-    text: 16mmFilm
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:16mmFilm
-    structured_aliases:
-      16mm Film:
-        literal_form: 16mm Film
-        in_language: en
-  17.5mmFilm:
-    text: 17.5mmFilm
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:17.5mmFilm
-    structured_aliases:
-      17,5mm Film:
-        literal_form: 17,5mm Film
-        in_language: de
-      17.5mm Film:
-        literal_form: 17.5mm Film
-        in_language: en
-  35mmFilm:
-    text: 35mmFilm
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:35mmFilm
-    structured_aliases:
-      35mm Film:
-        literal_form: 35mm Film
-        in_language: en
-  70mmFilm:
-    text: 70mmFilm
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:70mmFilm
-    structured_aliases:
-      70mm Film:
-        literal_form: 70mm Film
-        in_language: en
-  8mmFilm:
-    text: 8mmFilm
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:8mmFilm
-    structured_aliases:
-      8mm Film:
-        literal_form: 8mm Film
-        in_language: en
-  9.5mmFilm:
-    text: 9.5mmFilm
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:9.5mmFilm
-    structured_aliases:
-      9,5mm Film:
-        literal_form: 9,5mm Film
-        in_language: de
-      9.5mm Film:
-        literal_form: 9.5mm Film
-        in_language: en
-  Super16mmFilm:
-    text: Super16mmFilm
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:Super16mmFilm
-    structured_aliases:
-      Super16mm Film:
-        literal_form: Super16mm Film
-        in_language: en
-  Super8mmFilm:
-    text: Super8mmFilm
-    description: FIAF Moving Image Cataloguing Manual D.7.2
-    meaning: fiaf:Super8mmFilm
-    structured_aliases:
-      Super8mm Film:
-        literal_form: Super8mm Film
-        in_language: en
-
-</code></pre>
-
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FormatFilmTypeEnum</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.net/av-efi-schema/model</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">permissible_values</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">16mmFilm</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16mmFilm</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:16mmFilm</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">16mm Film</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16mm Film</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">  </span><span class="nt">17.5mmFilm</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">17.5mmFilm</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:17.5mmFilm</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">17,5mm Film</span><span class="p p-Indicator">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">17,5mm Film</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">      </span><span class="nt">17.5mm Film</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">17.5mm Film</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">  </span><span class="nt">35mmFilm</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">35mmFilm</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:35mmFilm</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">35mm Film</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">35mm Film</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">  </span><span class="nt">70mmFilm</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">70mmFilm</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:70mmFilm</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">70mm Film</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">70mm Film</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">  </span><span class="nt">8mmFilm</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8mmFilm</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:8mmFilm</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">8mm Film</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8mm Film</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">  </span><span class="nt">9.5mmFilm</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9.5mmFilm</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:9.5mmFilm</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">9,5mm Film</span><span class="p p-Indicator">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9,5mm Film</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">      </span><span class="nt">9.5mm Film</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9.5mm Film</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">  </span><span class="nt">Super16mmFilm</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Super16mmFilm</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:Super16mmFilm</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">Super16mm Film</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Super16mm Film</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">  </span><span class="nt">Super8mmFilm</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Super8mmFilm</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIAF Moving Image Cataloguing Manual D.7.2</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:Super8mmFilm</span>
+<span class="w">    </span><span class="nt">structured_aliases</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">Super8mm Film</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">literal_form</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Super8mm Film</span>
+<span class="w">        </span><span class="nt">in_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+</code></pre></div>
 </details>
 
 
