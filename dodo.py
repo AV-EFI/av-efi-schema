@@ -173,7 +173,7 @@ def task_docs():
     """Build documentation from LinkML schema."""
     return {
         'actions': [
-            f"gen-doc -d {{targets}} {SRC_MODEL}",
+            f"gen-doc --sort-by rank -d {{targets}} {SRC_MODEL}",
             f"gen-erdiagram -c WorkVariant -c Manifestation"
             f" -c Item {SRC_MODEL} > {{targets}}/structure_diagram.md",
         ],
