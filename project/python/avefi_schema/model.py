@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-15T08:31:47
+# Generation date: 2024-05-15T09:25:40
 # Schema: model
 #
 # id: https://av-efi.net/av-efi-schema/model
@@ -622,11 +622,11 @@ class Format(Entity):
     class_name: ClassVar[str] = "Format"
     class_model_uri: ClassVar[URIRef] = AVEFI.Format
 
-    type: Optional[Union[str, URIorCURIE]] = None
+    type: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.type is not None and not isinstance(self.type, URIorCURIE):
-            self.type = URIorCURIE(self.type)
+        if self.type is not None and not isinstance(self.type, str):
+            self.type = str(self.type)
 
         super().__post_init__(**kwargs)
         self.category = str(self.class_class_curie)
@@ -2688,7 +2688,7 @@ slots.has_record = Slot(uri=AVEFI.has_record, name="has_record", curie=AVEFI.cur
                    model_uri=AVEFI.has_record, domain=None, range=Optional[Union[Union[dict, MovingImageRecord], List[Union[dict, MovingImageRecord]]]])
 
 slots.type = Slot(uri=AVEFI.type, name="type", curie=AVEFI.curie('type'),
-                   model_uri=AVEFI.type, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=AVEFI.type, domain=None, range=Optional[str])
 
 slots.category = Slot(uri=RDF.type, name="category", curie=RDF.curie('type'),
                    model_uri=AVEFI.category, domain=None, range=Optional[Union[str, URIorCURIE]])

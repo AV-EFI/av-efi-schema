@@ -900,7 +900,7 @@ class WorkVariant(MovingImageRecord):
     is_part_of: Optional[List[AVefiResource]] = Field(default_factory=list, description="""Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17""")
     is_variant_of: Optional[AVefiResource] = Field(None, description="""Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5""")
     same_as: Optional[List[Union[AuthorityResource,AVefiResource,DOIResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource]]] = Field(default_factory=list)
-    type: WorkVariantTypeEnum = Field(...)
+    type: WorkVariantTypeEnum = Field(..., description="""Specify type using controlled vocabulary as applicable to the specific class""")
     variant_type: Optional[VariantTypeEnum] = Field(None, description="""FIAF Moving Image Cataloguing Manual D.2""")
     described_by: Optional[DescriptionResource] = Field(None, description="""Also record some metadata about the PID itself rather than the identified object""")
     has_event: Optional[List[Event]] = Field(default_factory=list, description="""Associate event(s) with a moving image record""")
@@ -946,7 +946,7 @@ class Activity(Entity):
     FIAF Moving Image Cataloguing Manual 1.4.1.1
     """
     has_agent: List[Agent] = Field(default_factory=list, description="""Agent involved in some activity related to the moving image resource""")
-    type: ActivityTypeEnum = Field(...)
+    type: ActivityTypeEnum = Field(..., description="""Specify type using controlled vocabulary as applicable to the specific class""")
     category: Literal["https://av-efi.net/av-efi-schema/Activity","avefi:Activity"] = Field("avefi:Activity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -957,7 +957,7 @@ class Agent(Entity):
     has_alternate_name: Optional[List[str]] = Field(default_factory=list)
     has_name: str = Field(..., description="""For natural persons, always use the convention \"family name, given name\"""")
     same_as: Optional[List[Union[AuthorityResource,AVefiResource,DOIResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource]]] = Field(default_factory=list)
-    type: AgentTypeEnum = Field(...)
+    type: AgentTypeEnum = Field(..., description="""Specify type using controlled vocabulary as applicable to the specific class""")
     category: Literal["https://av-efi.net/av-efi-schema/Agent","avefi:Agent"] = Field("avefi:Agent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -968,7 +968,7 @@ class Event(Entity):
     has_activity: Optional[List[Activity]] = Field(default_factory=list, description="""Associate activity (and subsequently agents) with event""")
     has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information""")
     located_in: Optional[List[GeographicName]] = Field(default_factory=list)
-    type: EventTypeEnum = Field(...)
+    type: EventTypeEnum = Field(..., description="""Specify type using controlled vocabulary as applicable to the specific class""")
     category: Literal["https://av-efi.net/av-efi-schema/Event","avefi:Event"] = Field("avefi:Event", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('has_date')
@@ -1044,7 +1044,7 @@ class Format(Entity):
     """
     FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
     """
-    type: Optional[str] = Field(None)
+    type: Optional[str] = Field(None, description="""Specify type using controlled vocabulary as applicable to the specific class""")
     category: Literal["https://av-efi.net/av-efi-schema/Format","avefi:Format"] = Field("avefi:Format", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -1052,7 +1052,7 @@ class Audio(Format):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    type: Optional[FormatAudioTypeEnum] = Field(None)
+    type: Optional[FormatAudioTypeEnum] = Field(None, description="""Specify type using controlled vocabulary as applicable to the specific class""")
     category: Literal["https://av-efi.net/av-efi-schema/Audio","avefi:Audio"] = Field("avefi:Audio", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -1060,7 +1060,7 @@ class DigitalFile(Format):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    type: Optional[FormatDigitalFileTypeEnum] = Field(None)
+    type: Optional[FormatDigitalFileTypeEnum] = Field(None, description="""Specify type using controlled vocabulary as applicable to the specific class""")
     category: Literal["https://av-efi.net/av-efi-schema/DigitalFile","avefi:DigitalFile"] = Field("avefi:DigitalFile", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -1068,7 +1068,7 @@ class DigitalFileEncoding(Format):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    type: Optional[FormatDigitalFileEncodingTypeEnum] = Field(None)
+    type: Optional[FormatDigitalFileEncodingTypeEnum] = Field(None, description="""Specify type using controlled vocabulary as applicable to the specific class""")
     category: Literal["https://av-efi.net/av-efi-schema/DigitalFileEncoding","avefi:DigitalFileEncoding"] = Field("avefi:DigitalFileEncoding", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -1076,7 +1076,7 @@ class Film(Format):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    type: Optional[FormatFilmTypeEnum] = Field(None)
+    type: Optional[FormatFilmTypeEnum] = Field(None, description="""Specify type using controlled vocabulary as applicable to the specific class""")
     category: Literal["https://av-efi.net/av-efi-schema/Film","avefi:Film"] = Field("avefi:Film", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -1084,7 +1084,7 @@ class Optical(Format):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    type: Optional[FormatOpticalTypeEnum] = Field(None)
+    type: Optional[FormatOpticalTypeEnum] = Field(None, description="""Specify type using controlled vocabulary as applicable to the specific class""")
     category: Literal["https://av-efi.net/av-efi-schema/Optical","avefi:Optical"] = Field("avefi:Optical", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -1092,7 +1092,7 @@ class Video(Format):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    type: Optional[FormatVideoTypeEnum] = Field(None)
+    type: Optional[FormatVideoTypeEnum] = Field(None, description="""Specify type using controlled vocabulary as applicable to the specific class""")
     category: Literal["https://av-efi.net/av-efi-schema/Video","avefi:Video"] = Field("avefi:Video", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -1105,7 +1105,7 @@ class Manifestation(ManifestationOrItem):
     has_sound_type: Optional[SoundTypeEnum] = Field(None, description="""FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4""")
     is_manifestation_of: List[AVefiResource] = Field(default_factory=list, description="""Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation""")
     same_as: Optional[List[AVefiResource]] = Field(default_factory=list, description="""Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work""")
-    type: Optional[ManifestationTypeEnum] = Field(None)
+    type: Optional[ManifestationTypeEnum] = Field(None, description="""Specify type using controlled vocabulary as applicable to the specific class""")
     has_duration: Optional[Duration] = Field(None, description="""Total running time of the described object in ISO 8601 duration format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11""")
     has_extent: Optional[Extent] = Field(None, description="""Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8""")
     has_format: Optional[List[Union[Format,Audio,DigitalFile,DigitalFileEncoding,Film,Optical,Video]]] = Field(default_factory=list)

@@ -39,7 +39,8 @@
                     "type": "array"
                 },
                 "type": {
-                    "$ref": "#/$defs/ActivityTypeEnum"
+                    "$ref": "#/$defs/ActivityTypeEnum",
+                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
                 }
             },
             "required": [
@@ -264,7 +265,8 @@
                     "type": "array"
                 },
                 "type": {
-                    "$ref": "#/$defs/AgentTypeEnum"
+                    "$ref": "#/$defs/AgentTypeEnum",
+                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
                 }
             },
             "required": [
@@ -297,7 +299,8 @@
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/FormatAudioTypeEnum"
+                    "$ref": "#/$defs/FormatAudioTypeEnum",
+                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
                 }
             },
             "title": "Audio",
@@ -381,7 +384,8 @@
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/FormatDigitalFileTypeEnum"
+                    "$ref": "#/$defs/FormatDigitalFileTypeEnum",
+                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
                 }
             },
             "title": "DigitalFile",
@@ -399,7 +403,8 @@
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/FormatDigitalFileEncodingTypeEnum"
+                    "$ref": "#/$defs/FormatDigitalFileEncodingTypeEnum",
+                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
                 }
             },
             "title": "DigitalFileEncoding",
@@ -459,7 +464,8 @@
                     "type": "array"
                 },
                 "type": {
-                    "$ref": "#/$defs/EventTypeEnum"
+                    "$ref": "#/$defs/EventTypeEnum",
+                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
                 }
             },
             "required": [
@@ -543,7 +549,8 @@
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/FormatFilmTypeEnum"
+                    "$ref": "#/$defs/FormatFilmTypeEnum",
+                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
                 }
             },
             "title": "Film",
@@ -1103,7 +1110,8 @@
                     "type": "array"
                 },
                 "type": {
-                    "$ref": "#/$defs/ManifestationTypeEnum"
+                    "$ref": "#/$defs/ManifestationTypeEnum",
+                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
                 }
             },
             "required": [
@@ -1173,7 +1181,8 @@
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/FormatOpticalTypeEnum"
+                    "$ref": "#/$defs/FormatOpticalTypeEnum",
+                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
                 }
             },
             "title": "Optical",
@@ -1395,7 +1404,8 @@
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/FormatVideoTypeEnum"
+                    "$ref": "#/$defs/FormatVideoTypeEnum",
+                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
                 }
             },
             "title": "Video",
@@ -1557,7 +1567,8 @@
                     "type": "array"
                 },
                 "type": {
-                    "$ref": "#/$defs/WorkVariantTypeEnum"
+                    "$ref": "#/$defs/WorkVariantTypeEnum",
+                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
                 },
                 "variant_type": {
                     "$ref": "#/$defs/VariantTypeEnum",
