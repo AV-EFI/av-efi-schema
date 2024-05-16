@@ -521,40 +521,12 @@ AVefi project</p>
 <td>Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language...</td>
 </tr>
 <tr>
-<td><a href="Entity/">Entity</a></td>
-<td>A generic grouping for all described things</td>
-</tr>
-<tr>
-<td><a href="PIDRecord/">PIDRecord</a></td>
-<td>Grouping for all entities that represent a PID metadata record</td>
-</tr>
-<tr>
-<td><a href="MovingImageRecord/">MovingImageRecord</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="DescriptionResource/">DescriptionResource</a></td>
-<td>Metadata about the PID rather than the identified object, i</td>
-</tr>
-<tr>
-<td><a href="Genre/">Genre</a></td>
-<td>Genre describes categories of Works, characterized by similar plots, themes, ...</td>
-</tr>
-<tr>
 <td><a href="Subject/">Subject</a></td>
 <td>Subject descriptor terms for the content of a film specifying its period, the...</td>
 </tr>
 <tr>
-<td><a href="ManifestationOrItem/">ManifestationOrItem</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Duration/">Duration</a></td>
-<td>Total running time of the described object in ISO 8601 duration format</td>
-</tr>
-<tr>
-<td><a href="Extent/">Extent</a></td>
-<td>Physical length or size of the described object</td>
+<td><a href="Genre/">Genre</a></td>
+<td>Genre describes categories of Works, characterized by similar plots, themes, ...</td>
 </tr>
 <tr>
 <td><a href="Format/">Format</a></td>
@@ -585,12 +557,12 @@ AVefi project</p>
 <td>FIAF Moving Image Cataloguing Manual D</td>
 </tr>
 <tr>
-<td><a href="MovingImageRecordCollection/">MovingImageRecordCollection</a></td>
-<td>A holder for MovingImageRecord objects</td>
+<td><a href="Duration/">Duration</a></td>
+<td>Total running time of the described object in ISO 8601 duration format</td>
 </tr>
 <tr>
-<td><a href="AuthorityResource/">AuthorityResource</a></td>
-<td>Root class for all identifiers from some kind of authority or public register...</td>
+<td><a href="Extent/">Extent</a></td>
+<td>Physical length or size of the described object</td>
 </tr>
 <tr>
 <td><a href="AVefiResource/">AVefiResource</a></td>
@@ -624,6 +596,34 @@ AVefi project</p>
 <td><a href="WikidataResource/">WikidataResource</a></td>
 <td>Identifier for Wikidata entities</td>
 </tr>
+<tr>
+<td><a href="MovingImageRecordCollection/">MovingImageRecordCollection</a></td>
+<td>A holder for MovingImageRecord objects</td>
+</tr>
+<tr>
+<td><a href="Entity/">Entity</a></td>
+<td>A generic grouping for all described things</td>
+</tr>
+<tr>
+<td><a href="PIDRecord/">PIDRecord</a></td>
+<td>Grouping for all entities that represent a PID metadata record</td>
+</tr>
+<tr>
+<td><a href="MovingImageRecord/">MovingImageRecord</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="DescriptionResource/">DescriptionResource</a></td>
+<td>Metadata about the PID rather than the identified object, i</td>
+</tr>
+<tr>
+<td><a href="ManifestationOrItem/">ManifestationOrItem</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="AuthorityResource/">AuthorityResource</a></td>
+<td>Root class for all identifiers from some kind of authority or public register...</td>
+</tr>
 </tbody>
 </table>
 <h2 id="slots">Slots</h2>
@@ -637,7 +637,7 @@ AVefi project</p>
 <tbody>
 <tr>
 <td><a href="has_record/">has_record</a></td>
-<td></td>
+<td>Root slot holding the moving image metadata record(s)</td>
 </tr>
 <tr>
 <td><a href="has_primary_title/">has_primary_title</a></td>
@@ -648,8 +648,48 @@ AVefi project</p>
 <td>Additional title(s) associated with the work / variant, manifestation, or ite...</td>
 </tr>
 <tr>
+<td><a href="has_name/">has_name</a></td>
+<td>A human-readable name for a thing</td>
+</tr>
+<tr>
+<td><a href="has_ordering_name/">has_ordering_name</a></td>
+<td>Provide normalised form, e</td>
+</tr>
+<tr>
+<td><a href="type/">type</a></td>
+<td>See specific class documentation for controlled vocabulary applicable to the ...</td>
+</tr>
+<tr>
+<td><a href="same_as/">same_as</a></td>
+<td>See [AuthorityResource doucmentation](AuthorityResource</td>
+</tr>
+<tr>
 <td><a href="has_event/">has_event</a></td>
 <td>Associate event(s) with a moving image record</td>
+</tr>
+<tr>
+<td><a href="has_date/">has_date</a></td>
+<td>Date (or interval/period) when an event has taken place</td>
+</tr>
+<tr>
+<td><a href="located_in/">located_in</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="has_activity/">has_activity</a></td>
+<td>Associate activity (and subsequently agents) with event</td>
+</tr>
+<tr>
+<td><a href="has_agent/">has_agent</a></td>
+<td>Agent involved in some activity related to the moving image resource</td>
+</tr>
+<tr>
+<td><a href="has_alternate_name/">has_alternate_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="in_language/">in_language</a></td>
+<td>FIAF Moving Image Cataloguing Manual 1</td>
 </tr>
 <tr>
 <td><a href="has_form/">has_form</a></td>
@@ -664,18 +704,6 @@ AVefi project</p>
 <td>Genre describes categories of Works, characterized by similar plots, themes, ...</td>
 </tr>
 <tr>
-<td><a href="in_language/">in_language</a></td>
-<td>FIAF Moving Image Cataloguing Manual 1</td>
-</tr>
-<tr>
-<td><a href="type/">type</a></td>
-<td>Specify type using controlled vocabulary as applicable to the specific class</td>
-</tr>
-<tr>
-<td><a href="same_as/">same_as</a></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="is_part_of/">is_part_of</a></td>
 <td>Relate, for instance, episodes to a series / serial</td>
 </tr>
@@ -688,20 +716,76 @@ AVefi project</p>
 <td>FIAF Moving Image Cataloguing Manual D</td>
 </tr>
 <tr>
-<td><a href="id/">id</a></td>
-<td>A unique identifier for a thing</td>
+<td><a href="is_manifestation_of/">is_manifestation_of</a></td>
+<td>Indicate AVefi WorkVariant (possibly more but no less than one) that is subje...</td>
 </tr>
 <tr>
-<td><a href="has_name/">has_name</a></td>
-<td>A human-readable name for a thing</td>
+<td><a href="has_item/">has_item</a></td>
+<td>Indicate AVefi Items the institution has registered as part of the manifestat...</td>
 </tr>
 <tr>
-<td><a href="has_alternate_name/">has_alternate_name</a></td>
+<td><a href="has_format/">has_format</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="has_ordering_name/">has_ordering_name</a></td>
-<td>Provide normalised form, e</td>
+<td><a href="has_duration/">has_duration</a></td>
+<td>Total running time of the described object in ISO 8601 duration format</td>
+</tr>
+<tr>
+<td><a href="has_extent/">has_extent</a></td>
+<td>Physical length or size of the described object</td>
+</tr>
+<tr>
+<td><a href="has_value/">has_value</a></td>
+<td>Value of some quantity</td>
+</tr>
+<tr>
+<td><a href="has_unit/">has_unit</a></td>
+<td>Unit of some quantity</td>
+</tr>
+<tr>
+<td><a href="has_precision/">has_precision</a></td>
+<td>Qualifier indicating the precision of an extent value or duration</td>
+</tr>
+<tr>
+<td><a href="has_colour_type/">has_colour_type</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2</td>
+</tr>
+<tr>
+<td><a href="has_sound_type/">has_sound_type</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2</td>
+</tr>
+<tr>
+<td><a href="has_webresource/">has_webresource</a></td>
+<td>Link to data provider's own presentation of manifestation or item on the web</td>
+</tr>
+<tr>
+<td><a href="has_note/">has_note</a></td>
+<td>FIAF Moving Image Cataloguing Manual Appendix B</td>
+</tr>
+<tr>
+<td><a href="is_item_of/">is_item_of</a></td>
+<td>Indicate AVefi Manifestation the item belongs to</td>
+</tr>
+<tr>
+<td><a href="element_type/">element_type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="has_access_status/">has_access_status</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="is_copy_of/">is_copy_of</a></td>
+<td>Link to AVefi item registered by another institution indicating that the two ...</td>
+</tr>
+<tr>
+<td><a href="is_derivative_of/">is_derivative_of</a></td>
+<td>Link to AVefi item from which this one has been derived in whole or in part, ...</td>
+</tr>
+<tr>
+<td><a href="id/">id</a></td>
+<td>A unique identifier for a thing</td>
 </tr>
 <tr>
 <td><a href="category/">category</a></td>
@@ -726,90 +810,6 @@ AVefi project</p>
 <tr>
 <td><a href="last_modified/">last_modified</a></td>
 <td>Timestamp (in UTC) for the latest modification to any field in the PID metada...</td>
-</tr>
-<tr>
-<td><a href="has_date/">has_date</a></td>
-<td>Date (or interval/period) when an event has taken place</td>
-</tr>
-<tr>
-<td><a href="has_activity/">has_activity</a></td>
-<td>Associate activity (and subsequently agents) with event</td>
-</tr>
-<tr>
-<td><a href="has_agent/">has_agent</a></td>
-<td>Agent involved in some activity related to the moving image resource</td>
-</tr>
-<tr>
-<td><a href="located_in/">located_in</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="has_duration/">has_duration</a></td>
-<td>Total running time of the described object in ISO 8601 duration format</td>
-</tr>
-<tr>
-<td><a href="has_extent/">has_extent</a></td>
-<td>Physical length or size of the described object</td>
-</tr>
-<tr>
-<td><a href="has_unit/">has_unit</a></td>
-<td>Unit of some quantity</td>
-</tr>
-<tr>
-<td><a href="has_value/">has_value</a></td>
-<td>Value of some quantity</td>
-</tr>
-<tr>
-<td><a href="has_precision/">has_precision</a></td>
-<td>Qualifier indicating the precision of an extent value or duration</td>
-</tr>
-<tr>
-<td><a href="has_colour_type/">has_colour_type</a></td>
-<td>FIAF Moving Image Cataloguing Manual 2</td>
-</tr>
-<tr>
-<td><a href="has_format/">has_format</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="has_item/">has_item</a></td>
-<td>Indicate AVefi Items the institution has registered as part of the manifestat...</td>
-</tr>
-<tr>
-<td><a href="has_note/">has_note</a></td>
-<td>FIAF Moving Image Cataloguing Manual Appendix B</td>
-</tr>
-<tr>
-<td><a href="has_sound_type/">has_sound_type</a></td>
-<td>FIAF Moving Image Cataloguing Manual 2</td>
-</tr>
-<tr>
-<td><a href="has_webresource/">has_webresource</a></td>
-<td>Link to data provider's own presentation of manifestation or item on the web</td>
-</tr>
-<tr>
-<td><a href="is_manifestation_of/">is_manifestation_of</a></td>
-<td>Indicate AVefi WorkVariant (possibly more but no less than one) that is subje...</td>
-</tr>
-<tr>
-<td><a href="is_item_of/">is_item_of</a></td>
-<td>Indicate AVefi Manifestation the item belongs to</td>
-</tr>
-<tr>
-<td><a href="has_access_status/">has_access_status</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="is_copy_of/">is_copy_of</a></td>
-<td>Link to AVefi item registered by another institution indicating that the two ...</td>
-</tr>
-<tr>
-<td><a href="is_derivative_of/">is_derivative_of</a></td>
-<td>Link to AVefi item from which this one has been derived in whole or in part, ...</td>
-</tr>
-<tr>
-<td><a href="element_type/">element_type</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="code/">code</a></td>

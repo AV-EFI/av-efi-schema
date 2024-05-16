@@ -390,6 +390,7 @@
 
 
 <h1 id="slot-same_as">Slot: same_as</h1>
+<p><em>See <a href="../AuthorityResource/">AuthorityResource doucmentation</a> for accepted identifiers</em></p>
 <p>URI: <a href="https://av-efi.net/av-efi-schema/same_as">avefi:same_as</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -404,21 +405,6 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Agent/">Agent</a></td>
-<td>Agent involved in some activity related to the moving image resource</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../WorkVariant/">WorkVariant</a></td>
-<td>FIAF Moving Image Cataloguing Manual 1</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Manifestation/">Manifestation</a></td>
-<td>FIAF Moving Image Cataloguing Manual 2</td>
-<td>yes</td>
-</tr>
-<tr>
 <td><a href="../Subject/">Subject</a></td>
 <td>Subject descriptor terms for the content of a film specifying its period, the...</td>
 <td>no</td>
@@ -429,8 +415,23 @@
 <td>no</td>
 </tr>
 <tr>
+<td><a href="../Agent/">Agent</a></td>
+<td>Agent involved in some activity related to the moving image resource</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../WorkVariant/">WorkVariant</a></td>
+<td>FIAF Moving Image Cataloguing Manual 1</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../Genre/">Genre</a></td>
 <td>Genre describes categories of Works, characterized by similar plots, themes, ...</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../Manifestation/">Manifestation</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -452,8 +453,10 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">same_as</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">See [AuthorityResource doucmentation](AuthorityResource.md) for accepted</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">identifiers</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
-<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">same_as</span>
 <span class="nt">domain_of</span><span class="p">:</span>
