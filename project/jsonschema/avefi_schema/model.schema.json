@@ -1594,7 +1594,7 @@
             "type": "string"
         }
     },
-    "$id": "https://av-efi.net/av-efi-schema/model",
+    "$id": "https://github.io/av-efi-schema/model",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": false,
     "description": "A holder for MovingImageRecord objects",

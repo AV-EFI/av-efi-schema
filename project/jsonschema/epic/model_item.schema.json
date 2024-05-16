@@ -1,8 +1,8 @@
 {
-    "$id": "https://av-efi.net/av-efi-schema/model-item",
+    "$id": "https://github.io/av-efi-schema/model-item",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": false,
-    "description": "Auto-generated from https://av-efi.net/av-efi-schema/model for Item PIDs",
+    "description": "Auto-generated from https://github.io/av-efi-schema/model for Item PIDs",
     "metamodel_version": "1.7.0",
     "properties": {
         "category": {
