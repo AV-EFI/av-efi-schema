@@ -18,7 +18,7 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 nav:
-  - About: about.md
+  - Home: index.md
   - Overview: schema_overview.md
   - Examples: examples.md
 site_url: https://av-efi.github.io/av-efi-schema
