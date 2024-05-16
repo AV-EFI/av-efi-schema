@@ -16,6 +16,7 @@ DOIT_CONFIG = {
     ],
 }
 HERE = Path(__file__).parent
+SRC_DOCS_DIR = HERE / 'src' / 'docs'
 DOCS_DIR = HERE / 'docs'
 UTILS_DIR = HERE / 'utils'
 WORKING_DIR = HERE / 'KIP_DTR'
@@ -173,13 +174,27 @@ def task_docs():
     """Build documentation from LinkML schema."""
     return {
         'actions': [
-            f"gen-doc --sort-by rank -d {{targets}} {SRC_MODEL}",
+            f"gen-doc --sort-by rank --no-hierarchical-class-view"
+            f" -d {{targets}} {SRC_MODEL}",
             f"gen-erdiagram -c WorkVariant -c Manifestation"
             f" -c Item {SRC_MODEL} > {{targets}}/structure_diagram.md",
         ],
-        'task_dep': ['sync_dependencies'],
+        'task_dep': ['sync_dependencies', 'copy_src_docs'],
         'file_dep': SRC_SCHEMA_DEPENDENCIES,
         'targets': [DOCS_DIR],
+    }
+
+
+def task_copy_src_docs():
+    """Copy files over from src/docs."""
+    dependencies = list(SRC_DOCS_DIR.glob('*.md'))
+    targets = [DOCS_DIR / d.name for d in dependencies]
+    return {
+        'actions': [
+            f"cp -rf {{dependencies}} {DOCS_DIR}",
+        ],
+        'file_dep': dependencies,
+        'targets': targets,
     }
 
 
