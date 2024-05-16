@@ -139,6 +139,7 @@ classes:
       1.3.3, D.4
 
   Genre:
+    rank: 25
     is_a: Entity
     slots:
       - has_alternate_name
@@ -155,6 +156,7 @@ classes:
       Terms D.2.1
 
   Subject:
+    rank: 23
     is_a: Entity
     slots:
       - has_alternate_name
@@ -265,6 +267,7 @@ classes:
       - has_webresource
 
   Duration:
+    rank: 33
     is_a: Entity
     slots:
       - has_value
@@ -289,6 +292,7 @@ classes:
       - https://www.w3.org/TR/xmlschema11-2/#duration
 
   Extent:
+    rank: 35
     is_a: Entity
     slots:
       - has_unit
@@ -299,6 +303,7 @@ classes:
       Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
 
   Format:
+    rank: 31
     is_a: Entity
     abstract: true
     slots:
@@ -307,6 +312,7 @@ classes:
       FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
 
   Audio:
+    rank: 32
     is_a: Format
     slot_usage:
       type:
@@ -317,6 +323,7 @@ classes:
       FIAF Moving Image Cataloguing Manual D.7.2
 
   DigitalFile:
+    rank: 32
     is_a: Format
     slot_usage:
       type:
@@ -327,6 +334,7 @@ classes:
       FIAF Moving Image Cataloguing Manual D.7.2
 
   DigitalFileEncoding:
+    rank: 32
     is_a: Format
     slot_usage:
       type:
@@ -337,6 +345,7 @@ classes:
       FIAF Moving Image Cataloguing Manual D.7.2
 
   Film:
+    rank: 32
     is_a: Format
     slot_usage:
       type:
@@ -347,6 +356,7 @@ classes:
       FIAF Moving Image Cataloguing Manual D.7.2
 
   Optical:
+    rank: 32
     is_a: Format
     slot_usage:
       type:
@@ -356,6 +366,7 @@ classes:
       - fiaf:Optical
 
   Video:
+    rank: 32
     is_a: Format
     slot_usage:
       type:
@@ -433,6 +444,7 @@ classes:
       FIAF Moving Image Cataloguing Manual 3.0
 
   MovingImageRecordCollection:
+    rank: 100
     is_a: Entity
     description: >-
       A holder for MovingImageRecord objects
@@ -454,6 +466,7 @@ classes:
       public register widely accepted in the community
 
   AVefiResource:
+    rank: 51
     is_a: AuthorityResource
     slot_usage:
       id:
@@ -467,6 +480,7 @@ classes:
       Handle with the prefix allocated for AVefi (eventually)
 
   DOIResource:
+    rank: 51
     is_a: AuthorityResource
     slot_usage:
       id:
@@ -490,6 +504,7 @@ classes:
       - https://www.wikidata.org/wiki/Property:P356
 
   FilmportalResource:
+    rank: 51
     is_a: AuthorityResource
     slot_usage:
       id:
@@ -513,6 +528,7 @@ classes:
       - https://www.wikidata.org/entity/P2639
 
   GNDResource:
+    rank: 51
     is_a: AuthorityResource
     slot_usage:
       id:
@@ -553,6 +569,7 @@ classes:
       - https://www.wikidata.org/entity/P227
 
   ISILResource:
+    rank: 51
     is_a: AuthorityResource
     slot_usage:
       id:
@@ -575,6 +592,7 @@ classes:
       - https://www.wikidata.org/wiki/Property:P791
 
   TGNResource:
+    rank: 51
     is_a: AuthorityResource
     slot_usage:
       id:
@@ -598,6 +616,7 @@ classes:
       - https://www.wikidata.org/wiki/Property:P1667
 
   VIAFResource:
+    rank: 51
     is_a: AuthorityResource
     slot_usage:
       id:
@@ -629,6 +648,7 @@ classes:
       - https://www.wikidata.org/entity/P214
 
   WikidataResource:
+    rank: 51
     is_a: AuthorityResource
     slot_usage:
       id:
@@ -670,15 +690,18 @@ slots:
     description: A unique identifier for a thing
 
   has_name:
+    rank: 4
     slot_uri: schema:name
     required: true
     description: A human-readable name for a thing
 
   has_alternate_name:
+    rank: 10
     slot_uri: schema:alternateName
     multivalued: true
 
   has_ordering_name:
+    rank: 4
     description: >-
       Provide normalised form, e.g. for sorting by title. Only use
       this slot if value actually if different from has_name
@@ -695,7 +718,7 @@ slots:
     range: MovingImageRecord
 
   type:
-    rank: 14
+    rank: 5
     description: >-
       Specify type using controlled vocabulary as applicable to the
       specific class
@@ -709,7 +732,7 @@ slots:
       (GNDResource vs. VIAFResource)
 
   same_as:
-    rank: 16
+    rank: 5
     inlined_as_list: true
     multivalued: true
     range: AuthorityResource
@@ -762,7 +785,7 @@ slots:
   #-----------------------------------
 
   has_event:
-    rank: 5
+    rank: 6
     inlined_as_list: true
     multivalued: true
     range: Event
@@ -770,6 +793,7 @@ slots:
       Associate event(s) with a moving image record
 
   has_date:
+    rank: 7
     pattern: ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$
     notes:
       - https://www.w3.org/TR/xmlschema11-2/#date
@@ -796,6 +820,7 @@ slots:
       - https://www.loc.gov/standards/datetime/
 
   has_activity:
+    rank: 8
     inlined_as_list: true
     multivalued: true
     range: Activity
@@ -803,6 +828,7 @@ slots:
       Associate activity (and subsequently agents) with event
 
   has_agent:
+    rank: 9
     inlined_as_list: true
     multivalued: true
     range: Agent
@@ -816,11 +842,13 @@ slots:
   #-----------------------------------
 
   located_in:
+    rank: 7
     inlined_as_list: true
     multivalued: true
     range: GeographicName
 
   has_duration:
+    rank: 24
     range: Duration
     description: >-
       Total running time of the described object in ISO 8601 duration
@@ -828,29 +856,33 @@ slots:
       3.1.5.11
 
   has_extent:
+    rank: 24
     range: Extent
     description: >-
       Physical length or size of the described object. See also: FIAF
       Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
 
   has_unit:
+    rank: 26
     range: UnitEnum
     description: >-
       Unit of some quantity
 
   has_value:
+    rank: 25
     range: decimal
     description: >-
       Value of some quantity
 
   has_precision:
+    rank: 26
     range: PrecisionEnum
     description: >-
       Qualifier indicating the precision of an extent value or
       duration
 
   has_form:
-    rank: 7
+    rank: 14
     multivalued: true
     range: WorkFormEnum
     description: >-
@@ -860,7 +892,7 @@ slots:
       Terms D.1
 
   has_genre:
-    rank: 9
+    rank: 15
     inlined_as_list: true
     multivalued: true
     range: Genre
@@ -872,7 +904,7 @@ slots:
       Terms D.2.1
 
   has_subject:
-    rank: 8
+    rank: 14
     inlined_as_list: true
     multivalued: true
     range: Subject
@@ -900,7 +932,7 @@ slots:
       FIAF Moving Image Cataloguing Manual D.17
 
   variant_type:
-    rank: 19
+    rank: 18
     range: VariantTypeEnum
     description: >-
       FIAF Moving Image Cataloguing Manual D.2
@@ -910,16 +942,19 @@ slots:
   #-----------------------------------
 
   has_colour_type:
+    rank: 27
     range: ColourTypeEnum
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11
 
   has_format:
+    rank: 23
     inlined_as_list: true
     multivalued: true
     range: Format
 
   has_item:
+    rank: 22
     inlined_as_list: true
     multivalued: true
     range: AVefiResource
@@ -928,23 +963,27 @@ slots:
        the manifestation
 
   has_note:
+    rank: 29
     inlined_as_list: true
     multivalued: true
     description: >-
       FIAF Moving Image Cataloguing Manual Appendix B
 
   has_sound_type:
+    rank: 27
     range: SoundTypeEnum
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4
 
   has_webresource:
+    rank: 28
     range: uri
     description: >-
       Link to data provider's own presentation of manifestation or
       item on the web
 
   is_manifestation_of:
+    rank: 21
     inlined_as_list: true
     multivalued: true
     range: AVefiResource
@@ -969,6 +1008,7 @@ slots:
   #-----------------------------------
 
   is_item_of:
+    rank: 31
     # multivalued: true
     range: AVefiResource
     required: true
@@ -977,9 +1017,11 @@ slots:
       be associated with a manifestation from the same data provider
 
   has_access_status:
+    rank: 36
     range: ItemAccessStatusEnum
 
   is_copy_of:
+    rank: 39
     inlined_as_list: true
     multivalued: true
     range: AVefiResource
@@ -988,6 +1030,7 @@ slots:
       that the two are known to be copies of each other
 
   is_derivative_of:
+    rank: 39
     inlined_as_list: true
     multivalued: true
     range: AVefiResource
@@ -999,4 +1042,5 @@ slots:
       project
 
   element_type:
+    rank: 33
     range: ItemElementTypeEnum
