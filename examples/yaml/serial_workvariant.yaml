@@ -102,7 +102,7 @@ has_record:
   type: Monographic
   id: PID-ID1.1
   is_part_of:
-  - category: avefi:AVefiResource
+  - category: avefi:LocalResource
     id: PID-ID1
   has_primary_title:
     type: PreferredTitle
@@ -129,7 +129,7 @@ has_record:
   type: Monographic
   id: PID-ID1.2
   is_part_of:
-  - category: avefi:AVefiResource
+  - category: avefi:LocalResource
     id: PID-ID1
   has_primary_title:
     type: PreferredTitle
@@ -156,7 +156,7 @@ has_record:
   type: Monographic
   id: PID-ID1.3
   is_part_of:
-  - category: avefi:AVefiResource
+  - category: avefi:LocalResource
     id: PID-ID1
   has_primary_title:
     type: PreferredTitle
