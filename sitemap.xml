@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://av-efi.github.io/av-efi-schema/</loc>
-         <lastmod>2024-05-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://av-efi.github.io/av-efi-schema/AVefiResource/</loc>
          <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
@@ -611,7 +606,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://av-efi.github.io/av-efi-schema/structure_diagram/</loc>
+         <loc>https://av-efi.github.io/av-efi-schema/schema_overview/</loc>
          <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>

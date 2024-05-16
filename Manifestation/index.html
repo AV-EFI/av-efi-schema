@@ -118,16 +118,16 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="..">
+<a class="md-nav__link" href="../about/">
 <span class="md-ellipsis">
-    Overview
+    About
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../structure_diagram/">
+<a class="md-nav__link" href="../schema_overview/">
 <span class="md-ellipsis">
-    Visualisation
+    Overview
   </span>
 </a>
 </li>
@@ -135,13 +135,6 @@
 <a class="md-nav__link" href="../examples/">
 <span class="md-ellipsis">
     Examples
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../about/">
-<span class="md-ellipsis">
-    About
   </span>
 </a>
 </li>
@@ -404,49 +397,49 @@
 <tr>
 <td><a href="../has_colour_type/">has_colour_type</a></td>
 <td>0..1 <br/> <a href="../ColourTypeEnum/">ColourTypeEnum</a></td>
-<td>FIAF Moving Image Cataloguing Manual 2</td>
+<td>FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../has_item/">has_item</a></td>
 <td>* <br/> <a href="../AVefiResource/">AVefiResource</a></td>
-<td>Indicate AVefi Items the institution has registered as part of the manifestat...</td>
+<td>Indicate AVefi Items the institution has registered as part of the manifestation</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../has_sound_type/">has_sound_type</a></td>
 <td>0..1 <br/> <a href="../SoundTypeEnum/">SoundTypeEnum</a></td>
-<td>FIAF Moving Image Cataloguing Manual 2</td>
+<td>FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../is_manifestation_of/">is_manifestation_of</a></td>
 <td>1..* <br/> <a href="../AVefiResource/">AVefiResource</a></td>
-<td>Indicate AVefi WorkVariant (possibly more but no less than one) that is subje...</td>
+<td>Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../same_as/">same_as</a></td>
 <td>* <br/> <a href="../AVefiResource/">AVefiResource</a></td>
-<td>Link to AVefi resource registered by another data provider indicating that th...</td>
+<td>Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../type/">type</a></td>
 <td>0..1 <br/> <a href="../ManifestationTypeEnum/">ManifestationTypeEnum</a></td>
-<td>See specific class documentation for controlled vocabulary applicable to the ...</td>
+<td>See specific class documentation for controlled vocabulary applicable to the type slot, respectively</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../has_duration/">has_duration</a></td>
 <td>0..1 <br/> <a href="../Duration/">Duration</a></td>
-<td>Total running time of the described object in ISO 8601 duration format</td>
+<td>Total running time of the described object in ISO 8601 duration format.</td>
 <td><a href="../ManifestationOrItem/">ManifestationOrItem</a></td>
 </tr>
 <tr>
 <td><a href="../has_extent/">has_extent</a></td>
 <td>0..1 <br/> <a href="../Extent/">Extent</a></td>
-<td>Physical length or size of the described object</td>
+<td>Physical length or size of the described object.</td>
 <td><a href="../ManifestationOrItem/">ManifestationOrItem</a></td>
 </tr>
 <tr>
@@ -470,7 +463,7 @@
 <tr>
 <td><a href="../described_by/">described_by</a></td>
 <td>0..1 <br/> <a href="../DescriptionResource/">DescriptionResource</a></td>
-<td>Also record some metadata about the PID itself rather than the identified obj...</td>
+<td>Also record some metadata about the PID itself rather than the identified object</td>
 <td><a href="../MovingImageRecord/">MovingImageRecord</a></td>
 </tr>
 <tr>
@@ -482,19 +475,19 @@
 <tr>
 <td><a href="../in_language/">in_language</a></td>
 <td>* <br/> <a href="../Language/">Language</a></td>
-<td>FIAF Moving Image Cataloguing Manual 1</td>
+<td>FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3</td>
 <td><a href="../MovingImageRecord/">MovingImageRecord</a></td>
 </tr>
 <tr>
 <td><a href="../has_alternative_title/">has_alternative_title</a></td>
 <td>* <br/> <a href="../Title/">Title</a></td>
-<td>Additional title(s) associated with the work / variant, manifestation, or ite...</td>
+<td>Additional title(s) associated with the work / variant, manifestation, or item.</td>
 <td><a href="../MovingImageRecord/">MovingImageRecord</a></td>
 </tr>
 <tr>
 <td><a href="../has_primary_title/">has_primary_title</a></td>
 <td>1 <br/> <a href="../Title/">Title</a></td>
-<td>Primary title to be displayed in search results etc</td>
+<td>Primary title to be displayed in search results etc.</td>
 <td><a href="../MovingImageRecord/">MovingImageRecord</a></td>
 </tr>
 <tr>
@@ -506,7 +499,7 @@
 <tr>
 <td><a href="../category/">category</a></td>
 <td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>Designates type, e</td>
+<td>Designates type, e.g.</td>
 <td><a href="../Entity/">Entity</a></td>
 </tr>
 </tbody>
