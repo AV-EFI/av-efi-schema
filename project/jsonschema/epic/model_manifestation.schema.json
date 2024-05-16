@@ -199,6 +199,7 @@
                                                         "type": "string"
                                                     },
                                                     "same_as": {
+                                                        "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                                                         "items": {
                                                             "anyOf": [
                                                                 {
@@ -586,6 +587,7 @@
                                             "type": "string"
                                         },
                                         "same_as": {
+                                            "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                                             "items": {
                                                 "anyOf": [
                                                     {

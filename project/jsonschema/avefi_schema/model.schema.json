@@ -40,7 +40,7 @@
                 },
                 "type": {
                     "$ref": "#/$defs/ActivityTypeEnum",
-                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
             "required": [
@@ -234,6 +234,7 @@
                     "type": "string"
                 },
                 "same_as": {
+                    "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                     "items": {
                         "anyOf": [
                             {
@@ -266,7 +267,7 @@
                 },
                 "type": {
                     "$ref": "#/$defs/AgentTypeEnum",
-                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
             "required": [
@@ -300,7 +301,7 @@
                 },
                 "type": {
                     "$ref": "#/$defs/FormatAudioTypeEnum",
-                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
             "title": "Audio",
@@ -385,7 +386,7 @@
                 },
                 "type": {
                     "$ref": "#/$defs/FormatDigitalFileTypeEnum",
-                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
             "title": "DigitalFile",
@@ -404,7 +405,7 @@
                 },
                 "type": {
                     "$ref": "#/$defs/FormatDigitalFileEncodingTypeEnum",
-                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
             "title": "DigitalFileEncoding",
@@ -465,7 +466,7 @@
                 },
                 "type": {
                     "$ref": "#/$defs/EventTypeEnum",
-                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
             "required": [
@@ -550,7 +551,7 @@
                 },
                 "type": {
                     "$ref": "#/$defs/FormatFilmTypeEnum",
-                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
             "title": "Film",
@@ -698,6 +699,7 @@
                     "type": "string"
                 },
                 "same_as": {
+                    "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                     "items": {
                         "$ref": "#/$defs/GNDResource"
                     },
@@ -732,6 +734,7 @@
                     "type": "string"
                 },
                 "same_as": {
+                    "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                     "items": {
                         "anyOf": [
                             {
@@ -1111,7 +1114,7 @@
                 },
                 "type": {
                     "$ref": "#/$defs/ManifestationTypeEnum",
-                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
             "required": [
@@ -1150,6 +1153,7 @@
                     "type": "string"
                 },
                 "has_record": {
+                    "description": "Root slot holding the moving image metadata record(s)",
                     "items": {
                         "anyOf": [
                             {
@@ -1182,7 +1186,7 @@
                 },
                 "type": {
                     "$ref": "#/$defs/FormatOpticalTypeEnum",
-                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
             "title": "Optical",
@@ -1234,6 +1238,7 @@
                     "type": "string"
                 },
                 "same_as": {
+                    "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                     "items": {
                         "anyOf": [
                             {
@@ -1405,7 +1410,7 @@
                 },
                 "type": {
                     "$ref": "#/$defs/FormatVideoTypeEnum",
-                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
             "title": "Video",
@@ -1536,6 +1541,7 @@
                     "description": "Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5"
                 },
                 "same_as": {
+                    "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                     "items": {
                         "anyOf": [
                             {
@@ -1568,7 +1574,7 @@
                 },
                 "type": {
                     "$ref": "#/$defs/WorkVariantTypeEnum",
-                    "description": "Specify type using controlled vocabulary as applicable to the specific class"
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 },
                 "variant_type": {
                     "$ref": "#/$defs/VariantTypeEnum",
@@ -1608,6 +1614,7 @@
             "type": "string"
         },
         "has_record": {
+            "description": "Root slot holding the moving image metadata record(s)",
             "items": {
                 "anyOf": [
                     {

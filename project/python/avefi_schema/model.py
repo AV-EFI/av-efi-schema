@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-16T09:17:52
+# Generation date: 2024-05-16T17:55:13
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model

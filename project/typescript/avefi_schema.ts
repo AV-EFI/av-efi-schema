@@ -859,8 +859,9 @@ export interface WorkVariant extends MovingImageRecord {
     is_part_of?: AVefiResource[],
     /** Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5 */
     is_variant_of?: AVefiResource,
+    /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: AuthorityResource[],
-    /** Specify type using controlled vocabulary as applicable to the specific class */
+    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
     type: string,
     /** FIAF Moving Image Cataloguing Manual D.2 */
     variant_type?: string,
@@ -874,6 +875,7 @@ export interface GeographicName extends Entity {
     has_alternate_name?: string[],
     /** A human-readable name for a thing */
     has_name: string,
+    /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: AuthorityResource[],
 }
 
@@ -885,6 +887,7 @@ export interface Genre extends Entity {
     has_alternate_name?: string[],
     /** A human-readable name for a thing */
     has_name: string,
+    /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: GNDResource[],
 }
 
@@ -896,6 +899,7 @@ export interface Subject extends Entity {
     has_alternate_name?: string[],
     /** A human-readable name for a thing */
     has_name: string,
+    /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: AuthorityResource[],
 }
 
@@ -906,7 +910,7 @@ export interface Subject extends Entity {
 export interface Activity extends Entity {
     /** Agent involved in some activity related to the moving image resource */
     has_agent: Agent[],
-    /** Specify type using controlled vocabulary as applicable to the specific class */
+    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
     type: string,
 }
 
@@ -918,8 +922,9 @@ export interface Agent extends Entity {
     has_alternate_name?: string[],
     /** For natural persons, always use the convention "family name, given name" */
     has_name: string,
+    /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: AuthorityResource[],
-    /** Specify type using controlled vocabulary as applicable to the specific class */
+    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
     type: string,
 }
 
@@ -933,7 +938,7 @@ export interface Event extends Entity {
     /** Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information */
     has_date?: string,
     located_in?: GeographicName[],
-    /** Specify type using controlled vocabulary as applicable to the specific class */
+    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
     type: string,
 }
 
@@ -993,7 +998,7 @@ export interface Extent extends Entity {
  * FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
  */
 export interface Format extends Entity {
-    /** Specify type using controlled vocabulary as applicable to the specific class */
+    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
     type?: string,
 }
 
@@ -1054,7 +1059,7 @@ export interface Manifestation extends ManifestationOrItem {
     is_manifestation_of: AVefiResource[],
     /** Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work */
     same_as?: AVefiResource[],
-    /** Specify type using controlled vocabulary as applicable to the specific class */
+    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
     type?: string,
 }
 
@@ -1088,6 +1093,7 @@ export interface Item extends ManifestationOrItem {
  * A holder for MovingImageRecord objects
  */
 export interface MovingImageRecordCollection extends Entity {
+    /** Root slot holding the moving image metadata record(s) */
     has_record?: MovingImageRecord[],
 }
 

@@ -155,6 +155,7 @@
                                                         "type": "string"
                                                     },
                                                     "same_as": {
+                                                        "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                                                         "items": {
                                                             "anyOf": [
                                                                 {
@@ -542,6 +543,7 @@
                                             "type": "string"
                                         },
                                         "same_as": {
+                                            "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                                             "items": {
                                                 "anyOf": [
                                                     {
@@ -818,6 +820,7 @@
                                 "type": "string"
                             },
                             "same_as": {
+                                "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                                 "items": {
                                     "additionalProperties": false,
                                     "description": "Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)",
@@ -920,6 +923,7 @@
                                 "type": "string"
                             },
                             "same_as": {
+                                "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                                 "items": {
                                     "anyOf": [
                                         {
@@ -1195,6 +1199,7 @@
                     "type": "object"
                 },
                 "same_as": {
+                    "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                     "items": {
                         "anyOf": [
                             {

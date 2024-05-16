@@ -716,12 +716,14 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: MovingImageRecord
+    description: >-
+      Root slot holding the moving image metadata record(s)
 
   type:
     rank: 5
     description: >-
-      Specify type using controlled vocabulary as applicable to the
-      specific class
+      See specific class documentation for controlled vocabulary
+      applicable to the type slot, respectively
 
   category:
     slot_uri: rdf:type
@@ -736,6 +738,9 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: AuthorityResource
+    description: >-
+      See [AuthorityResource doucmentation](AuthorityResource.md) for
+      accepted identifiers
 
   described_by:
     slot_uri: wdrs:describedby
