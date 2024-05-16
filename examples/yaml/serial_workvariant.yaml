@@ -1,3 +1,4 @@
+---
 category: avefi:MovingImageRecordCollection
 has_record:
 - category: avefi:WorkVariant
@@ -59,13 +60,11 @@ has_record:
         same_as:
         - category: avefi:GNDResource
           id: '135456029'
-      has_agent:
       - type: Person
         has_name: Volxem, Florian van
         same_as:
         - category: avefi:GNDResource
           id: '135456053'
-    has_activity:
     - type: CastMember
       has_agent:
       - type: Person
@@ -73,25 +72,21 @@ has_record:
         same_as:
         - category: avefi:GNDResource
           id: '140862072'
-      has_agent:
       - type: Person
         has_name: Zehrfeld, Ronald
         same_as:
         - category: avefi:GNDResource
           id: '142906948'
-      has_agent:
       - type: Person
         has_name: Matičević, Mišel
         same_as:
         - category: avefi:GNDResource
           id: '133725065'
-      has_agent:
       - type: Person
         has_name: Bäumer, Marie
         same_as:
         - category: avefi:GNDResource
           id: '129076007'
-      has_agent:
       - type: Person
         has_name: Nesytowa, Katharina
         same_as:
