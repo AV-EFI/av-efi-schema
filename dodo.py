@@ -18,6 +18,8 @@ DOIT_CONFIG = {
 HERE = Path(__file__).parent
 SRC_DOCS_DIR = HERE / 'src' / 'docs'
 DOCS_DIR = HERE / 'docs'
+SCHEMA_OVERVIEW = DOCS_DIR / 'schema_overview.md'
+ER_DIAGRAM = HERE / 'avefi_er_diagram.md'
 UTILS_DIR = HERE / 'utils'
 WORKING_DIR = HERE / 'KIP_DTR'
 SCHEMA_NAME = 'avefi_schema'
@@ -174,14 +176,59 @@ def task_docs():
     """Build documentation from LinkML schema."""
     return {
         'actions': [
-            f"gen-doc --sort-by rank --no-hierarchical-class-view"
-            f" -d {{targets}} {SRC_MODEL}",
-            f"gen-erdiagram -c WorkVariant -c Manifestation"
-            f" -c Item {SRC_MODEL} > {{targets}}/structure_diagram.md",
+            gen_doc,
         ],
-        'task_dep': ['sync_dependencies', 'copy_src_docs'],
+        'task_dep': [
+            'sync_dependencies',
+            'copy_src_docs',
+            'diagram',
+        ],
         'file_dep': SRC_SCHEMA_DEPENDENCIES,
-        'targets': [DOCS_DIR],
+        'targets': [SCHEMA_OVERVIEW],
+    }
+
+
+def gen_doc(dependencies, targets):
+    """Essentially gen-doc tuned for less aggressive cut offs."""
+    import re
+    from linkml.generators import docgen
+
+    # Be less aggressive about truncating long lines for tables
+    def enshorten(input):
+        """Custom filter to truncate long text intended to go in a table.
+
+        Remove anything after a newline but do not cut off after full
+        stops. This is required to preserve links.
+
+        """
+        if input is None:
+            return ""
+        match = re.search(r'^(.*?([.;?!] |\n|$))', input)
+        input = match.group()
+        return input
+    docgen.enshorten = enshorten
+
+    index_file = Path(targets[0])
+    gen = docgen.DocGenerator(
+        SRC_MODEL,
+        directory=index_file.parent,
+        hierarchical_class_view=False,
+        index_name=index_file.stem,
+        sort_by='rank',
+    )
+    print(gen.serialize())
+
+
+def task_diagram():
+    """Generate diagram from LinkML schema."""
+    return {
+        'actions': [
+            "gen-erdiagram -c WorkVariant -c Manifestation"
+            " -c Item {dependencies} > {targets}",
+        ],
+        'task_dep': ['sync_dependencies'],
+        'file_dep': [SRC_MODEL],
+        'targets': [ER_DIAGRAM],
     }
 
 
@@ -191,6 +238,7 @@ def task_copy_src_docs():
     targets = [DOCS_DIR / d.name for d in dependencies]
     return {
         'actions': [
+            f"mkdir -p {DOCS_DIR}",
             f"cp -rf {{dependencies}} {DOCS_DIR}",
         ],
         'file_dep': dependencies,

@@ -1,10 +1,11 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-16T17:55:13
+# Generation date: 2024-05-16T20:55:22
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
 # description: Metadata schema for persistent film identifiers developed in the
-#   AVefi project
+#   AVefi project. See also the corresponding [Entity relation
+#   diagram](https://github.com/AV-EFI/av-efi-schema/blob/main/avefi_er_diagram.md)
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 import dataclasses

@@ -3,7 +3,8 @@ name: model
 title: AVefi data model
 description: |-
   Metadata schema for persistent film identifiers developed in the
-  AVefi project
+  AVefi project. See also the corresponding [Entity relation
+  diagram](https://github.com/AV-EFI/av-efi-schema/blob/main/avefi_er_diagram.md)
 
 imports:
   - linkml:types
