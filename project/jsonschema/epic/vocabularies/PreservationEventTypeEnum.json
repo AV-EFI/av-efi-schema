@@ -1,0 +1,12 @@
+{
+  "$id": "PreservationEventTypeEnum",
+  "description": "FIAF Moving Image Cataloguing Manual D.4.5",
+  "enum": [
+    "DigitisationEvent",
+    "DuplicationEvent",
+    "ReproductionEvent",
+    "TransferEvent"
+  ],
+  "title": "PreservationEventTypeEnum",
+  "type": "string"
+}

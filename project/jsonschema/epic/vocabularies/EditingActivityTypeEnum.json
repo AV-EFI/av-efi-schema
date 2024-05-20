@@ -1,0 +1,10 @@
+{
+  "$id": "EditingActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10",
+  "enum": [
+    "AssistantFilmEditor",
+    "FilmEditor"
+  ],
+  "title": "EditingActivityTypeEnum",
+  "type": "string"
+}

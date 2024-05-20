@@ -1,0 +1,15 @@
+{
+  "$id": "CopyrightAndDistributionActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.2",
+  "enum": [
+    "Distributor",
+    "NationalDistributor",
+    "OriginalCopyrightOwner",
+    "OriginalDistributor",
+    "PresentCopyrightOwner",
+    "RegionalDistributor",
+    "WorldDistributor"
+  ],
+  "title": "CopyrightAndDistributionActivityTypeEnum",
+  "type": "string"
+}

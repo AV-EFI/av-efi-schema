@@ -1,7 +1,7 @@
 /**
-* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.13
 */
-export enum ActivityTypeEnum {
+export enum AnimationActivityTypeEnum {
     
     /** FIAF Glossary of Filmographic Terms B.13.1 */
     Animation = "Animation",
@@ -19,6 +19,12 @@ export enum ActivityTypeEnum {
     LeadAnimator = "LeadAnimator",
     /** FIAF Glossary of Filmographic Terms B.13.17 */
     ModelMaker = "ModelMaker",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.7
+*/
+export enum CastActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.7.12 */
     AnimalTrainer = "AnimalTrainer",
     /** FIAF Glossary of Filmographic Terms B.7.1 */
@@ -45,8 +51,20 @@ export enum ActivityTypeEnum {
     Voices = "Voices",
     /** FIAF Glossary of Filmographic Terms B.7.13 */
     Wrangler = "Wrangler",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.1
+*/
+export enum CensorshipActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms C.1.1 */
     Censor = "Censor",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.5
+*/
+export enum CinematographyActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.5.4 */
     AerialPhotography = "AerialPhotography",
     /** FIAF Glossary of Filmographic Terms B.5.12 */
@@ -87,6 +105,12 @@ export enum ActivityTypeEnum {
     UnderwaterPhotography = "UnderwaterPhotography",
     /** FIAF Glossary of Filmographic Terms B.5.10 */
     VideoAssist = "VideoAssist",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.2
+*/
+export enum CopyrightAndDistributionActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms C.2.3 */
     Distributor = "Distributor",
     /** FIAF Glossary of Filmographic Terms C.2.6 */
@@ -101,6 +125,12 @@ export enum ActivityTypeEnum {
     RegionalDistributor = "RegionalDistributor",
     /** FIAF Glossary of Filmographic Terms C.2.5 */
     WorldDistributor = "WorldDistributor",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.3
+*/
+export enum DirectingActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.3.2 */
     AssistantDirector = "AssistantDirector",
     /** FIAF Glossary of Filmographic Terms B.3.4 */
@@ -115,10 +145,22 @@ export enum ActivityTypeEnum {
     SecondUnitDirector = "SecondUnitDirector",
     /** FIAF Glossary of Filmographic Terms B.3.6 */
     StuntArranger = "StuntArranger",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10
+*/
+export enum EditingActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.10.2 */
     AssistantFilmEditor = "AssistantFilmEditor",
     /** FIAF Glossary of Filmographic Terms B.10.1 */
     FilmEditor = "FilmEditor",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.12
+*/
+export enum LaboratoryActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.12.4 */
     Colorist = "Colorist",
     /** FIAF Glossary of Filmographic Terms B.12.1 */
@@ -127,6 +169,12 @@ export enum ActivityTypeEnum {
     LaboratoryTechnician = "LaboratoryTechnician",
     /** FIAF Glossary of Filmographic Terms B.12.3 */
     NegativeCutter = "NegativeCutter",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.11
+*/
+export enum MusicActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.11.15 */
     Choreographer = "Choreographer",
     /** FIAF Glossary of Filmographic Terms B.11.1 */
@@ -149,6 +197,12 @@ export enum ActivityTypeEnum {
     SingingVoice = "SingingVoice",
     /** FIAF Glossary of Filmographic Terms B.11.12 */
     SongComposer = "SongComposer",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.2
+*/
+export enum ProducingActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.2.19 */
     Advisor = "Advisor",
     /** FIAF Glossary of Filmographic Terms B.2.8 */
@@ -191,6 +245,12 @@ export enum ActivityTypeEnum {
     Studio = "Studio",
     /** FIAF Glossary of Filmographic Terms B.2.13 */
     TransportationManager = "TransportationManager",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.6
+*/
+export enum ProductionDesignActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.6.2 */
     ArtDirector = "ArtDirector",
     /** FIAF Glossary of Filmographic Terms B.6.3 */
@@ -233,8 +293,20 @@ export enum ActivityTypeEnum {
     TitleDesigner = "TitleDesigner",
     /** FIAF Glossary of Filmographic Terms B.6.15 */
     WardrobeSupervisor = "WardrobeSupervisor",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.14
+*/
+export enum PuppetActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.14.7 */
     Puppeteer = "Puppeteer",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.9
+*/
+export enum SoundActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.9.4 */
     BoomOperator = "BoomOperator",
     /** FIAF Glossary of Filmographic Terms B.9.8 */
@@ -261,6 +333,12 @@ export enum ActivityTypeEnum {
     SoundSupervisor = "SoundSupervisor",
     /** FIAF Glossary of Filmographic Terms B.9.6 */
     SupervisingSoundEditor = "SupervisingSoundEditor",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.8
+*/
+export enum SpecialEffectsActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.8.4 */
     Animatronics = "Animatronics",
     /** FIAF Glossary of Filmographic Terms B.8.7 */
@@ -285,6 +363,12 @@ export enum ActivityTypeEnum {
     SpecialEffects = "SpecialEffects",
     /** FIAF Glossary of Filmographic Terms B.8.2 */
     VisualEffects = "VisualEffects",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.4
+*/
+export enum WritingActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.4.11 */
     Adaptation = "Adaptation",
     /** FIAF Glossary of Filmographic Terms B.4.5 */
@@ -305,14 +389,36 @@ export enum ActivityTypeEnum {
     Stagedby = "Stagedby",
     /** FIAF Glossary of Filmographic Terms B.4.2 */
     Writer = "Writer",
+};
+/**
+* Activity types / roles. See also: FIAF Moving Image Cataloguing Manual 2.4.1.1, D.8
+*/
+export enum ManifestationActivityTypeEnum {
+    
+    /** FIAF Moving Image Cataloguing Manual D.8.11 */
+    AgentNotIdentified = "AgentNotIdentified",
+    /** FIAF Moving Image Cataloguing Manual D.8.6 */
+    AgentResponsibleForPreservation = "AgentResponsibleForPreservation",
+    /** FIAF Moving Image Cataloguing Manual D.8.7 */
+    AgentResponsibleForReproductionOrTransfer = "AgentResponsibleForReproductionOrTransfer",
+    /** FIAF Moving Image Cataloguing Manual D.8.8 */
+    AgentResponsibleForTheArchivalAvailability = "AgentResponsibleForTheArchivalAvailability",
+    /** FIAF Moving Image Cataloguing Manual D.8.9 */
+    AgentResponsibleForTheMereAvailability = "AgentResponsibleForTheMereAvailability",
+    /** FIAF Moving Image Cataloguing Manual D.8.10 */
+    AgentUnclearOrUndetermined = "AgentUnclearOrUndetermined",
     /** FIAF Moving Image Cataloguing Manual D.8.3 */
     Broadcaster = "Broadcaster",
     /** FIAF Moving Image Cataloguing Manual D.8.2 */
     DistributorNonTheatrical = "DistributorNonTheatrical",
     /** FIAF Moving Image Cataloguing Manual D.8.1 */
     DistributorTheatrical = "DistributorTheatrical",
+    /** FIAF Moving Image Cataloguing Manual D.8.5 */
+    Manufacturer = "Manufacturer",
     /** FIAF Moving Image Cataloguing Manual D.8.4 */
     Publisher = "Publisher",
+    /** FIAF Moving Image Cataloguing Manual 1.4.1.1, 2.4.1.1, 3.3.1.1 */
+    UnknownActivity = "UnknownActivity",
 };
 /**
 * FIAF Moving Image Cataloguing Manual 1.4.1
@@ -347,12 +453,10 @@ export enum ColourTypeEnum {
     Tinted = "Tinted",
 };
 /**
-* FIAF Moving Image Cataloguing Manual D
+* FIAF Moving Image Cataloguing Manual D.4.7, D.14
 */
-export enum EventTypeEnum {
+export enum ManufactureEventTypeEnum {
     
-    /** FIAF Moving Image Cataloguing Manual D.4.7 */
-    ManufactureEvent = "ManufactureEvent",
     /** FIAF Moving Image Cataloguing Manual D.14 */
     FilmPrintingEvent = "FilmPrintingEvent",
     /** FIAF Moving Image Cataloguing Manual D.14 */
@@ -365,8 +469,12 @@ export enum EventTypeEnum {
     UploadingEvent = "UploadingEvent",
     /** FIAF Moving Image Cataloguing Manual D.14 */
     VideoCopyingEvent = "VideoCopyingEvent",
-    /** FIAF Moving Image Cataloguing Manual D.4.5 */
-    PreservationEvent = "PreservationEvent",
+};
+/**
+* FIAF Moving Image Cataloguing Manual D.4.5
+*/
+export enum PreservationEventTypeEnum {
+    
     /** FIAF Moving Image Cataloguing Manual D.12 */
     DigitisationEvent = "DigitisationEvent",
     /** FIAF Moving Image Cataloguing Manual D.12 */
@@ -375,8 +483,12 @@ export enum EventTypeEnum {
     ReproductionEvent = "ReproductionEvent",
     /** FIAF Moving Image Cataloguing Manual D.12 */
     TransferEvent = "TransferEvent",
-    /** FIAF Moving Image Cataloguing Manual D.4.3 */
-    ProductionEvent = "ProductionEvent",
+};
+/**
+* Leave unset for main production event, otherwise see FIAF Moving Image Cataloguing Manual D.4.3, D.11
+*/
+export enum ProductionEventTypeEnum {
+    
     /** FIAF Moving Image Cataloguing Manual D.11 */
     CastingEvent = "CastingEvent",
     /** FIAF Moving Image Cataloguing Manual D.11 */
@@ -385,8 +497,12 @@ export enum EventTypeEnum {
     OutdoorShootingEvent = "OutdoorShootingEvent",
     /** FIAF Moving Image Cataloguing Manual D.11 */
     PostProductionEvent = "PostProductionEvent",
-    /** FIAF Moving Image Cataloguing Manual D.4.1 */
-    PublicationEvent = "PublicationEvent",
+};
+/**
+* FIAF Moving Image Cataloguing Manual D.4.1, D.10
+*/
+export enum PublicationEventTypeEnum {
+    
     /** FIAF Moving Image Cataloguing Manual D.10 */
     BroadcastEvent = "BroadcastEvent",
     /** FIAF Moving Image Cataloguing Manual D.10 */
@@ -407,8 +523,6 @@ export enum EventTypeEnum {
     TheatricalDistributionEvent = "TheatricalDistributionEvent",
     /** FIAF Moving Image Cataloguing Manual D.10 */
     UnknownEvent = "UnknownEvent",
-    /** FIAF Moving Image Cataloguing Manual D.4.4 */
-    RightsCopyrightRegistrationEvent = "RightsCopyrightRegistrationEvent",
 };
 /**
 * FIAF Moving Image Cataloguing Manual D.7.2
@@ -600,32 +714,6 @@ export enum LanguageUsageEnum {
     VoiceOver = "VoiceOver",
 };
 /**
-* FIAF Moving Image Cataloguing Manual D.5
-*/
-export enum ManifestationTypeEnum {
-    
-    /** FIAF Moving Image Cataloguing Manual D.5.7 */
-    Broadcast = "Broadcast",
-    /** FIAF Moving Image Cataloguing Manual D.5.6 */
-    HomeViewingPublication = "HomeViewingPublication",
-    /** FIAF Moving Image Cataloguing Manual D.5.8 */
-    Internet = "Internet",
-    /** FIAF Moving Image Cataloguing Manual D.5.3 */
-    NonTheatricalDistribution = "NonTheatricalDistribution",
-    /** FIAF Moving Image Cataloguing Manual D.5.4 */
-    NotForRelease = "NotForRelease",
-    /** FIAF Moving Image Cataloguing Manual D.5.1 */
-    PreRelease = "PreRelease",
-    /** FIAF Moving Image Cataloguing Manual D.5.9 */
-    PreservationRestoration = "PreservationRestoration",
-    /** FIAF Moving Image Cataloguing Manual D.5.2 */
-    TheatricalDistribution = "TheatricalDistribution",
-    /** FIAF Moving Image Cataloguing Manual D.5.10 */
-    Unknown = "Unknown",
-    /** FIAF Moving Image Cataloguing Manual D.5.5 */
-    Unreleased = "Unreleased",
-};
-/**
 * Qualifier indicating the precision of an extent value or duration
 */
 export enum PrecisionEnum {
@@ -798,18 +886,18 @@ export enum WorkFormEnum {
 
 
 /**
- * A generic grouping for all described things
+ * Root for all classes with subclasses in this schema
  */
-export interface Entity {
+export interface CategorizedThing {
     /** Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource) */
-    category?: string,
+    category: string,
 }
 
 
 /**
  * Grouping for all entities that represent a PID metadata record
  */
-export interface PIDRecord extends Entity {
+export interface PIDRecord extends CategorizedThing {
     /** A unique identifier for a thing */
     id?: string,
 }
@@ -871,7 +959,7 @@ export interface WorkVariant extends MovingImageRecord {
 /**
  * Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4
  */
-export interface GeographicName extends Entity {
+export interface GeographicName {
     has_alternate_name?: string[],
     /** A human-readable name for a thing */
     has_name: string,
@@ -883,7 +971,7 @@ export interface GeographicName extends Entity {
 /**
  * Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters. Examples of genres are “westerns” and “thrillers”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.1
  */
-export interface Genre extends Entity {
+export interface Genre {
     has_alternate_name?: string[],
     /** A human-readable name for a thing */
     has_name: string,
@@ -895,7 +983,7 @@ export interface Genre extends Entity {
 /**
  * Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. Provide name and if at all possible identifier(s) from supported authorities in the same_as slot. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3
  */
-export interface Subject extends Entity {
+export interface Subject {
     has_alternate_name?: string[],
     /** A human-readable name for a thing */
     has_name: string,
@@ -907,7 +995,7 @@ export interface Subject extends Entity {
 /**
  * FIAF Moving Image Cataloguing Manual 1.4.1.1
  */
-export interface Activity extends Entity {
+export interface Activity extends CategorizedThing {
     /** Agent involved in some activity related to the moving image resource */
     has_agent: Agent[],
     /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
@@ -916,9 +1004,121 @@ export interface Activity extends Entity {
 
 
 /**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.13
+ */
+export interface AnimationActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.7
+ */
+export interface CastActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.1
+ */
+export interface CensorshipActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.5
+ */
+export interface CinematographyActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.2
+ */
+export interface CopyrightAndDistributionActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.3
+ */
+export interface DirectingActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10
+ */
+export interface EditingActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.12
+ */
+export interface LaboratoryActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.11
+ */
+export interface MusicActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.2
+ */
+export interface ProducingActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.6
+ */
+export interface ProductionDesignActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.14
+ */
+export interface PuppetActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.9
+ */
+export interface SoundActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.8
+ */
+export interface SpecialEffectsActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.4
+ */
+export interface WritingActivity extends Activity {
+}
+
+
+/**
+ * Activity types / roles. See also: FIAF Moving Image Cataloguing Manual 2.4.1.1, D.8
+ */
+export interface ManifestationActivity extends Activity {
+}
+
+
+/**
  * Agent involved in some activity related to the moving image resource. For agents of type "Person" specify name according to the convention "family name, given name"
  */
-export interface Agent extends Entity {
+export interface Agent {
     has_alternate_name?: string[],
     /** For natural persons, always use the convention "family name, given name" */
     has_name: string,
@@ -932,21 +1132,62 @@ export interface Agent extends Entity {
 /**
  * Significant event in the lifecycle of moving image work / variant, manifestation or item. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the country where the principal offices or production facilities of the production company are located for a production event. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual 1.4.2, 2.4.2, 3.3.2
  */
-export interface Event extends Entity {
+export interface Event extends CategorizedThing {
     /** Associate activity (and subsequently agents) with event */
     has_activity?: Activity[],
     /** Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information */
     has_date?: string,
     located_in?: GeographicName[],
+}
+
+
+/**
+ * Production event of a work/variant (or manifestation produced as a restoration). Provide a date or a period of time via has_date and specify located_in as appropriate, e.g. the country where the principal offices or production facilities of the production company are located. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.3
+ */
+export interface ProductionEvent extends Event {
+    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
+    type?: string,
+}
+
+
+/**
+ * Preservation event originating a manifestation or possibly a vaniant. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.5
+ */
+export interface PreservationEvent extends Event {
     /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
     type: string,
 }
 
 
 /**
+ * Publication event of a manifestation or possibly the first known publication of a work. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the country where the manifestation was published. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.1
+ */
+export interface PublicationEvent extends Event {
+    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
+    type: string,
+}
+
+
+/**
+ * Manufacture event of a manifestation. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the country where the labratory is located. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.7
+ */
+export interface ManufactureEvent extends Event {
+    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
+    type: string,
+}
+
+
+/**
+ * Copyright and related rights registration event of a manifestation or possibly of a work/variant. Always specify date via has_date. Specify located_in as appropriate, e.g. the country where the copyright was registered. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.4
+ */
+export interface RightsCopyrightRegistrationEvent extends Event {
+}
+
+
+/**
  * FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
  */
-export interface Title extends Entity {
+export interface Title {
     /** A human-readable name for a thing */
     has_name: string,
     /** Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name */
@@ -973,7 +1214,7 @@ export interface ManifestationOrItem extends MovingImageRecord {
 /**
  * Total running time of the described object in ISO 8601 duration format. The examples section lists possible values for the has_value slot. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
  */
-export interface Duration extends Entity {
+export interface Duration {
     /** Value of some quantity */
     has_value?: string,
     /** Qualifier indicating the precision of an extent value or duration */
@@ -984,7 +1225,7 @@ export interface Duration extends Entity {
 /**
  * Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
  */
-export interface Extent extends Entity {
+export interface Extent {
     /** Unit of some quantity */
     has_unit?: string,
     /** Value of some quantity */
@@ -997,7 +1238,7 @@ export interface Extent extends Entity {
 /**
  * FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
  */
-export interface Format extends Entity {
+export interface Format extends CategorizedThing {
     /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
     type?: string,
 }
@@ -1046,7 +1287,7 @@ export interface Video extends Format {
 
 
 /**
- * FIAF Moving Image Cataloguing Manual 2.0
+ * Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as publication event type
  */
 export interface Manifestation extends ManifestationOrItem {
     /** FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11 */
@@ -1059,15 +1300,13 @@ export interface Manifestation extends ManifestationOrItem {
     is_manifestation_of: AVefiResource[],
     /** Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work */
     same_as?: AVefiResource[],
-    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
-    type?: string,
 }
 
 
 /**
  * Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled vocabulary. See also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3
  */
-export interface Language extends Entity {
+export interface Language {
     /** ISO 639-2 code for the Representation of Names of Languages (Part 2: Alpha-3) */
     code: string,
     usage: string,
@@ -1092,7 +1331,7 @@ export interface Item extends ManifestationOrItem {
 /**
  * A holder for MovingImageRecord objects
  */
-export interface MovingImageRecordCollection extends Entity {
+export interface MovingImageRecordCollection {
     /** Root slot holding the moving image metadata record(s) */
     has_record?: MovingImageRecord[],
 }
@@ -1101,7 +1340,7 @@ export interface MovingImageRecordCollection extends Entity {
 /**
  * Root class for all identifiers from some kind of authority or public register widely accepted in the community
  */
-export interface AuthorityResource extends Entity {
+export interface AuthorityResource extends CategorizedThing {
     /** A unique identifier for a thing */
     id?: string,
 }

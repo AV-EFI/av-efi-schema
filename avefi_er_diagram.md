@@ -12,36 +12,31 @@ Title {
     string has_name  
     string has_ordering_name  
     TitleTypeEnum type  
-    uriorcurie category  
 }
 Language {
     string code  
     LanguageUsageEnumList usage  
-    uriorcurie category  
 }
 Event {
     string has_date  
-    EventTypeEnum type  
     uriorcurie category  
 }
 GeographicName {
     stringList has_alternate_name  
     string has_name  
-    uriorcurie category  
 }
 AuthorityResource {
     string id  
     uriorcurie category  
 }
 Activity {
-    ActivityTypeEnum type  
+    string type  
     uriorcurie category  
 }
 Agent {
     stringList has_alternate_name  
     string has_name  
     AgentTypeEnum type  
-    uriorcurie category  
 }
 DescriptionResource {
     uri has_history  
@@ -57,12 +52,10 @@ Extent {
     UnitEnum has_unit  
     decimal has_value  
     PrecisionEnum has_precision  
-    uriorcurie category  
 }
 Duration {
     string has_value  
     PrecisionEnum has_precision  
-    uriorcurie category  
 }
 AVefiResource {
     string id  
@@ -71,7 +64,6 @@ AVefiResource {
 Manifestation {
     ColourTypeEnum has_colour_type  
     SoundTypeEnum has_sound_type  
-    ManifestationTypeEnum type  
     stringList has_note  
     uri has_webresource  
     string id  
@@ -87,12 +79,10 @@ WorkVariant {
 Subject {
     stringList has_alternate_name  
     string has_name  
-    uriorcurie category  
 }
 Genre {
     stringList has_alternate_name  
     string has_name  
-    uriorcurie category  
 }
 GNDResource {
     string id  

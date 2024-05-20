@@ -1,0 +1,9 @@
+{
+  "$id": "PuppetActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.14",
+  "enum": [
+    "Puppeteer"
+  ],
+  "title": "PuppetActivityTypeEnum",
+  "type": "string"
+}

@@ -1,0 +1,19 @@
+{
+  "$id": "MusicActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.11",
+  "enum": [
+    "Choreographer",
+    "Composer",
+    "Lyricist",
+    "MusicArranger",
+    "MusicConductor",
+    "MusicContractor",
+    "MusicEditor",
+    "MusicPerformer",
+    "MusicSupervisor",
+    "SingingVoice",
+    "SongComposer"
+  ],
+  "title": "MusicActivityTypeEnum",
+  "type": "string"
+}

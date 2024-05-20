@@ -1,0 +1,9 @@
+{
+  "$id": "CensorshipActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.1",
+  "enum": [
+    "Censor"
+  ],
+  "title": "CensorshipActivityTypeEnum",
+  "type": "string"
+}
