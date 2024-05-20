@@ -685,7 +685,6 @@ classes:
       - has_sound_type
       - is_manifestation_of
       - same_as
-      - type
     slot_usage:
       same_as:
         range: AVefiResource
@@ -694,12 +693,12 @@ classes:
           indicating that the two manifestations are known to be the
           same. Use this, for instance, when you have cooperated in
           making a digital restoration of some film work
-      type:
-        range: ManifestationTypeEnum
     close_mappings:
       - fiaf:Manifestation
     description: >-
-      FIAF Moving Image Cataloguing Manual 2.0
+      Manifestation as defined in FIAF Moving Image Cataloguing Manual
+      2.0. Note that manifestation type is recorded as publication
+      event type
 
   Language:
     rank: 21
