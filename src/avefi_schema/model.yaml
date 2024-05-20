@@ -169,17 +169,209 @@ classes:
       Terms D.2.3
 
   Activity:
-    rank: 16
+    rank: 17
     is_a: CategorizedThing
+    abstract: true
     slots:
       - has_agent
       - type
     slot_usage:
       type:
-        range: ActivityTypeEnum
         required: true
     description: >-
       FIAF Moving Image Cataloguing Manual 1.4.1.1
+
+  AnimationActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: AnimationActivityTypeEnum
+    close_mappings:
+      - fiaf:AnimationActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.13
+
+  CastActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: CastActivityTypeEnum
+    close_mappings:
+      - fiaf:CastActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.7
+
+  CensorshipActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: CensorshipActivityTypeEnum
+    close_mappings:
+      - fiaf:CensorshipActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms C.1
+
+  CinematographyActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: CinematographyActivityTypeEnum
+    close_mappings:
+      -   fiaf:CinematographyActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.5
+
+  CopyrightAndDistributionActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: CopyrightAndDistributionActivityTypeEnum
+    close_mappings:
+      - fiaf:CopyrightandDistributionActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms C.2
+
+  DirectingActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: DirectingActivityTypeEnum
+    close_mappings:
+      - fiaf:DirectingActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.3
+
+  EditingActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: EditingActivityTypeEnum
+    close_mappings:
+      - fiaf:EditingActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.10
+
+  LaboratoryActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: LaboratoryActivityTypeEnum
+    close_mappings:
+      - fiaf:LaboratoryActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.12
+
+  MusicActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: MusicActivityTypeEnum
+    close_mappings:
+      - fiaf:MusicActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.11
+
+  ProducingActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: ProducingActivityTypeEnum
+    close_mappings:
+      - fiaf:ProducingActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.2
+
+  ProductionDesignActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: ProductionDesignActivityTypeEnum
+    close_mappings:
+      - fiaf:ProductionDesignActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.6
+
+  PuppetActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: PuppetActivityTypeEnum
+    close_mappings:
+      - fiaf:PuppetActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.14
+
+  SoundActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: SoundActivityTypeEnum
+    close_mappings:
+      - fiaf:SoundActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.9
+
+  SpecialEffectsActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: SpecialEffectsActivityTypeEnum
+    close_mappings:
+      - fiaf:SpecialEffectsActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.8
+
+  WritingActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: WritingActivityTypeEnum
+    close_mappings:
+      - fiaf:WritingActivity
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.4
+
+  ManifestationActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: ManifestationActivityTypeEnum
+    close_mappings:
+      - fiaf:ManifestationActivity
+    description: >-
+      Activity types / roles. See also: FIAF Moving Image Cataloguing
+      Manual 2.4.1.1, D.8
 
   Agent:
     rank: 18
@@ -212,6 +404,7 @@ classes:
       the convention "family name, given name"
 
   Event:
+    rank: 15
     is_a: CategorizedThing
     abstract: true
     slots:
@@ -231,11 +424,25 @@ classes:
       Image Cataloguing Manual 1.4.2, 2.4.2, 3.3.2
 
   ProductionEvent:
-    rank: 14
+    rank: 13
     is_a: Event
     slots:
       - type
     slot_usage:
+      has_activity:
+        any_of:
+          - range: AnimationActivity
+          - range: CastActivity
+          - range: CinematographyActivity
+          - range: DirectingActivity
+          - range: EditingActivity
+          - range: MusicActivity
+          - range: ProducingActivity
+          - range: ProductionDesignActivity
+          - range: PuppetActivity
+          - range: SoundActivity
+          - range: SpecialEffectsActivity
+          - range: WritingActivity
       type:
         range: ProductionEventTypeEnum
     close_mappings:
@@ -250,11 +457,14 @@ classes:
       Manual D.4.3
 
   PreservationEvent:
-    rank: 14
+    rank: 13
     is_a: Event
     slots:
       - type
     slot_usage:
+      has_activity:
+        range: ManifestationActivity
+        required: true
       type:
         range: PreservationEventTypeEnum
         required: true
@@ -269,11 +479,13 @@ classes:
       D.4.5
 
   PublicationEvent:
-    rank: 14
+    rank: 13
     is_a: Event
     slots:
       - type
     slot_usage:
+      has_activity:
+        range: ManifestationActivity
       type:
         range: PublicationEventTypeEnum
         required: true
@@ -289,11 +501,14 @@ classes:
       Cataloguing Manual D.4.1
 
   ManufactureEvent:
-    rank: 15
+    rank: 14
     is_a: Event
     slots:
       - type
     slot_usage:
+      has_activity:
+        range: LaboratoryActivity
+        required: true
       type:
         range: ManufactureEventTypeEnum
         required: true
@@ -308,8 +523,12 @@ classes:
       Manual D.4.7
 
   RightsCopyrightRegistrationEvent:
-    rank: 15
+    rank: 14
     is_a: Event
+    slot_usage:
+      has_activity:
+        range: CopyrightAndDistributionActivity
+        required: true
     close_mappings:
       - fiaf:RightsCopyrightRegistrationEvent
     description: >-
@@ -805,6 +1024,7 @@ slots:
       applicable to the type slot, respectively
 
   category:
+    rank: 1
     slot_uri: rdf:type
     designates_type: true
     range: uriorcurie
