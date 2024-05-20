@@ -1,5 +1,4 @@
 ---
-category: avefi:MovingImageRecordCollection
 has_record:
 - category: avefi:WorkVariant
   type: Serial
@@ -8,7 +7,7 @@ has_record:
     type: PreferredTitle
     has_name: Im Angesicht des Verbrechens
   has_event:
-  - type: ProductionEvent
+  - category: avefi:ProductionEvent
     has_date: 2008/2010
     located_in:
     - has_name: Germany
@@ -16,7 +15,8 @@ has_record:
       - category: avefi:GNDResource
         id: 4011882-4
     has_activity:
-    - type: Director
+    - category: avefi:DirectingActivity
+      type: Director
       has_agent:
       - type: Person
         has_name: Graf, Dominik
@@ -25,7 +25,8 @@ has_record:
           id: '120745305'
         - category: avefi:FilmportalResource
           id: '9d20d1edbfda48ae8d93c0e05da3de5f'
-    - type: Writer
+    - category: avefi:WritingActivity
+      type: Writer
       has_agent:
       - type: Person
         has_name: Basedow, Rolf
@@ -39,21 +40,24 @@ has_record:
           id: '120745305'
         - category: avefi:FilmportalResource
           id: '9d20d1edbfda48ae8d93c0e05da3de5f'
-    - type: Cinematographer
+    - category: avefi:CinematographyActivity
+      type: Cinematographer
       has_agent:
       - type: Person
         has_name: Wiesweg, Michael
         same_as:
         - category: avefi:GNDResource
           id: '131834983'
-    - type: FilmEditor
+    - category: avefi:EditingActivity
+      type: FilmEditor
       has_agent:
       - type: Person
         has_name: Wolscht, Claudia
         same_as:
         - category: avefi:GNDResource
           id: '1062104587'
-    - type: Composer
+    - category: avefi:MusicActivity
+      type: Composer
       has_agent:
       - type: Person
         has_name: Rossenbach, Sven
@@ -65,7 +69,8 @@ has_record:
         same_as:
         - category: avefi:GNDResource
           id: '135456053'
-    - type: CastMember
+    - category: avefi:CastActivity
+      type: CastMember
       has_agent:
       - type: Person
         has_name: Riemelt, Max
@@ -108,7 +113,7 @@ has_record:
     type: PreferredTitle
     has_name: Im Angesicht des Verbrechens. Berlin ist das Paradies
   has_event:
-  - type: ProductionEvent
+  - category: avefi:ProductionEvent
     has_date: 2008/2010
     located_in:
     - has_name: Germany
@@ -116,7 +121,8 @@ has_record:
       - category: avefi:GNDResource
         id: 4011882-4
     has_activity:
-    - type: Director
+    - category: avefi:DirectingActivity
+      type: Director
       has_agent:
       - type: Person
         has_name: Graf, Dominik
@@ -135,7 +141,7 @@ has_record:
     type: PreferredTitle
     has_name: Im Angesicht des Verbrechens. Wo wir sind, ist vorne
   has_event:
-  - type: ProductionEvent
+  - category: avefi:ProductionEvent
     has_date: 2008/2010
     located_in:
     - has_name: Germany
@@ -143,7 +149,8 @@ has_record:
       - category: avefi:GNDResource
         id: 4011882-4
     has_activity:
-    - type: Director
+    - category: avefi:DirectingActivity
+      type: Director
       has_agent:
       - type: Person
         has_name: Graf, Dominik
@@ -162,7 +169,7 @@ has_record:
     type: PreferredTitle
     has_name: Im Angesicht des Verbrechens. Der Überfall
   has_event:
-  - type: ProductionEvent
+  - category: avefi:ProductionEvent
     has_date: 2008/2010
     located_in:
     - has_name: Germany
@@ -170,7 +177,8 @@ has_record:
       - category: avefi:GNDResource
         id: 4011882-4
     has_activity:
-    - type: Director
+    - category: avefi:DirectingActivity
+      type: Director
       has_agent:
       - type: Person
         has_name: Graf, Dominik
