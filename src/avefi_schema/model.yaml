@@ -35,15 +35,15 @@ default_curi_maps:
 
 classes:
 
-  Entity:
+  CategorizedThing:
     abstract: true
     slots:
       - category
     description: >-
-      A generic grouping for all described things
+      Root for all classes with subclasses in this schema
 
   PIDRecord:
-    is_a: Entity
+    is_a: CategorizedThing
     abstract: true
     slots:
       - id
@@ -117,7 +117,6 @@ classes:
 
   GeographicName:
     rank: 12
-    is_a: Entity
     slots:
       - has_alternate_name
       - has_name
@@ -141,7 +140,6 @@ classes:
 
   Genre:
     rank: 25
-    is_a: Entity
     slots:
       - has_alternate_name
       - has_name
@@ -158,7 +156,6 @@ classes:
 
   Subject:
     rank: 23
-    is_a: Entity
     slots:
       - has_alternate_name
       - has_name
@@ -173,7 +170,7 @@ classes:
 
   Activity:
     rank: 16
-    is_a: Entity
+    is_a: CategorizedThing
     slots:
       - has_agent
       - type
@@ -186,7 +183,6 @@ classes:
 
   Agent:
     rank: 18
-    is_a: Entity
     slots:
       - has_alternate_name
       - has_name
@@ -216,17 +212,14 @@ classes:
       the convention "family name, given name"
 
   Event:
-    rank: 14
-    is_a: Entity
+    is_a: CategorizedThing
+    abstract: true
     slots:
       - has_activity
       - has_date
       - located_in
-      - type
-    slot_usage:
-      type:
-        range: EventTypeEnum
-        required: true
+    close_mappings:
+      - fiaf:Event
     description: >-
       Significant event in the lifecycle of moving image work /
       variant, manifestation or item. Always specify the type of event
@@ -237,9 +230,98 @@ classes:
       roles can be linked via has_activity. See also: FIAF Moving
       Image Cataloguing Manual 1.4.2, 2.4.2, 3.3.2
 
+  ProductionEvent:
+    rank: 14
+    is_a: Event
+    slots:
+      - type
+    slot_usage:
+      type:
+        range: ProductionEventTypeEnum
+    close_mappings:
+      - fiaf:ProductionEvent
+    description: >-
+      Production event of a work/variant (or manifestation produced as
+      a restoration). Provide a date or a period of time via has_date
+      and specify located_in as appropriate, e.g. the country where
+      the principal offices or production facilities of the production
+      company are located. Involved parties in various roles can be
+      linked via has_activity. See also: FIAF Moving Image Cataloguing
+      Manual D.4.3
+
+  PreservationEvent:
+    rank: 14
+    is_a: Event
+    slots:
+      - type
+    slot_usage:
+      type:
+        range: PreservationEventTypeEnum
+        required: true
+    close_mappings:
+      - fiaf:PreservationEvent
+    description: >-
+      Preservation event originating a manifestation or possibly a
+      vaniant. Always specify the type of event and if possible a date
+      or a period of time via has_date. Specify located_in as
+      appropriate. Involved parties in various roles can be linked via
+      has_activity. See also: FIAF Moving Image Cataloguing Manual
+      D.4.5
+
+  PublicationEvent:
+    rank: 14
+    is_a: Event
+    slots:
+      - type
+    slot_usage:
+      type:
+        range: PublicationEventTypeEnum
+        required: true
+    close_mappings:
+      - fiaf:PublicationEvent
+    description: >-
+      Publication event of a manifestation or possibly the first known
+      publication of a work. Always specify the type of event and if
+      possible a date or a period of time via has_date. Specify
+      located_in as appropriate, e.g. the country where the
+      manifestation was published. Involved parties in various roles
+      can be linked via has_activity. See also: FIAF Moving Image
+      Cataloguing Manual D.4.1
+
+  ManufactureEvent:
+    rank: 15
+    is_a: Event
+    slots:
+      - type
+    slot_usage:
+      type:
+        range: ManufactureEventTypeEnum
+        required: true
+    close_mappings:
+      - fiaf:ManufactureEvent
+    description: >-
+      Manufacture event of a manifestation. Always specify the type of
+      event and if possible a date or a period of time via has_date.
+      Specify located_in as appropriate, e.g. the country where the
+      labratory is located. Involved parties in various roles can be
+      linked via has_activity. See also: FIAF Moving Image Cataloguing
+      Manual D.4.7
+
+  RightsCopyrightRegistrationEvent:
+    rank: 15
+    is_a: Event
+    close_mappings:
+      - fiaf:RightsCopyrightRegistrationEvent
+    description: >-
+      Copyright and related rights registration event of a
+      manifestation or possibly of a work/variant. Always specify date
+      via has_date. Specify located_in as appropriate, e.g. the
+      country where the copyright was registered. Involved parties in
+      various roles can be linked via has_activity. See also: FIAF
+      Moving Image Cataloguing Manual D.4.4
+
   Title:
     rank: 11
-    is_a: Entity
     slots:
       - has_name
       - has_ordering_name
@@ -269,7 +351,6 @@ classes:
 
   Duration:
     rank: 33
-    is_a: Entity
     slots:
       - has_value
       - has_precision
@@ -294,7 +375,6 @@ classes:
 
   Extent:
     rank: 35
-    is_a: Entity
     slots:
       - has_unit
       - has_value
@@ -305,7 +385,7 @@ classes:
 
   Format:
     rank: 31
-    is_a: Entity
+    is_a: CategorizedThing
     abstract: true
     slots:
       - type
@@ -404,7 +484,6 @@ classes:
 
   Language:
     rank: 21
-    is_a: Entity
     attributes:
       code:
         pattern: ^[a-z]{3}$
@@ -446,7 +525,6 @@ classes:
 
   MovingImageRecordCollection:
     rank: 100
-    is_a: Entity
     description: >-
       A holder for MovingImageRecord objects
     slots:
@@ -458,7 +536,7 @@ classes:
   #-----------------------------------
 
   AuthorityResource:
-    is_a: Entity
+    is_a: CategorizedThing
     abstract: true
     slots:
       - id
@@ -730,6 +808,7 @@ slots:
     slot_uri: rdf:type
     designates_type: true
     range: uriorcurie
+    required: true
     description: >-
       Designates type, e.g. to distinguish different identifiers
       (GNDResource vs. VIAFResource)

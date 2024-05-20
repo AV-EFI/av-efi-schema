@@ -1296,15 +1296,10 @@ enums:
         description: FIAF Moving Image Cataloguing Manual D.7.11
         meaning: fiaf:Tinted
 
-  EventTypeEnum:
+  ManufactureEventTypeEnum:
     description: >-
-      FIAF Moving Image Cataloguing Manual D
-    notes:
-      - Limited set from FIAFcore as applicable
+      FIAF Moving Image Cataloguing Manual D.4.7, D.14
     permissible_values:
-      ManufactureEvent:
-        description: FIAF Moving Image Cataloguing Manual D.4.7
-        meaning: fiaf:ManufactureEvent
       FilmPrintingEvent:
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:FilmPrintingEvent
@@ -1323,9 +1318,10 @@ enums:
       VideoCopyingEvent:
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:VideoCopyingEvent
-      PreservationEvent:
-        description: FIAF Moving Image Cataloguing Manual D.4.5
-        meaning: fiaf:PreservationEvent
+
+  PreservationEventTypeEnum:
+    description: FIAF Moving Image Cataloguing Manual D.4.5
+    permissible_values:
       DigitisationEvent:
         description: FIAF Moving Image Cataloguing Manual D.12
         meaning: fiaf:DigitisationEvent
@@ -1338,9 +1334,12 @@ enums:
       TransferEvent:
         description: FIAF Moving Image Cataloguing Manual D.12
         meaning: fiaf:TransferEvent
-      ProductionEvent:
-        description: FIAF Moving Image Cataloguing Manual D.4.3
-        meaning: fiaf:ProductionEvent
+
+  ProductionEventTypeEnum:
+    description: >-
+      Leave unset for main production event, otherwise see FIAF Moving
+      Image Cataloguing Manual D.4.3, D.11
+    permissible_values:
       CastingEvent:
         description: FIAF Moving Image Cataloguing Manual D.11
         meaning: fiaf:CastingEvent
@@ -1353,9 +1352,10 @@ enums:
       PostProductionEvent:
         description: FIAF Moving Image Cataloguing Manual D.11
         meaning: fiaf:PostProductionEvent
-      PublicationEvent:
-        description: FIAF Moving Image Cataloguing Manual D.4.1
-        meaning: fiaf:PublicationEvent
+
+  PublicationEventTypeEnum:
+    description: FIAF Moving Image Cataloguing Manual D.4.1, D.10
+    permissible_values:
       BroadcastEvent:
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:BroadcastEvent
@@ -1386,9 +1386,6 @@ enums:
       UnknownEvent:
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:UnknownEvent
-      RightsCopyrightRegistrationEvent:
-        description: FIAF Moving Image Cataloguing Manual D.4.4
-        meaning: fiaf:RightsCopyrightRegistrationEvent
 
   FormatAudioTypeEnum:
     description: >-
