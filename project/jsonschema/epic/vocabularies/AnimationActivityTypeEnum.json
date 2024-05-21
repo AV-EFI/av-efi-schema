@@ -1,0 +1,16 @@
+{
+  "$id": "AnimationActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.13",
+  "enum": [
+    "Animation",
+    "AnimationDirector",
+    "AnimationLighter",
+    "Animator",
+    "CharacterDesigner",
+    "Cleanup",
+    "LeadAnimator",
+    "ModelMaker"
+  ],
+  "title": "AnimationActivityTypeEnum",
+  "type": "string"
+}

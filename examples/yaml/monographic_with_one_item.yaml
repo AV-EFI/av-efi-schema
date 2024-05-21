@@ -1,5 +1,4 @@
 ---
-category: avefi:MovingImageRecordCollection
 has_record:
 - category: avefi:WorkVariant
   type: Monographic
@@ -8,7 +7,7 @@ has_record:
     type: PreferredTitle
     has_name: Menschen am Sonntag – Das Dokument der Gegenwart
   has_event:
-  - type: ProductionEvent
+  - category: avefi:ProductionEvent
     has_date: 1929/1930
     located_in:
     - has_name: Germany (German Reich)
@@ -16,7 +15,8 @@ has_record:
       - category: avefi:GNDResource
         id: 2008993-4
     has_activity:
-    - type: CastMember
+    - category: avefi:CastActivity
+      type: CastMember
       has_agent:
       - type: Person
         has_name: Borchert, Brigitte
@@ -33,14 +33,16 @@ has_record:
         same_as:
         - category: avefi:GNDResource
           id: '173857868'
-    - type: Writer
+    - category: avefi:WritingActivity
+      type: Writer
       has_agent:
       - type: Person
         has_name: Wilder, Billy
         same_as:
         - category: avefi:GNDResource
           id: '118632795'
-    - type: Director
+    - category: avefi:DirectingActivity
+      type: Director
       has_agent:
       - type: Person
         has_name: Siodmak, Robert
@@ -57,21 +59,24 @@ has_record:
         same_as:
         - category: avefi:GNDResource
           id: '116663308'
-    - type: Cinematographer
+    - category: avefi:CinematographyActivity
+      type: Cinematographer
       has_agent:
       - type: Person
         has_name: Schüfftan, Eugen
         same_as:
         - category: avefi:GNDResource
           id: 12495748X
-    - type: FilmEditor
+    - category: avefi:EditingActivity
+      type: FilmEditor
       has_agent:
       - type: Person
         has_name: Siodmak, Robert
         same_as:
         - category: avefi:GNDResource
           id: 11861472X
-    - type: Composer
+    - category: avefi:MusicActivity
+      type: Composer
       has_agent:
       - type: Person
         has_name: Stenzel, Otto
@@ -85,15 +90,33 @@ has_record:
     has_issuer_name: Deutsche Kinemathek - Museum für Film und Fernsehen
     last_modified: '2024-05-13T15:12:41Z'
 - category: avefi:Manifestation
-  type: PreservationRestoration
   id: 21.T11998/F5471B8A-FF4D-407A-BC72-D63A8E53EAC0
   has_primary_title:
     type: TitleProper
     has_name: Menschen am Sonntag
   has_event:
-  - type: ProductionEvent
+  - category: avefi:PreservationEvent
+    type: ReproductionEvent
     has_date: 2013/2014
-  - type: ReleaseEvent
+    has_activity:
+    - category: avefi:ManifestationActivity
+      type: AgentResponsibleForReproductionOrTransfer
+      has_agent:
+        type: CorporateBody
+        has_name: Deutsche Kinemathek - Museum für Film und Fernsehen
+        same_as:
+        - category: avefi:ISILResource
+          id: DE-MUS-407010
+    - category: avefi:ManifestationActivity
+      type: AgentResponsibleForTheArchivalAvailability
+      has_agent:
+        type: CorporateBody
+        has_name: Deutsche Kinemathek - Museum für Film und Fernsehen
+        same_as:
+        - category: avefi:ISILResource
+          id: DE-MUS-407010
+  - category: avefi:PublicationEvent
+    type: ReleaseEvent
     has_date: 2014
   in_language:
   - usage: Intertitles

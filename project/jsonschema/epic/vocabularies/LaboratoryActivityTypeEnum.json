@@ -1,0 +1,12 @@
+{
+  "$id": "LaboratoryActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.12",
+  "enum": [
+    "Colorist",
+    "Laboratory",
+    "LaboratoryTechnician",
+    "NegativeCutter"
+  ],
+  "title": "LaboratoryActivityTypeEnum",
+  "type": "string"
+}

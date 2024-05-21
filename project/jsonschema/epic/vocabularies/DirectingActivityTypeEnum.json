@@ -1,0 +1,15 @@
+{
+  "$id": "DirectingActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.3",
+  "enum": [
+    "AssistantDirector",
+    "CastingDirector",
+    "Continuity",
+    "Director",
+    "FightArranger",
+    "SecondUnitDirector",
+    "StuntArranger"
+  ],
+  "title": "DirectingActivityTypeEnum",
+  "type": "string"
+}

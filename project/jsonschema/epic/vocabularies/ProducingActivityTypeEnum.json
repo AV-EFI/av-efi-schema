@@ -1,0 +1,29 @@
+{
+  "$id": "ProducingActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.2",
+  "enum": [
+    "Advisor",
+    "AssistantProducer",
+    "AssociateProducer",
+    "Cooperation",
+    "Coproducer",
+    "ExecutiveProducer",
+    "LineProducer",
+    "LocationManager",
+    "PostProductionSupervisor",
+    "Presenter",
+    "Producer",
+    "ProductionAccountant",
+    "ProductionAssistant",
+    "ProductionCompany",
+    "ProductionCoordinator",
+    "ProductionManager",
+    "Publicist",
+    "SeriesProducer",
+    "Sponsor",
+    "Studio",
+    "TransportationManager"
+  ],
+  "title": "ProducingActivityTypeEnum",
+  "type": "string"
+}

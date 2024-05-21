@@ -1,0 +1,18 @@
+{
+  "$id": "WritingActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.4",
+  "enum": [
+    "Adaptation",
+    "BasedonCharactersCreatedby",
+    "Idea",
+    "NarrationWriter",
+    "Research",
+    "ScreenStory",
+    "SeriesCreatedby",
+    "SourceMaterial",
+    "Stagedby",
+    "Writer"
+  ],
+  "title": "WritingActivityTypeEnum",
+  "type": "string"
+}

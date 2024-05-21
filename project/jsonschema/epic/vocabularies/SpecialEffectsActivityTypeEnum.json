@@ -1,0 +1,20 @@
+{
+  "$id": "SpecialEffectsActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.8",
+  "enum": [
+    "Animatronics",
+    "Armorer",
+    "CGIArtist",
+    "Compositor",
+    "MatteArtist",
+    "MechanicalEffects",
+    "MotionCapture",
+    "Prosthetics",
+    "Pyrotechnics",
+    "RotoscopeArtist",
+    "SpecialEffects",
+    "VisualEffects"
+  ],
+  "title": "SpecialEffectsActivityTypeEnum",
+  "type": "string"
+}

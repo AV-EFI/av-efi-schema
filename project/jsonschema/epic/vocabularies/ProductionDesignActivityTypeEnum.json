@@ -1,0 +1,29 @@
+{
+  "$id": "ProductionDesignActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.6",
+  "enum": [
+    "ArtDirector",
+    "AssistantArtDirector",
+    "ConstructionCoordinator",
+    "CostumeDesigner",
+    "CostumeMaker",
+    "CostumeSupervisor",
+    "CostumeSupplier",
+    "Costumer",
+    "Gowns",
+    "Greensperson",
+    "HairStylist",
+    "LeadPerson",
+    "MakeUpArtist",
+    "ProductionDesigner",
+    "PropertyMaster",
+    "ScenicArtist",
+    "SetDecorator",
+    "SetDesigner",
+    "StoryboardArtist",
+    "TitleDesigner",
+    "WardrobeSupervisor"
+  ],
+  "title": "ProductionDesignActivityTypeEnum",
+  "type": "string"
+}

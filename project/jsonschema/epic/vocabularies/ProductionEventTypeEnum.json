@@ -1,0 +1,12 @@
+{
+  "$id": "ProductionEventTypeEnum",
+  "description": "Leave unset for main production event, otherwise see FIAF Moving Image Cataloguing Manual D.4.3, D.11",
+  "enum": [
+    "CastingEvent",
+    "IndoorShootingEvent",
+    "OutdoorShootingEvent",
+    "PostProductionEvent"
+  ],
+  "title": "ProductionEventTypeEnum",
+  "type": "string"
+}

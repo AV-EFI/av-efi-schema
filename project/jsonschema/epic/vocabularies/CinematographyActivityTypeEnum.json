@@ -1,0 +1,28 @@
+{
+  "$id": "CinematographyActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.5",
+  "enum": [
+    "AerialPhotography",
+    "BestBoy",
+    "CameraAssistant",
+    "CameraOperator",
+    "Cinematographer",
+    "ColorConsultant",
+    "CraneOperator",
+    "DollyGrip",
+    "Electrician",
+    "FocusPuller",
+    "GafferLighting",
+    "GeneratorOperator",
+    "Grip",
+    "Lenses",
+    "LoaderClapper",
+    "SecondUnitDirectorofPhotography",
+    "SteadicamOperator",
+    "StillPhotographer",
+    "UnderwaterPhotography",
+    "VideoAssist"
+  ],
+  "title": "CinematographyActivityTypeEnum",
+  "type": "string"
+}

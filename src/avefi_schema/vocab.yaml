@@ -30,12 +30,12 @@ default_curi_maps:
 
 enums:
 
-  ActivityTypeEnum:
+  AnimationActivityTypeEnum:
+    rank: 8
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
-      Terms B
+      Terms B.13
     permissible_values:
-      # ?subject rdfs:subClassOf fiaf:AnimationActivity
       Animation:
         structured_aliases:
           - literal_form: Animation
@@ -100,7 +100,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms B.13.17
         meaning: fiaf:ModelMaker
-      # ?subject rdfs:subClassOf fiaf:CastActivity
+
+  CastActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.7
+    permissible_values:
       AnimalTrainer:
         structured_aliases:
           - literal_form: Tiertrainer
@@ -174,6 +180,11 @@ enums:
         description: FIAF Glossary of Filmographic Terms B.7.6
         meaning: fiaf:Singer
       StandIn:
+        structured_aliases:
+          - literal_form: Lichtdouble
+            in_language: de
+          - literal_form: Stand-In
+            in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.3
         meaning: fiaf:StandIn
       StuntPerformer:
@@ -200,7 +211,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.13
         meaning: fiaf:Wrangler
-      # ?subject rdfs:subClassOf fiaf:CensorshipActivity
+
+  CensorshipActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms C.1
+    permissible_values:
       Censor:
         structured_aliases:
           - literal_form: Zensur
@@ -209,7 +226,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms C.1.1
         meaning: fiaf:Censor
-      # ?subject rdfs:subClassOf fiaf:CinematographyActivity
+
+  CinematographyActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.5
+    permissible_values:
       AerialPhotography:
         structured_aliases:
           - literal_form: Luftaufnahmen
@@ -370,7 +393,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms B.5.10
         meaning: fiaf:VideoAssist
-      # ?subject rdfs:subClassOf fiaf:CopyrightandDistributionActivity
+
+  CopyrightAndDistributionActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms C.2
+    permissible_values:
       Distributor:
         structured_aliases:
           - literal_form: Verleiher
@@ -427,7 +456,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms C.2.5
         meaning: fiaf:WorldDistributor
-      # ?subject rdfs:subClassOf fiaf:DirectingActivity
+
+  DirectingActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.3
+    permissible_values:
       AssistantDirector:
         structured_aliases:
           - literal_form: Regieassistent
@@ -484,7 +519,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms B.3.6
         meaning: fiaf:StuntArranger
-      # ?subject rdfs:subClassOf fiaf:EditingActivity
+
+  EditingActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.10
+    permissible_values:
       AssistantFilmEditor:
         structured_aliases:
           - literal_form: Cutterassistent
@@ -501,7 +542,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms B.10.1
         meaning: fiaf:FilmEditor
-      # ?subject rdfs:subClassOf fiaf:LaboratoryActivity
+
+  LaboratoryActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.12
+    permissible_values:
       Colorist:
         structured_aliases:
           - literal_form: Lichtbestimmer
@@ -534,7 +581,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms B.12.3
         meaning: fiaf:NegativeCutter
-      # ?subject rdfs:subClassOf fiaf:MusicActivity
+
+  MusicActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.11
+    permissible_values:
       Choreographer:
         structured_aliases:
           - literal_form: Choreograf
@@ -623,7 +676,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms B.11.12
         meaning: fiaf:SongComposer
-      # ?subject rdfs:subClassOf fiaf:ProducingActivity
+
+  ProducingActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.2
+    permissible_values:
       Advisor:
         structured_aliases:
           - literal_form: Berater
@@ -782,7 +841,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.13
         meaning: fiaf:TransportationManager
-      # ?subject rdfs:subClassOf fiaf:ProductionDesignActivity
+
+  ProductionDesignActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.6
+    permissible_values:
       ArtDirector:
         structured_aliases:
           - literal_form: Ausstatter
@@ -946,7 +1011,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.15
         meaning: fiaf:WardrobeSupervisor
-      # ?subject rdfs:subClassOf fiaf:PuppetActivity
+
+  PuppetActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.14
+    permissible_values:
       Puppeteer:
         structured_aliases:
           - literal_form: Puppenspieler
@@ -955,7 +1026,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms B.14.7
         meaning: fiaf:Puppeteer
-      # ?subject rdfs:subClassOf fiaf:SoundActivity
+
+  SoundActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.9
+    permissible_values:
       BoomOperator:
         structured_aliases:
           - literal_form: Tonassistent mit Mikrofonangel
@@ -1060,7 +1137,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms B.9.6
         meaning: fiaf:SupervisingSoundEditor
-      # ?subject rdfs:subClassOf fiaf:SpecialEffectsActivity
+
+  SpecialEffectsActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.8
+    permissible_values:
       Animatronics:
         structured_aliases:
           - literal_form: Animatronic
@@ -1157,7 +1240,13 @@ enums:
             in_language: en
         description: FIAF Glossary of Filmographic Terms B.8.2
         meaning: fiaf:VisualEffects
-      # ?subject rdfs:subClassOf fiaf:WritingActivity
+
+  WritingActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Glossary of Filmographic
+      Terms B.4
+    permissible_values:
       Adaptation:
         structured_aliases:
           - literal_form: Bearbeitung
@@ -1240,7 +1329,31 @@ enums:
           - ScreenPlay
         description: FIAF Glossary of Filmographic Terms B.4.2
         meaning: fiaf:Writer
-      # ?subject rdfs:subClassOf fiaf:ManifestationActivity
+
+  ManifestationActivityTypeEnum:
+    rank: 8
+    description: >-
+      Activity types / roles. See also: FIAF Moving Image Cataloguing
+      Manual 2.4.1.1, D.8
+    permissible_values:
+      AgentNotIdentified:
+        description: FIAF Moving Image Cataloguing Manual D.8.11
+        meaning: fiaf:AgentNotIdentified
+      AgentResponsibleForPreservation:
+        description: FIAF Moving Image Cataloguing Manual D.8.6
+        meaning: fiaf:AgentResponsibleForPreservation
+      AgentResponsibleForReproductionOrTransfer:
+        description: FIAF Moving Image Cataloguing Manual D.8.7
+        meaning: fiaf:AgentResponsibleForReproductionOrTransfer
+      AgentResponsibleForTheArchivalAvailability:
+        description: FIAF Moving Image Cataloguing Manual D.8.8
+        meaning: fiaf:AgentResponsibleForTheArchivalAvailability
+      AgentResponsibleForTheMereAvailability:
+        description: FIAF Moving Image Cataloguing Manual D.8.9
+        meaning: fiaf:AgentResponsibleForTheMereAvailability
+      AgentUnclearOrUndetermined:
+        description: FIAF Moving Image Cataloguing Manual D.8.10
+        meaning: fiaf:AgentUnclearOrUndetermined
       Broadcaster:
         description: FIAF Moving Image Cataloguing Manual D.8.3
         meaning: fiaf:Broadcaster
@@ -1250,11 +1363,19 @@ enums:
       DistributorTheatrical:
         description: FIAF Moving Image Cataloguing Manual D.8.1
         meaning: fiaf:DistributorTheatrical
+      Manufacturer:
+        description: FIAF Moving Image Cataloguing Manual D.8.5
+        meaning: fiaf:Manufacturer
       Publisher:
         description: FIAF Moving Image Cataloguing Manual D.8.4
         meaning: fiaf:Publisher
+      UnknownActivity:
+        description: >-
+          FIAF Moving Image Cataloguing Manual 1.4.1.1, 2.4.1.1,
+          3.3.1.1
 
   AgentTypeEnum:
+    rank: 18
     description: >-
       FIAF Moving Image Cataloguing Manual 1.4.1
     permissible_values:
@@ -1296,15 +1417,11 @@ enums:
         description: FIAF Moving Image Cataloguing Manual D.7.11
         meaning: fiaf:Tinted
 
-  EventTypeEnum:
+  ManufactureEventTypeEnum:
+    rank: 6
     description: >-
-      FIAF Moving Image Cataloguing Manual D
-    notes:
-      - Limited set from FIAFcore as applicable
+      FIAF Moving Image Cataloguing Manual D.4.7, D.14
     permissible_values:
-      ManufactureEvent:
-        description: FIAF Moving Image Cataloguing Manual D.4.7
-        meaning: fiaf:ManufactureEvent
       FilmPrintingEvent:
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:FilmPrintingEvent
@@ -1323,9 +1440,11 @@ enums:
       VideoCopyingEvent:
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:VideoCopyingEvent
-      PreservationEvent:
-        description: FIAF Moving Image Cataloguing Manual D.4.5
-        meaning: fiaf:PreservationEvent
+
+  PreservationEventTypeEnum:
+    rank: 6
+    description: FIAF Moving Image Cataloguing Manual D.4.5
+    permissible_values:
       DigitisationEvent:
         description: FIAF Moving Image Cataloguing Manual D.12
         meaning: fiaf:DigitisationEvent
@@ -1338,9 +1457,13 @@ enums:
       TransferEvent:
         description: FIAF Moving Image Cataloguing Manual D.12
         meaning: fiaf:TransferEvent
-      ProductionEvent:
-        description: FIAF Moving Image Cataloguing Manual D.4.3
-        meaning: fiaf:ProductionEvent
+
+  ProductionEventTypeEnum:
+    rank: 6
+    description: >-
+      Leave unset for main production event, otherwise see FIAF Moving
+      Image Cataloguing Manual D.4.3, D.11
+    permissible_values:
       CastingEvent:
         description: FIAF Moving Image Cataloguing Manual D.11
         meaning: fiaf:CastingEvent
@@ -1353,9 +1476,11 @@ enums:
       PostProductionEvent:
         description: FIAF Moving Image Cataloguing Manual D.11
         meaning: fiaf:PostProductionEvent
-      PublicationEvent:
-        description: FIAF Moving Image Cataloguing Manual D.4.1
-        meaning: fiaf:PublicationEvent
+
+  PublicationEventTypeEnum:
+    rank: 6
+    description: FIAF Moving Image Cataloguing Manual D.4.1, D.10
+    permissible_values:
       BroadcastEvent:
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:BroadcastEvent
@@ -1386,9 +1511,6 @@ enums:
       UnknownEvent:
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:UnknownEvent
-      RightsCopyrightRegistrationEvent:
-        description: FIAF Moving Image Cataloguing Manual D.4.4
-        meaning: fiaf:RightsCopyrightRegistrationEvent
 
   FormatAudioTypeEnum:
     description: >-
@@ -1830,51 +1952,6 @@ enums:
       VoiceOver:
         todos:
           - Add documentation
-
-  ManifestationTypeEnum:
-    description: >-
-      FIAF Moving Image Cataloguing Manual D.5
-    permissible_values:
-      Broadcast:
-        description: >-
-          FIAF Moving Image Cataloguing Manual D.5.7
-        meaning: fiaf:BroadcastManifestation
-      HomeViewingPublication:
-        description: >-
-          FIAF Moving Image Cataloguing Manual D.5.6
-        meaning: fiaf:HomeViewingPublicationManifestation
-      Internet:
-        description: >-
-          FIAF Moving Image Cataloguing Manual D.5.8
-        meaning: fiaf:InternetManifestation
-      NonTheatricalDistribution:
-        description: >-
-          FIAF Moving Image Cataloguing Manual D.5.3
-        meaning: fiaf:NonTheatricalDistribution
-      NotForRelease:
-        description: >-
-          FIAF Moving Image Cataloguing Manual D.5.4
-        meaning: fiaf:NotForReleaseManifestation
-      PreRelease:
-        description: >-
-          FIAF Moving Image Cataloguing Manual D.5.1
-        meaning: fiaf:PreReleaseManifestation
-      PreservationRestoration:
-        description: >-
-          FIAF Moving Image Cataloguing Manual D.5.9
-        meaning: fiaf:PreservationRestorationManifestation
-      TheatricalDistribution:
-        description: >-
-          FIAF Moving Image Cataloguing Manual D.5.2
-        meaning: fiaf:TheatricalDistribution
-      Unknown:
-        description: >-
-          FIAF Moving Image Cataloguing Manual D.5.10
-        meaning: fiaf:UnknownManifestation
-      Unreleased:
-        description: >-
-          FIAF Moving Image Cataloguing Manual D.5.5
-        meaning: fiaf:UnreleasedManifestation
 
   PrecisionEnum:
     description: >-

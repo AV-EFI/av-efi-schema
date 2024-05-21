@@ -1,0 +1,21 @@
+{
+  "$id": "CastActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.7",
+  "enum": [
+    "AnimalTrainer",
+    "CastMember",
+    "Dancer",
+    "DialogueCoach",
+    "Double",
+    "Extra",
+    "Interviewer",
+    "Narrator",
+    "Singer",
+    "StandIn",
+    "StuntPerformer",
+    "Voices",
+    "Wrangler"
+  ],
+  "title": "CastActivityTypeEnum",
+  "type": "string"
+}

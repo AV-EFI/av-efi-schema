@@ -1,0 +1,21 @@
+{
+  "$id": "SoundActivityTypeEnum",
+  "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.9",
+  "enum": [
+    "BoomOperator",
+    "DialogueEditor",
+    "DubbingDirector",
+    "DubbingEditor",
+    "DubbingMixer",
+    "DubbingSpeaker",
+    "FoleyArtist",
+    "SoundDesigner",
+    "SoundEditor",
+    "SoundEngineer",
+    "SoundRecorderMixer",
+    "SoundSupervisor",
+    "SupervisingSoundEditor"
+  ],
+  "title": "SoundActivityTypeEnum",
+  "type": "string"
+}

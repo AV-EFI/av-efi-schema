@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-16T20:55:22
+# Generation date: 2024-05-21T00:22:48
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -56,20 +56,22 @@ DEFAULT_ = AVEFI
 
 
 @dataclass
-class Entity(YAMLRoot):
+class CategorizedThing(YAMLRoot):
     """
-    A generic grouping for all described things
+    Root for all classes with subclasses in this schema
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AVEFI["Entity"]
-    class_class_curie: ClassVar[str] = "avefi:Entity"
-    class_name: ClassVar[str] = "Entity"
-    class_model_uri: ClassVar[URIRef] = AVEFI.Entity
+    class_class_uri: ClassVar[URIRef] = AVEFI["CategorizedThing"]
+    class_class_curie: ClassVar[str] = "avefi:CategorizedThing"
+    class_name: ClassVar[str] = "CategorizedThing"
+    class_model_uri: ClassVar[URIRef] = AVEFI.CategorizedThing
 
-    category: Optional[Union[str, URIorCURIE]] = None
+    category: Union[str, URIorCURIE] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
         super().__post_init__(**kwargs)
@@ -101,7 +103,7 @@ class Entity(YAMLRoot):
 
 
 @dataclass
-class PIDRecord(Entity):
+class PIDRecord(CategorizedThing):
     """
     Grouping for all entities that represent a PID metadata record
     """
@@ -112,6 +114,7 @@ class PIDRecord(Entity):
     class_name: ClassVar[str] = "PIDRecord"
     class_model_uri: ClassVar[URIRef] = AVEFI.PIDRecord
 
+    category: Union[str, URIorCURIE] = None
     id: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -119,6 +122,8 @@ class PIDRecord(Entity):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -131,6 +136,7 @@ class MovingImageRecord(PIDRecord):
     class_name: ClassVar[str] = "MovingImageRecord"
     class_model_uri: ClassVar[URIRef] = AVEFI.MovingImageRecord
 
+    category: Union[str, URIorCURIE] = None
     has_primary_title: Union[dict, "Title"] = None
     described_by: Optional[Union[dict, "DescriptionResource"]] = None
     has_event: Optional[Union[Union[dict, "Event"], List[Union[dict, "Event"]]]] = empty_list()
@@ -159,6 +165,8 @@ class MovingImageRecord(PIDRecord):
         self.has_alternative_title = [v if isinstance(v, Title) else Title(**as_dict(v)) for v in self.has_alternative_title]
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -214,6 +222,7 @@ class WorkVariant(MovingImageRecord):
     class_name: ClassVar[str] = "WorkVariant"
     class_model_uri: ClassVar[URIRef] = AVEFI.WorkVariant
 
+    category: Union[str, URIorCURIE] = None
     has_primary_title: Union[dict, "Title"] = None
     type: Union[str, "WorkVariantTypeEnum"] = None
     has_form: Optional[Union[Union[str, "WorkFormEnum"], List[Union[str, "WorkFormEnum"]]]] = empty_list()
@@ -257,11 +266,13 @@ class WorkVariant(MovingImageRecord):
             self.variant_type = VariantTypeEnum(self.variant_type)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
 @dataclass
-class GeographicName(Entity):
+class GeographicName(YAMLRoot):
     """
     Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and
     recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also:
@@ -293,11 +304,10 @@ class GeographicName(Entity):
         self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
 
         super().__post_init__(**kwargs)
-        self.category = str(self.class_class_curie)
 
 
 @dataclass
-class Genre(Entity):
+class Genre(YAMLRoot):
     """
     Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters.
     Examples of genres are “westerns” and “thrillers”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF
@@ -329,11 +339,10 @@ class Genre(Entity):
         self.same_as = [v if isinstance(v, GNDResource) else GNDResource(**as_dict(v)) for v in self.same_as]
 
         super().__post_init__(**kwargs)
-        self.category = str(self.class_class_curie)
 
 
 @dataclass
-class Subject(Entity):
+class Subject(YAMLRoot):
     """
     Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be
     confused with Genre. Provide name and if at all possible identifier(s) from supported authorities in the same_as
@@ -365,11 +374,10 @@ class Subject(Entity):
         self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
 
         super().__post_init__(**kwargs)
-        self.category = str(self.class_class_curie)
 
 
 @dataclass
-class Activity(Entity):
+class Activity(CategorizedThing):
     """
     FIAF Moving Image Cataloguing Manual 1.4.1.1
     """
@@ -380,8 +388,9 @@ class Activity(Entity):
     class_name: ClassVar[str] = "Activity"
     class_model_uri: ClassVar[URIRef] = AVEFI.Activity
 
+    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
-    type: Union[str, "ActivityTypeEnum"] = None
+    type: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.has_agent):
@@ -392,15 +401,465 @@ class Activity(Entity):
 
         if self._is_empty(self.type):
             self.MissingRequiredField("type")
-        if not isinstance(self.type, ActivityTypeEnum):
-            self.type = ActivityTypeEnum(self.type)
+        if not isinstance(self.type, str):
+            self.type = str(self.type)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
 @dataclass
-class Agent(Entity):
+class AnimationActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.13
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["AnimationActivity"]
+    class_class_curie: ClassVar[str] = "avefi:AnimationActivity"
+    class_name: ClassVar[str] = "AnimationActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.AnimationActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "AnimationActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, AnimationActivityTypeEnum):
+            self.type = AnimationActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class CastActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.7
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["CastActivity"]
+    class_class_curie: ClassVar[str] = "avefi:CastActivity"
+    class_name: ClassVar[str] = "CastActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.CastActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "CastActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, CastActivityTypeEnum):
+            self.type = CastActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class CensorshipActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.1
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["CensorshipActivity"]
+    class_class_curie: ClassVar[str] = "avefi:CensorshipActivity"
+    class_name: ClassVar[str] = "CensorshipActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.CensorshipActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "CensorshipActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, CensorshipActivityTypeEnum):
+            self.type = CensorshipActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class CinematographyActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.5
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["CinematographyActivity"]
+    class_class_curie: ClassVar[str] = "avefi:CinematographyActivity"
+    class_name: ClassVar[str] = "CinematographyActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.CinematographyActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "CinematographyActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, CinematographyActivityTypeEnum):
+            self.type = CinematographyActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class CopyrightAndDistributionActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.2
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["CopyrightAndDistributionActivity"]
+    class_class_curie: ClassVar[str] = "avefi:CopyrightAndDistributionActivity"
+    class_name: ClassVar[str] = "CopyrightAndDistributionActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.CopyrightAndDistributionActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "CopyrightAndDistributionActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, CopyrightAndDistributionActivityTypeEnum):
+            self.type = CopyrightAndDistributionActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class DirectingActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.3
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["DirectingActivity"]
+    class_class_curie: ClassVar[str] = "avefi:DirectingActivity"
+    class_name: ClassVar[str] = "DirectingActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.DirectingActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "DirectingActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, DirectingActivityTypeEnum):
+            self.type = DirectingActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class EditingActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["EditingActivity"]
+    class_class_curie: ClassVar[str] = "avefi:EditingActivity"
+    class_name: ClassVar[str] = "EditingActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.EditingActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "EditingActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, EditingActivityTypeEnum):
+            self.type = EditingActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class LaboratoryActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.12
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["LaboratoryActivity"]
+    class_class_curie: ClassVar[str] = "avefi:LaboratoryActivity"
+    class_name: ClassVar[str] = "LaboratoryActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.LaboratoryActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "LaboratoryActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, LaboratoryActivityTypeEnum):
+            self.type = LaboratoryActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class MusicActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.11
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["MusicActivity"]
+    class_class_curie: ClassVar[str] = "avefi:MusicActivity"
+    class_name: ClassVar[str] = "MusicActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.MusicActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "MusicActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, MusicActivityTypeEnum):
+            self.type = MusicActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class ProducingActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.2
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["ProducingActivity"]
+    class_class_curie: ClassVar[str] = "avefi:ProducingActivity"
+    class_name: ClassVar[str] = "ProducingActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.ProducingActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "ProducingActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, ProducingActivityTypeEnum):
+            self.type = ProducingActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class ProductionDesignActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.6
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["ProductionDesignActivity"]
+    class_class_curie: ClassVar[str] = "avefi:ProductionDesignActivity"
+    class_name: ClassVar[str] = "ProductionDesignActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.ProductionDesignActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "ProductionDesignActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, ProductionDesignActivityTypeEnum):
+            self.type = ProductionDesignActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class PuppetActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.14
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["PuppetActivity"]
+    class_class_curie: ClassVar[str] = "avefi:PuppetActivity"
+    class_name: ClassVar[str] = "PuppetActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.PuppetActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "PuppetActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, PuppetActivityTypeEnum):
+            self.type = PuppetActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class SoundActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.9
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["SoundActivity"]
+    class_class_curie: ClassVar[str] = "avefi:SoundActivity"
+    class_name: ClassVar[str] = "SoundActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.SoundActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "SoundActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, SoundActivityTypeEnum):
+            self.type = SoundActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class SpecialEffectsActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.8
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["SpecialEffectsActivity"]
+    class_class_curie: ClassVar[str] = "avefi:SpecialEffectsActivity"
+    class_name: ClassVar[str] = "SpecialEffectsActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.SpecialEffectsActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "SpecialEffectsActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, SpecialEffectsActivityTypeEnum):
+            self.type = SpecialEffectsActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class WritingActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.4
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["WritingActivity"]
+    class_class_curie: ClassVar[str] = "avefi:WritingActivity"
+    class_name: ClassVar[str] = "WritingActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.WritingActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "WritingActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, WritingActivityTypeEnum):
+            self.type = WritingActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class ManifestationActivity(Activity):
+    """
+    Activity types / roles. See also: FIAF Moving Image Cataloguing Manual 2.4.1.1, D.8
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["ManifestationActivity"]
+    class_class_curie: ClassVar[str] = "avefi:ManifestationActivity"
+    class_name: ClassVar[str] = "ManifestationActivity"
+    class_model_uri: ClassVar[URIRef] = AVEFI.ManifestationActivity
+
+    category: Union[str, URIorCURIE] = None
+    has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
+    type: Union[str, "ManifestationActivityTypeEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, ManifestationActivityTypeEnum):
+            self.type = ManifestationActivityTypeEnum(self.type)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class Agent(YAMLRoot):
     """
     Agent involved in some activity related to the moving image resource. For agents of type "Person" specify name
     according to the convention "family name, given name"
@@ -437,11 +896,10 @@ class Agent(Entity):
         self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
 
         super().__post_init__(**kwargs)
-        self.category = str(self.class_class_curie)
 
 
 @dataclass
-class Event(Entity):
+class Event(CategorizedThing):
     """
     Significant event in the lifecycle of moving image work / variant, manifestation or item. Always specify the type
     of event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the
@@ -456,17 +914,12 @@ class Event(Entity):
     class_name: ClassVar[str] = "Event"
     class_model_uri: ClassVar[URIRef] = AVEFI.Event
 
-    type: Union[str, "EventTypeEnum"] = None
+    category: Union[str, URIorCURIE] = None
     has_activity: Optional[Union[Union[dict, Activity], List[Union[dict, Activity]]]] = empty_list()
     has_date: Optional[str] = None
     located_in: Optional[Union[Union[dict, GeographicName], List[Union[dict, GeographicName]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.type):
-            self.MissingRequiredField("type")
-        if not isinstance(self.type, EventTypeEnum):
-            self.type = EventTypeEnum(self.type)
-
         if not isinstance(self.has_activity, list):
             self.has_activity = [self.has_activity] if self.has_activity is not None else []
         self.has_activity = [v if isinstance(v, Activity) else Activity(**as_dict(v)) for v in self.has_activity]
@@ -479,11 +932,184 @@ class Event(Entity):
         self.located_in = [v if isinstance(v, GeographicName) else GeographicName(**as_dict(v)) for v in self.located_in]
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
 @dataclass
-class Title(Entity):
+class ProductionEvent(Event):
+    """
+    Production event of a work/variant (or manifestation produced as a restoration). Provide a date or a period of
+    time via has_date and specify located_in as appropriate, e.g. the country where the principal offices or
+    production facilities of the production company are located. Involved parties in various roles can be linked via
+    has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.3
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["ProductionEvent"]
+    class_class_curie: ClassVar[str] = "avefi:ProductionEvent"
+    class_name: ClassVar[str] = "ProductionEvent"
+    class_model_uri: ClassVar[URIRef] = AVEFI.ProductionEvent
+
+    category: Union[str, URIorCURIE] = None
+    type: Optional[Union[str, "ProductionEventTypeEnum"]] = None
+    has_activity: Optional[Union[Union[dict, Activity], List[Union[dict, Activity]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.type is not None and not isinstance(self.type, ProductionEventTypeEnum):
+            self.type = ProductionEventTypeEnum(self.type)
+
+        if not isinstance(self.has_activity, list):
+            self.has_activity = [self.has_activity] if self.has_activity is not None else []
+        self.has_activity = [v if isinstance(v, Activity) else Activity(**as_dict(v)) for v in self.has_activity]
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class PreservationEvent(Event):
+    """
+    Preservation event originating a manifestation or possibly a vaniant. Always specify the type of event and if
+    possible a date or a period of time via has_date. Specify located_in as appropriate. Involved parties in various
+    roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.5
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["PreservationEvent"]
+    class_class_curie: ClassVar[str] = "avefi:PreservationEvent"
+    class_name: ClassVar[str] = "PreservationEvent"
+    class_model_uri: ClassVar[URIRef] = AVEFI.PreservationEvent
+
+    category: Union[str, URIorCURIE] = None
+    type: Union[str, "PreservationEventTypeEnum"] = None
+    has_activity: Union[Union[dict, ManifestationActivity], List[Union[dict, ManifestationActivity]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, PreservationEventTypeEnum):
+            self.type = PreservationEventTypeEnum(self.type)
+
+        if self._is_empty(self.has_activity):
+            self.MissingRequiredField("has_activity")
+        if not isinstance(self.has_activity, list):
+            self.has_activity = [self.has_activity] if self.has_activity is not None else []
+        self.has_activity = [v if isinstance(v, ManifestationActivity) else ManifestationActivity(**as_dict(v)) for v in self.has_activity]
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class PublicationEvent(Event):
+    """
+    Publication event of a manifestation or possibly the first known publication of a work. Always specify the type of
+    event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the country
+    where the manifestation was published. Involved parties in various roles can be linked via has_activity. See also:
+    FIAF Moving Image Cataloguing Manual D.4.1
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["PublicationEvent"]
+    class_class_curie: ClassVar[str] = "avefi:PublicationEvent"
+    class_name: ClassVar[str] = "PublicationEvent"
+    class_model_uri: ClassVar[URIRef] = AVEFI.PublicationEvent
+
+    category: Union[str, URIorCURIE] = None
+    type: Union[str, "PublicationEventTypeEnum"] = None
+    has_activity: Optional[Union[Union[dict, ManifestationActivity], List[Union[dict, ManifestationActivity]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, PublicationEventTypeEnum):
+            self.type = PublicationEventTypeEnum(self.type)
+
+        if not isinstance(self.has_activity, list):
+            self.has_activity = [self.has_activity] if self.has_activity is not None else []
+        self.has_activity = [v if isinstance(v, ManifestationActivity) else ManifestationActivity(**as_dict(v)) for v in self.has_activity]
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class ManufactureEvent(Event):
+    """
+    Manufacture event of a manifestation. Always specify the type of event and if possible a date or a period of time
+    via has_date. Specify located_in as appropriate, e.g. the country where the labratory is located. Involved parties
+    in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.7
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["ManufactureEvent"]
+    class_class_curie: ClassVar[str] = "avefi:ManufactureEvent"
+    class_name: ClassVar[str] = "ManufactureEvent"
+    class_model_uri: ClassVar[URIRef] = AVEFI.ManufactureEvent
+
+    category: Union[str, URIorCURIE] = None
+    type: Union[str, "ManufactureEventTypeEnum"] = None
+    has_activity: Union[Union[dict, LaboratoryActivity], List[Union[dict, LaboratoryActivity]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.type):
+            self.MissingRequiredField("type")
+        if not isinstance(self.type, ManufactureEventTypeEnum):
+            self.type = ManufactureEventTypeEnum(self.type)
+
+        if self._is_empty(self.has_activity):
+            self.MissingRequiredField("has_activity")
+        if not isinstance(self.has_activity, list):
+            self.has_activity = [self.has_activity] if self.has_activity is not None else []
+        self.has_activity = [v if isinstance(v, LaboratoryActivity) else LaboratoryActivity(**as_dict(v)) for v in self.has_activity]
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class RightsCopyrightRegistrationEvent(Event):
+    """
+    Copyright and related rights registration event of a manifestation or possibly of a work/variant. Always specify
+    date via has_date. Specify located_in as appropriate, e.g. the country where the copyright was registered.
+    Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual
+    D.4.4
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["RightsCopyrightRegistrationEvent"]
+    class_class_curie: ClassVar[str] = "avefi:RightsCopyrightRegistrationEvent"
+    class_name: ClassVar[str] = "RightsCopyrightRegistrationEvent"
+    class_model_uri: ClassVar[URIRef] = AVEFI.RightsCopyrightRegistrationEvent
+
+    category: Union[str, URIorCURIE] = None
+    has_activity: Union[Union[dict, CopyrightAndDistributionActivity], List[Union[dict, CopyrightAndDistributionActivity]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.has_activity):
+            self.MissingRequiredField("has_activity")
+        if not isinstance(self.has_activity, list):
+            self.has_activity = [self.has_activity] if self.has_activity is not None else []
+        self.has_activity = [v if isinstance(v, CopyrightAndDistributionActivity) else CopyrightAndDistributionActivity(**as_dict(v)) for v in self.has_activity]
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class Title(YAMLRoot):
     """
     FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
     """
@@ -513,7 +1139,6 @@ class Title(Entity):
             self.has_ordering_name = str(self.has_ordering_name)
 
         super().__post_init__(**kwargs)
-        self.category = str(self.class_class_curie)
 
 
 @dataclass
@@ -525,6 +1150,7 @@ class ManifestationOrItem(MovingImageRecord):
     class_name: ClassVar[str] = "ManifestationOrItem"
     class_model_uri: ClassVar[URIRef] = AVEFI.ManifestationOrItem
 
+    category: Union[str, URIorCURIE] = None
     has_primary_title: Union[dict, Title] = None
     has_duration: Optional[Union[dict, "Duration"]] = None
     has_extent: Optional[Union[dict, "Extent"]] = None
@@ -551,11 +1177,13 @@ class ManifestationOrItem(MovingImageRecord):
             self.has_webresource = URI(self.has_webresource)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
 @dataclass
-class Duration(Entity):
+class Duration(YAMLRoot):
     """
     Total running time of the described object in ISO 8601 duration format. The examples section lists possible values
     for the has_value slot. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
@@ -578,11 +1206,10 @@ class Duration(Entity):
             self.has_precision = PrecisionEnum(self.has_precision)
 
         super().__post_init__(**kwargs)
-        self.category = str(self.class_class_curie)
 
 
 @dataclass
-class Extent(Entity):
+class Extent(YAMLRoot):
     """
     Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
     """
@@ -608,11 +1235,10 @@ class Extent(Entity):
             self.has_precision = PrecisionEnum(self.has_precision)
 
         super().__post_init__(**kwargs)
-        self.category = str(self.class_class_curie)
 
 
 @dataclass
-class Format(Entity):
+class Format(CategorizedThing):
     """
     FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
     """
@@ -623,6 +1249,7 @@ class Format(Entity):
     class_name: ClassVar[str] = "Format"
     class_model_uri: ClassVar[URIRef] = AVEFI.Format
 
+    category: Union[str, URIorCURIE] = None
     type: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -630,6 +1257,8 @@ class Format(Entity):
             self.type = str(self.type)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -645,6 +1274,7 @@ class Audio(Format):
     class_name: ClassVar[str] = "Audio"
     class_model_uri: ClassVar[URIRef] = AVEFI.Audio
 
+    category: Union[str, URIorCURIE] = None
     type: Optional[Union[str, "FormatAudioTypeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -652,6 +1282,8 @@ class Audio(Format):
             self.type = FormatAudioTypeEnum(self.type)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -667,6 +1299,7 @@ class DigitalFile(Format):
     class_name: ClassVar[str] = "DigitalFile"
     class_model_uri: ClassVar[URIRef] = AVEFI.DigitalFile
 
+    category: Union[str, URIorCURIE] = None
     type: Optional[Union[str, "FormatDigitalFileTypeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -674,6 +1307,8 @@ class DigitalFile(Format):
             self.type = FormatDigitalFileTypeEnum(self.type)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -689,6 +1324,7 @@ class DigitalFileEncoding(Format):
     class_name: ClassVar[str] = "DigitalFileEncoding"
     class_model_uri: ClassVar[URIRef] = AVEFI.DigitalFileEncoding
 
+    category: Union[str, URIorCURIE] = None
     type: Optional[Union[str, "FormatDigitalFileEncodingTypeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -696,6 +1332,8 @@ class DigitalFileEncoding(Format):
             self.type = FormatDigitalFileEncodingTypeEnum(self.type)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -711,6 +1349,7 @@ class Film(Format):
     class_name: ClassVar[str] = "Film"
     class_model_uri: ClassVar[URIRef] = AVEFI.Film
 
+    category: Union[str, URIorCURIE] = None
     type: Optional[Union[str, "FormatFilmTypeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -718,6 +1357,8 @@ class Film(Format):
             self.type = FormatFilmTypeEnum(self.type)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -733,6 +1374,7 @@ class Optical(Format):
     class_name: ClassVar[str] = "Optical"
     class_model_uri: ClassVar[URIRef] = AVEFI.Optical
 
+    category: Union[str, URIorCURIE] = None
     type: Optional[Union[str, "FormatOpticalTypeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -740,6 +1382,8 @@ class Optical(Format):
             self.type = FormatOpticalTypeEnum(self.type)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -755,6 +1399,7 @@ class Video(Format):
     class_name: ClassVar[str] = "Video"
     class_model_uri: ClassVar[URIRef] = AVEFI.Video
 
+    category: Union[str, URIorCURIE] = None
     type: Optional[Union[str, "FormatVideoTypeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -762,13 +1407,16 @@ class Video(Format):
             self.type = FormatVideoTypeEnum(self.type)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
 @dataclass
 class Manifestation(ManifestationOrItem):
     """
-    FIAF Moving Image Cataloguing Manual 2.0
+    Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as
+    publication event type
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -777,13 +1425,13 @@ class Manifestation(ManifestationOrItem):
     class_name: ClassVar[str] = "Manifestation"
     class_model_uri: ClassVar[URIRef] = AVEFI.Manifestation
 
+    category: Union[str, URIorCURIE] = None
     has_primary_title: Union[dict, Title] = None
     is_manifestation_of: Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]] = None
     has_colour_type: Optional[Union[str, "ColourTypeEnum"]] = None
     has_item: Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]] = empty_list()
     has_sound_type: Optional[Union[str, "SoundTypeEnum"]] = None
     same_as: Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]] = empty_list()
-    type: Optional[Union[str, "ManifestationTypeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.is_manifestation_of):
@@ -806,15 +1454,14 @@ class Manifestation(ManifestationOrItem):
             self.same_as = [self.same_as] if self.same_as is not None else []
         self.same_as = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.same_as]
 
-        if self.type is not None and not isinstance(self.type, ManifestationTypeEnum):
-            self.type = ManifestationTypeEnum(self.type)
-
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
 @dataclass
-class Language(Entity):
+class Language(YAMLRoot):
     """
     Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled
     vocabulary. See also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3
@@ -842,7 +1489,6 @@ class Language(Entity):
         self.usage = [v if isinstance(v, LanguageUsageEnum) else LanguageUsageEnum(v) for v in self.usage]
 
         super().__post_init__(**kwargs)
-        self.category = str(self.class_class_curie)
 
 
 @dataclass
@@ -857,6 +1503,7 @@ class Item(ManifestationOrItem):
     class_name: ClassVar[str] = "Item"
     class_model_uri: ClassVar[URIRef] = AVEFI.Item
 
+    category: Union[str, URIorCURIE] = None
     has_primary_title: Union[dict, Title] = None
     is_item_of: Union[dict, "AVefiResource"] = None
     element_type: Optional[Union[str, "ItemElementTypeEnum"]] = None
@@ -885,11 +1532,13 @@ class Item(ManifestationOrItem):
         self.is_derivative_of = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.is_derivative_of]
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
 @dataclass
-class MovingImageRecordCollection(Entity):
+class MovingImageRecordCollection(YAMLRoot):
     """
     A holder for MovingImageRecord objects
     """
@@ -908,11 +1557,10 @@ class MovingImageRecordCollection(Entity):
         self.has_record = [v if isinstance(v, MovingImageRecord) else MovingImageRecord(**as_dict(v)) for v in self.has_record]
 
         super().__post_init__(**kwargs)
-        self.category = str(self.class_class_curie)
 
 
 @dataclass
-class AuthorityResource(Entity):
+class AuthorityResource(CategorizedThing):
     """
     Root class for all identifiers from some kind of authority or public register widely accepted in the community
     """
@@ -923,6 +1571,7 @@ class AuthorityResource(Entity):
     class_name: ClassVar[str] = "AuthorityResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.AuthorityResource
 
+    category: Union[str, URIorCURIE] = None
     id: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -930,6 +1579,8 @@ class AuthorityResource(Entity):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -945,6 +1596,7 @@ class AVefiResource(AuthorityResource):
     class_name: ClassVar[str] = "AVefiResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.AVefiResource
 
+    category: Union[str, URIorCURIE] = None
     id: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -952,6 +1604,8 @@ class AVefiResource(AuthorityResource):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -968,6 +1622,7 @@ class DOIResource(AuthorityResource):
     class_name: ClassVar[str] = "DOIResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.DOIResource
 
+    category: Union[str, URIorCURIE] = None
     id: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -975,6 +1630,8 @@ class DOIResource(AuthorityResource):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -990,6 +1647,7 @@ class FilmportalResource(AuthorityResource):
     class_name: ClassVar[str] = "FilmportalResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.FilmportalResource
 
+    category: Union[str, URIorCURIE] = None
     id: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -997,6 +1655,8 @@ class FilmportalResource(AuthorityResource):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -1012,6 +1672,7 @@ class GNDResource(AuthorityResource):
     class_name: ClassVar[str] = "GNDResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.GNDResource
 
+    category: Union[str, URIorCURIE] = None
     id: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1019,6 +1680,8 @@ class GNDResource(AuthorityResource):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -1034,6 +1697,7 @@ class ISILResource(AuthorityResource):
     class_name: ClassVar[str] = "ISILResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.ISILResource
 
+    category: Union[str, URIorCURIE] = None
     id: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1041,6 +1705,8 @@ class ISILResource(AuthorityResource):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -1056,6 +1722,7 @@ class TGNResource(AuthorityResource):
     class_name: ClassVar[str] = "TGNResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.TGNResource
 
+    category: Union[str, URIorCURIE] = None
     id: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1063,6 +1730,8 @@ class TGNResource(AuthorityResource):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -1079,6 +1748,7 @@ class VIAFResource(AuthorityResource):
     class_name: ClassVar[str] = "VIAFResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.VIAFResource
 
+    category: Union[str, URIorCURIE] = None
     id: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1086,6 +1756,8 @@ class VIAFResource(AuthorityResource):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
@@ -1101,6 +1773,7 @@ class WikidataResource(AuthorityResource):
     class_name: ClassVar[str] = "WikidataResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.WikidataResource
 
+    category: Union[str, URIorCURIE] = None
     id: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1108,13 +1781,15 @@ class WikidataResource(AuthorityResource):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
 
 # Enumerations
-class ActivityTypeEnum(EnumDefinitionImpl):
+class AnimationActivityTypeEnum(EnumDefinitionImpl):
     """
-    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.13
     """
     Animation = PermissibleValue(
         text="Animation",
@@ -1148,6 +1823,16 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="ModelMaker",
         description="FIAF Glossary of Filmographic Terms B.13.17",
         meaning=FIAF["ModelMaker"])
+
+    _defn = EnumDefinition(
+        name="AnimationActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.13",
+    )
+
+class CastActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.7
+    """
     AnimalTrainer = PermissibleValue(
         text="AnimalTrainer",
         description="FIAF Glossary of Filmographic Terms B.7.12",
@@ -1200,10 +1885,30 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="Wrangler",
         description="FIAF Glossary of Filmographic Terms B.7.13",
         meaning=FIAF["Wrangler"])
+
+    _defn = EnumDefinition(
+        name="CastActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.7",
+    )
+
+class CensorshipActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.1
+    """
     Censor = PermissibleValue(
         text="Censor",
         description="FIAF Glossary of Filmographic Terms C.1.1",
         meaning=FIAF["Censor"])
+
+    _defn = EnumDefinition(
+        name="CensorshipActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.1",
+    )
+
+class CinematographyActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.5
+    """
     AerialPhotography = PermissibleValue(
         text="AerialPhotography",
         description="FIAF Glossary of Filmographic Terms B.5.4",
@@ -1284,6 +1989,16 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="VideoAssist",
         description="FIAF Glossary of Filmographic Terms B.5.10",
         meaning=FIAF["VideoAssist"])
+
+    _defn = EnumDefinition(
+        name="CinematographyActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.5",
+    )
+
+class CopyrightAndDistributionActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.2
+    """
     Distributor = PermissibleValue(
         text="Distributor",
         description="FIAF Glossary of Filmographic Terms C.2.3",
@@ -1312,6 +2027,16 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="WorldDistributor",
         description="FIAF Glossary of Filmographic Terms C.2.5",
         meaning=FIAF["WorldDistributor"])
+
+    _defn = EnumDefinition(
+        name="CopyrightAndDistributionActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.2",
+    )
+
+class DirectingActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.3
+    """
     AssistantDirector = PermissibleValue(
         text="AssistantDirector",
         description="FIAF Glossary of Filmographic Terms B.3.2",
@@ -1340,6 +2065,16 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="StuntArranger",
         description="FIAF Glossary of Filmographic Terms B.3.6",
         meaning=FIAF["StuntArranger"])
+
+    _defn = EnumDefinition(
+        name="DirectingActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.3",
+    )
+
+class EditingActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10
+    """
     AssistantFilmEditor = PermissibleValue(
         text="AssistantFilmEditor",
         description="FIAF Glossary of Filmographic Terms B.10.2",
@@ -1348,6 +2083,16 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="FilmEditor",
         description="FIAF Glossary of Filmographic Terms B.10.1",
         meaning=FIAF["FilmEditor"])
+
+    _defn = EnumDefinition(
+        name="EditingActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10",
+    )
+
+class LaboratoryActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.12
+    """
     Colorist = PermissibleValue(
         text="Colorist",
         description="FIAF Glossary of Filmographic Terms B.12.4",
@@ -1364,6 +2109,16 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="NegativeCutter",
         description="FIAF Glossary of Filmographic Terms B.12.3",
         meaning=FIAF["NegativeCutter"])
+
+    _defn = EnumDefinition(
+        name="LaboratoryActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.12",
+    )
+
+class MusicActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.11
+    """
     Choreographer = PermissibleValue(
         text="Choreographer",
         description="FIAF Glossary of Filmographic Terms B.11.15",
@@ -1408,6 +2163,16 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="SongComposer",
         description="FIAF Glossary of Filmographic Terms B.11.12",
         meaning=FIAF["SongComposer"])
+
+    _defn = EnumDefinition(
+        name="MusicActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.11",
+    )
+
+class ProducingActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.2
+    """
     Advisor = PermissibleValue(
         text="Advisor",
         description="FIAF Glossary of Filmographic Terms B.2.19",
@@ -1492,6 +2257,16 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="TransportationManager",
         description="FIAF Glossary of Filmographic Terms B.2.13",
         meaning=FIAF["TransportationManager"])
+
+    _defn = EnumDefinition(
+        name="ProducingActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.2",
+    )
+
+class ProductionDesignActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.6
+    """
     ArtDirector = PermissibleValue(
         text="ArtDirector",
         description="FIAF Glossary of Filmographic Terms B.6.2",
@@ -1576,10 +2351,30 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="WardrobeSupervisor",
         description="FIAF Glossary of Filmographic Terms B.6.15",
         meaning=FIAF["WardrobeSupervisor"])
+
+    _defn = EnumDefinition(
+        name="ProductionDesignActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.6",
+    )
+
+class PuppetActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.14
+    """
     Puppeteer = PermissibleValue(
         text="Puppeteer",
         description="FIAF Glossary of Filmographic Terms B.14.7",
         meaning=FIAF["Puppeteer"])
+
+    _defn = EnumDefinition(
+        name="PuppetActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.14",
+    )
+
+class SoundActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.9
+    """
     BoomOperator = PermissibleValue(
         text="BoomOperator",
         description="FIAF Glossary of Filmographic Terms B.9.4",
@@ -1632,6 +2427,16 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="SupervisingSoundEditor",
         description="FIAF Glossary of Filmographic Terms B.9.6",
         meaning=FIAF["SupervisingSoundEditor"])
+
+    _defn = EnumDefinition(
+        name="SoundActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.9",
+    )
+
+class SpecialEffectsActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.8
+    """
     Animatronics = PermissibleValue(
         text="Animatronics",
         description="FIAF Glossary of Filmographic Terms B.8.4",
@@ -1680,6 +2485,16 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="VisualEffects",
         description="FIAF Glossary of Filmographic Terms B.8.2",
         meaning=FIAF["VisualEffects"])
+
+    _defn = EnumDefinition(
+        name="SpecialEffectsActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.8",
+    )
+
+class WritingActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.4
+    """
     Adaptation = PermissibleValue(
         text="Adaptation",
         description="FIAF Glossary of Filmographic Terms B.4.11",
@@ -1720,6 +2535,40 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="Writer",
         description="FIAF Glossary of Filmographic Terms B.4.2",
         meaning=FIAF["Writer"])
+
+    _defn = EnumDefinition(
+        name="WritingActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.4",
+    )
+
+class ManifestationActivityTypeEnum(EnumDefinitionImpl):
+    """
+    Activity types / roles. See also: FIAF Moving Image Cataloguing Manual 2.4.1.1, D.8
+    """
+    AgentNotIdentified = PermissibleValue(
+        text="AgentNotIdentified",
+        description="FIAF Moving Image Cataloguing Manual D.8.11",
+        meaning=FIAF["AgentNotIdentified"])
+    AgentResponsibleForPreservation = PermissibleValue(
+        text="AgentResponsibleForPreservation",
+        description="FIAF Moving Image Cataloguing Manual D.8.6",
+        meaning=FIAF["AgentResponsibleForPreservation"])
+    AgentResponsibleForReproductionOrTransfer = PermissibleValue(
+        text="AgentResponsibleForReproductionOrTransfer",
+        description="FIAF Moving Image Cataloguing Manual D.8.7",
+        meaning=FIAF["AgentResponsibleForReproductionOrTransfer"])
+    AgentResponsibleForTheArchivalAvailability = PermissibleValue(
+        text="AgentResponsibleForTheArchivalAvailability",
+        description="FIAF Moving Image Cataloguing Manual D.8.8",
+        meaning=FIAF["AgentResponsibleForTheArchivalAvailability"])
+    AgentResponsibleForTheMereAvailability = PermissibleValue(
+        text="AgentResponsibleForTheMereAvailability",
+        description="FIAF Moving Image Cataloguing Manual D.8.9",
+        meaning=FIAF["AgentResponsibleForTheMereAvailability"])
+    AgentUnclearOrUndetermined = PermissibleValue(
+        text="AgentUnclearOrUndetermined",
+        description="FIAF Moving Image Cataloguing Manual D.8.10",
+        meaning=FIAF["AgentUnclearOrUndetermined"])
     Broadcaster = PermissibleValue(
         text="Broadcaster",
         description="FIAF Moving Image Cataloguing Manual D.8.3",
@@ -1732,14 +2581,21 @@ class ActivityTypeEnum(EnumDefinitionImpl):
         text="DistributorTheatrical",
         description="FIAF Moving Image Cataloguing Manual D.8.1",
         meaning=FIAF["DistributorTheatrical"])
+    Manufacturer = PermissibleValue(
+        text="Manufacturer",
+        description="FIAF Moving Image Cataloguing Manual D.8.5",
+        meaning=FIAF["Manufacturer"])
     Publisher = PermissibleValue(
         text="Publisher",
         description="FIAF Moving Image Cataloguing Manual D.8.4",
         meaning=FIAF["Publisher"])
+    UnknownActivity = PermissibleValue(
+        text="UnknownActivity",
+        description="FIAF Moving Image Cataloguing Manual 1.4.1.1, 2.4.1.1, 3.3.1.1")
 
     _defn = EnumDefinition(
-        name="ActivityTypeEnum",
-        description="Activity types / roles. See also: FIAF Glossary of Filmographic Terms B",
+        name="ManifestationActivityTypeEnum",
+        description="Activity types / roles. See also: FIAF Moving Image Cataloguing Manual 2.4.1.1, D.8",
     )
 
 class AgentTypeEnum(EnumDefinitionImpl):
@@ -1806,14 +2662,10 @@ class ColourTypeEnum(EnumDefinitionImpl):
         description="FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11",
     )
 
-class EventTypeEnum(EnumDefinitionImpl):
+class ManufactureEventTypeEnum(EnumDefinitionImpl):
     """
-    FIAF Moving Image Cataloguing Manual D
+    FIAF Moving Image Cataloguing Manual D.4.7, D.14
     """
-    ManufactureEvent = PermissibleValue(
-        text="ManufactureEvent",
-        description="FIAF Moving Image Cataloguing Manual D.4.7",
-        meaning=FIAF["ManufactureEvent"])
     FilmPrintingEvent = PermissibleValue(
         text="FilmPrintingEvent",
         description="FIAF Moving Image Cataloguing Manual D.14",
@@ -1838,10 +2690,16 @@ class EventTypeEnum(EnumDefinitionImpl):
         text="VideoCopyingEvent",
         description="FIAF Moving Image Cataloguing Manual D.14",
         meaning=FIAF["VideoCopyingEvent"])
-    PreservationEvent = PermissibleValue(
-        text="PreservationEvent",
-        description="FIAF Moving Image Cataloguing Manual D.4.5",
-        meaning=FIAF["PreservationEvent"])
+
+    _defn = EnumDefinition(
+        name="ManufactureEventTypeEnum",
+        description="FIAF Moving Image Cataloguing Manual D.4.7, D.14",
+    )
+
+class PreservationEventTypeEnum(EnumDefinitionImpl):
+    """
+    FIAF Moving Image Cataloguing Manual D.4.5
+    """
     DigitisationEvent = PermissibleValue(
         text="DigitisationEvent",
         description="FIAF Moving Image Cataloguing Manual D.12",
@@ -1858,10 +2716,16 @@ class EventTypeEnum(EnumDefinitionImpl):
         text="TransferEvent",
         description="FIAF Moving Image Cataloguing Manual D.12",
         meaning=FIAF["TransferEvent"])
-    ProductionEvent = PermissibleValue(
-        text="ProductionEvent",
-        description="FIAF Moving Image Cataloguing Manual D.4.3",
-        meaning=FIAF["ProductionEvent"])
+
+    _defn = EnumDefinition(
+        name="PreservationEventTypeEnum",
+        description="FIAF Moving Image Cataloguing Manual D.4.5",
+    )
+
+class ProductionEventTypeEnum(EnumDefinitionImpl):
+    """
+    Leave unset for main production event, otherwise see FIAF Moving Image Cataloguing Manual D.4.3, D.11
+    """
     CastingEvent = PermissibleValue(
         text="CastingEvent",
         description="FIAF Moving Image Cataloguing Manual D.11",
@@ -1878,10 +2742,16 @@ class EventTypeEnum(EnumDefinitionImpl):
         text="PostProductionEvent",
         description="FIAF Moving Image Cataloguing Manual D.11",
         meaning=FIAF["PostProductionEvent"])
-    PublicationEvent = PermissibleValue(
-        text="PublicationEvent",
-        description="FIAF Moving Image Cataloguing Manual D.4.1",
-        meaning=FIAF["PublicationEvent"])
+
+    _defn = EnumDefinition(
+        name="ProductionEventTypeEnum",
+        description="""Leave unset for main production event, otherwise see FIAF Moving Image Cataloguing Manual D.4.3, D.11""",
+    )
+
+class PublicationEventTypeEnum(EnumDefinitionImpl):
+    """
+    FIAF Moving Image Cataloguing Manual D.4.1, D.10
+    """
     BroadcastEvent = PermissibleValue(
         text="BroadcastEvent",
         description="FIAF Moving Image Cataloguing Manual D.10",
@@ -1922,14 +2792,10 @@ class EventTypeEnum(EnumDefinitionImpl):
         text="UnknownEvent",
         description="FIAF Moving Image Cataloguing Manual D.10",
         meaning=FIAF["UnknownEvent"])
-    RightsCopyrightRegistrationEvent = PermissibleValue(
-        text="RightsCopyrightRegistrationEvent",
-        description="FIAF Moving Image Cataloguing Manual D.4.4",
-        meaning=FIAF["RightsCopyrightRegistrationEvent"])
 
     _defn = EnumDefinition(
-        name="EventTypeEnum",
-        description="FIAF Moving Image Cataloguing Manual D",
+        name="PublicationEventTypeEnum",
+        description="FIAF Moving Image Cataloguing Manual D.4.1, D.10",
     )
 
 class FormatAudioTypeEnum(EnumDefinitionImpl):
@@ -2303,56 +3169,6 @@ class LanguageUsageEnum(EnumDefinitionImpl):
         description="FIAF Moving Image Cataloguing Manual 2.3.3, D.6",
     )
 
-class ManifestationTypeEnum(EnumDefinitionImpl):
-    """
-    FIAF Moving Image Cataloguing Manual D.5
-    """
-    Broadcast = PermissibleValue(
-        text="Broadcast",
-        description="FIAF Moving Image Cataloguing Manual D.5.7",
-        meaning=FIAF["BroadcastManifestation"])
-    HomeViewingPublication = PermissibleValue(
-        text="HomeViewingPublication",
-        description="FIAF Moving Image Cataloguing Manual D.5.6",
-        meaning=FIAF["HomeViewingPublicationManifestation"])
-    Internet = PermissibleValue(
-        text="Internet",
-        description="FIAF Moving Image Cataloguing Manual D.5.8",
-        meaning=FIAF["InternetManifestation"])
-    NonTheatricalDistribution = PermissibleValue(
-        text="NonTheatricalDistribution",
-        description="FIAF Moving Image Cataloguing Manual D.5.3",
-        meaning=FIAF["NonTheatricalDistribution"])
-    NotForRelease = PermissibleValue(
-        text="NotForRelease",
-        description="FIAF Moving Image Cataloguing Manual D.5.4",
-        meaning=FIAF["NotForReleaseManifestation"])
-    PreRelease = PermissibleValue(
-        text="PreRelease",
-        description="FIAF Moving Image Cataloguing Manual D.5.1",
-        meaning=FIAF["PreReleaseManifestation"])
-    PreservationRestoration = PermissibleValue(
-        text="PreservationRestoration",
-        description="FIAF Moving Image Cataloguing Manual D.5.9",
-        meaning=FIAF["PreservationRestorationManifestation"])
-    TheatricalDistribution = PermissibleValue(
-        text="TheatricalDistribution",
-        description="FIAF Moving Image Cataloguing Manual D.5.2",
-        meaning=FIAF["TheatricalDistribution"])
-    Unknown = PermissibleValue(
-        text="Unknown",
-        description="FIAF Moving Image Cataloguing Manual D.5.10",
-        meaning=FIAF["UnknownManifestation"])
-    Unreleased = PermissibleValue(
-        text="Unreleased",
-        description="FIAF Moving Image Cataloguing Manual D.5.5",
-        meaning=FIAF["UnreleasedManifestation"])
-
-    _defn = EnumDefinition(
-        name="ManifestationTypeEnum",
-        description="FIAF Moving Image Cataloguing Manual D.5",
-    )
-
 class PrecisionEnum(EnumDefinitionImpl):
     """
     Qualifier indicating the precision of an extent value or duration
@@ -2692,7 +3508,7 @@ slots.type = Slot(uri=AVEFI.type, name="type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.type, domain=None, range=Optional[str])
 
 slots.category = Slot(uri=RDF.type, name="category", curie=RDF.curie('type'),
-                   model_uri=AVEFI.category, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=AVEFI.category, domain=None, range=Union[str, URIorCURIE])
 
 slots.same_as = Slot(uri=AVEFI.same_as, name="same_as", curie=AVEFI.curie('same_as'),
                    model_uri=AVEFI.same_as, domain=None, range=Optional[Union[Union[dict, AuthorityResource], List[Union[dict, AuthorityResource]]]])
@@ -2821,7 +3637,55 @@ slots.Genre_same_as = Slot(uri=AVEFI.same_as, name="Genre_same_as", curie=AVEFI.
                    model_uri=AVEFI.Genre_same_as, domain=Genre, range=Optional[Union[Union[dict, "GNDResource"], List[Union[dict, "GNDResource"]]]])
 
 slots.Activity_type = Slot(uri=AVEFI.type, name="Activity_type", curie=AVEFI.curie('type'),
-                   model_uri=AVEFI.Activity_type, domain=Activity, range=Union[str, "ActivityTypeEnum"])
+                   model_uri=AVEFI.Activity_type, domain=Activity, range=str)
+
+slots.AnimationActivity_type = Slot(uri=AVEFI.type, name="AnimationActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.AnimationActivity_type, domain=AnimationActivity, range=Union[str, "AnimationActivityTypeEnum"])
+
+slots.CastActivity_type = Slot(uri=AVEFI.type, name="CastActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.CastActivity_type, domain=CastActivity, range=Union[str, "CastActivityTypeEnum"])
+
+slots.CensorshipActivity_type = Slot(uri=AVEFI.type, name="CensorshipActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.CensorshipActivity_type, domain=CensorshipActivity, range=Union[str, "CensorshipActivityTypeEnum"])
+
+slots.CinematographyActivity_type = Slot(uri=AVEFI.type, name="CinematographyActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.CinematographyActivity_type, domain=CinematographyActivity, range=Union[str, "CinematographyActivityTypeEnum"])
+
+slots.CopyrightAndDistributionActivity_type = Slot(uri=AVEFI.type, name="CopyrightAndDistributionActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.CopyrightAndDistributionActivity_type, domain=CopyrightAndDistributionActivity, range=Union[str, "CopyrightAndDistributionActivityTypeEnum"])
+
+slots.DirectingActivity_type = Slot(uri=AVEFI.type, name="DirectingActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.DirectingActivity_type, domain=DirectingActivity, range=Union[str, "DirectingActivityTypeEnum"])
+
+slots.EditingActivity_type = Slot(uri=AVEFI.type, name="EditingActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.EditingActivity_type, domain=EditingActivity, range=Union[str, "EditingActivityTypeEnum"])
+
+slots.LaboratoryActivity_type = Slot(uri=AVEFI.type, name="LaboratoryActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.LaboratoryActivity_type, domain=LaboratoryActivity, range=Union[str, "LaboratoryActivityTypeEnum"])
+
+slots.MusicActivity_type = Slot(uri=AVEFI.type, name="MusicActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.MusicActivity_type, domain=MusicActivity, range=Union[str, "MusicActivityTypeEnum"])
+
+slots.ProducingActivity_type = Slot(uri=AVEFI.type, name="ProducingActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.ProducingActivity_type, domain=ProducingActivity, range=Union[str, "ProducingActivityTypeEnum"])
+
+slots.ProductionDesignActivity_type = Slot(uri=AVEFI.type, name="ProductionDesignActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.ProductionDesignActivity_type, domain=ProductionDesignActivity, range=Union[str, "ProductionDesignActivityTypeEnum"])
+
+slots.PuppetActivity_type = Slot(uri=AVEFI.type, name="PuppetActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.PuppetActivity_type, domain=PuppetActivity, range=Union[str, "PuppetActivityTypeEnum"])
+
+slots.SoundActivity_type = Slot(uri=AVEFI.type, name="SoundActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.SoundActivity_type, domain=SoundActivity, range=Union[str, "SoundActivityTypeEnum"])
+
+slots.SpecialEffectsActivity_type = Slot(uri=AVEFI.type, name="SpecialEffectsActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.SpecialEffectsActivity_type, domain=SpecialEffectsActivity, range=Union[str, "SpecialEffectsActivityTypeEnum"])
+
+slots.WritingActivity_type = Slot(uri=AVEFI.type, name="WritingActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.WritingActivity_type, domain=WritingActivity, range=Union[str, "WritingActivityTypeEnum"])
+
+slots.ManifestationActivity_type = Slot(uri=AVEFI.type, name="ManifestationActivity_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.ManifestationActivity_type, domain=ManifestationActivity, range=Union[str, "ManifestationActivityTypeEnum"])
 
 slots.Agent_has_name = Slot(uri=SCHEMA.name, name="Agent_has_name", curie=SCHEMA.curie('name'),
                    model_uri=AVEFI.Agent_has_name, domain=Agent, range=str)
@@ -2829,8 +3693,32 @@ slots.Agent_has_name = Slot(uri=SCHEMA.name, name="Agent_has_name", curie=SCHEMA
 slots.Agent_type = Slot(uri=AVEFI.type, name="Agent_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.Agent_type, domain=Agent, range=Union[str, "AgentTypeEnum"])
 
-slots.Event_type = Slot(uri=AVEFI.type, name="Event_type", curie=AVEFI.curie('type'),
-                   model_uri=AVEFI.Event_type, domain=Event, range=Union[str, "EventTypeEnum"])
+slots.ProductionEvent_has_activity = Slot(uri=AVEFI.has_activity, name="ProductionEvent_has_activity", curie=AVEFI.curie('has_activity'),
+                   model_uri=AVEFI.ProductionEvent_has_activity, domain=ProductionEvent, range=Optional[Union[Union[dict, Activity], List[Union[dict, Activity]]]])
+
+slots.ProductionEvent_type = Slot(uri=AVEFI.type, name="ProductionEvent_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.ProductionEvent_type, domain=ProductionEvent, range=Optional[Union[str, "ProductionEventTypeEnum"]])
+
+slots.PreservationEvent_has_activity = Slot(uri=AVEFI.has_activity, name="PreservationEvent_has_activity", curie=AVEFI.curie('has_activity'),
+                   model_uri=AVEFI.PreservationEvent_has_activity, domain=PreservationEvent, range=Union[Union[dict, ManifestationActivity], List[Union[dict, ManifestationActivity]]])
+
+slots.PreservationEvent_type = Slot(uri=AVEFI.type, name="PreservationEvent_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.PreservationEvent_type, domain=PreservationEvent, range=Union[str, "PreservationEventTypeEnum"])
+
+slots.PublicationEvent_has_activity = Slot(uri=AVEFI.has_activity, name="PublicationEvent_has_activity", curie=AVEFI.curie('has_activity'),
+                   model_uri=AVEFI.PublicationEvent_has_activity, domain=PublicationEvent, range=Optional[Union[Union[dict, ManifestationActivity], List[Union[dict, ManifestationActivity]]]])
+
+slots.PublicationEvent_type = Slot(uri=AVEFI.type, name="PublicationEvent_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.PublicationEvent_type, domain=PublicationEvent, range=Union[str, "PublicationEventTypeEnum"])
+
+slots.ManufactureEvent_has_activity = Slot(uri=AVEFI.has_activity, name="ManufactureEvent_has_activity", curie=AVEFI.curie('has_activity'),
+                   model_uri=AVEFI.ManufactureEvent_has_activity, domain=ManufactureEvent, range=Union[Union[dict, LaboratoryActivity], List[Union[dict, LaboratoryActivity]]])
+
+slots.ManufactureEvent_type = Slot(uri=AVEFI.type, name="ManufactureEvent_type", curie=AVEFI.curie('type'),
+                   model_uri=AVEFI.ManufactureEvent_type, domain=ManufactureEvent, range=Union[str, "ManufactureEventTypeEnum"])
+
+slots.RightsCopyrightRegistrationEvent_has_activity = Slot(uri=AVEFI.has_activity, name="RightsCopyrightRegistrationEvent_has_activity", curie=AVEFI.curie('has_activity'),
+                   model_uri=AVEFI.RightsCopyrightRegistrationEvent_has_activity, domain=RightsCopyrightRegistrationEvent, range=Union[Union[dict, CopyrightAndDistributionActivity], List[Union[dict, CopyrightAndDistributionActivity]]])
 
 slots.Title_has_name = Slot(uri=SCHEMA.name, name="Title_has_name", curie=SCHEMA.curie('name'),
                    model_uri=AVEFI.Title_has_name, domain=Title, range=str)
@@ -2862,9 +3750,6 @@ slots.Video_type = Slot(uri=AVEFI.type, name="Video_type", curie=AVEFI.curie('ty
 
 slots.Manifestation_same_as = Slot(uri=AVEFI.same_as, name="Manifestation_same_as", curie=AVEFI.curie('same_as'),
                    model_uri=AVEFI.Manifestation_same_as, domain=Manifestation, range=Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]])
-
-slots.Manifestation_type = Slot(uri=AVEFI.type, name="Manifestation_type", curie=AVEFI.curie('type'),
-                   model_uri=AVEFI.Manifestation_type, domain=Manifestation, range=Optional[Union[str, "ManifestationTypeEnum"]])
 
 slots.AVefiResource_id = Slot(uri=AVEFI.id, name="AVefiResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.AVefiResource_id, domain=AVefiResource, range=Optional[str],

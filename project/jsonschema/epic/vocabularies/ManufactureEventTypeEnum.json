@@ -1,0 +1,14 @@
+{
+  "$id": "ManufactureEventTypeEnum",
+  "description": "FIAF Moving Image Cataloguing Manual D.4.7, D.14",
+  "enum": [
+    "FilmPrintingEvent",
+    "MasteringEvent",
+    "ScanningEvent",
+    "TelecineEvent",
+    "UploadingEvent",
+    "VideoCopyingEvent"
+  ],
+  "title": "ManufactureEventTypeEnum",
+  "type": "string"
+}

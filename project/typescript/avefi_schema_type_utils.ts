@@ -1,7 +1,7 @@
 /**
-* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.13
 */
-export enum ActivityTypeEnum {
+export enum AnimationActivityTypeEnum {
     
     /** FIAF Glossary of Filmographic Terms B.13.1 */
     Animation = "Animation",
@@ -19,6 +19,12 @@ export enum ActivityTypeEnum {
     LeadAnimator = "LeadAnimator",
     /** FIAF Glossary of Filmographic Terms B.13.17 */
     ModelMaker = "ModelMaker",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.7
+*/
+export enum CastActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.7.12 */
     AnimalTrainer = "AnimalTrainer",
     /** FIAF Glossary of Filmographic Terms B.7.1 */
@@ -45,8 +51,20 @@ export enum ActivityTypeEnum {
     Voices = "Voices",
     /** FIAF Glossary of Filmographic Terms B.7.13 */
     Wrangler = "Wrangler",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.1
+*/
+export enum CensorshipActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms C.1.1 */
     Censor = "Censor",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.5
+*/
+export enum CinematographyActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.5.4 */
     AerialPhotography = "AerialPhotography",
     /** FIAF Glossary of Filmographic Terms B.5.12 */
@@ -87,6 +105,12 @@ export enum ActivityTypeEnum {
     UnderwaterPhotography = "UnderwaterPhotography",
     /** FIAF Glossary of Filmographic Terms B.5.10 */
     VideoAssist = "VideoAssist",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.2
+*/
+export enum CopyrightAndDistributionActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms C.2.3 */
     Distributor = "Distributor",
     /** FIAF Glossary of Filmographic Terms C.2.6 */
@@ -101,6 +125,12 @@ export enum ActivityTypeEnum {
     RegionalDistributor = "RegionalDistributor",
     /** FIAF Glossary of Filmographic Terms C.2.5 */
     WorldDistributor = "WorldDistributor",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.3
+*/
+export enum DirectingActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.3.2 */
     AssistantDirector = "AssistantDirector",
     /** FIAF Glossary of Filmographic Terms B.3.4 */
@@ -115,10 +145,22 @@ export enum ActivityTypeEnum {
     SecondUnitDirector = "SecondUnitDirector",
     /** FIAF Glossary of Filmographic Terms B.3.6 */
     StuntArranger = "StuntArranger",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10
+*/
+export enum EditingActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.10.2 */
     AssistantFilmEditor = "AssistantFilmEditor",
     /** FIAF Glossary of Filmographic Terms B.10.1 */
     FilmEditor = "FilmEditor",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.12
+*/
+export enum LaboratoryActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.12.4 */
     Colorist = "Colorist",
     /** FIAF Glossary of Filmographic Terms B.12.1 */
@@ -127,6 +169,12 @@ export enum ActivityTypeEnum {
     LaboratoryTechnician = "LaboratoryTechnician",
     /** FIAF Glossary of Filmographic Terms B.12.3 */
     NegativeCutter = "NegativeCutter",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.11
+*/
+export enum MusicActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.11.15 */
     Choreographer = "Choreographer",
     /** FIAF Glossary of Filmographic Terms B.11.1 */
@@ -149,6 +197,12 @@ export enum ActivityTypeEnum {
     SingingVoice = "SingingVoice",
     /** FIAF Glossary of Filmographic Terms B.11.12 */
     SongComposer = "SongComposer",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.2
+*/
+export enum ProducingActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.2.19 */
     Advisor = "Advisor",
     /** FIAF Glossary of Filmographic Terms B.2.8 */
@@ -191,6 +245,12 @@ export enum ActivityTypeEnum {
     Studio = "Studio",
     /** FIAF Glossary of Filmographic Terms B.2.13 */
     TransportationManager = "TransportationManager",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.6
+*/
+export enum ProductionDesignActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.6.2 */
     ArtDirector = "ArtDirector",
     /** FIAF Glossary of Filmographic Terms B.6.3 */
@@ -233,8 +293,20 @@ export enum ActivityTypeEnum {
     TitleDesigner = "TitleDesigner",
     /** FIAF Glossary of Filmographic Terms B.6.15 */
     WardrobeSupervisor = "WardrobeSupervisor",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.14
+*/
+export enum PuppetActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.14.7 */
     Puppeteer = "Puppeteer",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.9
+*/
+export enum SoundActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.9.4 */
     BoomOperator = "BoomOperator",
     /** FIAF Glossary of Filmographic Terms B.9.8 */
@@ -261,6 +333,12 @@ export enum ActivityTypeEnum {
     SoundSupervisor = "SoundSupervisor",
     /** FIAF Glossary of Filmographic Terms B.9.6 */
     SupervisingSoundEditor = "SupervisingSoundEditor",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.8
+*/
+export enum SpecialEffectsActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.8.4 */
     Animatronics = "Animatronics",
     /** FIAF Glossary of Filmographic Terms B.8.7 */
@@ -285,6 +363,12 @@ export enum ActivityTypeEnum {
     SpecialEffects = "SpecialEffects",
     /** FIAF Glossary of Filmographic Terms B.8.2 */
     VisualEffects = "VisualEffects",
+};
+/**
+* Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.4
+*/
+export enum WritingActivityTypeEnum {
+    
     /** FIAF Glossary of Filmographic Terms B.4.11 */
     Adaptation = "Adaptation",
     /** FIAF Glossary of Filmographic Terms B.4.5 */
@@ -305,14 +389,36 @@ export enum ActivityTypeEnum {
     Stagedby = "Stagedby",
     /** FIAF Glossary of Filmographic Terms B.4.2 */
     Writer = "Writer",
+};
+/**
+* Activity types / roles. See also: FIAF Moving Image Cataloguing Manual 2.4.1.1, D.8
+*/
+export enum ManifestationActivityTypeEnum {
+    
+    /** FIAF Moving Image Cataloguing Manual D.8.11 */
+    AgentNotIdentified = "AgentNotIdentified",
+    /** FIAF Moving Image Cataloguing Manual D.8.6 */
+    AgentResponsibleForPreservation = "AgentResponsibleForPreservation",
+    /** FIAF Moving Image Cataloguing Manual D.8.7 */
+    AgentResponsibleForReproductionOrTransfer = "AgentResponsibleForReproductionOrTransfer",
+    /** FIAF Moving Image Cataloguing Manual D.8.8 */
+    AgentResponsibleForTheArchivalAvailability = "AgentResponsibleForTheArchivalAvailability",
+    /** FIAF Moving Image Cataloguing Manual D.8.9 */
+    AgentResponsibleForTheMereAvailability = "AgentResponsibleForTheMereAvailability",
+    /** FIAF Moving Image Cataloguing Manual D.8.10 */
+    AgentUnclearOrUndetermined = "AgentUnclearOrUndetermined",
     /** FIAF Moving Image Cataloguing Manual D.8.3 */
     Broadcaster = "Broadcaster",
     /** FIAF Moving Image Cataloguing Manual D.8.2 */
     DistributorNonTheatrical = "DistributorNonTheatrical",
     /** FIAF Moving Image Cataloguing Manual D.8.1 */
     DistributorTheatrical = "DistributorTheatrical",
+    /** FIAF Moving Image Cataloguing Manual D.8.5 */
+    Manufacturer = "Manufacturer",
     /** FIAF Moving Image Cataloguing Manual D.8.4 */
     Publisher = "Publisher",
+    /** FIAF Moving Image Cataloguing Manual 1.4.1.1, 2.4.1.1, 3.3.1.1 */
+    UnknownActivity = "UnknownActivity",
 };
 /**
 * FIAF Moving Image Cataloguing Manual 1.4.1
@@ -347,12 +453,10 @@ export enum ColourTypeEnum {
     Tinted = "Tinted",
 };
 /**
-* FIAF Moving Image Cataloguing Manual D
+* FIAF Moving Image Cataloguing Manual D.4.7, D.14
 */
-export enum EventTypeEnum {
+export enum ManufactureEventTypeEnum {
     
-    /** FIAF Moving Image Cataloguing Manual D.4.7 */
-    ManufactureEvent = "ManufactureEvent",
     /** FIAF Moving Image Cataloguing Manual D.14 */
     FilmPrintingEvent = "FilmPrintingEvent",
     /** FIAF Moving Image Cataloguing Manual D.14 */
@@ -365,8 +469,12 @@ export enum EventTypeEnum {
     UploadingEvent = "UploadingEvent",
     /** FIAF Moving Image Cataloguing Manual D.14 */
     VideoCopyingEvent = "VideoCopyingEvent",
-    /** FIAF Moving Image Cataloguing Manual D.4.5 */
-    PreservationEvent = "PreservationEvent",
+};
+/**
+* FIAF Moving Image Cataloguing Manual D.4.5
+*/
+export enum PreservationEventTypeEnum {
+    
     /** FIAF Moving Image Cataloguing Manual D.12 */
     DigitisationEvent = "DigitisationEvent",
     /** FIAF Moving Image Cataloguing Manual D.12 */
@@ -375,8 +483,12 @@ export enum EventTypeEnum {
     ReproductionEvent = "ReproductionEvent",
     /** FIAF Moving Image Cataloguing Manual D.12 */
     TransferEvent = "TransferEvent",
-    /** FIAF Moving Image Cataloguing Manual D.4.3 */
-    ProductionEvent = "ProductionEvent",
+};
+/**
+* Leave unset for main production event, otherwise see FIAF Moving Image Cataloguing Manual D.4.3, D.11
+*/
+export enum ProductionEventTypeEnum {
+    
     /** FIAF Moving Image Cataloguing Manual D.11 */
     CastingEvent = "CastingEvent",
     /** FIAF Moving Image Cataloguing Manual D.11 */
@@ -385,8 +497,12 @@ export enum EventTypeEnum {
     OutdoorShootingEvent = "OutdoorShootingEvent",
     /** FIAF Moving Image Cataloguing Manual D.11 */
     PostProductionEvent = "PostProductionEvent",
-    /** FIAF Moving Image Cataloguing Manual D.4.1 */
-    PublicationEvent = "PublicationEvent",
+};
+/**
+* FIAF Moving Image Cataloguing Manual D.4.1, D.10
+*/
+export enum PublicationEventTypeEnum {
+    
     /** FIAF Moving Image Cataloguing Manual D.10 */
     BroadcastEvent = "BroadcastEvent",
     /** FIAF Moving Image Cataloguing Manual D.10 */
@@ -407,8 +523,6 @@ export enum EventTypeEnum {
     TheatricalDistributionEvent = "TheatricalDistributionEvent",
     /** FIAF Moving Image Cataloguing Manual D.10 */
     UnknownEvent = "UnknownEvent",
-    /** FIAF Moving Image Cataloguing Manual D.4.4 */
-    RightsCopyrightRegistrationEvent = "RightsCopyrightRegistrationEvent",
 };
 /**
 * FIAF Moving Image Cataloguing Manual D.7.2
@@ -600,32 +714,6 @@ export enum LanguageUsageEnum {
     VoiceOver = "VoiceOver",
 };
 /**
-* FIAF Moving Image Cataloguing Manual D.5
-*/
-export enum ManifestationTypeEnum {
-    
-    /** FIAF Moving Image Cataloguing Manual D.5.7 */
-    Broadcast = "Broadcast",
-    /** FIAF Moving Image Cataloguing Manual D.5.6 */
-    HomeViewingPublication = "HomeViewingPublication",
-    /** FIAF Moving Image Cataloguing Manual D.5.8 */
-    Internet = "Internet",
-    /** FIAF Moving Image Cataloguing Manual D.5.3 */
-    NonTheatricalDistribution = "NonTheatricalDistribution",
-    /** FIAF Moving Image Cataloguing Manual D.5.4 */
-    NotForRelease = "NotForRelease",
-    /** FIAF Moving Image Cataloguing Manual D.5.1 */
-    PreRelease = "PreRelease",
-    /** FIAF Moving Image Cataloguing Manual D.5.9 */
-    PreservationRestoration = "PreservationRestoration",
-    /** FIAF Moving Image Cataloguing Manual D.5.2 */
-    TheatricalDistribution = "TheatricalDistribution",
-    /** FIAF Moving Image Cataloguing Manual D.5.10 */
-    Unknown = "Unknown",
-    /** FIAF Moving Image Cataloguing Manual D.5.5 */
-    Unreleased = "Unreleased",
-};
-/**
 * Qualifier indicating the precision of an extent value or duration
 */
 export enum PrecisionEnum {
@@ -798,21 +886,21 @@ export enum WorkFormEnum {
 
 
 /**
- * A generic grouping for all described things
+ * Root for all classes with subclasses in this schema
  */
-export interface Entity {
+export interface CategorizedThing {
     /** Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource) */
-    category?: string,
+    category: string,
 }
 
 
-export function isEntity(o: object): o is Entity {
+export function isCategorizedThing(o: object): o is CategorizedThing {
     return (
         'category' in o
     )
 }
 
-export function toEntity(o: Entity): Entity {
+export function toCategorizedThing(o: CategorizedThing): CategorizedThing {
     return {
         category: o.category ?? null
     }
@@ -821,7 +909,7 @@ export function toEntity(o: Entity): Entity {
 /**
  * Grouping for all entities that represent a PID metadata record
  */
-export interface PIDRecord extends Entity {
+export interface PIDRecord extends CategorizedThing {
     /** A unique identifier for a thing */
     id?: string,
 }
@@ -829,7 +917,6 @@ export interface PIDRecord extends Entity {
 
 export function isPIDRecord(o: object): o is PIDRecord {
     return (
-        'id' in o ||
         'category' in o
     )
 }
@@ -858,7 +945,8 @@ export interface MovingImageRecord extends PIDRecord {
 
 export function isMovingImageRecord(o: object): o is MovingImageRecord {
     return (
-        'has_primary_title' in o
+        'has_primary_title' in o &&
+        'category' in o
     )
 }
 
@@ -932,7 +1020,8 @@ export interface WorkVariant extends MovingImageRecord {
 export function isWorkVariant(o: object): o is WorkVariant {
     return (
         'type' in o &&
-        'has_primary_title' in o
+        'has_primary_title' in o &&
+        'category' in o
     )
 }
 
@@ -959,7 +1048,7 @@ export function toWorkVariant(o: WorkVariant): WorkVariant {
 /**
  * Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4
  */
-export interface GeographicName extends Entity {
+export interface GeographicName {
     has_alternate_name?: string[],
     /** A human-readable name for a thing */
     has_name: string,
@@ -978,15 +1067,14 @@ export function toGeographicName(o: GeographicName): GeographicName {
     return {
         has_alternate_name: o.has_alternate_name ?? [],
         has_name: o.has_name ?? '',
-        same_as: o.same_as ?? [],
-        category: o.category ?? null
+        same_as: o.same_as ?? []
     }
 }
 
 /**
  * Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters. Examples of genres are “westerns” and “thrillers”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.1
  */
-export interface Genre extends Entity {
+export interface Genre {
     has_alternate_name?: string[],
     /** A human-readable name for a thing */
     has_name: string,
@@ -1005,15 +1093,14 @@ export function toGenre(o: Genre): Genre {
     return {
         has_alternate_name: o.has_alternate_name ?? [],
         has_name: o.has_name ?? '',
-        same_as: o.same_as ?? [],
-        category: o.category ?? null
+        same_as: o.same_as ?? []
     }
 }
 
 /**
  * Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. Provide name and if at all possible identifier(s) from supported authorities in the same_as slot. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3
  */
-export interface Subject extends Entity {
+export interface Subject {
     has_alternate_name?: string[],
     /** A human-readable name for a thing */
     has_name: string,
@@ -1032,15 +1119,14 @@ export function toSubject(o: Subject): Subject {
     return {
         has_alternate_name: o.has_alternate_name ?? [],
         has_name: o.has_name ?? '',
-        same_as: o.same_as ?? [],
-        category: o.category ?? null
+        same_as: o.same_as ?? []
     }
 }
 
 /**
  * FIAF Moving Image Cataloguing Manual 1.4.1.1
  */
-export interface Activity extends Entity {
+export interface Activity extends CategorizedThing {
     /** Agent involved in some activity related to the moving image resource */
     has_agent: Agent[],
     /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
@@ -1051,11 +1137,380 @@ export interface Activity extends Entity {
 export function isActivity(o: object): o is Activity {
     return (
         'has_agent' in o &&
-        'type' in o
+        'type' in o &&
+        'category' in o
     )
 }
 
 export function toActivity(o: Activity): Activity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? '',
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.13
+ */
+export interface AnimationActivity extends Activity {
+}
+
+
+export function isAnimationActivity(o: object): o is AnimationActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toAnimationActivity(o: AnimationActivity): AnimationActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.7
+ */
+export interface CastActivity extends Activity {
+}
+
+
+export function isCastActivity(o: object): o is CastActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toCastActivity(o: CastActivity): CastActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.1
+ */
+export interface CensorshipActivity extends Activity {
+}
+
+
+export function isCensorshipActivity(o: object): o is CensorshipActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toCensorshipActivity(o: CensorshipActivity): CensorshipActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.5
+ */
+export interface CinematographyActivity extends Activity {
+}
+
+
+export function isCinematographyActivity(o: object): o is CinematographyActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toCinematographyActivity(o: CinematographyActivity): CinematographyActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.2
+ */
+export interface CopyrightAndDistributionActivity extends Activity {
+}
+
+
+export function isCopyrightAndDistributionActivity(o: object): o is CopyrightAndDistributionActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toCopyrightAndDistributionActivity(o: CopyrightAndDistributionActivity): CopyrightAndDistributionActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.3
+ */
+export interface DirectingActivity extends Activity {
+}
+
+
+export function isDirectingActivity(o: object): o is DirectingActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toDirectingActivity(o: DirectingActivity): DirectingActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10
+ */
+export interface EditingActivity extends Activity {
+}
+
+
+export function isEditingActivity(o: object): o is EditingActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toEditingActivity(o: EditingActivity): EditingActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.12
+ */
+export interface LaboratoryActivity extends Activity {
+}
+
+
+export function isLaboratoryActivity(o: object): o is LaboratoryActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toLaboratoryActivity(o: LaboratoryActivity): LaboratoryActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.11
+ */
+export interface MusicActivity extends Activity {
+}
+
+
+export function isMusicActivity(o: object): o is MusicActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toMusicActivity(o: MusicActivity): MusicActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.2
+ */
+export interface ProducingActivity extends Activity {
+}
+
+
+export function isProducingActivity(o: object): o is ProducingActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toProducingActivity(o: ProducingActivity): ProducingActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.6
+ */
+export interface ProductionDesignActivity extends Activity {
+}
+
+
+export function isProductionDesignActivity(o: object): o is ProductionDesignActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toProductionDesignActivity(o: ProductionDesignActivity): ProductionDesignActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.14
+ */
+export interface PuppetActivity extends Activity {
+}
+
+
+export function isPuppetActivity(o: object): o is PuppetActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toPuppetActivity(o: PuppetActivity): PuppetActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.9
+ */
+export interface SoundActivity extends Activity {
+}
+
+
+export function isSoundActivity(o: object): o is SoundActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toSoundActivity(o: SoundActivity): SoundActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.8
+ */
+export interface SpecialEffectsActivity extends Activity {
+}
+
+
+export function isSpecialEffectsActivity(o: object): o is SpecialEffectsActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toSpecialEffectsActivity(o: SpecialEffectsActivity): SpecialEffectsActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.4
+ */
+export interface WritingActivity extends Activity {
+}
+
+
+export function isWritingActivity(o: object): o is WritingActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toWritingActivity(o: WritingActivity): WritingActivity {
+    return {
+        has_agent: o.has_agent ?? [],
+        type: o.type ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Activity types / roles. See also: FIAF Moving Image Cataloguing Manual 2.4.1.1, D.8
+ */
+export interface ManifestationActivity extends Activity {
+}
+
+
+export function isManifestationActivity(o: object): o is ManifestationActivity {
+    return (
+        'has_agent' in o &&
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toManifestationActivity(o: ManifestationActivity): ManifestationActivity {
     return {
         has_agent: o.has_agent ?? [],
         type: o.type ?? null,
@@ -1066,7 +1521,7 @@ export function toActivity(o: Activity): Activity {
 /**
  * Agent involved in some activity related to the moving image resource. For agents of type "Person" specify name according to the convention "family name, given name"
  */
-export interface Agent extends Entity {
+export interface Agent {
     has_alternate_name?: string[],
     /** For natural persons, always use the convention "family name, given name" */
     has_name: string,
@@ -1089,28 +1544,25 @@ export function toAgent(o: Agent): Agent {
         has_alternate_name: o.has_alternate_name ?? [],
         has_name: o.has_name ?? '',
         same_as: o.same_as ?? [],
-        type: o.type ?? null,
-        category: o.category ?? null
+        type: o.type ?? null
     }
 }
 
 /**
  * Significant event in the lifecycle of moving image work / variant, manifestation or item. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the country where the principal offices or production facilities of the production company are located for a production event. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual 1.4.2, 2.4.2, 3.3.2
  */
-export interface Event extends Entity {
+export interface Event extends CategorizedThing {
     /** Associate activity (and subsequently agents) with event */
     has_activity?: Activity[],
     /** Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information */
     has_date?: string,
     located_in?: GeographicName[],
-    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
-    type: string,
 }
 
 
 export function isEvent(o: object): o is Event {
     return (
-        'type' in o
+        'category' in o
     )
 }
 
@@ -1119,7 +1571,134 @@ export function toEvent(o: Event): Event {
         has_activity: o.has_activity ?? [],
         has_date: o.has_date ?? '',
         located_in: o.located_in ?? [],
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Production event of a work/variant (or manifestation produced as a restoration). Provide a date or a period of time via has_date and specify located_in as appropriate, e.g. the country where the principal offices or production facilities of the production company are located. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.3
+ */
+export interface ProductionEvent extends Event {
+    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
+    type?: string,
+}
+
+
+export function isProductionEvent(o: object): o is ProductionEvent {
+    return (
+        'category' in o
+    )
+}
+
+export function toProductionEvent(o: ProductionEvent): ProductionEvent {
+    return {
         type: o.type ?? null,
+        has_activity: o.has_activity ?? [],
+        has_date: o.has_date ?? '',
+        located_in: o.located_in ?? [],
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Preservation event originating a manifestation or possibly a vaniant. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.5
+ */
+export interface PreservationEvent extends Event {
+    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
+    type: string,
+}
+
+
+export function isPreservationEvent(o: object): o is PreservationEvent {
+    return (
+        'type' in o &&
+        'has_activity' in o &&
+        'category' in o
+    )
+}
+
+export function toPreservationEvent(o: PreservationEvent): PreservationEvent {
+    return {
+        type: o.type ?? null,
+        has_activity: o.has_activity ?? [],
+        has_date: o.has_date ?? '',
+        located_in: o.located_in ?? [],
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Publication event of a manifestation or possibly the first known publication of a work. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the country where the manifestation was published. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.1
+ */
+export interface PublicationEvent extends Event {
+    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
+    type: string,
+}
+
+
+export function isPublicationEvent(o: object): o is PublicationEvent {
+    return (
+        'type' in o &&
+        'category' in o
+    )
+}
+
+export function toPublicationEvent(o: PublicationEvent): PublicationEvent {
+    return {
+        type: o.type ?? null,
+        has_activity: o.has_activity ?? [],
+        has_date: o.has_date ?? '',
+        located_in: o.located_in ?? [],
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Manufacture event of a manifestation. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the country where the labratory is located. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.7
+ */
+export interface ManufactureEvent extends Event {
+    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
+    type: string,
+}
+
+
+export function isManufactureEvent(o: object): o is ManufactureEvent {
+    return (
+        'type' in o &&
+        'has_activity' in o &&
+        'category' in o
+    )
+}
+
+export function toManufactureEvent(o: ManufactureEvent): ManufactureEvent {
+    return {
+        type: o.type ?? null,
+        has_activity: o.has_activity ?? [],
+        has_date: o.has_date ?? '',
+        located_in: o.located_in ?? [],
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Copyright and related rights registration event of a manifestation or possibly of a work/variant. Always specify date via has_date. Specify located_in as appropriate, e.g. the country where the copyright was registered. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.4
+ */
+export interface RightsCopyrightRegistrationEvent extends Event {
+}
+
+
+export function isRightsCopyrightRegistrationEvent(o: object): o is RightsCopyrightRegistrationEvent {
+    return (
+        'has_activity' in o &&
+        'category' in o
+    )
+}
+
+export function toRightsCopyrightRegistrationEvent(o: RightsCopyrightRegistrationEvent): RightsCopyrightRegistrationEvent {
+    return {
+        has_activity: o.has_activity ?? [],
+        has_date: o.has_date ?? '',
+        located_in: o.located_in ?? [],
         category: o.category ?? null
     }
 }
@@ -1127,7 +1706,7 @@ export function toEvent(o: Event): Event {
 /**
  * FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
  */
-export interface Title extends Entity {
+export interface Title {
     /** A human-readable name for a thing */
     has_name: string,
     /** Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name */
@@ -1148,8 +1727,7 @@ export function toTitle(o: Title): Title {
     return {
         has_name: o.has_name ?? '',
         has_ordering_name: o.has_ordering_name ?? '',
-        type: o.type ?? null,
-        category: o.category ?? null
+        type: o.type ?? null
     }
 }
 
@@ -1169,7 +1747,8 @@ export interface ManifestationOrItem extends MovingImageRecord {
 
 export function isManifestationOrItem(o: object): o is ManifestationOrItem {
     return (
-        'has_primary_title' in o
+        'has_primary_title' in o &&
+        'category' in o
     )
 }
 
@@ -1193,7 +1772,7 @@ export function toManifestationOrItem(o: ManifestationOrItem): ManifestationOrIt
 /**
  * Total running time of the described object in ISO 8601 duration format. The examples section lists possible values for the has_value slot. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
  */
-export interface Duration extends Entity {
+export interface Duration {
     /** Value of some quantity */
     has_value?: string,
     /** Qualifier indicating the precision of an extent value or duration */
@@ -1204,23 +1783,21 @@ export interface Duration extends Entity {
 export function isDuration(o: object): o is Duration {
     return (
         'has_value' in o ||
-        'has_precision' in o ||
-        'category' in o
+        'has_precision' in o
     )
 }
 
 export function toDuration(o: Duration): Duration {
     return {
         has_value: o.has_value ?? '',
-        has_precision: o.has_precision ?? null,
-        category: o.category ?? null
+        has_precision: o.has_precision ?? null
     }
 }
 
 /**
  * Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
  */
-export interface Extent extends Entity {
+export interface Extent {
     /** Unit of some quantity */
     has_unit?: string,
     /** Value of some quantity */
@@ -1234,8 +1811,7 @@ export function isExtent(o: object): o is Extent {
     return (
         'has_unit' in o ||
         'has_value' in o ||
-        'has_precision' in o ||
-        'category' in o
+        'has_precision' in o
     )
 }
 
@@ -1243,15 +1819,14 @@ export function toExtent(o: Extent): Extent {
     return {
         has_unit: o.has_unit ?? null,
         has_value: o.has_value ?? null,
-        has_precision: o.has_precision ?? null,
-        category: o.category ?? null
+        has_precision: o.has_precision ?? null
     }
 }
 
 /**
  * FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
  */
-export interface Format extends Entity {
+export interface Format extends CategorizedThing {
     /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
     type?: string,
 }
@@ -1259,7 +1834,6 @@ export interface Format extends Entity {
 
 export function isFormat(o: object): o is Format {
     return (
-        'type' in o ||
         'category' in o
     )
 }
@@ -1280,7 +1854,6 @@ export interface Audio extends Format {
 
 export function isAudio(o: object): o is Audio {
     return (
-        'type' in o ||
         'category' in o
     )
 }
@@ -1301,7 +1874,6 @@ export interface DigitalFile extends Format {
 
 export function isDigitalFile(o: object): o is DigitalFile {
     return (
-        'type' in o ||
         'category' in o
     )
 }
@@ -1322,7 +1894,6 @@ export interface DigitalFileEncoding extends Format {
 
 export function isDigitalFileEncoding(o: object): o is DigitalFileEncoding {
     return (
-        'type' in o ||
         'category' in o
     )
 }
@@ -1343,7 +1914,6 @@ export interface Film extends Format {
 
 export function isFilm(o: object): o is Film {
     return (
-        'type' in o ||
         'category' in o
     )
 }
@@ -1364,7 +1934,6 @@ export interface Optical extends Format {
 
 export function isOptical(o: object): o is Optical {
     return (
-        'type' in o ||
         'category' in o
     )
 }
@@ -1385,7 +1954,6 @@ export interface Video extends Format {
 
 export function isVideo(o: object): o is Video {
     return (
-        'type' in o ||
         'category' in o
     )
 }
@@ -1398,7 +1966,7 @@ export function toVideo(o: Video): Video {
 }
 
 /**
- * FIAF Moving Image Cataloguing Manual 2.0
+ * Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as publication event type
  */
 export interface Manifestation extends ManifestationOrItem {
     /** FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11 */
@@ -1411,15 +1979,14 @@ export interface Manifestation extends ManifestationOrItem {
     is_manifestation_of: AVefiResource[],
     /** Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work */
     same_as?: AVefiResource[],
-    /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
-    type?: string,
 }
 
 
 export function isManifestation(o: object): o is Manifestation {
     return (
         'is_manifestation_of' in o &&
-        'has_primary_title' in o
+        'has_primary_title' in o &&
+        'category' in o
     )
 }
 
@@ -1430,7 +1997,6 @@ export function toManifestation(o: Manifestation): Manifestation {
         has_sound_type: o.has_sound_type ?? null,
         is_manifestation_of: o.is_manifestation_of ?? [],
         same_as: o.same_as ?? [],
-        type: o.type ?? null,
         has_duration: o.has_duration ?? {},
         has_extent: o.has_extent ?? {},
         has_format: o.has_format ?? [],
@@ -1449,7 +2015,7 @@ export function toManifestation(o: Manifestation): Manifestation {
 /**
  * Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled vocabulary. See also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3
  */
-export interface Language extends Entity {
+export interface Language {
     /** ISO 639-2 code for the Representation of Names of Languages (Part 2: Alpha-3) */
     code: string,
     usage: string,
@@ -1466,8 +2032,7 @@ export function isLanguage(o: object): o is Language {
 export function toLanguage(o: Language): Language {
     return {
         code: o.code ?? '',
-        usage: o.usage ?? null,
-        category: o.category ?? null
+        usage: o.usage ?? null
     }
 }
 
@@ -1489,7 +2054,8 @@ export interface Item extends ManifestationOrItem {
 export function isItem(o: object): o is Item {
     return (
         'is_item_of' in o &&
-        'has_primary_title' in o
+        'has_primary_title' in o &&
+        'category' in o
     )
 }
 
@@ -1518,7 +2084,7 @@ export function toItem(o: Item): Item {
 /**
  * A holder for MovingImageRecord objects
  */
-export interface MovingImageRecordCollection extends Entity {
+export interface MovingImageRecordCollection {
     /** Root slot holding the moving image metadata record(s) */
     has_record?: MovingImageRecord[],
 }
@@ -1526,22 +2092,20 @@ export interface MovingImageRecordCollection extends Entity {
 
 export function isMovingImageRecordCollection(o: object): o is MovingImageRecordCollection {
     return (
-        'has_record' in o ||
-        'category' in o
+        'has_record' in o
     )
 }
 
 export function toMovingImageRecordCollection(o: MovingImageRecordCollection): MovingImageRecordCollection {
     return {
-        has_record: o.has_record ?? [],
-        category: o.category ?? null
+        has_record: o.has_record ?? []
     }
 }
 
 /**
  * Root class for all identifiers from some kind of authority or public register widely accepted in the community
  */
-export interface AuthorityResource extends Entity {
+export interface AuthorityResource extends CategorizedThing {
     /** A unique identifier for a thing */
     id?: string,
 }
@@ -1549,7 +2113,6 @@ export interface AuthorityResource extends Entity {
 
 export function isAuthorityResource(o: object): o is AuthorityResource {
     return (
-        'id' in o ||
         'category' in o
     )
 }
@@ -1570,7 +2133,6 @@ export interface AVefiResource extends AuthorityResource {
 
 export function isAVefiResource(o: object): o is AVefiResource {
     return (
-        'id' in o ||
         'category' in o
     )
 }
@@ -1591,7 +2153,6 @@ export interface DOIResource extends AuthorityResource {
 
 export function isDOIResource(o: object): o is DOIResource {
     return (
-        'id' in o ||
         'category' in o
     )
 }
@@ -1612,7 +2173,6 @@ export interface FilmportalResource extends AuthorityResource {
 
 export function isFilmportalResource(o: object): o is FilmportalResource {
     return (
-        'id' in o ||
         'category' in o
     )
 }
@@ -1633,7 +2193,6 @@ export interface GNDResource extends AuthorityResource {
 
 export function isGNDResource(o: object): o is GNDResource {
     return (
-        'id' in o ||
         'category' in o
     )
 }
@@ -1654,7 +2213,6 @@ export interface ISILResource extends AuthorityResource {
 
 export function isISILResource(o: object): o is ISILResource {
     return (
-        'id' in o ||
         'category' in o
     )
 }
@@ -1675,7 +2233,6 @@ export interface TGNResource extends AuthorityResource {
 
 export function isTGNResource(o: object): o is TGNResource {
     return (
-        'id' in o ||
         'category' in o
     )
 }
@@ -1696,7 +2253,6 @@ export interface VIAFResource extends AuthorityResource {
 
 export function isVIAFResource(o: object): o is VIAFResource {
     return (
-        'id' in o ||
         'category' in o
     )
 }
@@ -1717,7 +2273,6 @@ export interface WikidataResource extends AuthorityResource {
 
 export function isWikidataResource(o: object): o is WikidataResource {
     return (
-        'id' in o ||
         'category' in o
     )
 }
