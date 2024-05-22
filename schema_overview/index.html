@@ -473,7 +473,7 @@ diagram</a></p>
 </tr>
 <tr>
 <td><a href="../Manifestation/">Manifestation</a></td>
-<td>FIAF Moving Image Cataloguing Manual 2.0</td>
+<td>Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0.</td>
 </tr>
 <tr>
 <td><a href="../Item/">Item</a></td>
@@ -488,8 +488,92 @@ diagram</a></p>
 <td>Name of country, region or other location.</td>
 </tr>
 <tr>
+<td><a href="../ProductionEvent/">ProductionEvent</a></td>
+<td>Production event of a work/variant (or manifestation produced as a restoration).</td>
+</tr>
+<tr>
+<td><a href="../PreservationEvent/">PreservationEvent</a></td>
+<td>Preservation event originating a manifestation or possibly a vaniant.</td>
+</tr>
+<tr>
+<td><a href="../PublicationEvent/">PublicationEvent</a></td>
+<td>Publication event of a manifestation or possibly the first known publication of a work.</td>
+</tr>
+<tr>
+<td><a href="../ManufactureEvent/">ManufactureEvent</a></td>
+<td>Manufacture event of a manifestation.</td>
+</tr>
+<tr>
+<td><a href="../RightsCopyrightRegistrationEvent/">RightsCopyrightRegistrationEvent</a></td>
+<td>Copyright and related rights registration event of a manifestation or possibly of a work/variant.</td>
+</tr>
+<tr>
 <td><a href="../Event/">Event</a></td>
 <td>Significant event in the lifecycle of moving image work / variant, manifestation or item.</td>
+</tr>
+<tr>
+<td><a href="../AnimationActivity/">AnimationActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../CastActivity/">CastActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../CensorshipActivity/">CensorshipActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../CinematographyActivity/">CinematographyActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../CopyrightAndDistributionActivity/">CopyrightAndDistributionActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../DirectingActivity/">DirectingActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../EditingActivity/">EditingActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../LaboratoryActivity/">LaboratoryActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../MusicActivity/">MusicActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../ProducingActivity/">ProducingActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../ProductionDesignActivity/">ProductionDesignActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../PuppetActivity/">PuppetActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../SoundActivity/">SoundActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../SpecialEffectsActivity/">SpecialEffectsActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../WritingActivity/">WritingActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../ManifestationActivity/">ManifestationActivity</a></td>
+<td>Activity types / roles.</td>
 </tr>
 <tr>
 <td><a href="../Activity/">Activity</a></td>
@@ -584,8 +668,8 @@ diagram</a></p>
 <td>A holder for MovingImageRecord objects</td>
 </tr>
 <tr>
-<td><a href="../Entity/">Entity</a></td>
-<td>A generic grouping for all described things</td>
+<td><a href="../CategorizedThing/">CategorizedThing</a></td>
+<td>Root for all classes with subclasses in this schema</td>
 </tr>
 <tr>
 <td><a href="../PIDRecord/">PIDRecord</a></td>
@@ -621,6 +705,10 @@ diagram</a></p>
 <tr>
 <td><a href="../has_record/">has_record</a></td>
 <td>Root slot holding the moving image metadata record(s)</td>
+</tr>
+<tr>
+<td><a href="../category/">category</a></td>
+<td>Designates type, e.g.</td>
 </tr>
 <tr>
 <td><a href="../has_primary_title/">has_primary_title</a></td>
@@ -673,6 +761,14 @@ diagram</a></p>
 <tr>
 <td><a href="../in_language/">in_language</a></td>
 <td>FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3</td>
+</tr>
+<tr>
+<td><a href="../code/">code</a></td>
+<td>ISO 639-2 code for the Representation of Names of Languages (Part 2: Alpha-3)</td>
+</tr>
+<tr>
+<td><a href="../usage/">usage</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../has_form/">has_form</a></td>
@@ -771,10 +867,6 @@ diagram</a></p>
 <td>A unique identifier for a thing</td>
 </tr>
 <tr>
-<td><a href="../category/">category</a></td>
-<td>Designates type, e.g.</td>
-</tr>
-<tr>
 <td><a href="../described_by/">described_by</a></td>
 <td>Also record some metadata about the PID itself rather than the identified object</td>
 </tr>
@@ -794,14 +886,6 @@ diagram</a></p>
 <td><a href="../last_modified/">last_modified</a></td>
 <td>Timestamp (in UTC) for the latest modification to any field in the PID metadata record</td>
 </tr>
-<tr>
-<td><a href="../code/">code</a></td>
-<td>ISO 639-2 code for the Representation of Names of Languages (Part 2: Alpha-3)</td>
-</tr>
-<tr>
-<td><a href="../usage/">usage</a></td>
-<td></td>
-</tr>
 </tbody>
 </table>
 <h2 id="enumerations">Enumerations</h2>
@@ -814,7 +898,91 @@ diagram</a></p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../ActivityTypeEnum/">ActivityTypeEnum</a></td>
+<td><a href="../WorkVariantTypeEnum/">WorkVariantTypeEnum</a></td>
+<td>Work/Variant description type.</td>
+</tr>
+<tr>
+<td><a href="../TitleTypeEnum/">TitleTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual A.2</td>
+</tr>
+<tr>
+<td><a href="../ManufactureEventTypeEnum/">ManufactureEventTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.4.7, D.14</td>
+</tr>
+<tr>
+<td><a href="../PreservationEventTypeEnum/">PreservationEventTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.4.5</td>
+</tr>
+<tr>
+<td><a href="../ProductionEventTypeEnum/">ProductionEventTypeEnum</a></td>
+<td>Leave unset for main production event, otherwise see FIAF Moving Image Cataloguing Manual D.4.3, D.11</td>
+</tr>
+<tr>
+<td><a href="../PublicationEventTypeEnum/">PublicationEventTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.4.1, D.10</td>
+</tr>
+<tr>
+<td><a href="../AnimationActivityTypeEnum/">AnimationActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../CastActivityTypeEnum/">CastActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../CensorshipActivityTypeEnum/">CensorshipActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../CinematographyActivityTypeEnum/">CinematographyActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../CopyrightAndDistributionActivityTypeEnum/">CopyrightAndDistributionActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../DirectingActivityTypeEnum/">DirectingActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../EditingActivityTypeEnum/">EditingActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../LaboratoryActivityTypeEnum/">LaboratoryActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../MusicActivityTypeEnum/">MusicActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../ProducingActivityTypeEnum/">ProducingActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../ProductionDesignActivityTypeEnum/">ProductionDesignActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../PuppetActivityTypeEnum/">PuppetActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../SoundActivityTypeEnum/">SoundActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../SpecialEffectsActivityTypeEnum/">SpecialEffectsActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../WritingActivityTypeEnum/">WritingActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="../ManifestationActivityTypeEnum/">ManifestationActivityTypeEnum</a></td>
 <td>Activity types / roles.</td>
 </tr>
 <tr>
@@ -822,12 +990,16 @@ diagram</a></p>
 <td>FIAF Moving Image Cataloguing Manual 1.4.1</td>
 </tr>
 <tr>
-<td><a href="../ColourTypeEnum/">ColourTypeEnum</a></td>
-<td>FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11</td>
+<td><a href="../LanguageUsageEnum/">LanguageUsageEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2.3.3, D.6</td>
 </tr>
 <tr>
-<td><a href="../EventTypeEnum/">EventTypeEnum</a></td>
-<td>FIAF Moving Image Cataloguing Manual D</td>
+<td><a href="../WorkFormEnum/">WorkFormEnum</a></td>
+<td>FIAF Glossary of Filmographic Terms D.1.9</td>
+</tr>
+<tr>
+<td><a href="../VariantTypeEnum/">VariantTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.2</td>
 </tr>
 <tr>
 <td><a href="../FormatAudioTypeEnum/">FormatAudioTypeEnum</a></td>
@@ -854,48 +1026,28 @@ diagram</a></p>
 <td>FIAF Moving Image Cataloguing Manual D.7.2</td>
 </tr>
 <tr>
-<td><a href="../ItemAccessStatusEnum/">ItemAccessStatusEnum</a></td>
-<td>FIAF Moving Image Cataloguing Manual D.7.3</td>
-</tr>
-<tr>
-<td><a href="../ItemElementTypeEnum/">ItemElementTypeEnum</a></td>
-<td>FIAF Moving Image Cataloguing Manual D.7.8</td>
-</tr>
-<tr>
-<td><a href="../LanguageUsageEnum/">LanguageUsageEnum</a></td>
-<td>FIAF Moving Image Cataloguing Manual 2.3.3, D.6</td>
-</tr>
-<tr>
-<td><a href="../ManifestationTypeEnum/">ManifestationTypeEnum</a></td>
-<td>FIAF Moving Image Cataloguing Manual D.5</td>
-</tr>
-<tr>
 <td><a href="../PrecisionEnum/">PrecisionEnum</a></td>
 <td>Qualifier indicating the precision of an extent value or duration</td>
-</tr>
-<tr>
-<td><a href="../SoundTypeEnum/">SoundTypeEnum</a></td>
-<td>FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4</td>
-</tr>
-<tr>
-<td><a href="../TitleTypeEnum/">TitleTypeEnum</a></td>
-<td>FIAF Moving Image Cataloguing Manual A.2</td>
 </tr>
 <tr>
 <td><a href="../UnitEnum/">UnitEnum</a></td>
 <td>Units of measurement.</td>
 </tr>
 <tr>
-<td><a href="../VariantTypeEnum/">VariantTypeEnum</a></td>
-<td>FIAF Moving Image Cataloguing Manual D.2</td>
+<td><a href="../ColourTypeEnum/">ColourTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11</td>
 </tr>
 <tr>
-<td><a href="../WorkVariantTypeEnum/">WorkVariantTypeEnum</a></td>
-<td>Work/Variant description type.</td>
+<td><a href="../SoundTypeEnum/">SoundTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4</td>
 </tr>
 <tr>
-<td><a href="../WorkFormEnum/">WorkFormEnum</a></td>
-<td>FIAF Glossary of Filmographic Terms D.1.9</td>
+<td><a href="../ItemElementTypeEnum/">ItemElementTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.8</td>
+</tr>
+<tr>
+<td><a href="../ItemAccessStatusEnum/">ItemAccessStatusEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.3</td>
 </tr>
 </tbody>
 </table>

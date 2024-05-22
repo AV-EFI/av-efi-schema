@@ -153,13 +153,6 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#inheritance">
-<span class="md-ellipsis">
-      Inheritance
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#slots">
 <span class="md-ellipsis">
       Slots
@@ -236,11 +229,6 @@
 <pre class="mermaid"><code> classDiagram
     class Agent
     click Agent href "../Agent"
-      Entity &lt;|-- Agent
-        click Entity href "../Entity"
-
-      Agent : category
-
       Agent : has_alternate_name
 
       Agent : has_name
@@ -264,13 +252,7 @@
 
 
 </code></pre>
-<h2 id="inheritance">Inheritance</h2>
-<ul>
-<li><a href="../Entity/">Entity</a><ul>
-<li><strong>Agent</strong></li>
-</ul>
-</li>
-</ul>
+<!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
 <table>
 <thead>
@@ -306,12 +288,6 @@
 <td>See specific class documentation for controlled vocabulary applicable to the type slot, respectively</td>
 <td>direct</td>
 </tr>
-<tr>
-<td><a href="../category/">category</a></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>Designates type, e.g.</td>
-<td><a href="../Entity/">Entity</a></td>
-</tr>
 </tbody>
 </table>
 <h2 id="usages">Usages</h2>
@@ -327,6 +303,102 @@
 <tbody>
 <tr>
 <td><a href="../Activity/">Activity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../AnimationActivity/">AnimationActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../CastActivity/">CastActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../CensorshipActivity/">CensorshipActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../CinematographyActivity/">CinematographyActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../CopyrightAndDistributionActivity/">CopyrightAndDistributionActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../DirectingActivity/">DirectingActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../EditingActivity/">EditingActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../LaboratoryActivity/">LaboratoryActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../MusicActivity/">MusicActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../ProducingActivity/">ProducingActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../ProductionDesignActivity/">ProductionDesignActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../PuppetActivity/">PuppetActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../SoundActivity/">SoundActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../SpecialEffectsActivity/">SpecialEffectsActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../WritingActivity/">WritingActivity</a></td>
+<td><a href="../has_agent/">has_agent</a></td>
+<td>range</td>
+<td><a href="./">Agent</a></td>
+</tr>
+<tr>
+<td><a href="../ManifestationActivity/">ManifestationActivity</a></td>
 <td><a href="../has_agent/">has_agent</a></td>
 <td>range</td>
 <td><a href="./">Agent</a></td>
@@ -374,7 +446,6 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:Agent</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foaf:Agent</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18</span>
-<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="nt">slots</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_alternate_name</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_name</span>
@@ -397,10 +468,12 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkVariant</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Activity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Event</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProductionEvent</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PreservationEvent</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PublicationEvent</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ManufactureEvent</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Title</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Format</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Manifestation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgentTypeEnum</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
@@ -416,7 +489,6 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fiaf:Agent</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foaf:Agent</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18</span>
-<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">has_name</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_name</span>
@@ -434,10 +506,12 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkVariant</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Activity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Event</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProductionEvent</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PreservationEvent</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PublicationEvent</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ManufactureEvent</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Title</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Format</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Manifestation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgentTypeEnum</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
@@ -503,25 +577,14 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkVariant</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Activity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Event</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProductionEvent</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PreservationEvent</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PublicationEvent</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ManufactureEvent</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Title</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Format</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Manifestation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgentTypeEnum</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">category</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Designates type, e.g. to distinguish different identifiers (GNDResource</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">vs. VIAFResource)</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdf:type</span>
-<span class="w">    </span><span class="nt">designates_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
 </code></pre></div>
 </details>
 </article>
