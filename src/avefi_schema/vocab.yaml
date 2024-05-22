@@ -1375,7 +1375,7 @@ enums:
           3.3.1.1
 
   AgentTypeEnum:
-    rank: 18
+    rank: 9
     description: >-
       FIAF Moving Image Cataloguing Manual 1.4.1
     permissible_values:
@@ -1389,6 +1389,7 @@ enums:
         meaning: fiaf:PersonGroup
 
   ColourTypeEnum:
+    rank: 27
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11
     permissible_values:
@@ -1513,6 +1514,7 @@ enums:
         meaning: fiaf:UnknownEvent
 
   FormatAudioTypeEnum:
+    rank: 23
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
@@ -1574,6 +1576,7 @@ enums:
         meaning: fiaf:TwoInchAudioReel
 
   FormatDigitalFileEncodingTypeEnum:
+    rank: 23
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
@@ -1627,6 +1630,7 @@ enums:
         meaning: fiaf:WindowsMedia
 
   FormatDigitalFileTypeEnum:
+    rank: 23
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
@@ -1672,6 +1676,7 @@ enums:
         meaning: fiaf:MXF
 
   FormatFilmTypeEnum:
+    rank: 23
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
@@ -1741,6 +1746,7 @@ enums:
         meaning: fiaf:Super8mmFilm
 
   FormatOpticalTypeEnum:
+    rank: 23
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
@@ -1778,6 +1784,7 @@ enums:
         meaning: fiaf:LaserDisc
 
   FormatVideoTypeEnum:
+    rank: 23
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
@@ -1837,6 +1844,7 @@ enums:
         meaning: fiaf:HDCAMSR
 
   ItemAccessStatusEnum:
+    rank: 36
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.3
     permissible_values:
@@ -1856,6 +1864,7 @@ enums:
         meaning: fiaf:Viewing
 
   ItemElementTypeEnum:
+    rank: 33
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.8
     permissible_values:
@@ -1903,6 +1912,7 @@ enums:
         meaning: fiaf:SoundNegative
 
   LanguageUsageEnum:
+    rank: 12
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.3, D.6
     permissible_values:
@@ -1954,6 +1964,7 @@ enums:
           - Add documentation
 
   PrecisionEnum:
+    rank: 26
     description: >-
       Qualifier indicating the precision of an extent value or
       duration
@@ -1968,6 +1979,7 @@ enums:
           as well be off the mark
 
   SoundTypeEnum:
+    rank: 27
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4
     permissible_values:
@@ -1997,6 +2009,7 @@ enums:
         meaning: fiaf:Temporary
 
   TitleTypeEnum:
+    rank: 2
     description: >-
       FIAF Moving Image Cataloguing Manual A.2
     permissible_values:
@@ -2041,6 +2054,7 @@ enums:
         meaning: fiaf:WorkingTitle
 
   UnitEnum:
+    rank: 26
     description: >-
       Units of measurement. Definitions are taken from the Quantities,
       Units, Dimensions and Data Types Ontologies (QUDT)
@@ -2073,6 +2087,7 @@ enums:
         meaning: unit:TeraBYTE
 
   VariantTypeEnum:
+    rank: 18
     description: FIAF Moving Image Cataloguing Manual D.2
     permissible_values:
       AbridgedCondensed:
@@ -2107,6 +2122,7 @@ enums:
         meaning: fiaf:Subtitled
 
   WorkVariantTypeEnum:
+    rank: 1
     description: >-
       Work/Variant description type. See also: FIAF Moving Image
       Cataloguing Manual 1.2.1, D.1
@@ -2136,6 +2152,7 @@ enums:
         meaning: fiaf:Serial
 
   WorkFormEnum:
+    rank: 14
     description: >-
       FIAF Glossary of Filmographic Terms D.1.9
     permissible_values:
