@@ -168,8 +168,6 @@ def task_python():
             ('gen-python', python_model),
             ('gen-pydantic --pydantic-version 2', python_model.with_stem(
                 f"{python_model.stem}_pydantic_v2")),
-            ('gen-pydantic --pydantic-version 1', python_model.with_stem(
-                f"{python_model.stem}_pydantic_v1")),
     ]:
         yield {
             'name': cmd,
