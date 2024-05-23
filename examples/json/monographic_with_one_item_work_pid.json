@@ -1,11 +1,9 @@
 {
-  "category": "avefi:MovingImageRecordCollection",
   "has_record":
     {
       "category": "avefi:WorkVariant",
       "id": "21.T11998/60BC0D95-6F00-4E84-B77B-F3174C211C12",
       "has_primary_title": {
-        "category": "avefi:Title",
         "has_name": "Menschen am Sonntag – Das Dokument der Gegenwart",
         "type": "PreferredTitle"
       },
@@ -16,14 +14,12 @@
       },
       "has_event": [
         {
-          "category": "avefi:Event",
-          "type": "ProductionEvent",
+          "category": "avefi:ProductionEvent",
           "has_activity": [
             {
-              "category": "avefi:Activity",
+              "category": "avefi:CastActivity",
               "has_agent": [
                 {
-                  "category": "avefi:Agent",
                   "has_name": "Borchert, Brigitte",
                   "type": "Person",
                   "same_as": [
@@ -34,7 +30,6 @@
                   ]
                 },
                 {
-                  "category": "avefi:Agent",
                   "has_name": "Splettstößer, Erwin",
                   "type": "Person",
                   "same_as": [
@@ -45,7 +40,6 @@
                   ]
                 },
                 {
-                  "category": "avefi:Agent",
                   "has_name": "Waltershausen, Wolfgang von",
                   "type": "Person",
                   "same_as": [
@@ -59,10 +53,9 @@
               "type": "CastMember"
             },
             {
-              "category": "avefi:Activity",
+              "category": "avefi:WritingActivity",
               "has_agent": [
                 {
-                  "category": "avefi:Agent",
                   "has_name": "Wilder, Billy",
                   "type": "Person",
                   "same_as": [
@@ -76,10 +69,9 @@
               "type": "Writer"
             },
             {
-              "category": "avefi:Activity",
+              "category": "avefi:DirectingActivity",
               "has_agent": [
                 {
-                  "category": "avefi:Agent",
                   "has_name": "Siodmak, Robert",
                   "type": "Person",
                   "same_as": [
@@ -90,7 +82,6 @@
                   ]
                 },
                 {
-                  "category": "avefi:Agent",
                   "has_name": "Ulmer, Edgar G.",
                   "type": "Person",
                   "same_as": [
@@ -101,7 +92,6 @@
                   ]
                 },
                 {
-                  "category": "avefi:Agent",
                   "has_name": "Gliese, Rochus",
                   "type": "Person",
                   "same_as": [
@@ -115,10 +105,9 @@
               "type": "Director"
             },
             {
-              "category": "avefi:Activity",
+              "category": "avefi:CinematographyActivity",
               "has_agent": [
                 {
-                  "category": "avefi:Agent",
                   "has_name": "Schüfftan, Eugen",
                   "type": "Person",
                   "same_as": [
@@ -129,13 +118,12 @@
                   ]
                 }
               ],
-              "type": "CameraOperator"
+              "type": "Cinematographer"
             },
             {
-              "category": "avefi:Activity",
+              "category": "avefi:EditingActivity",
               "has_agent": [
                 {
-                  "category": "avefi:Agent",
                   "has_name": "Siodmak, Robert",
                   "type": "Person",
                   "same_as": [
@@ -149,10 +137,9 @@
               "type": "FilmEditor"
             },
             {
-              "category": "avefi:Activity",
+              "category": "avefi:MusicActivity",
               "has_agent": [
                 {
-                  "category": "avefi:Agent",
                   "has_name": "Stenzel, Otto",
                   "type": "Person"
                 }
@@ -163,12 +150,11 @@
           "has_date": "1929/1930",
           "located_in": [
             {
-              "category": "avefi:GeographicName",
               "has_name": "Germany (German Reich)",
               "same_as": [
                 {
                   "category": "avefi:GNDResource",
-                  "id": "4011882-4"
+                  "id": "2008993-4"
                 }
               ]
             }
@@ -178,7 +164,6 @@
       "type": "Monographic",
       "has_genre": [
         {
-          "category": "avefi:Genre",
           "has_name": "Fiction"
         }
       ],
