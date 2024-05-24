@@ -1,43 +1,72 @@
 {
-  "category": "avefi:MovingImageRecordCollection",
   "has_record":
     {
       "category": "avefi:Manifestation",
       "id": "21.T11998/F5471B8A-FF4D-407A-BC72-D63A8E53EAC0",
       "has_primary_title": {
-        "category": "avefi:Title",
         "has_name": "Menschen am Sonntag",
         "type": "TitleProper"
       },
       "has_event": [
         {
-          "category": "avefi:Event",
-          "type": "ProductionEvent",
-          "has_date": "2013/2014"
+          "category": "avefi:PreservationEvent",
+          "has_activity": [
+            {
+              "category": "avefi:ManifestationActivity",
+              "has_agent": [
+                {
+                  "has_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+                  "type": "CorporateBody",
+                  "same_as": [
+                    {
+                      "category": "avefi:ISILResource",
+                      "id": "DE-MUS-407010"
+                    }
+                  ]
+                }
+              ],
+              "type": "AgentResponsibleForReproductionOrTransfer"
+            },
+            {
+              "category": "avefi:ManifestationActivity",
+              "has_agent": [
+                {
+                  "has_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+                  "type": "CorporateBody",
+                  "same_as": [
+                    {
+                      "category": "avefi:ISILResource",
+                      "id": "DE-MUS-407010"
+                    }
+                  ]
+                }
+              ],
+              "type": "AgentResponsibleForTheArchivalAvailability"
+            }
+          ],
+          "has_date": "2013/2014",
+          "type": "ReproductionEvent"
         },
         {
-          "category": "avefi:Event",
-          "type": "ReleaseEvent",
-          "has_date": "2014"
+          "category": "avefi:PublicationEvent",
+          "has_date": "2014",
+          "type": "ReleaseEvent"
         }
       ],
       "in_language": [
         {
-          "category": "avefi:Language",
           "code": "deu",
           "usage": [
             "Intertitles"
           ]
         },
         {
-          "category": "avefi:Language",
           "code": "eng",
           "usage": [
             "Subtitles"
           ]
         },
         {
-          "category": "avefi:Language",
           "code": "fra",
           "usage": [
             "Subtitles"
@@ -57,7 +86,6 @@
           "id": "21.T11998/5CB143FE-756A-456E-B839-D2E8BB04E9D4"
         }
       ],
-      "has_sound_type": "Sound",
-      "type": "PreservationRestoration"
+      "has_sound_type": "Sound"
     }
 }

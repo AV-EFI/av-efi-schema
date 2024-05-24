@@ -1,6 +1,9 @@
+# Only import modules from standard library here. Everything else
+# should be imported from within function definition blocks (not
+# starting with task_). This way, task_sync() gets a chance to update
+# dependencies transparently even for this module
 import copy
 import json
-import jsonref
 from pathlib import Path
 from urllib.request import urlopen
 
@@ -34,6 +37,9 @@ JSON_SCHEMA = PROJECT_DIR / 'jsonschema' / SCHEMA_NAME \
     / f"{SRC_MODEL.stem}.schema.json"
 EPIC_SCHEMA_DIR = PROJECT_DIR / 'jsonschema' / 'epic'
 EPIC_VOCAB_DIR = EPIC_SCHEMA_DIR / 'vocabularies'
+EPIC_VOCAB_BASE_URL = \
+    f"https://raw.githubusercontent.com/AV-EFI/av-efi-schema/main/"\
+    f"{'/'.join(EPIC_VOCAB_DIR.relative_to(HERE).parts)}/"
 PID_SCHEMAS = [
     EPIC_SCHEMA_DIR / f"{SRC_MODEL.stem}_{subschema}.schema.json"
     for subschema in ('workvariant', 'manifestation', 'item')
@@ -86,9 +92,12 @@ def generate_json_enum_files(dependencies, targets):
 
 def expand_and_split_json_schema(dependencies, targets):
     """Generate separate schemas for work, manifestation and item."""
+    import jsonref
+
     schema_path = Path(dependencies[0])
     with schema_path.open('r') as f:
-        schema = jsonref.load(f, proxies=False, jsonschema=True)
+        schema = jsonref.load(f, jsonschema=True)
+    jsonref._walk_refs(schema, _expand_refs_except_enums, replace=True)
     for i in range(len(schema['properties']['has_record']['items']['anyOf'])):
         name = schema['properties']['has_record']['items']['anyOf'][i]['title']
         output = copy.deepcopy(schema)
@@ -106,6 +115,26 @@ def expand_and_split_json_schema(dependencies, targets):
             f" {PID_SCHEMAS}"
         with output_path.open('w') as f:
             jsonref.dump(output, f, indent=4)
+
+
+def _expand_refs_except_enums(obj):
+    """Expand internal references and make category a const."""
+    if obj.__reference__['$ref'].endswith('Enum'):
+        # Replace by external $ref to enum in Github repo
+        result = obj.__reference__
+        enum_name = result['$ref'].split('/')[-1]
+        result['$ref'] = f"{EPIC_VOCAB_BASE_URL}{enum_name}.json"
+    else:
+        # Replace by referenced object and do some minor transformations
+        result = obj.__subject__
+        properties = result.get('properties')
+        if properties:
+            category = properties.get('category')
+            if category and 'enum' in category:
+                category['const'] = category['enum'][0]
+                del category['enum']
+                del category['type']
+    return result
 
 
 def task_pid_schema():
@@ -139,8 +168,6 @@ def task_python():
             ('gen-python', python_model),
             ('gen-pydantic --pydantic-version 2', python_model.with_stem(
                 f"{python_model.stem}_pydantic_v2")),
-            ('gen-pydantic --pydantic-version 1', python_model.with_stem(
-                f"{python_model.stem}_pydantic_v1")),
     ]:
         yield {
             'name': cmd,

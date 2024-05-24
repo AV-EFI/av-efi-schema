@@ -1,16 +1,13 @@
 {
-  "category": "avefi:MovingImageRecordCollection",
   "has_record":
     {
       "category": "avefi:Item",
       "id": "21.T11998/5CB143FE-756A-456E-B839-D2E8BB04E9D4",
       "has_primary_title": {
-        "category": "avefi:Title",
         "has_name": "Menschen am Sonntag",
         "type": "TitleProper"
       },
       "has_extent": {
-        "category": "avefi:Extent",
         "has_unit": "GigaByte",
         "has_value": 113
       },

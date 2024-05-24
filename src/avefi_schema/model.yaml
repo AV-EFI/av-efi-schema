@@ -704,6 +704,7 @@ classes:
     rank: 21
     attributes:
       code:
+        rank: 12
         pattern: ^[a-z]{3}$
         required: true
         description: >-
@@ -712,6 +713,7 @@ classes:
         see_also:
           - https://id.loc.gov/vocabulary/iso639-2.html
       usage:
+        rank: 12
         multivalued: true
         range: LanguageUsageEnum
         required: true

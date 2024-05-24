@@ -1,5 +1,5 @@
 [project]
-name = "av-efi-schema"
+name = "avefi_schema"
 version = "0.1.0"
 description = "Schema for persistent film identifiers developed in the AVefi project"
 authors = [
@@ -24,6 +24,9 @@ build-backend = "pdm.backend"
 
 [tool.pdm]
 distribution = true
+
+[tool.pdm.build]
+package-dir = "project/python/"
 
 [tool.pdm.dev-dependencies]
 dev = [
