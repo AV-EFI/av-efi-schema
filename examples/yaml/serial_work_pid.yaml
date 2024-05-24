@@ -1,6 +1,6 @@
 ---
 has_record:
-- category: avefi:WorkVariant
+  category: avefi:WorkVariant
   type: Serial
   id: PID-ID1
   has_primary_title:
@@ -100,90 +100,6 @@ has_record:
   has_genre:
   - has_name: Crime
   described_by:
-    has_issuer_id: DE-MUS-407010
+    has_issuer_id: https://w3id.org/isil/DE-MUS-407010
     has_issuer_name: Deutsche Kinemathek - Museum für Film und Fernsehen
     last_modified: '2024-05-15T14:33:21Z'
-- category: avefi:WorkVariant
-  type: Monographic
-  id: PID-ID1.1
-  is_part_of:
-  - category: avefi:LocalResource
-    id: PID-ID1
-  has_primary_title:
-    type: PreferredTitle
-    has_name: Im Angesicht des Verbrechens. Berlin ist das Paradies
-  has_event:
-  - category: avefi:ProductionEvent
-    has_date: 2008/2010
-    located_in:
-    - has_name: Germany
-      same_as:
-      - category: avefi:GNDResource
-        id: 4011882-4
-    has_activity:
-    - category: avefi:DirectingActivity
-      type: Director
-      has_agent:
-      - type: Person
-        has_name: Graf, Dominik
-        same_as:
-        - category: avefi:GNDResource
-          id: '120745305'
-        - category: avefi:FilmportalResource
-          id: '9d20d1edbfda48ae8d93c0e05da3de5f'
-- category: avefi:WorkVariant
-  type: Monographic
-  id: PID-ID1.2
-  is_part_of:
-  - category: avefi:LocalResource
-    id: PID-ID1
-  has_primary_title:
-    type: PreferredTitle
-    has_name: Im Angesicht des Verbrechens. Wo wir sind, ist vorne
-  has_event:
-  - category: avefi:ProductionEvent
-    has_date: 2008/2010
-    located_in:
-    - has_name: Germany
-      same_as:
-      - category: avefi:GNDResource
-        id: 4011882-4
-    has_activity:
-    - category: avefi:DirectingActivity
-      type: Director
-      has_agent:
-      - type: Person
-        has_name: Graf, Dominik
-        same_as:
-        - category: avefi:GNDResource
-          id: '120745305'
-        - category: avefi:FilmportalResource
-          id: '9d20d1edbfda48ae8d93c0e05da3de5f'    
-- category: avefi:WorkVariant
-  type: Monographic
-  id: PID-ID1.3
-  is_part_of:
-  - category: avefi:LocalResource
-    id: PID-ID1
-  has_primary_title:
-    type: PreferredTitle
-    has_name: Im Angesicht des Verbrechens. Der Überfall
-  has_event:
-  - category: avefi:ProductionEvent
-    has_date: 2008/2010
-    located_in:
-    - has_name: Germany
-      same_as:
-      - category: avefi:GNDResource
-        id: 4011882-4
-    has_activity:
-    - category: avefi:DirectingActivity
-      type: Director
-      has_agent:
-      - type: Person
-        has_name: Graf, Dominik
-        same_as:
-        - category: avefi:GNDResource
-          id: '120745305'
-        - category: avefi:FilmportalResource
-          id: '9d20d1edbfda48ae8d93c0e05da3de5f'
