@@ -1070,8 +1070,13 @@ slots:
       Identifier for the responsible party as an URI suitable for
       linked data
     examples:
+      - value: https://w3id.org/isil/DE-MUS-432511
+        description: >-
+          Link based on ISIL of the Filmmuseum Düsseldorf (preferred)
       - value: https://ld.zdb-services.de/resource/organisations/DE-MUS-432511
-        description: ISIL of the Filmmuseum Düsseldorf
+        description: >-
+          ISIL of the Filmmuseum Düsseldorf resolved via Deutsche
+          ISIL-Agentur directly
 
   has_issuer_name:
     slot_uri: dcterms:contributor
