@@ -18,6 +18,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "AVefiResource",
@@ -386,6 +387,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "DOIResource",
@@ -397,10 +399,12 @@
             "properties": {
                 "has_history": {
                     "description": "Link to revision history of this PID",
+                    "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
                 "has_issuer_id": {
                     "description": "Identifier for the responsible party as an URI suitable for linked data",
+                    "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
                 "has_issuer_name": {
@@ -628,6 +632,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "FilmportalResource",
@@ -731,6 +736,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "GNDResource",
@@ -835,6 +841,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "ISILResource",
@@ -937,6 +944,7 @@
                 },
                 "has_webresource": {
                     "description": "Link to data provider's own presentation of manifestation or item on the web",
+                    "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
                 "id": {
@@ -1201,6 +1209,7 @@
                 },
                 "has_webresource": {
                     "description": "Link to data provider's own presentation of manifestation or item on the web",
+                    "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
                 "id": {
@@ -1342,29 +1351,26 @@
             "title": "ManufactureEventTypeEnum",
             "type": "string"
         },
-        "MovingImageRecordCollection": {
+        "MovingImageRecordContainer": {
             "additionalProperties": false,
             "description": "A holder for MovingImageRecord objects",
             "properties": {
                 "has_record": {
-                    "description": "Root slot holding the moving image metadata record(s)",
-                    "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/WorkVariant"
-                            },
-                            {
-                                "$ref": "#/$defs/Manifestation"
-                            },
-                            {
-                                "$ref": "#/$defs/Item"
-                            }
-                        ]
-                    },
-                    "type": "array"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/WorkVariant"
+                        },
+                        {
+                            "$ref": "#/$defs/Manifestation"
+                        },
+                        {
+                            "$ref": "#/$defs/Item"
+                        }
+                    ],
+                    "description": "Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual"
                 }
             },
-            "title": "MovingImageRecordCollection",
+            "title": "MovingImageRecordContainer",
             "type": "object"
         },
         "MusicActivity": {
@@ -2027,6 +2033,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "TGNResource",
@@ -2107,6 +2114,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "VIAFResource",
@@ -2169,6 +2177,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "WikidataResource",
@@ -2410,21 +2419,18 @@
     "metamodel_version": "1.7.0",
     "properties": {
         "has_record": {
-            "description": "Root slot holding the moving image metadata record(s)",
-            "items": {
-                "anyOf": [
-                    {
-                        "$ref": "#/$defs/WorkVariant"
-                    },
-                    {
-                        "$ref": "#/$defs/Manifestation"
-                    },
-                    {
-                        "$ref": "#/$defs/Item"
-                    }
-                ]
-            },
-            "type": "array"
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/WorkVariant"
+                },
+                {
+                    "$ref": "#/$defs/Manifestation"
+                },
+                {
+                    "$ref": "#/$defs/Item"
+                }
+            ],
+            "description": "Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual"
         }
     },
     "title": "AVefi data model",

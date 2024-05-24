@@ -19,10 +19,12 @@
                     "properties": {
                         "has_history": {
                             "description": "Link to revision history of this PID",
+                            "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                             "type": "string"
                         },
                         "has_issuer_id": {
                             "description": "Identifier for the responsible party as an URI suitable for linked data",
+                            "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                             "type": "string"
                         },
                         "has_issuer_name": {
@@ -152,6 +154,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "AVefiResource",
@@ -172,6 +175,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "DOIResource",
@@ -192,6 +196,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "FilmportalResource",
@@ -212,6 +217,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "GNDResource",
@@ -232,6 +238,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "ISILResource",
@@ -252,6 +259,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "TGNResource",
@@ -272,6 +280,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "VIAFResource",
@@ -292,6 +301,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "WikidataResource",
@@ -371,6 +381,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "AVefiResource",
@@ -391,6 +402,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "DOIResource",
@@ -411,6 +423,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "FilmportalResource",
@@ -431,6 +444,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "GNDResource",
@@ -451,6 +465,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "ISILResource",
@@ -471,6 +486,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "TGNResource",
@@ -491,6 +507,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "VIAFResource",
@@ -511,6 +528,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "WikidataResource",
@@ -590,6 +608,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "AVefiResource",
@@ -610,6 +629,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "DOIResource",
@@ -630,6 +650,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "FilmportalResource",
@@ -650,6 +671,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "GNDResource",
@@ -670,6 +692,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "ISILResource",
@@ -690,6 +713,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "TGNResource",
@@ -710,6 +734,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "VIAFResource",
@@ -730,6 +755,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "WikidataResource",
@@ -809,6 +835,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "AVefiResource",
@@ -829,6 +856,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "DOIResource",
@@ -849,6 +877,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "FilmportalResource",
@@ -869,6 +898,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "GNDResource",
@@ -889,6 +919,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "ISILResource",
@@ -909,6 +940,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "TGNResource",
@@ -929,6 +961,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "VIAFResource",
@@ -949,6 +982,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "WikidataResource",
@@ -1028,6 +1062,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "AVefiResource",
@@ -1048,6 +1083,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "DOIResource",
@@ -1068,6 +1104,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "FilmportalResource",
@@ -1088,6 +1125,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "GNDResource",
@@ -1108,6 +1146,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "ISILResource",
@@ -1128,6 +1167,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "TGNResource",
@@ -1148,6 +1188,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "VIAFResource",
@@ -1168,6 +1209,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "WikidataResource",
@@ -1247,6 +1289,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "AVefiResource",
@@ -1267,6 +1310,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "DOIResource",
@@ -1287,6 +1331,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "FilmportalResource",
@@ -1307,6 +1352,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "GNDResource",
@@ -1327,6 +1373,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "ISILResource",
@@ -1347,6 +1394,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "TGNResource",
@@ -1367,6 +1415,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "VIAFResource",
@@ -1387,6 +1436,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "WikidataResource",
@@ -1466,6 +1516,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "AVefiResource",
@@ -1486,6 +1537,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "DOIResource",
@@ -1506,6 +1558,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "FilmportalResource",
@@ -1526,6 +1579,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "GNDResource",
@@ -1546,6 +1600,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "ISILResource",
@@ -1566,6 +1621,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "TGNResource",
@@ -1586,6 +1642,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "VIAFResource",
@@ -1606,6 +1663,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "WikidataResource",
@@ -1685,6 +1743,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "AVefiResource",
@@ -1705,6 +1764,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "DOIResource",
@@ -1725,6 +1785,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "FilmportalResource",
@@ -1745,6 +1806,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "GNDResource",
@@ -1765,6 +1827,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "ISILResource",
@@ -1785,6 +1848,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "TGNResource",
@@ -1805,6 +1869,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "VIAFResource",
@@ -1825,6 +1890,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "WikidataResource",
@@ -1904,6 +1970,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "AVefiResource",
@@ -1924,6 +1991,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "DOIResource",
@@ -1944,6 +2012,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "FilmportalResource",
@@ -1964,6 +2033,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "GNDResource",
@@ -1984,6 +2054,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "ISILResource",
@@ -2004,6 +2075,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "TGNResource",
@@ -2024,6 +2096,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "VIAFResource",
@@ -2044,6 +2117,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "WikidataResource",
@@ -2123,6 +2197,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "AVefiResource",
@@ -2143,6 +2218,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "DOIResource",
@@ -2163,6 +2239,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "FilmportalResource",
@@ -2183,6 +2260,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "GNDResource",
@@ -2203,6 +2281,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "ISILResource",
@@ -2223,6 +2302,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "TGNResource",
@@ -2243,6 +2323,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "VIAFResource",
@@ -2263,6 +2344,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "WikidataResource",
@@ -2342,6 +2424,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "AVefiResource",
@@ -2362,6 +2445,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "DOIResource",
@@ -2382,6 +2466,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "FilmportalResource",
@@ -2402,6 +2487,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "GNDResource",
@@ -2422,6 +2508,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "ISILResource",
@@ -2442,6 +2529,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "TGNResource",
@@ -2462,6 +2550,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "VIAFResource",
@@ -2482,6 +2571,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "WikidataResource",
@@ -2561,6 +2651,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "AVefiResource",
@@ -2581,6 +2672,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "DOIResource",
@@ -2601,6 +2693,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "FilmportalResource",
@@ -2621,6 +2714,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "GNDResource",
@@ -2641,6 +2735,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "ISILResource",
@@ -2661,6 +2756,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "TGNResource",
@@ -2681,6 +2777,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "VIAFResource",
@@ -2701,6 +2798,7 @@
                                                                                         }
                                                                                     },
                                                                                     "required": [
+                                                                                        "id",
                                                                                         "category"
                                                                                     ],
                                                                                     "title": "WikidataResource",
@@ -2780,6 +2878,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "AVefiResource",
@@ -2800,6 +2899,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "DOIResource",
@@ -2820,6 +2920,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "FilmportalResource",
@@ -2840,6 +2941,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "GNDResource",
@@ -2860,6 +2962,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "ISILResource",
@@ -2880,6 +2983,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "TGNResource",
@@ -2900,6 +3004,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "VIAFResource",
@@ -2920,6 +3025,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "WikidataResource",
@@ -3002,6 +3108,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "AVefiResource",
@@ -3022,6 +3129,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "DOIResource",
@@ -3042,6 +3150,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "FilmportalResource",
@@ -3062,6 +3171,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "GNDResource",
@@ -3082,6 +3192,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "ISILResource",
@@ -3102,6 +3213,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "TGNResource",
@@ -3122,6 +3234,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "VIAFResource",
@@ -3142,6 +3255,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "WikidataResource",
@@ -3219,6 +3333,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "AVefiResource",
@@ -3239,6 +3354,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "DOIResource",
@@ -3259,6 +3375,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "FilmportalResource",
@@ -3279,6 +3396,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "GNDResource",
@@ -3299,6 +3417,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "ISILResource",
@@ -3319,6 +3438,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "TGNResource",
@@ -3339,6 +3459,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "VIAFResource",
@@ -3359,6 +3480,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "WikidataResource",
@@ -3443,6 +3565,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "AVefiResource",
@@ -3463,6 +3586,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "DOIResource",
@@ -3483,6 +3607,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "FilmportalResource",
@@ -3503,6 +3628,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "GNDResource",
@@ -3523,6 +3649,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "ISILResource",
@@ -3543,6 +3670,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "TGNResource",
@@ -3563,6 +3691,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "VIAFResource",
@@ -3583,6 +3712,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "WikidataResource",
@@ -3660,6 +3790,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "AVefiResource",
@@ -3680,6 +3811,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "DOIResource",
@@ -3700,6 +3832,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "FilmportalResource",
@@ -3720,6 +3853,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "GNDResource",
@@ -3740,6 +3874,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "ISILResource",
@@ -3760,6 +3895,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "TGNResource",
@@ -3780,6 +3916,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "VIAFResource",
@@ -3800,6 +3937,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "WikidataResource",
@@ -3883,6 +4021,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "AVefiResource",
@@ -3903,6 +4042,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "DOIResource",
@@ -3923,6 +4063,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "FilmportalResource",
@@ -3943,6 +4084,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "GNDResource",
@@ -3963,6 +4105,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "ISILResource",
@@ -3983,6 +4126,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "TGNResource",
@@ -4003,6 +4147,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "VIAFResource",
@@ -4023,6 +4168,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "WikidataResource",
@@ -4100,6 +4246,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "AVefiResource",
@@ -4120,6 +4267,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "DOIResource",
@@ -4140,6 +4288,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "FilmportalResource",
@@ -4160,6 +4309,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "GNDResource",
@@ -4180,6 +4330,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "ISILResource",
@@ -4200,6 +4351,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "TGNResource",
@@ -4220,6 +4372,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "VIAFResource",
@@ -4240,6 +4393,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "WikidataResource",
@@ -4324,6 +4478,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "AVefiResource",
@@ -4344,6 +4499,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "DOIResource",
@@ -4364,6 +4520,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "FilmportalResource",
@@ -4384,6 +4541,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "GNDResource",
@@ -4404,6 +4562,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "ISILResource",
@@ -4424,6 +4583,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "TGNResource",
@@ -4444,6 +4604,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "VIAFResource",
@@ -4464,6 +4625,7 @@
                                                                                 }
                                                                             },
                                                                             "required": [
+                                                                                "id",
                                                                                 "category"
                                                                             ],
                                                                             "title": "WikidataResource",
@@ -4541,6 +4703,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "AVefiResource",
@@ -4561,6 +4724,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "DOIResource",
@@ -4581,6 +4745,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "FilmportalResource",
@@ -4601,6 +4766,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "GNDResource",
@@ -4621,6 +4787,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "ISILResource",
@@ -4641,6 +4808,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "TGNResource",
@@ -4661,6 +4829,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "VIAFResource",
@@ -4681,6 +4850,7 @@
                                                                     }
                                                                 },
                                                                 "required": [
+                                                                    "id",
                                                                     "category"
                                                                 ],
                                                                 "title": "WikidataResource",
@@ -4869,6 +5039,7 @@
                             }
                         },
                         "required": [
+                            "id",
                             "category"
                         ],
                         "title": "AVefiResource",
@@ -4913,6 +5084,7 @@
                 },
                 "has_webresource": {
                     "description": "Link to data provider's own presentation of manifestation or item on the web",
+                    "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
                 "id": {
@@ -4963,6 +5135,7 @@
                             }
                         },
                         "required": [
+                            "id",
                             "category"
                         ],
                         "title": "AVefiResource",
@@ -4987,6 +5160,7 @@
                             }
                         },
                         "required": [
+                            "id",
                             "category"
                         ],
                         "title": "AVefiResource",

@@ -743,7 +743,7 @@ classes:
     description: >-
       FIAF Moving Image Cataloguing Manual 3.0
 
-  MovingImageRecordCollection:
+  MovingImageRecordContainer:
     rank: 100
     description: >-
       A holder for MovingImageRecord objects
@@ -760,6 +760,9 @@ classes:
     abstract: true
     slots:
       - id
+    slot_usage:
+      id:
+        required: true
     description: >-
       Root class for all identifiers from some kind of authority or
       public register widely accepted in the community
@@ -1012,11 +1015,12 @@ slots:
 
   has_record:
     rank: 1
-    inlined_as_list: true
-    multivalued: true
     range: MovingImageRecord
     description: >-
-      Root slot holding the moving image metadata record(s)
+      Root slot holding the moving image metadata record, i.e.
+      metadata describing a work/variant, manifestation or item. See
+      also the Introduction of the FIAF Moving Image Cataloguing
+      Manual
 
   type:
     rank: 5
@@ -1053,19 +1057,26 @@ slots:
 
   has_history:
     range: uri
+    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
     description: >-
       Link to revision history of this PID
 
   has_issuer_id:
     slot_uri: wdrs:issuedby
     range: uri
+    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
     required: true
     description: >-
       Identifier for the responsible party as an URI suitable for
       linked data
     examples:
+      - value: https://w3id.org/isil/DE-MUS-432511
+        description: >-
+          Link based on ISIL of the Filmmuseum Düsseldorf (preferred)
       - value: https://ld.zdb-services.de/resource/organisations/DE-MUS-432511
-        description: ISIL of the Filmmuseum Düsseldorf
+        description: >-
+          ISIL of the Filmmuseum Düsseldorf resolved via Deutsche
+          ISIL-Agentur directly
 
   has_issuer_name:
     slot_uri: dcterms:contributor
@@ -1284,6 +1295,7 @@ slots:
   has_webresource:
     rank: 28
     range: uri
+    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
     description: >-
       Link to data provider's own presentation of manifestation or
       item on the web

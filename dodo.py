@@ -98,15 +98,15 @@ def expand_and_split_json_schema(dependencies, targets):
     with schema_path.open('r') as f:
         schema = jsonref.load(f, jsonschema=True)
     jsonref._walk_refs(schema, _expand_refs_except_enums, replace=True)
-    for i in range(len(schema['properties']['has_record']['items']['anyOf'])):
-        name = schema['properties']['has_record']['items']['anyOf'][i]['title']
+    for i in range(len(schema['properties']['has_record']['anyOf'])):
+        name = schema['properties']['has_record']['anyOf'][i]['title']
         output = copy.deepcopy(schema)
         output['$id'] = f"{schema['$id']}-{name.lower()}"
         output['title'] += f" for {name}"
         output['description'] = \
             f"Auto-generated from {schema['$id']} for {name} PIDs"
         output['properties']['has_record'] = \
-            output['properties']['has_record']['items']['anyOf'][i]
+            output['properties']['has_record']['anyOf'][i]
         del output['$defs']
         output_path = EPIC_SCHEMA_DIR / \
             f"{SRC_MODEL.stem}_{name.lower()}.schema.json"
@@ -251,7 +251,7 @@ def task_diagram():
     return {
         'actions': [
             "gen-erdiagram -c WorkVariant -c Manifestation"
-            " -c Item {dependencies} > {targets}",
+            " -c Item --follow-references {dependencies} > {targets}",
         ],
         'task_dep': ['sync_dependencies'],
         'file_dep': [SRC_MODEL],

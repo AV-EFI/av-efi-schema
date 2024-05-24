@@ -2084,21 +2084,21 @@ export function toItem(o: Item): Item {
 /**
  * A holder for MovingImageRecord objects
  */
-export interface MovingImageRecordCollection {
-    /** Root slot holding the moving image metadata record(s) */
-    has_record?: MovingImageRecord[],
+export interface MovingImageRecordContainer {
+    /** Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual */
+    has_record?: MovingImageRecord,
 }
 
 
-export function isMovingImageRecordCollection(o: object): o is MovingImageRecordCollection {
+export function isMovingImageRecordContainer(o: object): o is MovingImageRecordContainer {
     return (
         'has_record' in o
     )
 }
 
-export function toMovingImageRecordCollection(o: MovingImageRecordCollection): MovingImageRecordCollection {
+export function toMovingImageRecordContainer(o: MovingImageRecordContainer): MovingImageRecordContainer {
     return {
-        has_record: o.has_record ?? []
+        has_record: o.has_record ?? {}
     }
 }
 
@@ -2107,12 +2107,13 @@ export function toMovingImageRecordCollection(o: MovingImageRecordCollection): M
  */
 export interface AuthorityResource extends CategorizedThing {
     /** A unique identifier for a thing */
-    id?: string,
+    id: string,
 }
 
 
 export function isAuthorityResource(o: object): o is AuthorityResource {
     return (
+        'id' in o &&
         'category' in o
     )
 }
@@ -2133,6 +2134,7 @@ export interface AVefiResource extends AuthorityResource {
 
 export function isAVefiResource(o: object): o is AVefiResource {
     return (
+        'id' in o &&
         'category' in o
     )
 }
@@ -2153,6 +2155,7 @@ export interface DOIResource extends AuthorityResource {
 
 export function isDOIResource(o: object): o is DOIResource {
     return (
+        'id' in o &&
         'category' in o
     )
 }
@@ -2173,6 +2176,7 @@ export interface FilmportalResource extends AuthorityResource {
 
 export function isFilmportalResource(o: object): o is FilmportalResource {
     return (
+        'id' in o &&
         'category' in o
     )
 }
@@ -2193,6 +2197,7 @@ export interface GNDResource extends AuthorityResource {
 
 export function isGNDResource(o: object): o is GNDResource {
     return (
+        'id' in o &&
         'category' in o
     )
 }
@@ -2213,6 +2218,7 @@ export interface ISILResource extends AuthorityResource {
 
 export function isISILResource(o: object): o is ISILResource {
     return (
+        'id' in o &&
         'category' in o
     )
 }
@@ -2233,6 +2239,7 @@ export interface TGNResource extends AuthorityResource {
 
 export function isTGNResource(o: object): o is TGNResource {
     return (
+        'id' in o &&
         'category' in o
     )
 }
@@ -2253,6 +2260,7 @@ export interface VIAFResource extends AuthorityResource {
 
 export function isVIAFResource(o: object): o is VIAFResource {
     return (
+        'id' in o &&
         'category' in o
     )
 }
@@ -2273,6 +2281,7 @@ export interface WikidataResource extends AuthorityResource {
 
 export function isWikidataResource(o: object): o is WikidataResource {
     return (
+        'id' in o &&
         'category' in o
     )
 }

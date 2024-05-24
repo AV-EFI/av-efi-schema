@@ -965,6 +965,30 @@ class DescriptionResource(ConfiguredBaseModel):
     has_issuer_name: str = Field(..., description="""Name of the responsible party""")
     last_modified: datetime  = Field(..., description="""Timestamp (in UTC) for the latest modification to any field in the PID metadata record""")
 
+    @field_validator('has_history')
+    def pattern_has_history(cls, v):
+        pattern=re.compile(r"^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$")
+        if isinstance(v,list):
+            for element in v:
+                if not pattern.match(element):
+                    raise ValueError(f"Invalid has_history format: {element}")
+        elif isinstance(v,str):
+            if not pattern.match(v):
+                raise ValueError(f"Invalid has_history format: {v}")
+        return v
+
+    @field_validator('has_issuer_id')
+    def pattern_has_issuer_id(cls, v):
+        pattern=re.compile(r"^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$")
+        if isinstance(v,list):
+            for element in v:
+                if not pattern.match(element):
+                    raise ValueError(f"Invalid has_issuer_id format: {element}")
+        elif isinstance(v,str):
+            if not pattern.match(v):
+                raise ValueError(f"Invalid has_issuer_id format: {v}")
+        return v
+
     @field_validator('last_modified')
     def pattern_last_modified(cls, v):
         pattern=re.compile(r"^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|\+00:00)$")
@@ -1348,6 +1372,18 @@ class ManifestationOrItem(MovingImageRecord):
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/ManifestationOrItem","avefi:ManifestationOrItem"] = Field("avefi:ManifestationOrItem", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
+    @field_validator('has_webresource')
+    def pattern_has_webresource(cls, v):
+        pattern=re.compile(r"^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$")
+        if isinstance(v,list):
+            for element in v:
+                if not pattern.match(element):
+                    raise ValueError(f"Invalid has_webresource format: {element}")
+        elif isinstance(v,str):
+            if not pattern.match(v):
+                raise ValueError(f"Invalid has_webresource format: {v}")
+        return v
+
 
 class Duration(ConfiguredBaseModel):
     """
@@ -1456,6 +1492,18 @@ class Manifestation(ManifestationOrItem):
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/Manifestation","avefi:Manifestation"] = Field("avefi:Manifestation", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
+    @field_validator('has_webresource')
+    def pattern_has_webresource(cls, v):
+        pattern=re.compile(r"^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$")
+        if isinstance(v,list):
+            for element in v:
+                if not pattern.match(element):
+                    raise ValueError(f"Invalid has_webresource format: {element}")
+        elif isinstance(v,str):
+            if not pattern.match(v):
+                raise ValueError(f"Invalid has_webresource format: {v}")
+        return v
+
 
 class Language(ConfiguredBaseModel):
     """
@@ -1499,19 +1547,31 @@ class Item(ManifestationOrItem):
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/Item","avefi:Item"] = Field("avefi:Item", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
+    @field_validator('has_webresource')
+    def pattern_has_webresource(cls, v):
+        pattern=re.compile(r"^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$")
+        if isinstance(v,list):
+            for element in v:
+                if not pattern.match(element):
+                    raise ValueError(f"Invalid has_webresource format: {element}")
+        elif isinstance(v,str):
+            if not pattern.match(v):
+                raise ValueError(f"Invalid has_webresource format: {v}")
+        return v
 
-class MovingImageRecordCollection(ConfiguredBaseModel):
+
+class MovingImageRecordContainer(ConfiguredBaseModel):
     """
     A holder for MovingImageRecord objects
     """
-    has_record: Optional[List[Union[MovingImageRecord,WorkVariant,ManifestationOrItem,Manifestation,Item]]] = Field(default_factory=list, description="""Root slot holding the moving image metadata record(s)""")
+    has_record: Optional[Union[MovingImageRecord,WorkVariant,ManifestationOrItem,Manifestation,Item]] = Field(None, description="""Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual""")
 
 
 class AuthorityResource(CategorizedThing):
     """
     Root class for all identifiers from some kind of authority or public register widely accepted in the community
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/AuthorityResource","avefi:AuthorityResource"] = Field("avefi:AuthorityResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -1519,7 +1579,7 @@ class AVefiResource(AuthorityResource):
     """
     Handle with the prefix allocated for AVefi (eventually)
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/AVefiResource","avefi:AVefiResource"] = Field("avefi:AVefiResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1539,7 +1599,7 @@ class DOIResource(AuthorityResource):
     """
     Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/DOIResource","avefi:DOIResource"] = Field("avefi:DOIResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1559,7 +1619,7 @@ class FilmportalResource(AuthorityResource):
     """
     Identifier of the German Filmportal.de
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/FilmportalResource","avefi:FilmportalResource"] = Field("avefi:FilmportalResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1579,7 +1639,7 @@ class GNDResource(AuthorityResource):
     """
     Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/GNDResource","avefi:GNDResource"] = Field("avefi:GNDResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1599,7 +1659,7 @@ class ISILResource(AuthorityResource):
     """
     International Standard Identifier for Libraries and Related Organizations including (film) archives
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/ISILResource","avefi:ISILResource"] = Field("avefi:ISILResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1619,7 +1679,7 @@ class TGNResource(AuthorityResource):
     """
     Getty Thesaurus of Geographic Names ID
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/TGNResource","avefi:TGNResource"] = Field("avefi:TGNResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1639,7 +1699,7 @@ class VIAFResource(AuthorityResource):
     """
     Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/VIAFResource","avefi:VIAFResource"] = Field("avefi:VIAFResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1659,7 +1719,7 @@ class WikidataResource(AuthorityResource):
     """
     Identifier for Wikidata entities
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/WikidataResource","avefi:WikidataResource"] = Field("avefi:WikidataResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1723,7 +1783,7 @@ Video.model_rebuild()
 Manifestation.model_rebuild()
 Language.model_rebuild()
 Item.model_rebuild()
-MovingImageRecordCollection.model_rebuild()
+MovingImageRecordContainer.model_rebuild()
 AuthorityResource.model_rebuild()
 AVefiResource.model_rebuild()
 DOIResource.model_rebuild()
