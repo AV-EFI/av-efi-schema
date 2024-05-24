@@ -1342,29 +1342,26 @@
             "title": "ManufactureEventTypeEnum",
             "type": "string"
         },
-        "MovingImageRecordCollection": {
+        "MovingImageRecordContainer": {
             "additionalProperties": false,
             "description": "A holder for MovingImageRecord objects",
             "properties": {
                 "has_record": {
-                    "description": "Root slot holding the moving image metadata record(s)",
-                    "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/WorkVariant"
-                            },
-                            {
-                                "$ref": "#/$defs/Manifestation"
-                            },
-                            {
-                                "$ref": "#/$defs/Item"
-                            }
-                        ]
-                    },
-                    "type": "array"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/WorkVariant"
+                        },
+                        {
+                            "$ref": "#/$defs/Manifestation"
+                        },
+                        {
+                            "$ref": "#/$defs/Item"
+                        }
+                    ],
+                    "description": "Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual"
                 }
             },
-            "title": "MovingImageRecordCollection",
+            "title": "MovingImageRecordContainer",
             "type": "object"
         },
         "MusicActivity": {
@@ -2410,21 +2407,18 @@
     "metamodel_version": "1.7.0",
     "properties": {
         "has_record": {
-            "description": "Root slot holding the moving image metadata record(s)",
-            "items": {
-                "anyOf": [
-                    {
-                        "$ref": "#/$defs/WorkVariant"
-                    },
-                    {
-                        "$ref": "#/$defs/Manifestation"
-                    },
-                    {
-                        "$ref": "#/$defs/Item"
-                    }
-                ]
-            },
-            "type": "array"
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/WorkVariant"
+                },
+                {
+                    "$ref": "#/$defs/Manifestation"
+                },
+                {
+                    "$ref": "#/$defs/Item"
+                }
+            ],
+            "description": "Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual"
         }
     },
     "title": "AVefi data model",

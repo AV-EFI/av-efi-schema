@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-21T00:22:48
+# Generation date: 2024-05-23T22:49:20
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -1538,23 +1538,22 @@ class Item(ManifestationOrItem):
 
 
 @dataclass
-class MovingImageRecordCollection(YAMLRoot):
+class MovingImageRecordContainer(YAMLRoot):
     """
     A holder for MovingImageRecord objects
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AVEFI["MovingImageRecordCollection"]
-    class_class_curie: ClassVar[str] = "avefi:MovingImageRecordCollection"
-    class_name: ClassVar[str] = "MovingImageRecordCollection"
-    class_model_uri: ClassVar[URIRef] = AVEFI.MovingImageRecordCollection
+    class_class_uri: ClassVar[URIRef] = AVEFI["MovingImageRecordContainer"]
+    class_class_curie: ClassVar[str] = "avefi:MovingImageRecordContainer"
+    class_name: ClassVar[str] = "MovingImageRecordContainer"
+    class_model_uri: ClassVar[URIRef] = AVEFI.MovingImageRecordContainer
 
-    has_record: Optional[Union[Union[dict, MovingImageRecord], List[Union[dict, MovingImageRecord]]]] = empty_list()
+    has_record: Optional[Union[dict, MovingImageRecord]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.has_record, list):
-            self.has_record = [self.has_record] if self.has_record is not None else []
-        self.has_record = [v if isinstance(v, MovingImageRecord) else MovingImageRecord(**as_dict(v)) for v in self.has_record]
+        if self.has_record is not None and not isinstance(self.has_record, MovingImageRecord):
+            self.has_record = MovingImageRecord(**as_dict(self.has_record))
 
         super().__post_init__(**kwargs)
 
@@ -3502,7 +3501,7 @@ slots.has_ordering_name = Slot(uri=AVEFI.has_ordering_name, name="has_ordering_n
                    model_uri=AVEFI.has_ordering_name, domain=None, range=Optional[str])
 
 slots.has_record = Slot(uri=AVEFI.has_record, name="has_record", curie=AVEFI.curie('has_record'),
-                   model_uri=AVEFI.has_record, domain=None, range=Optional[Union[Union[dict, MovingImageRecord], List[Union[dict, MovingImageRecord]]]])
+                   model_uri=AVEFI.has_record, domain=None, range=Optional[Union[dict, MovingImageRecord]])
 
 slots.type = Slot(uri=AVEFI.type, name="type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.type, domain=None, range=Optional[str])

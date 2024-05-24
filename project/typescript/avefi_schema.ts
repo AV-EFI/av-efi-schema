@@ -1331,9 +1331,9 @@ export interface Item extends ManifestationOrItem {
 /**
  * A holder for MovingImageRecord objects
  */
-export interface MovingImageRecordCollection {
-    /** Root slot holding the moving image metadata record(s) */
-    has_record?: MovingImageRecord[],
+export interface MovingImageRecordContainer {
+    /** Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual */
+    has_record?: MovingImageRecord,
 }
 
 

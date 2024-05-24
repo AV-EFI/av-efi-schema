@@ -1500,11 +1500,11 @@ class Item(ManifestationOrItem):
     category: Literal["https://av-efi.net/av-efi-schema/Item","avefi:Item"] = Field("avefi:Item", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
-class MovingImageRecordCollection(ConfiguredBaseModel):
+class MovingImageRecordContainer(ConfiguredBaseModel):
     """
     A holder for MovingImageRecord objects
     """
-    has_record: Optional[List[Union[MovingImageRecord,WorkVariant,ManifestationOrItem,Manifestation,Item]]] = Field(default_factory=list, description="""Root slot holding the moving image metadata record(s)""")
+    has_record: Optional[Union[MovingImageRecord,WorkVariant,ManifestationOrItem,Manifestation,Item]] = Field(None, description="""Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual""")
 
 
 class AuthorityResource(CategorizedThing):
@@ -1723,7 +1723,7 @@ Video.model_rebuild()
 Manifestation.model_rebuild()
 Language.model_rebuild()
 Item.model_rebuild()
-MovingImageRecordCollection.model_rebuild()
+MovingImageRecordContainer.model_rebuild()
 AuthorityResource.model_rebuild()
 AVefiResource.model_rebuild()
 DOIResource.model_rebuild()

@@ -743,7 +743,7 @@ classes:
     description: >-
       FIAF Moving Image Cataloguing Manual 3.0
 
-  MovingImageRecordCollection:
+  MovingImageRecordContainer:
     rank: 100
     description: >-
       A holder for MovingImageRecord objects
@@ -1012,11 +1012,12 @@ slots:
 
   has_record:
     rank: 1
-    inlined_as_list: true
-    multivalued: true
     range: MovingImageRecord
     description: >-
-      Root slot holding the moving image metadata record(s)
+      Root slot holding the moving image metadata record, i.e.
+      metadata describing a work/variant, manifestation or item. See
+      also the Introduction of the FIAF Moving Image Cataloguing
+      Manual
 
   type:
     rank: 5
