@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-23T22:49:20
+# Generation date: 2024-05-24T08:33:39
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -1571,10 +1571,12 @@ class AuthorityResource(CategorizedThing):
     class_model_uri: ClassVar[URIRef] = AVEFI.AuthorityResource
 
     category: Union[str, URIorCURIE] = None
-    id: Optional[str] = None
+    id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, str):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, str):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
@@ -1596,10 +1598,12 @@ class AVefiResource(AuthorityResource):
     class_model_uri: ClassVar[URIRef] = AVEFI.AVefiResource
 
     category: Union[str, URIorCURIE] = None
-    id: Optional[str] = None
+    id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, str):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, str):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
@@ -1622,10 +1626,12 @@ class DOIResource(AuthorityResource):
     class_model_uri: ClassVar[URIRef] = AVEFI.DOIResource
 
     category: Union[str, URIorCURIE] = None
-    id: Optional[str] = None
+    id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, str):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, str):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
@@ -1647,10 +1653,12 @@ class FilmportalResource(AuthorityResource):
     class_model_uri: ClassVar[URIRef] = AVEFI.FilmportalResource
 
     category: Union[str, URIorCURIE] = None
-    id: Optional[str] = None
+    id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, str):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, str):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
@@ -1672,10 +1680,12 @@ class GNDResource(AuthorityResource):
     class_model_uri: ClassVar[URIRef] = AVEFI.GNDResource
 
     category: Union[str, URIorCURIE] = None
-    id: Optional[str] = None
+    id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, str):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, str):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
@@ -1697,10 +1707,12 @@ class ISILResource(AuthorityResource):
     class_model_uri: ClassVar[URIRef] = AVEFI.ISILResource
 
     category: Union[str, URIorCURIE] = None
-    id: Optional[str] = None
+    id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, str):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, str):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
@@ -1722,10 +1734,12 @@ class TGNResource(AuthorityResource):
     class_model_uri: ClassVar[URIRef] = AVEFI.TGNResource
 
     category: Union[str, URIorCURIE] = None
-    id: Optional[str] = None
+    id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, str):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, str):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
@@ -1748,10 +1762,12 @@ class VIAFResource(AuthorityResource):
     class_model_uri: ClassVar[URIRef] = AVEFI.VIAFResource
 
     category: Union[str, URIorCURIE] = None
-    id: Optional[str] = None
+    id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, str):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, str):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
@@ -1773,10 +1789,12 @@ class WikidataResource(AuthorityResource):
     class_model_uri: ClassVar[URIRef] = AVEFI.WikidataResource
 
     category: Union[str, URIorCURIE] = None
-    id: Optional[str] = None
+    id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, str):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, str):
             self.id = str(self.id)
 
         super().__post_init__(**kwargs)
@@ -3750,34 +3768,37 @@ slots.Video_type = Slot(uri=AVEFI.type, name="Video_type", curie=AVEFI.curie('ty
 slots.Manifestation_same_as = Slot(uri=AVEFI.same_as, name="Manifestation_same_as", curie=AVEFI.curie('same_as'),
                    model_uri=AVEFI.Manifestation_same_as, domain=Manifestation, range=Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]])
 
+slots.AuthorityResource_id = Slot(uri=AVEFI.id, name="AuthorityResource_id", curie=AVEFI.curie('id'),
+                   model_uri=AVEFI.AuthorityResource_id, domain=AuthorityResource, range=str)
+
 slots.AVefiResource_id = Slot(uri=AVEFI.id, name="AVefiResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.AVefiResource_id, domain=AVefiResource, range=Optional[str],
+                   model_uri=AVEFI.AVefiResource_id, domain=AVefiResource, range=str,
                    pattern=re.compile(r'^21(\.([0-9A-Za-z])+)*/[!-~]+$'))
 
 slots.DOIResource_id = Slot(uri=AVEFI.id, name="DOIResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.DOIResource_id, domain=DOIResource, range=Optional[str],
+                   model_uri=AVEFI.DOIResource_id, domain=DOIResource, range=str,
                    pattern=re.compile(r'^10\.[0-9]{4,9}(\.[0-9]+)*(/|%2F)((?![\"&\'])\S)+$'))
 
 slots.FilmportalResource_id = Slot(uri=AVEFI.id, name="FilmportalResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.FilmportalResource_id, domain=FilmportalResource, range=Optional[str],
+                   model_uri=AVEFI.FilmportalResource_id, domain=FilmportalResource, range=str,
                    pattern=re.compile(r'^[\da-f]{32}$'))
 
 slots.GNDResource_id = Slot(uri=AVEFI.id, name="GNDResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.GNDResource_id, domain=GNDResource, range=Optional[str],
+                   model_uri=AVEFI.GNDResource_id, domain=GNDResource, range=str,
                    pattern=re.compile(r'^[-\dX]+$'))
 
 slots.ISILResource_id = Slot(uri=AVEFI.id, name="ISILResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.ISILResource_id, domain=ISILResource, range=Optional[str],
+                   model_uri=AVEFI.ISILResource_id, domain=ISILResource, range=str,
                    pattern=re.compile(r'^[A-Z]{2}-[A-Za-z\-0-9:/]{1,15}$'))
 
 slots.TGNResource_id = Slot(uri=AVEFI.id, name="TGNResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.TGNResource_id, domain=TGNResource, range=Optional[str],
+                   model_uri=AVEFI.TGNResource_id, domain=TGNResource, range=str,
                    pattern=re.compile(r'^[1-9][0-9]{6}$'))
 
 slots.VIAFResource_id = Slot(uri=AVEFI.id, name="VIAFResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.VIAFResource_id, domain=VIAFResource, range=Optional[str],
+                   model_uri=AVEFI.VIAFResource_id, domain=VIAFResource, range=str,
                    pattern=re.compile(r'^\d+$'))
 
 slots.WikidataResource_id = Slot(uri=AVEFI.id, name="WikidataResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.WikidataResource_id, domain=WikidataResource, range=Optional[str],
+                   model_uri=AVEFI.WikidataResource_id, domain=WikidataResource, range=str,
                    pattern=re.compile(r'^[LPQ]\d+$'))

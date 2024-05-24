@@ -18,6 +18,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "AVefiResource",
@@ -386,6 +387,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "DOIResource",
@@ -628,6 +630,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "FilmportalResource",
@@ -731,6 +734,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "GNDResource",
@@ -835,6 +839,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "ISILResource",
@@ -2024,6 +2029,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "TGNResource",
@@ -2104,6 +2110,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "VIAFResource",
@@ -2166,6 +2173,7 @@
                 }
             },
             "required": [
+                "id",
                 "category"
             ],
             "title": "WikidataResource",

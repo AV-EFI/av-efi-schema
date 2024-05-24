@@ -1511,7 +1511,7 @@ class AuthorityResource(CategorizedThing):
     """
     Root class for all identifiers from some kind of authority or public register widely accepted in the community
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/AuthorityResource","avefi:AuthorityResource"] = Field("avefi:AuthorityResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -1519,7 +1519,7 @@ class AVefiResource(AuthorityResource):
     """
     Handle with the prefix allocated for AVefi (eventually)
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/AVefiResource","avefi:AVefiResource"] = Field("avefi:AVefiResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1539,7 +1539,7 @@ class DOIResource(AuthorityResource):
     """
     Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/DOIResource","avefi:DOIResource"] = Field("avefi:DOIResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1559,7 +1559,7 @@ class FilmportalResource(AuthorityResource):
     """
     Identifier of the German Filmportal.de
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/FilmportalResource","avefi:FilmportalResource"] = Field("avefi:FilmportalResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1579,7 +1579,7 @@ class GNDResource(AuthorityResource):
     """
     Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/GNDResource","avefi:GNDResource"] = Field("avefi:GNDResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1599,7 +1599,7 @@ class ISILResource(AuthorityResource):
     """
     International Standard Identifier for Libraries and Related Organizations including (film) archives
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/ISILResource","avefi:ISILResource"] = Field("avefi:ISILResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1619,7 +1619,7 @@ class TGNResource(AuthorityResource):
     """
     Getty Thesaurus of Geographic Names ID
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/TGNResource","avefi:TGNResource"] = Field("avefi:TGNResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1639,7 +1639,7 @@ class VIAFResource(AuthorityResource):
     """
     Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/VIAFResource","avefi:VIAFResource"] = Field("avefi:VIAFResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')
@@ -1659,7 +1659,7 @@ class WikidataResource(AuthorityResource):
     """
     Identifier for Wikidata entities
     """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
+    id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/WikidataResource","avefi:WikidataResource"] = Field("avefi:WikidataResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
     @field_validator('id')

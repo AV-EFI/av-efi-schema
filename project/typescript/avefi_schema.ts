@@ -1342,7 +1342,7 @@ export interface MovingImageRecordContainer {
  */
 export interface AuthorityResource extends CategorizedThing {
     /** A unique identifier for a thing */
-    id?: string,
+    id: string,
 }
 
 
