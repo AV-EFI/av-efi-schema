@@ -161,18 +161,39 @@ def task_jsonschema():
 
 
 def task_python():
-    """Generate python bindings."""
+    """Generate python bindings.
+
+    Even though the designator slot "category" is declared required in
+    the schema, let it be treated as optional by the generated
+    bindings. This is convenient when constructors can determine that
+    value automatically on instantiation.
+
+    """
+    def generate_bindings(module_name, class_name, source, target, **kwargs):
+        import importlib
+        gen_module = importlib.import_module(
+            f"linkml.generators.{module_name}")
+        gen = getattr(gen_module, class_name)(source, **kwargs)
+        # Make category slot optional and rely on constructors to fill
+        # it correctly
+        if gen.schema.slots['category'].designates_type:
+            gen.schema.slots['category'].required = False
+        with open(target, 'w') as f:
+            f.write(gen.serialize())
+
     python_model = PROJECT_DIR / 'python' / SCHEMA_NAME \
         / f"{SRC_MODEL.stem}.py"
-    for cmd, target in [
-            ('gen-python', python_model),
-            ('gen-pydantic --pydantic-version 2', python_model.with_stem(
-                f"{python_model.stem}_pydantic_v2")),
+    for module, cls, target, kwargs in [
+            ('pythongen', 'PythonGenerator', python_model, {}),
+            ('pydanticgen', 'PydanticGenerator',
+             python_model.with_stem(f"{python_model.stem}_pydantic_v2"),
+             {'pydantic_version': 2}),
     ]:
         yield {
-            'name': cmd,
+            'name': module,
             'actions': [
-                f"{cmd} {SRC_MODEL} > {{targets}}",
+                (generate_bindings, [module, cls, SRC_MODEL, target],
+                 kwargs),
             ],
             'task_dep': ['sync_dependencies'],
             'file_dep': SRC_SCHEMA_DEPENDENCIES,

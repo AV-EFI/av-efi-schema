@@ -1793,4 +1793,3 @@ ISILResource.model_rebuild()
 TGNResource.model_rebuild()
 VIAFResource.model_rebuild()
 WikidataResource.model_rebuild()
-
