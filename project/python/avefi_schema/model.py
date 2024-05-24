@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-24T08:33:39
+# Generation date: 2024-05-24T08:57:47
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -3534,10 +3534,12 @@ slots.described_by = Slot(uri=WDRS.describedby, name="described_by", curie=WDRS.
                    model_uri=AVEFI.described_by, domain=None, range=Optional[Union[dict, DescriptionResource]])
 
 slots.has_history = Slot(uri=AVEFI.has_history, name="has_history", curie=AVEFI.curie('has_history'),
-                   model_uri=AVEFI.has_history, domain=None, range=Optional[Union[str, URI]])
+                   model_uri=AVEFI.has_history, domain=None, range=Optional[Union[str, URI]],
+                   pattern=re.compile(r'^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$'))
 
 slots.has_issuer_id = Slot(uri=WDRS.issuedby, name="has_issuer_id", curie=WDRS.curie('issuedby'),
-                   model_uri=AVEFI.has_issuer_id, domain=None, range=Union[str, URI])
+                   model_uri=AVEFI.has_issuer_id, domain=None, range=Union[str, URI],
+                   pattern=re.compile(r'^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$'))
 
 slots.has_issuer_name = Slot(uri=DCTERMS.contributor, name="has_issuer_name", curie=DCTERMS.curie('contributor'),
                    model_uri=AVEFI.has_issuer_name, domain=None, range=str)
@@ -3611,7 +3613,8 @@ slots.has_sound_type = Slot(uri=AVEFI.has_sound_type, name="has_sound_type", cur
                    model_uri=AVEFI.has_sound_type, domain=None, range=Optional[Union[str, "SoundTypeEnum"]])
 
 slots.has_webresource = Slot(uri=AVEFI.has_webresource, name="has_webresource", curie=AVEFI.curie('has_webresource'),
-                   model_uri=AVEFI.has_webresource, domain=None, range=Optional[Union[str, URI]])
+                   model_uri=AVEFI.has_webresource, domain=None, range=Optional[Union[str, URI]],
+                   pattern=re.compile(r'^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$'))
 
 slots.is_manifestation_of = Slot(uri=AVEFI.is_manifestation_of, name="is_manifestation_of", curie=AVEFI.curie('is_manifestation_of'),
                    model_uri=AVEFI.is_manifestation_of, domain=None, range=Union[Union[dict, AVefiResource], List[Union[dict, AVefiResource]]])

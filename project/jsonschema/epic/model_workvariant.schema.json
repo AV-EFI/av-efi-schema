@@ -19,10 +19,12 @@
                     "properties": {
                         "has_history": {
                             "description": "Link to revision history of this PID",
+                            "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                             "type": "string"
                         },
                         "has_issuer_id": {
                             "description": "Identifier for the responsible party as an URI suitable for linked data",
+                            "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                             "type": "string"
                         },
                         "has_issuer_name": {

@@ -965,6 +965,30 @@ class DescriptionResource(ConfiguredBaseModel):
     has_issuer_name: str = Field(..., description="""Name of the responsible party""")
     last_modified: datetime  = Field(..., description="""Timestamp (in UTC) for the latest modification to any field in the PID metadata record""")
 
+    @field_validator('has_history')
+    def pattern_has_history(cls, v):
+        pattern=re.compile(r"^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$")
+        if isinstance(v,list):
+            for element in v:
+                if not pattern.match(element):
+                    raise ValueError(f"Invalid has_history format: {element}")
+        elif isinstance(v,str):
+            if not pattern.match(v):
+                raise ValueError(f"Invalid has_history format: {v}")
+        return v
+
+    @field_validator('has_issuer_id')
+    def pattern_has_issuer_id(cls, v):
+        pattern=re.compile(r"^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$")
+        if isinstance(v,list):
+            for element in v:
+                if not pattern.match(element):
+                    raise ValueError(f"Invalid has_issuer_id format: {element}")
+        elif isinstance(v,str):
+            if not pattern.match(v):
+                raise ValueError(f"Invalid has_issuer_id format: {v}")
+        return v
+
     @field_validator('last_modified')
     def pattern_last_modified(cls, v):
         pattern=re.compile(r"^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|\+00:00)$")
@@ -1348,6 +1372,18 @@ class ManifestationOrItem(MovingImageRecord):
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/ManifestationOrItem","avefi:ManifestationOrItem"] = Field("avefi:ManifestationOrItem", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
+    @field_validator('has_webresource')
+    def pattern_has_webresource(cls, v):
+        pattern=re.compile(r"^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$")
+        if isinstance(v,list):
+            for element in v:
+                if not pattern.match(element):
+                    raise ValueError(f"Invalid has_webresource format: {element}")
+        elif isinstance(v,str):
+            if not pattern.match(v):
+                raise ValueError(f"Invalid has_webresource format: {v}")
+        return v
+
 
 class Duration(ConfiguredBaseModel):
     """
@@ -1456,6 +1492,18 @@ class Manifestation(ManifestationOrItem):
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/Manifestation","avefi:Manifestation"] = Field("avefi:Manifestation", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
+    @field_validator('has_webresource')
+    def pattern_has_webresource(cls, v):
+        pattern=re.compile(r"^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$")
+        if isinstance(v,list):
+            for element in v:
+                if not pattern.match(element):
+                    raise ValueError(f"Invalid has_webresource format: {element}")
+        elif isinstance(v,str):
+            if not pattern.match(v):
+                raise ValueError(f"Invalid has_webresource format: {v}")
+        return v
+
 
 class Language(ConfiguredBaseModel):
     """
@@ -1498,6 +1546,18 @@ class Item(ManifestationOrItem):
     has_primary_title: Title = Field(..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""")
     id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/Item","avefi:Item"] = Field("avefi:Item", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+
+    @field_validator('has_webresource')
+    def pattern_has_webresource(cls, v):
+        pattern=re.compile(r"^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$")
+        if isinstance(v,list):
+            for element in v:
+                if not pattern.match(element):
+                    raise ValueError(f"Invalid has_webresource format: {element}")
+        elif isinstance(v,str):
+            if not pattern.match(v):
+                raise ValueError(f"Invalid has_webresource format: {v}")
+        return v
 
 
 class MovingImageRecordContainer(ConfiguredBaseModel):

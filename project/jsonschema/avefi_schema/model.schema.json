@@ -399,10 +399,12 @@
             "properties": {
                 "has_history": {
                     "description": "Link to revision history of this PID",
+                    "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
                 "has_issuer_id": {
                     "description": "Identifier for the responsible party as an URI suitable for linked data",
+                    "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
                 "has_issuer_name": {
@@ -942,6 +944,7 @@
                 },
                 "has_webresource": {
                     "description": "Link to data provider's own presentation of manifestation or item on the web",
+                    "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
                 "id": {
@@ -1206,6 +1209,7 @@
                 },
                 "has_webresource": {
                     "description": "Link to data provider's own presentation of manifestation or item on the web",
+                    "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
                 "id": {

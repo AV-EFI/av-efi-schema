@@ -1057,12 +1057,14 @@ slots:
 
   has_history:
     range: uri
+    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
     description: >-
       Link to revision history of this PID
 
   has_issuer_id:
     slot_uri: wdrs:issuedby
     range: uri
+    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
     required: true
     description: >-
       Identifier for the responsible party as an URI suitable for
@@ -1288,6 +1290,7 @@ slots:
   has_webresource:
     rank: 28
     range: uri
+    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
     description: >-
       Link to data provider's own presentation of manifestation or
       item on the web
