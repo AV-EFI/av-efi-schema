@@ -234,6 +234,7 @@ def task_docs():
         ],
         'file_dep': SRC_SCHEMA_DEPENDENCIES,
         'targets': [SCHEMA_OVERVIEW],
+        'clean': [f"rm -rf {DOCS_DIR}"],
     }
 
 
