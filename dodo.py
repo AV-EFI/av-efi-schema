@@ -349,7 +349,7 @@ def task_sync_dependencies():
     }
 
 
-def task_update_linkml():
+def task_update_dependencies():
     """Update dependencies (linkml, etc.)."""
     return {
         'actions': [
