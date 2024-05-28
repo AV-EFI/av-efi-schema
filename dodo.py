@@ -23,6 +23,7 @@ SRC_DOCS_DIR = HERE / 'src' / 'docs'
 DOCS_DIR = HERE / 'docs'
 SCHEMA_OVERVIEW = DOCS_DIR / 'schema_overview.md'
 ER_DIAGRAM = HERE / 'avefi_er_diagram.md'
+SITE_DIR = HERE / 'site'
 UTILS_DIR = HERE / 'utils'
 WORKING_DIR = HERE / 'KIP_DTR'
 SCHEMA_NAME = 'avefi_schema'
@@ -291,6 +292,49 @@ def task_copy_src_docs():
         ],
         'file_dep': dependencies,
         'targets': targets,
+    }
+
+
+def task_build_pages():
+    """Build ."""
+    return {
+        'actions': [
+            "mkdocs serve",
+        ],
+        'task_dep': ['sync_dependencies', 'docs']
+    }
+
+
+def task_build_site():
+    """Build static site from provided documentation."""
+    return {
+        'actions': [
+            'mkdocs build',
+        ],
+        'task_dep': ['docs'],
+        'file_dep': [SCHEMA_OVERVIEW],
+        'targets': [SITE_DIR / 'schema_overview' / 'index.html'],
+        'clean': [f"rm -rf {SITE_DIR}"],
+    }
+
+
+def task_serve_site():
+    """Serve documentation on localhost for testing."""
+    return {
+        'actions': [
+            'mkdocs serve',
+        ],
+        'task_dep': ['build_site'],
+    }
+
+
+def task_deploy_site():
+    """Deploy docs to GitHub Pages."""
+    return {
+        'actions': [
+            'mkdocs gh-deploy',
+        ],
+        'task_dep': ['build_site'],
     }
 
 
