@@ -323,7 +323,7 @@ enums:
         meaning: fiaf:GafferLighting
       GeneratorOperator:
         structured_aliases:
-          - literal_form: Aggegatsfahrer
+          - literal_form: Aggregatsfahrer
             in_language: de
           - literal_form: Generator Operator
             in_language: en
