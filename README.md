@@ -1,3 +1,11 @@
+License: CC BY 4.0
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+The [project/ subdirectory](./project/) is dual licensed under the MIT
+license
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 # Schema for Audio-Visual Material
 
 This repository has been created in order to track the development of

@@ -1,10 +1,8 @@
-Different copyright notices and licenses apply to contents of the
-`utils/` subdirectory. See extra `LICENSE` files below `utils/` for
-further details.
-
-Everything except `utils/` is subject to the CC BY 4.0 License below.
-
 Copyright (c) 2023-2024 AV-EFI Working Group https://github.com/AV-EFI/
+
+Contents of this repository is licensed under CC BY 4.0 (see below).
+The contents of the [project/ subdirectory](./project/) is dual
+licensed under the MIT license.
 
 Attribution 4.0 International
 
