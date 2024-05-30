@@ -15,6 +15,7 @@ DOIT_CONFIG = {
         'pid_schema',
         'vocabularies',
         'python',
+        'typescript',
         # 'convert',
     ],
 }
@@ -45,6 +46,7 @@ PID_SCHEMAS = [
     EPIC_SCHEMA_DIR / f"{SRC_MODEL.stem}_{subschema}.schema.json"
     for subschema in ('workvariant', 'manifestation', 'item')
 ]
+TYPESCRIPT_DIR = PROJECT_DIR / 'typescript'
 
 
 SCHEMA_PIDS = {
@@ -204,11 +206,11 @@ def task_python():
 
 def task_typescript():
     """Generate typescript derivatives."""
-    typescript_path = PROJECT_DIR / 'typescript' / f"{SCHEMA_NAME}.ts"
+    typescript_path = TYPESCRIPT_DIR / f"{SCHEMA_NAME}.ts"
     for cmd, target in [
-            ('gen-typescript', typescript_path),
-            ('gen-typescript --gen-type-utils', typescript_path.with_stem(
-                f"{typescript_path.stem}_type_utils")),
+            ('gen-typescript --log_level ERROR', typescript_path),
+            ('gen-typescript --log_level ERROR --gen-type-utils',
+             typescript_path.with_stem(f"{typescript_path.stem}_type_utils")),
     ]:
         yield {
             'name': cmd,
