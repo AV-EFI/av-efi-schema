@@ -17,7 +17,6 @@ DOIT_CONFIG = {
         'python',
         'typescript',
         'json_lc_messages',
-        # 'convert',
     ],
 }
 HERE = Path(__file__).parent
@@ -26,7 +25,6 @@ DOCS_DIR = HERE / 'docs'
 SCHEMA_OVERVIEW = DOCS_DIR / 'schema_overview.md'
 ER_DIAGRAM = HERE / 'avefi_er_diagram.md'
 SITE_DIR = HERE / 'site'
-UTILS_DIR = HERE / 'utils'
 WORKING_DIR = HERE / 'KIP_DTR'
 SCHEMA_NAME = 'avefi_schema'
 SRC_SCHEMA_DIR = HERE / 'src' / SCHEMA_NAME
@@ -55,8 +53,6 @@ SCHEMA_PIDS = {
     'manifestation': '21.T11148/ef6836b80e4d64e574e3',
     'item': '21.T11148/b0047df54c686b9df82a',
 }
-#TYPEAPI = 'http://typeapi.pidconsortium.net/dtype/schema/JSON/'
-#REQUEST_PARAMS = '/?cached=true'
 TYPEAPI = 'http://typeapi.lab.pidconsortium.net/v1/types/schema/'
 REQUEST_PARAMS = '?refresh=true'
 
@@ -432,29 +428,3 @@ def task_fetch_efi_schemas():
             'clean': True,
             'uptodate': (True,),
             'verbosity': 2}
-
-
-def task_convert():
-    """Convert EFI Schemas from JSON into reStructuredText."""
-    invoke = {
-        'json2csv': f"python {UTILS_DIR / 'efischema2csv.py'}",
-        'csv2rst':  f"python {UTILS_DIR / 'third_party' / 'csv2rst.py'} -w 50",
-    }
-    for efi_type in SCHEMA_PIDS.keys():
-        for src, dst in (('json', 'csv'), ('csv', 'rst')):
-            yield {
-                'name': f"{efi_type}_{src}2{dst}",
-                'actions': [
-                    ' '.join([
-                        invoke[f"{src}2{dst}"],
-                        '-i', '{dependencies}', '-o', '{targets}',
-                    ]),
-                ],
-                'file_dep': [
-                    WORKING_DIR / f"schema_{efi_type}_DTR.{src}",
-                ],
-                'targets': [
-                    WORKING_DIR / f"schema_{efi_type}_DTR.{dst}",
-                ],
-                'verbosity': 2,
-            }
