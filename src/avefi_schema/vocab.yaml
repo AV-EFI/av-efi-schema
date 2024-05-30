@@ -39,9 +39,7 @@ enums:
       Animation:
         structured_aliases:
           - literal_form: Animation
-            in_language: de
-          - literal_form: Animation
-            in_language: en
+            in_language: default
         description: FIAF Glossary of Filmographic Terms B.13.1
         meaning: fiaf:Animation
       AnimationDirector:
@@ -55,9 +53,7 @@ enums:
       AnimationLighter:
         structured_aliases:
           - literal_form: Animation Lighter
-            in_language: de
-          - literal_form: Animation Lighter
-            in_language: en
+            in_language: default
         description: FIAF Glossary of Filmographic Terms B.13.19
         meaning: fiaf:AnimationLighter
       Animator:
@@ -142,9 +138,7 @@ enums:
       Double:
         structured_aliases:
           - literal_form: Double
-            in_language: de
-          - literal_form: Double
-            in_language: en
+            in_language: default
         description: FIAF Glossary of Filmographic Terms B.7.2
         meaning: fiaf:Double
       Extra:
@@ -158,9 +152,7 @@ enums:
       Interviewer:
         structured_aliases:
           - literal_form: Interviewer
-            in_language: de
-          - literal_form: Interviewer
-            in_language: en
+            in_language: default
         description: FIAF Glossary of Filmographic Terms B.7.9
         meaning: fiaf:Interviewer
       Narrator:
@@ -244,9 +236,7 @@ enums:
       BestBoy:
         structured_aliases:
           - literal_form: Best Boy
-            in_language: de
-          - literal_form: Best Boy
-            in_language: en
+            in_language: default
         description: FIAF Glossary of Filmographic Terms B.5.12
         meaning: fiaf:BestBoy
       CameraAssistant:
@@ -323,7 +313,7 @@ enums:
         meaning: fiaf:GafferLighting
       GeneratorOperator:
         structured_aliases:
-          - literal_form: Aggegatsfahrer
+          - literal_form: Aggregatsfahrer
             in_language: de
           - literal_form: Generator Operator
             in_language: en
@@ -482,9 +472,7 @@ enums:
       Continuity:
         structured_aliases:
           - literal_form: Continuity
-            in_language: de
-          - literal_form: Continuity
-            in_language: en
+            in_language: default
         description: FIAF Glossary of Filmographic Terms B.3.5
         meaning: fiaf:Continuity
       Director:
@@ -631,9 +619,7 @@ enums:
       MusicContractor:
         structured_aliases:
           - literal_form: Music Contractor
-            in_language: de
-          - literal_form: Music Contractor
-            in_language: en
+            in_language: default
         description: FIAF Glossary of Filmographic Terms B.11.9
         meaning: fiaf:MusicContractor
       MusicEditor:
@@ -820,17 +806,13 @@ enums:
       Sponsor:
         structured_aliases:
           - literal_form: Sponsor
-            in_language: de
-          - literal_form: Sponsor
-            in_language: en
+            in_language: default
         description: FIAF Glossary of Filmographic Terms B.2.20
         meaning: fiaf:Sponsor
       Studio:
         structured_aliases:
           - literal_form: Studio
-            in_language: de
-          - literal_form: Studio
-            in_language: en
+            in_language: default
         description: FIAF Glossary of Filmographic Terms B.2.23
         meaning: fiaf:Studio
       TransportationManager:
@@ -1195,9 +1177,7 @@ enums:
       MotionCapture:
         structured_aliases:
           - literal_form: Motion Capture
-            in_language: de
-          - literal_form: Motion Capture
-            in_language: en
+            in_language: default
         description: FIAF Glossary of Filmographic Terms B.8.13
         meaning: fiaf:MotionCapture
       Prosthetics:
@@ -1583,49 +1563,37 @@ enums:
       MPEG4:
         structured_aliases:
           - literal_form: MPEG-4
-            in_language: de
-          - literal_form: MPEG-4
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:MPEG4
       Quicktime:
         structured_aliases:
           - literal_form: Quicktime
-            in_language: de
-          - literal_form: Quicktime
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:Quicktime
       RealVideo:
         structured_aliases:
           - literal_form: Real Video
-            in_language: de
-          - literal_form: Real Video
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:RealVideo
       SVCD:
         structured_aliases:
           - literal_form: SVCD
-            in_language: de
-          - literal_form: SVCD
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:SVCD
       VCD:
         structured_aliases:
           - literal_form: VCD
-            in_language: de
-          - literal_form: VCD
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:VCD
       WindowsMedia:
         structured_aliases:
           - literal_form: Windows Media
-            in_language: de
-          - literal_form: Windows Media
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:WindowsMedia
 
@@ -1637,41 +1605,31 @@ enums:
       AVI:
         structured_aliases:
           - literal_form: AVI
-            in_language: de
-          - literal_form: AVI
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:AVI
       DPX:
         structured_aliases:
           - literal_form: DPX
-            in_language: de
-          - literal_form: DPX
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:DPX
       MOV:
         structured_aliases:
           - literal_form: MOV
-            in_language: de
-          - literal_form: MOV
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:MOV
       MP4:
         structured_aliases:
           - literal_form: MP4
-            in_language: de
-          - literal_form: MP4
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:MP4
       MXF:
         structured_aliases:
           - literal_form: MXF
-            in_language: de
-          - literal_form: MXF
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:MXF
 
@@ -1683,9 +1641,7 @@ enums:
       16mmFilm:
         structured_aliases:
           - literal_form: 16mm Film
-            in_language: de
-          - literal_form: 16mm Film
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:16mmFilm
       17.5mmFilm:
@@ -1699,25 +1655,19 @@ enums:
       35mmFilm:
         structured_aliases:
           - literal_form: 35mm Film
-            in_language: de
-          - literal_form: 35mm Film
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:35mmFilm
       70mmFilm:
         structured_aliases:
           - literal_form: 70mm Film
-            in_language: de
-          - literal_form: 70mm Film
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:70mmFilm
       8mmFilm:
         structured_aliases:
           - literal_form: 8mm Film
-            in_language: de
-          - literal_form: 8mm Film
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:8mmFilm
       9.5mmFilm:
@@ -1731,17 +1681,13 @@ enums:
       Super16mmFilm:
         structured_aliases:
           - literal_form: Super16mm Film
-            in_language: de
-          - literal_form: Super16mm Film
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:Super16mmFilm
       Super8mmFilm:
         structured_aliases:
           - literal_form: Super8mm Film
-            in_language: de
-          - literal_form: Super8mm Film
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:Super8mmFilm
 
@@ -1753,33 +1699,25 @@ enums:
       BluRay:
         structured_aliases:
           - literal_form: Blu-Ray
-            in_language: de
-          - literal_form: Blu-Ray
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:BluRay
       CD:
         structured_aliases:
           - literal_form: CD
-            in_language: de
-          - literal_form: CD
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:CD
       DVD:
         structured_aliases:
           - literal_form: DVD
-            in_language: de
-          - literal_form: DVD
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:DVD
       LaserDisc:
         structured_aliases:
           - literal_form: Laser Disc
-            in_language: de
-          - literal_form: Laser Disc
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:LaserDisc
 
@@ -1797,49 +1735,37 @@ enums:
       BetacamSP:
         structured_aliases:
           - literal_form: Betacam SP
-            in_language: de
-          - literal_form: Betacam SP
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:BetacamSP
       D1:
         structured_aliases:
           - literal_form: D1
-            in_language: de
-          - literal_form: D1
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:D1
       D5:
         structured_aliases:
           - literal_form: D5
-            in_language: de
-          - literal_form: D5
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:D5
       DVCPROHD:
         structured_aliases:
           - literal_form: DVCPRO HD
-            in_language: de
-          - literal_form: DVCPRO HD
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:DVCPROHD
       DigitalBetacam:
         structured_aliases:
           - literal_form: Digital Betacam
-            in_language: de
-          - literal_form: Digital Betacam
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:DigitalBetacam
       HDCAMSR:
         structured_aliases:
           - literal_form: HDCAM SR
-            in_language: de
-          - literal_form: HDCAM SR
-            in_language: en
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:HDCAMSR
 

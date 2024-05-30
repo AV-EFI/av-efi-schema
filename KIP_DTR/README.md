@@ -16,12 +16,3 @@ curl -X 'GET' \
   'http://typeapi.pidconsortium.net/dtype/schema/JSON/21.T11148/31b848e871121c47d064/?cached=true' \
   -H 'accept: application/json'
 ```
-
-Next to the JSON file for each of those schemas, this folder contains
-a reStructuredText representation better suited for human consumption.
-Some tooling is provided in the `../utils` directory in order to pull
-in updates from the Data Type Registry and convert them to
-reStructuredText. See the corresponding [README][utils/README] for
-usage instructions.
-
-[utils/README]: ../utils/README.md

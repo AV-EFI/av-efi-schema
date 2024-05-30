@@ -15,7 +15,8 @@ DOIT_CONFIG = {
         'pid_schema',
         'vocabularies',
         'python',
-        # 'convert',
+        'typescript',
+        'json_lc_messages',
     ],
 }
 HERE = Path(__file__).parent
@@ -23,7 +24,7 @@ SRC_DOCS_DIR = HERE / 'src' / 'docs'
 DOCS_DIR = HERE / 'docs'
 SCHEMA_OVERVIEW = DOCS_DIR / 'schema_overview.md'
 ER_DIAGRAM = HERE / 'avefi_er_diagram.md'
-UTILS_DIR = HERE / 'utils'
+SITE_DIR = HERE / 'site'
 WORKING_DIR = HERE / 'KIP_DTR'
 SCHEMA_NAME = 'avefi_schema'
 SRC_SCHEMA_DIR = HERE / 'src' / SCHEMA_NAME
@@ -44,6 +45,7 @@ PID_SCHEMAS = [
     EPIC_SCHEMA_DIR / f"{SRC_MODEL.stem}_{subschema}.schema.json"
     for subschema in ('workvariant', 'manifestation', 'item')
 ]
+TYPESCRIPT_DIR = PROJECT_DIR / 'typescript'
 
 
 SCHEMA_PIDS = {
@@ -51,8 +53,6 @@ SCHEMA_PIDS = {
     'manifestation': '21.T11148/ef6836b80e4d64e574e3',
     'item': '21.T11148/b0047df54c686b9df82a',
 }
-#TYPEAPI = 'http://typeapi.pidconsortium.net/dtype/schema/JSON/'
-#REQUEST_PARAMS = '/?cached=true'
 TYPEAPI = 'http://typeapi.lab.pidconsortium.net/v1/types/schema/'
 REQUEST_PARAMS = '?refresh=true'
 
@@ -161,18 +161,39 @@ def task_jsonschema():
 
 
 def task_python():
-    """Generate python bindings."""
+    """Generate python bindings.
+
+    Even though the designator slot "category" is declared required in
+    the schema, let it be treated as optional by the generated
+    bindings. This is convenient when constructors can determine that
+    value automatically on instantiation.
+
+    """
+    def generate_bindings(module_name, class_name, source, target, **kwargs):
+        import importlib
+        gen_module = importlib.import_module(
+            f"linkml.generators.{module_name}")
+        gen = getattr(gen_module, class_name)(source, **kwargs)
+        # Make category slot optional and rely on constructors to fill
+        # it correctly
+        if gen.schema.slots['category'].designates_type:
+            gen.schema.slots['category'].required = False
+        with open(target, 'w') as f:
+            f.write(gen.serialize())
+
     python_model = PROJECT_DIR / 'python' / SCHEMA_NAME \
         / f"{SRC_MODEL.stem}.py"
-    for cmd, target in [
-            ('gen-python', python_model),
-            ('gen-pydantic --pydantic-version 2', python_model.with_stem(
-                f"{python_model.stem}_pydantic_v2")),
+    for module, cls, target, kwargs in [
+            ('pythongen', 'PythonGenerator', python_model, {}),
+            ('pydanticgen', 'PydanticGenerator',
+             python_model.with_stem(f"{python_model.stem}_pydantic_v2"),
+             {'pydantic_version': 2}),
     ]:
         yield {
-            'name': cmd,
+            'name': module,
             'actions': [
-                f"{cmd} {SRC_MODEL} > {{targets}}",
+                (generate_bindings, [module, cls, SRC_MODEL, target],
+                 kwargs),
             ],
             'task_dep': ['sync_dependencies'],
             'file_dep': SRC_SCHEMA_DEPENDENCIES,
@@ -182,11 +203,11 @@ def task_python():
 
 def task_typescript():
     """Generate typescript derivatives."""
-    typescript_path = PROJECT_DIR / 'typescript' / f"{SCHEMA_NAME}.ts"
+    typescript_path = TYPESCRIPT_DIR / f"{SCHEMA_NAME}.ts"
     for cmd, target in [
-            ('gen-typescript', typescript_path),
-            ('gen-typescript --gen-type-utils', typescript_path.with_stem(
-                f"{typescript_path.stem}_type_utils")),
+            ('gen-typescript --log_level ERROR', typescript_path),
+            ('gen-typescript --log_level ERROR --gen-type-utils',
+             typescript_path.with_stem(f"{typescript_path.stem}_type_utils")),
     ]:
         yield {
             'name': cmd,
@@ -197,6 +218,51 @@ def task_typescript():
             'file_dep': SRC_SCHEMA_DEPENDENCIES,
             'targets': [target],
         }
+
+
+def task_json_lc_messages():
+    """Generate locale message catalog in JSON."""
+    def lc_messages_from_labels(dependencies, targets):
+        import linkml_runtime as linkmlr
+        schema = linkmlr.SchemaView(SRC_MODEL)
+        lc_message_catalog = {}
+        for lc_code in ('en', 'de'):
+            lc_messages = lc_message_catalog.setdefault(lc_code, {})
+            for cls in schema.all_classes().values():
+                result = None
+                for label, attrs in cls.structured_aliases.items():
+                    if attrs.in_language == 'default' and result == None:
+                        result = label
+                    elif attrs.in_language == lc_code:
+                        result = label
+                if result:
+                    lc_messages[schema.get_uri(cls.name)] = result
+            for enum in schema.all_enums().values():
+                for key, value in enum.permissible_values.items():
+                    result = None
+                    for label, attrs in value.structured_aliases.items():
+                        if attrs.in_language == 'default' and result == None:
+                            result = label
+                        elif attrs.in_language == lc_code:
+                            result = label
+                    if result:
+                        lc_messages[key] = result
+        lc_messages_path = Path(targets[0])
+        with open(lc_messages_path, 'w') as f:
+            json.dump(lc_message_catalog, f, indent=4, sort_keys=True)
+            f.write('\n')
+
+    return {
+        'actions': [
+            lc_messages_from_labels,
+        ],
+        'task_dep': [
+            'sync_dependencies',
+        ],
+        'file_dep': SRC_SCHEMA_DEPENDENCIES,
+        'targets': [TYPESCRIPT_DIR / 'locale_messages.json'],
+        'clean': True,
+    }
 
 
 def task_docs():
@@ -212,6 +278,7 @@ def task_docs():
         ],
         'file_dep': SRC_SCHEMA_DEPENDENCIES,
         'targets': [SCHEMA_OVERVIEW],
+        'clean': [f"rm -rf {DOCS_DIR}"],
     }
 
 
@@ -273,6 +340,49 @@ def task_copy_src_docs():
     }
 
 
+def task_build_pages():
+    """Build ."""
+    return {
+        'actions': [
+            "mkdocs serve",
+        ],
+        'task_dep': ['sync_dependencies', 'docs']
+    }
+
+
+def task_build_site():
+    """Build static site from provided documentation."""
+    return {
+        'actions': [
+            'mkdocs build',
+        ],
+        'task_dep': ['docs'],
+        'file_dep': [SCHEMA_OVERVIEW],
+        'targets': [SITE_DIR / 'schema_overview' / 'index.html'],
+        'clean': [f"rm -rf {SITE_DIR}"],
+    }
+
+
+def task_serve_site():
+    """Serve documentation on localhost for testing."""
+    return {
+        'actions': [
+            'mkdocs serve',
+        ],
+        'task_dep': ['build_site'],
+    }
+
+
+def task_deploy_site():
+    """Deploy docs to GitHub Pages."""
+    return {
+        'actions': [
+            'mkdocs gh-deploy',
+        ],
+        'task_dep': ['build_site'],
+    }
+
+
 def task_sync_dependencies():
     """Install dependencies according to pdm.lock (for developers)."""
     return {
@@ -283,7 +393,7 @@ def task_sync_dependencies():
     }
 
 
-def task_update_linkml():
+def task_update_dependencies():
     """Update dependencies (linkml, etc.)."""
     return {
         'actions': [
@@ -318,29 +428,3 @@ def task_fetch_efi_schemas():
             'clean': True,
             'uptodate': (True,),
             'verbosity': 2}
-
-
-def task_convert():
-    """Convert EFI Schemas from JSON into reStructuredText."""
-    invoke = {
-        'json2csv': f"python {UTILS_DIR / 'efischema2csv.py'}",
-        'csv2rst':  f"python {UTILS_DIR / 'third_party' / 'csv2rst.py'} -w 50",
-    }
-    for efi_type in SCHEMA_PIDS.keys():
-        for src, dst in (('json', 'csv'), ('csv', 'rst')):
-            yield {
-                'name': f"{efi_type}_{src}2{dst}",
-                'actions': [
-                    ' '.join([
-                        invoke[f"{src}2{dst}"],
-                        '-i', '{dependencies}', '-o', '{targets}',
-                    ]),
-                ],
-                'file_dep': [
-                    WORKING_DIR / f"schema_{efi_type}_DTR.{src}",
-                ],
-                'targets': [
-                    WORKING_DIR / f"schema_{efi_type}_DTR.{dst}",
-                ],
-                'verbosity': 2,
-            }

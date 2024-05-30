@@ -1,11 +1,17 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-24T08:57:47
+# Generation date: 2024-05-30T08:48:37
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
 # description: Metadata schema for persistent film identifiers developed in the
 #   AVefi project. See also the corresponding [Entity relation
-#   diagram](https://github.com/AV-EFI/av-efi-schema/blob/main/avefi_er_diagram.md)
+#   diagram](https://github.com/AV-EFI/av-efi-schema/blob/main/avefi_er_diagram.md).
+#   Additionally, consult the [FIAF Moving Image Cataloguing
+#   Manual](https://www.fiafnet.org/pages/E-Resources/Cataloguing-Manual.html)
+#   and the [FIAF Glossary of Filmographic
+#   Terms](https://www.fiafnet.org/images/tinyUpload/E-Resources/Reports-Glossaries-And-Papers/GlossaryMasterCombo19.htm)
+#   as indicated in the documentation below for definitions, usage
+#   instructions and best practices
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 import dataclasses
@@ -67,11 +73,9 @@ class CategorizedThing(YAMLRoot):
     class_name: ClassVar[str] = "CategorizedThing"
     class_model_uri: ClassVar[URIRef] = AVEFI.CategorizedThing
 
-    category: Union[str, URIorCURIE] = None
+    category: Optional[Union[str, URIorCURIE]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.category):
-            self.MissingRequiredField("category")
         self.category = str(self.class_class_curie)
 
         super().__post_init__(**kwargs)
@@ -114,7 +118,6 @@ class PIDRecord(CategorizedThing):
     class_name: ClassVar[str] = "PIDRecord"
     class_model_uri: ClassVar[URIRef] = AVEFI.PIDRecord
 
-    category: Union[str, URIorCURIE] = None
     id: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -136,7 +139,6 @@ class MovingImageRecord(PIDRecord):
     class_name: ClassVar[str] = "MovingImageRecord"
     class_model_uri: ClassVar[URIRef] = AVEFI.MovingImageRecord
 
-    category: Union[str, URIorCURIE] = None
     has_primary_title: Union[dict, "Title"] = None
     described_by: Optional[Union[dict, "DescriptionResource"]] = None
     has_event: Optional[Union[Union[dict, "Event"], List[Union[dict, "Event"]]]] = empty_list()
@@ -222,7 +224,6 @@ class WorkVariant(MovingImageRecord):
     class_name: ClassVar[str] = "WorkVariant"
     class_model_uri: ClassVar[URIRef] = AVEFI.WorkVariant
 
-    category: Union[str, URIorCURIE] = None
     has_primary_title: Union[dict, "Title"] = None
     type: Union[str, "WorkVariantTypeEnum"] = None
     has_form: Optional[Union[Union[str, "WorkFormEnum"], List[Union[str, "WorkFormEnum"]]]] = empty_list()
@@ -388,7 +389,6 @@ class Activity(CategorizedThing):
     class_name: ClassVar[str] = "Activity"
     class_model_uri: ClassVar[URIRef] = AVEFI.Activity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: str = None
 
@@ -422,7 +422,6 @@ class AnimationActivity(Activity):
     class_name: ClassVar[str] = "AnimationActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.AnimationActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "AnimationActivityTypeEnum"] = None
 
@@ -450,7 +449,6 @@ class CastActivity(Activity):
     class_name: ClassVar[str] = "CastActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.CastActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "CastActivityTypeEnum"] = None
 
@@ -478,7 +476,6 @@ class CensorshipActivity(Activity):
     class_name: ClassVar[str] = "CensorshipActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.CensorshipActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "CensorshipActivityTypeEnum"] = None
 
@@ -506,7 +503,6 @@ class CinematographyActivity(Activity):
     class_name: ClassVar[str] = "CinematographyActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.CinematographyActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "CinematographyActivityTypeEnum"] = None
 
@@ -534,7 +530,6 @@ class CopyrightAndDistributionActivity(Activity):
     class_name: ClassVar[str] = "CopyrightAndDistributionActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.CopyrightAndDistributionActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "CopyrightAndDistributionActivityTypeEnum"] = None
 
@@ -562,7 +557,6 @@ class DirectingActivity(Activity):
     class_name: ClassVar[str] = "DirectingActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.DirectingActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "DirectingActivityTypeEnum"] = None
 
@@ -590,7 +584,6 @@ class EditingActivity(Activity):
     class_name: ClassVar[str] = "EditingActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.EditingActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "EditingActivityTypeEnum"] = None
 
@@ -618,7 +611,6 @@ class LaboratoryActivity(Activity):
     class_name: ClassVar[str] = "LaboratoryActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.LaboratoryActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "LaboratoryActivityTypeEnum"] = None
 
@@ -646,7 +638,6 @@ class MusicActivity(Activity):
     class_name: ClassVar[str] = "MusicActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.MusicActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "MusicActivityTypeEnum"] = None
 
@@ -674,7 +665,6 @@ class ProducingActivity(Activity):
     class_name: ClassVar[str] = "ProducingActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.ProducingActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "ProducingActivityTypeEnum"] = None
 
@@ -702,7 +692,6 @@ class ProductionDesignActivity(Activity):
     class_name: ClassVar[str] = "ProductionDesignActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.ProductionDesignActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "ProductionDesignActivityTypeEnum"] = None
 
@@ -730,7 +719,6 @@ class PuppetActivity(Activity):
     class_name: ClassVar[str] = "PuppetActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.PuppetActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "PuppetActivityTypeEnum"] = None
 
@@ -758,7 +746,6 @@ class SoundActivity(Activity):
     class_name: ClassVar[str] = "SoundActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.SoundActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "SoundActivityTypeEnum"] = None
 
@@ -786,7 +773,6 @@ class SpecialEffectsActivity(Activity):
     class_name: ClassVar[str] = "SpecialEffectsActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.SpecialEffectsActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "SpecialEffectsActivityTypeEnum"] = None
 
@@ -814,7 +800,6 @@ class WritingActivity(Activity):
     class_name: ClassVar[str] = "WritingActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.WritingActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "WritingActivityTypeEnum"] = None
 
@@ -842,7 +827,6 @@ class ManifestationActivity(Activity):
     class_name: ClassVar[str] = "ManifestationActivity"
     class_model_uri: ClassVar[URIRef] = AVEFI.ManifestationActivity
 
-    category: Union[str, URIorCURIE] = None
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
     type: Union[str, "ManifestationActivityTypeEnum"] = None
 
@@ -914,7 +898,6 @@ class Event(CategorizedThing):
     class_name: ClassVar[str] = "Event"
     class_model_uri: ClassVar[URIRef] = AVEFI.Event
 
-    category: Union[str, URIorCURIE] = None
     has_activity: Optional[Union[Union[dict, Activity], List[Union[dict, Activity]]]] = empty_list()
     has_date: Optional[str] = None
     located_in: Optional[Union[Union[dict, GeographicName], List[Union[dict, GeographicName]]]] = empty_list()
@@ -952,7 +935,6 @@ class ProductionEvent(Event):
     class_name: ClassVar[str] = "ProductionEvent"
     class_model_uri: ClassVar[URIRef] = AVEFI.ProductionEvent
 
-    category: Union[str, URIorCURIE] = None
     type: Optional[Union[str, "ProductionEventTypeEnum"]] = None
     has_activity: Optional[Union[Union[dict, Activity], List[Union[dict, Activity]]]] = empty_list()
 
@@ -984,7 +966,6 @@ class PreservationEvent(Event):
     class_name: ClassVar[str] = "PreservationEvent"
     class_model_uri: ClassVar[URIRef] = AVEFI.PreservationEvent
 
-    category: Union[str, URIorCURIE] = None
     type: Union[str, "PreservationEventTypeEnum"] = None
     has_activity: Union[Union[dict, ManifestationActivity], List[Union[dict, ManifestationActivity]]] = None
 
@@ -1021,7 +1002,6 @@ class PublicationEvent(Event):
     class_name: ClassVar[str] = "PublicationEvent"
     class_model_uri: ClassVar[URIRef] = AVEFI.PublicationEvent
 
-    category: Union[str, URIorCURIE] = None
     type: Union[str, "PublicationEventTypeEnum"] = None
     has_activity: Optional[Union[Union[dict, ManifestationActivity], List[Union[dict, ManifestationActivity]]]] = empty_list()
 
@@ -1055,7 +1035,6 @@ class ManufactureEvent(Event):
     class_name: ClassVar[str] = "ManufactureEvent"
     class_model_uri: ClassVar[URIRef] = AVEFI.ManufactureEvent
 
-    category: Union[str, URIorCURIE] = None
     type: Union[str, "ManufactureEventTypeEnum"] = None
     has_activity: Union[Union[dict, LaboratoryActivity], List[Union[dict, LaboratoryActivity]]] = None
 
@@ -1092,7 +1071,6 @@ class RightsCopyrightRegistrationEvent(Event):
     class_name: ClassVar[str] = "RightsCopyrightRegistrationEvent"
     class_model_uri: ClassVar[URIRef] = AVEFI.RightsCopyrightRegistrationEvent
 
-    category: Union[str, URIorCURIE] = None
     has_activity: Union[Union[dict, CopyrightAndDistributionActivity], List[Union[dict, CopyrightAndDistributionActivity]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1150,7 +1128,6 @@ class ManifestationOrItem(MovingImageRecord):
     class_name: ClassVar[str] = "ManifestationOrItem"
     class_model_uri: ClassVar[URIRef] = AVEFI.ManifestationOrItem
 
-    category: Union[str, URIorCURIE] = None
     has_primary_title: Union[dict, Title] = None
     has_duration: Optional[Union[dict, "Duration"]] = None
     has_extent: Optional[Union[dict, "Extent"]] = None
@@ -1249,7 +1226,6 @@ class Format(CategorizedThing):
     class_name: ClassVar[str] = "Format"
     class_model_uri: ClassVar[URIRef] = AVEFI.Format
 
-    category: Union[str, URIorCURIE] = None
     type: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1274,7 +1250,6 @@ class Audio(Format):
     class_name: ClassVar[str] = "Audio"
     class_model_uri: ClassVar[URIRef] = AVEFI.Audio
 
-    category: Union[str, URIorCURIE] = None
     type: Optional[Union[str, "FormatAudioTypeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1299,7 +1274,6 @@ class DigitalFile(Format):
     class_name: ClassVar[str] = "DigitalFile"
     class_model_uri: ClassVar[URIRef] = AVEFI.DigitalFile
 
-    category: Union[str, URIorCURIE] = None
     type: Optional[Union[str, "FormatDigitalFileTypeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1324,7 +1298,6 @@ class DigitalFileEncoding(Format):
     class_name: ClassVar[str] = "DigitalFileEncoding"
     class_model_uri: ClassVar[URIRef] = AVEFI.DigitalFileEncoding
 
-    category: Union[str, URIorCURIE] = None
     type: Optional[Union[str, "FormatDigitalFileEncodingTypeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1349,7 +1322,6 @@ class Film(Format):
     class_name: ClassVar[str] = "Film"
     class_model_uri: ClassVar[URIRef] = AVEFI.Film
 
-    category: Union[str, URIorCURIE] = None
     type: Optional[Union[str, "FormatFilmTypeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1374,7 +1346,6 @@ class Optical(Format):
     class_name: ClassVar[str] = "Optical"
     class_model_uri: ClassVar[URIRef] = AVEFI.Optical
 
-    category: Union[str, URIorCURIE] = None
     type: Optional[Union[str, "FormatOpticalTypeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1399,7 +1370,6 @@ class Video(Format):
     class_name: ClassVar[str] = "Video"
     class_model_uri: ClassVar[URIRef] = AVEFI.Video
 
-    category: Union[str, URIorCURIE] = None
     type: Optional[Union[str, "FormatVideoTypeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1425,7 +1395,6 @@ class Manifestation(ManifestationOrItem):
     class_name: ClassVar[str] = "Manifestation"
     class_model_uri: ClassVar[URIRef] = AVEFI.Manifestation
 
-    category: Union[str, URIorCURIE] = None
     has_primary_title: Union[dict, Title] = None
     is_manifestation_of: Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]] = None
     has_colour_type: Optional[Union[str, "ColourTypeEnum"]] = None
@@ -1503,7 +1472,6 @@ class Item(ManifestationOrItem):
     class_name: ClassVar[str] = "Item"
     class_model_uri: ClassVar[URIRef] = AVEFI.Item
 
-    category: Union[str, URIorCURIE] = None
     has_primary_title: Union[dict, Title] = None
     is_item_of: Union[dict, "AVefiResource"] = None
     element_type: Optional[Union[str, "ItemElementTypeEnum"]] = None
@@ -1570,7 +1538,6 @@ class AuthorityResource(CategorizedThing):
     class_name: ClassVar[str] = "AuthorityResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.AuthorityResource
 
-    category: Union[str, URIorCURIE] = None
     id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1597,7 +1564,6 @@ class AVefiResource(AuthorityResource):
     class_name: ClassVar[str] = "AVefiResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.AVefiResource
 
-    category: Union[str, URIorCURIE] = None
     id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1625,7 +1591,6 @@ class DOIResource(AuthorityResource):
     class_name: ClassVar[str] = "DOIResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.DOIResource
 
-    category: Union[str, URIorCURIE] = None
     id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1652,7 +1617,6 @@ class FilmportalResource(AuthorityResource):
     class_name: ClassVar[str] = "FilmportalResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.FilmportalResource
 
-    category: Union[str, URIorCURIE] = None
     id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1679,7 +1643,6 @@ class GNDResource(AuthorityResource):
     class_name: ClassVar[str] = "GNDResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.GNDResource
 
-    category: Union[str, URIorCURIE] = None
     id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1706,7 +1669,6 @@ class ISILResource(AuthorityResource):
     class_name: ClassVar[str] = "ISILResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.ISILResource
 
-    category: Union[str, URIorCURIE] = None
     id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1733,7 +1695,6 @@ class TGNResource(AuthorityResource):
     class_name: ClassVar[str] = "TGNResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.TGNResource
 
-    category: Union[str, URIorCURIE] = None
     id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1761,7 +1722,6 @@ class VIAFResource(AuthorityResource):
     class_name: ClassVar[str] = "VIAFResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.VIAFResource
 
-    category: Union[str, URIorCURIE] = None
     id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1788,7 +1748,6 @@ class WikidataResource(AuthorityResource):
     class_name: ClassVar[str] = "WikidataResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.WikidataResource
 
-    category: Union[str, URIorCURIE] = None
     id: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -3525,7 +3484,7 @@ slots.type = Slot(uri=AVEFI.type, name="type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.type, domain=None, range=Optional[str])
 
 slots.category = Slot(uri=RDF.type, name="category", curie=RDF.curie('type'),
-                   model_uri=AVEFI.category, domain=None, range=Union[str, URIorCURIE])
+                   model_uri=AVEFI.category, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.same_as = Slot(uri=AVEFI.same_as, name="same_as", curie=AVEFI.curie('same_as'),
                    model_uri=AVEFI.same_as, domain=None, range=Optional[Union[Union[dict, AuthorityResource], List[Union[dict, AuthorityResource]]]])
