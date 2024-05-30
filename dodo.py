@@ -16,6 +16,7 @@ DOIT_CONFIG = {
         'vocabularies',
         'python',
         'typescript',
+        'json_lc_messages',
         # 'convert',
     ],
 }
@@ -221,6 +222,51 @@ def task_typescript():
             'file_dep': SRC_SCHEMA_DEPENDENCIES,
             'targets': [target],
         }
+
+
+def task_json_lc_messages():
+    """Generate locale message catalog in JSON."""
+    def lc_messages_from_labels(dependencies, targets):
+        import linkml_runtime as linkmlr
+        schema = linkmlr.SchemaView(SRC_MODEL)
+        lc_message_catalog = {}
+        for lc_code in ('en', 'de'):
+            lc_messages = lc_message_catalog.setdefault(lc_code, {})
+            for cls in schema.all_classes().values():
+                result = None
+                for label, attrs in cls.structured_aliases.items():
+                    if attrs.in_language == 'default' and result == None:
+                        result = label
+                    elif attrs.in_language == lc_code:
+                        result = label
+                if result:
+                    lc_messages[schema.get_uri(cls.name)] = result
+            for enum in schema.all_enums().values():
+                for key, value in enum.permissible_values.items():
+                    result = None
+                    for label, attrs in value.structured_aliases.items():
+                        if attrs.in_language == 'default' and result == None:
+                            result = label
+                        elif attrs.in_language == lc_code:
+                            result = label
+                    if result:
+                        lc_messages[key] = result
+        lc_messages_path = Path(targets[0])
+        with open(lc_messages_path, 'w') as f:
+            json.dump(lc_message_catalog, f, indent=4, sort_keys=True)
+            f.write('\n')
+
+    return {
+        'actions': [
+            lc_messages_from_labels,
+        ],
+        'task_dep': [
+            'sync_dependencies',
+        ],
+        'file_dep': SRC_SCHEMA_DEPENDENCIES,
+        'targets': [TYPESCRIPT_DIR / 'locale_messages.json'],
+        'clean': True,
+    }
 
 
 def task_docs():
