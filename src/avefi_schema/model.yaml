@@ -4,7 +4,13 @@ title: AVefi data model
 description: |-
   Metadata schema for persistent film identifiers developed in the
   AVefi project. See also the corresponding [Entity relation
-  diagram](https://github.com/AV-EFI/av-efi-schema/blob/main/avefi_er_diagram.md)
+  diagram](https://github.com/AV-EFI/av-efi-schema/blob/main/avefi_er_diagram.md).
+  Additionally, consult the [FIAF Moving Image Cataloguing
+  Manual](https://www.fiafnet.org/pages/E-Resources/Cataloguing-Manual.html)
+  and the [FIAF Glossary of Filmographic
+  Terms](https://www.fiafnet.org/images/tinyUpload/E-Resources/Reports-Glossaries-And-Papers/GlossaryMasterCombo19.htm)
+  as indicated in the documentation below for definitions, usage
+  instructions and best practices
 
 imports:
   - linkml:types

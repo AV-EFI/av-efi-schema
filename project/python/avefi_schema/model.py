@@ -1,11 +1,17 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-24T19:15:58
+# Generation date: 2024-05-30T08:48:37
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
 # description: Metadata schema for persistent film identifiers developed in the
 #   AVefi project. See also the corresponding [Entity relation
-#   diagram](https://github.com/AV-EFI/av-efi-schema/blob/main/avefi_er_diagram.md)
+#   diagram](https://github.com/AV-EFI/av-efi-schema/blob/main/avefi_er_diagram.md).
+#   Additionally, consult the [FIAF Moving Image Cataloguing
+#   Manual](https://www.fiafnet.org/pages/E-Resources/Cataloguing-Manual.html)
+#   and the [FIAF Glossary of Filmographic
+#   Terms](https://www.fiafnet.org/images/tinyUpload/E-Resources/Reports-Glossaries-And-Papers/GlossaryMasterCombo19.htm)
+#   as indicated in the documentation below for definitions, usage
+#   instructions and best practices
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 import dataclasses
