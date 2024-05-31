@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://av-efi.github.io/av-efi-schema/Entity/" rel="canonical"/>
+<link href="https://av-efi.github.io/av-efi-schema/MovingImageRecordContainer/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.22" name="generator"/>
-<title>Class: Entity - AVefi Schema Documentation</title>
+<title>Class: MovingImageRecordContainer - AVefi Schema Documentation</title>
 <link href="../assets/stylesheets/main.732c4fb1.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +21,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-entity">
+<a class="md-skip" href="#class-movingimagerecordcontainer">
           Skip to content
         </a>
 </div>
@@ -45,7 +45,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: Entity
+              Class: MovingImageRecordContainer
             
           </span>
 </div>
@@ -153,13 +153,6 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#inheritance">
-<span class="md-ellipsis">
-      Inheritance
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#slots">
 <span class="md-ellipsis">
       Slots
@@ -223,67 +216,23 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="class-entity">Class: Entity</h1>
-<p><em>A generic grouping for all described things</em></p>
-<ul>
-<li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
-</ul>
-<p>URI: <a href="https://av-efi.net/av-efi-schema/Entity">avefi:Entity</a></p>
+<h1 id="class-movingimagerecordcontainer">Class: MovingImageRecordContainer</h1>
+<p><em>A holder for MovingImageRecord objects</em></p>
+<p>URI: <a href="https://av-efi.net/av-efi-schema/MovingImageRecordContainer">avefi:MovingImageRecordContainer</a></p>
 <pre class="mermaid"><code> classDiagram
-    class Entity
-    click Entity href "../Entity"
-      Entity &lt;|-- PIDRecord
-        click PIDRecord href "../PIDRecord"
-      Entity &lt;|-- GeographicName
-        click GeographicName href "../GeographicName"
-      Entity &lt;|-- Genre
-        click Genre href "../Genre"
-      Entity &lt;|-- Subject
-        click Subject href "../Subject"
-      Entity &lt;|-- Activity
-        click Activity href "../Activity"
-      Entity &lt;|-- Agent
-        click Agent href "../Agent"
-      Entity &lt;|-- Event
-        click Event href "../Event"
-      Entity &lt;|-- Title
-        click Title href "../Title"
-      Entity &lt;|-- Duration
-        click Duration href "../Duration"
-      Entity &lt;|-- Extent
-        click Extent href "../Extent"
-      Entity &lt;|-- Format
-        click Format href "../Format"
-      Entity &lt;|-- Language
-        click Language href "../Language"
-      Entity &lt;|-- MovingImageRecordCollection
-        click MovingImageRecordCollection href "../MovingImageRecordCollection"
-      Entity &lt;|-- AuthorityResource
-        click AuthorityResource href "../AuthorityResource"
+    class MovingImageRecordContainer
+    click MovingImageRecordContainer href "../MovingImageRecordContainer"
+      MovingImageRecordContainer : has_record
 
-      Entity : category
+
+
+
+    MovingImageRecordContainer --&gt; "0..1" MovingImageRecord : has_record
+    click MovingImageRecord href "../MovingImageRecord"
+
 
 </code></pre>
-<h2 id="inheritance">Inheritance</h2>
-<ul>
-<li><strong>Entity</strong><ul>
-<li><a href="../PIDRecord/">PIDRecord</a></li>
-<li><a href="../GeographicName/">GeographicName</a></li>
-<li><a href="../Genre/">Genre</a></li>
-<li><a href="../Subject/">Subject</a></li>
-<li><a href="../Activity/">Activity</a></li>
-<li><a href="../Agent/">Agent</a></li>
-<li><a href="../Event/">Event</a></li>
-<li><a href="../Title/">Title</a></li>
-<li><a href="../Duration/">Duration</a></li>
-<li><a href="../Extent/">Extent</a></li>
-<li><a href="../Format/">Format</a></li>
-<li><a href="../Language/">Language</a></li>
-<li><a href="../MovingImageRecordCollection/">MovingImageRecordCollection</a></li>
-<li><a href="../AuthorityResource/">AuthorityResource</a></li>
-</ul>
-</li>
-</ul>
+<!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
 <table>
 <thead>
@@ -296,9 +245,9 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../category/">category</a></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>Designates type, e.g.</td>
+<td><a href="../has_record/">has_record</a></td>
+<td>0..1 <br/> <a href="../MovingImageRecord/">MovingImageRecord</a></td>
+<td>Root slot holding the moving image metadata record, i.e.</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -319,11 +268,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>avefi:Entity</td>
+<td>avefi:MovingImageRecordContainer</td>
 </tr>
 <tr>
 <td>native</td>
-<td>avefi:Entity</td>
+<td>avefi:MovingImageRecordContainer</td>
 </tr>
 </tbody>
 </table>
@@ -331,36 +280,35 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A generic grouping for all described things</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MovingImageRecordContainer</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A holder for MovingImageRecord objects</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
-<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">abstract</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_record</span>
+<span class="nt">tree_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A generic grouping for all described things</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MovingImageRecordContainer</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A holder for MovingImageRecord objects</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
-<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">abstract</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">category</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Designates type, e.g. to distinguish different identifiers (GNDResource</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">vs. VIAFResource)</span>
+<span class="w">  </span><span class="nt">has_record</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_record</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Root slot holding the moving image metadata record, i.e. metadata</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">describing a work/variant, manifestation or item. See also the Introduction</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of the FIAF Moving Image Cataloguing Manual</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdf:type</span>
-<span class="w">    </span><span class="nt">designates_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_record</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MovingImageRecordContainer</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MovingImageRecordContainer</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MovingImageRecord</span>
+<span class="nt">tree_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 </article>

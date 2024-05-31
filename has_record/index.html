@@ -370,7 +370,7 @@
 
 
 <h1 id="slot-has_record">Slot: has_record</h1>
-<p><em>Root slot holding the moving image metadata record(s)</em></p>
+<p><em>Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual</em></p>
 <p>URI: <a href="https://av-efi.net/av-efi-schema/has_record">avefi:has_record</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -385,7 +385,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../MovingImageRecordCollection/">MovingImageRecordCollection</a></td>
+<td><a href="../MovingImageRecordContainer/">MovingImageRecordContainer</a></td>
 <td>A holder for MovingImageRecord objects</td>
 <td>no</td>
 </tr>
@@ -393,12 +393,7 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../MovingImageRecord/">MovingImageRecord</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
+<li>Range: <a href="../MovingImageRecord/">MovingImageRecord</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -408,16 +403,15 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_record</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Root slot holding the moving image metadata record(s)</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Root slot holding the moving image metadata record, i.e. metadata describing</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">a work/variant, manifestation or item. See also the Introduction of the FIAF Moving</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Image Cataloguing Manual</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_record</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MovingImageRecordCollection</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MovingImageRecordContainer</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MovingImageRecord</span>
-<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 
