@@ -1317,36 +1317,91 @@ enums:
       Manual 2.4.1.1, D.8
     permissible_values:
       AgentNotIdentified:
+        structured_aliases:
+          - literal_form: Agent nicht identifiziert
+            in_language: deu
+          - literal_form: Agent not identified
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.8.11
         meaning: fiaf:AgentNotIdentified
       AgentResponsibleForPreservation:
+        structured_aliases:
+          - literal_form: Agent verantwortlich für Präservation
+            in_language: deu
+          - literal_form: Agent responsible for preservation
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.8.6
         meaning: fiaf:AgentResponsibleForPreservation
       AgentResponsibleForReproductionOrTransfer:
+        structured_aliases:
+          - literal_form: Agent verantwortlich für Reproduktion oder Transfer
+            in_language: deu
+          - literal_form: Agent responsible for reproduction or transfer
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.8.7
         meaning: fiaf:AgentResponsibleForReproductionOrTransfer
       AgentResponsibleForTheArchivalAvailability:
+        structured_aliases:
+          - literal_form: Agent verantwortlich für Verfügbarkeit im Archiv
+            in_language: deu
+          - literal_form: Agent responsible for the archival availability
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.8.8
         meaning: fiaf:AgentResponsibleForTheArchivalAvailability
       AgentResponsibleForTheMereAvailability:
+        structured_aliases:
+          - literal_form: Agent verantwortlich für Verfügbarkeit
+            in_language: deu
+          - literal_form: Agent responsible for the mere availability
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.8.9
         meaning: fiaf:AgentResponsibleForTheMereAvailability
       AgentUnclearOrUndetermined:
+        structured_aliases:
+          - literal_form: Agent unklar oder unbestimmt
+            in_language: deu
+          - literal_form: Agent unclear or undetermined
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.8.10
         meaning: fiaf:AgentUnclearOrUndetermined
       Broadcaster:
+        structured_aliases:
+          - literal_form: Rundfunkveranstalter
+            in_language: deu
+          - literal_form: Broadcaster
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.8.3
         meaning: fiaf:Broadcaster
       DistributorNonTheatrical:
+        structured_aliases:
+          - literal_form: Verleiher (nicht für Kino)
+            in_language: deu
+          - literal_form: Distributor (non-theatrical)
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.8.2
         meaning: fiaf:DistributorNonTheatrical
       DistributorTheatrical:
+        structured_aliases:
+          - literal_form: Verleiher (Kino)
+            in_language: deu
+          - literal_form: Distributor (theatrical)
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.8.1
         meaning: fiaf:DistributorTheatrical
       Manufacturer:
+        structured_aliases:
+          - literal_form: Hersteller
+            in_language: deu
+          - literal_form: Manufacturer
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.8.5
         meaning: fiaf:Manufacturer
       Publisher:
+        structured_aliases:
+          - literal_form: Herausgeber
+            in_language: deu
+          - literal_form: Publisher
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.8.4
         meaning: fiaf:Publisher
       UnknownActivity:
@@ -1404,21 +1459,51 @@ enums:
       FIAF Moving Image Cataloguing Manual D.4.7, D.14
     permissible_values:
       FilmPrintingEvent:
+        structured_aliases:
+          - literal_form: Filmdruckereignis
+            in_language: deu
+          - literal_form: Film Printing Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:FilmPrintingEvent
       MasteringEvent:
+        structured_aliases:
+          - literal_form: Mastering-Ereignis
+            in_language: deu
+          - literal_form: Mastering Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:MasteringEvent
       ScanningEvent:
+        structured_aliases:
+          - literal_form: Scanning-Ereignis
+            in_language: deu
+          - literal_form: Scanning Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:ScanningEvent
       TelecineEvent:
+        structured_aliases:
+          - literal_form: Telecine-Ereignis
+            in_language: deu
+          - literal_form: Telecine Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:TelecineEvent
       UploadingEvent:
+        structured_aliases:
+          - literal_form: Upload-Ereignis
+            in_language: deu
+          - literal_form: Uploading Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:UploadingEvent
       VideoCopyingEvent:
+        structured_aliases:
+          - literal_form: Videokopierereignis
+            in_language: deu
+          - literal_form: Video Copying Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:VideoCopyingEvent
 
@@ -1427,15 +1512,35 @@ enums:
     description: FIAF Moving Image Cataloguing Manual D.4.5
     permissible_values:
       DigitisationEvent:
+        structured_aliases:
+          - literal_form: Digitalisierungsereignis
+            in_language: deu
+          - literal_form: Digitisation Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.12
         meaning: fiaf:DigitisationEvent
       DuplicationEvent:
+        structured_aliases:
+          - literal_form: Duplikationsereignis
+            in_language: deu
+          - literal_form: Duplication Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.12
         meaning: fiaf:DuplicationEvent
       ReproductionEvent:
+        structured_aliases:
+          - literal_form: Reproduktionsereignis
+            in_language: deu
+          - literal_form: Reproduction Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.12
         meaning: fiaf:ReproductionEvent
       TransferEvent:
+        structured_aliases:
+          - literal_form: Transfer-Ereignis
+            in_language: deu
+          - literal_form: Transfer Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.12
         meaning: fiaf:TransferEvent
 
@@ -1446,15 +1551,35 @@ enums:
       Image Cataloguing Manual D.4.3, D.11
     permissible_values:
       CastingEvent:
+        structured_aliases:
+          - literal_form: Casting-Ereignis
+            in_language: deu
+          - literal_form: Casting Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.11
         meaning: fiaf:CastingEvent
       IndoorShootingEvent:
+        structured_aliases:
+          - literal_form: Innenaufnahmenereignis
+            in_language: deu
+          - literal_form: Indoor Shooting Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.11
         meaning: fiaf:IndoorShootingEvent
       OutdoorShootingEvent:
+        structured_aliases:
+          - literal_form: Außenaufnahmenereignis
+            in_language: deu
+          - literal_form: Outdoor Shooting Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.11
         meaning: fiaf:OutdoorShootingEvent
       PostProductionEvent:
+        structured_aliases:
+          - literal_form: Postproduktionsereignis
+            in_language: deu
+          - literal_form: Post-Production Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.11
         meaning: fiaf:PostProductionEvent
 
@@ -1463,33 +1588,83 @@ enums:
     description: FIAF Moving Image Cataloguing Manual D.4.1, D.10
     permissible_values:
       BroadcastEvent:
+        structured_aliases:
+          - literal_form: Übertragungsereignis
+            in_language: deu
+          - literal_form: Broadcast Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:BroadcastEvent
       DistributionEvent:
+        structured_aliases:
+          - literal_form: Distributionsereignis
+            in_language: deu
+          - literal_form: Distribution Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:DistributionEvent
       HomeVideoPublicationEvent:
+        structured_aliases:
+          - literal_form: Home Movie-Veröffentlichungsereignis
+            in_language: deu
+          - literal_form: Home Video Publication Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:HomeVideoPublicationEvent
       NonTheatricalDistributionEvent:
+        structured_aliases:
+          - literal_form: Distributionsereignis (nicht für Kino)
+            in_language: deu
+          - literal_form: Non-Theatrical Distribution Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:NonTheatricalDistributionEvent
       NotForReleaseEvent:
+        structured_aliases:
+          - literal_form: Nicht zur Veröffentlichung-Ereignis
+            in_language: deu
+          - literal_form: Not For Release Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:NotForReleaseEvent
       OnlineTransmissionEvent:
+        structured_aliases:
+          - literal_form: Online-Übertragungsereignis
+            in_language: deu
+          - literal_form: Online Transmission Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:OnlineTransmissionEvent
       PreReleaseEvent:
+        structured_aliases:
+          - literal_form: Vorabveröffentlichungsereignis
+            in_language: deu
+          - literal_form: Pre-Release Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:PreReleaseEvent
       ReleaseEvent:
+        structured_aliases:
+          - literal_form: Veröffentlichungsereignis
+            in_language: deu
+          - literal_form: Release Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:ReleaseEvent
       TheatricalDistributionEvent:
+        structured_aliases:
+          - literal_form: Distributionsereignis (für Kino)
+            in_language: deu
+          - literal_form: Theatrical Distribution Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:TheatricalDistributionEvent
       UnknownEvent:
+        structured_aliases:
+          - literal_form: Unbekanntes Ereignis
+            in_language: deu
+          - literal_form: Unknown Event
+            in_language: eng
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:UnknownEvent
 
@@ -2083,78 +2258,172 @@ enums:
       FIAF Glossary of Filmographic Terms D.1.9
     permissible_values:
       AmateurFilm:
+        structured_aliases:
+          - literal_form: Amateurfilm
+            in_language: deu
+          - literal_form: Amateur Film
+            in_language: eng
         meaning: fiaf:AmateurFilm
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
       Compilation:
+        structured_aliases:
+          - literal_form: Kompilation
+            in_language: deu
+          - literal_form: Compilation
+            in_language: eng
         meaning: fiaf:Compilation
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
       Excerpt:
+        structured_aliases:
+          - literal_form: Filmausschnitt
+            in_language: deu
+          - literal_form: Excerpt
+            in_language: eng
         meaning: fiaf:Excerpt
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
       Feature:
+        structured_aliases:
+          - literal_form: Langfilm
+            in_language: deu
+          - literal_form: Feature
+            in_language: eng
         meaning: fiaf:Feature
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
       Featurette:
+        structured_aliases:
+          - literal_form: Kurzfilm über Filmherstellung
+            in_language: deu
+          - literal_form: Featurette
+            in_language: eng
         meaning: fiaf:Featurette
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
       HomeMovie:
+        structured_aliases:
+          - literal_form: Home Movie
+            in_language: default
         meaning: fiaf:HomeMovie
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
       Outtake:
+        structured_aliases:
+          - literal_form: Outtake
+            in_language: default
         meaning: fiaf:Outtake
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
       ScreenTest:
+        structured_aliases:
+          - literal_form: Probeaufnahmen
+            in_language: deu
+          - literal_form: Screen Test
+            in_language: eng
         meaning: fiaf:ScreenTest
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
       Series:
+        structured_aliases:
+          - literal_form: Serie
+            in_language: deu
+          - literal_form: Series
+            in_language: eng
         meaning: fiaf:Series
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
       Short:
+        structured_aliases:
+          - literal_form: Kurzfilm
+            in_language: deu
+          - literal_form: Short
+            in_language: eng
         meaning: fiaf:Short
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
       StockFootage:
+        structured_aliases:
+          - literal_form: Archivaufnahmen
+            in_language: deu
+          - literal_form: Stock Footage
+            in_language: eng
         meaning: fiaf:StockFootage
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
       Trailer:
+        structured_aliases:
+          - literal_form: Trailer
+            in_language: default
         meaning: fiaf:Trailer
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
       UneditedFootage:
+        structured_aliases:
+          - literal_form: Unbearbeitetes Material
+            in_language: deu
+          - literal_form: Unedited Footage
+            in_language: eng
         meaning: fiaf:UneditedFootage
         description: >-
           FIAF Glossary of Filmographic Terms D.1.9
       AnthologyFilm:
+        structured_aliases:
+          - literal_form: Episodenfilm
+            in_language: deu
+          - literal_form: Anthology Film
+            in_language: eng
         description: >-
           FIAF Moving Image Cataloguing Manual E.2.2
       Commercial:
         description: >-
           FIAF Moving Image Cataloguing Manual E.2.2
       EducationalFilm:
+        structured_aliases:
+          - literal_form: Lehrfilm
+            in_language: deu
+          - literal_form: Educational Film
+            in_language: eng
         description: >-
           FIAF Moving Image Cataloguing Manual 0.1.2, D.5.3
       EssayFilm:
+        structured_aliases:
+          - literal_form: Essayfilm
+            in_language: deu
+          - literal_form: Essay Film
+            in_language: eng
         description: >-
           FIAF Moving Image Cataloguing Manual 0.1.2
       ExperimentalFilm:
+        structured_aliases:
+          - literal_form: Experimentalfilm
+            in_language: deu
+          - literal_form: Experimental Film
+            in_language: eng
         description: >-
           FIAF Moving Image Cataloguing Manual 0.1.2
       IndustrialFilm:
+        structured_aliases:
+          - literal_form: Industriefilm
+            in_language: deu
+          - literal_form: Industrial Film
+            in_language: eng
         description: >-
           FIAF Moving Image Cataloguing Manual D.5.3
       MusicVideo:
+        structured_aliases:
+          - literal_form: Musikvideo
+            in_language: deu
+          - literal_form: Music Video
+            in_language: eng
         description: >-
           FIAF Moving Image Cataloguing Manual D.18
       Newsreel:
+        structured_aliases:
+          - literal_form: Wochenschau
+            in_language: deu
+          - literal_form: Newsreel
+            in_language: eng
         description: >-
           http://www.screenonline.org.uk/film/id/476463/index.html
