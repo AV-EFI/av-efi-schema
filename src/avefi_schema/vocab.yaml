@@ -1415,12 +1415,30 @@ enums:
       FIAF Moving Image Cataloguing Manual 1.4.1
     permissible_values:
       CorporateBody:
+        structured_aliases:
+          - literal_form: Körperschaft
+            in_language: de
+          - literal_form: Corporate Body
+            in_language: en
         meaning: fiaf:CorporateBody
       Family:
+        structured_aliases:
+          - literal_form: Familie
+            in_language: de
+          - literal_form: Family
+            in_language: en
         meaning: fiaf:Family
       Person:
+        structured_aliases:
+          - literal_form: Person
+            in_language: default
         meaning: fiaf:Person
       PersonGroup:
+        structured_aliases:
+          - literal_form: Personengruppe
+            in_language: de
+          - literal_form: Person Group
+            in_language: en
         meaning: fiaf:PersonGroup
 
   ColourTypeEnum:
@@ -1429,27 +1447,65 @@ enums:
       FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11
     permissible_values:
       BlackAndWhite:
+        structured_aliases:
+          - literal_form: Schwarzweiß
+            in_language: de
+          - literal_form: Black and White
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.11
         meaning: fiaf:BlackAndWhite
       BlackAndWhiteTinted:
+        structured_aliases:
+          - literal_form: Schwarzweiß (Viragiert)
+            in_language: de
+          - literal_form: Black and White (Tinted)
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.11
         meaning: fiaf:BlackAndWhiteTinted
       BlackAndWhiteTintedAndToned:
+        structured_aliases:
+          - literal_form: Schwarzweiß (Viragiert und Getont)
+            in_language: de
+          - literal_form: Black and White (Tinted and Toned)
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.11
         meaning: fiaf:BlackAndWhiteTintedAndToned
       BlackAndWhiteToned:
+        structured_aliases:
+          - literal_form: Schwarzweiß (Getont)
+            in_language: de
+          - literal_form: Black and White (Toned)
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.11
         meaning: fiaf:BlackAndWhiteToned
       Colour:
+        structured_aliases:
+          - literal_form: Farbe
+            in_language: de
+          - literal_form: Colour
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.11
         meaning: fiaf:Colour
       ColourBlackAndWhite:
+        structured_aliases:
+          - literal_form: Farbe + Schwarzweiß
+            in_language: de
+          - literal_form: Colour + Black And White
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.11
         meaning: fiaf:ColourBlackAndWhite
       Sepia:
+        structured_aliases:
+          - literal_form: Sepia
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.11
         meaning: fiaf:Sepia
       Tinted:
+        structured_aliases:
+          - literal_form: Viragiert
+            in_language: de
+          - literal_form: Tinted
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.11
         meaning: fiaf:Tinted
 
@@ -1902,9 +1958,19 @@ enums:
       FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
       1InchCFormat:
+        structured_aliases:
+          - literal_form: 1-Zoll C Format
+            in_language: de
+          - literal_form: 1-inch C Format
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:1InchCFormat
       2InchQuadruplex:
+        structured_aliases:
+          - literal_form: 2-Zoll Quadruplex
+            in_language: de
+          - literal_form: 2-inch Quadruplex
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:2InchQuadruplex
       BetacamSP:
@@ -1950,65 +2016,146 @@ enums:
       FIAF Moving Image Cataloguing Manual D.7.3
     permissible_values:
       Archive:
+        structured_aliases:
+          - literal_form: Archiv
+            in_language: de
+          - literal_form: Archive
+            in_language: en
       Distribution:
+        structured_aliases:
+          - literal_form: Distribution
+            in_language: default
       Master:
+        structured_aliases:
+          - literal_form: Master
+            in_language: default
         description: >-
           FIAF Moving Image Cataloguing Manual D.7.3
         meaning: fiaf:Master
       Removed:
+        structured_aliases:
+          - literal_form: Entfernt
+            in_language: de
+          - literal_form: Removed
+            in_language: en
         description: >-
           FIAF Moving Image Cataloguing Manual D.7.3
         meaning: fiaf:Removed
       Viewing:
+        structured_aliases:
+          - literal_form: Vorführung
+            in_language: de
+          - literal_form: Viewing
+            in_language: en
         description: >-
           FIAF Moving Image Cataloguing Manual D.7.3
         meaning: fiaf:Viewing
 
-  ItemElementTypeEnum:
+    ItemElementTypeEnum:
     rank: 33
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.8
     permissible_values:
       ColourNegative:
+        structured_aliases:
+          - literal_form: Farbnegativ
+            in_language: de
+          - literal_form: Colour Negative
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:ColourNegative
       ColourPositive:
+        structured_aliases:
+          - literal_form: Farbpositiv
+            in_language: de
+          - literal_form: Colour Positive
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:ColourPositive
       CopperTonedPositive:
+        structured_aliases:
+          - literal_form: Copper Toned Positive
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:CopperTonedPositive
       CyanMatrix:
+        structured_aliases:
+          - literal_form: Cyan Matrix
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:CyanMatrix
       DCP:
+        structured_aliases:
+          - literal_form: DCP
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:DCP
       DirectBWPositive:
+        structured_aliases:
+          - literal_form: Direct BW Positive
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:DirectBWPositive
       DuplicateNegative:
+        structured_aliases:
+          - literal_form: Dupliziertes Negativ
+            in_language: de
+          - literal_form: Duplicate Negative
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:DuplicateNegative
       DuplicatePositive:
+        structured_aliases:
+          - literal_form: Dupliziertes Positiv
+            in_language: de
+          - literal_form: Duplicate Positive
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:DuplicatePositive
       ImageNegative:
+        structured_aliases:
+          - literal_form: Bildnegativ
+            in_language: de
+          - literal_form: Image Negative
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:ImageNegative
       Lavender:
+        structured_aliases:
+          - literal_form: Lavender
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:Lavender
       OriginalNegative:
+        structured_aliases:
+          - literal_form: Originalnegativ
+            in_language: de
+          - literal_form: Original Negative
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:OriginalNegative
       OriginalPositiveReversalFilm:
+        structured_aliases:
+          - literal_form: Originalpositiv (Dia)
+            in_language: de
+          - literal_form: Original Positive (reversal film)
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:OriginalPositiveReversalFilm
       Positive:
+        structured_aliases:
+          - literal_form: Positiv
+            in_language: de
+          - literal_form: Positive
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:Positive
       SoundNegative:
+        structured_aliases:
+          - literal_form: Soundpositiv
+            in_language: de
+          - literal_form: Sound Negative
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:SoundNegative
 
@@ -2018,49 +2165,114 @@ enums:
       FIAF Moving Image Cataloguing Manual 2.3.3, D.6
     permissible_values:
       AudioDescription:
+        structured_aliases:
+          - literal_form: Audiodeskription
+            in_language: de
+          - literal_form: Audio Description
+            in_language: en
         description: >-
           Audio description for the visually impaired
       Captions:
+        structured_aliases:
+          - literal_form: Untertitel
+            in_language: de
+          - literal_form: Captions
+            in_language: en
         description: >-
           FIAF Moving Image Cataloguing Manual D.6
         meaning: fiaf:Captions
       ClosingCredits:
+        structured_aliases:
+          - literal_form: Abspann
+            in_language: de
+          - literal_form: Closing Credits
+            in_language: en
         todos:
           - Add documentation
       Dubbed:
+        structured_aliases:
+          - literal_form: Synchronisiert
+            in_language: de
+          - literal_form: Dubbed
+            in_language: en
         description: >-
           FIAF Moving Image Cataloguing Manual 2.3.3
       Intertitles:
+        structured_aliases:
+          - literal_form: Zwischentitel
+            in_language: de
+          - literal_form: Intertitles
+            in_language: en
         description: >-
           FIAF Moving Image Cataloguing Manual D.6
         meaning: fiaf:Intertitles
       NoDialogue:
+        structured_aliases:
+          - literal_form: Ohne Dialog
+            in_language: de
+          - literal_form: No Dialogue
+            in_language: en
         description: >-
           FIAF Moving Image Cataloguing Manual D.6
         meaning: fiaf:NoDialogue
       OpeningCredits:
+        structured_aliases:
+          - literal_form: Vorspann
+            in_language: de
+          - literal_form: Opening Credits
+            in_language: en
         todos:
           - Add documentation
       SDHSubtitles:
+        structured_aliases:
+          - literal_form: SDH-Untertitel
+            in_language: de
+          - literal_form: SDH Subtitles
+            in_language: en
         description: >-
           Subtitles for the Deaf and Hard of hearing
       SignedLanguage:
+        structured_aliases:
+          - literal_form: Gebärdensprache
+            in_language: de
+          - literal_form: Signed Language
+            in_language: en
         description: >-
           FIAF Moving Image Cataloguing Manual D.6
         meaning: fiaf:SignedLanguage
       SpokenLanguage:
+        structured_aliases:
+          - literal_form: Gesprochene Sprache
+            in_language: de
+          - literal_form: Spoken Language
+            in_language: en
         description: >-
           FIAF Moving Image Cataloguing Manual D.6
         meaning: fiaf:SpokenLanguage
       Subtitles:
+        structured_aliases:
+          - literal_form: Untertitel
+            in_language: de
+          - literal_form: Subtitles
+            in_language: en
         description: >-
           FIAF Moving Image Cataloguing Manual D.6
         meaning: fiaf:Subtitles
       SungLanguage:
+        structured_aliases:
+          - literal_form: Gesungene Sprache
+            in_language: de
+          - literal_form: Sung Language
+            in_language: en
         description: >-
           FIAF Moving Image Cataloguing Manual D.6
         meaning: fiaf:SungLanguage
       VoiceOver:
+        structured_aliases:
+          - literal_form: Voiceover
+            in_language: de
+          - literal_form: Voice-over
+            in_language: en
         todos:
           - Add documentation
 
