@@ -2051,7 +2051,7 @@ enums:
           FIAF Moving Image Cataloguing Manual D.7.3
         meaning: fiaf:Viewing
 
-    ItemElementTypeEnum:
+  ItemElementTypeEnum:
     rank: 33
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.8
