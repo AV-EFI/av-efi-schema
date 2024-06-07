@@ -2283,10 +2283,20 @@ enums:
       duration
     permissible_values:
       Approximate:
+        structured_aliases:
+          - literal_form: Ungefähr
+            in_language: de
+          - literal_form: Approximate
+            in_language: en
         description: >-
           Value may be inaccurate but is regarded to be close to the
           real thing
       Uncertain:
+        structured_aliases:
+          - literal_form: Unsicher
+            in_language: de
+          - literal_form: Uncertain
+            in_language: en
         description: >-
           Sources for the given value are deemed unreliable, so it may
           as well be off the mark
@@ -2297,27 +2307,61 @@ enums:
       FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4
     permissible_values:
       Combined:
+        structured_aliases:
+          - literal_form: Kombiniert
+            in_language: de
+          - literal_form: Combined
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.4
         meaning: fiaf:Combined
       CombinedAsMute:
+        structured_aliases:
+          - literal_form: Combined as Mute
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.4
         meaning: fiaf:CombinedAsMute
       CombinedAsSound:
+        structured_aliases:
+          - literal_form: Kombiniert als Ton
+            in_language: de
+          - literal_form: Combined as Sound
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.4
         meaning: fiaf:CombinedAsSound
       MixedSound:
+        structured_aliases:
+          - literal_form: Gemischter Ton
+            in_language: de
+          - literal_form: Mixed Sound
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.4
         meaning: fiaf:MixedSound
       Mute:
+        structured_aliases:
+          - literal_form: Mute
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.4
         meaning: fiaf:Mute
       Silent:
+        structured_aliases:
+          - literal_form: Silent
+            in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.4
         meaning: fiaf:Silent
       Sound:
+        structured_aliases:
+          - literal_form: Ton
+            in_language: de
+          - literal_form: Sound
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.4
         meaning: fiaf:Sound
       Temporary:
+        structured_aliases:
+          - literal_form: Temporär
+            in_language: de
+          - literal_form: Temporary
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.4
         meaning: fiaf:Temporary
 
@@ -2327,42 +2371,107 @@ enums:
       FIAF Moving Image Cataloguing Manual A.2
     permissible_values:
       AbbreviatedTitle:
+        structured_aliases:
+          - literal_form: Abgekürzter Titel
+            in_language: de
+          - literal_form: Abbreviated Title
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
         meaning: fiaf:AbbreviatedTitle
       AcquisitionTitle:
+        structured_aliases:
+          - literal_form: Erwerbstitel
+            in_language: de
+          - literal_form: Acquisition Title
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
         meaning: fiaf:AcquisitionTitle
       AlternativeTitle:
+        structured_aliases:
+          - literal_form: Alternativtitel
+            in_language: de
+          - literal_form: Alternative Title
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual A.2.4
         meaning: fiaf:AlternativeTitle
       CorrectedTitle:
+        structured_aliases:
+          - literal_form: Korrigierter Titel
+            in_language: de
+          - literal_form: Corrected Title
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
         meaning: fiaf:CorrectedTitle
       PreReleaseTitle:
+        structured_aliases:
+          - literal_form: Pre-Release Titel
+            in_language: de
+          - literal_form: Pre-Release Title
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
         meaning: fiaf:PreReleaseTitle
       PreferredTitle:
+        structured_aliases:
+          - literal_form: Bevorzugter Titel
+            in_language: de
+          - literal_form: Preferred Title
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual A.2.0
         meaning: fiaf:PreferredTitle
       SearchTitle:
+        structured_aliases:
+          - literal_form: Suchtitel
+            in_language: de
+          - literal_form: Search Title
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
         meaning: fiaf:SearchTitle
       SeriesTitle:
+        structured_aliases:
+          - literal_form: Serientitel
+            in_language: de
+          - literal_form: Series Title
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
         meaning: fiaf:SeriesTitle
       SuppliedDevisedTitle:
+        structured_aliases:
+          - literal_form: Gelieferter/Entworfener Titel
+            in_language: de
+          - literal_form: Supplied/Devised Title
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual A.2.5
         meaning: fiaf:SuppliedDevisedTitle
       TitleProper:
+        structured_aliases:
+          - literal_form: Haupttitel
+            in_language: de
+          - literal_form: Title Proper
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual A.2.2
         meaning: fiaf:TitleProper
       TranslatedTitle:
+        structured_aliases:
+          - literal_form: Übersetzter Titel
+            in_language: de
+          - literal_form: Translated Title
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
         meaning: fiaf:TranslatedTitle
       TransliteratedTitle:
+        structured_aliases:
+          - literal_form: Transkribierter Titel
+            in_language: de
+          - literal_form: Transliterated Title
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
         meaning: fiaf:TransliteratedTitle
       WorkingTitle:
+        structured_aliases:
+          - literal_form: Arbeitstitel
+            in_language: de
+          - literal_form: Working Title
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual A.2.4.1
         meaning: fiaf:WorkingTitle
 
@@ -2375,26 +2484,48 @@ enums:
       - https://www.qudt.org/doc/DOC_VOCAB-UNITS.html
     permissible_values:
       Feet:
+        structured_aliases:
+          - literal_form: Fuß
+            in_language: de
+          - literal_form: Feet
+            in_language: en
         description: >-
           Unit of length defined as being 0.3048 metres
         meaning: unit:FT
       GigaByte:
+        structured_aliases:
+          - literal_form: GigaByte
+            in_language: default
         description: >-
           Unit for digital information equivalent to 1000 megabytes
         meaning: unit:GigaBYTE
       KiloByte:
+        structured_aliases:
+          - literal_form: GigaByte
+            in_language: default
         description: >-
           Unit for digital information equivalent to 1000 bytes
         meaning: unit:KiloBYTE
       Metre:
+        structured_aliases:
+          - literal_form: Meter
+            in_language: de
+          - literal_form: Metre
+            in_language: en
         description: >-
           Metric and SI base unit of distance
         meaning: unit:M
       MegaByte:
+        structured_aliases:
+          - literal_form: MegaByte
+            in_language: default
         description: >-
           Unit for digital information equivalent to 1000 kilobytes
         meaning: unit:MegaBYTE
       TeraByte:
+        structured_aliases:
+          - literal_form: TeraByte
+            in_language: default
         description: >-
           Unit for digital information equivalent to 1000 gigabytes
         meaning: unit:TeraBYTE
@@ -2404,33 +2535,82 @@ enums:
     description: FIAF Moving Image Cataloguing Manual D.2
     permissible_values:
       AbridgedCondensed:
+        structured_aliases:
+          - literal_form: Gekürzt/Zusammengefasst
+            in_language: de
+          - literal_form: Abridged/Condensed
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.2
         meaning: fiaf:AbridgedCondensed
       Augmented:
+        structured_aliases:
+          - literal_form: Erweitert
+            in_language: de
+          - literal_form: Augmented
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.2
         meaning: fiaf:Augmented
       BlackAndWhiteCopyOfWorkOriginallyIssuedInColour:
+          - literal_form: Schwarzweißkopie eines Werks, das im Original in Farbe ausgegeben wurde
+            in_language: de
+          - literal_form: Black and white copy of work originally issued in colour 
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.2
         meaning: fiaf:BlackAndWhiteCopyOfWorkOriginallyIssuedInColour
       Censored:
+        structured_aliases:
+          - literal_form: Zensiert
+            in_language: de
+          - literal_form: Censored
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.2
         meaning: fiaf:Censored
       Colourized:
+        structured_aliases:
+          - literal_form: Koloriert
+            in_language: de
+          - literal_form: Colourized
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.2
         meaning: fiaf:Colourized
       DifferentSoundTrack:
+        structured_aliases:
+          - literal_form: Anderer Soundtrack
+            in_language: de
+          - literal_form: Different sound track
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.2
         meaning: fiaf:DifferentSoundTrack
       Dubbed:
+        structured_aliases:
+          - literal_form: Synchronisiert
+            in_language: de
+          - literal_form: Dubbed
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.2
         meaning: fiaf:Dubbed
       PreservationRestoration:
+        structured_aliases:
+          - literal_form: Präservierung/Restaurierung
+            in_language: de
+          - literal_form: Preservation/Restauration
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.2
         meaning: fiaf:PreservationRestoration
       Sonorized:
+        structured_aliases:
+          - literal_form: Sonorisierung
+            in_language: de
+          - literal_form: Sonorized
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.2
         meaning: fiaf:Sonorized
       Subtitled:
+        structured_aliases:
+          - literal_form: Untertitelt
+            in_language: de
+          - literal_form: Subtitled
+            in_language: en
         description: FIAF Moving Image Cataloguing Manual D.2
         meaning: fiaf:Subtitled
 
@@ -2441,21 +2621,41 @@ enums:
       Cataloguing Manual 1.2.1, D.1
     permissible_values:
       Analytic:
+        structured_aliases:
+          - literal_form: Analytisch
+            in_language: de
+          - literal_form: Analytic
+            in_language: en
         description: >-
           Content that is contained in another content
         meaning: fiaf:Analytic
       Collection:
+        structured_aliases:
+          - literal_form: Sammlung
+            in_language: de
+          - literal_form: Collection
+            in_language: en
         description: >-
           Content issued in several independent parts; an ‘umbrella’
           work title covering a number of different
           Works/Variants/Manifestations
         meaning: fiaf:Collection
       Monographic:
+        structured_aliases:
+          - literal_form: Monographisch
+            in_language: de
+          - literal_form: Monographic
+            in_language: en
         description: >-
           Complete content in one part or intended to be completed in
           a finite number of parts
         meaning: fiaf:Monographic
       Serial:
+        structured_aliases:
+          - literal_form: Seriell
+            in_language: de
+          - literal_form: Serial
+            in_language: en
         description: >-
           Content issued in successive parts and intended to be
           continued indefinitely, or across a span of time. A Work
