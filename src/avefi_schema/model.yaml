@@ -774,8 +774,9 @@ classes:
         pattern: ^[a-z]{3}$
         required: true
         description: >-
-          ISO 639-2 code for the Representation of Names of Languages
-          (Part 2: Alpha-3)
+          [ISO 639-2
+          code](https://id.loc.gov/vocabulary/iso639-2.html) for the
+          Representation of Names of Languages (Part 2: Alpha-3)
         see_also:
           - https://id.loc.gov/vocabulary/iso639-2.html
       usage:
