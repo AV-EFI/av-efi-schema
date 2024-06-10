@@ -2594,7 +2594,7 @@ enums:
         structured_aliases:
           - literal_form: Präservierung/Restaurierung
             in_language: de
-          - literal_form: Preservation/Restauration
+          - literal_form: Preservation/Restoration
             in_language: en
         description: FIAF Moving Image Cataloguing Manual D.2
         meaning: fiaf:PreservationRestoration
