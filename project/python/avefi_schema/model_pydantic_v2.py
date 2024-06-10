@@ -528,6 +528,8 @@ class PreservationEventTypeEnum(str, Enum):
     DuplicationEvent = "DuplicationEvent"
     # FIAF Moving Image Cataloguing Manual D.12
     ReproductionEvent = "ReproductionEvent"
+    # FIAF Moving Image Cataloguing Manual D.4.5
+    RestorationEvent = "RestorationEvent"
     # FIAF Moving Image Cataloguing Manual D.12
     TransferEvent = "TransferEvent"
 

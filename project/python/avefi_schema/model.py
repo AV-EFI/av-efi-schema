@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-30T08:48:37
+# Generation date: 2024-06-10T16:47:55
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -2688,6 +2688,9 @@ class PreservationEventTypeEnum(EnumDefinitionImpl):
         text="ReproductionEvent",
         description="FIAF Moving Image Cataloguing Manual D.12",
         meaning=FIAF["ReproductionEvent"])
+    RestorationEvent = PermissibleValue(
+        text="RestorationEvent",
+        description="FIAF Moving Image Cataloguing Manual D.4.5")
     TransferEvent = PermissibleValue(
         text="TransferEvent",
         description="FIAF Moving Image Cataloguing Manual D.12",

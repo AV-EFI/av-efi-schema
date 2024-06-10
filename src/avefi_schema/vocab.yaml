@@ -1591,6 +1591,13 @@ enums:
             in_language: en
         description: FIAF Moving Image Cataloguing Manual D.12
         meaning: fiaf:ReproductionEvent
+      RestorationEvent:
+        structured_aliases:
+          - literal_form: Restaurierung
+            in_language: de
+          - literal_form: Restoration
+            in_language: en
+        description: FIAF Moving Image Cataloguing Manual D.4.5
       TransferEvent:
         structured_aliases:
           - literal_form: Transfer-Ereignis
