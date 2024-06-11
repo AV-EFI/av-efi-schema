@@ -5,6 +5,7 @@
     "DigitisationEvent",
     "DuplicationEvent",
     "ReproductionEvent",
+    "RestorationEvent",
     "TransferEvent"
   ],
   "title": "PreservationEventTypeEnum",

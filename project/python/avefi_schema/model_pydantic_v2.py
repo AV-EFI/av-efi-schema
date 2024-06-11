@@ -528,6 +528,8 @@ class PreservationEventTypeEnum(str, Enum):
     DuplicationEvent = "DuplicationEvent"
     # FIAF Moving Image Cataloguing Manual D.12
     ReproductionEvent = "ReproductionEvent"
+    # FIAF Moving Image Cataloguing Manual D.4.5
+    RestorationEvent = "RestorationEvent"
     # FIAF Moving Image Cataloguing Manual D.12
     TransferEvent = "TransferEvent"
 
@@ -1509,7 +1511,7 @@ class Language(ConfiguredBaseModel):
     """
     Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled vocabulary. See also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3
     """
-    code: str = Field(..., description="""ISO 639-2 code for the Representation of Names of Languages (Part 2: Alpha-3)""")
+    code: str = Field(..., description="""[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)""")
     usage: List[LanguageUsageEnum] = Field(default_factory=list)
 
     @field_validator('code')
