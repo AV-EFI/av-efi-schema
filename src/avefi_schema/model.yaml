@@ -856,8 +856,9 @@ classes:
     annotations:
     - formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
     todos:
-      Possibly change formatter URIs/URLs to the av-efi.net domain when
-      the details have been sorted out
+      - >-
+        Possibly change formatter URIs/URLs to the av-efi.net domain when
+        the details have been sorted out
     description: >-
       Handle with the prefix allocated for AVefi (eventually)
 
@@ -1075,7 +1076,9 @@ classes:
     - value: Q64
       description: Wikidata-ID for place "Berlin"
     - value: Q586693
-      description: Wikidata-ID for organization "International Federation of Film Archives"
+      description: >-
+        Wikidata-ID for organization "International Federation of Film
+        Archives"
     - value: Q44426
       description: Wikidata-ID for person "Rainer Werner Fassbinder"
     - value: Q46721
