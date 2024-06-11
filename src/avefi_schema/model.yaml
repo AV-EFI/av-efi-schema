@@ -934,14 +934,15 @@ classes:
       - OrganizationIdentifier
       - PersonIdentifier
       - SubjectHeadingIdentifier
+    - alternative_web_resource: https://explore.gnd.network/gnd/$1/relations
+    - tag: other_resources
+      value:
+      - https://d-nb.info/gnd/$1/about/lds
+      - https://hub.culturegraph.org/entityfacts/$1
+      - https://lobid.org/gnd/$1
     notes: >-
-      - alternative_web_resource: https://explore.gnd.network/gnd/$1/relations
-      - other_resources:
-          - https://d-nb.info/gnd/$1/about/lds
-          - https://hub.culturegraph.org/entityfacts/$1
-          - https://lobid.org/gnd/$1
-      - API documentation including auto-complete suggestions at
-          https://lobid.org/gnd/api
+      API documentation including auto-complete suggestions at
+      https://lobid.org/gnd/api
     description: >-
       Gemeinsame Normdatei (GND) identifier maintained by Deutsche
       Nationalbibliothek (German National Library)
