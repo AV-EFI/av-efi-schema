@@ -370,6 +370,7 @@
 
 
 <h1 id="slot-has_alternate_name">Slot: has_alternate_name</h1>
+<p><em>Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance</em></p>
 <p>URI: <a href="http://schema.org/alternateName">schema:alternateName</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -384,13 +385,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Subject/">Subject</a></td>
-<td>Subject descriptor terms for the content of a film specifying its period, themes, locations, etc.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Agent/">Agent</a></td>
-<td>Agent involved in some activity related to the moving image resource.</td>
+<td><a href="../Genre/">Genre</a></td>
+<td>Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -399,8 +395,13 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Genre/">Genre</a></td>
-<td>Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters.</td>
+<td><a href="../Agent/">Agent</a></td>
+<td>Agent involved in some activity related to the moving image resource.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Subject/">Subject</a></td>
+<td>Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -422,6 +423,9 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_alternate_name</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Alternative human-readable name(s) for a thing. Whereas has_name provides</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">the preferred display name for the described entity, alternatives can be recorded</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">here in order to be indexed in search engines, for instance</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:alternateName</span>

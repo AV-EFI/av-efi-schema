@@ -370,6 +370,7 @@
 
 
 <h1 id="slot-located_in">Slot: located_in</h1>
+<p><em>Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event</em></p>
 <p>URI: <a href="https://av-efi.net/av-efi-schema/located_in">avefi:located_in</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -389,8 +390,13 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../RightsCopyrightRegistrationEvent/">RightsCopyrightRegistrationEvent</a></td>
-<td>Copyright and related rights registration event of a manifestation or possibly of a work/variant.</td>
+<td><a href="../ManufactureEvent/">ManufactureEvent</a></td>
+<td>Manufacture event of a manifestation.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../PublicationEvent/">PublicationEvent</a></td>
+<td>Publication event of a manifestation or possibly the first known publication of a work.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -399,18 +405,13 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../ManufactureEvent/">ManufactureEvent</a></td>
-<td>Manufacture event of a manifestation.</td>
+<td><a href="../RightsCopyrightRegistrationEvent/">RightsCopyrightRegistrationEvent</a></td>
+<td>Copyright and related rights registration event of a manifestation or possibly of a work/variant.</td>
 <td>no</td>
 </tr>
 <tr>
 <td><a href="../Event/">Event</a></td>
 <td>Significant event in the lifecycle of moving image work / variant, manifestation or item.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../PublicationEvent/">PublicationEvent</a></td>
-<td>Publication event of a manifestation or possibly the first known publication of a work.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -432,6 +433,9 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">located_in</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Location associated with an event, e.g. the country where the principal</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">offices or production facilities of the production company are located should be</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">associated with the production event</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>

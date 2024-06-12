@@ -370,7 +370,7 @@
 
 
 <h1 id="slot-has_name">Slot: has_name</h1>
-<p><em>A human-readable name for a thing</em></p>
+<p><em>Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations</em></p>
 <p>URI: <a href="http://schema.org/name">schema:name</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -390,8 +390,13 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Genre/">Genre</a></td>
-<td>Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters.</td>
+<td><a href="../Agent/">Agent</a></td>
+<td>Agent involved in some activity related to the moving image resource.</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../Subject/">Subject</a></td>
+<td>Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -400,14 +405,9 @@
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../Subject/">Subject</a></td>
-<td>Subject descriptor terms for the content of a film specifying its period, themes, locations, etc.</td>
+<td><a href="../Genre/">Genre</a></td>
+<td>Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters.</td>
 <td>no</td>
-</tr>
-<tr>
-<td><a href="../Agent/">Agent</a></td>
-<td>Agent involved in some activity related to the moving image resource.</td>
-<td>yes</td>
 </tr>
 </tbody>
 </table>
@@ -428,7 +428,9 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_name</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A human-readable name for a thing</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Human-readable name for a thing. This is to be treated as the preferred</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">display label in a UI context, whereas has_alternate_name can provide additional</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">terms, e.g. for matching in search operations</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:name</span>

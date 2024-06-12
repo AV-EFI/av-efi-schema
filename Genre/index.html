@@ -258,13 +258,13 @@
 <tr>
 <td><a href="../has_alternate_name/">has_alternate_name</a></td>
 <td>* <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>Alternative human-readable name(s) for a thing.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../has_name/">has_name</a></td>
 <td>1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable name for a thing</td>
+<td>Human-readable name for a thing.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -377,6 +377,9 @@
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">has_alternate_name</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_alternate_name</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Alternative human-readable name(s) for a thing. Whereas has_name</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">provides the preferred display name for the described entity, alternatives can</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">be recorded here in order to be indexed in search engines, for instance</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:alternateName</span>
@@ -391,7 +394,9 @@
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="w">  </span><span class="nt">has_name</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_name</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A human-readable name for a thing</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Human-readable name for a thing. This is to be treated as the preferred</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">display label in a UI context, whereas has_alternate_name can provide additional</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">terms, e.g. for matching in search operations</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:name</span>
