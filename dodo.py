@@ -340,16 +340,6 @@ def task_copy_src_docs():
     }
 
 
-def task_build_pages():
-    """Build ."""
-    return {
-        'actions': [
-            "mkdocs serve",
-        ],
-        'task_dep': ['sync_dependencies', 'docs']
-    }
-
-
 def task_build_site():
     """Build static site from provided documentation."""
     return {
