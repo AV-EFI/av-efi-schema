@@ -53,7 +53,7 @@
                         "description": "FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2",
                         "properties": {
                             "has_name": {
-                                "description": "A human-readable name for a thing",
+                                "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
                                 "type": "string"
                             },
                             "has_ordering_name": {
@@ -126,6 +126,7 @@
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
                                                                     "has_alternate_name": {
+                                                                        "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
                                                                             "type": "string"
                                                                         },
@@ -353,6 +354,7 @@
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
                                                                     "has_alternate_name": {
+                                                                        "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
                                                                             "type": "string"
                                                                         },
@@ -580,6 +582,7 @@
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
                                                                     "has_alternate_name": {
+                                                                        "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
                                                                             "type": "string"
                                                                         },
@@ -807,6 +810,7 @@
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
                                                                     "has_alternate_name": {
+                                                                        "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
                                                                             "type": "string"
                                                                         },
@@ -1034,6 +1038,7 @@
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
                                                                     "has_alternate_name": {
+                                                                        "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
                                                                             "type": "string"
                                                                         },
@@ -1261,6 +1266,7 @@
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
                                                                     "has_alternate_name": {
+                                                                        "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
                                                                             "type": "string"
                                                                         },
@@ -1488,6 +1494,7 @@
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
                                                                     "has_alternate_name": {
+                                                                        "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
                                                                             "type": "string"
                                                                         },
@@ -1715,6 +1722,7 @@
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
                                                                     "has_alternate_name": {
+                                                                        "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
                                                                             "type": "string"
                                                                         },
@@ -1942,6 +1950,7 @@
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
                                                                     "has_alternate_name": {
+                                                                        "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
                                                                             "type": "string"
                                                                         },
@@ -2169,6 +2178,7 @@
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
                                                                     "has_alternate_name": {
+                                                                        "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
                                                                             "type": "string"
                                                                         },
@@ -2396,6 +2406,7 @@
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
                                                                     "has_alternate_name": {
+                                                                        "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
                                                                             "type": "string"
                                                                         },
@@ -2623,6 +2634,7 @@
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
                                                                     "has_alternate_name": {
+                                                                        "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
                                                                             "type": "string"
                                                                         },
@@ -2845,18 +2857,20 @@
                                         "type": "string"
                                     },
                                     "located_in": {
+                                        "description": "Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event",
                                         "items": {
                                             "additionalProperties": false,
                                             "description": "Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4",
                                             "properties": {
                                                 "has_alternate_name": {
+                                                    "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
                                                         "type": "string"
                                                     },
                                                     "type": "array"
                                                 },
                                                 "has_name": {
-                                                    "description": "A human-readable name for a thing",
+                                                    "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
                                                     "type": "string"
                                                 },
                                                 "same_as": {
@@ -3080,6 +3094,7 @@
                                                         "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                         "properties": {
                                                             "has_alternate_name": {
+                                                                "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                 "items": {
                                                                     "type": "string"
                                                                 },
@@ -3300,18 +3315,20 @@
                                         "type": "string"
                                     },
                                     "located_in": {
+                                        "description": "Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event",
                                         "items": {
                                             "additionalProperties": false,
                                             "description": "Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4",
                                             "properties": {
                                                 "has_alternate_name": {
+                                                    "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
                                                         "type": "string"
                                                     },
                                                     "type": "array"
                                                 },
                                                 "has_name": {
-                                                    "description": "A human-readable name for a thing",
+                                                    "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
                                                     "type": "string"
                                                 },
                                                 "same_as": {
@@ -3537,6 +3554,7 @@
                                                         "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                         "properties": {
                                                             "has_alternate_name": {
+                                                                "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                 "items": {
                                                                     "type": "string"
                                                                 },
@@ -3757,18 +3775,20 @@
                                         "type": "string"
                                     },
                                     "located_in": {
+                                        "description": "Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event",
                                         "items": {
                                             "additionalProperties": false,
                                             "description": "Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4",
                                             "properties": {
                                                 "has_alternate_name": {
+                                                    "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
                                                         "type": "string"
                                                     },
                                                     "type": "array"
                                                 },
                                                 "has_name": {
-                                                    "description": "A human-readable name for a thing",
+                                                    "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
                                                     "type": "string"
                                                 },
                                                 "same_as": {
@@ -3993,6 +4013,7 @@
                                                         "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                         "properties": {
                                                             "has_alternate_name": {
+                                                                "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                 "items": {
                                                                     "type": "string"
                                                                 },
@@ -4213,18 +4234,20 @@
                                         "type": "string"
                                     },
                                     "located_in": {
+                                        "description": "Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event",
                                         "items": {
                                             "additionalProperties": false,
                                             "description": "Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4",
                                             "properties": {
                                                 "has_alternate_name": {
+                                                    "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
                                                         "type": "string"
                                                     },
                                                     "type": "array"
                                                 },
                                                 "has_name": {
-                                                    "description": "A human-readable name for a thing",
+                                                    "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
                                                     "type": "string"
                                                 },
                                                 "same_as": {
@@ -4450,6 +4473,7 @@
                                                         "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                         "properties": {
                                                             "has_alternate_name": {
+                                                                "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                 "items": {
                                                                     "type": "string"
                                                                 },
@@ -4670,18 +4694,20 @@
                                         "type": "string"
                                     },
                                     "located_in": {
+                                        "description": "Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event",
                                         "items": {
                                             "additionalProperties": false,
                                             "description": "Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4",
                                             "properties": {
                                                 "has_alternate_name": {
+                                                    "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
                                                         "type": "string"
                                                     },
                                                     "type": "array"
                                                 },
                                                 "has_name": {
-                                                    "description": "A human-readable name for a thing",
+                                                    "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
                                                     "type": "string"
                                                 },
                                                 "same_as": {
@@ -4902,6 +4928,7 @@
                     "type": "object"
                 },
                 "has_format": {
+                    "description": "FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1",
                     "items": {
                         "anyOf": [
                             {
@@ -5059,7 +5086,7 @@
                     "description": "FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2",
                     "properties": {
                         "has_name": {
-                            "description": "A human-readable name for a thing",
+                            "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
                             "type": "string"
                         },
                         "has_ordering_name": {
@@ -5103,6 +5130,7 @@
                                 "type": "string"
                             },
                             "usage": {
+                                "description": "FIAF Moving Image Cataloguing Manual 2.3.3.2",
                                 "items": {
                                     "$ref": "https://raw.githubusercontent.com/AV-EFI/av-efi-schema/main/project/jsonschema/epic/vocabularies/LanguageUsageEnum.json"
                                 },

@@ -784,6 +784,8 @@ classes:
         multivalued: true
         range: LanguageUsageEnum
         required: true
+        description: >-
+          FIAF Moving Image Cataloguing Manual 2.3.3.2
     structured_aliases:
     - literal_form: Sprache
       in_language: de
@@ -1100,12 +1102,21 @@ slots:
     rank: 4
     slot_uri: schema:name
     required: true
-    description: A human-readable name for a thing
+    description: >-
+      Human-readable name for a thing. This is to be treated as the
+      preferred display label in a UI context, whereas
+      has_alternate_name can provide additional terms, e.g. for
+      matching in search operations
 
   has_alternate_name:
     rank: 10
     slot_uri: schema:alternateName
     multivalued: true
+    description: >-
+      Alternative human-readable name(s) for a thing. Whereas has_name
+      provides the preferred display name for the described entity,
+      alternatives can be recorded here in order to be indexed in
+      search engines, for instance
 
   has_ordering_name:
     rank: 4
@@ -1268,6 +1279,11 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: GeographicName
+    description: >-
+      Location associated with an event, e.g. the country where the
+      principal offices or production facilities of the production
+      company are located should be associated with the production
+      event
 
   has_duration:
     rank: 24
@@ -1374,6 +1390,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: Format
+    description: >-
+      FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
 
   has_item:
     rank: 22
@@ -1442,6 +1460,9 @@ slots:
   has_access_status:
     rank: 36
     range: ItemAccessStatusEnum
+    description: >-
+      Status of item determining access conditions. See also FIAF
+      Moving Image Cataloguing Manual D.7.1
 
   is_copy_of:
     rank: 39
@@ -1467,3 +1488,5 @@ slots:
   element_type:
     rank: 33
     range: ItemElementTypeEnum
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.8

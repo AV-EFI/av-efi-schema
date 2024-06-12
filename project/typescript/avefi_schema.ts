@@ -962,8 +962,9 @@ export interface WorkVariant extends MovingImageRecord {
  * Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4
  */
 export interface GeographicName {
+    /** Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance */
     has_alternate_name?: string[],
-    /** A human-readable name for a thing */
+    /** Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations */
     has_name: string,
     /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: AuthorityResource[],
@@ -974,8 +975,9 @@ export interface GeographicName {
  * Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters. Examples of genres are “westerns” and “thrillers”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.1
  */
 export interface Genre {
+    /** Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance */
     has_alternate_name?: string[],
-    /** A human-readable name for a thing */
+    /** Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations */
     has_name: string,
     /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: GNDResource[],
@@ -986,8 +988,9 @@ export interface Genre {
  * Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. Provide name and if at all possible identifier(s) from supported authorities in the same_as slot. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3
  */
 export interface Subject {
+    /** Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance */
     has_alternate_name?: string[],
-    /** A human-readable name for a thing */
+    /** Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations */
     has_name: string,
     /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: AuthorityResource[],
@@ -1121,6 +1124,7 @@ export interface ManifestationActivity extends Activity {
  * Agent involved in some activity related to the moving image resource. For agents of type "Person" specify name according to the convention "family name, given name"
  */
 export interface Agent {
+    /** Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance */
     has_alternate_name?: string[],
     /** For natural persons, always use the convention "family name, given name" */
     has_name: string,
@@ -1139,6 +1143,7 @@ export interface Event extends CategorizedThing {
     has_activity?: Activity[],
     /** Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information */
     has_date?: string,
+    /** Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event */
     located_in?: GeographicName[],
 }
 
@@ -1190,7 +1195,7 @@ export interface RightsCopyrightRegistrationEvent extends Event {
  * FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
  */
 export interface Title {
-    /** A human-readable name for a thing */
+    /** Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations */
     has_name: string,
     /** Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name */
     has_ordering_name?: string,
@@ -1205,6 +1210,7 @@ export interface ManifestationOrItem extends MovingImageRecord {
     has_duration?: Duration,
     /** Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8 */
     has_extent?: Extent,
+    /** FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1 */
     has_format?: Format[],
     /** FIAF Moving Image Cataloguing Manual Appendix B */
     has_note?: string[],
@@ -1311,6 +1317,7 @@ export interface Manifestation extends ManifestationOrItem {
 export interface Language {
     /** [ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3) */
     code: string,
+    /** FIAF Moving Image Cataloguing Manual 2.3.3.2 */
     usage: string,
 }
 
@@ -1319,7 +1326,9 @@ export interface Language {
  * FIAF Moving Image Cataloguing Manual 3.0
  */
 export interface Item extends ManifestationOrItem {
+    /** FIAF Moving Image Cataloguing Manual D.7.8 */
     element_type?: string,
+    /** Status of item determining access conditions. See also FIAF Moving Image Cataloguing Manual D.7.1 */
     has_access_status?: string,
     /** Link to AVefi item registered by another institution indicating that the two are known to be copies of each other */
     is_copy_of?: AVefiResource[],
