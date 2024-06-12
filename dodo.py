@@ -297,7 +297,7 @@ def gen_doc(dependencies, targets):
         """
         if input is None:
             return ""
-        match = re.search(r'^(.*?([.;?!] |\n|$))', input)
+        match = re.search(r'^(.*?([.;?!] (?<!(etc|.\..)\. )|\n|$))', input)
         input = match.group()
         return input
     docgen.enshorten = enshorten
