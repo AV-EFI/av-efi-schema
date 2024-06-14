@@ -2559,9 +2559,10 @@ enums:
         meaning: fiaf:Augmented
       BlackAndWhiteCopyOfWorkOriginallyIssuedInColour:
         structured_aliases:
-        - literal_form: Schwarzweißkopie eines Werks, das im Original in Farbe ausgegeben wurde
+        - literal_form: Schwarzweißkopie eines Werks, das im Original in Farbe ausgegeben
+            wurde
           in_language: de
-        - literal_form: Black and white copy of work originally issued in colour 
+        - literal_form: Black and white copy of work originally issued in colour
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.2
         meaning: fiaf:BlackAndWhiteCopyOfWorkOriginallyIssuedInColour
