@@ -36,4 +36,5 @@ dev = [
     "schemasheets>=0.2.1",
     "jsonref>=1.1.0",
     "doit>=0.36.0",
+    "ruamel-yaml>=0.18.6",
 ]
