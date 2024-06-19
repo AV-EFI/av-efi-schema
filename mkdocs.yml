@@ -19,6 +19,7 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
 nav:
   - Home: index.md
+  - Getting started: getting_started.md
   - Overview: schema_overview.md
   - Examples: examples.md
 site_url: https://av-efi.github.io/av-efi-schema
