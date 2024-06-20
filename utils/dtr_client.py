@@ -19,6 +19,7 @@ log = logging.getLogger(__name__)
 DTR_CONFIG = {
     'dtr_doip_endpoint': 'https://typeregistry.lab.pidconsortium.net/doip',
     'dtr_expected_use': 'AVefi',
+    'dtr_name_prefix': 'efi_',
     'dtr_contributor': {
         'name': 'AVefi Working Group',
         'URL': 'https://github.com/AV-EFI/',
@@ -65,7 +66,7 @@ class DataTypeGenerator:
             self.check_data_type(obj, stub)
 
     def convert_enum(self, enum: meta.EnumDefinition):
-        result = {'name': enum.name}
+        result = {'name': f"{DTR_CONFIG['dtr_name_prefix']}{enum.name}"}
         if enum.description:
            result['description'] = enum.description
         result['Schema'] = {
@@ -78,7 +79,9 @@ class DataTypeGenerator:
         return result
 
     def convert_type(self, schema_type: meta.TypeDefinition):
-        result = {'name': schema_type.name}
+        result = {
+            'name': f"{DTR_CONFIG['dtr_name_prefix']}{schema_type.name}",
+        }
         if schema_type.description:
             result['description'] = schema_type.description
         dtr_schema = result.setdefault('Schema', {})
