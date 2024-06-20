@@ -5843,6 +5843,8 @@ enums:
 
   TitleTypeEnum:
     rank: 2
+    annotations:
+    - pid: 21.T11969/3c385b4617432a0b28ed
     description: >-
       FIAF Moving Image Cataloguing Manual A.2
     permissible_values:
@@ -6008,6 +6010,8 @@ enums:
 
   VariantTypeEnum:
     rank: 18
+    annotations:
+    - pid: 21.T11969/d22e19770077fc78a6f6
     description: FIAF Moving Image Cataloguing Manual D.2
     permissible_values:
       AbridgedCondensed:
@@ -6094,6 +6098,8 @@ enums:
 
   WorkVariantTypeEnum:
     rank: 1
+    annotations:
+    - pid: 21.T11969/d0a3e7f81a9885e99049
     description: >-
       Work/Variant description type. See also: FIAF Moving Image
       Cataloguing Manual 1.2.1, D.1
