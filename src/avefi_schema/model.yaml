@@ -584,6 +584,8 @@ classes:
         required: true
         description: >-
           FIAF Moving Image Cataloguing Manual A.2
+    annotations:
+    - pid: 21.T11969/768e0c1c69573fb588f6
     description: >-
       FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
 
@@ -830,6 +832,7 @@ classes:
     slots:
     - has_record
     tree_root: true
+    # pid: 21.T11969/873d5c9f6ebbffecf1df
 
   #-----------------------------------
   # Identifier classes
@@ -857,6 +860,7 @@ classes:
     - literal_form: AVefi
       in_language: default
     annotations:
+    - pid: 21.T11969/7529ed598d0bd4fcf3d8
     - formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
     todos:
     - >-
@@ -875,6 +879,7 @@ classes:
     - literal_form: DOI
       in_language: default
     annotations:
+    - pid: 21.T11969/eba491f4edadbea9133c
     - formatter_uri_for_rdf_resource: http://dx.doi.org/$1
     - formatter_url_for_web_resource: https://dx.doi.org/$1
     - tag: provides
