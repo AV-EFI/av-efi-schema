@@ -37,4 +37,5 @@ dev = [
     "jsonref>=1.1.0",
     "doit>=0.36.0",
     "ruamel-yaml>=0.18.6",
+    "requests>=2.32.3",
 ]
