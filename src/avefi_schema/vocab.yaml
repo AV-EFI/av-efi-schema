@@ -2166,6 +2166,3475 @@ enums:
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:SoundNegative
 
+  LanguageCodesEnum:
+    description: >-
+      [ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html)
+      for the Representation of Names of Languages (Part 2: Alpha-3)
+    permissible_values:
+      aar:
+        structured_aliases:
+        - literal_form: Danakil-Sprache
+          in_language: de
+        - literal_form: Afar
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/aar
+      abk:
+        structured_aliases:
+        - literal_form: Abchasisch
+          in_language: de
+        - literal_form: Abkhazian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/abk
+      ace:
+        structured_aliases:
+        - literal_form: Aceh-Sprache
+          in_language: de
+        - literal_form: Achinese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ace
+      ach:
+        structured_aliases:
+        - literal_form: Acholi-Sprache
+          in_language: de
+        - literal_form: Acoli
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ach
+      ada:
+        structured_aliases:
+        - literal_form: Adangme-Sprache
+          in_language: de
+        - literal_form: Adangme
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ada
+      ady:
+        structured_aliases:
+        - literal_form: Adygisch
+          in_language: de
+        - literal_form: Adyghe |  Adygei
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ady
+      afa:
+        structured_aliases:
+        - literal_form: Hamitosemitische Sprachen (Andere)
+          in_language: de
+        - literal_form: Afro-Asiatic languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/afa
+      afh:
+        structured_aliases:
+        - literal_form: Afrihili
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/afh
+      afr:
+        structured_aliases:
+        - literal_form: Afrikaans
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/afr
+      ain:
+        structured_aliases:
+        - literal_form: Ainu-Sprache
+          in_language: de
+        - literal_form: Ainu
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ain
+      aka:
+        structured_aliases:
+        - literal_form: Akan-Sprache
+          in_language: de
+        - literal_form: Akan
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/aka
+      akk:
+        structured_aliases:
+        - literal_form: Akkadisch
+          in_language: de
+        - literal_form: Akkadian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/akk
+      alb:
+        structured_aliases:
+        - literal_form: Albanisch
+          in_language: de
+        - literal_form: Albanian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/alb
+      ale:
+        structured_aliases:
+        - literal_form: Aleutisch
+          in_language: de
+        - literal_form: Aleut
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ale
+      alg:
+        structured_aliases:
+        - literal_form: Algonkin-Sprachen (Andere)
+          in_language: de
+        - literal_form: Algonquian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/alg
+      alt:
+        structured_aliases:
+        - literal_form: Altaisch
+          in_language: de
+        - literal_form: Southern Altai
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/alt
+      amh:
+        structured_aliases:
+        - literal_form: Amharisch
+          in_language: de
+        - literal_form: Amharic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/amh
+      ang:
+        structured_aliases:
+        - literal_form: Altenglisch
+          in_language: de
+        - literal_form: English, Old (ca.450-1100)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ang
+      anp:
+        structured_aliases:
+        - literal_form: Anga-Sprache
+          in_language: de
+        - literal_form: Angika
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/anp
+      apa:
+        structured_aliases:
+        - literal_form: Apachen-Sprachen
+          in_language: de
+        - literal_form: Apache languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/apa
+      ara:
+        structured_aliases:
+        - literal_form: Arabisch
+          in_language: de
+        - literal_form: Arabic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ara
+      arc:
+        structured_aliases:
+        - literal_form: Aramäisch
+          in_language: de
+        - literal_form: Official Aramaic (700-300 BCE) |  Imperial Aramaic (700-300
+            BCE)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/arc
+      arg:
+        structured_aliases:
+        - literal_form: Aragonesisch
+          in_language: de
+        - literal_form: Aragonese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/arg
+      arm:
+        structured_aliases:
+        - literal_form: Armenisch
+          in_language: de
+        - literal_form: Armenian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/arm
+      arn:
+        structured_aliases:
+        - literal_form: Arauka-Sprachen
+          in_language: de
+        - literal_form: Mapudungun |  Mapuche
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/arn
+      arp:
+        structured_aliases:
+        - literal_form: Arapaho-Sprache
+          in_language: de
+        - literal_form: Arapaho
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/arp
+      art:
+        structured_aliases:
+        - literal_form: Kunstsprachen (Andere)
+          in_language: de
+        - literal_form: Artificial languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/art
+      arw:
+        structured_aliases:
+        - literal_form: Arawak-Sprachen
+          in_language: de
+        - literal_form: Arawak
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/arw
+      asm:
+        structured_aliases:
+        - literal_form: Assamesisch
+          in_language: de
+        - literal_form: Assamese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/asm
+      ast:
+        structured_aliases:
+        - literal_form: Asturisch
+          in_language: de
+        - literal_form: Asturian |  Bable |  Leonese |  Asturleonese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ast
+      ath:
+        structured_aliases:
+        - literal_form: Athapaskische Sprachen (Andere)
+          in_language: de
+        - literal_form: Athapascan languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ath
+      aus:
+        structured_aliases:
+        - literal_form: Australische Sprachen
+          in_language: de
+        - literal_form: Australian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/aus
+      ava:
+        structured_aliases:
+        - literal_form: Awarisch
+          in_language: de
+        - literal_form: Avaric
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ava
+      ave:
+        structured_aliases:
+        - literal_form: Avestisch
+          in_language: de
+        - literal_form: Avestan
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ave
+      awa:
+        structured_aliases:
+        - literal_form: Awadhi
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/awa
+      aym:
+        structured_aliases:
+        - literal_form: Aymará-Sprache
+          in_language: de
+        - literal_form: Aymara
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/aym
+      aze:
+        structured_aliases:
+        - literal_form: Aserbeidschanisch
+          in_language: de
+        - literal_form: Azerbaijani
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/aze
+      bad:
+        structured_aliases:
+        - literal_form: Banda-Sprachen (Ubangi-Sprachen)
+          in_language: de
+        - literal_form: Banda languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bad
+      bai:
+        structured_aliases:
+        - literal_form: Bamileke-Sprachen
+          in_language: de
+        - literal_form: Bamileke languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bai
+      bak:
+        structured_aliases:
+        - literal_form: Baschkirisch
+          in_language: de
+        - literal_form: Bashkir
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bak
+      bal:
+        structured_aliases:
+        - literal_form: Belutschisch
+          in_language: de
+        - literal_form: Baluchi
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bal
+      bam:
+        structured_aliases:
+        - literal_form: Bambara-Sprache
+          in_language: de
+        - literal_form: Bambara
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bam
+      ban:
+        structured_aliases:
+        - literal_form: Balinesisch
+          in_language: de
+        - literal_form: Balinese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ban
+      baq:
+        structured_aliases:
+        - literal_form: Baskisch
+          in_language: de
+        - literal_form: Basque
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/baq
+      bas:
+        structured_aliases:
+        - literal_form: Basaa-Sprache
+          in_language: de
+        - literal_form: Basa
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bas
+      bat:
+        structured_aliases:
+        - literal_form: Baltische Sprachen (Andere)
+          in_language: de
+        - literal_form: Baltic languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bat
+      bej:
+        structured_aliases:
+        - literal_form: Bedauye
+          in_language: de
+        - literal_form: Beja |  Bedawiyet
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bej
+      bel:
+        structured_aliases:
+        - literal_form: Weißrussisch
+          in_language: de
+        - literal_form: Belarusian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bel
+      bem:
+        structured_aliases:
+        - literal_form: Bemba-Sprache
+          in_language: de
+        - literal_form: Bemba
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bem
+      ben:
+        structured_aliases:
+        - literal_form: Bengali
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ben
+      ber:
+        structured_aliases:
+        - literal_form: Berbersprachen (Andere)
+          in_language: de
+        - literal_form: Berber languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ber
+      bho:
+        structured_aliases:
+        - literal_form: Bhojpuri
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bho
+      bih:
+        structured_aliases:
+        - literal_form: Bihari (Andere)
+          in_language: de
+        - literal_form: Bihari languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bih
+      bik:
+        structured_aliases:
+        - literal_form: Bikol-Sprache
+          in_language: de
+        - literal_form: Bikol
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bik
+      bin:
+        structured_aliases:
+        - literal_form: Edo-Sprache
+          in_language: de
+        - literal_form: Bini |  Edo
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bin
+      bis:
+        structured_aliases:
+        - literal_form: Beach-la-mar
+          in_language: de
+        - literal_form: Bislama
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bis
+      bla:
+        structured_aliases:
+        - literal_form: Blackfoot-Sprache
+          in_language: de
+        - literal_form: Siksika
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bla
+      bnt:
+        structured_aliases:
+        - literal_form: Bantusprachen (Andere)
+          in_language: de
+        - literal_form: Bantu languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bnt
+      bod:
+        structured_aliases:
+        - literal_form: Tibetisch
+          in_language: de
+        - literal_form: Tibetan
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bod
+      bos:
+        structured_aliases:
+        - literal_form: Bosnisch
+          in_language: de
+        - literal_form: Bosnian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bos
+      bra:
+        structured_aliases:
+        - literal_form: Braj-Bhakha
+          in_language: de
+        - literal_form: Braj
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bra
+      bre:
+        structured_aliases:
+        - literal_form: Bretonisch
+          in_language: de
+        - literal_form: Breton
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bre
+      btk:
+        structured_aliases:
+        - literal_form: Batak-Sprache
+          in_language: de
+        - literal_form: Batak languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/btk
+      bua:
+        structured_aliases:
+        - literal_form: Burjatisch
+          in_language: de
+        - literal_form: Buriat
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bua
+      bug:
+        structured_aliases:
+        - literal_form: Bugi-Sprache
+          in_language: de
+        - literal_form: Buginese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bug
+      bul:
+        structured_aliases:
+        - literal_form: Bulgarisch
+          in_language: de
+        - literal_form: Bulgarian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bul
+      bur:
+        structured_aliases:
+        - literal_form: Birmanisch
+          in_language: de
+        - literal_form: Burmese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/bur
+      byn:
+        structured_aliases:
+        - literal_form: Bilin-Sprache
+          in_language: de
+        - literal_form: Blin |  Bilin
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/byn
+      cad:
+        structured_aliases:
+        - literal_form: Caddo-Sprachen
+          in_language: de
+        - literal_form: Caddo
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cad
+      cai:
+        structured_aliases:
+        - literal_form: Indianersprachen, Zentralamerika (Andere)
+          in_language: de
+        - literal_form: Central American Indian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cai
+      car:
+        structured_aliases:
+        - literal_form: Karibische Sprachen
+          in_language: de
+        - literal_form: Galibi Carib
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/car
+      cat:
+        structured_aliases:
+        - literal_form: Katalanisch
+          in_language: de
+        - literal_form: Catalan |  Valencian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cat
+      cau:
+        structured_aliases:
+        - literal_form: Kaukasische Sprachen (Andere)
+          in_language: de
+        - literal_form: Caucasian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cau
+      ceb:
+        structured_aliases:
+        - literal_form: Cebuano
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ceb
+      cel:
+        structured_aliases:
+        - literal_form: Keltische Sprachen (Andere)
+          in_language: de
+        - literal_form: Celtic languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cel
+      ces:
+        structured_aliases:
+        - literal_form: Tschechisch
+          in_language: de
+        - literal_form: Czech
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ces
+      cha:
+        structured_aliases:
+        - literal_form: Chamorro-Sprache
+          in_language: de
+        - literal_form: Chamorro
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cha
+      chb:
+        structured_aliases:
+        - literal_form: Chibcha-Sprachen
+          in_language: de
+        - literal_form: Chibcha
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/chb
+      che:
+        structured_aliases:
+        - literal_form: Tschetschenisch
+          in_language: de
+        - literal_form: Chechen
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/che
+      chg:
+        structured_aliases:
+        - literal_form: Tschagataisch
+          in_language: de
+        - literal_form: Chagatai
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/chg
+      chi:
+        structured_aliases:
+        - literal_form: Chinesisch
+          in_language: de
+        - literal_form: Chinese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/chi
+      chk:
+        structured_aliases:
+        - literal_form: Trukesisch
+          in_language: de
+        - literal_form: Chuukese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/chk
+      chm:
+        structured_aliases:
+        - literal_form: Tscheremissisch
+          in_language: de
+        - literal_form: Mari
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/chm
+      chn:
+        structured_aliases:
+        - literal_form: Chinook-Jargon
+          in_language: de
+        - literal_form: Chinook jargon
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/chn
+      cho:
+        structured_aliases:
+        - literal_form: Choctaw-Sprache
+          in_language: de
+        - literal_form: Choctaw
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cho
+      chp:
+        structured_aliases:
+        - literal_form: Chipewyan-Sprache
+          in_language: de
+        - literal_form: Chipewyan |  Dene Suline
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/chp
+      chr:
+        structured_aliases:
+        - literal_form: Cherokee-Sprache
+          in_language: de
+        - literal_form: Cherokee
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/chr
+      chu:
+        structured_aliases:
+        - literal_form: Kirchenslawisch
+          in_language: de
+        - literal_form: Church Slavic |  Old Slavonic |  Church Slavonic |  Old Bulgarian
+            |  Old Church Slavonic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/chu
+      chv:
+        structured_aliases:
+        - literal_form: Tschuwaschisch
+          in_language: de
+        - literal_form: Chuvash
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/chv
+      chy:
+        structured_aliases:
+        - literal_form: Cheyenne-Sprache
+          in_language: de
+        - literal_form: Cheyenne
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/chy
+      cmc:
+        structured_aliases:
+        - literal_form: Cham-Sprachen
+          in_language: de
+        - literal_form: Chamic languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cmc
+      cnr:
+        structured_aliases:
+        - literal_form: Montenegrinisch
+          in_language: de
+        - literal_form: Montenegrin
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cnr
+      cop:
+        structured_aliases:
+        - literal_form: Koptisch
+          in_language: de
+        - literal_form: Coptic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cop
+      cor:
+        structured_aliases:
+        - literal_form: Kornisch
+          in_language: de
+        - literal_form: Cornish
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cor
+      cos:
+        structured_aliases:
+        - literal_form: Korsisch
+          in_language: de
+        - literal_form: Corsican
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cos
+      cpe:
+        structured_aliases:
+        - literal_form: Kreolisch-Englisch (Andere)
+          in_language: de
+        - literal_form: Creoles and pidgins, English based
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cpe
+      cpf:
+        structured_aliases:
+        - literal_form: Kreolisch-Französisch (Andere)
+          in_language: de
+        - literal_form: Creoles and pidgins, French-based
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cpf
+      cpp:
+        structured_aliases:
+        - literal_form: Kreolisch-Portugiesisch (Andere)
+          in_language: de
+        - literal_form: Creoles and pidgins, Portuguese-based
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cpp
+      cre:
+        structured_aliases:
+        - literal_form: Cree-Sprache
+          in_language: de
+        - literal_form: Cree
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cre
+      crh:
+        structured_aliases:
+        - literal_form: Krimtatarisch
+          in_language: de
+        - literal_form: Crimean Tatar |  Crimean Turkish
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/crh
+      crp:
+        structured_aliases:
+        - literal_form: Kreolische Sprachen |  Pidginsprachen (Andere)
+          in_language: de
+        - literal_form: Creoles and pidgins
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/crp
+      csb:
+        structured_aliases:
+        - literal_form: Kaschubisch
+          in_language: de
+        - literal_form: Kashubian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/csb
+      cus:
+        structured_aliases:
+        - literal_form: Kuschitische Sprachen (Andere)
+          in_language: de
+        - literal_form: Cushitic languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cus
+      cym:
+        structured_aliases:
+        - literal_form: Kymrisch
+          in_language: de
+        - literal_form: Welsh
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cym
+      cze:
+        structured_aliases:
+        - literal_form: Tschechisch
+          in_language: de
+        - literal_form: Czech
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/cze
+      dak:
+        structured_aliases:
+        - literal_form: Dakota-Sprache
+          in_language: de
+        - literal_form: Dakota
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/dak
+      dan:
+        structured_aliases:
+        - literal_form: Dänisch
+          in_language: de
+        - literal_form: Danish
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/dan
+      dar:
+        structured_aliases:
+        - literal_form: Darginisch
+          in_language: de
+        - literal_form: Dargwa
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/dar
+      day:
+        structured_aliases:
+        - literal_form: Dajakisch
+          in_language: de
+        - literal_form: Land Dayak languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/day
+      del:
+        structured_aliases:
+        - literal_form: Delaware-Sprache
+          in_language: de
+        - literal_form: Delaware
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/del
+      den:
+        structured_aliases:
+        - literal_form: Slave-Sprache
+          in_language: de
+        - literal_form: Slave (Athapascan)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/den
+      deu:
+        structured_aliases:
+        - literal_form: Deutsch
+          in_language: de
+        - literal_form: German
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/deu
+      dgr:
+        structured_aliases:
+        - literal_form: Dogrib-Sprache
+          in_language: de
+        - literal_form: Dogrib
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/dgr
+      din:
+        structured_aliases:
+        - literal_form: Dinka-Sprache
+          in_language: de
+        - literal_form: Dinka
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/din
+      div:
+        structured_aliases:
+        - literal_form: Maledivisch
+          in_language: de
+        - literal_form: Divehi |  Dhivehi |  Maldivian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/div
+      doi:
+        structured_aliases:
+        - literal_form: Dogri
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/doi
+      dra:
+        structured_aliases:
+        - literal_form: Drawidische Sprachen (Andere)
+          in_language: de
+        - literal_form: Dravidian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/dra
+      dsb:
+        structured_aliases:
+        - literal_form: Niedersorbisch
+          in_language: de
+        - literal_form: Lower Sorbian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/dsb
+      dua:
+        structured_aliases:
+        - literal_form: Duala-Sprachen
+          in_language: de
+        - literal_form: Duala
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/dua
+      dum:
+        structured_aliases:
+        - literal_form: Mittelniederländisch
+          in_language: de
+        - literal_form: Dutch, Middle (ca.1050-1350)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/dum
+      dut:
+        structured_aliases:
+        - literal_form: Niederländisch
+          in_language: de
+        - literal_form: Dutch |  Flemish
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/dut
+      dyu:
+        structured_aliases:
+        - literal_form: Dyula-Sprache
+          in_language: de
+        - literal_form: Dyula
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/dyu
+      dzo:
+        structured_aliases:
+        - literal_form: Dzongkha
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/dzo
+      efi:
+        structured_aliases:
+        - literal_form: Efik
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/efi
+      egy:
+        structured_aliases:
+        - literal_form: Ägyptisch
+          in_language: de
+        - literal_form: Egyptian (Ancient)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/egy
+      eka:
+        structured_aliases:
+        - literal_form: Ekajuk
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/eka
+      ell:
+        structured_aliases:
+        - literal_form: Neugriechisch
+          in_language: de
+        - literal_form: Greek, Modern (1453-)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ell
+      elx:
+        structured_aliases:
+        - literal_form: Elamisch
+          in_language: de
+        - literal_form: Elamite
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/elx
+      eng:
+        structured_aliases:
+        - literal_form: Englisch
+          in_language: de
+        - literal_form: English
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/eng
+      enm:
+        structured_aliases:
+        - literal_form: Mittelenglisch
+          in_language: de
+        - literal_form: English, Middle (1100-1500)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/enm
+      epo:
+        structured_aliases:
+        - literal_form: Esperanto
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/epo
+      est:
+        structured_aliases:
+        - literal_form: Estnisch
+          in_language: de
+        - literal_form: Estonian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/est
+      eus:
+        structured_aliases:
+        - literal_form: Baskisch
+          in_language: de
+        - literal_form: Basque
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/eus
+      ewe:
+        structured_aliases:
+        - literal_form: Ewe-Sprache
+          in_language: de
+        - literal_form: Ewe
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ewe
+      ewo:
+        structured_aliases:
+        - literal_form: Ewondo
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ewo
+      fan:
+        structured_aliases:
+        - literal_form: Pangwe-Sprache
+          in_language: de
+        - literal_form: Fang
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fan
+      fao:
+        structured_aliases:
+        - literal_form: Färöisch
+          in_language: de
+        - literal_form: Faroese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fao
+      fas:
+        structured_aliases:
+        - literal_form: Persisch
+          in_language: de
+        - literal_form: Persian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fas
+      fat:
+        structured_aliases:
+        - literal_form: Fante-Sprache
+          in_language: de
+        - literal_form: Fanti
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fat
+      fij:
+        structured_aliases:
+        - literal_form: Fidschi-Sprache
+          in_language: de
+        - literal_form: Fijian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fij
+      fil:
+        structured_aliases:
+        - literal_form: Pilipino
+          in_language: de
+        - literal_form: Filipino |  Pilipino
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fil
+      fin:
+        structured_aliases:
+        - literal_form: Finnisch
+          in_language: de
+        - literal_form: Finnish
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fin
+      fiu:
+        structured_aliases:
+        - literal_form: Finnougrische Sprachen (Andere)
+          in_language: de
+        - literal_form: Finno-Ugrian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fiu
+      fon:
+        structured_aliases:
+        - literal_form: Fon-Sprache
+          in_language: de
+        - literal_form: Fon
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fon
+      fra:
+        structured_aliases:
+        - literal_form: Französisch
+          in_language: de
+        - literal_form: French
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fra
+      fre:
+        structured_aliases:
+        - literal_form: Französisch
+          in_language: de
+        - literal_form: French
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fre
+      frm:
+        structured_aliases:
+        - literal_form: Mittelfranzösisch
+          in_language: de
+        - literal_form: French, Middle (ca.1400-1600)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/frm
+      fro:
+        structured_aliases:
+        - literal_form: Altfranzösisch
+          in_language: de
+        - literal_form: French, Old (842-ca.1400)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fro
+      frr:
+        structured_aliases:
+        - literal_form: Nordfriesisch
+          in_language: de
+        - literal_form: Northern Frisian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/frr
+      frs:
+        structured_aliases:
+        - literal_form: Ostfriesisch
+          in_language: de
+        - literal_form: Eastern Frisian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/frs
+      fry:
+        structured_aliases:
+        - literal_form: Friesisch
+          in_language: de
+        - literal_form: Western Frisian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fry
+      ful:
+        structured_aliases:
+        - literal_form: Ful
+          in_language: de
+        - literal_form: Fulah
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ful
+      fur:
+        structured_aliases:
+        - literal_form: Friulisch
+          in_language: de
+        - literal_form: Friulian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/fur
+      gaa:
+        structured_aliases:
+        - literal_form: Ga-Sprache
+          in_language: de
+        - literal_form: Ga
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gaa
+      gay:
+        structured_aliases:
+        - literal_form: Gayo-Sprache
+          in_language: de
+        - literal_form: Gayo
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gay
+      gba:
+        structured_aliases:
+        - literal_form: Gbaya-Sprache
+          in_language: de
+        - literal_form: Gbaya
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gba
+      gem:
+        structured_aliases:
+        - literal_form: Germanische Sprachen (Andere)
+          in_language: de
+        - literal_form: Germanic languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gem
+      geo:
+        structured_aliases:
+        - literal_form: Georgisch
+          in_language: de
+        - literal_form: Georgian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/geo
+      ger:
+        structured_aliases:
+        - literal_form: Deutsch
+          in_language: de
+        - literal_form: German
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ger
+      gez:
+        structured_aliases:
+        - literal_form: Altäthiopisch
+          in_language: de
+        - literal_form: Geez
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gez
+      gil:
+        structured_aliases:
+        - literal_form: Gilbertesisch
+          in_language: de
+        - literal_form: Gilbertese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gil
+      gla:
+        structured_aliases:
+        - literal_form: Gälisch-Schottisch
+          in_language: de
+        - literal_form: Gaelic |  Scottish Gaelic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gla
+      gle:
+        structured_aliases:
+        - literal_form: Irisch
+          in_language: de
+        - literal_form: Irish
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gle
+      glg:
+        structured_aliases:
+        - literal_form: Galicisch
+          in_language: de
+        - literal_form: Galician
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/glg
+      glv:
+        structured_aliases:
+        - literal_form: Manx
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/glv
+      gmh:
+        structured_aliases:
+        - literal_form: Mittelhochdeutsch
+          in_language: de
+        - literal_form: German, Middle High (ca.1050-1500)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gmh
+      goh:
+        structured_aliases:
+        - literal_form: Althochdeutsch
+          in_language: de
+        - literal_form: German, Old High (ca.750-1050)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/goh
+      gon:
+        structured_aliases:
+        - literal_form: Gondi-Sprache
+          in_language: de
+        - literal_form: Gondi
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gon
+      gor:
+        structured_aliases:
+        - literal_form: Gorontalesisch
+          in_language: de
+        - literal_form: Gorontalo
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gor
+      got:
+        structured_aliases:
+        - literal_form: Gotisch
+          in_language: de
+        - literal_form: Gothic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/got
+      grb:
+        structured_aliases:
+        - literal_form: Grebo-Sprache
+          in_language: de
+        - literal_form: Grebo
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/grb
+      grc:
+        structured_aliases:
+        - literal_form: Griechisch
+          in_language: de
+        - literal_form: Greek, Ancient (to 1453)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/grc
+      gre:
+        structured_aliases:
+        - literal_form: Neugriechisch
+          in_language: de
+        - literal_form: Greek, Modern (1453-)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gre
+      grn:
+        structured_aliases:
+        - literal_form: Guaraní-Sprache
+          in_language: de
+        - literal_form: Guarani
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/grn
+      gsw:
+        structured_aliases:
+        - literal_form: Schweizerdeutsch
+          in_language: de
+        - literal_form: Swiss German |  Alemannic |  Alsatian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gsw
+      guj:
+        structured_aliases:
+        - literal_form: Gujarati-Sprache
+          in_language: de
+        - literal_form: Gujarati
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/guj
+      gwi:
+        structured_aliases:
+        - literal_form: Kutchin-Sprache
+          in_language: de
+        - literal_form: Gwich'in
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/gwi
+      hai:
+        structured_aliases:
+        - literal_form: Haida-Sprache
+          in_language: de
+        - literal_form: Haida
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/hai
+      hat:
+        structured_aliases:
+        - literal_form: Haïtien (Haiti-Kreolisch)
+          in_language: de
+        - literal_form: Haitian |  Haitian Creole
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/hat
+      hau:
+        structured_aliases:
+        - literal_form: Haussa-Sprache
+          in_language: de
+        - literal_form: Hausa
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/hau
+      haw:
+        structured_aliases:
+        - literal_form: Hawaiisch
+          in_language: de
+        - literal_form: Hawaiian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/haw
+      heb:
+        structured_aliases:
+        - literal_form: Hebräisch
+          in_language: de
+        - literal_form: Hebrew
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/heb
+      her:
+        structured_aliases:
+        - literal_form: Herero-Sprache
+          in_language: de
+        - literal_form: Herero
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/her
+      hil:
+        structured_aliases:
+        - literal_form: Hiligaynon-Sprache
+          in_language: de
+        - literal_form: Hiligaynon
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/hil
+      him:
+        structured_aliases:
+        - literal_form: Himachali
+          in_language: de
+        - literal_form: Himachali languages |  Western Pahari languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/him
+      hin:
+        structured_aliases:
+        - literal_form: Hindi
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/hin
+      hit:
+        structured_aliases:
+        - literal_form: Hethitisch
+          in_language: de
+        - literal_form: Hittite
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/hit
+      hmn:
+        structured_aliases:
+        - literal_form: Miao-Sprachen
+          in_language: de
+        - literal_form: Hmong |  Mong
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/hmn
+      hmo:
+        structured_aliases:
+        - literal_form: Hiri-Motu
+          in_language: de
+        - literal_form: Hiri Motu
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/hmo
+      hrv:
+        structured_aliases:
+        - literal_form: 'Kroatisch '
+          in_language: de
+        - literal_form: Croatian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/hrv
+      hsb:
+        structured_aliases:
+        - literal_form: Obersorbisch
+          in_language: de
+        - literal_form: Upper Sorbian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/hsb
+      hun:
+        structured_aliases:
+        - literal_form: Ungarisch
+          in_language: de
+        - literal_form: Hungarian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/hun
+      hup:
+        structured_aliases:
+        - literal_form: Hupa-Sprache
+          in_language: de
+        - literal_form: Hupa
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/hup
+      hye:
+        structured_aliases:
+        - literal_form: Armenisch
+          in_language: de
+        - literal_form: Armenian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/hye
+      iba:
+        structured_aliases:
+        - literal_form: Iban-Sprache
+          in_language: de
+        - literal_form: Iban
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/iba
+      ibo:
+        structured_aliases:
+        - literal_form: Ibo-Sprache
+          in_language: de
+        - literal_form: Igbo
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ibo
+      ice:
+        structured_aliases:
+        - literal_form: Isländisch
+          in_language: de
+        - literal_form: Icelandic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ice
+      ido:
+        structured_aliases:
+        - literal_form: Ido
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ido
+      iii:
+        structured_aliases:
+        - literal_form: Lalo-Sprache
+          in_language: de
+        - literal_form: Sichuan Yi |  Nuosu
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/iii
+      ijo:
+        structured_aliases:
+        - literal_form: Ijo-Sprache
+          in_language: de
+        - literal_form: Ijo languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ijo
+      iku:
+        structured_aliases:
+        - literal_form: Inuktitut
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/iku
+      ile:
+        structured_aliases:
+        - literal_form: Interlingue
+          in_language: de
+        - literal_form: Interlingue |  Occidental
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ile
+      ilo:
+        structured_aliases:
+        - literal_form: Ilokano-Sprache
+          in_language: de
+        - literal_form: Iloko
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ilo
+      ina:
+        structured_aliases:
+        - literal_form: Interlingua
+          in_language: de
+        - literal_form: Interlingua (International Auxiliary Language Association)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ina
+      inc:
+        structured_aliases:
+        - literal_form: Indoarische Sprachen (Andere)
+          in_language: de
+        - literal_form: Indic languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/inc
+      ind:
+        structured_aliases:
+        - literal_form: Bahasa Indonesia
+          in_language: de
+        - literal_form: Indonesian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ind
+      ine:
+        structured_aliases:
+        - literal_form: Indogermanische Sprachen (Andere)
+          in_language: de
+        - literal_form: Indo-European languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ine
+      inh:
+        structured_aliases:
+        - literal_form: Inguschisch
+          in_language: de
+        - literal_form: Ingush
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/inh
+      ipk:
+        structured_aliases:
+        - literal_form: Inupik
+          in_language: de
+        - literal_form: Inupiaq
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ipk
+      ira:
+        structured_aliases:
+        - literal_form: Iranische Sprachen (Andere)
+          in_language: de
+        - literal_form: Iranian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ira
+      iro:
+        structured_aliases:
+        - literal_form: Irokesische Sprachen
+          in_language: de
+        - literal_form: Iroquoian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/iro
+      isl:
+        structured_aliases:
+        - literal_form: Isländisch
+          in_language: de
+        - literal_form: Icelandic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/isl
+      ita:
+        structured_aliases:
+        - literal_form: Italienisch
+          in_language: de
+        - literal_form: Italian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ita
+      jav:
+        structured_aliases:
+        - literal_form: Javanisch
+          in_language: de
+        - literal_form: Javanese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/jav
+      jbo:
+        structured_aliases:
+        - literal_form: Lojban
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/jbo
+      jpn:
+        structured_aliases:
+        - literal_form: Japanisch
+          in_language: de
+        - literal_form: Japanese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/jpn
+      jpr:
+        structured_aliases:
+        - literal_form: Jüdisch-Persisch
+          in_language: de
+        - literal_form: Judeo-Persian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/jpr
+      jrb:
+        structured_aliases:
+        - literal_form: Jüdisch-Arabisch
+          in_language: de
+        - literal_form: Judeo-Arabic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/jrb
+      kaa:
+        structured_aliases:
+        - literal_form: Karakalpakisch
+          in_language: de
+        - literal_form: Kara-Kalpak
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kaa
+      kab:
+        structured_aliases:
+        - literal_form: Kabylisch
+          in_language: de
+        - literal_form: Kabyle
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kab
+      kac:
+        structured_aliases:
+        - literal_form: Kachin-Sprache
+          in_language: de
+        - literal_form: Kachin |  Jingpho
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kac
+      kal:
+        structured_aliases:
+        - literal_form: Grönländisch
+          in_language: de
+        - literal_form: Kalaallisut |  Greenlandic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kal
+      kam:
+        structured_aliases:
+        - literal_form: Kamba-Sprache
+          in_language: de
+        - literal_form: Kamba
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kam
+      kan:
+        structured_aliases:
+        - literal_form: Kannada
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kan
+      kar:
+        structured_aliases:
+        - literal_form: Karenisch
+          in_language: de
+        - literal_form: Karen languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kar
+      kas:
+        structured_aliases:
+        - literal_form: Kaschmiri
+          in_language: de
+        - literal_form: Kashmiri
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kas
+      kat:
+        structured_aliases:
+        - literal_form: Georgisch
+          in_language: de
+        - literal_form: Georgian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kat
+      kau:
+        structured_aliases:
+        - literal_form: Kanuri-Sprache
+          in_language: de
+        - literal_form: Kanuri
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kau
+      kaw:
+        structured_aliases:
+        - literal_form: Kawi
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kaw
+      kaz:
+        structured_aliases:
+        - literal_form: Kasachisch
+          in_language: de
+        - literal_form: Kazakh
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kaz
+      kbd:
+        structured_aliases:
+        - literal_form: Kabardinisch
+          in_language: de
+        - literal_form: Kabardian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kbd
+      kha:
+        structured_aliases:
+        - literal_form: Khasi-Sprache
+          in_language: de
+        - literal_form: Khasi
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kha
+      khi:
+        structured_aliases:
+        - literal_form: Khoisan-Sprachen (Andere)
+          in_language: de
+        - literal_form: Khoisan languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/khi
+      khm:
+        structured_aliases:
+        - literal_form: Kambodschanisch
+          in_language: de
+        - literal_form: Central Khmer
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/khm
+      kho:
+        structured_aliases:
+        - literal_form: Sakisch
+          in_language: de
+        - literal_form: Khotanese |  Sakan
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kho
+      kik:
+        structured_aliases:
+        - literal_form: Kikuyu-Sprache
+          in_language: de
+        - literal_form: Kikuyu |  Gikuyu
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kik
+      kin:
+        structured_aliases:
+        - literal_form: Rwanda-Sprache
+          in_language: de
+        - literal_form: Kinyarwanda
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kin
+      kir:
+        structured_aliases:
+        - literal_form: Kirgisisch
+          in_language: de
+        - literal_form: Kirghiz |  Kyrgyz
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kir
+      kmb:
+        structured_aliases:
+        - literal_form: Kimbundu-Sprache
+          in_language: de
+        - literal_form: Kimbundu
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kmb
+      kok:
+        structured_aliases:
+        - literal_form: Konkani
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kok
+      kom:
+        structured_aliases:
+        - literal_form: Komi-Sprache
+          in_language: de
+        - literal_form: Komi
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kom
+      kon:
+        structured_aliases:
+        - literal_form: Kongo-Sprache
+          in_language: de
+        - literal_form: Kongo
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kon
+      kor:
+        structured_aliases:
+        - literal_form: Koreanisch
+          in_language: de
+        - literal_form: Korean
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kor
+      kos:
+        structured_aliases:
+        - literal_form: Kosraeanisch
+          in_language: de
+        - literal_form: Kosraean
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kos
+      kpe:
+        structured_aliases:
+        - literal_form: Kpelle-Sprache
+          in_language: de
+        - literal_form: Kpelle
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kpe
+      krc:
+        structured_aliases:
+        - literal_form: Karatschaiisch-Balkarisch
+          in_language: de
+        - literal_form: Karachay-Balkar
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/krc
+      krl:
+        structured_aliases:
+        - literal_form: Karelisch
+          in_language: de
+        - literal_form: Karelian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/krl
+      kro:
+        structured_aliases:
+        - literal_form: Kru-Sprachen (Andere)
+          in_language: de
+        - literal_form: Kru languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kro
+      kru:
+        structured_aliases:
+        - literal_form: Oraon-Sprache
+          in_language: de
+        - literal_form: Kurukh
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kru
+      kua:
+        structured_aliases:
+        - literal_form: Kwanyama-Sprache
+          in_language: de
+        - literal_form: Kuanyama |  Kwanyama
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kua
+      kum:
+        structured_aliases:
+        - literal_form: Kumükisch
+          in_language: de
+        - literal_form: Kumyk
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kum
+      kur:
+        structured_aliases:
+        - literal_form: Kurdisch
+          in_language: de
+        - literal_form: Kurdish
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kur
+      kut:
+        structured_aliases:
+        - literal_form: Kutenai-Sprache
+          in_language: de
+        - literal_form: Kutenai
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/kut
+      lad:
+        structured_aliases:
+        - literal_form: Judenspanisch
+          in_language: de
+        - literal_form: Ladino
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lad
+      lah:
+        structured_aliases:
+        - literal_form: Lahnda
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lah
+      lam:
+        structured_aliases:
+        - literal_form: Lamba-Sprache (Bantusprache)
+          in_language: de
+        - literal_form: Lamba
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lam
+      lao:
+        structured_aliases:
+        - literal_form: Laotisch
+          in_language: de
+        - literal_form: Lao
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lao
+      lat:
+        structured_aliases:
+        - literal_form: Latein
+          in_language: de
+        - literal_form: Latin
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lat
+      lav:
+        structured_aliases:
+        - literal_form: Lettisch
+          in_language: de
+        - literal_form: Latvian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lav
+      lez:
+        structured_aliases:
+        - literal_form: Lesgisch
+          in_language: de
+        - literal_form: Lezghian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lez
+      lim:
+        structured_aliases:
+        - literal_form: Limburgisch
+          in_language: de
+        - literal_form: Limburgan |  Limburger |  Limburgish
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lim
+      lin:
+        structured_aliases:
+        - literal_form: Lingala
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lin
+      lit:
+        structured_aliases:
+        - literal_form: Litauisch
+          in_language: de
+        - literal_form: Lithuanian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lit
+      lol:
+        structured_aliases:
+        - literal_form: Mongo-Sprache
+          in_language: de
+        - literal_form: Mongo
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lol
+      loz:
+        structured_aliases:
+        - literal_form: Rotse-Sprache
+          in_language: de
+        - literal_form: Lozi
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/loz
+      ltz:
+        structured_aliases:
+        - literal_form: Luxemburgisch
+          in_language: de
+        - literal_form: Luxembourgish |  Letzeburgesch
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ltz
+      lua:
+        structured_aliases:
+        - literal_form: Lulua-Sprache
+          in_language: de
+        - literal_form: Luba-Lulua
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lua
+      lub:
+        structured_aliases:
+        - literal_form: Luba-Katanga-Sprache
+          in_language: de
+        - literal_form: Luba-Katanga
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lub
+      lug:
+        structured_aliases:
+        - literal_form: Ganda-Sprache
+          in_language: de
+        - literal_form: Ganda
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lug
+      lui:
+        structured_aliases:
+        - literal_form: Luiseño-Sprache
+          in_language: de
+        - literal_form: Luiseno
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lui
+      lun:
+        structured_aliases:
+        - literal_form: Lunda-Sprache
+          in_language: de
+        - literal_form: Lunda
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lun
+      luo:
+        structured_aliases:
+        - literal_form: Luo-Sprache
+          in_language: de
+        - literal_form: Luo (Kenya and Tanzania)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/luo
+      lus:
+        structured_aliases:
+        - literal_form: Lushai-Sprache
+          in_language: de
+        - literal_form: Lushai
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/lus
+      mac:
+        structured_aliases:
+        - literal_form: Makedonisch
+          in_language: de
+        - literal_form: Macedonian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mac
+      mad:
+        structured_aliases:
+        - literal_form: Maduresisch
+          in_language: de
+        - literal_form: Madurese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mad
+      mag:
+        structured_aliases:
+        - literal_form: Khotta
+          in_language: de
+        - literal_form: Magahi
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mag
+      mah:
+        structured_aliases:
+        - literal_form: Marschallesisch
+          in_language: de
+        - literal_form: Marshallese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mah
+      mai:
+        structured_aliases:
+        - literal_form: Maithili
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mai
+      mak:
+        structured_aliases:
+        - literal_form: Makassarisch
+          in_language: de
+        - literal_form: Makasar
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mak
+      mal:
+        structured_aliases:
+        - literal_form: Malayalam
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mal
+      man:
+        structured_aliases:
+        - literal_form: Malinke-Sprache
+          in_language: de
+        - literal_form: Mandingo
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/man
+      mao:
+        structured_aliases:
+        - literal_form: Maori-Sprache
+          in_language: de
+        - literal_form: Maori
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mao
+      map:
+        structured_aliases:
+        - literal_form: Austronesische Sprachen (Andere)
+          in_language: de
+        - literal_form: Austronesian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/map
+      mar:
+        structured_aliases:
+        - literal_form: Marathi
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mar
+      mas:
+        structured_aliases:
+        - literal_form: Massai-Sprache
+          in_language: de
+        - literal_form: Masai
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mas
+      may:
+        structured_aliases:
+        - literal_form: Malaiisch
+          in_language: de
+        - literal_form: Malay
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/may
+      mdf:
+        structured_aliases:
+        - literal_form: Mokscha-Sprache
+          in_language: de
+        - literal_form: Moksha
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mdf
+      mdr:
+        structured_aliases:
+        - literal_form: Mandaresisch
+          in_language: de
+        - literal_form: Mandar
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mdr
+      men:
+        structured_aliases:
+        - literal_form: Mende-Sprache
+          in_language: de
+        - literal_form: Mende
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/men
+      mga:
+        structured_aliases:
+        - literal_form: Mittelirisch
+          in_language: de
+        - literal_form: Irish, Middle (900-1200)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mga
+      mic:
+        structured_aliases:
+        - literal_form: Micmac-Sprache
+          in_language: de
+        - literal_form: Mi'kmaq |  Micmac
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mic
+      min:
+        structured_aliases:
+        - literal_form: Minangkabau-Sprache
+          in_language: de
+        - literal_form: Minangkabau
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/min
+      mis:
+        structured_aliases:
+        - literal_form: Einzelne andere Sprachen
+          in_language: de
+        - literal_form: Uncoded languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mis
+      mkd:
+        structured_aliases:
+        - literal_form: Makedonisch
+          in_language: de
+        - literal_form: Macedonian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mkd
+      mkh:
+        structured_aliases:
+        - literal_form: Mon-Khmer-Sprachen (Andere)
+          in_language: de
+        - literal_form: Mon-Khmer languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mkh
+      mlg:
+        structured_aliases:
+        - literal_form: Malagassi-Sprache
+          in_language: de
+        - literal_form: Malagasy
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mlg
+      mlt:
+        structured_aliases:
+        - literal_form: Maltesisch
+          in_language: de
+        - literal_form: Maltese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mlt
+      mnc:
+        structured_aliases:
+        - literal_form: Mandschurisch
+          in_language: de
+        - literal_form: Manchu
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mnc
+      mni:
+        structured_aliases:
+        - literal_form: Meithei-Sprache
+          in_language: de
+        - literal_form: Manipuri
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mni
+      mno:
+        structured_aliases:
+        - literal_form: Manobo-Sprachen
+          in_language: de
+        - literal_form: Manobo languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mno
+      moh:
+        structured_aliases:
+        - literal_form: Mohawk-Sprache
+          in_language: de
+        - literal_form: Mohawk
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/moh
+      mon:
+        structured_aliases:
+        - literal_form: Mongolisch
+          in_language: de
+        - literal_form: Mongolian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mon
+      mos:
+        structured_aliases:
+        - literal_form: Mossi-Sprache
+          in_language: de
+        - literal_form: Mossi
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mos
+      mri:
+        structured_aliases:
+        - literal_form: Maori-Sprache
+          in_language: de
+        - literal_form: Maori
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mri
+      msa:
+        structured_aliases:
+        - literal_form: Malaiisch
+          in_language: de
+        - literal_form: Malay
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/msa
+      mul:
+        structured_aliases:
+        - literal_form: Mehrere Sprachen
+          in_language: de
+        - literal_form: Multiple languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mul
+      mun:
+        structured_aliases:
+        - literal_form: Mundasprachen (Andere)
+          in_language: de
+        - literal_form: Munda languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mun
+      mus:
+        structured_aliases:
+        - literal_form: Muskogisch
+          in_language: de
+        - literal_form: Creek
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mus
+      mwl:
+        structured_aliases:
+        - literal_form: Mirandesisch
+          in_language: de
+        - literal_form: Mirandese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mwl
+      mwr:
+        structured_aliases:
+        - literal_form: Marwari
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mwr
+      mya:
+        structured_aliases:
+        - literal_form: Birmanisch
+          in_language: de
+        - literal_form: Burmese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/mya
+      myn:
+        structured_aliases:
+        - literal_form: Maya-Sprachen
+          in_language: de
+        - literal_form: Mayan languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/myn
+      myv:
+        structured_aliases:
+        - literal_form: Erza-Mordwinisch
+          in_language: de
+        - literal_form: Erzya
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/myv
+      nah:
+        structured_aliases:
+        - literal_form: Nahuatl
+          in_language: de
+        - literal_form: Nahuatl languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nah
+      nai:
+        structured_aliases:
+        - literal_form: Indianersprachen, Nordamerika (Andere)
+          in_language: de
+        - literal_form: North American Indian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nai
+      nap:
+        structured_aliases:
+        - literal_form: Neapel / Mundart
+          in_language: de
+        - literal_form: Neapolitan
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nap
+      nau:
+        structured_aliases:
+        - literal_form: Nauruanisch
+          in_language: de
+        - literal_form: Nauru
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nau
+      nav:
+        structured_aliases:
+        - literal_form: Navajo-Sprache
+          in_language: de
+        - literal_form: Navajo |  Navaho
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nav
+      nbl:
+        structured_aliases:
+        - literal_form: Ndebele-Sprache (Transvaal)
+          in_language: de
+        - literal_form: Ndebele, South |  South Ndebele
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nbl
+      nde:
+        structured_aliases:
+        - literal_form: Ndebele-Sprache (Simbabwe)
+          in_language: de
+        - literal_form: Ndebele, North |  North Ndebele
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nde
+      ndo:
+        structured_aliases:
+        - literal_form: Ndonga
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ndo
+      nds:
+        structured_aliases:
+        - literal_form: Niederdeutsch
+          in_language: de
+        - literal_form: Low German |  Low Saxon |  German, Low |  Saxon, Low
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nds
+      nep:
+        structured_aliases:
+        - literal_form: Nepali
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nep
+      new:
+        structured_aliases:
+        - literal_form: Newari
+          in_language: de
+        - literal_form: Nepal Bhasa |  Newari
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/new
+      nia:
+        structured_aliases:
+        - literal_form: Nias-Sprache
+          in_language: de
+        - literal_form: Nias
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nia
+      nic:
+        structured_aliases:
+        - literal_form: Nigerkordofanische Sprachen (Andere)
+          in_language: de
+        - literal_form: Niger-Kordofanian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nic
+      niu:
+        structured_aliases:
+        - literal_form: Niue-Sprache
+          in_language: de
+        - literal_form: Niuean
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/niu
+      nld:
+        structured_aliases:
+        - literal_form: Niederländisch
+          in_language: de
+        - literal_form: Dutch |  Flemish
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nld
+      nno:
+        structured_aliases:
+        - literal_form: Nynorsk
+          in_language: de
+        - literal_form: Norwegian Nynorsk |  Nynorsk, Norwegian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nno
+      nob:
+        structured_aliases:
+        - literal_form: Bokmål
+          in_language: de
+        - literal_form: Bokmål, Norwegian |  Norwegian Bokmål
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nob
+      nog:
+        structured_aliases:
+        - literal_form: Nogaisch
+          in_language: de
+        - literal_form: Nogai
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nog
+      non:
+        structured_aliases:
+        - literal_form: Altnorwegisch
+          in_language: de
+        - literal_form: Norse, Old
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/non
+      nor:
+        structured_aliases:
+        - literal_form: Norwegisch
+          in_language: de
+        - literal_form: Norwegian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nor
+      nqo:
+        structured_aliases:
+        - literal_form: N'Ko
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nqo
+      nso:
+        structured_aliases:
+        - literal_form: Pedi-Sprache
+          in_language: de
+        - literal_form: Pedi |  Sepedi |  Northern Sotho
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nso
+      nub:
+        structured_aliases:
+        - literal_form: Nubische Sprachen
+          in_language: de
+        - literal_form: Nubian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nub
+      nwc:
+        structured_aliases:
+        - literal_form: Alt-Newari
+          in_language: de
+        - literal_form: Classical Newari |  Old Newari |  Classical Nepal Bhasa
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nwc
+      nya:
+        structured_aliases:
+        - literal_form: Nyanja-Sprache
+          in_language: de
+        - literal_form: Chichewa |  Chewa |  Nyanja
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nya
+      nym:
+        structured_aliases:
+        - literal_form: Nyamwezi-Sprache
+          in_language: de
+        - literal_form: Nyamwezi
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nym
+      nyn:
+        structured_aliases:
+        - literal_form: Nkole-Sprache
+          in_language: de
+        - literal_form: Nyankole
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nyn
+      nyo:
+        structured_aliases:
+        - literal_form: Nyoro-Sprache
+          in_language: de
+        - literal_form: Nyoro
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nyo
+      nzi:
+        structured_aliases:
+        - literal_form: Nzima-Sprache
+          in_language: de
+        - literal_form: Nzima
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/nzi
+      oci:
+        structured_aliases:
+        - literal_form: Okzitanisch
+          in_language: de
+        - literal_form: Occitan (post 1500)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/oci
+      oji:
+        structured_aliases:
+        - literal_form: Ojibwa-Sprache
+          in_language: de
+        - literal_form: Ojibwa
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/oji
+      ori:
+        structured_aliases:
+        - literal_form: Oriya-Sprache
+          in_language: de
+        - literal_form: Oriya
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ori
+      orm:
+        structured_aliases:
+        - literal_form: Galla-Sprache
+          in_language: de
+        - literal_form: Oromo
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/orm
+      osa:
+        structured_aliases:
+        - literal_form: Osage-Sprache
+          in_language: de
+        - literal_form: Osage
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/osa
+      oss:
+        structured_aliases:
+        - literal_form: Ossetisch
+          in_language: de
+        - literal_form: Ossetian |  Ossetic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/oss
+      ota:
+        structured_aliases:
+        - literal_form: Osmanisch
+          in_language: de
+        - literal_form: Turkish, Ottoman (1500-1928)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ota
+      oto:
+        structured_aliases:
+        - literal_form: Otomangue-Sprachen
+          in_language: de
+        - literal_form: Otomian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/oto
+      paa:
+        structured_aliases:
+        - literal_form: Papuasprachen (Andere)
+          in_language: de
+        - literal_form: Papuan languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/paa
+      pag:
+        structured_aliases:
+        - literal_form: Pangasinan-Sprache
+          in_language: de
+        - literal_form: Pangasinan
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/pag
+      pal:
+        structured_aliases:
+        - literal_form: Mittelpersisch
+          in_language: de
+        - literal_form: Pahlavi
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/pal
+      pam:
+        structured_aliases:
+        - literal_form: Pampanggan-Sprache
+          in_language: de
+        - literal_form: Pampanga |  Kapampangan
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/pam
+      pan:
+        structured_aliases:
+        - literal_form: Pandschabi-Sprache
+          in_language: de
+        - literal_form: Panjabi |  Punjabi
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/pan
+      pap:
+        structured_aliases:
+        - literal_form: Papiamento
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/pap
+      pau:
+        structured_aliases:
+        - literal_form: Palau-Sprache
+          in_language: de
+        - literal_form: Palauan
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/pau
+      peo:
+        structured_aliases:
+        - literal_form: Altpersisch
+          in_language: de
+        - literal_form: Persian, Old (ca.600-400 B.C.)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/peo
+      per:
+        structured_aliases:
+        - literal_form: Persisch
+          in_language: de
+        - literal_form: Persian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/per
+      phi:
+        structured_aliases:
+        - literal_form: Philippinisch-Austronesisch (Andere)
+          in_language: de
+        - literal_form: Philippine languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/phi
+      phn:
+        structured_aliases:
+        - literal_form: Phönikisch
+          in_language: de
+        - literal_form: Phoenician
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/phn
+      pli:
+        structured_aliases:
+        - literal_form: Pali
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/pli
+      pol:
+        structured_aliases:
+        - literal_form: Polnisch
+          in_language: de
+        - literal_form: Polish
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/pol
+      pon:
+        structured_aliases:
+        - literal_form: Ponapeanisch
+          in_language: de
+        - literal_form: Pohnpeian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/pon
+      por:
+        structured_aliases:
+        - literal_form: Portugiesisch
+          in_language: de
+        - literal_form: Portuguese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/por
+      pra:
+        structured_aliases:
+        - literal_form: Prakrit
+          in_language: de
+        - literal_form: Prakrit languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/pra
+      pro:
+        structured_aliases:
+        - literal_form: Altokzitanisch
+          in_language: de
+        - literal_form: Provençal, Old (to 1500) | Occitan, Old (to 1500)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/pro
+      pus:
+        structured_aliases:
+        - literal_form: Paschtu
+          in_language: de
+        - literal_form: Pushto |  Pashto
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/pus
+      qaa-qtz:
+        structured_aliases:
+        - literal_form: Reserviert für lokale Verwendung
+          in_language: de
+        - literal_form: Reserved for local use
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/qaa-qtz
+      que:
+        structured_aliases:
+        - literal_form: Quechua-Sprache
+          in_language: de
+        - literal_form: Quechua
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/que
+      raj:
+        structured_aliases:
+        - literal_form: Rajasthani
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/raj
+      rap:
+        structured_aliases:
+        - literal_form: Osterinsel-Sprache
+          in_language: de
+        - literal_form: Rapanui
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/rap
+      rar:
+        structured_aliases:
+        - literal_form: Rarotonganisch
+          in_language: de
+        - literal_form: Rarotongan |  Cook Islands Maori
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/rar
+      roa:
+        structured_aliases:
+        - literal_form: Romanische Sprachen (Andere)
+          in_language: de
+        - literal_form: Romance languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/roa
+      roh:
+        structured_aliases:
+        - literal_form: Rätoromanisch
+          in_language: de
+        - literal_form: Romansh
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/roh
+      rom:
+        structured_aliases:
+        - literal_form: Romani (Sprache)
+          in_language: de
+        - literal_form: Romany
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/rom
+      ron:
+        structured_aliases:
+        - literal_form: Rumänisch
+          in_language: de
+        - literal_form: Romanian |  Moldavian |  Moldovan
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ron
+      rum:
+        structured_aliases:
+        - literal_form: Rumänisch
+          in_language: de
+        - literal_form: Romanian |  Moldavian |  Moldovan
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/rum
+      run:
+        structured_aliases:
+        - literal_form: Rundi-Sprache
+          in_language: de
+        - literal_form: Rundi
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/run
+      rup:
+        structured_aliases:
+        - literal_form: Aromunisch
+          in_language: de
+        - literal_form: Aromanian |  Arumanian |  Macedo-Romanian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/rup
+      rus:
+        structured_aliases:
+        - literal_form: Russisch
+          in_language: de
+        - literal_form: Russian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/rus
+      sad:
+        structured_aliases:
+        - literal_form: Sandawe-Sprache
+          in_language: de
+        - literal_form: Sandawe
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sad
+      sag:
+        structured_aliases:
+        - literal_form: Sango-Sprache
+          in_language: de
+        - literal_form: Sango
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sag
+      sah:
+        structured_aliases:
+        - literal_form: Jakutisch
+          in_language: de
+        - literal_form: Yakut
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sah
+      sai:
+        structured_aliases:
+        - literal_form: Indianersprachen, Südamerika (Andere)
+          in_language: de
+        - literal_form: South American Indian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sai
+      sal:
+        structured_aliases:
+        - literal_form: Salish-Sprache
+          in_language: de
+        - literal_form: Salishan languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sal
+      sam:
+        structured_aliases:
+        - literal_form: Samaritanisch
+          in_language: de
+        - literal_form: Samaritan Aramaic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sam
+      san:
+        structured_aliases:
+        - literal_form: Sanskrit
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/san
+      sas:
+        structured_aliases:
+        - literal_form: Sasak
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sas
+      sat:
+        structured_aliases:
+        - literal_form: Santali
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sat
+      scn:
+        structured_aliases:
+        - literal_form: Sizilianisch
+          in_language: de
+        - literal_form: Sicilian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/scn
+      sco:
+        structured_aliases:
+        - literal_form: Schottisch
+          in_language: de
+        - literal_form: Scots
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sco
+      sel:
+        structured_aliases:
+        - literal_form: Selkupisch
+          in_language: de
+        - literal_form: Selkup
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sel
+      sem:
+        structured_aliases:
+        - literal_form: Semitische Sprachen (Andere)
+          in_language: de
+        - literal_form: Semitic languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sem
+      sga:
+        structured_aliases:
+        - literal_form: Altirisch
+          in_language: de
+        - literal_form: Irish, Old (to 900)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sga
+      sgn:
+        structured_aliases:
+        - literal_form: Zeichensprachen
+          in_language: de
+        - literal_form: Sign Languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sgn
+      shn:
+        structured_aliases:
+        - literal_form: Schan-Sprache
+          in_language: de
+        - literal_form: Shan
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/shn
+      sid:
+        structured_aliases:
+        - literal_form: Sidamo-Sprache
+          in_language: de
+        - literal_form: Sidamo
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sid
+      sin:
+        structured_aliases:
+        - literal_form: Singhalesisch
+          in_language: de
+        - literal_form: Sinhala |  Sinhalese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sin
+      sio:
+        structured_aliases:
+        - literal_form: Sioux-Sprachen (Andere)
+          in_language: de
+        - literal_form: Siouan languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sio
+      sit:
+        structured_aliases:
+        - literal_form: Sinotibetische Sprachen (Andere)
+          in_language: de
+        - literal_form: Sino-Tibetan languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sit
+      sla:
+        structured_aliases:
+        - literal_form: Slawische Sprachen (Andere)
+          in_language: de
+        - literal_form: Slavic languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sla
+      slk:
+        structured_aliases:
+        - literal_form: Slowakisch
+          in_language: de
+        - literal_form: Slovak
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/slk
+      slo:
+        structured_aliases:
+        - literal_form: Slowakisch
+          in_language: de
+        - literal_form: Slovak
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/slo
+      slv:
+        structured_aliases:
+        - literal_form: Slowenisch
+          in_language: de
+        - literal_form: Slovenian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/slv
+      sma:
+        structured_aliases:
+        - literal_form: Südsaamisch
+          in_language: de
+        - literal_form: Southern Sami
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sma
+      sme:
+        structured_aliases:
+        - literal_form: Nordsaamisch
+          in_language: de
+        - literal_form: Northern Sami
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sme
+      smi:
+        structured_aliases:
+        - literal_form: Saamisch
+          in_language: de
+        - literal_form: Sami languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/smi
+      smj:
+        structured_aliases:
+        - literal_form: Lulesaamisch
+          in_language: de
+        - literal_form: Lule Sami
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/smj
+      smn:
+        structured_aliases:
+        - literal_form: Inarisaamisch
+          in_language: de
+        - literal_form: Inari Sami
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/smn
+      smo:
+        structured_aliases:
+        - literal_form: Samoanisch
+          in_language: de
+        - literal_form: Samoan
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/smo
+      sms:
+        structured_aliases:
+        - literal_form: Skoltsaamisch
+          in_language: de
+        - literal_form: Skolt Sami
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sms
+      sna:
+        structured_aliases:
+        - literal_form: Schona-Sprache
+          in_language: de
+        - literal_form: Shona
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sna
+      snd:
+        structured_aliases:
+        - literal_form: Sindhi-Sprache
+          in_language: de
+        - literal_form: Sindhi
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/snd
+      snk:
+        structured_aliases:
+        - literal_form: Soninke-Sprache
+          in_language: de
+        - literal_form: Soninke
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/snk
+      sog:
+        structured_aliases:
+        - literal_form: Sogdisch
+          in_language: de
+        - literal_form: Sogdian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sog
+      som:
+        structured_aliases:
+        - literal_form: Somali
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/som
+      son:
+        structured_aliases:
+        - literal_form: Songhai-Sprache
+          in_language: de
+        - literal_form: Songhai languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/son
+      sot:
+        structured_aliases:
+        - literal_form: Süd-Sotho-Sprache
+          in_language: de
+        - literal_form: Sotho, Southern
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sot
+      spa:
+        structured_aliases:
+        - literal_form: Spanisch
+          in_language: de
+        - literal_form: Spanish |  Castilian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/spa
+      sqi:
+        structured_aliases:
+        - literal_form: Albanisch
+          in_language: de
+        - literal_form: Albanian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sqi
+      srd:
+        structured_aliases:
+        - literal_form: Sardisch
+          in_language: de
+        - literal_form: Sardinian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/srd
+      srn:
+        structured_aliases:
+        - literal_form: Sranantongo
+          in_language: de
+        - literal_form: Sranan Tongo
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/srn
+      srp:
+        structured_aliases:
+        - literal_form: 'Serbisch '
+          in_language: de
+        - literal_form: Serbian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/srp
+      srr:
+        structured_aliases:
+        - literal_form: Serer-Sprache
+          in_language: de
+        - literal_form: Serer
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/srr
+      ssa:
+        structured_aliases:
+        - literal_form: Nilosaharanische Sprachen (Andere)
+          in_language: de
+        - literal_form: Nilo-Saharan languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ssa
+      ssw:
+        structured_aliases:
+        - literal_form: Swasi-Sprache
+          in_language: de
+        - literal_form: Swati
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ssw
+      suk:
+        structured_aliases:
+        - literal_form: Sukuma-Sprache
+          in_language: de
+        - literal_form: Sukuma
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/suk
+      sun:
+        structured_aliases:
+        - literal_form: Sundanesisch
+          in_language: de
+        - literal_form: Sundanese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sun
+      sus:
+        structured_aliases:
+        - literal_form: Susu
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sus
+      sux:
+        structured_aliases:
+        - literal_form: Sumerisch
+          in_language: de
+        - literal_form: Sumerian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/sux
+      swa:
+        structured_aliases:
+        - literal_form: Swahili
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/swa
+      swe:
+        structured_aliases:
+        - literal_form: Schwedisch
+          in_language: de
+        - literal_form: Swedish
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/swe
+      syc:
+        structured_aliases:
+        - literal_form: Syrisch
+          in_language: de
+        - literal_form: Classical Syriac
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/syc
+      syr:
+        structured_aliases:
+        - literal_form: Neuostaramäisch
+          in_language: de
+        - literal_form: Syriac
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/syr
+      tah:
+        structured_aliases:
+        - literal_form: Tahitisch
+          in_language: de
+        - literal_form: Tahitian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tah
+      tai:
+        structured_aliases:
+        - literal_form: Thaisprachen (Andere)
+          in_language: de
+        - literal_form: Tai languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tai
+      tam:
+        structured_aliases:
+        - literal_form: Tamil
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tam
+      tat:
+        structured_aliases:
+        - literal_form: Tatarisch
+          in_language: de
+        - literal_form: Tatar
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tat
+      tel:
+        structured_aliases:
+        - literal_form: Telugu-Sprache
+          in_language: de
+        - literal_form: Telugu
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tel
+      tem:
+        structured_aliases:
+        - literal_form: Temne-Sprache
+          in_language: de
+        - literal_form: Timne
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tem
+      ter:
+        structured_aliases:
+        - literal_form: Tereno-Sprache
+          in_language: de
+        - literal_form: Tereno
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ter
+      tet:
+        structured_aliases:
+        - literal_form: Tetum-Sprache
+          in_language: de
+        - literal_form: Tetum
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tet
+      tgk:
+        structured_aliases:
+        - literal_form: Tadschikisch
+          in_language: de
+        - literal_form: Tajik
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tgk
+      tgl:
+        structured_aliases:
+        - literal_form: Tagalog
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tgl
+      tha:
+        structured_aliases:
+        - literal_form: Thailändisch
+          in_language: de
+        - literal_form: Thai
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tha
+      tib:
+        structured_aliases:
+        - literal_form: Tibetisch
+          in_language: de
+        - literal_form: Tibetan
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tib
+      tig:
+        structured_aliases:
+        - literal_form: Tigre-Sprache
+          in_language: de
+        - literal_form: Tigre
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tig
+      tir:
+        structured_aliases:
+        - literal_form: Tigrinja-Sprache
+          in_language: de
+        - literal_form: Tigrinya
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tir
+      tiv:
+        structured_aliases:
+        - literal_form: Tiv-Sprache
+          in_language: de
+        - literal_form: Tiv
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tiv
+      tkl:
+        structured_aliases:
+        - literal_form: Tokelauanisch
+          in_language: de
+        - literal_form: Tokelau
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tkl
+      tlh:
+        structured_aliases:
+        - literal_form: Klingonisch
+          in_language: de
+        - literal_form: Klingon |  tlhIngan-Hol
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tlh
+      tli:
+        structured_aliases:
+        - literal_form: Tlingit-Sprache
+          in_language: de
+        - literal_form: Tlingit
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tli
+      tmh:
+        structured_aliases:
+        - literal_form: "Tama\x9Aeq"
+          in_language: de
+        - literal_form: Tamashek
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tmh
+      tog:
+        structured_aliases:
+        - literal_form: Tonga (Bantusprache, Sambia)
+          in_language: de
+        - literal_form: Tonga (Nyasa)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tog
+      ton:
+        structured_aliases:
+        - literal_form: Tongaisch
+          in_language: de
+        - literal_form: Tonga (Tonga Islands)
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ton
+      tpi:
+        structured_aliases:
+        - literal_form: Neumelanesisch
+          in_language: de
+        - literal_form: Tok Pisin
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tpi
+      tsi:
+        structured_aliases:
+        - literal_form: Tsimshian-Sprache
+          in_language: de
+        - literal_form: Tsimshian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tsi
+      tsn:
+        structured_aliases:
+        - literal_form: Tswana-Sprache
+          in_language: de
+        - literal_form: Tswana
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tsn
+      tso:
+        structured_aliases:
+        - literal_form: Tsonga-Sprache
+          in_language: de
+        - literal_form: Tsonga
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tso
+      tuk:
+        structured_aliases:
+        - literal_form: Turkmenisch
+          in_language: de
+        - literal_form: Turkmen
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tuk
+      tum:
+        structured_aliases:
+        - literal_form: Tumbuka-Sprache
+          in_language: de
+        - literal_form: Tumbuka
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tum
+      tup:
+        structured_aliases:
+        - literal_form: Tupi-Sprache
+          in_language: de
+        - literal_form: Tupi languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tup
+      tur:
+        structured_aliases:
+        - literal_form: Türkisch
+          in_language: de
+        - literal_form: Turkish
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tur
+      tut:
+        structured_aliases:
+        - literal_form: Altaische Sprachen (Andere)
+          in_language: de
+        - literal_form: Altaic languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tut
+      tvl:
+        structured_aliases:
+        - literal_form: Elliceanisch
+          in_language: de
+        - literal_form: Tuvalu
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tvl
+      twi:
+        structured_aliases:
+        - literal_form: Twi-Sprache
+          in_language: de
+        - literal_form: Twi
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/twi
+      tyv:
+        structured_aliases:
+        - literal_form: Tuwinisch
+          in_language: de
+        - literal_form: Tuvinian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/tyv
+      udm:
+        structured_aliases:
+        - literal_form: Udmurtisch
+          in_language: de
+        - literal_form: Udmurt
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/udm
+      uga:
+        structured_aliases:
+        - literal_form: Ugaritisch
+          in_language: de
+        - literal_form: Ugaritic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/uga
+      uig:
+        structured_aliases:
+        - literal_form: Uigurisch
+          in_language: de
+        - literal_form: Uighur |  Uyghur
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/uig
+      ukr:
+        structured_aliases:
+        - literal_form: Ukrainisch
+          in_language: de
+        - literal_form: Ukrainian
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ukr
+      umb:
+        structured_aliases:
+        - literal_form: Mbundu-Sprache
+          in_language: de
+        - literal_form: Umbundu
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/umb
+      und:
+        structured_aliases:
+        - literal_form: Nicht zu entscheiden
+          in_language: de
+        - literal_form: Undetermined
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/und
+      urd:
+        structured_aliases:
+        - literal_form: Urdu
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/urd
+      uzb:
+        structured_aliases:
+        - literal_form: Usbekisch
+          in_language: de
+        - literal_form: Uzbek
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/uzb
+      vai:
+        structured_aliases:
+        - literal_form: Vai-Sprache
+          in_language: de
+        - literal_form: Vai
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/vai
+      ven:
+        structured_aliases:
+        - literal_form: Venda-Sprache
+          in_language: de
+        - literal_form: Venda
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ven
+      vie:
+        structured_aliases:
+        - literal_form: Vietnamesisch
+          in_language: de
+        - literal_form: Vietnamese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/vie
+      vol:
+        structured_aliases:
+        - literal_form: Volapük
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/vol
+      vot:
+        structured_aliases:
+        - literal_form: Wotisch
+          in_language: de
+        - literal_form: Votic
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/vot
+      wak:
+        structured_aliases:
+        - literal_form: Wakash-Sprachen
+          in_language: de
+        - literal_form: Wakashan languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/wak
+      wal:
+        structured_aliases:
+        - literal_form: Walamo-Sprache
+          in_language: de
+        - literal_form: Wolaitta |  Wolaytta
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/wal
+      war:
+        structured_aliases:
+        - literal_form: Waray
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/war
+      was:
+        structured_aliases:
+        - literal_form: Washo-Sprache
+          in_language: de
+        - literal_form: Washo
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/was
+      wel:
+        structured_aliases:
+        - literal_form: Kymrisch
+          in_language: de
+        - literal_form: Welsh
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/wel
+      wen:
+        structured_aliases:
+        - literal_form: Sorbisch (Andere)
+          in_language: de
+        - literal_form: Sorbian languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/wen
+      wln:
+        structured_aliases:
+        - literal_form: Wallonisch
+          in_language: de
+        - literal_form: Walloon
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/wln
+      wol:
+        structured_aliases:
+        - literal_form: Wolof-Sprache
+          in_language: de
+        - literal_form: Wolof
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/wol
+      xal:
+        structured_aliases:
+        - literal_form: Kalmückisch
+          in_language: de
+        - literal_form: Kalmyk |  Oirat
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/xal
+      xho:
+        structured_aliases:
+        - literal_form: Xhosa-Sprache
+          in_language: de
+        - literal_form: Xhosa
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/xho
+      yao:
+        structured_aliases:
+        - literal_form: Yao-Sprache (Bantusprache)
+          in_language: de
+        - literal_form: Yao
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/yao
+      yap:
+        structured_aliases:
+        - literal_form: Yapesisch
+          in_language: de
+        - literal_form: Yapese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/yap
+      yid:
+        structured_aliases:
+        - literal_form: Jiddisch
+          in_language: de
+        - literal_form: Yiddish
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/yid
+      yor:
+        structured_aliases:
+        - literal_form: Yoruba-Sprache
+          in_language: de
+        - literal_form: Yoruba
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/yor
+      ypk:
+        structured_aliases:
+        - literal_form: Ypik-Sprachen
+          in_language: de
+        - literal_form: Yupik languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/ypk
+      zap:
+        structured_aliases:
+        - literal_form: Zapotekisch
+          in_language: de
+        - literal_form: Zapotec
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/zap
+      zbl:
+        structured_aliases:
+        - literal_form: Bliss-Symbol
+          in_language: de
+        - literal_form: Blissymbols |  Blissymbolics |  Bliss
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/zbl
+      zen:
+        structured_aliases:
+        - literal_form: Zenaga
+          in_language: default
+        meaning: http://id.loc.gov/vocabulary/iso639-2/zen
+      zgh:
+        structured_aliases:
+        - literal_form: Marokkanisches Tamazight
+          in_language: de
+        - literal_form: Standard Moroccan Tamazight
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/zgh
+      zha:
+        structured_aliases:
+        - literal_form: Zhuang
+          in_language: de
+        - literal_form: Zhuang |  Chuang
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/zha
+      zho:
+        structured_aliases:
+        - literal_form: Chinesisch
+          in_language: de
+        - literal_form: Chinese
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/zho
+      znd:
+        structured_aliases:
+        - literal_form: Zande-Sprachen
+          in_language: de
+        - literal_form: Zande languages
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/znd
+      zul:
+        structured_aliases:
+        - literal_form: Zulu-Sprache
+          in_language: de
+        - literal_form: Zulu
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/zul
+      zun:
+        structured_aliases:
+        - literal_form: Zuñi-Sprache
+          in_language: de
+        - literal_form: Zuni
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/zun
+      zxx:
+        structured_aliases:
+        - literal_form: Kein linguistischer Inhalt
+          in_language: de
+        - literal_form: No linguistic content |  Not applicable
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/zxx
+      zza:
+        structured_aliases:
+        - literal_form: Zazaki
+          in_language: de
+        - literal_form: Zaza |  Dimili |  Dimli |  Kirdki |  Kirmanjki |  Zazaki
+          in_language: en
+        meaning: http://id.loc.gov/vocabulary/iso639-2/zza
+
   LanguageUsageEnum:
     rank: 12
     description: >-
