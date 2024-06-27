@@ -39,6 +39,135 @@ default_range: string
 default_curi_maps:
 - semweb_context
 
+types:
+  TextLine:
+    typeof: string
+    pattern: ^.+$
+    annotations:
+      - tag: data_type_properties
+        value:
+          minLength: 1
+          maxLength: 550
+    description: >-
+      Non-empty string without line breaks intended for names and
+      similar data
+
+  TextArea:
+    typeof: string
+    annotations:
+      - tag: data_type_properties
+        value:
+          minLength: 1
+          maxLength: 8192
+
+  HttpUri:
+    typeof: uri
+    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
+    annotations:
+      - tag: data_type_properties
+        value:
+          maxLength: 512
+
+  AVefiCurie:
+    typeof: uriorcurie
+    pattern: ^avefi:((?![\"&\'])\S)+$
+
+  ISODate:
+    typeof: string
+    pattern: 
+      ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$
+
+  ISODateTimeUTC:
+    typeof: datetime
+    pattern: 
+      ^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|\+00:00)$
+
+  ISODurationInHours:
+    typeof: string
+    pattern: 
+      ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
+
+  IDString:
+    typeof: string
+    pattern: ^((?![\"&\'])\S)+$
+    annotations:
+      - tag: data_type_properties
+        value:
+          minLength: 1
+          maxLength: 256
+
+  AVefi:
+    typeof: string
+    pattern: ^21(\.([0-9A-Za-z])+)*/[!-~]+$
+    annotations:
+      - tag: data_type_properties
+        value:
+          minLength: 1
+          maxLength: 256
+
+  DOI:
+    typeof: string
+    pattern: ^10\.[0-9]{4,9}(\.[0-9]+)*(/|%2F)((?![\"&\'])\S)+$
+    annotations:
+      - tag: data_type_properties
+        value:
+          minLength: 1
+          maxLength: 256
+
+  FilmportalID:
+    typeof: string
+    pattern: ^[\da-f]{32}$
+    annotations:
+      - tag: data_type_properties
+        value:
+          minLength: 1
+          maxLength: 256
+
+  GNDID:
+    typeof: string
+    pattern: ^[-\dX]+$
+    annotations:
+      - tag: data_type_properties
+        value:
+          minLength: 1
+          maxLength: 256
+
+  ISIL:
+    typeof: string
+    pattern: ^[A-Z]{2}-[A-Za-z\-0-9:/]{1,15}$
+    annotations:
+      - tag: data_type_properties
+        value:
+          minLength: 1
+          maxLength: 256
+
+  TGNID:
+    typeof: string
+    pattern: ^[1-9][0-9]{6}$
+    annotations:
+      - tag: data_type_properties
+        value:
+          minLength: 1
+          maxLength: 256
+
+  VIAFID:
+    typeof: string
+    pattern: ^\d+$
+    annotations:
+      - tag: data_type_properties
+        value:
+          minLength: 1
+          maxLength: 256
+
+  WikidataID:
+    typeof: string
+    pattern: ^[LPQ]\d+$
+    annotations:
+      - tag: data_type_properties
+        value:
+          minLength: 1
+          maxLength: 256
+
 classes:
 
   CategorizedThing:
@@ -604,9 +733,7 @@ classes:
     - has_precision
     slot_usage:
       has_value:
-        pattern: 
-          ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
-        range: string
+        range: ISODurationInHours
     structured_aliases:
     - literal_form: Abspieldauer
       in_language: de
@@ -852,7 +979,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^21(\.([0-9A-Za-z])+)*/[!-~]+$
+        range: AVefi
     structured_aliases:
     - literal_form: AVefi
       in_language: default
@@ -870,7 +997,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^10\.[0-9]{4,9}(\.[0-9]+)*(/|%2F)((?![\"&\'])\S)+$
+        range: DOI
     structured_aliases:
     - literal_form: DOI
       in_language: default
@@ -897,7 +1024,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^[\da-f]{32}$
+        range: FilmportalID
     structured_aliases:
     - literal_form: Filmportal
       in_language: default
@@ -924,7 +1051,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^[-\dX]+$
+        range: GNDID
     structured_aliases:
     - literal_form: GND
       in_language: default
@@ -969,7 +1096,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^[A-Z]{2}-[A-Za-z\-0-9:/]{1,15}$
+        range: ISIL
     structured_aliases:
     - literal_form: ISIL
       in_language: default
@@ -995,7 +1122,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^[1-9][0-9]{6}$
+        range: TGNID
     structured_aliases:
     - literal_form: TGN
       in_language: default
@@ -1022,7 +1149,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^\d+$
+        range: VIAFID
     structured_aliases:
     - literal_form: VIAF
       in_language: default
@@ -1057,7 +1184,7 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^[LPQ]\d+$
+        range: WikidataID
     structured_aliases:
     - literal_form: Wikidata
       in_language: default
@@ -1096,12 +1223,13 @@ slots:
   #-----------------------------------
 
   id:
-    range: string
+    range: IDString
     description: A unique identifier for a thing
 
   has_name:
     rank: 4
     slot_uri: schema:name
+    range: TextLine
     required: true
     description: >-
       Human-readable name for a thing. This is to be treated as the
@@ -1113,6 +1241,7 @@ slots:
     rank: 10
     slot_uri: schema:alternateName
     multivalued: true
+    range: TextLine
     description: >-
       Alternative human-readable name(s) for a thing. Whereas has_name
       provides the preferred display name for the described entity,
@@ -1121,6 +1250,7 @@ slots:
 
   has_ordering_name:
     rank: 4
+    range: TextLine
     description: >-
       Provide normalised form, e.g. for sorting by title. Only use
       this slot if value actually if different from has_name
@@ -1141,6 +1271,7 @@ slots:
 
   type:
     rank: 5
+    range: IDString
     description: >-
       See specific class documentation for controlled vocabulary
       applicable to the type slot, respectively
@@ -1149,7 +1280,7 @@ slots:
     rank: 1
     slot_uri: rdf:type
     designates_type: true
-    range: uriorcurie
+    range: AVefiCurie
     required: true
     description: >-
       Designates type, e.g. to distinguish different identifiers
@@ -1173,15 +1304,13 @@ slots:
       identified object
 
   has_history:
-    range: uri
-    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
+    range: HttpUri
     description: >-
       Link to revision history of this PID
 
   has_issuer_id:
     slot_uri: wdrs:issuedby
-    range: uri
-    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
+    range: HttpUri
     required: true
     description: >-
       Identifier for the responsible party as an URI suitable for
@@ -1197,7 +1326,7 @@ slots:
 
   has_issuer_name:
     slot_uri: dcterms:contributor
-    range: string
+    range: TextLine
     required: true
     description: >-
       Name of the responsible party
@@ -1207,9 +1336,7 @@ slots:
 
   last_modified:
     slot_uri: dcterms:modified
-    pattern: 
-      ^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|\+00:00)$
-    range: datetime
+    range: ISODateTimeUTC
     required: true
     description: >-
       Timestamp (in UTC) for the latest modification to any field in
@@ -1229,8 +1356,7 @@ slots:
 
   has_date:
     rank: 7
-    pattern: 
-      ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$
+    range: ISODate
     notes:
     - https://www.w3.org/TR/xmlschema11-2/#date
     description: >-
@@ -1409,6 +1535,7 @@ slots:
     rank: 29
     inlined_as_list: true
     multivalued: true
+    range: TextArea
     description: >-
       FIAF Moving Image Cataloguing Manual Appendix B
 
@@ -1420,8 +1547,7 @@ slots:
 
   has_webresource:
     rank: 28
-    range: uri
-    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
+    range: HttpUri
     description: >-
       Link to data provider's own presentation of manifestation or
       item on the web
