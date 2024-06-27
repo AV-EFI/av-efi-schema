@@ -11,6 +11,7 @@
             "properties": {
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                     "const": "avefi:WorkVariant"
                 },
                 "described_by": {
@@ -29,6 +30,7 @@
                         },
                         "has_issuer_name": {
                             "description": "Name of the responsible party",
+                            "pattern": "^.+$",
                             "type": "string"
                         },
                         "last_modified": {
@@ -54,10 +56,12 @@
                         "properties": {
                             "has_name": {
                                 "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
+                                "pattern": "^.+$",
                                 "type": "string"
                             },
                             "has_ordering_name": {
                                 "description": "Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name",
+                                "pattern": "^.+$",
                                 "type": "string"
                             },
                             "type": {
@@ -84,6 +88,7 @@
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                         "const": "avefi:ProductionEvent"
                                     },
                                     "has_activity": {
@@ -96,6 +101,7 @@
                                                     "properties": {
                                                         "category": {
                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                             "const": "avefi:AnimationActivity"
                                                         },
                                                         "has_agent": {
@@ -107,12 +113,14 @@
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
+                                                                            "pattern": "^.+$",
                                                                             "type": "string"
                                                                         },
                                                                         "type": "array"
                                                                     },
                                                                     "has_name": {
                                                                         "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                        "pattern": "^.+$",
                                                                         "type": "string"
                                                                     },
                                                                     "same_as": {
@@ -125,6 +133,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:AVefiResource"
                                                                                         },
                                                                                         "id": {
@@ -146,6 +155,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:DOIResource"
                                                                                         },
                                                                                         "id": {
@@ -167,6 +177,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:FilmportalResource"
                                                                                         },
                                                                                         "id": {
@@ -188,6 +199,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:GNDResource"
                                                                                         },
                                                                                         "id": {
@@ -209,6 +221,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:ISILResource"
                                                                                         },
                                                                                         "id": {
@@ -230,6 +243,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:TGNResource"
                                                                                         },
                                                                                         "id": {
@@ -251,6 +265,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:VIAFResource"
                                                                                         },
                                                                                         "id": {
@@ -272,6 +287,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:WikidataResource"
                                                                                         },
                                                                                         "id": {
@@ -324,6 +340,7 @@
                                                     "properties": {
                                                         "category": {
                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                             "const": "avefi:CastActivity"
                                                         },
                                                         "has_agent": {
@@ -335,12 +352,14 @@
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
+                                                                            "pattern": "^.+$",
                                                                             "type": "string"
                                                                         },
                                                                         "type": "array"
                                                                     },
                                                                     "has_name": {
                                                                         "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                        "pattern": "^.+$",
                                                                         "type": "string"
                                                                     },
                                                                     "same_as": {
@@ -353,6 +372,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:AVefiResource"
                                                                                         },
                                                                                         "id": {
@@ -374,6 +394,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:DOIResource"
                                                                                         },
                                                                                         "id": {
@@ -395,6 +416,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:FilmportalResource"
                                                                                         },
                                                                                         "id": {
@@ -416,6 +438,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:GNDResource"
                                                                                         },
                                                                                         "id": {
@@ -437,6 +460,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:ISILResource"
                                                                                         },
                                                                                         "id": {
@@ -458,6 +482,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:TGNResource"
                                                                                         },
                                                                                         "id": {
@@ -479,6 +504,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:VIAFResource"
                                                                                         },
                                                                                         "id": {
@@ -500,6 +526,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:WikidataResource"
                                                                                         },
                                                                                         "id": {
@@ -552,6 +579,7 @@
                                                     "properties": {
                                                         "category": {
                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                             "const": "avefi:CinematographyActivity"
                                                         },
                                                         "has_agent": {
@@ -563,12 +591,14 @@
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
+                                                                            "pattern": "^.+$",
                                                                             "type": "string"
                                                                         },
                                                                         "type": "array"
                                                                     },
                                                                     "has_name": {
                                                                         "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                        "pattern": "^.+$",
                                                                         "type": "string"
                                                                     },
                                                                     "same_as": {
@@ -581,6 +611,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:AVefiResource"
                                                                                         },
                                                                                         "id": {
@@ -602,6 +633,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:DOIResource"
                                                                                         },
                                                                                         "id": {
@@ -623,6 +655,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:FilmportalResource"
                                                                                         },
                                                                                         "id": {
@@ -644,6 +677,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:GNDResource"
                                                                                         },
                                                                                         "id": {
@@ -665,6 +699,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:ISILResource"
                                                                                         },
                                                                                         "id": {
@@ -686,6 +721,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:TGNResource"
                                                                                         },
                                                                                         "id": {
@@ -707,6 +743,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:VIAFResource"
                                                                                         },
                                                                                         "id": {
@@ -728,6 +765,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:WikidataResource"
                                                                                         },
                                                                                         "id": {
@@ -780,6 +818,7 @@
                                                     "properties": {
                                                         "category": {
                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                             "const": "avefi:DirectingActivity"
                                                         },
                                                         "has_agent": {
@@ -791,12 +830,14 @@
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
+                                                                            "pattern": "^.+$",
                                                                             "type": "string"
                                                                         },
                                                                         "type": "array"
                                                                     },
                                                                     "has_name": {
                                                                         "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                        "pattern": "^.+$",
                                                                         "type": "string"
                                                                     },
                                                                     "same_as": {
@@ -809,6 +850,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:AVefiResource"
                                                                                         },
                                                                                         "id": {
@@ -830,6 +872,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:DOIResource"
                                                                                         },
                                                                                         "id": {
@@ -851,6 +894,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:FilmportalResource"
                                                                                         },
                                                                                         "id": {
@@ -872,6 +916,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:GNDResource"
                                                                                         },
                                                                                         "id": {
@@ -893,6 +938,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:ISILResource"
                                                                                         },
                                                                                         "id": {
@@ -914,6 +960,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:TGNResource"
                                                                                         },
                                                                                         "id": {
@@ -935,6 +982,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:VIAFResource"
                                                                                         },
                                                                                         "id": {
@@ -956,6 +1004,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:WikidataResource"
                                                                                         },
                                                                                         "id": {
@@ -1008,6 +1057,7 @@
                                                     "properties": {
                                                         "category": {
                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                             "const": "avefi:EditingActivity"
                                                         },
                                                         "has_agent": {
@@ -1019,12 +1069,14 @@
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
+                                                                            "pattern": "^.+$",
                                                                             "type": "string"
                                                                         },
                                                                         "type": "array"
                                                                     },
                                                                     "has_name": {
                                                                         "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                        "pattern": "^.+$",
                                                                         "type": "string"
                                                                     },
                                                                     "same_as": {
@@ -1037,6 +1089,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:AVefiResource"
                                                                                         },
                                                                                         "id": {
@@ -1058,6 +1111,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:DOIResource"
                                                                                         },
                                                                                         "id": {
@@ -1079,6 +1133,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:FilmportalResource"
                                                                                         },
                                                                                         "id": {
@@ -1100,6 +1155,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:GNDResource"
                                                                                         },
                                                                                         "id": {
@@ -1121,6 +1177,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:ISILResource"
                                                                                         },
                                                                                         "id": {
@@ -1142,6 +1199,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:TGNResource"
                                                                                         },
                                                                                         "id": {
@@ -1163,6 +1221,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:VIAFResource"
                                                                                         },
                                                                                         "id": {
@@ -1184,6 +1243,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:WikidataResource"
                                                                                         },
                                                                                         "id": {
@@ -1236,6 +1296,7 @@
                                                     "properties": {
                                                         "category": {
                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                             "const": "avefi:MusicActivity"
                                                         },
                                                         "has_agent": {
@@ -1247,12 +1308,14 @@
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
+                                                                            "pattern": "^.+$",
                                                                             "type": "string"
                                                                         },
                                                                         "type": "array"
                                                                     },
                                                                     "has_name": {
                                                                         "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                        "pattern": "^.+$",
                                                                         "type": "string"
                                                                     },
                                                                     "same_as": {
@@ -1265,6 +1328,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:AVefiResource"
                                                                                         },
                                                                                         "id": {
@@ -1286,6 +1350,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:DOIResource"
                                                                                         },
                                                                                         "id": {
@@ -1307,6 +1372,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:FilmportalResource"
                                                                                         },
                                                                                         "id": {
@@ -1328,6 +1394,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:GNDResource"
                                                                                         },
                                                                                         "id": {
@@ -1349,6 +1416,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:ISILResource"
                                                                                         },
                                                                                         "id": {
@@ -1370,6 +1438,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:TGNResource"
                                                                                         },
                                                                                         "id": {
@@ -1391,6 +1460,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:VIAFResource"
                                                                                         },
                                                                                         "id": {
@@ -1412,6 +1482,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:WikidataResource"
                                                                                         },
                                                                                         "id": {
@@ -1464,6 +1535,7 @@
                                                     "properties": {
                                                         "category": {
                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                             "const": "avefi:ProducingActivity"
                                                         },
                                                         "has_agent": {
@@ -1475,12 +1547,14 @@
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
+                                                                            "pattern": "^.+$",
                                                                             "type": "string"
                                                                         },
                                                                         "type": "array"
                                                                     },
                                                                     "has_name": {
                                                                         "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                        "pattern": "^.+$",
                                                                         "type": "string"
                                                                     },
                                                                     "same_as": {
@@ -1493,6 +1567,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:AVefiResource"
                                                                                         },
                                                                                         "id": {
@@ -1514,6 +1589,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:DOIResource"
                                                                                         },
                                                                                         "id": {
@@ -1535,6 +1611,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:FilmportalResource"
                                                                                         },
                                                                                         "id": {
@@ -1556,6 +1633,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:GNDResource"
                                                                                         },
                                                                                         "id": {
@@ -1577,6 +1655,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:ISILResource"
                                                                                         },
                                                                                         "id": {
@@ -1598,6 +1677,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:TGNResource"
                                                                                         },
                                                                                         "id": {
@@ -1619,6 +1699,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:VIAFResource"
                                                                                         },
                                                                                         "id": {
@@ -1640,6 +1721,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:WikidataResource"
                                                                                         },
                                                                                         "id": {
@@ -1692,6 +1774,7 @@
                                                     "properties": {
                                                         "category": {
                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                             "const": "avefi:ProductionDesignActivity"
                                                         },
                                                         "has_agent": {
@@ -1703,12 +1786,14 @@
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
+                                                                            "pattern": "^.+$",
                                                                             "type": "string"
                                                                         },
                                                                         "type": "array"
                                                                     },
                                                                     "has_name": {
                                                                         "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                        "pattern": "^.+$",
                                                                         "type": "string"
                                                                     },
                                                                     "same_as": {
@@ -1721,6 +1806,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:AVefiResource"
                                                                                         },
                                                                                         "id": {
@@ -1742,6 +1828,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:DOIResource"
                                                                                         },
                                                                                         "id": {
@@ -1763,6 +1850,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:FilmportalResource"
                                                                                         },
                                                                                         "id": {
@@ -1784,6 +1872,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:GNDResource"
                                                                                         },
                                                                                         "id": {
@@ -1805,6 +1894,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:ISILResource"
                                                                                         },
                                                                                         "id": {
@@ -1826,6 +1916,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:TGNResource"
                                                                                         },
                                                                                         "id": {
@@ -1847,6 +1938,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:VIAFResource"
                                                                                         },
                                                                                         "id": {
@@ -1868,6 +1960,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:WikidataResource"
                                                                                         },
                                                                                         "id": {
@@ -1920,6 +2013,7 @@
                                                     "properties": {
                                                         "category": {
                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                             "const": "avefi:PuppetActivity"
                                                         },
                                                         "has_agent": {
@@ -1931,12 +2025,14 @@
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
+                                                                            "pattern": "^.+$",
                                                                             "type": "string"
                                                                         },
                                                                         "type": "array"
                                                                     },
                                                                     "has_name": {
                                                                         "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                        "pattern": "^.+$",
                                                                         "type": "string"
                                                                     },
                                                                     "same_as": {
@@ -1949,6 +2045,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:AVefiResource"
                                                                                         },
                                                                                         "id": {
@@ -1970,6 +2067,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:DOIResource"
                                                                                         },
                                                                                         "id": {
@@ -1991,6 +2089,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:FilmportalResource"
                                                                                         },
                                                                                         "id": {
@@ -2012,6 +2111,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:GNDResource"
                                                                                         },
                                                                                         "id": {
@@ -2033,6 +2133,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:ISILResource"
                                                                                         },
                                                                                         "id": {
@@ -2054,6 +2155,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:TGNResource"
                                                                                         },
                                                                                         "id": {
@@ -2075,6 +2177,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:VIAFResource"
                                                                                         },
                                                                                         "id": {
@@ -2096,6 +2199,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:WikidataResource"
                                                                                         },
                                                                                         "id": {
@@ -2148,6 +2252,7 @@
                                                     "properties": {
                                                         "category": {
                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                             "const": "avefi:SoundActivity"
                                                         },
                                                         "has_agent": {
@@ -2159,12 +2264,14 @@
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
+                                                                            "pattern": "^.+$",
                                                                             "type": "string"
                                                                         },
                                                                         "type": "array"
                                                                     },
                                                                     "has_name": {
                                                                         "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                        "pattern": "^.+$",
                                                                         "type": "string"
                                                                     },
                                                                     "same_as": {
@@ -2177,6 +2284,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:AVefiResource"
                                                                                         },
                                                                                         "id": {
@@ -2198,6 +2306,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:DOIResource"
                                                                                         },
                                                                                         "id": {
@@ -2219,6 +2328,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:FilmportalResource"
                                                                                         },
                                                                                         "id": {
@@ -2240,6 +2350,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:GNDResource"
                                                                                         },
                                                                                         "id": {
@@ -2261,6 +2372,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:ISILResource"
                                                                                         },
                                                                                         "id": {
@@ -2282,6 +2394,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:TGNResource"
                                                                                         },
                                                                                         "id": {
@@ -2303,6 +2416,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:VIAFResource"
                                                                                         },
                                                                                         "id": {
@@ -2324,6 +2438,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:WikidataResource"
                                                                                         },
                                                                                         "id": {
@@ -2376,6 +2491,7 @@
                                                     "properties": {
                                                         "category": {
                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                             "const": "avefi:SpecialEffectsActivity"
                                                         },
                                                         "has_agent": {
@@ -2387,12 +2503,14 @@
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
+                                                                            "pattern": "^.+$",
                                                                             "type": "string"
                                                                         },
                                                                         "type": "array"
                                                                     },
                                                                     "has_name": {
                                                                         "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                        "pattern": "^.+$",
                                                                         "type": "string"
                                                                     },
                                                                     "same_as": {
@@ -2405,6 +2523,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:AVefiResource"
                                                                                         },
                                                                                         "id": {
@@ -2426,6 +2545,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:DOIResource"
                                                                                         },
                                                                                         "id": {
@@ -2447,6 +2567,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:FilmportalResource"
                                                                                         },
                                                                                         "id": {
@@ -2468,6 +2589,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:GNDResource"
                                                                                         },
                                                                                         "id": {
@@ -2489,6 +2611,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:ISILResource"
                                                                                         },
                                                                                         "id": {
@@ -2510,6 +2633,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:TGNResource"
                                                                                         },
                                                                                         "id": {
@@ -2531,6 +2655,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:VIAFResource"
                                                                                         },
                                                                                         "id": {
@@ -2552,6 +2677,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:WikidataResource"
                                                                                         },
                                                                                         "id": {
@@ -2604,6 +2730,7 @@
                                                     "properties": {
                                                         "category": {
                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                             "const": "avefi:WritingActivity"
                                                         },
                                                         "has_agent": {
@@ -2615,12 +2742,14 @@
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
+                                                                            "pattern": "^.+$",
                                                                             "type": "string"
                                                                         },
                                                                         "type": "array"
                                                                     },
                                                                     "has_name": {
                                                                         "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                        "pattern": "^.+$",
                                                                         "type": "string"
                                                                     },
                                                                     "same_as": {
@@ -2633,6 +2762,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:AVefiResource"
                                                                                         },
                                                                                         "id": {
@@ -2654,6 +2784,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:DOIResource"
                                                                                         },
                                                                                         "id": {
@@ -2675,6 +2806,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:FilmportalResource"
                                                                                         },
                                                                                         "id": {
@@ -2696,6 +2828,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:GNDResource"
                                                                                         },
                                                                                         "id": {
@@ -2717,6 +2850,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:ISILResource"
                                                                                         },
                                                                                         "id": {
@@ -2738,6 +2872,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:TGNResource"
                                                                                         },
                                                                                         "id": {
@@ -2759,6 +2894,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:VIAFResource"
                                                                                         },
                                                                                         "id": {
@@ -2780,6 +2916,7 @@
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                             "const": "avefi:WikidataResource"
                                                                                         },
                                                                                         "id": {
@@ -2844,12 +2981,14 @@
                                                 "has_alternate_name": {
                                                     "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
+                                                        "pattern": "^.+$",
                                                         "type": "string"
                                                     },
                                                     "type": "array"
                                                 },
                                                 "has_name": {
                                                     "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
+                                                    "pattern": "^.+$",
                                                     "type": "string"
                                                 },
                                                 "same_as": {
@@ -2862,6 +3001,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:AVefiResource"
                                                                     },
                                                                     "id": {
@@ -2883,6 +3023,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:DOIResource"
                                                                     },
                                                                     "id": {
@@ -2904,6 +3045,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:FilmportalResource"
                                                                     },
                                                                     "id": {
@@ -2925,6 +3067,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:GNDResource"
                                                                     },
                                                                     "id": {
@@ -2946,6 +3089,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:ISILResource"
                                                                     },
                                                                     "id": {
@@ -2967,6 +3111,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:TGNResource"
                                                                     },
                                                                     "id": {
@@ -2988,6 +3133,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:VIAFResource"
                                                                     },
                                                                     "id": {
@@ -3009,6 +3155,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:WikidataResource"
                                                                     },
                                                                     "id": {
@@ -3054,6 +3201,7 @@
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                         "const": "avefi:PreservationEvent"
                                     },
                                     "has_activity": {
@@ -3064,6 +3212,7 @@
                                             "properties": {
                                                 "category": {
                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                     "const": "avefi:ManifestationActivity"
                                                 },
                                                 "has_agent": {
@@ -3075,12 +3224,14 @@
                                                             "has_alternate_name": {
                                                                 "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                 "items": {
+                                                                    "pattern": "^.+$",
                                                                     "type": "string"
                                                                 },
                                                                 "type": "array"
                                                             },
                                                             "has_name": {
                                                                 "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                "pattern": "^.+$",
                                                                 "type": "string"
                                                             },
                                                             "same_as": {
@@ -3093,6 +3244,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:AVefiResource"
                                                                                 },
                                                                                 "id": {
@@ -3114,6 +3266,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:DOIResource"
                                                                                 },
                                                                                 "id": {
@@ -3135,6 +3288,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:FilmportalResource"
                                                                                 },
                                                                                 "id": {
@@ -3156,6 +3310,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:GNDResource"
                                                                                 },
                                                                                 "id": {
@@ -3177,6 +3332,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:ISILResource"
                                                                                 },
                                                                                 "id": {
@@ -3198,6 +3354,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:TGNResource"
                                                                                 },
                                                                                 "id": {
@@ -3219,6 +3376,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:VIAFResource"
                                                                                 },
                                                                                 "id": {
@@ -3240,6 +3398,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:WikidataResource"
                                                                                 },
                                                                                 "id": {
@@ -3302,12 +3461,14 @@
                                                 "has_alternate_name": {
                                                     "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
+                                                        "pattern": "^.+$",
                                                         "type": "string"
                                                     },
                                                     "type": "array"
                                                 },
                                                 "has_name": {
                                                     "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
+                                                    "pattern": "^.+$",
                                                     "type": "string"
                                                 },
                                                 "same_as": {
@@ -3320,6 +3481,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:AVefiResource"
                                                                     },
                                                                     "id": {
@@ -3341,6 +3503,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:DOIResource"
                                                                     },
                                                                     "id": {
@@ -3362,6 +3525,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:FilmportalResource"
                                                                     },
                                                                     "id": {
@@ -3383,6 +3547,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:GNDResource"
                                                                     },
                                                                     "id": {
@@ -3404,6 +3569,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:ISILResource"
                                                                     },
                                                                     "id": {
@@ -3425,6 +3591,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:TGNResource"
                                                                     },
                                                                     "id": {
@@ -3446,6 +3613,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:VIAFResource"
                                                                     },
                                                                     "id": {
@@ -3467,6 +3635,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:WikidataResource"
                                                                     },
                                                                     "id": {
@@ -3514,6 +3683,7 @@
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                         "const": "avefi:PublicationEvent"
                                     },
                                     "has_activity": {
@@ -3524,6 +3694,7 @@
                                             "properties": {
                                                 "category": {
                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                     "const": "avefi:ManifestationActivity"
                                                 },
                                                 "has_agent": {
@@ -3535,12 +3706,14 @@
                                                             "has_alternate_name": {
                                                                 "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                 "items": {
+                                                                    "pattern": "^.+$",
                                                                     "type": "string"
                                                                 },
                                                                 "type": "array"
                                                             },
                                                             "has_name": {
                                                                 "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                "pattern": "^.+$",
                                                                 "type": "string"
                                                             },
                                                             "same_as": {
@@ -3553,6 +3726,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:AVefiResource"
                                                                                 },
                                                                                 "id": {
@@ -3574,6 +3748,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:DOIResource"
                                                                                 },
                                                                                 "id": {
@@ -3595,6 +3770,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:FilmportalResource"
                                                                                 },
                                                                                 "id": {
@@ -3616,6 +3792,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:GNDResource"
                                                                                 },
                                                                                 "id": {
@@ -3637,6 +3814,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:ISILResource"
                                                                                 },
                                                                                 "id": {
@@ -3658,6 +3836,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:TGNResource"
                                                                                 },
                                                                                 "id": {
@@ -3679,6 +3858,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:VIAFResource"
                                                                                 },
                                                                                 "id": {
@@ -3700,6 +3880,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:WikidataResource"
                                                                                 },
                                                                                 "id": {
@@ -3762,12 +3943,14 @@
                                                 "has_alternate_name": {
                                                     "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
+                                                        "pattern": "^.+$",
                                                         "type": "string"
                                                     },
                                                     "type": "array"
                                                 },
                                                 "has_name": {
                                                     "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
+                                                    "pattern": "^.+$",
                                                     "type": "string"
                                                 },
                                                 "same_as": {
@@ -3780,6 +3963,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:AVefiResource"
                                                                     },
                                                                     "id": {
@@ -3801,6 +3985,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:DOIResource"
                                                                     },
                                                                     "id": {
@@ -3822,6 +4007,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:FilmportalResource"
                                                                     },
                                                                     "id": {
@@ -3843,6 +4029,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:GNDResource"
                                                                     },
                                                                     "id": {
@@ -3864,6 +4051,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:ISILResource"
                                                                     },
                                                                     "id": {
@@ -3885,6 +4073,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:TGNResource"
                                                                     },
                                                                     "id": {
@@ -3906,6 +4095,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:VIAFResource"
                                                                     },
                                                                     "id": {
@@ -3927,6 +4117,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:WikidataResource"
                                                                     },
                                                                     "id": {
@@ -3973,6 +4164,7 @@
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                         "const": "avefi:ManufactureEvent"
                                     },
                                     "has_activity": {
@@ -3983,6 +4175,7 @@
                                             "properties": {
                                                 "category": {
                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                     "const": "avefi:LaboratoryActivity"
                                                 },
                                                 "has_agent": {
@@ -3994,12 +4187,14 @@
                                                             "has_alternate_name": {
                                                                 "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                 "items": {
+                                                                    "pattern": "^.+$",
                                                                     "type": "string"
                                                                 },
                                                                 "type": "array"
                                                             },
                                                             "has_name": {
                                                                 "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                "pattern": "^.+$",
                                                                 "type": "string"
                                                             },
                                                             "same_as": {
@@ -4012,6 +4207,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:AVefiResource"
                                                                                 },
                                                                                 "id": {
@@ -4033,6 +4229,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:DOIResource"
                                                                                 },
                                                                                 "id": {
@@ -4054,6 +4251,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:FilmportalResource"
                                                                                 },
                                                                                 "id": {
@@ -4075,6 +4273,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:GNDResource"
                                                                                 },
                                                                                 "id": {
@@ -4096,6 +4295,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:ISILResource"
                                                                                 },
                                                                                 "id": {
@@ -4117,6 +4317,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:TGNResource"
                                                                                 },
                                                                                 "id": {
@@ -4138,6 +4339,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:VIAFResource"
                                                                                 },
                                                                                 "id": {
@@ -4159,6 +4361,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:WikidataResource"
                                                                                 },
                                                                                 "id": {
@@ -4221,12 +4424,14 @@
                                                 "has_alternate_name": {
                                                     "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
+                                                        "pattern": "^.+$",
                                                         "type": "string"
                                                     },
                                                     "type": "array"
                                                 },
                                                 "has_name": {
                                                     "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
+                                                    "pattern": "^.+$",
                                                     "type": "string"
                                                 },
                                                 "same_as": {
@@ -4239,6 +4444,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:AVefiResource"
                                                                     },
                                                                     "id": {
@@ -4260,6 +4466,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:DOIResource"
                                                                     },
                                                                     "id": {
@@ -4281,6 +4488,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:FilmportalResource"
                                                                     },
                                                                     "id": {
@@ -4302,6 +4510,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:GNDResource"
                                                                     },
                                                                     "id": {
@@ -4323,6 +4532,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:ISILResource"
                                                                     },
                                                                     "id": {
@@ -4344,6 +4554,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:TGNResource"
                                                                     },
                                                                     "id": {
@@ -4365,6 +4576,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:VIAFResource"
                                                                     },
                                                                     "id": {
@@ -4386,6 +4598,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:WikidataResource"
                                                                     },
                                                                     "id": {
@@ -4433,6 +4646,7 @@
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                         "const": "avefi:RightsCopyrightRegistrationEvent"
                                     },
                                     "has_activity": {
@@ -4443,6 +4657,7 @@
                                             "properties": {
                                                 "category": {
                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                     "const": "avefi:CopyrightAndDistributionActivity"
                                                 },
                                                 "has_agent": {
@@ -4454,12 +4669,14 @@
                                                             "has_alternate_name": {
                                                                 "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                 "items": {
+                                                                    "pattern": "^.+$",
                                                                     "type": "string"
                                                                 },
                                                                 "type": "array"
                                                             },
                                                             "has_name": {
                                                                 "description": "For natural persons, always use the convention \"family name, given name\"",
+                                                                "pattern": "^.+$",
                                                                 "type": "string"
                                                             },
                                                             "same_as": {
@@ -4472,6 +4689,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:AVefiResource"
                                                                                 },
                                                                                 "id": {
@@ -4493,6 +4711,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:DOIResource"
                                                                                 },
                                                                                 "id": {
@@ -4514,6 +4733,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:FilmportalResource"
                                                                                 },
                                                                                 "id": {
@@ -4535,6 +4755,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:GNDResource"
                                                                                 },
                                                                                 "id": {
@@ -4556,6 +4777,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:ISILResource"
                                                                                 },
                                                                                 "id": {
@@ -4577,6 +4799,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:TGNResource"
                                                                                 },
                                                                                 "id": {
@@ -4598,6 +4821,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:VIAFResource"
                                                                                 },
                                                                                 "id": {
@@ -4619,6 +4843,7 @@
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                                     "const": "avefi:WikidataResource"
                                                                                 },
                                                                                 "id": {
@@ -4681,12 +4906,14 @@
                                                 "has_alternate_name": {
                                                     "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
+                                                        "pattern": "^.+$",
                                                         "type": "string"
                                                     },
                                                     "type": "array"
                                                 },
                                                 "has_name": {
                                                     "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
+                                                    "pattern": "^.+$",
                                                     "type": "string"
                                                 },
                                                 "same_as": {
@@ -4699,6 +4926,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:AVefiResource"
                                                                     },
                                                                     "id": {
@@ -4720,6 +4948,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:DOIResource"
                                                                     },
                                                                     "id": {
@@ -4741,6 +4970,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:FilmportalResource"
                                                                     },
                                                                     "id": {
@@ -4762,6 +4992,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:GNDResource"
                                                                     },
                                                                     "id": {
@@ -4783,6 +5014,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:ISILResource"
                                                                     },
                                                                     "id": {
@@ -4804,6 +5036,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:TGNResource"
                                                                     },
                                                                     "id": {
@@ -4825,6 +5058,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:VIAFResource"
                                                                     },
                                                                     "id": {
@@ -4846,6 +5080,7 @@
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                                         "const": "avefi:WikidataResource"
                                                                     },
                                                                     "id": {
@@ -4902,12 +5137,14 @@
                             "has_alternate_name": {
                                 "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                 "items": {
+                                    "pattern": "^.+$",
                                     "type": "string"
                                 },
                                 "type": "array"
                             },
                             "has_name": {
                                 "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
+                                "pattern": "^.+$",
                                 "type": "string"
                             },
                             "same_as": {
@@ -4918,6 +5155,7 @@
                                     "properties": {
                                         "category": {
                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                             "const": "avefi:GNDResource"
                                         },
                                         "id": {
@@ -4950,10 +5188,12 @@
                     "properties": {
                         "has_name": {
                             "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
+                            "pattern": "^.+$",
                             "type": "string"
                         },
                         "has_ordering_name": {
                             "description": "Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name",
+                            "pattern": "^.+$",
                             "type": "string"
                         },
                         "type": {
@@ -4977,12 +5217,14 @@
                             "has_alternate_name": {
                                 "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                 "items": {
+                                    "pattern": "^.+$",
                                     "type": "string"
                                 },
                                 "type": "array"
                             },
                             "has_name": {
                                 "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
+                                "pattern": "^.+$",
                                 "type": "string"
                             },
                             "same_as": {
@@ -4995,6 +5237,7 @@
                                             "properties": {
                                                 "category": {
                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                     "const": "avefi:AVefiResource"
                                                 },
                                                 "id": {
@@ -5016,6 +5259,7 @@
                                             "properties": {
                                                 "category": {
                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                     "const": "avefi:DOIResource"
                                                 },
                                                 "id": {
@@ -5037,6 +5281,7 @@
                                             "properties": {
                                                 "category": {
                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                     "const": "avefi:FilmportalResource"
                                                 },
                                                 "id": {
@@ -5058,6 +5303,7 @@
                                             "properties": {
                                                 "category": {
                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                     "const": "avefi:GNDResource"
                                                 },
                                                 "id": {
@@ -5079,6 +5325,7 @@
                                             "properties": {
                                                 "category": {
                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                     "const": "avefi:ISILResource"
                                                 },
                                                 "id": {
@@ -5100,6 +5347,7 @@
                                             "properties": {
                                                 "category": {
                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                     "const": "avefi:TGNResource"
                                                 },
                                                 "id": {
@@ -5121,6 +5369,7 @@
                                             "properties": {
                                                 "category": {
                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                     "const": "avefi:VIAFResource"
                                                 },
                                                 "id": {
@@ -5142,6 +5391,7 @@
                                             "properties": {
                                                 "category": {
                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                                     "const": "avefi:WikidataResource"
                                                 },
                                                 "id": {
@@ -5172,6 +5422,7 @@
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
+                    "pattern": "^((?![\\\"&\\'])\\S)+$",
                     "type": "string"
                 },
                 "in_language": {
@@ -5181,9 +5432,8 @@
                         "description": "Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled vocabulary. See also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3",
                         "properties": {
                             "code": {
-                                "description": "[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)",
-                                "pattern": "^[a-z]{3}$",
-                                "type": "string"
+                                "$ref": "https://raw.githubusercontent.com/AV-EFI/av-efi-schema/main/project/jsonschema/epic/vocabularies/LanguageCodesEnum.json",
+                                "description": "[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)"
                             },
                             "usage": {
                                 "description": "FIAF Moving Image Cataloguing Manual 2.3.3.2",
@@ -5210,6 +5460,7 @@
                         "properties": {
                             "category": {
                                 "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                 "const": "avefi:AVefiResource"
                             },
                             "id": {
@@ -5233,6 +5484,7 @@
                     "properties": {
                         "category": {
                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                            "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                             "const": "avefi:AVefiResource"
                         },
                         "id": {
@@ -5258,6 +5510,7 @@
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                         "const": "avefi:AVefiResource"
                                     },
                                     "id": {
@@ -5279,6 +5532,7 @@
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                         "const": "avefi:DOIResource"
                                     },
                                     "id": {
@@ -5300,6 +5554,7 @@
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                         "const": "avefi:FilmportalResource"
                                     },
                                     "id": {
@@ -5321,6 +5576,7 @@
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                         "const": "avefi:GNDResource"
                                     },
                                     "id": {
@@ -5342,6 +5598,7 @@
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                         "const": "avefi:ISILResource"
                                     },
                                     "id": {
@@ -5363,6 +5620,7 @@
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                         "const": "avefi:TGNResource"
                                     },
                                     "id": {
@@ -5384,6 +5642,7 @@
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                         "const": "avefi:VIAFResource"
                                     },
                                     "id": {
@@ -5405,6 +5664,7 @@
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "pattern": "^avefi:((?![\\\"&\\'])\\S)+$",
                                         "const": "avefi:WikidataResource"
                                     },
                                     "id": {
