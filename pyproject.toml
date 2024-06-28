@@ -26,7 +26,7 @@ build-backend = "pdm.backend"
 distribution = true
 
 [tool.pdm.build]
-package-dir = "project/python/"
+package-dir = "project/python"
 
 [tool.pdm.dev-dependencies]
 dev = [
