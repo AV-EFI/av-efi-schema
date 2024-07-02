@@ -284,7 +284,7 @@
 </tr>
 <tr>
 <td><a href="../has_date/">has_date</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>0..1 <br/> <a href="../ISODate/">ISODate</a></td>
 <td>Date (or interval/period) when an event has taken place.</td>
 <td><a href="../Event/">Event</a></td>
 </tr>
@@ -296,7 +296,7 @@
 </tr>
 <tr>
 <td><a href="../category/">category</a></td>
-<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>1 <br/> <a href="../AVefiCurie/">AVefiCurie</a></td>
 <td>Designates type, e.g. to distinguish different identifiers (GNDResource vs.</td>
 <td><a href="../CategorizedThing/">CategorizedThing</a></td>
 </tr>
@@ -340,6 +340,8 @@
 <span class="w">  </span><span class="s">as</span><span class="nv"> </span><span class="s">appropriate,</span><span class="nv"> </span><span class="s">e.g.</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">country</span><span class="nv"> </span><span class="s">where</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">copyright</span><span class="nv"> </span><span class="s">was</span><span class="nv"> </span><span class="s">registered.</span><span class="nv"> </span><span class="s">Involved</span><span class="nv"> </span><span class="s">parties</span>
 <span class="w">  </span><span class="s">in</span><span class="nv"> </span><span class="s">various</span><span class="nv"> </span><span class="s">roles</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">linked</span><span class="nv"> </span><span class="s">via</span><span class="nv"> </span><span class="s">has_activity.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">also:</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Moving</span><span class="nv"> </span><span class="s">Image</span><span class="nv"> </span><span class="s">Cataloguing</span>
 <span class="w">  </span><span class="s">Manual</span><span class="nv"> </span><span class="s">D.4.4'</span>
+<span class="nt">in_subset</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type_registry</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">structured_aliases</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Rechte</span><span class="p">:</span>
@@ -369,6 +371,8 @@
 <span class="w">  </span><span class="s">as</span><span class="nv"> </span><span class="s">appropriate,</span><span class="nv"> </span><span class="s">e.g.</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">country</span><span class="nv"> </span><span class="s">where</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">copyright</span><span class="nv"> </span><span class="s">was</span><span class="nv"> </span><span class="s">registered.</span><span class="nv"> </span><span class="s">Involved</span><span class="nv"> </span><span class="s">parties</span>
 <span class="w">  </span><span class="s">in</span><span class="nv"> </span><span class="s">various</span><span class="nv"> </span><span class="s">roles</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">linked</span><span class="nv"> </span><span class="s">via</span><span class="nv"> </span><span class="s">has_activity.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">also:</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Moving</span><span class="nv"> </span><span class="s">Image</span><span class="nv"> </span><span class="s">Cataloguing</span>
 <span class="w">  </span><span class="s">Manual</span><span class="nv"> </span><span class="s">D.4.4'</span>
+<span class="nt">in_subset</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type_registry</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">structured_aliases</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Rechte</span><span class="p">:</span>
@@ -432,8 +436,7 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RightsCopyrightRegistrationEvent</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Event</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ISODate</span>
 <span class="w">  </span><span class="nt">located_in</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">located_in</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Location associated with an event, e.g. the country where the principal</span>
@@ -461,7 +464,7 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RightsCopyrightRegistrationEvent</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CategorizedThing</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AVefiCurie</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>

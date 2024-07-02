@@ -253,6 +253,11 @@
       AuthorityResource &lt;|-- AVefiResource
         click AuthorityResource href "../AuthorityResource"
 
+
+      AVefiResource &lt;|-- LocalResource
+        click LocalResource href "../LocalResource"
+
+
       AVefiResource : category
 
       AVefiResource : id
@@ -262,7 +267,10 @@
 <ul>
 <li><a href="../CategorizedThing/">CategorizedThing</a><ul>
 <li><a href="../AuthorityResource/">AuthorityResource</a><ul>
-<li><strong>AVefiResource</strong></li>
+<li><strong>AVefiResource</strong><ul>
+<li><a href="../LocalResource/">LocalResource</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -281,13 +289,13 @@
 <tbody>
 <tr>
 <td><a href="../id/">id</a></td>
-<td>1 <br/> <a href="../String/">String</a></td>
+<td>1 <br/> <a href="../AVefi/">AVefi</a></td>
 <td>A unique identifier for a thing</td>
 <td><a href="../AuthorityResource/">AuthorityResource</a></td>
 </tr>
 <tr>
 <td><a href="../category/">category</a></td>
-<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>1 <br/> <a href="../AVefiCurie/">AVefiCurie</a></td>
 <td>Designates type, e.g. to distinguish different identifiers (GNDResource vs.</td>
 <td><a href="../CategorizedThing/">CategorizedThing</a></td>
 </tr>
@@ -410,6 +418,8 @@
 <span class="nt">todos</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Possibly change formatter URIs/URLs to the av-efi.net domain when the details have</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">been sorted out</span>
+<span class="nt">in_subset</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type_registry</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">structured_aliases</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">AVefi</span><span class="p">:</span>
@@ -423,7 +433,7 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PIDRecord</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuthorityResource</span>
-<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^21(\.([0-9A-Za-z])+)*/[!-~]+$</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AVefi</span>
 </code></pre></div>
 </details>
 <h3 id="induced">Induced</h3>
@@ -437,6 +447,8 @@
 <span class="nt">todos</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Possibly change formatter URIs/URLs to the av-efi.net domain when the details have</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">been sorted out</span>
+<span class="nt">in_subset</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type_registry</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">structured_aliases</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">AVefi</span><span class="p">:</span>
@@ -450,7 +462,7 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PIDRecord</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuthorityResource</span>
-<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^21(\.([0-9A-Za-z])+)*/[!-~]+$</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AVefi</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
@@ -462,9 +474,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PIDRecord</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuthorityResource</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AVefi</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^21(\.([0-9A-Za-z])+)*/[!-~]+$</span>
 <span class="w">  </span><span class="nt">category</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Designates type, e.g. to distinguish different identifiers (GNDResource</span>
@@ -477,7 +488,7 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AVefiResource</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CategorizedThing</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AVefiCurie</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>

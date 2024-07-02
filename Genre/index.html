@@ -257,13 +257,13 @@
 <tbody>
 <tr>
 <td><a href="../has_alternate_name/">has_alternate_name</a></td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../TextLine/">TextLine</a></td>
 <td>Alternative human-readable name(s) for a thing.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../has_name/">has_name</a></td>
-<td>1 <br/> <a href="../String/">String</a></td>
+<td>1 <br/> <a href="../TextLine/">TextLine</a></td>
 <td>Human-readable name for a thing.</td>
 <td>direct</td>
 </tr>
@@ -327,6 +327,8 @@
 <span class="w">  </span><span class="s">themes,</span><span class="nv"> </span><span class="s">settings,</span><span class="nv"> </span><span class="s">situations,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">characters.</span><span class="nv"> </span><span class="s">Examples</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">genres</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">“westerns”</span>
 <span class="w">  </span><span class="s">and</span><span class="nv"> </span><span class="s">“thrillers”.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">also:</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Moving</span><span class="nv"> </span><span class="s">Image</span><span class="nv"> </span><span class="s">Cataloguing</span><span class="nv"> </span><span class="s">Manual</span><span class="nv"> </span><span class="s">1.4.3</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Glossary</span>
 <span class="w">  </span><span class="s">of</span><span class="nv"> </span><span class="s">Filmographic</span><span class="nv"> </span><span class="s">Terms</span><span class="nv"> </span><span class="s">D.2.1'</span>
+<span class="nt">in_subset</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type_registry</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">structured_aliases</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Genre</span><span class="p">:</span>
@@ -357,6 +359,8 @@
 <span class="w">  </span><span class="s">themes,</span><span class="nv"> </span><span class="s">settings,</span><span class="nv"> </span><span class="s">situations,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">characters.</span><span class="nv"> </span><span class="s">Examples</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">genres</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">“westerns”</span>
 <span class="w">  </span><span class="s">and</span><span class="nv"> </span><span class="s">“thrillers”.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">also:</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Moving</span><span class="nv"> </span><span class="s">Image</span><span class="nv"> </span><span class="s">Cataloguing</span><span class="nv"> </span><span class="s">Manual</span><span class="nv"> </span><span class="s">1.4.3</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Glossary</span>
 <span class="w">  </span><span class="s">of</span><span class="nv"> </span><span class="s">Filmographic</span><span class="nv"> </span><span class="s">Terms</span><span class="nv"> </span><span class="s">D.2.1'</span>
+<span class="nt">in_subset</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type_registry</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">structured_aliases</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Genre</span><span class="p">:</span>
@@ -391,7 +395,7 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Genre</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Subject</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TextLine</span>
 <span class="w">  </span><span class="nt">has_name</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_name</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Human-readable name for a thing. This is to be treated as the preferred</span>
@@ -408,7 +412,7 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Subject</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Title</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TextLine</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">same_as</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">same_as</span>

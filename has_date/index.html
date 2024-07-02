@@ -403,8 +403,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../PreservationEvent/">PreservationEvent</a></td>
-<td>Preservation event originating a manifestation or possibly a vaniant.</td>
+<td><a href="../PublicationEvent/">PublicationEvent</a></td>
+<td>Publication event of a manifestation or possibly the first known publication of a work.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -413,8 +413,8 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../PublicationEvent/">PublicationEvent</a></td>
-<td>Publication event of a manifestation or possibly the first known publication of a work.</td>
+<td><a href="../RightsCopyrightRegistrationEvent/">RightsCopyrightRegistrationEvent</a></td>
+<td>Copyright and related rights registration event of a manifestation or possibly of a work/variant.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -423,25 +423,20 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../RightsCopyrightRegistrationEvent/">RightsCopyrightRegistrationEvent</a></td>
-<td>Copyright and related rights registration event of a manifestation or possibly of a work/variant.</td>
+<td><a href="../Event/">Event</a></td>
+<td>Significant event in the lifecycle of moving image work / variant, manifestation or item.</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Event/">Event</a></td>
-<td>Significant event in the lifecycle of moving image work / variant, manifestation or item.</td>
+<td><a href="../PreservationEvent/">PreservationEvent</a></td>
+<td>Preservation event originating a manifestation or possibly a vaniant.</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../String/">String</a></p>
-</li>
-<li>
-<p>Regex pattern: <code>^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$</code></p>
-</li>
+<li>Range: <a href="../ISODate/">ISODate</a></li>
 </ul>
 <h2 id="examples">Examples</h2>
 <table>
@@ -509,8 +504,7 @@
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_date</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Event</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ISODate</span>
 </code></pre></div>
 </details>
 

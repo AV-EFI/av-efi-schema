@@ -252,25 +252,25 @@
 <tbody>
 <tr>
 <td><a href="../has_history/">has_history</a></td>
-<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
+<td>0..1 <br/> <a href="../HttpUri/">HttpUri</a></td>
 <td>Link to revision history of this PID</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../has_issuer_id/">has_issuer_id</a></td>
-<td>1 <br/> <a href="../Uri/">Uri</a></td>
+<td>1 <br/> <a href="../HttpUri/">HttpUri</a></td>
 <td>Identifier for the responsible party as an URI suitable for linked data</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../has_issuer_name/">has_issuer_name</a></td>
-<td>1 <br/> <a href="../String/">String</a></td>
+<td>1 <br/> <a href="../TextLine/">TextLine</a></td>
 <td>Name of the responsible party</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../last_modified/">last_modified</a></td>
-<td>1 <br/> <a href="../Datetime/">Datetime</a></td>
+<td>1 <br/> <a href="../ISODateTimeUTC/">ISODateTimeUTC</a></td>
 <td>Timestamp (in UTC) for the latest modification to any field in the PID metadata record</td>
 <td>direct</td>
 </tr>
@@ -350,6 +350,8 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DescriptionResource</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Metadata about the PID rather than the identified object, i.e. who modified</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">the PID metadata record when, making what changes</span>
+<span class="nt">in_subset</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type_registry</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
@@ -364,6 +366,8 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DescriptionResource</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Metadata about the PID rather than the identified object, i.e. who modified</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">the PID metadata record when, making what changes</span>
+<span class="nt">in_subset</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type_registry</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">attributes</span><span class="p">:</span>
@@ -376,8 +380,7 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DescriptionResource</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DescriptionResource</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span>
-<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HttpUri</span>
 <span class="w">  </span><span class="nt">has_issuer_id</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_issuer_id</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Identifier for the responsible party as an URI suitable for linked</span>
@@ -395,9 +398,8 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DescriptionResource</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DescriptionResource</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HttpUri</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$</span>
 <span class="w">  </span><span class="nt">has_issuer_name</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_issuer_name</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Name of the responsible party</span>
@@ -411,7 +413,7 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DescriptionResource</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DescriptionResource</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TextLine</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">last_modified</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">last_modified</span>
@@ -424,9 +426,8 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DescriptionResource</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DescriptionResource</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">datetime</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ISODateTimeUTC</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|\+00:00)$</span>
 </code></pre></div>
 </details>
 </article>

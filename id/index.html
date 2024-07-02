@@ -385,33 +385,23 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Item/">Item</a></td>
-<td>FIAF Moving Image Cataloguing Manual 3.0</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../AVefiResource/">AVefiResource</a></td>
-<td>Handle with the prefix allocated for AVefi (eventually)</td>
+<td><a href="../GNDResource/">GNDResource</a></td>
+<td>Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)</td>
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../DOIResource/">DOIResource</a></td>
-<td>Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.</td>
+<td><a href="../FilmportalResource/">FilmportalResource</a></td>
+<td>Identifier of the German Filmportal.de</td>
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../ManifestationOrItem/">ManifestationOrItem</a></td>
-<td></td>
-<td>no</td>
+<td><a href="../LocalResource/">LocalResource</a></td>
+<td>Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet.</td>
+<td>yes</td>
 </tr>
 <tr>
-<td><a href="../Manifestation/">Manifestation</a></td>
-<td>Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as publication event type</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ISILResource/">ISILResource</a></td>
-<td>International Standard Identifier for Libraries and Related Organizations including (film) archives</td>
+<td><a href="../AuthorityResource/">AuthorityResource</a></td>
+<td>Root class for all identifiers from some kind of authority or public register widely accepted in the community</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -420,18 +410,18 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../VIAFResource/">VIAFResource</a></td>
-<td>Virtual International Authority File identifier hosted by OCLC.</td>
+<td><a href="../DOIResource/">DOIResource</a></td>
+<td>Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.</td>
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../GNDResource/">GNDResource</a></td>
-<td>Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)</td>
-<td>yes</td>
+<td><a href="../Item/">Item</a></td>
+<td>FIAF Moving Image Cataloguing Manual 3.0</td>
+<td>no</td>
 </tr>
 <tr>
-<td><a href="../PIDRecord/">PIDRecord</a></td>
-<td>Grouping for all entities that represent a PID metadata record</td>
+<td><a href="../ManifestationOrItem/">ManifestationOrItem</a></td>
+<td></td>
 <td>no</td>
 </tr>
 <tr>
@@ -440,13 +430,8 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../FilmportalResource/">FilmportalResource</a></td>
-<td>Identifier of the German Filmportal.de</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../WikidataResource/">WikidataResource</a></td>
-<td>Identifier for Wikidata entities</td>
+<td><a href="../ISILResource/">ISILResource</a></td>
+<td>International Standard Identifier for Libraries and Related Organizations including (film) archives</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -455,15 +440,35 @@
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../AuthorityResource/">AuthorityResource</a></td>
-<td>Root class for all identifiers from some kind of authority or public register widely accepted in the community</td>
+<td><a href="../PIDRecord/">PIDRecord</a></td>
+<td>Grouping for all entities that represent a PID metadata record</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../VIAFResource/">VIAFResource</a></td>
+<td>Virtual International Authority File identifier hosted by OCLC.</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../WikidataResource/">WikidataResource</a></td>
+<td>Identifier for Wikidata entities</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../Manifestation/">Manifestation</a></td>
+<td>Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as publication event type</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../AVefiResource/">AVefiResource</a></td>
+<td>Handle with the prefix allocated for AVefi (eventually)</td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../String/">String</a></li>
+<li>Range: <a href="../IDString/">IDString</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -480,7 +485,7 @@
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PIDRecord</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuthorityResource</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IDString</span>
 </code></pre></div>
 </details>
 
