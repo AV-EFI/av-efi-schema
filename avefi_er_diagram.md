@@ -3,50 +3,50 @@ erDiagram
 Item {
     ItemElementTypeEnum element_type  
     ItemAccessStatusEnum has_access_status  
-    stringList has_note  
-    uri has_webresource  
-    string id  
-    uriorcurie category  
+    TextAreaList has_note  
+    HttpUri has_webresource  
+    IDString id  
+    AVefiCurie category  
 }
 Title {
-    string has_name  
-    string has_ordering_name  
+    TextLine has_name  
+    TextLine has_ordering_name  
     TitleTypeEnum type  
 }
 Language {
-    string code  
+    LanguageCodesEnum code  
     LanguageUsageEnumList usage  
 }
 Event {
-    string has_date  
-    uriorcurie category  
+    ISODate has_date  
+    AVefiCurie category  
 }
 GeographicName {
-    stringList has_alternate_name  
-    string has_name  
+    TextLineList has_alternate_name  
+    TextLine has_name  
 }
 AuthorityResource {
-    string id  
-    uriorcurie category  
+    IDString id  
+    AVefiCurie category  
 }
 Activity {
-    string type  
-    uriorcurie category  
+    IDString type  
+    AVefiCurie category  
 }
 Agent {
-    stringList has_alternate_name  
-    string has_name  
+    TextLineList has_alternate_name  
+    TextLine has_name  
     AgentTypeEnum type  
 }
 DescriptionResource {
-    uri has_history  
-    uri has_issuer_id  
-    string has_issuer_name  
-    datetime last_modified  
+    HttpUri has_history  
+    HttpUri has_issuer_id  
+    TextLine has_issuer_name  
+    ISODateTimeUTC last_modified  
 }
 Format {
-    string type  
-    uriorcurie category  
+    IDString type  
+    AVefiCurie category  
 }
 Extent {
     UnitEnum has_unit  
@@ -54,39 +54,39 @@ Extent {
     PrecisionEnum has_precision  
 }
 Duration {
-    string has_value  
+    ISODurationInHours has_value  
     PrecisionEnum has_precision  
 }
 AVefiResource {
-    string id  
-    uriorcurie category  
+    AVefi id  
+    AVefiCurie category  
 }
 Manifestation {
     ColourTypeEnum has_colour_type  
     SoundTypeEnum has_sound_type  
-    stringList has_note  
-    uri has_webresource  
-    string id  
-    uriorcurie category  
+    TextAreaList has_note  
+    HttpUri has_webresource  
+    IDString id  
+    AVefiCurie category  
 }
 WorkVariant {
     WorkFormEnumList has_form  
     WorkVariantTypeEnum type  
     VariantTypeEnum variant_type  
-    string id  
-    uriorcurie category  
+    IDString id  
+    AVefiCurie category  
 }
 Subject {
-    stringList has_alternate_name  
-    string has_name  
+    TextLineList has_alternate_name  
+    TextLine has_name  
 }
 Genre {
-    stringList has_alternate_name  
-    string has_name  
+    TextLineList has_alternate_name  
+    TextLine has_name  
 }
 GNDResource {
-    string id  
-    uriorcurie category  
+    GNDID id  
+    AVefiCurie category  
 }
 
 Item ||--}o AVefiResource : "is_copy_of"

@@ -687,6 +687,519 @@ export enum ItemElementTypeEnum {
     SoundNegative = "SoundNegative",
 };
 /**
+* [ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)
+*/
+export enum LanguageCodesEnum {
+    
+    aar = "aar",
+    abk = "abk",
+    ace = "ace",
+    ach = "ach",
+    ada = "ada",
+    ady = "ady",
+    afa = "afa",
+    afh = "afh",
+    afr = "afr",
+    ain = "ain",
+    aka = "aka",
+    akk = "akk",
+    alb = "alb",
+    ale = "ale",
+    alg = "alg",
+    alt = "alt",
+    amh = "amh",
+    ang = "ang",
+    anp = "anp",
+    apa = "apa",
+    ara = "ara",
+    arc = "arc",
+    arg = "arg",
+    arm = "arm",
+    arn = "arn",
+    arp = "arp",
+    art = "art",
+    arw = "arw",
+    asm = "asm",
+    ast = "ast",
+    ath = "ath",
+    aus = "aus",
+    ava = "ava",
+    ave = "ave",
+    awa = "awa",
+    aym = "aym",
+    aze = "aze",
+    bad = "bad",
+    bai = "bai",
+    bak = "bak",
+    bal = "bal",
+    bam = "bam",
+    ban = "ban",
+    baq = "baq",
+    bas = "bas",
+    bat = "bat",
+    bej = "bej",
+    bel = "bel",
+    bem = "bem",
+    ben = "ben",
+    ber = "ber",
+    bho = "bho",
+    bih = "bih",
+    bik = "bik",
+    bin = "bin",
+    bis = "bis",
+    bla = "bla",
+    bnt = "bnt",
+    bod = "bod",
+    bos = "bos",
+    bra = "bra",
+    bre = "bre",
+    btk = "btk",
+    bua = "bua",
+    bug = "bug",
+    bul = "bul",
+    bur = "bur",
+    byn = "byn",
+    cad = "cad",
+    cai = "cai",
+    car = "car",
+    cat = "cat",
+    cau = "cau",
+    ceb = "ceb",
+    cel = "cel",
+    ces = "ces",
+    cha = "cha",
+    chb = "chb",
+    che = "che",
+    chg = "chg",
+    chi = "chi",
+    chk = "chk",
+    chm = "chm",
+    chn = "chn",
+    cho = "cho",
+    chp = "chp",
+    chr = "chr",
+    chu = "chu",
+    chv = "chv",
+    chy = "chy",
+    cmc = "cmc",
+    cnr = "cnr",
+    cop = "cop",
+    cor = "cor",
+    cos = "cos",
+    cpe = "cpe",
+    cpf = "cpf",
+    cpp = "cpp",
+    cre = "cre",
+    crh = "crh",
+    crp = "crp",
+    csb = "csb",
+    cus = "cus",
+    cym = "cym",
+    cze = "cze",
+    dak = "dak",
+    dan = "dan",
+    dar = "dar",
+    day = "day",
+    del = "del",
+    den = "den",
+    deu = "deu",
+    dgr = "dgr",
+    din = "din",
+    div = "div",
+    doi = "doi",
+    dra = "dra",
+    dsb = "dsb",
+    dua = "dua",
+    dum = "dum",
+    dut = "dut",
+    dyu = "dyu",
+    dzo = "dzo",
+    efi = "efi",
+    egy = "egy",
+    eka = "eka",
+    ell = "ell",
+    elx = "elx",
+    eng = "eng",
+    enm = "enm",
+    epo = "epo",
+    est = "est",
+    eus = "eus",
+    ewe = "ewe",
+    ewo = "ewo",
+    fan = "fan",
+    fao = "fao",
+    fas = "fas",
+    fat = "fat",
+    fij = "fij",
+    fil = "fil",
+    fin = "fin",
+    fiu = "fiu",
+    fon = "fon",
+    fra = "fra",
+    fre = "fre",
+    frm = "frm",
+    fro = "fro",
+    frr = "frr",
+    frs = "frs",
+    fry = "fry",
+    ful = "ful",
+    fur = "fur",
+    gaa = "gaa",
+    gay = "gay",
+    gba = "gba",
+    gem = "gem",
+    geo = "geo",
+    ger = "ger",
+    gez = "gez",
+    gil = "gil",
+    gla = "gla",
+    gle = "gle",
+    glg = "glg",
+    glv = "glv",
+    gmh = "gmh",
+    goh = "goh",
+    gon = "gon",
+    gor = "gor",
+    got = "got",
+    grb = "grb",
+    grc = "grc",
+    gre = "gre",
+    grn = "grn",
+    gsw = "gsw",
+    guj = "guj",
+    gwi = "gwi",
+    hai = "hai",
+    hat = "hat",
+    hau = "hau",
+    haw = "haw",
+    heb = "heb",
+    her = "her",
+    hil = "hil",
+    him = "him",
+    hin = "hin",
+    hit = "hit",
+    hmn = "hmn",
+    hmo = "hmo",
+    hrv = "hrv",
+    hsb = "hsb",
+    hun = "hun",
+    hup = "hup",
+    hye = "hye",
+    iba = "iba",
+    ibo = "ibo",
+    ice = "ice",
+    ido = "ido",
+    iii = "iii",
+    ijo = "ijo",
+    iku = "iku",
+    ile = "ile",
+    ilo = "ilo",
+    ina = "ina",
+    inc = "inc",
+    ind = "ind",
+    ine = "ine",
+    inh = "inh",
+    ipk = "ipk",
+    ira = "ira",
+    iro = "iro",
+    isl = "isl",
+    ita = "ita",
+    jav = "jav",
+    jbo = "jbo",
+    jpn = "jpn",
+    jpr = "jpr",
+    jrb = "jrb",
+    kaa = "kaa",
+    kab = "kab",
+    kac = "kac",
+    kal = "kal",
+    kam = "kam",
+    kan = "kan",
+    kar = "kar",
+    kas = "kas",
+    kat = "kat",
+    kau = "kau",
+    kaw = "kaw",
+    kaz = "kaz",
+    kbd = "kbd",
+    kha = "kha",
+    khi = "khi",
+    khm = "khm",
+    kho = "kho",
+    kik = "kik",
+    kin = "kin",
+    kir = "kir",
+    kmb = "kmb",
+    kok = "kok",
+    kom = "kom",
+    kon = "kon",
+    kor = "kor",
+    kos = "kos",
+    kpe = "kpe",
+    krc = "krc",
+    krl = "krl",
+    kro = "kro",
+    kru = "kru",
+    kua = "kua",
+    kum = "kum",
+    kur = "kur",
+    kut = "kut",
+    lad = "lad",
+    lah = "lah",
+    lam = "lam",
+    lao = "lao",
+    lat = "lat",
+    lav = "lav",
+    lez = "lez",
+    lim = "lim",
+    lin = "lin",
+    lit = "lit",
+    lol = "lol",
+    loz = "loz",
+    ltz = "ltz",
+    lua = "lua",
+    lub = "lub",
+    lug = "lug",
+    lui = "lui",
+    lun = "lun",
+    luo = "luo",
+    lus = "lus",
+    mac = "mac",
+    mad = "mad",
+    mag = "mag",
+    mah = "mah",
+    mai = "mai",
+    mak = "mak",
+    mal = "mal",
+    man = "man",
+    mao = "mao",
+    map = "map",
+    mar = "mar",
+    mas = "mas",
+    may = "may",
+    mdf = "mdf",
+    mdr = "mdr",
+    men = "men",
+    mga = "mga",
+    mic = "mic",
+    min = "min",
+    mis = "mis",
+    mkd = "mkd",
+    mkh = "mkh",
+    mlg = "mlg",
+    mlt = "mlt",
+    mnc = "mnc",
+    mni = "mni",
+    mno = "mno",
+    moh = "moh",
+    mon = "mon",
+    mos = "mos",
+    mri = "mri",
+    msa = "msa",
+    mul = "mul",
+    mun = "mun",
+    mus = "mus",
+    mwl = "mwl",
+    mwr = "mwr",
+    mya = "mya",
+    myn = "myn",
+    myv = "myv",
+    nah = "nah",
+    nai = "nai",
+    nap = "nap",
+    nau = "nau",
+    nav = "nav",
+    nbl = "nbl",
+    nde = "nde",
+    ndo = "ndo",
+    nds = "nds",
+    nep = "nep",
+    new = "new",
+    nia = "nia",
+    nic = "nic",
+    niu = "niu",
+    nld = "nld",
+    nno = "nno",
+    nob = "nob",
+    nog = "nog",
+    non = "non",
+    nor = "nor",
+    nqo = "nqo",
+    nso = "nso",
+    nub = "nub",
+    nwc = "nwc",
+    nya = "nya",
+    nym = "nym",
+    nyn = "nyn",
+    nyo = "nyo",
+    nzi = "nzi",
+    oci = "oci",
+    oji = "oji",
+    ori = "ori",
+    orm = "orm",
+    osa = "osa",
+    oss = "oss",
+    ota = "ota",
+    oto = "oto",
+    paa = "paa",
+    pag = "pag",
+    pal = "pal",
+    pam = "pam",
+    pan = "pan",
+    pap = "pap",
+    pau = "pau",
+    peo = "peo",
+    per = "per",
+    phi = "phi",
+    phn = "phn",
+    pli = "pli",
+    pol = "pol",
+    pon = "pon",
+    por = "por",
+    pra = "pra",
+    pro = "pro",
+    pus = "pus",
+    qaa_qtz = "qaa-qtz",
+    que = "que",
+    raj = "raj",
+    rap = "rap",
+    rar = "rar",
+    roa = "roa",
+    roh = "roh",
+    rom = "rom",
+    ron = "ron",
+    rum = "rum",
+    run = "run",
+    rup = "rup",
+    rus = "rus",
+    sad = "sad",
+    sag = "sag",
+    sah = "sah",
+    sai = "sai",
+    sal = "sal",
+    sam = "sam",
+    san = "san",
+    sas = "sas",
+    sat = "sat",
+    scn = "scn",
+    sco = "sco",
+    sel = "sel",
+    sem = "sem",
+    sga = "sga",
+    sgn = "sgn",
+    shn = "shn",
+    sid = "sid",
+    sin = "sin",
+    sio = "sio",
+    sit = "sit",
+    sla = "sla",
+    slk = "slk",
+    slo = "slo",
+    slv = "slv",
+    sma = "sma",
+    sme = "sme",
+    smi = "smi",
+    smj = "smj",
+    smn = "smn",
+    smo = "smo",
+    sms = "sms",
+    sna = "sna",
+    snd = "snd",
+    snk = "snk",
+    sog = "sog",
+    som = "som",
+    son = "son",
+    sot = "sot",
+    spa = "spa",
+    sqi = "sqi",
+    srd = "srd",
+    srn = "srn",
+    srp = "srp",
+    srr = "srr",
+    ssa = "ssa",
+    ssw = "ssw",
+    suk = "suk",
+    sun = "sun",
+    sus = "sus",
+    sux = "sux",
+    swa = "swa",
+    swe = "swe",
+    syc = "syc",
+    syr = "syr",
+    tah = "tah",
+    tai = "tai",
+    tam = "tam",
+    tat = "tat",
+    tel = "tel",
+    tem = "tem",
+    ter = "ter",
+    tet = "tet",
+    tgk = "tgk",
+    tgl = "tgl",
+    tha = "tha",
+    tib = "tib",
+    tig = "tig",
+    tir = "tir",
+    tiv = "tiv",
+    tkl = "tkl",
+    tlh = "tlh",
+    tli = "tli",
+    tmh = "tmh",
+    tog = "tog",
+    ton = "ton",
+    tpi = "tpi",
+    tsi = "tsi",
+    tsn = "tsn",
+    tso = "tso",
+    tuk = "tuk",
+    tum = "tum",
+    tup = "tup",
+    tur = "tur",
+    tut = "tut",
+    tvl = "tvl",
+    twi = "twi",
+    tyv = "tyv",
+    udm = "udm",
+    uga = "uga",
+    uig = "uig",
+    ukr = "ukr",
+    umb = "umb",
+    und = "und",
+    urd = "urd",
+    uzb = "uzb",
+    vai = "vai",
+    ven = "ven",
+    vie = "vie",
+    vol = "vol",
+    vot = "vot",
+    wak = "wak",
+    wal = "wal",
+    war = "war",
+    was = "was",
+    wel = "wel",
+    wen = "wen",
+    wln = "wln",
+    wol = "wol",
+    xal = "xal",
+    xho = "xho",
+    yao = "yao",
+    yap = "yap",
+    yid = "yid",
+    yor = "yor",
+    ypk = "ypk",
+    zap = "zap",
+    zbl = "zbl",
+    zen = "zen",
+    zgh = "zgh",
+    zha = "zha",
+    zho = "zho",
+    znd = "znd",
+    zul = "zul",
+    zun = "zun",
+    zxx = "zxx",
+    zza = "zza",
+};
+/**
 * FIAF Moving Image Cataloguing Manual 2.3.3, D.6
 */
 export enum LanguageUsageEnum {
@@ -925,7 +1438,7 @@ export function isPIDRecord(o: object): o is PIDRecord {
 
 export function toPIDRecord(o: PIDRecord): PIDRecord {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -959,7 +1472,7 @@ export function toMovingImageRecord(o: MovingImageRecord): MovingImageRecord {
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -991,7 +1504,7 @@ export function toDescriptionResource(o: DescriptionResource): DescriptionResour
     return {
         has_history: o.has_history ?? null,
         has_issuer_id: o.has_issuer_id ?? null,
-        has_issuer_name: o.has_issuer_name ?? '',
+        has_issuer_name: o.has_issuer_name ?? null,
         last_modified: o.last_modified ?? null
     }
 }
@@ -1042,7 +1555,7 @@ export function toWorkVariant(o: WorkVariant): WorkVariant {
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -1069,7 +1582,7 @@ export function isGeographicName(o: object): o is GeographicName {
 export function toGeographicName(o: GeographicName): GeographicName {
     return {
         has_alternate_name: o.has_alternate_name ?? [],
-        has_name: o.has_name ?? '',
+        has_name: o.has_name ?? null,
         same_as: o.same_as ?? []
     }
 }
@@ -1096,7 +1609,7 @@ export function isGenre(o: object): o is Genre {
 export function toGenre(o: Genre): Genre {
     return {
         has_alternate_name: o.has_alternate_name ?? [],
-        has_name: o.has_name ?? '',
+        has_name: o.has_name ?? null,
         same_as: o.same_as ?? []
     }
 }
@@ -1123,7 +1636,7 @@ export function isSubject(o: object): o is Subject {
 export function toSubject(o: Subject): Subject {
     return {
         has_alternate_name: o.has_alternate_name ?? [],
-        has_name: o.has_name ?? '',
+        has_name: o.has_name ?? null,
         same_as: o.same_as ?? []
     }
 }
@@ -1150,7 +1663,7 @@ export function isActivity(o: object): o is Activity {
 export function toActivity(o: Activity): Activity {
     return {
         has_agent: o.has_agent ?? [],
-        type: o.type ?? '',
+        type: o.type ?? null,
         category: o.category ?? null
     }
 }
@@ -1548,7 +2061,7 @@ export function isAgent(o: object): o is Agent {
 export function toAgent(o: Agent): Agent {
     return {
         has_alternate_name: o.has_alternate_name ?? [],
-        has_name: o.has_name ?? '',
+        has_name: o.has_name ?? null,
         same_as: o.same_as ?? [],
         type: o.type ?? null
     }
@@ -1576,7 +2089,7 @@ export function isEvent(o: object): o is Event {
 export function toEvent(o: Event): Event {
     return {
         has_activity: o.has_activity ?? [],
-        has_date: o.has_date ?? '',
+        has_date: o.has_date ?? null,
         located_in: o.located_in ?? [],
         category: o.category ?? null
     }
@@ -1601,7 +2114,7 @@ export function toProductionEvent(o: ProductionEvent): ProductionEvent {
     return {
         type: o.type ?? null,
         has_activity: o.has_activity ?? [],
-        has_date: o.has_date ?? '',
+        has_date: o.has_date ?? null,
         located_in: o.located_in ?? [],
         category: o.category ?? null
     }
@@ -1628,7 +2141,7 @@ export function toPreservationEvent(o: PreservationEvent): PreservationEvent {
     return {
         type: o.type ?? null,
         has_activity: o.has_activity ?? [],
-        has_date: o.has_date ?? '',
+        has_date: o.has_date ?? null,
         located_in: o.located_in ?? [],
         category: o.category ?? null
     }
@@ -1654,7 +2167,7 @@ export function toPublicationEvent(o: PublicationEvent): PublicationEvent {
     return {
         type: o.type ?? null,
         has_activity: o.has_activity ?? [],
-        has_date: o.has_date ?? '',
+        has_date: o.has_date ?? null,
         located_in: o.located_in ?? [],
         category: o.category ?? null
     }
@@ -1681,7 +2194,7 @@ export function toManufactureEvent(o: ManufactureEvent): ManufactureEvent {
     return {
         type: o.type ?? null,
         has_activity: o.has_activity ?? [],
-        has_date: o.has_date ?? '',
+        has_date: o.has_date ?? null,
         located_in: o.located_in ?? [],
         category: o.category ?? null
     }
@@ -1704,7 +2217,7 @@ export function isRightsCopyrightRegistrationEvent(o: object): o is RightsCopyri
 export function toRightsCopyrightRegistrationEvent(o: RightsCopyrightRegistrationEvent): RightsCopyrightRegistrationEvent {
     return {
         has_activity: o.has_activity ?? [],
-        has_date: o.has_date ?? '',
+        has_date: o.has_date ?? null,
         located_in: o.located_in ?? [],
         category: o.category ?? null
     }
@@ -1732,8 +2245,8 @@ export function isTitle(o: object): o is Title {
 
 export function toTitle(o: Title): Title {
     return {
-        has_name: o.has_name ?? '',
-        has_ordering_name: o.has_ordering_name ?? '',
+        has_name: o.has_name ?? null,
+        has_ordering_name: o.has_ordering_name ?? null,
         type: o.type ?? null
     }
 }
@@ -1772,7 +2285,7 @@ export function toManifestationOrItem(o: ManifestationOrItem): ManifestationOrIt
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -1797,7 +2310,7 @@ export function isDuration(o: object): o is Duration {
 
 export function toDuration(o: Duration): Duration {
     return {
-        has_value: o.has_value ?? '',
+        has_value: o.has_value ?? null,
         has_precision: o.has_precision ?? null
     }
 }
@@ -1848,7 +2361,7 @@ export function isFormat(o: object): o is Format {
 
 export function toFormat(o: Format): Format {
     return {
-        type: o.type ?? '',
+        type: o.type ?? null,
         category: o.category ?? null
     }
 }
@@ -2015,7 +2528,7 @@ export function toManifestation(o: Manifestation): Manifestation {
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -2040,7 +2553,7 @@ export function isLanguage(o: object): o is Language {
 
 export function toLanguage(o: Language): Language {
     return {
-        code: o.code ?? '',
+        code: o.code ?? null,
         usage: o.usage ?? null
     }
 }
@@ -2087,7 +2600,7 @@ export function toItem(o: Item): Item {
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -2131,7 +2644,7 @@ export function isAuthorityResource(o: object): o is AuthorityResource {
 
 export function toAuthorityResource(o: AuthorityResource): AuthorityResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -2152,7 +2665,7 @@ export function isAVefiResource(o: object): o is AVefiResource {
 
 export function toAVefiResource(o: AVefiResource): AVefiResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -2173,7 +2686,7 @@ export function isDOIResource(o: object): o is DOIResource {
 
 export function toDOIResource(o: DOIResource): DOIResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -2194,7 +2707,7 @@ export function isFilmportalResource(o: object): o is FilmportalResource {
 
 export function toFilmportalResource(o: FilmportalResource): FilmportalResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -2215,7 +2728,7 @@ export function isGNDResource(o: object): o is GNDResource {
 
 export function toGNDResource(o: GNDResource): GNDResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -2236,7 +2749,28 @@ export function isISILResource(o: object): o is ISILResource {
 
 export function toISILResource(o: ISILResource): ISILResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi these identifiers will be replaced by the generated PIDs. Identifiers must start with the prefix "_:" underlining the local scope
+ */
+export interface LocalResource extends AVefiResource {
+}
+
+
+export function isLocalResource(o: object): o is LocalResource {
+    return (
+        'id' in o &&
+        'category' in o
+    )
+}
+
+export function toLocalResource(o: LocalResource): LocalResource {
+    return {
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -2257,7 +2791,7 @@ export function isTGNResource(o: object): o is TGNResource {
 
 export function toTGNResource(o: TGNResource): TGNResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -2278,7 +2812,7 @@ export function isVIAFResource(o: object): o is VIAFResource {
 
 export function toVIAFResource(o: VIAFResource): VIAFResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -2299,7 +2833,7 @@ export function isWikidataResource(o: object): o is WikidataResource {
 
 export function toWikidataResource(o: WikidataResource): WikidataResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
