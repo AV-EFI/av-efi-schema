@@ -39,6 +39,12 @@ default_range: string
 default_curi_maps:
 - semweb_context
 
+subsets:
+  type_registry:
+    description: >-
+      Classes that are to be implemented as InfoTypes in the type
+      registry
+
 types:
   TextLine:
     typeof: string
@@ -217,6 +223,8 @@ classes:
     - has_issuer_id
     - has_issuer_name
     - last_modified
+    in_subset:
+    - type_registry
     description: >-
       Metadata about the PID rather than the identified object, i.e.
       who modified the PID metadata record when, making what changes
@@ -252,6 +260,8 @@ classes:
       in_language: en
     related_mappings:
     - fiaf:WorkVariant
+    in_subset:
+    - type_registry
     description: >-
       FIAF Moving Image Cataloguing Manual 1.0
 
@@ -271,6 +281,8 @@ classes:
     related_mappings:
     - fiaf:Country
     - fiaf:Location
+    in_subset:
+    - type_registry
     description: >-
       Name of country, region or other location. Names should be taken
       from appropriate authorities (e.g. GND) and recorded as a human
@@ -290,6 +302,8 @@ classes:
     structured_aliases:
     - literal_form: Genre
       in_language: default
+    in_subset:
+    - type_registry
     description: >-
       Genre describes categories of Works, characterized by similar
       plots, themes, settings, situations, and characters. Examples of
@@ -308,6 +322,8 @@ classes:
       in_language: de
     - literal_form: Subject
       in_language: en
+    in_subset:
+    - type_registry
     description: >-
       Subject descriptor terms for the content of a film specifying
       its period, themes, locations, etc. Not to be confused with
@@ -326,6 +342,8 @@ classes:
     slot_usage:
       type:
         required: true
+    in_subset:
+    - type_registry
     description: >-
       FIAF Moving Image Cataloguing Manual 1.4.1.1
 
@@ -337,6 +355,8 @@ classes:
         range: AnimationActivityTypeEnum
     close_mappings:
     - fiaf:AnimationActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.13
@@ -349,6 +369,8 @@ classes:
         range: CastActivityTypeEnum
     close_mappings:
     - fiaf:CastActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.7
@@ -361,6 +383,8 @@ classes:
         range: CensorshipActivityTypeEnum
     close_mappings:
     - fiaf:CensorshipActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms C.1
@@ -373,6 +397,8 @@ classes:
         range: CinematographyActivityTypeEnum
     close_mappings:
     - fiaf:CinematographyActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.5
@@ -385,6 +411,8 @@ classes:
         range: CopyrightAndDistributionActivityTypeEnum
     close_mappings:
     - fiaf:CopyrightandDistributionActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms C.2
@@ -397,6 +425,8 @@ classes:
         range: DirectingActivityTypeEnum
     close_mappings:
     - fiaf:DirectingActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.3
@@ -409,6 +439,8 @@ classes:
         range: EditingActivityTypeEnum
     close_mappings:
     - fiaf:EditingActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.10
@@ -421,6 +453,8 @@ classes:
         range: LaboratoryActivityTypeEnum
     close_mappings:
     - fiaf:LaboratoryActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.12
@@ -433,6 +467,8 @@ classes:
         range: MusicActivityTypeEnum
     close_mappings:
     - fiaf:MusicActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.11
@@ -445,6 +481,8 @@ classes:
         range: ProducingActivityTypeEnum
     close_mappings:
     - fiaf:ProducingActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.2
@@ -457,6 +495,8 @@ classes:
         range: ProductionDesignActivityTypeEnum
     close_mappings:
     - fiaf:ProductionDesignActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.6
@@ -469,6 +509,8 @@ classes:
         range: PuppetActivityTypeEnum
     close_mappings:
     - fiaf:PuppetActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.14
@@ -481,6 +523,8 @@ classes:
         range: SoundActivityTypeEnum
     close_mappings:
     - fiaf:SoundActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.9
@@ -493,6 +537,8 @@ classes:
         range: SpecialEffectsActivityTypeEnum
     close_mappings:
     - fiaf:SpecialEffectsActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.8
@@ -505,6 +551,8 @@ classes:
         range: WritingActivityTypeEnum
     close_mappings:
     - fiaf:WritingActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.4
@@ -517,6 +565,8 @@ classes:
         range: ManifestationActivityTypeEnum
     close_mappings:
     - fiaf:ManifestationActivity
+    in_subset:
+    - type_registry
     description: >-
       Activity types / roles. See also: FIAF Moving Image Cataloguing
       Manual 2.4.1.1, D.8
@@ -546,6 +596,8 @@ classes:
     related_mappings:
     - fiaf:Agent
     - foaf:Agent
+    in_subset:
+    - type_registry
     description: >-
       Agent involved in some activity related to the moving image
       resource. For agents of type "Person" specify name according to
@@ -600,6 +652,8 @@ classes:
       in_language: en
     close_mappings:
     - fiaf:ProductionEvent
+    in_subset:
+    - type_registry
     description: >-
       Production event of a work/variant (or manifestation produced as
       a restoration). Provide a date or a period of time via has_date
@@ -623,6 +677,8 @@ classes:
         required: true
     close_mappings:
     - fiaf:PreservationEvent
+    in_subset:
+    - type_registry
     description: >-
       Preservation event originating a manifestation or possibly a
       vaniant. Always specify the type of event and if possible a date
@@ -644,6 +700,8 @@ classes:
         required: true
     close_mappings:
     - fiaf:PublicationEvent
+    in_subset:
+    - type_registry
     description: >-
       Publication event of a manifestation or possibly the first known
       publication of a work. Always specify the type of event and if
@@ -667,6 +725,8 @@ classes:
         required: true
     close_mappings:
     - fiaf:ManufactureEvent
+    in_subset:
+    - type_registry
     description: >-
       Manufacture event of a manifestation. Always specify the type of
       event and if possible a date or a period of time via has_date.
@@ -689,6 +749,8 @@ classes:
       in_language: en
     close_mappings:
     - fiaf:RightsCopyrightRegistrationEvent
+    in_subset:
+    - type_registry
     description: >-
       Copyright and related rights registration event of a
       manifestation or possibly of a work/variant. Always specify date
@@ -713,6 +775,8 @@ classes:
         required: true
         description: >-
           FIAF Moving Image Cataloguing Manual A.2
+    in_subset:
+    - type_registry
     description: >-
       FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
 
@@ -739,6 +803,8 @@ classes:
       in_language: de
     - literal_form: Running Time
       in_language: en
+    in_subset:
+    - type_registry
     description: >-
       Total running time of the described object in ISO 8601 duration
       format. The examples section lists possible values for the
@@ -765,6 +831,8 @@ classes:
       in_language: de
     - literal_form: Extent
       in_language: en
+    in_subset:
+    - type_registry
     description: >-
       Physical length or size of the described object. See also: FIAF
       Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
@@ -789,6 +857,8 @@ classes:
       in_language: default
     close_mappings:
     - fiaf:Audio
+    in_subset:
+    - type_registry
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
 
@@ -805,6 +875,8 @@ classes:
       in_language: en
     close_mappings:
     - fiaf:DigitalFile
+    in_subset:
+    - type_registry
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
 
@@ -821,6 +893,8 @@ classes:
       in_language: en
     close_mappings:
     - fiaf:DigitalFileEncoding
+    in_subset:
+    - type_registry
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
 
@@ -835,6 +909,8 @@ classes:
       in_language: default
     close_mappings:
     - fiaf:Film
+    in_subset:
+    - type_registry
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
 
@@ -849,6 +925,8 @@ classes:
       in_language: de
     - literal_form: Optical
       in_language: en
+    in_subset:
+    - type_registry
     description: FIAF Moving Image Cataloguing Manual D.7.2
     close_mappings:
     - fiaf:Optical
@@ -864,6 +942,8 @@ classes:
       in_language: default
     close_mappings:
     - fiaf:Video
+    in_subset:
+    - type_registry
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
 
@@ -889,6 +969,8 @@ classes:
       in_language: default
     close_mappings:
     - fiaf:Manifestation
+    in_subset:
+    - type_registry
     description: >-
       Manifestation as defined in FIAF Moving Image Cataloguing Manual
       2.0. Note that manifestation type is recorded as publication
@@ -919,6 +1001,8 @@ classes:
       in_language: de
     - literal_form: Language
       in_language: en
+    in_subset:
+    - type_registry
     description: >-
       Provide language code from ISO 639-2 (Part 2: Alpha-3) and a
       list of language usage terms from our controlled vocabulary. See
@@ -947,11 +1031,15 @@ classes:
       in_language: en
     broad_mappings:
     - fiaf:Item
+    in_subset:
+    - type_registry
     description: >-
       FIAF Moving Image Cataloguing Manual 3.0
 
   MovingImageRecordContainer:
     rank: 100
+    in_subset:
+    - type_registry
     description: >-
       A holder for MovingImageRecord objects
     slots:
@@ -983,6 +1071,8 @@ classes:
     structured_aliases:
     - literal_form: AVefi
       in_language: default
+    in_subset:
+    - type_registry
     annotations:
     - formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
     todos:
@@ -1001,6 +1091,8 @@ classes:
     structured_aliases:
     - literal_form: DOI
       in_language: default
+    in_subset:
+    - type_registry
     annotations:
     - formatter_uri_for_rdf_resource: http://dx.doi.org/$1
     - formatter_url_for_web_resource: https://dx.doi.org/$1
@@ -1028,6 +1120,8 @@ classes:
     structured_aliases:
     - literal_form: Filmportal
       in_language: default
+    in_subset:
+    - type_registry
     annotations:
     - formatter_uri_for_rdf_resource: https://www.filmportal.de/$1
     - formatter_uri_for_web_resource: https://www.filmportal.de/$1
@@ -1055,6 +1149,8 @@ classes:
     structured_aliases:
     - literal_form: GND
       in_language: default
+    in_subset:
+    - type_registry
     annotations:
     - formatter_uri_for_rdf_resource: https://d-nb.info/gnd/$1
     - formatter_url_for_web_resource: https://d-nb.info/gnd/$1
@@ -1100,6 +1196,8 @@ classes:
     structured_aliases:
     - literal_form: ISIL
       in_language: default
+    in_subset:
+    - type_registry
     annotations:
     - formatter_url_for_web_resource: https://w3id.org/isil/$1
     - tag: provides
@@ -1117,6 +1215,26 @@ classes:
     - https://biblstandard.dk/isil/index.htm
     - https://www.wikidata.org/wiki/Property:P791
 
+  LocalResource:
+    rank: 51
+    is_a: AVefiResource
+    slot_usage:
+      id:
+        pattern: ^_:((?![\"&\'])\S)+$
+    notes:
+    - Not to be implemented in DTR
+    description: >-
+      Some identifier used by data provider to represent relations
+      between work/variant, manifestation and item when PIDs have not
+      been assigned yet. On ingest into AVefi these identifiers will
+      be replaced by the generated PIDs. Identifiers must start with
+      the prefix "_:" underlining the local scope
+    examples:
+      - value: _:some_fairly/arbitrary-string%for+1.work
+        description: Local / temporary identifier for work record
+      - value: _:id_for_manifestation
+        description: Local / temporary identifier for manifestation record
+
   TGNResource:
     rank: 51
     is_a: AuthorityResource
@@ -1126,6 +1244,8 @@ classes:
     structured_aliases:
     - literal_form: TGN
       in_language: default
+    in_subset:
+    - type_registry
     annotations:
     - formatter_uri_for_rdf_resource: http://vocab.getty.edu/tgn/$1
     - formatter_url_for_web_resource: https://vocab.getty.edu/page/tgn/$1
@@ -1153,6 +1273,8 @@ classes:
     structured_aliases:
     - literal_form: VIAF
       in_language: default
+    in_subset:
+    - type_registry
     annotations:
     - formatter_uri_for_rdf_resource: http://viaf.org/viaf/$1
     - formatter_url_for_web_resource: https://viaf.org/viaf/$1
@@ -1188,6 +1310,8 @@ classes:
     structured_aliases:
     - literal_form: Wikidata
       in_language: default
+    in_subset:
+    - type_registry
     annotations:
     - formatter_uri_for_rdf_resource: https://www.wikidata.org/entity/$1
     - formatter_url_for_web_resource: https://www.wikidata.org/entity/$1
