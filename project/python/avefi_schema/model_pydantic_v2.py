@@ -734,7 +734,7 @@ class ItemElementTypeEnum(str, Enum):
     SoundNegative = "SoundNegative"
 
 
-class LanguageCodesEnum(str, Enum):
+class LanguageCodeEnum(str, Enum):
     """
     [ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)
     """
@@ -1880,7 +1880,7 @@ class Language(ConfiguredBaseModel):
     """
     Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled vocabulary. See also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3
     """
-    code: LanguageCodesEnum = Field(..., description="""[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)""")
+    code: LanguageCodeEnum = Field(..., description="""[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)""")
     usage: List[LanguageUsageEnum] = Field(default_factory=list, description="""FIAF Moving Image Cataloguing Manual 2.3.3.2""")
 
 

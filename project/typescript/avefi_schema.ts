@@ -689,7 +689,7 @@ export enum ItemElementTypeEnum {
 /**
 * [ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)
 */
-export enum LanguageCodesEnum {
+export enum LanguageCodeEnum {
     
     aar = "aar",
     abk = "abk",

@@ -14,7 +14,7 @@ Title {
     TitleTypeEnum type  
 }
 Language {
-    LanguageCodesEnum code  
+    LanguageCodeEnum code  
     LanguageUsageEnumList usage  
 }
 Event {

@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-07-02T09:56:13
+# Generation date: 2024-07-05T14:49:35
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -1554,14 +1554,14 @@ class Language(YAMLRoot):
     class_name: ClassVar[str] = "Language"
     class_model_uri: ClassVar[URIRef] = AVEFI.Language
 
-    code: Union[str, "LanguageCodesEnum"] = None
+    code: Union[str, "LanguageCodeEnum"] = None
     usage: Union[Union[str, "LanguageUsageEnum"], List[Union[str, "LanguageUsageEnum"]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.code):
             self.MissingRequiredField("code")
-        if not isinstance(self.code, LanguageCodesEnum):
-            self.code = LanguageCodesEnum(self.code)
+        if not isinstance(self.code, LanguageCodeEnum):
+            self.code = LanguageCodeEnum(self.code)
 
         if self._is_empty(self.usage):
             self.MissingRequiredField("usage")
@@ -3238,7 +3238,7 @@ class ItemElementTypeEnum(EnumDefinitionImpl):
         description="FIAF Moving Image Cataloguing Manual D.7.8",
     )
 
-class LanguageCodesEnum(EnumDefinitionImpl):
+class LanguageCodeEnum(EnumDefinitionImpl):
     """
     [ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part
     2: Alpha-3)
@@ -4760,7 +4760,7 @@ class LanguageCodesEnum(EnumDefinitionImpl):
         meaning=None)
 
     _defn = EnumDefinition(
-        name="LanguageCodesEnum",
+        name="LanguageCodeEnum",
         description="""[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)""",
     )
 
@@ -5278,7 +5278,7 @@ slots.movingImageRecord__has_primary_title = Slot(uri=AVEFI.has_primary_title, n
                    model_uri=AVEFI.movingImageRecord__has_primary_title, domain=None, range=Union[dict, Title])
 
 slots.language__code = Slot(uri=AVEFI.code, name="language__code", curie=AVEFI.curie('code'),
-                   model_uri=AVEFI.language__code, domain=None, range=Union[str, "LanguageCodesEnum"])
+                   model_uri=AVEFI.language__code, domain=None, range=Union[str, "LanguageCodeEnum"])
 
 slots.language__usage = Slot(uri=AVEFI.usage, name="language__usage", curie=AVEFI.curie('usage'),
                    model_uri=AVEFI.language__usage, domain=None, range=Union[Union[str, "LanguageUsageEnum"], List[Union[str, "LanguageUsageEnum"]]])
