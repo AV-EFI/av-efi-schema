@@ -1392,6 +1392,7 @@ slots:
   has_record:
     rank: 1
     range: MovingImageRecord
+    required: true
     description: >-
       Root slot holding the moving image metadata record, i.e.
       metadata describing a work/variant, manifestation or item. See
@@ -1561,12 +1562,14 @@ slots:
   has_unit:
     rank: 26
     range: UnitEnum
+    required: true
     description: >-
       Unit of some quantity
 
   has_value:
     rank: 25
     range: decimal
+    required: true
     description: >-
       Value of some quantity
 
