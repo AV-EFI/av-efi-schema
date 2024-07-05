@@ -1,5 +1,5 @@
 {
-  "$id": "LanguageCodesEnum",
+  "$id": "LanguageCodeEnum",
   "description": "[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)",
   "enum": [
     "aar",
@@ -510,6 +510,6 @@
     "zxx",
     "zza"
   ],
-  "title": "LanguageCodesEnum",
+  "title": "LanguageCodeEnum",
   "type": "string"
 }
