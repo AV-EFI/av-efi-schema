@@ -96,6 +96,9 @@
                             "type": "string"
                         }
                     },
+                    "required": [
+                        "has_value"
+                    ],
                     "title": "Duration",
                     "type": "object"
                 },
@@ -5621,6 +5624,10 @@
                             "type": "number"
                         }
                     },
+                    "required": [
+                        "has_unit",
+                        "has_value"
+                    ],
                     "title": "Extent",
                     "type": "object"
                 },
@@ -5992,6 +5999,9 @@
             "type": "object"
         }
     },
+    "required": [
+        "has_record"
+    ],
     "title": "AVefi data model for Manifestation",
     "type": "object",
     "version": null

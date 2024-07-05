@@ -1737,7 +1737,7 @@ export interface ManifestationOrItem extends MovingImageRecord {
  */
 export interface Duration {
     /** Value of some quantity */
-    has_value?: string,
+    has_value: string,
     /** Qualifier indicating the precision of an extent value or duration */
     has_precision?: string,
 }
@@ -1748,9 +1748,9 @@ export interface Duration {
  */
 export interface Extent {
     /** Unit of some quantity */
-    has_unit?: string,
+    has_unit: string,
     /** Value of some quantity */
-    has_value?: string,
+    has_value: string,
     /** Qualifier indicating the precision of an extent value or duration */
     has_precision?: string,
 }
@@ -1857,7 +1857,7 @@ export interface Item extends ManifestationOrItem {
  */
 export interface MovingImageRecordContainer {
     /** Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual */
-    has_record?: MovingImageRecord,
+    has_record: MovingImageRecord,
 }
 
 

@@ -2295,7 +2295,7 @@ export function toManifestationOrItem(o: ManifestationOrItem): ManifestationOrIt
  */
 export interface Duration {
     /** Value of some quantity */
-    has_value?: string,
+    has_value: string,
     /** Qualifier indicating the precision of an extent value or duration */
     has_precision?: string,
 }
@@ -2303,8 +2303,7 @@ export interface Duration {
 
 export function isDuration(o: object): o is Duration {
     return (
-        'has_value' in o ||
-        'has_precision' in o
+        'has_value' in o
     )
 }
 
@@ -2320,9 +2319,9 @@ export function toDuration(o: Duration): Duration {
  */
 export interface Extent {
     /** Unit of some quantity */
-    has_unit?: string,
+    has_unit: string,
     /** Value of some quantity */
-    has_value?: string,
+    has_value: string,
     /** Qualifier indicating the precision of an extent value or duration */
     has_precision?: string,
 }
@@ -2330,9 +2329,8 @@ export interface Extent {
 
 export function isExtent(o: object): o is Extent {
     return (
-        'has_unit' in o ||
-        'has_value' in o ||
-        'has_precision' in o
+        'has_unit' in o &&
+        'has_value' in o
     )
 }
 
@@ -2610,7 +2608,7 @@ export function toItem(o: Item): Item {
  */
 export interface MovingImageRecordContainer {
     /** Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual */
-    has_record?: MovingImageRecord,
+    has_record: MovingImageRecord,
 }
 
 

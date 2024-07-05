@@ -547,6 +547,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "has_value"
+            ],
             "title": "Duration",
             "type": "object"
         },
@@ -608,6 +611,10 @@
                     "type": "number"
                 }
             },
+            "required": [
+                "has_unit",
+                "has_value"
+            ],
             "title": "Extent",
             "type": "object"
         },
@@ -1995,6 +2002,9 @@
                     "description": "Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual"
                 }
             },
+            "required": [
+                "has_record"
+            ],
             "title": "MovingImageRecordContainer",
             "type": "object"
         },
@@ -3106,6 +3116,9 @@
             "description": "Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual"
         }
     },
+    "required": [
+        "has_record"
+    ],
     "title": "AVefi data model",
     "type": "object",
     "version": null

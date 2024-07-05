@@ -1784,7 +1784,7 @@ class Duration(ConfiguredBaseModel):
     """
     Total running time of the described object in ISO 8601 duration format. The examples section lists possible values for the has_value slot. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
     """
-    has_value: Optional[str] = Field(None, description="""Value of some quantity""")
+    has_value: str = Field(..., description="""Value of some quantity""")
     has_precision: Optional[PrecisionEnum] = Field(None, description="""Qualifier indicating the precision of an extent value or duration""")
 
 
@@ -1792,8 +1792,8 @@ class Extent(ConfiguredBaseModel):
     """
     Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
     """
-    has_unit: Optional[UnitEnum] = Field(None, description="""Unit of some quantity""")
-    has_value: Optional[Decimal] = Field(None, description="""Value of some quantity""")
+    has_unit: UnitEnum = Field(..., description="""Unit of some quantity""")
+    has_value: Decimal = Field(..., description="""Value of some quantity""")
     has_precision: Optional[PrecisionEnum] = Field(None, description="""Qualifier indicating the precision of an extent value or duration""")
 
 
@@ -1911,7 +1911,7 @@ class MovingImageRecordContainer(ConfiguredBaseModel):
     """
     A holder for MovingImageRecord objects
     """
-    has_record: Optional[Union[MovingImageRecord,WorkVariant,ManifestationOrItem,Manifestation,Item]] = Field(None, description="""Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual""")
+    has_record: Union[MovingImageRecord,WorkVariant,ManifestationOrItem,Manifestation,Item] = Field(..., description="""Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual""")
 
 
 class AuthorityResource(CategorizedThing):

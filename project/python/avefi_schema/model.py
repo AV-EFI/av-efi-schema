@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-07-05T14:49:35
+# Generation date: 2024-07-05T20:21:33
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -1284,11 +1284,13 @@ class Duration(YAMLRoot):
     class_name: ClassVar[str] = "Duration"
     class_model_uri: ClassVar[URIRef] = AVEFI.Duration
 
-    has_value: Optional[Union[str, ISODurationInHours]] = None
+    has_value: Union[str, ISODurationInHours] = None
     has_precision: Optional[Union[str, "PrecisionEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.has_value is not None and not isinstance(self.has_value, ISODurationInHours):
+        if self._is_empty(self.has_value):
+            self.MissingRequiredField("has_value")
+        if not isinstance(self.has_value, ISODurationInHours):
             self.has_value = ISODurationInHours(self.has_value)
 
         if self.has_precision is not None and not isinstance(self.has_precision, PrecisionEnum):
@@ -1309,15 +1311,19 @@ class Extent(YAMLRoot):
     class_name: ClassVar[str] = "Extent"
     class_model_uri: ClassVar[URIRef] = AVEFI.Extent
 
-    has_unit: Optional[Union[str, "UnitEnum"]] = None
-    has_value: Optional[Decimal] = None
+    has_unit: Union[str, "UnitEnum"] = None
+    has_value: Decimal = None
     has_precision: Optional[Union[str, "PrecisionEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.has_unit is not None and not isinstance(self.has_unit, UnitEnum):
+        if self._is_empty(self.has_unit):
+            self.MissingRequiredField("has_unit")
+        if not isinstance(self.has_unit, UnitEnum):
             self.has_unit = UnitEnum(self.has_unit)
 
-        if self.has_value is not None and not isinstance(self.has_value, Decimal):
+        if self._is_empty(self.has_value):
+            self.MissingRequiredField("has_value")
+        if not isinstance(self.has_value, Decimal):
             self.has_value = Decimal(self.has_value)
 
         if self.has_precision is not None and not isinstance(self.has_precision, PrecisionEnum):
@@ -1629,10 +1635,12 @@ class MovingImageRecordContainer(YAMLRoot):
     class_name: ClassVar[str] = "MovingImageRecordContainer"
     class_model_uri: ClassVar[URIRef] = AVEFI.MovingImageRecordContainer
 
-    has_record: Optional[Union[dict, MovingImageRecord]] = None
+    has_record: Union[dict, MovingImageRecord] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.has_record is not None and not isinstance(self.has_record, MovingImageRecord):
+        if self._is_empty(self.has_record):
+            self.MissingRequiredField("has_record")
+        if not isinstance(self.has_record, MovingImageRecord):
             self.has_record = MovingImageRecord(**as_dict(self.has_record))
 
         super().__post_init__(**kwargs)
@@ -5158,7 +5166,7 @@ slots.has_ordering_name = Slot(uri=AVEFI.has_ordering_name, name="has_ordering_n
                    model_uri=AVEFI.has_ordering_name, domain=None, range=Optional[Union[str, TextLine]])
 
 slots.has_record = Slot(uri=AVEFI.has_record, name="has_record", curie=AVEFI.curie('has_record'),
-                   model_uri=AVEFI.has_record, domain=None, range=Optional[Union[dict, MovingImageRecord]])
+                   model_uri=AVEFI.has_record, domain=None, range=Union[dict, MovingImageRecord])
 
 slots.type = Slot(uri=AVEFI.type, name="type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.type, domain=None, range=Optional[Union[str, IDString]])
@@ -5206,10 +5214,10 @@ slots.has_extent = Slot(uri=AVEFI.has_extent, name="has_extent", curie=AVEFI.cur
                    model_uri=AVEFI.has_extent, domain=None, range=Optional[Union[dict, Extent]])
 
 slots.has_unit = Slot(uri=AVEFI.has_unit, name="has_unit", curie=AVEFI.curie('has_unit'),
-                   model_uri=AVEFI.has_unit, domain=None, range=Optional[Union[str, "UnitEnum"]])
+                   model_uri=AVEFI.has_unit, domain=None, range=Union[str, "UnitEnum"])
 
 slots.has_value = Slot(uri=AVEFI.has_value, name="has_value", curie=AVEFI.curie('has_value'),
-                   model_uri=AVEFI.has_value, domain=None, range=Optional[Decimal])
+                   model_uri=AVEFI.has_value, domain=None, range=Decimal)
 
 slots.has_precision = Slot(uri=AVEFI.has_precision, name="has_precision", curie=AVEFI.curie('has_precision'),
                    model_uri=AVEFI.has_precision, domain=None, range=Optional[Union[str, "PrecisionEnum"]])
@@ -5380,7 +5388,7 @@ slots.Title_type = Slot(uri=AVEFI.type, name="Title_type", curie=AVEFI.curie('ty
                    model_uri=AVEFI.Title_type, domain=Title, range=Union[str, "TitleTypeEnum"])
 
 slots.Duration_has_value = Slot(uri=AVEFI.has_value, name="Duration_has_value", curie=AVEFI.curie('has_value'),
-                   model_uri=AVEFI.Duration_has_value, domain=Duration, range=Optional[Union[str, ISODurationInHours]])
+                   model_uri=AVEFI.Duration_has_value, domain=Duration, range=Union[str, ISODurationInHours])
 
 slots.Audio_type = Slot(uri=AVEFI.type, name="Audio_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.Audio_type, domain=Audio, range=Optional[Union[str, "FormatAudioTypeEnum"]])

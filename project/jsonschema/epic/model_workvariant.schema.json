@@ -6261,6 +6261,9 @@
             "type": "object"
         }
     },
+    "required": [
+        "has_record"
+    ],
     "title": "AVefi data model for WorkVariant",
     "type": "object",
     "version": null
