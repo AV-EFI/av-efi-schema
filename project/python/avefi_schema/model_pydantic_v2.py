@@ -1490,7 +1490,7 @@ class WorkVariant(MovingImageRecord):
     has_subject: Optional[List[Subject]] = Field(default_factory=list, description="""Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3""")
     is_part_of: Optional[List[Union[AVefiResource,LocalResource]]] = Field(default_factory=list, description="""Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17""")
     is_variant_of: Optional[Union[AVefiResource,LocalResource]] = Field(None, description="""Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5""")
-    same_as: Optional[List[Union[AuthorityResource,AVefiResource,DOIResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,LocalResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
+    same_as: Optional[List[Union[DOIResource, FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
     type: WorkVariantTypeEnum = Field(..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""")
     variant_type: Optional[VariantTypeEnum] = Field(None, description="""FIAF Moving Image Cataloguing Manual D.2""")
     described_by: Optional[DescriptionResource] = Field(None, description="""Also record some metadata about the PID itself rather than the identified object""")
@@ -1508,7 +1508,7 @@ class GeographicName(ConfiguredBaseModel):
     """
     has_alternate_name: Optional[List[str]] = Field(default_factory=list, description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""")
     has_name: str = Field(..., description="""Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations""")
-    same_as: Optional[List[Union[AuthorityResource,AVefiResource,DOIResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,LocalResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
+    same_as: Optional[List[Union[GNDResource, TGNResource, VIAFResource, WikidataResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
 
 
 class Genre(ConfiguredBaseModel):
@@ -1688,7 +1688,7 @@ class Agent(ConfiguredBaseModel):
     """
     has_alternate_name: Optional[List[str]] = Field(default_factory=list, description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""")
     has_name: str = Field(..., description="""For natural persons, always use the convention \"family name, given name\"""")
-    same_as: Optional[List[Union[AuthorityResource,AVefiResource,DOIResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,LocalResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
+    same_as: Optional[List[Union[FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
     type: AgentTypeEnum = Field(..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""")
 
 

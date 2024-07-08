@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-07-05T20:21:33
+# Generation date: 2024-07-08T14:49:54
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -5291,8 +5291,14 @@ slots.language__code = Slot(uri=AVEFI.code, name="language__code", curie=AVEFI.c
 slots.language__usage = Slot(uri=AVEFI.usage, name="language__usage", curie=AVEFI.curie('usage'),
                    model_uri=AVEFI.language__usage, domain=None, range=Union[Union[str, "LanguageUsageEnum"], List[Union[str, "LanguageUsageEnum"]]])
 
+slots.WorkVariant_same_as = Slot(uri=AVEFI.same_as, name="WorkVariant_same_as", curie=AVEFI.curie('same_as'),
+                   model_uri=AVEFI.WorkVariant_same_as, domain=WorkVariant, range=Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]])
+
 slots.WorkVariant_type = Slot(uri=AVEFI.type, name="WorkVariant_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.WorkVariant_type, domain=WorkVariant, range=Union[str, "WorkVariantTypeEnum"])
+
+slots.GeographicName_same_as = Slot(uri=AVEFI.same_as, name="GeographicName_same_as", curie=AVEFI.curie('same_as'),
+                   model_uri=AVEFI.GeographicName_same_as, domain=GeographicName, range=Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]])
 
 slots.Genre_same_as = Slot(uri=AVEFI.same_as, name="Genre_same_as", curie=AVEFI.curie('same_as'),
                    model_uri=AVEFI.Genre_same_as, domain=Genre, range=Optional[Union[Union[dict, "GNDResource"], List[Union[dict, "GNDResource"]]]])
@@ -5350,6 +5356,9 @@ slots.ManifestationActivity_type = Slot(uri=AVEFI.type, name="ManifestationActiv
 
 slots.Agent_has_name = Slot(uri=SCHEMA.name, name="Agent_has_name", curie=SCHEMA.curie('name'),
                    model_uri=AVEFI.Agent_has_name, domain=Agent, range=Union[str, TextLine])
+
+slots.Agent_same_as = Slot(uri=AVEFI.same_as, name="Agent_same_as", curie=AVEFI.curie('same_as'),
+                   model_uri=AVEFI.Agent_same_as, domain=Agent, range=Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]])
 
 slots.Agent_type = Slot(uri=AVEFI.type, name="Agent_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.Agent_type, domain=Agent, range=Union[str, "AgentTypeEnum"])

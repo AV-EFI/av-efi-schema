@@ -47,31 +47,16 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/AVefiResource"
-                            },
-                            {
-                                "$ref": "#/$defs/DOIResource"
-                            },
-                            {
                                 "$ref": "#/$defs/FilmportalResource"
                             },
                             {
                                 "$ref": "#/$defs/GNDResource"
                             },
                             {
-                                "$ref": "#/$defs/ISILResource"
-                            },
-                            {
-                                "$ref": "#/$defs/TGNResource"
-                            },
-                            {
                                 "$ref": "#/$defs/VIAFResource"
                             },
                             {
                                 "$ref": "#/$defs/WikidataResource"
-                            },
-                            {
-                                "$ref": "#/$defs/LocalResource"
                             }
                         ]
                     },
@@ -824,19 +809,7 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/AVefiResource"
-                            },
-                            {
-                                "$ref": "#/$defs/DOIResource"
-                            },
-                            {
-                                "$ref": "#/$defs/FilmportalResource"
-                            },
-                            {
                                 "$ref": "#/$defs/GNDResource"
-                            },
-                            {
-                                "$ref": "#/$defs/ISILResource"
                             },
                             {
                                 "$ref": "#/$defs/TGNResource"
@@ -846,9 +819,6 @@
                             },
                             {
                                 "$ref": "#/$defs/WikidataResource"
-                            },
-                            {
-                                "$ref": "#/$defs/LocalResource"
                             }
                         ]
                     },
@@ -2987,9 +2957,6 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/AVefiResource"
-                            },
-                            {
                                 "$ref": "#/$defs/DOIResource"
                             },
                             {
@@ -2999,19 +2966,10 @@
                                 "$ref": "#/$defs/GNDResource"
                             },
                             {
-                                "$ref": "#/$defs/ISILResource"
-                            },
-                            {
-                                "$ref": "#/$defs/TGNResource"
-                            },
-                            {
                                 "$ref": "#/$defs/VIAFResource"
                             },
                             {
                                 "$ref": "#/$defs/WikidataResource"
-                            },
-                            {
-                                "$ref": "#/$defs/LocalResource"
                             }
                         ]
                     },
