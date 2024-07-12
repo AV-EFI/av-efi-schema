@@ -119,8 +119,9 @@ class DataTypeGenerator(generator.Generator):
         if pid:
             pid = pid.value
             # dtr_content['Identifier'] = pid
-            data_type = self.doip.get(
-                '0.DOIP/Op.Retrieve', pid).json()
+            response = self.doip.get(
+                '0.DOIP/Op.Retrieve', pid)
+            data_type = response.json()
             present_content = copy.deepcopy(data_type['attributes']['content'])
             del present_content['provenance']
             try:
@@ -130,8 +131,8 @@ class DataTypeGenerator(generator.Generator):
             if present_content != dtr_content:
                 if not self.sync_mode:
                     log.warning(
-                        f"Deviation from DTR: local={dtr_content},"
-                        f" {self.doip.endpoint}={present_content}")
+                        f"Deviation from DTR (local: {dtr_content},"
+                        f" {response.request.url}: {present_content})")
                     return None
                 else:
                     data_type = self.update_registry(
