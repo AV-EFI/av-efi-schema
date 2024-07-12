@@ -1445,6 +1445,8 @@ enums:
 
   ColourTypeEnum:
     rank: 27
+    annotations:
+    - pid: 21.T11969/b17efd56d34519fa67a3
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11
     permissible_values:
