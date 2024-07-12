@@ -21,12 +21,9 @@ log = logging.getLogger(__name__)
 
 DTR_CONFIG = {
     'dtr_doip_endpoint': 'https://typeregistry.lab.pidconsortium.net/doip',
-    'dtr_expected_use': 'AVefi',
+    'dtr_expected_use':
+    'AVefi schema, see https://github.com/AV-EFI/av-efi-schema',
     'dtr_name_prefix': 'efi_',
-    'dtr_contributor': {
-        'name': 'AVefi Working Group',
-        'URL': 'https://github.com/AV-EFI/',
-    },
     'dtr_writers': ['21.T11969/dc08291b058f16935275'],
 }
 
@@ -163,16 +160,13 @@ class DataTypeGenerator(generator.Generator):
                 'writers': DTR_CONFIG['dtr_writers'],
             }
         if old_data_type:
-            new_contributors = old_data_type['attributes']['content'][
-                'provenance']['contributors']
-            if DTR_CONFIG['dtr_contributor'] not in new_contributors:
-                new_contributors.append(DTR_CONFIG['dtr_contributor'])
-            new_content['provenance'] = {'contributors': new_contributors}
+            provenance = old_data_type['attributes']['content'].get(
+                'provenance')
+            if provenance:
+                new_content['provenance'] = provenance
             response = self.doip.post(
                 '0.DOIP/Op.Update', old_data_type['id'], json=payload)
         else:
-            new_content['provenance'] = {
-                'contributors': [DTR_CONFIG['dtr_contributor']]}
             response = self.doip.post(
                 '0.DOIP/Op.Create', 'service', json=payload)
         data_type = response.json()
