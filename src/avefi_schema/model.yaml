@@ -50,10 +50,10 @@ types:
     typeof: string
     pattern: ^.+$
     annotations:
-      - tag: data_type_properties
-        value:
-          minLength: 1
-          maxLength: 550
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 550
     description: >-
       Non-empty string without line breaks intended for names and
       similar data
@@ -61,18 +61,18 @@ types:
   TextArea:
     typeof: string
     annotations:
-      - tag: data_type_properties
-        value:
-          minLength: 1
-          maxLength: 8192
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 8192
 
   HttpUri:
     typeof: uri
     pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
     annotations:
-      - tag: data_type_properties
-        value:
-          maxLength: 512
+    - tag: data_type_properties
+      value:
+        maxLength: 512
 
   AVefiCurie:
     typeof: uriorcurie
@@ -101,37 +101,37 @@ types:
     typeof: string
     pattern: ^((?![\"&\'])\S)+$
     annotations:
-      - tag: data_type_properties
-        value:
-          minLength: 1
-          maxLength: 256
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
 
   AVefi:
     typeof: string
     pattern: ^21(\.([0-9A-Za-z])+)*/[!-~]+$
     annotations:
-      - tag: data_type_properties
-        value:
-          minLength: 1
-          maxLength: 256
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
 
   DOI:
     typeof: string
     pattern: ^10\.[0-9]{4,9}(\.[0-9]+)*(/|%2F)((?![\"&\'])\S)+$
     annotations:
-      - tag: data_type_properties
-        value:
-          minLength: 1
-          maxLength: 256
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
 
   FilmportalID:
     typeof: string
     pattern: ^[\da-f]{32}$
     annotations:
-      - tag: data_type_properties
-        value:
-          minLength: 1
-          maxLength: 256
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
 
   GNDID:
     typeof: string
@@ -147,37 +147,37 @@ types:
     typeof: string
     pattern: ^[A-Z]{2}-[A-Za-z\-0-9:/]{1,15}$
     annotations:
-      - tag: data_type_properties
-        value:
-          minLength: 1
-          maxLength: 256
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
 
   TGNID:
     typeof: string
     pattern: ^[1-9][0-9]{6}$
     annotations:
-      - tag: data_type_properties
-        value:
-          minLength: 1
-          maxLength: 256
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
 
   VIAFID:
     typeof: string
     pattern: ^\d+$
     annotations:
-      - tag: data_type_properties
-        value:
-          minLength: 1
-          maxLength: 256
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
 
   WikidataID:
     typeof: string
     pattern: ^[LPQ]\d+$
     annotations:
-      - tag: data_type_properties
-        value:
-          minLength: 1
-          maxLength: 256
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
 
 classes:
 
@@ -1239,10 +1239,10 @@ classes:
       be replaced by the generated PIDs. Identifiers must start with
       the prefix "_:" underlining the local scope
     examples:
-      - value: _:some_fairly/arbitrary-string%for+1.work
-        description: Local / temporary identifier for work record
-      - value: _:id_for_manifestation
-        description: Local / temporary identifier for manifestation record
+    - value: _:some_fairly/arbitrary-string%for+1.work
+      description: Local / temporary identifier for work record
+    - value: _:id_for_manifestation
+      description: Local / temporary identifier for manifestation record
 
   TGNResource:
     rank: 51
