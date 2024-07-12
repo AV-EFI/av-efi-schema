@@ -181,7 +181,18 @@ class DataTypeGenerator(generator.Generator):
             obj.annotations['pid'] = annotations.Annotation(
                 tag='pid', value=pid)
             source_obj = self.get_source_definition(obj)
-            source_obj.setdefault('annotations', {})['pid'] = pid
+            if 'annotations' not in source_obj:
+                try:
+                    idx = list(source_obj.keys()).index('description')
+                except ValueError:
+                    idx = 0
+                source_obj.insert(idx, 'annotations', [])
+            for el in source_obj['annotations']:
+                if 'pid' in el:
+                    el.update({'pid': pid})
+                    break
+            else:
+                source_obj['annotations'].insert(0, {'pid': pid})
             self.save_source_definition(obj)
         return data_type
 
