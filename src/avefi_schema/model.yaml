@@ -77,6 +77,10 @@ types:
   AVefiCurie:
     typeof: uriorcurie
     pattern: ^avefi:((?![\"&\'])\S)+$
+    annotations:
+    - pid: 21.T11969/5ccbf9c9c5fc1bc34df8
+    description: >-
+      To be used as range for type designator slots, i.e. const values
 
   ISODate:
     typeof: string
@@ -133,10 +137,11 @@ types:
     typeof: string
     pattern: ^[-\dX]+$
     annotations:
-      - tag: data_type_properties
-        value:
-          minLength: 1
-          maxLength: 256
+    - pid: 21.T11969/85336bee084e8645831d
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
 
   ISIL:
     typeof: string
@@ -1155,6 +1160,7 @@ classes:
     in_subset:
     - TypeRegistrySubset
     annotations:
+    - pid: 21.T11969/1e67c576c1bdc5229b7a
     - formatter_uri_for_rdf_resource: https://d-nb.info/gnd/$1
     - formatter_url_for_web_resource: https://d-nb.info/gnd/$1
     - tag: provides
