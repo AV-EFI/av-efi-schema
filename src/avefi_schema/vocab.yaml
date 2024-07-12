@@ -1411,6 +1411,8 @@ enums:
 
   AgentTypeEnum:
     rank: 9
+    annotations:
+    - pid: 21.T11969/614549885f28fd7cc7d4
     description: >-
       FIAF Moving Image Cataloguing Manual 1.4.1
     permissible_values:
@@ -1441,8 +1443,6 @@ enums:
           in_language: en
         meaning: fiaf:PersonGroup
 
-    annotations:
-      pid: 21.T11969/614549885f28fd7cc7d4
   ColourTypeEnum:
     rank: 27
     description: >-
