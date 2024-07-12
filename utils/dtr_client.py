@@ -1,11 +1,14 @@
 import copy
+from dataclasses import dataclass
 import getpass
 import logging
 import pathlib
 import urllib.parse as urlparse
 
 import jsonasobj2
+from linkml.generators.common.type_designators import get_type_designator_value
 from linkml.generators.jsonschemagen import json_schema_types
+from linkml.utils import generator
 import linkml_runtime as linkmlr
 from linkml_runtime.linkml_model import annotations, meta
 import requests
@@ -35,7 +38,8 @@ EFI_SCHEMA_IDS = [
 ENUM_BASE_URL = 'https://raw.githubusercontent.com/AV-EFI/av-efi-schema/main/project/jsonschema/epic/vocabularies/'
 
 
-class DataTypeGenerator:
+@dataclass
+class DataTypeGenerator(generator.Generator):
     """Generate output for the Data Type Registry
 
     Accept source_path to a schema in LinkML syntax and sync_mode as
@@ -46,24 +50,27 @@ class DataTypeGenerator:
     as the right credentials can be provided (interactively).
 
     """
-    def __init__(self, source_path, sync_mode=False):
-        self.source_path = source_path
-        self.schema = linkmlr.SchemaView(source_path)
-        self.sync_mode = sync_mode
+    valid_formats = ["dtr"]
+    uses_schemaloader = False
+    #file_extension = "schema.json"
+    sync_mode: bool = False
+
+    def __post_init__(self):
+        super().__post_init__()
         self.doip = DTRClient(DTR_CONFIG['dtr_doip_endpoint'])
 
     def process_schema(self):
         data_type_stubs = []
-        for enum in self.schema.all_enums().values():
+        for enum in self.schemaview.all_enums():
             data_type_stubs.append((enum, self.convert_enum(enum)))
-        for schema_type in self.schema.all_types().values():
+        for schema_type in self.schemaview.all_types().values():
             if schema_type.from_schema not in EFI_SCHEMA_IDS:
                 continue
-            induced_type = self.schema.induced_type(schema_type.name)
+            induced_type = self.schemaview.induced_type(schema_type.name)
             data_type_stubs.append(
                 (induced_type, self.convert_type(induced_type)))
-        for obj, stub in data_type_stubs:
-            self.check_data_type(obj, stub)
+        for obj, dtr_content in data_type_stubs.items():
+            check_data_type(obj, dtr_content)
 
     def convert_enum(self, enum: meta.EnumDefinition):
         result = {'name': f"{DTR_CONFIG['dtr_name_prefix']}{enum.name}"}
@@ -112,14 +119,12 @@ class DataTypeGenerator:
     def check_data_type(self, obj: meta.Definition, dtr_content):
         dtr_content['ExpectedUse'] = DTR_CONFIG['dtr_expected_use']
         pid = obj.annotations.get('pid')
-        response = None
         if pid:
             pid = pid.value
             # dtr_content['Identifier'] = pid
-            response = self.doip.get(
-                '0.DOIP/Op.Retrieve', pid)
-            present_content = copy.deepcopy(
-                response.json()['attributes']['content'])
+            data_type = self.doip.get(
+                '0.DOIP/Op.Retrieve', pid).json()
+            present_content = copy.deepcopy(data_type['attributes']['content'])
             del present_content['provenance']
             try:
                 del present_content['Identifier']
@@ -132,14 +137,14 @@ class DataTypeGenerator:
                         f" {self.doip.endpoint}={present_content}")
                     return None
                 else:
-                    response = self.update_registry(
-                        obj, dtr_content, old_data_type=response.json())
+                    data_type = self.update_registry(
+                        obj, dtr_content, old_data_type=data_type)
         else:
             if not self.sync_mode:
                 log.warning(f"No PID for {obj.name} yet")
                 return None
-            response = self.update_registry(obj, dtr_content)
-        return response
+            data_type = self.update_registry(obj, dtr_content)
+        return data_type
 
     def update_registry(self, obj, new_content, old_data_type=None):
         new_content['ExpectedUse'] = DTR_CONFIG['dtr_expected_use']
@@ -170,21 +175,22 @@ class DataTypeGenerator:
                 'contributors': [DTR_CONFIG['dtr_contributor']]}
             response = self.doip.post(
                 '0.DOIP/Op.Create', 'service', json=payload)
-        pid = response.json()['id']
+        data_type = response.json()
+        pid = data_type['id']
         if not old_data_type or old_data_type.get('id') != pid:
             obj.annotations['pid'] = annotations.Annotation(
                 tag='pid', value=pid)
             source_obj = self.get_source_definition(obj)
             source_obj.setdefault('annotations', {})['pid'] = pid
             self.save_source_definition(obj)
-        return response
+        return data_type
 
     @property
     def cache(self):
         try:
             return self._cache
         except AttributeError:
-            self._cache = YAMLStore(self.schema)
+            self._cache = YAMLStore(self.schemaview)
             return self._cache
 
     _meta_to_yaml_section_map = {
@@ -203,9 +209,9 @@ class DataTypeGenerator:
 
 
 class YAMLStore(dict):
-    def __init__(self, schema_view: linkmlr.utils.schemaview.SchemaView):
+    def __init__(self, schemaview: linkmlr.utils.schemaview.SchemaView):
         self.yaml = YAML()
-        self.load(pathlib.Path(schema_view.schema.source_file))
+        self.load(pathlib.Path(schemaview.schema.source_file))
 
     def load(self, source_path: pathlib.Path):
         parsed_source = self.yaml.load(source_path)
