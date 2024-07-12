@@ -278,7 +278,7 @@ class DTRClient:
             # check for current deviations between schema and data
             # type registry
             if operation not in self.unrestricted_operations:
-                self._token = self.get_token()
+                self.get_token()
                 return self.request(
                     method, operation, target, headers=headers, **kwargs)
         r = self.session.request(
@@ -287,8 +287,9 @@ class DTRClient:
         if r.status_code == 401:
             if getattr(self, '_token', None):
                 del self._token
-                return self.request(
-                    method, operation, target, headers=headers, **kwargs)
+            self.get_token()
+            return self.request(
+                method, operation, target, headers=headers, **kwargs)
         try:
             r.raise_for_status()
         except HTTPError as e:
@@ -303,7 +304,7 @@ class DTRClient:
                 'username': input('Username for data type registry: '),
                 'password': getpass.getpass(),
             })
-        return r.json()['access_token']
+        self._token = r.json()['access_token']
 
     def get(self, operation, target, *args, **kwargs):
         return self.request('GET', operation, target, *args, **kwargs)
