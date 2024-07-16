@@ -76,7 +76,6 @@ types:
 
   AVefiCurie:
     typeof: uriorcurie
-    pattern: ^avefi:((?![\"&\'])\S)+$
     annotations:
     - pid: 21.T11969/5ccbf9c9c5fc1bc34df8
     description: >-
