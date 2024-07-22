@@ -352,16 +352,8 @@ classes:
     description: >-
       Root for all classes with subclasses in this schema
 
-  PIDRecord:
-    is_a: CategorizedThing
-    abstract: true
-    slots:
-    - id
-    description: >-
-      Grouping for all entities that represent a PID metadata record
-
   MovingImageRecord:
-    is_a: PIDRecord
+    is_a: CategorizedThing
     abstract: true
     attributes:
       has_alternative_title:
@@ -388,6 +380,7 @@ classes:
     slots:
     - described_by
     - has_event
+    - has_identifier
     - in_language
 
   DescriptionResource:
@@ -1124,7 +1117,7 @@ classes:
     - same_as
     slot_usage:
       same_as:
-        range: AVefiResource
+        range: MovingImageResource
         description: >-
           Link to AVefi resource registered by another data provider
           indicating that the two manifestations are known to be the
@@ -1234,9 +1227,16 @@ classes:
       Root class for all identifiers from some kind of authority or
       public register widely accepted in the community
 
+  MovingImageResource:
+    is_a: AuthorityResource
+    abstract: true
+    description: >-
+      Either a persistent or local identifier for AVefi compliant
+      moving image records. See subclasses for details
+
   AVefiResource:
     rank: 51
-    is_a: AuthorityResource
+    is_a: MovingImageResource
     slot_usage:
       id:
         range: AVefi
@@ -1370,22 +1370,18 @@ classes:
 
   LocalResource:
     rank: 51
-    is_a: AVefiResource
-    slot_usage:
-      id:
-        pattern: ^_:((?![\"&\'])\S)+$
+    is_a: MovingImageResource
     notes:
     - Not to be implemented in DTR
     description: >-
       Some identifier used by data provider to represent relations
       between work/variant, manifestation and item when PIDs have not
-      been assigned yet. On ingest into AVefi these identifiers will
-      be replaced by the generated PIDs. Identifiers must start with
-      the prefix "_:" underlining the local scope
+      been assigned yet. On ingest into AVefi, these identifiers will
+      be replaced by the generated PIDs
     examples:
-    - value: _:some_fairly/arbitrary-string%for+1.work
+    - value: some_fairly/arbitrary-string%for+1.work
       description: Local / temporary identifier for work record
-    - value: _:id_for_manifestation
+    - value: id_for_manifestation
       description: Local / temporary identifier for manifestation record
 
   TGNResource:
@@ -1476,10 +1472,20 @@ slots:
   #-----------------------------------
 
   id:
+    rank: 5
     range: IDString
     in_subset:
     - TypeRegistrySubset
     description: A unique identifier for a thing
+
+  has_identifier:
+    rank: 5
+    range: MovingImageResource
+    description: >-
+      Record PID in this slot when exporting data from the PID system.
+      Use local identifiers instead when PIDs have not been registered
+      yet. The latter is suitable for transferring data to the agent
+      responsible for registering PIDs
 
   has_name:
     rank: 4
@@ -1773,7 +1779,7 @@ slots:
 
   is_variant_of:
     rank: 18
-    range: AVefiResource
+    range: MovingImageResource
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1785,7 +1791,7 @@ slots:
     rank: 17
     inlined_as_list: true
     multivalued: true
-    range: AVefiResource
+    range: MovingImageResource
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1826,7 +1832,7 @@ slots:
     rank: 22
     inlined_as_list: true
     multivalued: true
-    range: AVefiResource
+    range: MovingImageResource
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1864,7 +1870,7 @@ slots:
     rank: 21
     inlined_as_list: true
     multivalued: true
-    range: AVefiResource
+    range: MovingImageResource
     required: true
     in_subset:
     - TypeRegistrySubset
@@ -1892,7 +1898,7 @@ slots:
   is_item_of:
     rank: 31
     # multivalued: true
-    range: AVefiResource
+    range: MovingImageResource
     required: true
     in_subset:
     - TypeRegistrySubset
@@ -1913,7 +1919,7 @@ slots:
     rank: 39
     inlined_as_list: true
     multivalued: true
-    range: AVefiResource
+    range: MovingImageResource
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1924,7 +1930,7 @@ slots:
     rank: 39
     inlined_as_list: true
     multivalued: true
-    range: AVefiResource
+    range: MovingImageResource
     # related_mappings:
     # - edm:isDerivativeOf
     in_subset:
