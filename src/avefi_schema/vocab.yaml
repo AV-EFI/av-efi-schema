@@ -32,6 +32,8 @@ enums:
 
   AnimationActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.13
@@ -99,6 +101,8 @@ enums:
 
   CastActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.7
@@ -206,6 +210,8 @@ enums:
 
   CensorshipActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms C.1
@@ -221,6 +227,8 @@ enums:
 
   CinematographyActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.5
@@ -386,6 +394,8 @@ enums:
 
   CopyrightAndDistributionActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms C.2
@@ -449,6 +459,8 @@ enums:
 
   DirectingActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.3
@@ -510,6 +522,8 @@ enums:
 
   EditingActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.10
@@ -533,6 +547,8 @@ enums:
 
   LaboratoryActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.12
@@ -572,6 +588,8 @@ enums:
 
   MusicActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.11
@@ -665,6 +683,8 @@ enums:
 
   ProducingActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.2
@@ -826,6 +846,8 @@ enums:
 
   ProductionDesignActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.6
@@ -996,6 +1018,8 @@ enums:
 
   PuppetActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.14
@@ -1011,6 +1035,8 @@ enums:
 
   SoundActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.9
@@ -1122,6 +1148,8 @@ enums:
 
   SpecialEffectsActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.8
@@ -1223,6 +1251,8 @@ enums:
 
   WritingActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.4
@@ -1312,6 +1342,8 @@ enums:
 
   ManifestationActivityTypeEnum:
     rank: 8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Moving Image Cataloguing
       Manual 2.4.1.1, D.8
@@ -1413,6 +1445,8 @@ enums:
     rank: 9
     annotations:
     - pid: 21.T11969/614549885f28fd7cc7d4
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 1.4.1
     permissible_values:
@@ -1447,6 +1481,8 @@ enums:
     rank: 27
     annotations:
     - pid: 21.T11969/b17efd56d34519fa67a3
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11
     permissible_values:
@@ -1515,6 +1551,8 @@ enums:
 
   ManufactureEventTypeEnum:
     rank: 6
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.4.7, D.14
     permissible_values:
@@ -1569,6 +1607,8 @@ enums:
 
   PreservationEventTypeEnum:
     rank: 6
+    in_subset:
+    - TypeRegistrySubset
     description: FIAF Moving Image Cataloguing Manual D.4.5
     permissible_values:
       DigitisationEvent:
@@ -1613,6 +1653,8 @@ enums:
 
   ProductionEventTypeEnum:
     rank: 6
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Leave unset for main production event, otherwise see FIAF Moving
       Image Cataloguing Manual D.4.3, D.11
@@ -1652,6 +1694,8 @@ enums:
 
   PublicationEventTypeEnum:
     rank: 6
+    in_subset:
+    - TypeRegistrySubset
     description: FIAF Moving Image Cataloguing Manual D.4.1, D.10
     permissible_values:
       BroadcastEvent:
@@ -1737,6 +1781,8 @@ enums:
 
   FormatAudioTypeEnum:
     rank: 23
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
@@ -1799,6 +1845,8 @@ enums:
 
   FormatDigitalFileEncodingTypeEnum:
     rank: 23
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
@@ -1841,6 +1889,8 @@ enums:
 
   FormatDigitalFileTypeEnum:
     rank: 23
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
@@ -1877,6 +1927,8 @@ enums:
 
   FormatFilmTypeEnum:
     rank: 23
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
@@ -1935,6 +1987,8 @@ enums:
 
   FormatOpticalTypeEnum:
     rank: 23
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
@@ -1965,6 +2019,8 @@ enums:
 
   FormatVideoTypeEnum:
     rank: 23
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
     permissible_values:
@@ -2023,6 +2079,8 @@ enums:
 
   ItemAccessStatusEnum:
     rank: 36
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.3
     permissible_values:
@@ -2064,6 +2122,8 @@ enums:
 
   ItemElementTypeEnum:
     rank: 33
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.8
     permissible_values:
@@ -2171,6 +2231,8 @@ enums:
         meaning: fiaf:SoundNegative
 
   LanguageCodeEnum:
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       [ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html)
       for the Representation of Names of Languages (Part 2: Alpha-3)
@@ -5641,6 +5703,8 @@ enums:
 
   LanguageUsageEnum:
     rank: 12
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.3, D.6
     permissible_values:
@@ -5758,6 +5822,8 @@ enums:
 
   PrecisionEnum:
     rank: 26
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Qualifier indicating the precision of an extent value or
       duration
@@ -5783,6 +5849,8 @@ enums:
 
   SoundTypeEnum:
     rank: 27
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4
     permissible_values:
@@ -5849,6 +5917,8 @@ enums:
     rank: 2
     annotations:
     - pid: 21.T11969/3c385b4617432a0b28ed
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual A.2
     permissible_values:
@@ -5959,6 +6029,8 @@ enums:
 
   UnitEnum:
     rank: 26
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Units of measurement. Definitions are taken from the Quantities,
       Units, Dimensions and Data Types Ontologies (QUDT)
@@ -6016,6 +6088,8 @@ enums:
     rank: 18
     annotations:
     - pid: 21.T11969/d22e19770077fc78a6f6
+    in_subset:
+    - TypeRegistrySubset
     description: FIAF Moving Image Cataloguing Manual D.2
     permissible_values:
       AbridgedCondensed:
@@ -6104,6 +6178,8 @@ enums:
     rank: 1
     annotations:
     - pid: 21.T11969/d0a3e7f81a9885e99049
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Work/Variant description type. See also: FIAF Moving Image
       Cataloguing Manual 1.2.1, D.1
@@ -6154,6 +6230,8 @@ enums:
 
   WorkFormEnum:
     rank: 14
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Glossary of Filmographic Terms D.1.9
     permissible_values:

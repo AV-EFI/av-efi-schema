@@ -54,6 +54,8 @@ types:
       value:
         minLength: 1
         maxLength: 550
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Non-empty string without line breaks intended for names and
       similar data
@@ -65,6 +67,8 @@ types:
       value:
         minLength: 1
         maxLength: 8192
+    in_subset:
+    - TypeRegistrySubset
 
   HttpUri:
     typeof: uri
@@ -73,11 +77,15 @@ types:
     - tag: data_type_properties
       value:
         maxLength: 512
+    in_subset:
+    - TypeRegistrySubset
 
   AVefiCurie:
     typeof: uriorcurie
     annotations:
     - pid: 21.T11969/5ccbf9c9c5fc1bc34df8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       To be used as range for type designator slots, i.e. const values
 
@@ -85,16 +93,22 @@ types:
     typeof: string
     pattern: 
       ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$
+    in_subset:
+    - TypeRegistrySubset
 
   ISODateTimeUTC:
     typeof: datetime
     pattern: 
       ^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|\+00:00)$
+    in_subset:
+    - TypeRegistrySubset
 
   ISODurationInHours:
     typeof: string
     pattern: 
       ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
+    in_subset:
+    - TypeRegistrySubset
 
   IDString:
     typeof: string
@@ -104,6 +118,8 @@ types:
       value:
         minLength: 1
         maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
 
   AVefi:
     typeof: string
@@ -113,6 +129,8 @@ types:
       value:
         minLength: 1
         maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
 
   DOI:
     typeof: string
@@ -122,6 +140,8 @@ types:
       value:
         minLength: 1
         maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
 
   FilmportalID:
     typeof: string
@@ -131,6 +151,8 @@ types:
       value:
         minLength: 1
         maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
 
   GNDID:
     typeof: string
@@ -141,6 +163,8 @@ types:
       value:
         minLength: 1
         maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
 
   ISIL:
     typeof: string
@@ -150,6 +174,8 @@ types:
       value:
         minLength: 1
         maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
 
   TGNID:
     typeof: string
@@ -159,6 +185,8 @@ types:
       value:
         minLength: 1
         maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
 
   VIAFID:
     typeof: string
@@ -168,6 +196,8 @@ types:
       value:
         minLength: 1
         maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
 
   WikidataID:
     typeof: string
@@ -177,6 +207,8 @@ types:
       value:
         minLength: 1
         maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
 
 classes:
 
@@ -204,6 +236,8 @@ classes:
         multivalued: true
         inlined_as_list: true
         range: Title
+        in_subset:
+        - TypeRegistrySubset
         description: >-
           Additional title(s) associated with the work / variant,
           manifestation, or item.
@@ -211,6 +245,8 @@ classes:
         rank: 2
         range: Title
         required: true
+        in_subset:
+        - TypeRegistrySubset
         description: >-
           Primary title to be displayed in search results etc. The
           type should be PreferredTitle for works / variants and
@@ -987,6 +1023,8 @@ classes:
         rank: 12
         range: LanguageCodeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
         description: >-
           [ISO 639-2
           code](https://id.loc.gov/vocabulary/iso639-2.html) for the
@@ -998,6 +1036,8 @@ classes:
         multivalued: true
         range: LanguageUsageEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
         description: >-
           FIAF Moving Image Cataloguing Manual 2.3.3.2
     structured_aliases:
@@ -1356,6 +1396,8 @@ slots:
 
   id:
     range: IDString
+    in_subset:
+    - TypeRegistrySubset
     description: A unique identifier for a thing
 
   has_name:
@@ -1363,6 +1405,8 @@ slots:
     slot_uri: schema:name
     range: TextLine
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Human-readable name for a thing. This is to be treated as the
       preferred display label in a UI context, whereas
@@ -1374,6 +1418,8 @@ slots:
     slot_uri: schema:alternateName
     multivalued: true
     range: TextLine
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Alternative human-readable name(s) for a thing. Whereas has_name
       provides the preferred display name for the described entity,
@@ -1383,6 +1429,8 @@ slots:
   has_ordering_name:
     rank: 4
     range: TextLine
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Provide normalised form, e.g. for sorting by title. Only use
       this slot if value actually if different from has_name
@@ -1396,6 +1444,8 @@ slots:
     rank: 1
     range: MovingImageRecord
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Root slot holding the moving image metadata record, i.e.
       metadata describing a work/variant, manifestation or item. See
@@ -1405,6 +1455,8 @@ slots:
   type:
     rank: 5
     range: IDString
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       See specific class documentation for controlled vocabulary
       applicable to the type slot, respectively
@@ -1415,6 +1467,8 @@ slots:
     designates_type: true
     range: AVefiCurie
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Designates type, e.g. to distinguish different identifiers
       (GNDResource vs. VIAFResource)
@@ -1424,6 +1478,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: AuthorityResource
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       See [AuthorityResource doucmentation](AuthorityResource.md) for
       accepted identifiers
@@ -1432,6 +1488,8 @@ slots:
     slot_uri: wdrs:describedby
     inlined: true
     range: DescriptionResource
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Also record some metadata about the PID itself rather than the
       identified object
@@ -1445,6 +1503,8 @@ slots:
     slot_uri: wdrs:issuedby
     range: HttpUri
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Identifier for the responsible party as an URI suitable for
       linked data
@@ -1461,6 +1521,8 @@ slots:
     slot_uri: dcterms:contributor
     range: TextLine
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Name of the responsible party
     examples:
@@ -1471,6 +1533,8 @@ slots:
     slot_uri: dcterms:modified
     range: ISODateTimeUTC
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Timestamp (in UTC) for the latest modification to any field in
       the PID metadata record
@@ -1484,12 +1548,16 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: Event
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Associate event(s) with a moving image record
 
   has_date:
     rank: 7
     range: ISODate
+    in_subset:
+    - TypeRegistrySubset
     notes:
     - https://www.w3.org/TR/xmlschema11-2/#date
     description: >-
@@ -1519,6 +1587,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: Activity
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Associate activity (and subsequently agents) with event
 
@@ -1528,6 +1598,8 @@ slots:
     multivalued: true
     range: Agent
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Agent involved in some activity related to the moving image
       resource
@@ -1541,6 +1613,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: GeographicName
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Location associated with an event, e.g. the country where the
       principal offices or production facilities of the production
@@ -1550,6 +1624,8 @@ slots:
   has_duration:
     rank: 24
     range: Duration
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Total running time of the described object in ISO 8601 duration
       format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3,
@@ -1558,6 +1634,8 @@ slots:
   has_extent:
     rank: 24
     range: Extent
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Physical length or size of the described object. See also: FIAF
       Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
@@ -1566,6 +1644,8 @@ slots:
     rank: 26
     range: UnitEnum
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Unit of some quantity
 
@@ -1573,12 +1653,16 @@ slots:
     rank: 25
     range: decimal
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Value of some quantity
 
   has_precision:
     rank: 26
     range: PrecisionEnum
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Qualifier indicating the precision of an extent value or
       duration
@@ -1587,6 +1671,8 @@ slots:
     rank: 14
     multivalued: true
     range: WorkFormEnum
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Form describes the format and/or purpose of a Work, e.g.,
       “non-fiction”, “short” and “animation”. See also: FIAF Moving
@@ -1598,6 +1684,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: Genre
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Genre describes categories of Works, characterized by similar
       plots, themes, settings, situations, and characters. Examples of
@@ -1610,6 +1698,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: Subject
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Subject descriptor terms for the content of a film specifying
       its period, themes, locations, etc. Not to be confused with
@@ -1619,6 +1709,8 @@ slots:
   is_variant_of:
     rank: 18
     range: AVefiResource
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Link to the reference WorkVariant for the currently described
       variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2,
@@ -1629,6 +1721,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: AVefiResource
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Relate, for instance, episodes to a series / serial. See also:
       FIAF Moving Image Cataloguing Manual D.17
@@ -1636,6 +1730,8 @@ slots:
   variant_type:
     rank: 18
     range: VariantTypeEnum
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.2
 
@@ -1646,6 +1742,8 @@ slots:
   has_colour_type:
     rank: 27
     range: ColourTypeEnum
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11
 
@@ -1654,6 +1752,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: Format
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
 
@@ -1662,6 +1762,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: AVefiResource
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Indicate AVefi Items the institution has registered as part of
       the manifestation
@@ -1671,18 +1773,24 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: TextArea
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual Appendix B
 
   has_sound_type:
     rank: 27
     range: SoundTypeEnum
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4
 
   has_webresource:
     rank: 28
     range: HttpUri
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Link to data provider's own presentation of manifestation or
       item on the web
@@ -1693,6 +1801,8 @@ slots:
     multivalued: true
     range: AVefiResource
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Indicate AVefi WorkVariant (possibly more but no less than one)
       that is subject of the manifestation
@@ -1705,6 +1815,8 @@ slots:
     related_mappings:
     - fiaf:hasLanguage
     - schema:inLanguage
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3
 
@@ -1717,6 +1829,8 @@ slots:
     # multivalued: true
     range: AVefiResource
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Indicate AVefi Manifestation the item belongs to. Every item must
       be associated with a manifestation from the same data provider
@@ -1724,6 +1838,8 @@ slots:
   has_access_status:
     rank: 36
     range: ItemAccessStatusEnum
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Status of item determining access conditions. See also FIAF
       Moving Image Cataloguing Manual D.7.1
@@ -1733,6 +1849,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: AVefiResource
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Link to AVefi item registered by another institution indicating
       that the two are known to be copies of each other
@@ -1744,6 +1862,8 @@ slots:
     range: AVefiResource
     # related_mappings:
     # - edm:isDerivativeOf
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Link to AVefi item from which this one has been derived in whole
       or in part, e.g. as a result of a restoration or digitasation
@@ -1752,5 +1872,7 @@ slots:
   element_type:
     rank: 33
     range: ItemElementTypeEnum
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.8
