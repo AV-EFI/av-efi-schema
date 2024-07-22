@@ -299,6 +299,8 @@ classes:
       in_language: en
     related_mappings:
     - fiaf:WorkVariant
+    annotations:
+    - pid: 21.T11969/7529ed598d0bd4fcf3d8
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1087,7 +1089,8 @@ classes:
     slots:
     - has_record
     tree_root: true
-    # pid: 21.T11969/873d5c9f6ebbffecf1df
+    annotations:
+    - pid: 21.T11969/873d5c9f6ebbffecf1df
     in_subset:
     - TypeRegistrySubset
 
