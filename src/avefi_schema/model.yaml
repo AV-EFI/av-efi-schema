@@ -69,6 +69,8 @@ types:
         maxLength: 8192
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      Non-empty string possibly containing line breaks
 
   HttpUri:
     typeof: uri
@@ -79,6 +81,8 @@ types:
         maxLength: 512
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      Full URI starting with http or https
 
   AVefiCurie:
     typeof: uriorcurie
@@ -95,6 +99,26 @@ types:
       ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      ISO 8601 date or interval/period, more specifically, EDTF
+      conformance level 0 as well as qualifiers ? (uncertain date) and
+      ~ (approximate date). See examples and references for more
+      information
+    examples:
+    - value: '2024-04-24'
+      description: complete date, i.e. year, month and day
+    - value: 2024-04
+      description: year and month
+    - value: '2024'
+      description: year only
+    - value: 2024~
+      description: approximate date (2024 or at least close to 2024)
+    - value: 2024?
+      description: uncertain date (2024 or may be something different)
+    - value: 2023/2024
+      description: interval (2023 until 2024)
+    see_also:
+    - https://www.loc.gov/standards/datetime/
 
   ISODateTimeUTC:
     typeof: datetime
@@ -102,6 +126,10 @@ types:
       ^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|\+00:00)$
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      Timestamp in UTC
+    examples:
+    - value: 2024-04-24T16:36:14Z
 
   ISODurationInHours:
     typeof: string
@@ -109,6 +137,17 @@ types:
       ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      ISO 8601 duration format. See examples
+    examples:
+    - value: PT3H18M45S
+      description: 3 hours, 18 minutes, 45 seconds
+    - value: PT2H9M
+      description: 2 hours, 9 minutes
+    - value: PT6M12S
+      description: 6 minutes, 12 seconds
+    notes:
+    - https://www.w3.org/TR/xmlschema11-2/#duration
 
   IDString:
     typeof: string
@@ -120,6 +159,8 @@ types:
         maxLength: 256
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      ASCII string suitable for identifiers
 
   AVefi:
     typeof: string
@@ -131,6 +172,8 @@ types:
         maxLength: 256
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      Handle with the prefix allocated for AVefi (eventually)
 
   DOI:
     typeof: string
@@ -142,6 +185,17 @@ types:
         maxLength: 256
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      Digital Object Identifier maintained by the DOI Foundation and
+      commonly used for scientific publications including films
+    examples:
+    - value: 10.2307/j.ctt2005t2g
+      description: DOI for "The FIAF Moving Image Cataloguing Manual"
+    - value: 10.1000/182
+      description: DOI for "DOI Handbook"
+    see_also:
+    - https://dx.doi.org/
+    - https://www.wikidata.org/wiki/Property:P356
 
   FilmportalID:
     typeof: string
@@ -153,6 +207,16 @@ types:
         maxLength: 256
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      Identifier of the German Filmportal.de
+    examples:
+    - value: d70835e558264328a39112994449d17f
+      description: Filmportal-ID for creative work "Nosferatu"
+    - value: a89f90efdb664915ad2651ff0406736f
+      description: Filmportal-ID for person "Rainer Werner Fassbinder"
+    see_also:
+    - https://www.filmportal.de/
+    - https://www.wikidata.org/entity/P2639
 
   GNDID:
     typeof: string
@@ -165,6 +229,22 @@ types:
         maxLength: 256
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      Gemeinsame Normdatei (GND) identifier maintained by Deutsche
+      Nationalbibliothek (German National Library)
+    examples:
+    - value: 4228455-7
+      description: GND-ID for creative work "Nosferatu"
+    - value: 4018118-2
+      description: GND-ID for place "Frankfurt am Main"
+    - value: 10140798-1
+      description: GND-ID for organization "Deutsche Nationalbibliothek"
+    - value: 118532022
+      description: GND-ID for person "Rainer Werner Fassbinder"
+    - value: 4187368-3
+      description: GND-ID for subject heading "Vampir"
+    see_also:
+    - https://www.wikidata.org/entity/P227
 
   ISIL:
     typeof: string
@@ -176,6 +256,17 @@ types:
         maxLength: 256
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      International Standard Identifier for Libraries and Related
+      Organizations including (film) archives
+    examples:
+    - value: DE-MUS-432511
+      description: ISIL-ID for organization "Filmmuseum Düsseldorf"
+    - value: DE-B1528
+      description: ISIL-ID for organization "Deutsche Kinemathek"
+    see_also:
+    - https://biblstandard.dk/isil/index.htm
+    - https://www.wikidata.org/wiki/Property:P791
 
   TGNID:
     typeof: string
@@ -187,6 +278,17 @@ types:
         maxLength: 256
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      Getty Thesaurus of Geographic Names ID
+    examples:
+    - value: 7183809
+      description: TGN-ID for place "Göttingen"
+    - value: 7013260
+      description: TGN-ID for place "Hannover"
+    see_also:
+    - https://www.getty.edu/research/tools/vocabularies/tgn/index.html
+    - https://vocab.getty.edu/resource?uri=http://vocab.getty.edu/dataset/tgn
+    - https://www.wikidata.org/wiki/Property:P1667
 
   VIAFID:
     typeof: string
@@ -198,6 +300,20 @@ types:
         maxLength: 256
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      Virtual International Authority File identifier
+    examples:
+    - value: 316753491
+      description: VIAF-ID for creative work "Nosferatu"
+    - value: 122530980
+      description: VIAF-ID for place "Berlin"
+    - value: 7183809
+      description: VIAF-ID for organization "International Federation of Film Archives"
+    - value: 66467014
+      description: VIAF-ID for person "Rainer Werner Fassbinder"
+    see_also:
+    - https://viaf.org/
+    - https://www.wikidata.org/entity/P214
 
   WikidataID:
     typeof: string
@@ -209,6 +325,23 @@ types:
         maxLength: 256
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      Identifier for Wikidata entities
+    examples:
+    - value: Q151895
+      description: Wikidata-ID for creative work "Nosferatu"
+    - value: Q64
+      description: Wikidata-ID for place "Berlin"
+    - value: Q586693
+      description: >-
+        Wikidata-ID for organization "International Federation of Film
+        Archives"
+    - value: Q44426
+      description: Wikidata-ID for person "Rainer Werner Fassbinder"
+    - value: Q46721
+      description: Wikidata-ID for subject heading "Vampire"
+    see_also:
+    - https://www.wikidata.org/wiki/Wikidata:Identifiers
 
 classes:
 
@@ -849,18 +982,9 @@ classes:
     - TypeRegistrySubset
     description: >-
       Total running time of the described object in ISO 8601 duration
-      format. The examples section lists possible values for the
-      has_value slot. See also: FIAF Moving Image Cataloguing Manual
-      2.3.5.3, 3.1.5.11
-    examples:
-    - value: PT3H18M45S
-      description: 3 hours, 18 minutes, 45 seconds
-    - value: PT2H9M
-      description: 2 hours, 9 minutes
-    - value: PT6M12S
-      description: 6 minutes, 12 seconds
-    notes:
-    - https://www.w3.org/TR/xmlschema11-2/#duration
+      format. Check has_value slot range documentation for examples of
+      permissible values. See also: FIAF Moving Image Cataloguing
+      Manual 2.3.5.3, 3.1.5.11
 
   Extent:
     rank: 35
@@ -1084,15 +1208,15 @@ classes:
 
   MovingImageRecordContainer:
     rank: 100
-    description: >-
-      A holder for MovingImageRecord objects
+    tree_root: true
     slots:
     - has_record
-    tree_root: true
     annotations:
     - pid: 21.T11969/873d5c9f6ebbffecf1df
     in_subset:
     - TypeRegistrySubset
+    description: >-
+      A holder for MovingImageRecord objects
 
   #-----------------------------------
   # Identifier classes
@@ -1129,7 +1253,8 @@ classes:
     in_subset:
     - TypeRegistrySubset
     description: >-
-      Handle with the prefix allocated for AVefi (eventually)
+      Handle with the prefix allocated for AVefi (eventually). Check
+      id slot range documentation for examples
 
   DOIResource:
     rank: 51
@@ -1151,12 +1276,8 @@ classes:
     - TypeRegistrySubset
     description: >-
       Digital Object Identifier maintained by the DOI Foundation and
-      commonly used for scientific publications including films.
-    examples:
-    - value: 10.2307/j.ctt2005t2g
-      description: DOI for "The FIAF Moving Image Cataloguing Manual"
-    - value: 10.1000/182
-      description: DOI for "DOI Handbook"
+      commonly used for scientific publications including films. Check
+      id slot range documentation for examples
     see_also:
     - https://dx.doi.org/
     - https://www.wikidata.org/wiki/Property:P356
@@ -1180,12 +1301,8 @@ classes:
       - CreativeWorkIdentifier
       - PersonIdentifier
     description: >-
-      Identifier of the German Filmportal.de
-    examples:
-    - value: d70835e558264328a39112994449d17f
-      description: Filmportal-ID for creative work "Nosferatu"
-    - value: a89f90efdb664915ad2651ff0406736f
-      description: Filmportal-ID for person "Rainer Werner Fassbinder"
+      Identifier of the German Filmportal.de. Check id slot range
+      documentation for examples
     see_also:
     - https://www.filmportal.de/
     - https://www.wikidata.org/entity/P2639
@@ -1224,17 +1341,6 @@ classes:
     description: >-
       Gemeinsame Normdatei (GND) identifier maintained by Deutsche
       Nationalbibliothek (German National Library)
-    examples:
-    - value: 4228455-7
-      description: GND-ID for creative work "Nosferatu"
-    - value: 4018118-2
-      description: GND-ID for place "Frankfurt am Main"
-    - value: 10140798-1
-      description: GND-ID for organization "Deutsche Nationalbibliothek"
-    - value: 118532022
-      description: GND-ID for person "Rainer Werner Fassbinder"
-    - value: 4187368-3
-      description: GND-ID for subject heading "Vampir"
     see_also:
     - https://www.wikidata.org/entity/P227
 
@@ -1256,12 +1362,8 @@ classes:
       - OrganizationIdentifier
     description: >-
       International Standard Identifier for Libraries and Related
-      Organizations including (film) archives
-    examples:
-    - value: DE-MUS-432511
-      description: ISIL-ID for organization "Filmmuseum Düsseldorf"
-    - value: DE-B1528
-      description: ISIL-ID for organization "Deutsche Kinemathek"
+      Organizations including (film) archives. Check id slot range
+      documentation for examples
     see_also:
     - https://biblstandard.dk/isil/index.htm
     - https://www.wikidata.org/wiki/Property:P791
@@ -1304,12 +1406,8 @@ classes:
       value:
       - PlaceIdentifier
     description: >-
-      Getty Thesaurus of Geographic Names ID
-    examples:
-    - value: 7183809
-      description: TGN-ID for place "Göttingen"
-    - value: 7013260
-      description: TGN-ID for place "Hannover"
+      Getty Thesaurus of Geographic Names ID. Check id slot range
+      documentation for examples
     see_also:
     - https://www.getty.edu/research/tools/vocabularies/tgn/index.html
     - https://vocab.getty.edu/resource?uri=http://vocab.getty.edu/dataset/tgn
@@ -1338,16 +1436,8 @@ classes:
     description: >-
       Virtual International Authority File identifier hosted by OCLC.
       The data is accumulated from various well established authority
-      files from different parts of the world
-    examples:
-    - value: 316753491
-      description: VIAF-ID for creative work "Nosferatu"
-    - value: 122530980
-      description: VIAF-ID for place "Berlin"
-    - value: 7183809
-      description: VIAF-ID for organization "International Federation of Film Archives"
-    - value: 66467014
-      description: VIAF-ID for person "Rainer Werner Fassbinder"
+      files from different parts of the world. Check id slot range
+      documentation for examples
     see_also:
     - https://viaf.org/
     - https://www.wikidata.org/entity/P214
@@ -1374,20 +1464,8 @@ classes:
       - PersonIdentifier
       - SubjectHeadingIdentifier
     description: >-
-      Identifier for Wikidata entities
-    examples:
-    - value: Q151895
-      description: Wikidata-ID for creative work "Nosferatu"
-    - value: Q64
-      description: Wikidata-ID for place "Berlin"
-    - value: Q586693
-      description: >-
-        Wikidata-ID for organization "International Federation of Film
-        Archives"
-    - value: Q44426
-      description: Wikidata-ID for person "Rainer Werner Fassbinder"
-    - value: Q46721
-      description: Wikidata-ID for subject heading "Vampire"
+      Identifier for Wikidata entities. Check id slot range
+      documentation for examples
     see_also:
     - https://www.wikidata.org/wiki/Wikidata:Identifiers
 
@@ -1567,23 +1645,7 @@ slots:
       Date (or interval/period) when an event has taken place. A
       subset of ISO 8601 is supported, more specifically, EDTF
       conformance level 0 as well as qualifiers ? (uncertain date) and
-      ~ (approximate date). See examples and references for more
-      information
-    examples:
-    - value: '2024-04-24'
-      description: complete date, i.e. year, month and day
-    - value: 2024-04
-      description: year and month
-    - value: '2024'
-      description: year only
-    - value: 2024~
-      description: approximate date (2024 or at least close to 2024)
-    - value: 2024?
-      description: uncertain date (2024 or may be something different)
-    - value: 2023/2024
-      description: interval (2023 until 2024)
-    see_also:
-    - https://www.loc.gov/standards/datetime/
+      ~ (approximate date). See type ISODate definition for details
 
   has_activity:
     rank: 8
