@@ -35,6 +35,20 @@ EFI_SCHEMA_IDS = [
 ENUM_BASE_URL = 'https://raw.githubusercontent.com/AV-EFI/av-efi-schema/main/project/jsonschema/epic/vocabularies/'
 
 
+class NoPIDOnRecordError(Exception):
+    pass
+
+
+class DataTypeMismatchError(Exception):
+    def __init__(self, our_content, their_content, their_endpoint):
+        self.our_content = our_content
+        self.their_content = their_content
+        self.their_endpoint = their_endpoint
+        super().__init__(
+            f"Locally generated data type: {our_content} deviates"
+            f" from {their_endpoint}: {their_content}")
+
+
 @dataclass
 class DataTypeGenerator(generator.Generator):
     """Generate output for the Data Type Registry
@@ -55,19 +69,97 @@ class DataTypeGenerator(generator.Generator):
     def __post_init__(self):
         super().__post_init__()
         self.doip = DTRClient(DTR_CONFIG['dtr_doip_endpoint'])
+        self.verified_pids = {}
 
     def process_schema(self):
-        data_type_stubs = []
-        for enum in self.schemaview.all_enums():
-            data_type_stubs.append((enum, self.convert_enum(enum)))
-        for schema_type in self.schemaview.all_types().values():
-            if schema_type.from_schema not in EFI_SCHEMA_IDS:
-                continue
-            induced_type = self.schemaview.induced_type(schema_type.name)
-            data_type_stubs.append(
-                (induced_type, self.convert_type(induced_type)))
-        for obj, dtr_content in data_type_stubs.items():
-            check_data_type(obj, dtr_content)
+        try:
+            for enum in self.schemaview.all_enums().values():
+                self.get_verified_pid(enum)
+            for schema_type in self.schemaview.all_types():
+                induced_type = self.schemaview.induced_type(schema_type)
+                self.get_verified_pid(induced_type)
+            for cls in self.schemaview.all_classes().values():
+                self.get_verified_pid(cls)
+        except (NoPIDOnRecordError, DataTypeMismatchError) as e:
+            log.warning(e.msg)
+
+    def get_verified_pid(self, obj: meta.Definition, *, cls=None, trunk=False):
+        obj_type, src_locator = self.get_characteristics(
+            obj, cls=cls, trunk=trunk)
+        try:
+            return get_by_path(self.verified_pids, src_locator)
+        except KeyError:
+            pass
+        if 'TypeRegistrySubset' not in obj.in_subset:
+            set_by_path(self.verified_pids, src_locator, None)
+            return None
+        try:
+            pid = obj.annotations.get(src_locator[-1]).value
+        except AttributeError as e:
+            if self.sync_mode:
+                pid = None
+            else:
+                raise NoPIDOnRecordError(
+                    f"No PID for {src_locator[:-2]} yet") from e
+        if trunk:
+            dtr_content = self.create_trunk_type(obj)
+        elif obj_type == 'slot':
+            dtr_content = self.convert_slot(obj, src_locator)
+        else:
+            dtr_content = getattr(self, f"convert_{obj_type}")(obj)
+        dtr_content['ExpectedUse'] = DTR_CONFIG['dtr_expected_use']
+        # dtr_content['Identifier'] = pid
+        if pid:
+            response = self.doip.get('0.DOIP/Op.Retrieve', pid)
+            data_type = response.json()
+            present_content = copy.deepcopy(data_type['attributes']['content'])
+            for key in ('Identifier', 'provenance'):
+                try:
+                    del present_content[key]
+                except KeyError:
+                    pass
+            if present_content != dtr_content:
+                if self.sync_mode:
+                    data_type = self.update_registry(
+                        src_locator, dtr_content, old_data_type=data_type)
+                else:
+                    raise DataTypeMismatchError(
+                        dtr_content, present_content, response.request.url)
+        else:
+            data_type = self.update_registry(src_locator, dtr_content)
+            pid = data_type['id']
+        set_by_path(self.verified_pids, src_locator, pid)
+        return pid
+
+    def get_characteristics(self, obj, cls=None, trunk=False):
+        # drop 'Definition' suffix
+        obj_type = type(obj).__name__[:-10].lower()
+        src_locator = [
+            obj.from_schema, self._meta_to_yaml_section_map[type(obj)],
+            obj.name]
+        if obj_type == 'slot':
+            if cls is None:
+                raise RuntimeError(
+                    f"Missing cls parameter while processing slot {obj.name}")
+            for a in self.schemaview.class_ancestors(cls.name, mixins=False):
+                a_cls = self.schemaview.get_class(a)
+                for loc in ('attributes', 'slot_usage'):
+                    usage = a_cls[loc].get(obj.name)
+                    if usage and (
+                            usage['any_of'] or usage['exactly_one_of']):
+                        src_locator = [
+                            obj.from_schema,
+                            self._meta_to_yaml_section_map[type(a_cls)],
+                            a, loc, obj.name]
+                        break
+                else:
+                    continue
+                break
+        if trunk:
+            src_locator.extend(['annotations', 'trunk_pid'])
+        else:
+            src_locator.extend(['annotations', 'pid'])
+        return obj_type, src_locator
 
     def convert_enum(self, enum: meta.EnumDefinition):
         result = {'name': f"{DTR_CONFIG['dtr_name_prefix']}{enum.name}"}
@@ -113,40 +205,152 @@ class DataTypeGenerator(generator.Generator):
             dtr_schema['Properties'] = props
         return result
 
-    def check_data_type(self, obj: meta.Definition, dtr_content):
-        dtr_content['ExpectedUse'] = DTR_CONFIG['dtr_expected_use']
-        pid = obj.annotations.get('pid')
-        if pid:
-            pid = pid.value
-            # dtr_content['Identifier'] = pid
-            response = self.doip.get(
-                '0.DOIP/Op.Retrieve', pid)
-            data_type = response.json()
-            present_content = copy.deepcopy(data_type['attributes']['content'])
-            del present_content['provenance']
-            try:
-                del present_content['Identifier']
-            except KeyError:
-                pass
-            if present_content != dtr_content:
-                if not self.sync_mode:
-                    log.warning(
-                        f"Deviation from DTR (local: {dtr_content},"
-                        f" {response.request.url}: {present_content})")
-                    return None
-                else:
-                    data_type = self.update_registry(
-                        obj, dtr_content, old_data_type=data_type)
-        else:
-            if not self.sync_mode:
-                log.warning(f"No PID for {obj.name} yet")
-                return None
-            data_type = self.update_registry(obj, dtr_content)
-        return data_type
+    operator_map = {
+        'all_of': 'allOf',
+        'any_of': 'anyOf',
+        'exactly_one_of': 'oneOf',
+    }
 
-    def update_registry(self, obj, new_content, old_data_type=None):
+    def convert_slot(self, slot: meta.SlotDefinition, src_locator):
+        """Intended for slots with range expressions only."""
+        bool_op = None
+        for op in ('all_of', 'any_of', 'exactly_one_of'):
+            if slot[op]:
+                if bool_op:
+                    raise NotImplementedError(
+                        f"Cannot handle both {bool_op} and {op} on slot"
+                        f" {slot.name}")
+                bool_op = op
+        assert bool_op, f"Should not have been called on slot {slot.name}"
+        members = []
+        for subschema in slot[bool_op]:
+            obj = self.schemaview.get_element(subschema['range'])
+            members.append((obj.name, self.get_verified_pid(obj)))
+        if src_locator[1] == 'classes':
+            type_name = f"{slot.name}__in_{src_locator[2]}"
+        else:
+            type_name = slot.name
+        return self.create_bool_type(
+            bool_op, type_name, slot.description, members)
+
+    def convert_class(self, cls: meta.ClassDefinition):
+        if cls.mixin:
+            raise ValueError(
+                f"{cls.name} is a mixin, hence should not be in"
+                f" TypeRegistrySubset")
+        children = self.get_nearest_non_abstract_descendants(cls)
+        if children:
+            description = \
+                f"Wrapper InfoType validating instances of AVefi class" \
+                f" {cls.name} and subclasses"
+            if cls.abstract or 'TypeRegistrySubset' not in cls.in_subset:
+                members = []
+            else:
+                members = [
+                    (f"{cls.name}__Trunk",
+                     self.get_verified_pid(cls, trunk=True)),
+                ]
+            for child in children:
+                members.append(
+                    (child.name, self.get_verified_pid(child)))
+            return self.create_bool_type(
+                'any_of', cls.name, description, members)
+        else:
+            result = self.create_trunk_type(cls)
+            result['name'] = f"{DTR_CONFIG['dtr_name_prefix']}{cls.name}"
+            return result
+
+    def create_bool_type(self, bool_op, name, description, members):
+        result = {
+            'Schema': {
+                'Type': 'Object',
+                'addProps': True,
+                'subCond': self.operator_map[bool_op]},
+            'name': f"{DTR_CONFIG['dtr_name_prefix']}{name}",
+            'description': description,
+        }
+        cls_properties = result['Schema'].setdefault('Properties', [])
+        for member_name, pid in members:
+            cls_properties.append({
+                'Name': str(member_name),
+                'Properties': {'Cardinality': '0 - 1'},
+                'Type': pid,
+            })
+        return result
+
+    def create_trunk_type(self, cls):
+        result = {
+            'Schema': {'Type': 'Object', 'addProps': False},
+            'name': f"{DTR_CONFIG['dtr_name_prefix']}{cls.name}__Trunk",
+        }
+        if cls.description:
+            result['description'] = cls.description
+        cls_properties = []
+        for slot in self.schemaview.class_induced_slots(cls.name):
+            if 'TypeRegistrySubset' not in slot.in_subset:
+                continue
+            prop = {'Name': self.aliased_slot_name(slot)}
+            cls_properties.append(prop)
+            slot_properties = prop.setdefault('Properties', {})
+            slot_required = slot.required
+            if slot.designates_type:
+                slot_required = True
+                type_value = get_type_designator_value(
+                    self.schemaview, slot, cls)
+                slot_properties['Const Value'] = type_value
+            slot_properties['Cardinality'] = self.get_slot_cardinality(
+                slot, slot_required)
+            if any(len(slot[bool_op]) > 1
+                   for bool_op in ('all_of', 'any_of', 'exactly_one_of')):
+                pid = self.get_verified_pid(slot, cls=cls)
+            else:
+                range = self.schemaview.get_element(slot.range)
+                if isinstance(range, meta.ClassDefinition):
+                    if not self.schemaview.is_inlined(slot):
+                        raise ValueError(f"{slot.name} must be inlined")
+                    if slot.multivalued and not slot.inlined_as_list:
+                        raise ValueError(
+                            f"{slot.name} must be inlined as list")
+                    if range.abstract \
+                       and 'TypeRegistrySubset' not in range.in_subset:
+                        range.in_subset.append('TypeRegistrySubset')
+                pid = self.get_verified_pid(range)
+                if pid is None:
+                    raise ValueError(
+                        f"No PID for {range.name} as range of {slot.name};"
+                        f" perhaps {range.name} should be added to"
+                        f" TypeRegistrySubset")
+            prop['Type'] = pid
+        if cls_properties:
+            result['Schema']['Properties'] = cls_properties
+        return result
+
+    def get_nearest_non_abstract_descendants(self, cls):
+        result = []
+        for child_name in self.schemaview.get_children(cls.name, mixin=False):
+            child = self.schemaview.get_class(child_name)
+            if 'TypeRegistrySubset' in child.in_subset and not child.abstract:
+                result.append(child)
+            else:
+                result.extend(self.get_nearest_non_abstract_descendants(child))
+        return result
+
+    def get_slot_cardinality(
+            self, slot: meta.SlotDefinition, required: bool) -> str:
+        if slot.multivalued:
+            if required:
+                return '1 - n'
+            else:
+                return '0 - n'
+        else:
+            if required:
+                return '1'
+            else:
+                return '0 - 1'
+
+    def update_registry(self, src_locator, new_content, old_data_type=None):
         new_content['ExpectedUse'] = DTR_CONFIG['dtr_expected_use']
-        if type(obj) in (meta.EnumDefinition, meta.TypeDefinition):
+        if src_locator[1] in ('enums', 'types'):
             dtr_type = 'BasicInfoType'
         else:
             dtr_type = 'InfoType'
@@ -173,22 +377,26 @@ class DataTypeGenerator(generator.Generator):
         data_type = response.json()
         pid = data_type['id']
         if not old_data_type or old_data_type.get('id') != pid:
-            obj.annotations['pid'] = annotations.Annotation(
-                tag='pid', value=pid)
-            source_obj = self.get_source_definition(obj)
+            source_obj = self.get_source_definition(src_locator[:-2])
             if 'annotations' not in source_obj:
-                try:
-                    idx = list(source_obj.keys()).index('description')
-                except ValueError:
+                src_obj_keys = list(source_obj.keys())
+                for anchor in ('in_subset', 'description'):
+                    try:
+                        idx = src_obj_keys.index(anchor)
+                        break
+                    except ValueError:
+                        pass
+                else:
                     idx = 0
                 source_obj.insert(idx, 'annotations', [])
+            pid_slot = src_locator[-1]
             for el in source_obj['annotations']:
-                if 'pid' in el:
-                    el.update({'pid': pid})
+                if pid_slot in el:
+                    el.update({pid_slot: pid})
                     break
             else:
-                source_obj['annotations'].insert(0, {'pid': pid})
-            self.save_source_definition(obj)
+                source_obj['annotations'].insert(0, {pid_slot: pid})
+            self.save_source_definition(src_locator)
         return data_type
 
     @property
@@ -203,15 +411,27 @@ class DataTypeGenerator(generator.Generator):
         meta.EnumDefinition: 'enums',
         meta.TypeDefinition: 'types',
         meta.ClassDefinition: 'classes',
+        meta.SlotDefinition: 'slots',
     }
 
-    def get_source_definition(self, obj: meta.Definition):
-        parsed_source = self.cache[obj.from_schema]['parsed_source']
-        source_section = self._meta_to_yaml_section_map[type(obj)]
-        return parsed_source[source_section][obj.name]
+    def get_source_definition(self, src_locator):
+        return get_by_path(
+            self.cache[src_locator[0]]['parsed_source'], src_locator[1:])
 
-    def save_source_definition(self, obj: meta.Definition):
-        self.cache.save(obj.from_schema)
+    def save_source_definition(self, src_locator):
+        self.cache.save(src_locator[0])
+
+
+def get_by_path(dct, keys):
+    for key in keys:
+        dct = dct[key]
+    return dct
+
+
+def set_by_path(dct, keys, value):
+    for key in keys[:-1]:
+        dct = dct.setdefault(key, {})
+    dct[keys[-1]] = value
 
 
 class YAMLStore(dict):
