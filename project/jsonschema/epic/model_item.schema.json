@@ -87,7 +87,7 @@
                 },
                 "has_duration": {
                     "additionalProperties": false,
-                    "description": "Total running time of the described object in ISO 8601 duration format. The examples section lists possible values for the has_value slot. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11",
+                    "description": "Total running time of the described object in ISO 8601 duration format. Check has_value slot range documentation for examples of permissible values. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11",
                     "properties": {
                         "has_precision": {
                             "$ref": "https://raw.githubusercontent.com/AV-EFI/av-efi-schema/main/project/jsonschema/epic/vocabularies/PrecisionEnum.json",
@@ -154,7 +154,7 @@
                                                                             "anyOf": [
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier of the German Filmportal.de",
+                                                                                    "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -196,7 +196,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -217,7 +217,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier for Wikidata entities",
+                                                                                    "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -300,7 +300,7 @@
                                                                             "anyOf": [
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier of the German Filmportal.de",
+                                                                                    "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -342,7 +342,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -363,7 +363,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier for Wikidata entities",
+                                                                                    "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -446,7 +446,7 @@
                                                                             "anyOf": [
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier of the German Filmportal.de",
+                                                                                    "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -488,7 +488,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -509,7 +509,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier for Wikidata entities",
+                                                                                    "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -592,7 +592,7 @@
                                                                             "anyOf": [
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier of the German Filmportal.de",
+                                                                                    "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -634,7 +634,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -655,7 +655,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier for Wikidata entities",
+                                                                                    "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -738,7 +738,7 @@
                                                                             "anyOf": [
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier of the German Filmportal.de",
+                                                                                    "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -780,7 +780,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -801,7 +801,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier for Wikidata entities",
+                                                                                    "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -884,7 +884,7 @@
                                                                             "anyOf": [
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier of the German Filmportal.de",
+                                                                                    "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -926,7 +926,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -947,7 +947,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier for Wikidata entities",
+                                                                                    "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1030,7 +1030,7 @@
                                                                             "anyOf": [
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier of the German Filmportal.de",
+                                                                                    "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1072,7 +1072,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1093,7 +1093,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier for Wikidata entities",
+                                                                                    "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1176,7 +1176,7 @@
                                                                             "anyOf": [
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier of the German Filmportal.de",
+                                                                                    "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1218,7 +1218,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1239,7 +1239,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier for Wikidata entities",
+                                                                                    "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1322,7 +1322,7 @@
                                                                             "anyOf": [
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier of the German Filmportal.de",
+                                                                                    "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1364,7 +1364,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1385,7 +1385,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier for Wikidata entities",
+                                                                                    "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1468,7 +1468,7 @@
                                                                             "anyOf": [
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier of the German Filmportal.de",
+                                                                                    "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1510,7 +1510,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1531,7 +1531,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier for Wikidata entities",
+                                                                                    "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1614,7 +1614,7 @@
                                                                             "anyOf": [
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier of the German Filmportal.de",
+                                                                                    "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1656,7 +1656,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1677,7 +1677,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier for Wikidata entities",
+                                                                                    "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1760,7 +1760,7 @@
                                                                             "anyOf": [
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier of the German Filmportal.de",
+                                                                                    "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1802,7 +1802,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                                    "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1823,7 +1823,7 @@
                                                                                 },
                                                                                 {
                                                                                     "additionalProperties": false,
-                                                                                    "description": "Identifier for Wikidata entities",
+                                                                                    "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                                     "properties": {
                                                                                         "category": {
                                                                                             "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1878,7 +1878,7 @@
                                         "type": "array"
                                     },
                                     "has_date": {
-                                        "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information",
+                                        "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
                                         "pattern": "^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
                                         "type": "string"
                                     },
@@ -1928,7 +1928,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Getty Thesaurus of Geographic Names ID",
+                                                                "description": "Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1949,7 +1949,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1970,7 +1970,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Identifier for Wikidata entities",
+                                                                "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2056,7 +2056,7 @@
                                                                     "anyOf": [
                                                                         {
                                                                             "additionalProperties": false,
-                                                                            "description": "Identifier of the German Filmportal.de",
+                                                                            "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2098,7 +2098,7 @@
                                                                         },
                                                                         {
                                                                             "additionalProperties": false,
-                                                                            "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                            "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2119,7 +2119,7 @@
                                                                         },
                                                                         {
                                                                             "additionalProperties": false,
-                                                                            "description": "Identifier for Wikidata entities",
+                                                                            "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2172,7 +2172,7 @@
                                         "type": "array"
                                     },
                                     "has_date": {
-                                        "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information",
+                                        "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
                                         "pattern": "^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
                                         "type": "string"
                                     },
@@ -2222,7 +2222,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Getty Thesaurus of Geographic Names ID",
+                                                                "description": "Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2243,7 +2243,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2264,7 +2264,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Identifier for Wikidata entities",
+                                                                "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2352,7 +2352,7 @@
                                                                     "anyOf": [
                                                                         {
                                                                             "additionalProperties": false,
-                                                                            "description": "Identifier of the German Filmportal.de",
+                                                                            "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2394,7 +2394,7 @@
                                                                         },
                                                                         {
                                                                             "additionalProperties": false,
-                                                                            "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                            "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2415,7 +2415,7 @@
                                                                         },
                                                                         {
                                                                             "additionalProperties": false,
-                                                                            "description": "Identifier for Wikidata entities",
+                                                                            "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2468,7 +2468,7 @@
                                         "type": "array"
                                     },
                                     "has_date": {
-                                        "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information",
+                                        "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
                                         "pattern": "^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
                                         "type": "string"
                                     },
@@ -2518,7 +2518,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Getty Thesaurus of Geographic Names ID",
+                                                                "description": "Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2539,7 +2539,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2560,7 +2560,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Identifier for Wikidata entities",
+                                                                "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2647,7 +2647,7 @@
                                                                     "anyOf": [
                                                                         {
                                                                             "additionalProperties": false,
-                                                                            "description": "Identifier of the German Filmportal.de",
+                                                                            "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2689,7 +2689,7 @@
                                                                         },
                                                                         {
                                                                             "additionalProperties": false,
-                                                                            "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                            "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2710,7 +2710,7 @@
                                                                         },
                                                                         {
                                                                             "additionalProperties": false,
-                                                                            "description": "Identifier for Wikidata entities",
+                                                                            "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2763,7 +2763,7 @@
                                         "type": "array"
                                     },
                                     "has_date": {
-                                        "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information",
+                                        "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
                                         "pattern": "^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
                                         "type": "string"
                                     },
@@ -2813,7 +2813,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Getty Thesaurus of Geographic Names ID",
+                                                                "description": "Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2834,7 +2834,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2855,7 +2855,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Identifier for Wikidata entities",
+                                                                "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2943,7 +2943,7 @@
                                                                     "anyOf": [
                                                                         {
                                                                             "additionalProperties": false,
-                                                                            "description": "Identifier of the German Filmportal.de",
+                                                                            "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2985,7 +2985,7 @@
                                                                         },
                                                                         {
                                                                             "additionalProperties": false,
-                                                                            "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                            "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -3006,7 +3006,7 @@
                                                                         },
                                                                         {
                                                                             "additionalProperties": false,
-                                                                            "description": "Identifier for Wikidata entities",
+                                                                            "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                             "properties": {
                                                                                 "category": {
                                                                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -3059,7 +3059,7 @@
                                         "type": "array"
                                     },
                                     "has_date": {
-                                        "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information",
+                                        "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
                                         "pattern": "^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
                                         "type": "string"
                                     },
@@ -3109,7 +3109,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Getty Thesaurus of Geographic Names ID",
+                                                                "description": "Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -3130,7 +3130,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+                                                                "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -3151,7 +3151,7 @@
                                                             },
                                                             {
                                                                 "additionalProperties": false,
-                                                                "description": "Identifier for Wikidata entities",
+                                                                "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
                                                                 "properties": {
                                                                     "category": {
                                                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -3341,6 +3341,53 @@
                     },
                     "type": "array"
                 },
+                "has_identifier": {
+                    "anyOf": [
+                        {
+                            "additionalProperties": false,
+                            "description": "Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples",
+                            "properties": {
+                                "category": {
+                                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                    "const": "avefi:AVefiResource"
+                                },
+                                "id": {
+                                    "description": "A unique identifier for a thing",
+                                    "pattern": "^21(\\.([0-9A-Za-z])+)*/[!-~]+$",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "category"
+                            ],
+                            "title": "AVefiResource",
+                            "type": "object"
+                        },
+                        {
+                            "additionalProperties": false,
+                            "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs",
+                            "properties": {
+                                "category": {
+                                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                    "const": "avefi:LocalResource"
+                                },
+                                "id": {
+                                    "description": "A unique identifier for a thing",
+                                    "pattern": "^((?![\\\"&\\'])\\S)+$",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "category"
+                            ],
+                            "title": "LocalResource",
+                            "type": "object"
+                        }
+                    ],
+                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs"
+                },
                 "has_note": {
                     "description": "FIAF Moving Image Cataloguing Manual Appendix B",
                     "items": {
@@ -3379,11 +3426,6 @@
                     "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
-                "id": {
-                    "description": "A unique identifier for a thing",
-                    "pattern": "^((?![\\\"&\\'])\\S)+$",
-                    "type": "string"
-                },
                 "in_language": {
                     "description": "FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3",
                     "items": {
@@ -3417,7 +3459,7 @@
                         "anyOf": [
                             {
                                 "additionalProperties": false,
-                                "description": "Handle with the prefix allocated for AVefi (eventually)",
+                                "description": "Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples",
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -3438,7 +3480,7 @@
                             },
                             {
                                 "additionalProperties": false,
-                                "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi these identifiers will be replaced by the generated PIDs. Identifiers must start with the prefix \"_:\" underlining the local scope",
+                                "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs",
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -3446,7 +3488,7 @@
                                     },
                                     "id": {
                                         "description": "A unique identifier for a thing",
-                                        "pattern": "^_:((?![\\\"&\\'])\\S)+$",
+                                        "pattern": "^((?![\\\"&\\'])\\S)+$",
                                         "type": "string"
                                     }
                                 },
@@ -3467,7 +3509,7 @@
                         "anyOf": [
                             {
                                 "additionalProperties": false,
-                                "description": "Handle with the prefix allocated for AVefi (eventually)",
+                                "description": "Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples",
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -3488,7 +3530,7 @@
                             },
                             {
                                 "additionalProperties": false,
-                                "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi these identifiers will be replaced by the generated PIDs. Identifiers must start with the prefix \"_:\" underlining the local scope",
+                                "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs",
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -3496,7 +3538,7 @@
                                     },
                                     "id": {
                                         "description": "A unique identifier for a thing",
-                                        "pattern": "^_:((?![\\\"&\\'])\\S)+$",
+                                        "pattern": "^((?![\\\"&\\'])\\S)+$",
                                         "type": "string"
                                     }
                                 },
@@ -3515,7 +3557,7 @@
                     "anyOf": [
                         {
                             "additionalProperties": false,
-                            "description": "Handle with the prefix allocated for AVefi (eventually)",
+                            "description": "Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples",
                             "properties": {
                                 "category": {
                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -3536,7 +3578,7 @@
                         },
                         {
                             "additionalProperties": false,
-                            "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi these identifiers will be replaced by the generated PIDs. Identifiers must start with the prefix \"_:\" underlining the local scope",
+                            "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs",
                             "properties": {
                                 "category": {
                                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -3544,7 +3586,7 @@
                                 },
                                 "id": {
                                     "description": "A unique identifier for a thing",
-                                    "pattern": "^_:((?![\\\"&\\'])\\S)+$",
+                                    "pattern": "^((?![\\\"&\\'])\\S)+$",
                                     "type": "string"
                                 }
                             },

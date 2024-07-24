@@ -1409,21 +1409,14 @@ export interface CategorizedThing {
 }
 
 
-/**
- * Grouping for all entities that represent a PID metadata record
- */
-export interface PIDRecord extends CategorizedThing {
-    /** A unique identifier for a thing */
-    id?: string,
-}
 
-
-
-export interface MovingImageRecord extends PIDRecord {
+export interface MovingImageRecord extends CategorizedThing {
     /** Also record some metadata about the PID itself rather than the identified object */
     described_by?: DescriptionResource,
     /** Associate event(s) with a moving image record */
     has_event?: Event[],
+    /** Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs */
+    has_identifier?: MovingImageResource,
     /** FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3 */
     in_language?: Language[],
     /** Additional title(s) associated with the work / variant, manifestation, or item. */
@@ -1459,9 +1452,9 @@ export interface WorkVariant extends MovingImageRecord {
     /** Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3 */
     has_subject?: Subject[],
     /** Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17 */
-    is_part_of?: AVefiResource[],
+    is_part_of?: MovingImageResource[],
     /** Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5 */
-    is_variant_of?: AVefiResource,
+    is_variant_of?: MovingImageResource,
     /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: AuthorityResource[],
     /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
@@ -1654,7 +1647,7 @@ export interface Agent {
 export interface Event extends CategorizedThing {
     /** Associate activity (and subsequently agents) with event */
     has_activity?: Activity[],
-    /** Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information */
+    /** Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details */
     has_date?: string,
     /** Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event */
     located_in?: GeographicName[],
@@ -1733,7 +1726,7 @@ export interface ManifestationOrItem extends MovingImageRecord {
 
 
 /**
- * Total running time of the described object in ISO 8601 duration format. The examples section lists possible values for the has_value slot. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
+ * Total running time of the described object in ISO 8601 duration format. Check has_value slot range documentation for examples of permissible values. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
  */
 export interface Duration {
     /** Value of some quantity */
@@ -1814,13 +1807,13 @@ export interface Manifestation extends ManifestationOrItem {
     /** FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11 */
     has_colour_type?: string,
     /** Indicate AVefi Items the institution has registered as part of the manifestation */
-    has_item?: AVefiResource[],
+    has_item?: MovingImageResource[],
     /** FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4 */
     has_sound_type?: string,
     /** Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation */
-    is_manifestation_of: AVefiResource[],
+    is_manifestation_of: MovingImageResource[],
     /** Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work */
-    same_as?: AVefiResource[],
+    same_as?: MovingImageResource[],
 }
 
 
@@ -1844,11 +1837,11 @@ export interface Item extends ManifestationOrItem {
     /** Status of item determining access conditions. See also FIAF Moving Image Cataloguing Manual D.7.1 */
     has_access_status?: string,
     /** Link to AVefi item registered by another institution indicating that the two are known to be copies of each other */
-    is_copy_of?: AVefiResource[],
+    is_copy_of?: MovingImageResource[],
     /** Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project */
-    is_derivative_of?: AVefiResource[],
+    is_derivative_of?: MovingImageResource[],
     /** Indicate AVefi Manifestation the item belongs to. Every item must be associated with a manifestation from the same data provider */
-    is_item_of: AVefiResource,
+    is_item_of: MovingImageResource,
 }
 
 
@@ -1871,21 +1864,28 @@ export interface AuthorityResource extends CategorizedThing {
 
 
 /**
- * Handle with the prefix allocated for AVefi (eventually)
+ * Either a persistent or local identifier for AVefi compliant moving image records. See subclasses for details
  */
-export interface AVefiResource extends AuthorityResource {
+export interface MovingImageResource extends AuthorityResource {
 }
 
 
 /**
- * Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.
+ * Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples
+ */
+export interface AVefiResource extends MovingImageResource {
+}
+
+
+/**
+ * Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films. Check id slot range documentation for examples
  */
 export interface DOIResource extends AuthorityResource {
 }
 
 
 /**
- * Identifier of the German Filmportal.de
+ * Identifier of the German Filmportal.de. Check id slot range documentation for examples
  */
 export interface FilmportalResource extends AuthorityResource {
 }
@@ -1899,35 +1899,35 @@ export interface GNDResource extends AuthorityResource {
 
 
 /**
- * International Standard Identifier for Libraries and Related Organizations including (film) archives
+ * International Standard Identifier for Libraries and Related Organizations including (film) archives. Check id slot range documentation for examples
  */
 export interface ISILResource extends AuthorityResource {
 }
 
 
 /**
- * Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi these identifiers will be replaced by the generated PIDs. Identifiers must start with the prefix "_:" underlining the local scope
+ * Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs
  */
-export interface LocalResource extends AVefiResource {
+export interface LocalResource extends MovingImageResource {
 }
 
 
 /**
- * Getty Thesaurus of Geographic Names ID
+ * Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples
  */
 export interface TGNResource extends AuthorityResource {
 }
 
 
 /**
- * Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world
+ * Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples
  */
 export interface VIAFResource extends AuthorityResource {
 }
 
 
 /**
- * Identifier for Wikidata entities
+ * Identifier for Wikidata entities. Check id slot range documentation for examples
  */
 export interface WikidataResource extends AuthorityResource {
 }

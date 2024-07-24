@@ -1453,21 +1453,13 @@ class CategorizedThing(ConfiguredBaseModel):
     category: Literal["https://av-efi.net/av-efi-schema/CategorizedThing","avefi:CategorizedThing"] = Field("avefi:CategorizedThing", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
-class PIDRecord(CategorizedThing):
-    """
-    Grouping for all entities that represent a PID metadata record
-    """
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
-    category: Literal["https://av-efi.net/av-efi-schema/PIDRecord","avefi:PIDRecord"] = Field("avefi:PIDRecord", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
-
-
-class MovingImageRecord(PIDRecord):
+class MovingImageRecord(CategorizedThing):
     described_by: Optional[DescriptionResource] = Field(None, description="""Also record some metadata about the PID itself rather than the identified object""")
     has_event: Optional[List[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default_factory=list, description="""Associate event(s) with a moving image record""")
+    has_identifier: Optional[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(None, description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""")
     in_language: Optional[List[Language]] = Field(default_factory=list, description="""FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3""")
     has_alternative_title: Optional[List[Title]] = Field(default_factory=list, description="""Additional title(s) associated with the work / variant, manifestation, or item.""")
     has_primary_title: Title = Field(..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""")
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/MovingImageRecord","avefi:MovingImageRecord"] = Field("avefi:MovingImageRecord", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -1488,17 +1480,17 @@ class WorkVariant(MovingImageRecord):
     has_form: Optional[List[WorkFormEnum]] = Field(default_factory=list, description="""Form describes the format and/or purpose of a Work, e.g., “non-fiction”, “short” and “animation”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.1""")
     has_genre: Optional[List[Genre]] = Field(default_factory=list, description="""Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters. Examples of genres are “westerns” and “thrillers”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.1""")
     has_subject: Optional[List[Subject]] = Field(default_factory=list, description="""Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3""")
-    is_part_of: Optional[List[Union[AVefiResource,LocalResource]]] = Field(default_factory=list, description="""Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17""")
-    is_variant_of: Optional[Union[AVefiResource,LocalResource]] = Field(None, description="""Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5""")
+    is_part_of: Optional[List[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default_factory=list, description="""Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17""")
+    is_variant_of: Optional[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(None, description="""Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5""")
     same_as: Optional[List[Union[DOIResource, FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
     type: WorkVariantTypeEnum = Field(..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""")
     variant_type: Optional[VariantTypeEnum] = Field(None, description="""FIAF Moving Image Cataloguing Manual D.2""")
     described_by: Optional[DescriptionResource] = Field(None, description="""Also record some metadata about the PID itself rather than the identified object""")
     has_event: Optional[List[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default_factory=list, description="""Associate event(s) with a moving image record""")
+    has_identifier: Optional[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(None, description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""")
     in_language: Optional[List[Language]] = Field(default_factory=list, description="""FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3""")
     has_alternative_title: Optional[List[Title]] = Field(default_factory=list, description="""Additional title(s) associated with the work / variant, manifestation, or item.""")
     has_primary_title: Title = Field(..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""")
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/WorkVariant","avefi:WorkVariant"] = Field("avefi:WorkVariant", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -1526,7 +1518,7 @@ class Subject(ConfiguredBaseModel):
     """
     has_alternate_name: Optional[List[str]] = Field(default_factory=list, description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""")
     has_name: str = Field(..., description="""Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations""")
-    same_as: Optional[List[Union[AuthorityResource,AVefiResource,DOIResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,LocalResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
+    same_as: Optional[List[Union[AuthorityResource,MovingImageResource,DOIResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
 
 
 class Activity(CategorizedThing):
@@ -1697,7 +1689,7 @@ class Event(CategorizedThing):
     Significant event in the lifecycle of moving image work / variant, manifestation or item. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the country where the principal offices or production facilities of the production company are located for a production event. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual 1.4.2, 2.4.2, 3.3.2
     """
     has_activity: Optional[List[Union[Activity,AnimationActivity,CastActivity,CensorshipActivity,CinematographyActivity,CopyrightAndDistributionActivity,DirectingActivity,EditingActivity,LaboratoryActivity,MusicActivity,ProducingActivity,ProductionDesignActivity,PuppetActivity,SoundActivity,SpecialEffectsActivity,WritingActivity,ManifestationActivity]]] = Field(default_factory=list, description="""Associate activity (and subsequently agents) with event""")
-    has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information""")
+    has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""")
     located_in: Optional[List[GeographicName]] = Field(default_factory=list, description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""")
     category: Literal["https://av-efi.net/av-efi-schema/Event","avefi:Event"] = Field("avefi:Event", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
@@ -1708,7 +1700,7 @@ class ProductionEvent(Event):
     """
     type: Optional[ProductionEventTypeEnum] = Field(None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""")
     has_activity: Optional[List[Union[AnimationActivity, CastActivity, CinematographyActivity, DirectingActivity, EditingActivity, MusicActivity, ProducingActivity, ProductionDesignActivity, PuppetActivity, SoundActivity, SpecialEffectsActivity, WritingActivity]]] = Field(default_factory=list, description="""Associate activity (and subsequently agents) with event""")
-    has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information""")
+    has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""")
     located_in: Optional[List[GeographicName]] = Field(default_factory=list, description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""")
     category: Literal["https://av-efi.net/av-efi-schema/ProductionEvent","avefi:ProductionEvent"] = Field("avefi:ProductionEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
@@ -1719,7 +1711,7 @@ class PreservationEvent(Event):
     """
     type: PreservationEventTypeEnum = Field(..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""")
     has_activity: List[ManifestationActivity] = Field(default_factory=list, description="""Associate activity (and subsequently agents) with event""")
-    has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information""")
+    has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""")
     located_in: Optional[List[GeographicName]] = Field(default_factory=list, description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""")
     category: Literal["https://av-efi.net/av-efi-schema/PreservationEvent","avefi:PreservationEvent"] = Field("avefi:PreservationEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
@@ -1730,7 +1722,7 @@ class PublicationEvent(Event):
     """
     type: PublicationEventTypeEnum = Field(..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""")
     has_activity: Optional[List[ManifestationActivity]] = Field(default_factory=list, description="""Associate activity (and subsequently agents) with event""")
-    has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information""")
+    has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""")
     located_in: Optional[List[GeographicName]] = Field(default_factory=list, description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""")
     category: Literal["https://av-efi.net/av-efi-schema/PublicationEvent","avefi:PublicationEvent"] = Field("avefi:PublicationEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
@@ -1741,7 +1733,7 @@ class ManufactureEvent(Event):
     """
     type: ManufactureEventTypeEnum = Field(..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""")
     has_activity: List[LaboratoryActivity] = Field(default_factory=list, description="""Associate activity (and subsequently agents) with event""")
-    has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information""")
+    has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""")
     located_in: Optional[List[GeographicName]] = Field(default_factory=list, description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""")
     category: Literal["https://av-efi.net/av-efi-schema/ManufactureEvent","avefi:ManufactureEvent"] = Field("avefi:ManufactureEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
@@ -1751,7 +1743,7 @@ class RightsCopyrightRegistrationEvent(Event):
     Copyright and related rights registration event of a manifestation or possibly of a work/variant. Always specify date via has_date. Specify located_in as appropriate, e.g. the country where the copyright was registered. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.4
     """
     has_activity: List[CopyrightAndDistributionActivity] = Field(default_factory=list, description="""Associate activity (and subsequently agents) with event""")
-    has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information""")
+    has_date: Optional[str] = Field(None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""")
     located_in: Optional[List[GeographicName]] = Field(default_factory=list, description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""")
     category: Literal["https://av-efi.net/av-efi-schema/RightsCopyrightRegistrationEvent","avefi:RightsCopyrightRegistrationEvent"] = Field("avefi:RightsCopyrightRegistrationEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
@@ -1773,16 +1765,16 @@ class ManifestationOrItem(MovingImageRecord):
     has_webresource: Optional[str] = Field(None, description="""Link to data provider's own presentation of manifestation or item on the web""")
     described_by: Optional[DescriptionResource] = Field(None, description="""Also record some metadata about the PID itself rather than the identified object""")
     has_event: Optional[List[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default_factory=list, description="""Associate event(s) with a moving image record""")
+    has_identifier: Optional[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(None, description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""")
     in_language: Optional[List[Language]] = Field(default_factory=list, description="""FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3""")
     has_alternative_title: Optional[List[Title]] = Field(default_factory=list, description="""Additional title(s) associated with the work / variant, manifestation, or item.""")
     has_primary_title: Title = Field(..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""")
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/ManifestationOrItem","avefi:ManifestationOrItem"] = Field("avefi:ManifestationOrItem", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Duration(ConfiguredBaseModel):
     """
-    Total running time of the described object in ISO 8601 duration format. The examples section lists possible values for the has_value slot. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
+    Total running time of the described object in ISO 8601 duration format. Check has_value slot range documentation for examples of permissible values. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
     """
     has_value: str = Field(..., description="""Value of some quantity""")
     has_precision: Optional[PrecisionEnum] = Field(None, description="""Qualifier indicating the precision of an extent value or duration""")
@@ -1858,10 +1850,10 @@ class Manifestation(ManifestationOrItem):
     Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as publication event type
     """
     has_colour_type: Optional[ColourTypeEnum] = Field(None, description="""FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11""")
-    has_item: Optional[List[Union[AVefiResource,LocalResource]]] = Field(default_factory=list, description="""Indicate AVefi Items the institution has registered as part of the manifestation""")
+    has_item: Optional[List[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default_factory=list, description="""Indicate AVefi Items the institution has registered as part of the manifestation""")
     has_sound_type: Optional[SoundTypeEnum] = Field(None, description="""FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4""")
-    is_manifestation_of: List[Union[AVefiResource,LocalResource]] = Field(default_factory=list, description="""Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation""")
-    same_as: Optional[List[Union[AVefiResource,LocalResource]]] = Field(default_factory=list, description="""Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work""")
+    is_manifestation_of: List[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(default_factory=list, description="""Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation""")
+    same_as: Optional[List[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default_factory=list, description="""Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work""")
     has_duration: Optional[Duration] = Field(None, description="""Total running time of the described object in ISO 8601 duration format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11""")
     has_extent: Optional[Extent] = Field(None, description="""Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8""")
     has_format: Optional[List[Union[Format,Audio,DigitalFile,DigitalFileEncoding,Film,Optical,Video]]] = Field(default_factory=list, description="""FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1""")
@@ -1869,10 +1861,10 @@ class Manifestation(ManifestationOrItem):
     has_webresource: Optional[str] = Field(None, description="""Link to data provider's own presentation of manifestation or item on the web""")
     described_by: Optional[DescriptionResource] = Field(None, description="""Also record some metadata about the PID itself rather than the identified object""")
     has_event: Optional[List[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default_factory=list, description="""Associate event(s) with a moving image record""")
+    has_identifier: Optional[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(None, description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""")
     in_language: Optional[List[Language]] = Field(default_factory=list, description="""FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3""")
     has_alternative_title: Optional[List[Title]] = Field(default_factory=list, description="""Additional title(s) associated with the work / variant, manifestation, or item.""")
     has_primary_title: Title = Field(..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""")
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/Manifestation","avefi:Manifestation"] = Field("avefi:Manifestation", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -1890,9 +1882,9 @@ class Item(ManifestationOrItem):
     """
     element_type: Optional[ItemElementTypeEnum] = Field(None, description="""FIAF Moving Image Cataloguing Manual D.7.8""")
     has_access_status: Optional[ItemAccessStatusEnum] = Field(None, description="""Status of item determining access conditions. See also FIAF Moving Image Cataloguing Manual D.7.1""")
-    is_copy_of: Optional[List[Union[AVefiResource,LocalResource]]] = Field(default_factory=list, description="""Link to AVefi item registered by another institution indicating that the two are known to be copies of each other""")
-    is_derivative_of: Optional[List[Union[AVefiResource,LocalResource]]] = Field(default_factory=list, description="""Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project""")
-    is_item_of: Union[AVefiResource,LocalResource] = Field(..., description="""Indicate AVefi Manifestation the item belongs to. Every item must be associated with a manifestation from the same data provider""")
+    is_copy_of: Optional[List[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default_factory=list, description="""Link to AVefi item registered by another institution indicating that the two are known to be copies of each other""")
+    is_derivative_of: Optional[List[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default_factory=list, description="""Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project""")
+    is_item_of: Union[MovingImageResource,AVefiResource,LocalResource] = Field(..., description="""Indicate AVefi Manifestation the item belongs to. Every item must be associated with a manifestation from the same data provider""")
     has_duration: Optional[Duration] = Field(None, description="""Total running time of the described object in ISO 8601 duration format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11""")
     has_extent: Optional[Extent] = Field(None, description="""Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8""")
     has_format: Optional[List[Union[Format,Audio,DigitalFile,DigitalFileEncoding,Film,Optical,Video]]] = Field(default_factory=list, description="""FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1""")
@@ -1900,10 +1892,10 @@ class Item(ManifestationOrItem):
     has_webresource: Optional[str] = Field(None, description="""Link to data provider's own presentation of manifestation or item on the web""")
     described_by: Optional[DescriptionResource] = Field(None, description="""Also record some metadata about the PID itself rather than the identified object""")
     has_event: Optional[List[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default_factory=list, description="""Associate event(s) with a moving image record""")
+    has_identifier: Optional[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(None, description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""")
     in_language: Optional[List[Language]] = Field(default_factory=list, description="""FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3""")
     has_alternative_title: Optional[List[Title]] = Field(default_factory=list, description="""Additional title(s) associated with the work / variant, manifestation, or item.""")
     has_primary_title: Title = Field(..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""")
-    id: Optional[str] = Field(None, description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/Item","avefi:Item"] = Field("avefi:Item", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
@@ -1922,9 +1914,17 @@ class AuthorityResource(CategorizedThing):
     category: Literal["https://av-efi.net/av-efi-schema/AuthorityResource","avefi:AuthorityResource"] = Field("avefi:AuthorityResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
-class AVefiResource(AuthorityResource):
+class MovingImageResource(AuthorityResource):
     """
-    Handle with the prefix allocated for AVefi (eventually)
+    Either a persistent or local identifier for AVefi compliant moving image records. See subclasses for details
+    """
+    id: str = Field(..., description="""A unique identifier for a thing""")
+    category: Literal["https://av-efi.net/av-efi-schema/MovingImageResource","avefi:MovingImageResource"] = Field("avefi:MovingImageResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+
+
+class AVefiResource(MovingImageResource):
+    """
+    Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples
     """
     id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/AVefiResource","avefi:AVefiResource"] = Field("avefi:AVefiResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
@@ -1932,7 +1932,7 @@ class AVefiResource(AuthorityResource):
 
 class DOIResource(AuthorityResource):
     """
-    Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.
+    Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films. Check id slot range documentation for examples
     """
     id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/DOIResource","avefi:DOIResource"] = Field("avefi:DOIResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
@@ -1940,7 +1940,7 @@ class DOIResource(AuthorityResource):
 
 class FilmportalResource(AuthorityResource):
     """
-    Identifier of the German Filmportal.de
+    Identifier of the German Filmportal.de. Check id slot range documentation for examples
     """
     id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/FilmportalResource","avefi:FilmportalResource"] = Field("avefi:FilmportalResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
@@ -1956,35 +1956,23 @@ class GNDResource(AuthorityResource):
 
 class ISILResource(AuthorityResource):
     """
-    International Standard Identifier for Libraries and Related Organizations including (film) archives
+    International Standard Identifier for Libraries and Related Organizations including (film) archives. Check id slot range documentation for examples
     """
     id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/ISILResource","avefi:ISILResource"] = Field("avefi:ISILResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
-class LocalResource(AVefiResource):
+class LocalResource(MovingImageResource):
     """
-    Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi these identifiers will be replaced by the generated PIDs. Identifiers must start with the prefix \"_:\" underlining the local scope
+    Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs
     """
     id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/LocalResource","avefi:LocalResource"] = Field("avefi:LocalResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
-    @field_validator('id')
-    def pattern_id(cls, v):
-        pattern=re.compile(r"^_:((?![\"&\'])\S)+$")
-        if isinstance(v,list):
-            for element in v:
-                if not pattern.match(element):
-                    raise ValueError(f"Invalid id format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid id format: {v}")
-        return v
-
 
 class TGNResource(AuthorityResource):
     """
-    Getty Thesaurus of Geographic Names ID
+    Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples
     """
     id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/TGNResource","avefi:TGNResource"] = Field("avefi:TGNResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
@@ -1992,7 +1980,7 @@ class TGNResource(AuthorityResource):
 
 class VIAFResource(AuthorityResource):
     """
-    Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world
+    Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples
     """
     id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/VIAFResource","avefi:VIAFResource"] = Field("avefi:VIAFResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
@@ -2000,7 +1988,7 @@ class VIAFResource(AuthorityResource):
 
 class WikidataResource(AuthorityResource):
     """
-    Identifier for Wikidata entities
+    Identifier for Wikidata entities. Check id slot range documentation for examples
     """
     id: str = Field(..., description="""A unique identifier for a thing""")
     category: Literal["https://av-efi.net/av-efi-schema/WikidataResource","avefi:WikidataResource"] = Field("avefi:WikidataResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
@@ -2009,7 +1997,6 @@ class WikidataResource(AuthorityResource):
 # Model rebuild
 # see https://pydantic-docs.helpmanual.io/usage/models/#rebuilding-a-model
 CategorizedThing.model_rebuild()
-PIDRecord.model_rebuild()
 MovingImageRecord.model_rebuild()
 DescriptionResource.model_rebuild()
 WorkVariant.model_rebuild()
@@ -2056,6 +2043,7 @@ Language.model_rebuild()
 Item.model_rebuild()
 MovingImageRecordContainer.model_rebuild()
 AuthorityResource.model_rebuild()
+MovingImageResource.model_rebuild()
 AVefiResource.model_rebuild()
 DOIResource.model_rebuild()
 FilmportalResource.model_rebuild()

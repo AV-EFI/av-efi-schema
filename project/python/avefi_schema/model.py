@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-07-15T21:39:59
+# Generation date: 2024-07-24T12:42:49
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -65,6 +65,7 @@ class TextLine(String):
 
 
 class TextArea(String):
+    """ Non-empty string possibly containing line breaks """
     type_class_uri = XSD["string"]
     type_class_curie = "xsd:string"
     type_name = "TextArea"
@@ -72,6 +73,7 @@ class TextArea(String):
 
 
 class HttpUri(Uri):
+    """ Full URI starting with http or https """
     type_class_uri = XSD["anyURI"]
     type_class_curie = "xsd:anyURI"
     type_name = "HttpUri"
@@ -87,6 +89,7 @@ class AVefiCurie(Uriorcurie):
 
 
 class ISODate(String):
+    """ ISO 8601 date or interval/period, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information """
     type_class_uri = XSD["string"]
     type_class_curie = "xsd:string"
     type_name = "ISODate"
@@ -94,6 +97,7 @@ class ISODate(String):
 
 
 class ISODateTimeUTC(Datetime):
+    """ Timestamp in UTC """
     type_class_uri = XSD["dateTime"]
     type_class_curie = "xsd:dateTime"
     type_name = "ISODateTimeUTC"
@@ -101,6 +105,7 @@ class ISODateTimeUTC(Datetime):
 
 
 class ISODurationInHours(String):
+    """ ISO 8601 duration format. See examples """
     type_class_uri = XSD["string"]
     type_class_curie = "xsd:string"
     type_name = "ISODurationInHours"
@@ -108,6 +113,7 @@ class ISODurationInHours(String):
 
 
 class IDString(String):
+    """ ASCII string suitable for identifiers """
     type_class_uri = XSD["string"]
     type_class_curie = "xsd:string"
     type_name = "IDString"
@@ -115,6 +121,7 @@ class IDString(String):
 
 
 class AVefi(String):
+    """ Handle with the prefix allocated for AVefi (eventually) """
     type_class_uri = XSD["string"]
     type_class_curie = "xsd:string"
     type_name = "AVefi"
@@ -122,6 +129,7 @@ class AVefi(String):
 
 
 class DOI(String):
+    """ Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films """
     type_class_uri = XSD["string"]
     type_class_curie = "xsd:string"
     type_name = "DOI"
@@ -129,6 +137,7 @@ class DOI(String):
 
 
 class FilmportalID(String):
+    """ Identifier of the German Filmportal.de """
     type_class_uri = XSD["string"]
     type_class_curie = "xsd:string"
     type_name = "FilmportalID"
@@ -136,6 +145,7 @@ class FilmportalID(String):
 
 
 class GNDID(String):
+    """ Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library) """
     type_class_uri = XSD["string"]
     type_class_curie = "xsd:string"
     type_name = "GNDID"
@@ -143,6 +153,7 @@ class GNDID(String):
 
 
 class ISIL(String):
+    """ International Standard Identifier for Libraries and Related Organizations including (film) archives """
     type_class_uri = XSD["string"]
     type_class_curie = "xsd:string"
     type_name = "ISIL"
@@ -150,6 +161,7 @@ class ISIL(String):
 
 
 class TGNID(String):
+    """ Getty Thesaurus of Geographic Names ID """
     type_class_uri = XSD["string"]
     type_class_curie = "xsd:string"
     type_name = "TGNID"
@@ -157,6 +169,7 @@ class TGNID(String):
 
 
 class VIAFID(String):
+    """ Virtual International Authority File identifier """
     type_class_uri = XSD["string"]
     type_class_curie = "xsd:string"
     type_name = "VIAFID"
@@ -164,6 +177,7 @@ class VIAFID(String):
 
 
 class WikidataID(String):
+    """ Identifier for Wikidata entities """
     type_class_uri = XSD["string"]
     type_class_curie = "xsd:string"
     type_name = "WikidataID"
@@ -220,31 +234,7 @@ class CategorizedThing(YAMLRoot):
 
 
 @dataclass
-class PIDRecord(CategorizedThing):
-    """
-    Grouping for all entities that represent a PID metadata record
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = AVEFI["PIDRecord"]
-    class_class_curie: ClassVar[str] = "avefi:PIDRecord"
-    class_name: ClassVar[str] = "PIDRecord"
-    class_model_uri: ClassVar[URIRef] = AVEFI.PIDRecord
-
-    id: Optional[Union[str, IDString]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, IDString):
-            self.id = IDString(self.id)
-
-        super().__post_init__(**kwargs)
-        if self._is_empty(self.category):
-            self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
-
-
-@dataclass
-class MovingImageRecord(PIDRecord):
+class MovingImageRecord(CategorizedThing):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = AVEFI["MovingImageRecord"]
@@ -255,6 +245,7 @@ class MovingImageRecord(PIDRecord):
     has_primary_title: Union[dict, "Title"] = None
     described_by: Optional[Union[dict, "DescriptionResource"]] = None
     has_event: Optional[Union[Union[dict, "Event"], List[Union[dict, "Event"]]]] = empty_list()
+    has_identifier: Optional[Union[dict, "MovingImageResource"]] = None
     in_language: Optional[Union[Union[dict, "Language"], List[Union[dict, "Language"]]]] = empty_list()
     has_alternative_title: Optional[Union[Union[dict, "Title"], List[Union[dict, "Title"]]]] = empty_list()
 
@@ -270,6 +261,9 @@ class MovingImageRecord(PIDRecord):
         if not isinstance(self.has_event, list):
             self.has_event = [self.has_event] if self.has_event is not None else []
         self.has_event = [v if isinstance(v, Event) else Event(**as_dict(v)) for v in self.has_event]
+
+        if self.has_identifier is not None and not isinstance(self.has_identifier, MovingImageResource):
+            self.has_identifier = MovingImageResource(**as_dict(self.has_identifier))
 
         if not isinstance(self.in_language, list):
             self.in_language = [self.in_language] if self.in_language is not None else []
@@ -342,8 +336,8 @@ class WorkVariant(MovingImageRecord):
     has_form: Optional[Union[Union[str, "WorkFormEnum"], List[Union[str, "WorkFormEnum"]]]] = empty_list()
     has_genre: Optional[Union[Union[dict, "Genre"], List[Union[dict, "Genre"]]]] = empty_list()
     has_subject: Optional[Union[Union[dict, "Subject"], List[Union[dict, "Subject"]]]] = empty_list()
-    is_part_of: Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]] = empty_list()
-    is_variant_of: Optional[Union[dict, "AVefiResource"]] = None
+    is_part_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
+    is_variant_of: Optional[Union[dict, "MovingImageResource"]] = None
     same_as: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
     variant_type: Optional[Union[str, "VariantTypeEnum"]] = None
 
@@ -367,10 +361,10 @@ class WorkVariant(MovingImageRecord):
 
         if not isinstance(self.is_part_of, list):
             self.is_part_of = [self.is_part_of] if self.is_part_of is not None else []
-        self.is_part_of = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.is_part_of]
+        self.is_part_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_part_of]
 
-        if self.is_variant_of is not None and not isinstance(self.is_variant_of, AVefiResource):
-            self.is_variant_of = AVefiResource(**as_dict(self.is_variant_of))
+        if self.is_variant_of is not None and not isinstance(self.is_variant_of, MovingImageResource):
+            self.is_variant_of = MovingImageResource(**as_dict(self.is_variant_of))
 
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
@@ -1275,8 +1269,8 @@ class ManifestationOrItem(MovingImageRecord):
 @dataclass
 class Duration(YAMLRoot):
     """
-    Total running time of the described object in ISO 8601 duration format. The examples section lists possible values
-    for the has_value slot. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
+    Total running time of the described object in ISO 8601 duration format. Check has_value slot range documentation
+    for examples of permissible values. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1515,32 +1509,32 @@ class Manifestation(ManifestationOrItem):
     class_model_uri: ClassVar[URIRef] = AVEFI.Manifestation
 
     has_primary_title: Union[dict, Title] = None
-    is_manifestation_of: Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]] = None
+    is_manifestation_of: Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]] = None
     has_colour_type: Optional[Union[str, "ColourTypeEnum"]] = None
-    has_item: Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]] = empty_list()
+    has_item: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
     has_sound_type: Optional[Union[str, "SoundTypeEnum"]] = None
-    same_as: Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]] = empty_list()
+    same_as: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.is_manifestation_of):
             self.MissingRequiredField("is_manifestation_of")
         if not isinstance(self.is_manifestation_of, list):
             self.is_manifestation_of = [self.is_manifestation_of] if self.is_manifestation_of is not None else []
-        self.is_manifestation_of = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.is_manifestation_of]
+        self.is_manifestation_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_manifestation_of]
 
         if self.has_colour_type is not None and not isinstance(self.has_colour_type, ColourTypeEnum):
             self.has_colour_type = ColourTypeEnum(self.has_colour_type)
 
         if not isinstance(self.has_item, list):
             self.has_item = [self.has_item] if self.has_item is not None else []
-        self.has_item = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.has_item]
+        self.has_item = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.has_item]
 
         if self.has_sound_type is not None and not isinstance(self.has_sound_type, SoundTypeEnum):
             self.has_sound_type = SoundTypeEnum(self.has_sound_type)
 
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
-        self.same_as = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.same_as]
+        self.same_as = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.same_as]
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1592,17 +1586,17 @@ class Item(ManifestationOrItem):
     class_model_uri: ClassVar[URIRef] = AVEFI.Item
 
     has_primary_title: Union[dict, Title] = None
-    is_item_of: Union[dict, "AVefiResource"] = None
+    is_item_of: Union[dict, "MovingImageResource"] = None
     element_type: Optional[Union[str, "ItemElementTypeEnum"]] = None
     has_access_status: Optional[Union[str, "ItemAccessStatusEnum"]] = None
-    is_copy_of: Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]] = empty_list()
-    is_derivative_of: Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]] = empty_list()
+    is_copy_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
+    is_derivative_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.is_item_of):
             self.MissingRequiredField("is_item_of")
-        if not isinstance(self.is_item_of, AVefiResource):
-            self.is_item_of = AVefiResource(**as_dict(self.is_item_of))
+        if not isinstance(self.is_item_of, MovingImageResource):
+            self.is_item_of = MovingImageResource(**as_dict(self.is_item_of))
 
         if self.element_type is not None and not isinstance(self.element_type, ItemElementTypeEnum):
             self.element_type = ItemElementTypeEnum(self.element_type)
@@ -1612,11 +1606,11 @@ class Item(ManifestationOrItem):
 
         if not isinstance(self.is_copy_of, list):
             self.is_copy_of = [self.is_copy_of] if self.is_copy_of is not None else []
-        self.is_copy_of = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.is_copy_of]
+        self.is_copy_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_copy_of]
 
         if not isinstance(self.is_derivative_of, list):
             self.is_derivative_of = [self.is_derivative_of] if self.is_derivative_of is not None else []
-        self.is_derivative_of = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.is_derivative_of]
+        self.is_derivative_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_derivative_of]
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1674,9 +1668,31 @@ class AuthorityResource(CategorizedThing):
 
 
 @dataclass
-class AVefiResource(AuthorityResource):
+class MovingImageResource(AuthorityResource):
     """
-    Handle with the prefix allocated for AVefi (eventually)
+    Either a persistent or local identifier for AVefi compliant moving image records. See subclasses for details
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["MovingImageResource"]
+    class_class_curie: ClassVar[str] = "avefi:MovingImageResource"
+    class_name: ClassVar[str] = "MovingImageResource"
+    class_model_uri: ClassVar[URIRef] = AVEFI.MovingImageResource
+
+    id: Union[str, IDString] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class AVefiResource(MovingImageResource):
+    """
+    Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1703,7 +1719,7 @@ class AVefiResource(AuthorityResource):
 class DOIResource(AuthorityResource):
     """
     Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including
-    films.
+    films. Check id slot range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1729,7 +1745,7 @@ class DOIResource(AuthorityResource):
 @dataclass
 class FilmportalResource(AuthorityResource):
     """
-    Identifier of the German Filmportal.de
+    Identifier of the German Filmportal.de. Check id slot range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1781,7 +1797,8 @@ class GNDResource(AuthorityResource):
 @dataclass
 class ISILResource(AuthorityResource):
     """
-    International Standard Identifier for Libraries and Related Organizations including (film) archives
+    International Standard Identifier for Libraries and Related Organizations including (film) archives. Check id slot
+    range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1805,11 +1822,10 @@ class ISILResource(AuthorityResource):
 
 
 @dataclass
-class LocalResource(AVefiResource):
+class LocalResource(MovingImageResource):
     """
     Some identifier used by data provider to represent relations between work/variant, manifestation and item when
-    PIDs have not been assigned yet. On ingest into AVefi these identifiers will be replaced by the generated PIDs.
-    Identifiers must start with the prefix "_:" underlining the local scope
+    PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1818,13 +1834,9 @@ class LocalResource(AVefiResource):
     class_name: ClassVar[str] = "LocalResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.LocalResource
 
-    id: Union[str, AVefi] = None
+    id: Union[str, IDString] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, AVefi):
-            self.id = AVefi(self.id)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1835,7 +1847,7 @@ class LocalResource(AVefiResource):
 @dataclass
 class TGNResource(AuthorityResource):
     """
-    Getty Thesaurus of Geographic Names ID
+    Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1862,7 +1874,7 @@ class TGNResource(AuthorityResource):
 class VIAFResource(AuthorityResource):
     """
     Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well
-    established authority files from different parts of the world
+    established authority files from different parts of the world. Check id slot range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1888,7 +1900,7 @@ class VIAFResource(AuthorityResource):
 @dataclass
 class WikidataResource(AuthorityResource):
     """
-    Identifier for Wikidata entities
+    Identifier for Wikidata entities. Check id slot range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -5157,6 +5169,9 @@ class slots:
 slots.id = Slot(uri=AVEFI.id, name="id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.id, domain=None, range=Optional[Union[str, IDString]])
 
+slots.has_identifier = Slot(uri=AVEFI.has_identifier, name="has_identifier", curie=AVEFI.curie('has_identifier'),
+                   model_uri=AVEFI.has_identifier, domain=None, range=Optional[Union[dict, MovingImageResource]])
+
 slots.has_name = Slot(uri=SCHEMA.name, name="has_name", curie=SCHEMA.curie('name'),
                    model_uri=AVEFI.has_name, domain=None, range=Union[str, TextLine])
 
@@ -5233,10 +5248,10 @@ slots.has_subject = Slot(uri=AVEFI.has_subject, name="has_subject", curie=AVEFI.
                    model_uri=AVEFI.has_subject, domain=None, range=Optional[Union[Union[dict, Subject], List[Union[dict, Subject]]]])
 
 slots.is_variant_of = Slot(uri=AVEFI.is_variant_of, name="is_variant_of", curie=AVEFI.curie('is_variant_of'),
-                   model_uri=AVEFI.is_variant_of, domain=None, range=Optional[Union[dict, AVefiResource]])
+                   model_uri=AVEFI.is_variant_of, domain=None, range=Optional[Union[dict, MovingImageResource]])
 
 slots.is_part_of = Slot(uri=AVEFI.is_part_of, name="is_part_of", curie=AVEFI.curie('is_part_of'),
-                   model_uri=AVEFI.is_part_of, domain=None, range=Optional[Union[Union[dict, AVefiResource], List[Union[dict, AVefiResource]]]])
+                   model_uri=AVEFI.is_part_of, domain=None, range=Optional[Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]]])
 
 slots.variant_type = Slot(uri=AVEFI.variant_type, name="variant_type", curie=AVEFI.curie('variant_type'),
                    model_uri=AVEFI.variant_type, domain=None, range=Optional[Union[str, "VariantTypeEnum"]])
@@ -5248,7 +5263,7 @@ slots.has_format = Slot(uri=AVEFI.has_format, name="has_format", curie=AVEFI.cur
                    model_uri=AVEFI.has_format, domain=None, range=Optional[Union[Union[dict, Format], List[Union[dict, Format]]]])
 
 slots.has_item = Slot(uri=AVEFI.has_item, name="has_item", curie=AVEFI.curie('has_item'),
-                   model_uri=AVEFI.has_item, domain=None, range=Optional[Union[Union[dict, AVefiResource], List[Union[dict, AVefiResource]]]])
+                   model_uri=AVEFI.has_item, domain=None, range=Optional[Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]]])
 
 slots.has_note = Slot(uri=AVEFI.has_note, name="has_note", curie=AVEFI.curie('has_note'),
                    model_uri=AVEFI.has_note, domain=None, range=Optional[Union[Union[str, TextArea], List[Union[str, TextArea]]]])
@@ -5260,22 +5275,22 @@ slots.has_webresource = Slot(uri=AVEFI.has_webresource, name="has_webresource", 
                    model_uri=AVEFI.has_webresource, domain=None, range=Optional[Union[str, HttpUri]])
 
 slots.is_manifestation_of = Slot(uri=AVEFI.is_manifestation_of, name="is_manifestation_of", curie=AVEFI.curie('is_manifestation_of'),
-                   model_uri=AVEFI.is_manifestation_of, domain=None, range=Union[Union[dict, AVefiResource], List[Union[dict, AVefiResource]]])
+                   model_uri=AVEFI.is_manifestation_of, domain=None, range=Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]])
 
 slots.in_language = Slot(uri=AVEFI.in_language, name="in_language", curie=AVEFI.curie('in_language'),
                    model_uri=AVEFI.in_language, domain=None, range=Optional[Union[Union[dict, Language], List[Union[dict, Language]]]])
 
 slots.is_item_of = Slot(uri=AVEFI.is_item_of, name="is_item_of", curie=AVEFI.curie('is_item_of'),
-                   model_uri=AVEFI.is_item_of, domain=None, range=Union[dict, AVefiResource])
+                   model_uri=AVEFI.is_item_of, domain=None, range=Union[dict, MovingImageResource])
 
 slots.has_access_status = Slot(uri=AVEFI.has_access_status, name="has_access_status", curie=AVEFI.curie('has_access_status'),
                    model_uri=AVEFI.has_access_status, domain=None, range=Optional[Union[str, "ItemAccessStatusEnum"]])
 
 slots.is_copy_of = Slot(uri=AVEFI.is_copy_of, name="is_copy_of", curie=AVEFI.curie('is_copy_of'),
-                   model_uri=AVEFI.is_copy_of, domain=None, range=Optional[Union[Union[dict, AVefiResource], List[Union[dict, AVefiResource]]]])
+                   model_uri=AVEFI.is_copy_of, domain=None, range=Optional[Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]]])
 
 slots.is_derivative_of = Slot(uri=AVEFI.is_derivative_of, name="is_derivative_of", curie=AVEFI.curie('is_derivative_of'),
-                   model_uri=AVEFI.is_derivative_of, domain=None, range=Optional[Union[Union[dict, AVefiResource], List[Union[dict, AVefiResource]]]])
+                   model_uri=AVEFI.is_derivative_of, domain=None, range=Optional[Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]]])
 
 slots.element_type = Slot(uri=AVEFI.element_type, name="element_type", curie=AVEFI.curie('element_type'),
                    model_uri=AVEFI.element_type, domain=None, range=Optional[Union[str, "ItemElementTypeEnum"]])
@@ -5419,7 +5434,7 @@ slots.Video_type = Slot(uri=AVEFI.type, name="Video_type", curie=AVEFI.curie('ty
                    model_uri=AVEFI.Video_type, domain=Video, range=Optional[Union[str, "FormatVideoTypeEnum"]])
 
 slots.Manifestation_same_as = Slot(uri=AVEFI.same_as, name="Manifestation_same_as", curie=AVEFI.curie('same_as'),
-                   model_uri=AVEFI.Manifestation_same_as, domain=Manifestation, range=Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]])
+                   model_uri=AVEFI.Manifestation_same_as, domain=Manifestation, range=Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]])
 
 slots.AuthorityResource_id = Slot(uri=AVEFI.id, name="AuthorityResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.AuthorityResource_id, domain=AuthorityResource, range=Union[str, IDString])
@@ -5438,10 +5453,6 @@ slots.GNDResource_id = Slot(uri=AVEFI.id, name="GNDResource_id", curie=AVEFI.cur
 
 slots.ISILResource_id = Slot(uri=AVEFI.id, name="ISILResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.ISILResource_id, domain=ISILResource, range=Union[str, ISIL])
-
-slots.LocalResource_id = Slot(uri=AVEFI.id, name="LocalResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.LocalResource_id, domain=LocalResource, range=Union[str, AVefi],
-                   pattern=re.compile(r'^_:((?![\"&\'])\S)+$'))
 
 slots.TGNResource_id = Slot(uri=AVEFI.id, name="TGNResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.TGNResource_id, domain=TGNResource, range=Union[str, TGNID])
