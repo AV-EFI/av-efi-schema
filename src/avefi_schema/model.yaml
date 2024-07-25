@@ -415,9 +415,13 @@ classes:
         - range: GNDResource
         - range: VIAFResource
         - range: WikidataResource
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: WorkVariantTypeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Werk
       in_language: de
@@ -445,6 +449,8 @@ classes:
         - range: TGNResource
         - range: VIAFResource
         - range: WikidataResource
+        in_subset:
+        - TypeRegistrySubset
     related_mappings:
     - fiaf:Country
     - fiaf:Location
@@ -466,6 +472,8 @@ classes:
     slot_usage:
       same_as:
         range: GNDResource
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Genre
       in_language: default
@@ -509,6 +517,8 @@ classes:
     slot_usage:
       type:
         required: true
+        in_subset:
+        - TypeRegistrySubset
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -520,6 +530,8 @@ classes:
     slot_usage:
       type:
         range: AnimationActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:AnimationActivity
     in_subset:
@@ -534,6 +546,8 @@ classes:
     slot_usage:
       type:
         range: CastActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:CastActivity
     in_subset:
@@ -548,6 +562,8 @@ classes:
     slot_usage:
       type:
         range: CensorshipActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:CensorshipActivity
     in_subset:
@@ -562,6 +578,8 @@ classes:
     slot_usage:
       type:
         range: CinematographyActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:CinematographyActivity
     in_subset:
@@ -576,6 +594,8 @@ classes:
     slot_usage:
       type:
         range: CopyrightAndDistributionActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:CopyrightandDistributionActivity
     in_subset:
@@ -590,6 +610,8 @@ classes:
     slot_usage:
       type:
         range: DirectingActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:DirectingActivity
     in_subset:
@@ -604,6 +626,8 @@ classes:
     slot_usage:
       type:
         range: EditingActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:EditingActivity
     in_subset:
@@ -618,6 +642,8 @@ classes:
     slot_usage:
       type:
         range: LaboratoryActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:LaboratoryActivity
     in_subset:
@@ -632,6 +658,8 @@ classes:
     slot_usage:
       type:
         range: MusicActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:MusicActivity
     in_subset:
@@ -646,6 +674,8 @@ classes:
     slot_usage:
       type:
         range: ProducingActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:ProducingActivity
     in_subset:
@@ -660,6 +690,8 @@ classes:
     slot_usage:
       type:
         range: ProductionDesignActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:ProductionDesignActivity
     in_subset:
@@ -674,6 +706,8 @@ classes:
     slot_usage:
       type:
         range: PuppetActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:PuppetActivity
     in_subset:
@@ -688,6 +722,8 @@ classes:
     slot_usage:
       type:
         range: SoundActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:SoundActivity
     in_subset:
@@ -702,6 +738,8 @@ classes:
     slot_usage:
       type:
         range: SpecialEffectsActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:SpecialEffectsActivity
     in_subset:
@@ -716,6 +754,8 @@ classes:
     slot_usage:
       type:
         range: WritingActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:WritingActivity
     in_subset:
@@ -730,6 +770,8 @@ classes:
     slot_usage:
       type:
         range: ManifestationActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:ManifestationActivity
     in_subset:
@@ -747,6 +789,8 @@ classes:
     - type
     slot_usage:
       has_name:
+        in_subset:
+        - TypeRegistrySubset
         description: >-
           For natural persons, always use the convention "family name,
           given name"
@@ -756,9 +800,13 @@ classes:
         - range: GNDResource
         - range: VIAFResource
         - range: WikidataResource
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: AgentTypeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
     related_mappings:
     - fiaf:Agent
     - foaf:Agent
@@ -809,8 +857,12 @@ classes:
         - range: SoundActivity
         - range: SpecialEffectsActivity
         - range: WritingActivity
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: ProductionEventTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Produktion
       in_language: de
@@ -838,9 +890,13 @@ classes:
       has_activity:
         range: ManifestationActivity
         required: true
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: PreservationEventTypeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:PreservationEvent
     in_subset:
@@ -861,9 +917,13 @@ classes:
     slot_usage:
       has_activity:
         range: ManifestationActivity
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: PublicationEventTypeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:PublicationEvent
     in_subset:
@@ -886,9 +946,13 @@ classes:
       has_activity:
         range: LaboratoryActivity
         required: true
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: ManufactureEventTypeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:ManufactureEvent
     in_subset:
@@ -908,6 +972,8 @@ classes:
       has_activity:
         range: CopyrightAndDistributionActivity
         required: true
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Rechte
       in_language: de
@@ -936,9 +1002,13 @@ classes:
         close_mappings:
         - fiaf:hasTitleValue
         - schema:name
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: TitleTypeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
         description: >-
           FIAF Moving Image Cataloguing Manual A.2
     annotations:
@@ -966,6 +1036,8 @@ classes:
     slot_usage:
       has_value:
         range: ISODurationInHours
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Abspieldauer
       in_language: de
@@ -1011,6 +1083,8 @@ classes:
     slot_usage:
       type:
         range: FormatAudioTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Audio
       in_language: default
@@ -1027,6 +1101,8 @@ classes:
     slot_usage:
       type:
         range: FormatDigitalFileTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Datei
       in_language: de
@@ -1045,6 +1121,8 @@ classes:
     slot_usage:
       type:
         range: FormatDigitalFileEncodingTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Encoding
       in_language: de
@@ -1063,6 +1141,8 @@ classes:
     slot_usage:
       type:
         range: FormatFilmTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Film
       in_language: default
@@ -1079,6 +1159,8 @@ classes:
     slot_usage:
       type:
         range: FormatOpticalTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Optisch
       in_language: de
@@ -1096,6 +1178,8 @@ classes:
     slot_usage:
       type:
         range: FormatVideoTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Video
       in_language: default
@@ -1118,6 +1202,8 @@ classes:
     slot_usage:
       same_as:
         range: MovingImageResource
+        in_subset:
+        - TypeRegistrySubset
         description: >-
           Link to AVefi resource registered by another data provider
           indicating that the two manifestations are known to be the
@@ -1223,6 +1309,8 @@ classes:
     slot_usage:
       id:
         required: true
+        in_subset:
+        - TypeRegistrySubset
     description: >-
       Root class for all identifiers from some kind of authority or
       public register widely accepted in the community
@@ -1240,6 +1328,8 @@ classes:
     slot_usage:
       id:
         range: AVefi
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: AVefi
       in_language: default
@@ -1262,6 +1352,8 @@ classes:
     slot_usage:
       id:
         range: DOI
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: DOI
       in_language: default
@@ -1288,6 +1380,8 @@ classes:
     slot_usage:
       id:
         range: FilmportalID
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Filmportal
       in_language: default
@@ -1313,6 +1407,8 @@ classes:
     slot_usage:
       id:
         range: GNDID
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: GND
       in_language: default
@@ -1350,6 +1446,8 @@ classes:
     slot_usage:
       id:
         range: ISIL
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: ISIL
       in_language: default
@@ -1390,6 +1488,8 @@ classes:
     slot_usage:
       id:
         range: TGNID
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: TGN
       in_language: default
@@ -1415,6 +1515,8 @@ classes:
     slot_usage:
       id:
         range: VIAFID
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: VIAF
       in_language: default
@@ -1444,6 +1546,8 @@ classes:
     slot_usage:
       id:
         range: WikidataID
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Wikidata
       in_language: default
