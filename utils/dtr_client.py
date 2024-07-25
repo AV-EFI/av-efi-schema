@@ -1,6 +1,7 @@
 import copy
 from dataclasses import dataclass
 import getpass
+import itertools
 import logging
 import pathlib
 import urllib.parse as urlparse
@@ -72,16 +73,17 @@ class DataTypeGenerator(generator.Generator):
         self.verified_pids = {}
 
     def process_schema(self):
-        try:
-            for enum in self.schemaview.all_enums().values():
-                self.get_verified_pid(enum)
-            for schema_type in self.schemaview.all_types():
-                induced_type = self.schemaview.induced_type(schema_type)
-                self.get_verified_pid(induced_type)
-            for cls in self.schemaview.all_classes().values():
-                self.get_verified_pid(cls)
-        except (NoPIDOnRecordError, DataTypeMismatchError) as e:
-            log.warning(e.msg)
+        for obj in itertools.chain(
+                self.schemaview.all_enums().values(),
+                [self.schemaview.induced_type(schema_type)
+                 for schema_type in self.schemaview.all_types()],
+                self.schemaview.all_classes().values()):
+            if 'TypeRegistrySubset' not in obj.in_subset:
+                continue
+            try:
+                self.get_verified_pid(obj)
+            except (NoPIDOnRecordError, DataTypeMismatchError) as e:
+                log.warning(e)
 
     def get_verified_pid(self, obj: meta.Definition, *, cls=None, trunk=False):
         obj_type, src_locator = self.get_characteristics(
