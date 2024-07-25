@@ -93,6 +93,13 @@ types:
     description: >-
       To be used as range for type designator slots, i.e. const values
 
+  Decimal:
+    typeof: decimal
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Decimal numbers
+
   ISODate:
     typeof: string
     pattern: 
@@ -1826,7 +1833,7 @@ slots:
 
   has_value:
     rank: 25
-    range: decimal
+    range: Decimal
     required: true
     in_subset:
     - TypeRegistrySubset
