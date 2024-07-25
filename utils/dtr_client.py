@@ -90,7 +90,7 @@ class DataTypeGenerator(generator.Generator):
             return get_by_path(self.verified_pids, src_locator)
         except KeyError:
             pass
-        if 'TypeRegistrySubset' not in obj.in_subset:
+        if 'TypeRegistrySubset' not in obj.in_subset and not trunk:
             set_by_path(self.verified_pids, src_locator, None)
             return None
         try:
@@ -286,7 +286,25 @@ class DataTypeGenerator(generator.Generator):
         if cls.description:
             result['description'] = cls.description
         cls_properties = []
-        for slot in self.schemaview.class_induced_slots(cls.name):
+        parents = self.schemaview.class_parents(cls.name, mixins=False)
+        if parents:
+            # Should be exactly one element since mixins have been ignored
+            parent = self.schemaview.get_class(parents[0])
+            cls_properties.append({
+                'Name': f"{parent.name}__Trunk",
+                'Properties': {
+                    'Cardinality': '0 - 1',
+                    'extractProperties': True,
+                },
+                'Type': self.get_verified_pid(parent, trunk=True),
+            })
+        slot_names = set(
+            cls.slots + list(cls.slot_usage) + list(cls.attributes))
+        designator = self.schemaview.get_type_designator_slot(cls.name)
+        if designator:
+            slot_names.add(designator.name)
+        for slot_name in slot_names:
+            slot = self.schemaview.induced_slot(slot_name, cls.name)
             if 'TypeRegistrySubset' not in slot.in_subset:
                 continue
             prop = {'Name': self.aliased_slot_name(slot)}
