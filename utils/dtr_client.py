@@ -75,8 +75,7 @@ class DataTypeGenerator(generator.Generator):
     def process_schema(self):
         for obj in itertools.chain(
                 self.schemaview.all_enums().values(),
-                [self.schemaview.induced_type(schema_type)
-                 for schema_type in self.schemaview.all_types()],
+                self.schemaview.all_types().values(),
                 self.schemaview.all_classes().values()):
             if 'TypeRegistrySubset' not in obj.in_subset:
                 continue
@@ -177,6 +176,7 @@ class DataTypeGenerator(generator.Generator):
         return result
 
     def convert_type(self, schema_type: meta.TypeDefinition):
+        schema_type = self.schemaview.induced_type(schema_type.name)
         result = {
             'name': f"{DTR_CONFIG['dtr_name_prefix']}{schema_type.name}",
         }
