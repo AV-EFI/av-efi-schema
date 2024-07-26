@@ -95,8 +95,8 @@ class DataTypeGenerator(generator.Generator):
             set_by_path(self.verified_pids, src_locator, None)
             return None
         try:
-            pid = obj.annotations.get(src_locator[-1]).value
-        except AttributeError as e:
+            pid = self.get_pid_from_source(src_locator)
+        except KeyError as e:
             if self.sync_mode:
                 pid = None
             else:
@@ -161,6 +161,14 @@ class DataTypeGenerator(generator.Generator):
         else:
             src_locator.extend(['annotations', 'pid'])
         return obj_type, src_locator
+
+    def get_pid_from_source(self, src_locator):
+        annotations = self.get_source_definition(src_locator[:-1])
+        for ann in annotations:
+            pid = ann.get(src_locator[-1])
+            if pid:
+                return pid
+        raise KeyError(f"{src_locator[-1]} not found at {src_locator[:-1]}")
 
     def convert_enum(self, enum: meta.EnumDefinition):
         result = {'name': f"{DTR_CONFIG['dtr_name_prefix']}{enum.name}"}
