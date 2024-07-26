@@ -175,7 +175,7 @@ class DataTypeGenerator(generator.Generator):
     def convert_enum(self, enum: meta.EnumDefinition):
         result = {'name': f"{DTR_CONFIG['dtr_name_prefix']}{enum.name}"}
         if enum.description:
-           result['description'] = enum.description
+           result['description'] = str(enum.description)
         result['Schema'] = {
             'Type': 'Enum',
             'Properties': [{
@@ -191,7 +191,7 @@ class DataTypeGenerator(generator.Generator):
             'name': f"{DTR_CONFIG['dtr_name_prefix']}{schema_type.name}",
         }
         if schema_type.description:
-            result['description'] = schema_type.description
+            result['description'] = str(schema_type.description)
         dtr_schema = result.setdefault('Schema', {})
         typ, fmt = json_schema_types.get(
             schema_type.base.lower(), ("String", None))
@@ -279,7 +279,7 @@ class DataTypeGenerator(generator.Generator):
                 'addProps': True,
                 'subCond': self.operator_map[bool_op]},
             'name': f"{DTR_CONFIG['dtr_name_prefix']}{name}",
-            'description': description,
+            'description': str(description),
         }
         cls_properties = result['Schema'].setdefault('Properties', [])
         for member_name, pid in members:
@@ -296,7 +296,7 @@ class DataTypeGenerator(generator.Generator):
             'name': f"{DTR_CONFIG['dtr_name_prefix']}{cls.name}__Trunk",
         }
         if cls.description:
-            result['description'] = cls.description
+            result['description'] = str(cls.description)
         cls_properties = []
         parents = self.schemaview.class_parents(cls.name, mixins=False)
         if parents:
