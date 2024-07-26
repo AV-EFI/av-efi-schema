@@ -50,6 +50,7 @@ types:
     typeof: string
     pattern: ^.+$
     annotations:
+    - pid: 21.T11969/7ac5a4f0445cbffc6a27
     - tag: data_type_properties
       value:
         minLength: 1
@@ -63,6 +64,7 @@ types:
   TextArea:
     typeof: string
     annotations:
+    - pid: 21.T11969/8717ca7ca5aff686b379
     - tag: data_type_properties
       value:
         minLength: 1
@@ -76,6 +78,7 @@ types:
     typeof: uri
     pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
     annotations:
+    - pid: 21.T11969/4f13820c6cdbd8a7136f
     - tag: data_type_properties
       value:
         maxLength: 512
@@ -95,6 +98,8 @@ types:
 
   Decimal:
     typeof: decimal
+    annotations:
+    - pid: 21.T11969/fcbe592c37410a1b261d
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -104,6 +109,8 @@ types:
     typeof: string
     pattern: 
       ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$
+    annotations:
+    - pid: 21.T11969/90ce854c789144a37fb7
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -131,6 +138,8 @@ types:
     typeof: datetime
     pattern: 
       ^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|\+00:00)$
+    annotations:
+    - pid: 21.T11969/27064b567b4f9f7017ae
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -142,6 +151,8 @@ types:
     typeof: string
     pattern: 
       ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
+    annotations:
+    - pid: 21.T11969/a9cc3bf7aa659fe0f9e5
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -160,6 +171,7 @@ types:
     typeof: string
     pattern: ^((?![\"&\'])\S)+$
     annotations:
+    - pid: 21.T11969/4af5369dc8358733d34c
     - tag: data_type_properties
       value:
         minLength: 1
@@ -173,6 +185,7 @@ types:
     typeof: string
     pattern: ^21(\.([0-9A-Za-z])+)*/[!-~]+$
     annotations:
+    - pid: 21.T11969/10a6d4dc54ac4827a50b
     - tag: data_type_properties
       value:
         minLength: 1
@@ -186,6 +199,7 @@ types:
     typeof: string
     pattern: ^10\.[0-9]{4,9}(\.[0-9]+)*(/|%2F)((?![\"&\'])\S)+$
     annotations:
+    - pid: 21.T11969/94dbc30c6c4a38e84e6f
     - tag: data_type_properties
       value:
         minLength: 1
@@ -208,6 +222,7 @@ types:
     typeof: string
     pattern: ^[\da-f]{32}$
     annotations:
+    - pid: 21.T11969/4099938c39f6b2a57877
     - tag: data_type_properties
       value:
         minLength: 1
@@ -257,6 +272,7 @@ types:
     typeof: string
     pattern: ^[A-Z]{2}-[A-Za-z\-0-9:/]{1,15}$
     annotations:
+    - pid: 21.T11969/0f04aac5809944fbe63f
     - tag: data_type_properties
       value:
         minLength: 1
@@ -279,6 +295,7 @@ types:
     typeof: string
     pattern: ^[1-9][0-9]{6}$
     annotations:
+    - pid: 21.T11969/279a437ca7ffc31a26d6
     - tag: data_type_properties
       value:
         minLength: 1
@@ -301,6 +318,7 @@ types:
     typeof: string
     pattern: ^\d+$
     annotations:
+    - pid: 21.T11969/815abb512b729cbe019d
     - tag: data_type_properties
       value:
         minLength: 1
@@ -326,6 +344,7 @@ types:
     typeof: string
     pattern: ^[LPQ]\d+$
     annotations:
+    - pid: 21.T11969/fa9d47f9d4107f21daa2
     - tag: data_type_properties
       value:
         minLength: 1
@@ -356,10 +375,15 @@ classes:
     abstract: true
     slots:
     - category
+    annotations:
+    - trunk_pid: 21.T11969/be101407612d022cfdcc
     description: >-
       Root for all classes with subclasses in this schema
 
   MovingImageRecord:
+    annotations:
+    - pid: 21.T11969/2e9c01efa0f0f6881365
+    - trunk_pid: 21.T11969/0e3ed2fb51ddeec3cb1f
     is_a: CategorizedThing
     abstract: true
     attributes:
@@ -396,6 +420,8 @@ classes:
     - has_issuer_id
     - has_issuer_name
     - last_modified
+    annotations:
+    - pid: 21.T11969/d0995eaddeeb07f3428d
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -422,6 +448,8 @@ classes:
         - range: GNDResource
         - range: VIAFResource
         - range: WikidataResource
+        annotations:
+        - pid: 21.T11969/6cd9c85272885fefa9c0
         in_subset:
         - TypeRegistrySubset
       type:
@@ -456,11 +484,15 @@ classes:
         - range: TGNResource
         - range: VIAFResource
         - range: WikidataResource
+        annotations:
+        - pid: 21.T11969/dd35cd4d748c1785083a
         in_subset:
         - TypeRegistrySubset
     related_mappings:
     - fiaf:Country
     - fiaf:Location
+    annotations:
+    - pid: 21.T11969/bacbc4ae5eb2ac96982c
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -484,6 +516,8 @@ classes:
     structured_aliases:
     - literal_form: Genre
       in_language: default
+    annotations:
+    - pid: 21.T11969/e70e5ae724f625a7477f
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -504,6 +538,8 @@ classes:
       in_language: de
     - literal_form: Subject
       in_language: en
+    annotations:
+    - pid: 21.T11969/a3e99e02ddcb607c5242
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -526,6 +562,9 @@ classes:
         required: true
         in_subset:
         - TypeRegistrySubset
+    annotations:
+    - trunk_pid: 21.T11969/e93415afce13f521e241
+    - pid: 21.T11969/56b195f0220b7e220710
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -541,6 +580,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:AnimationActivity
+    annotations:
+    - pid: 21.T11969/253658316bd6be837db1
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -557,6 +598,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:CastActivity
+    annotations:
+    - pid: 21.T11969/c6830294ff6a4d8cbd75
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -573,6 +616,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:CensorshipActivity
+    annotations:
+    - pid: 21.T11969/46ee382e391c4888ed22
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -589,6 +634,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:CinematographyActivity
+    annotations:
+    - pid: 21.T11969/bae0899a406a0bd2bdaf
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -605,6 +652,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:CopyrightandDistributionActivity
+    annotations:
+    - pid: 21.T11969/bc2aab64b865b9d83909
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -621,6 +670,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:DirectingActivity
+    annotations:
+    - pid: 21.T11969/484efc6c28cfc7732e75
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -637,6 +688,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:EditingActivity
+    annotations:
+    - pid: 21.T11969/8b0add304c707db873f1
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -653,6 +706,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:LaboratoryActivity
+    annotations:
+    - pid: 21.T11969/9d570998dedf7c199c50
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -669,6 +724,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:MusicActivity
+    annotations:
+    - pid: 21.T11969/92d2e34b5e93501ff9c7
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -685,6 +742,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:ProducingActivity
+    annotations:
+    - pid: 21.T11969/77193f6b9ff25dfd42f6
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -701,6 +760,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:ProductionDesignActivity
+    annotations:
+    - pid: 21.T11969/66f94179b4bc0ed8553f
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -717,6 +778,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:PuppetActivity
+    annotations:
+    - pid: 21.T11969/cfe02de2e73e35984272
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -733,6 +796,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:SoundActivity
+    annotations:
+    - pid: 21.T11969/33a013a7965dfd0337fa
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -749,6 +814,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:SpecialEffectsActivity
+    annotations:
+    - pid: 21.T11969/ba0a31696080a881a41e
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -765,6 +832,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:WritingActivity
+    annotations:
+    - pid: 21.T11969/7b479b9faf0a25d41679
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -781,6 +850,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:ManifestationActivity
+    annotations:
+    - pid: 21.T11969/7a9e75d630f9d2d508f8
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -807,6 +878,8 @@ classes:
         - range: GNDResource
         - range: VIAFResource
         - range: WikidataResource
+        annotations:
+        - pid: 21.T11969/7e899c043d05318a8ef7
         in_subset:
         - TypeRegistrySubset
       type:
@@ -817,6 +890,8 @@ classes:
     related_mappings:
     - fiaf:Agent
     - foaf:Agent
+    annotations:
+    - pid: 21.T11969/77048147e58b6707508a
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -834,6 +909,9 @@ classes:
     - located_in
     close_mappings:
     - fiaf:Event
+    annotations:
+    - trunk_pid: 21.T11969/c60ff3f44c089ef17142
+    - pid: 21.T11969/28f74ae4dafa9d4dca35
     description: >-
       Significant event in the lifecycle of moving image work /
       variant, manifestation or item. Always specify the type of event
@@ -864,6 +942,8 @@ classes:
         - range: SoundActivity
         - range: SpecialEffectsActivity
         - range: WritingActivity
+        annotations:
+        - pid: 21.T11969/000ee0907b3a25f21d22
         in_subset:
         - TypeRegistrySubset
       type:
@@ -877,6 +957,8 @@ classes:
       in_language: en
     close_mappings:
     - fiaf:ProductionEvent
+    annotations:
+    - pid: 21.T11969/85073ea1c5b995826a3c
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -906,6 +988,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:PreservationEvent
+    annotations:
+    - pid: 21.T11969/267f87868c98b2157407
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -933,6 +1017,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:PublicationEvent
+    annotations:
+    - pid: 21.T11969/8e1f90c97bb610491c08
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -962,6 +1048,8 @@ classes:
         - TypeRegistrySubset
     close_mappings:
     - fiaf:ManufactureEvent
+    annotations:
+    - pid: 21.T11969/d714eff2626e41e41e78
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -988,6 +1076,8 @@ classes:
       in_language: en
     close_mappings:
     - fiaf:RightsCopyrightRegistrationEvent
+    annotations:
+    - pid: 21.T11969/87d9e566e2a5a6a9d1d6
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1026,6 +1116,8 @@ classes:
       FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
 
   ManifestationOrItem:
+    annotations:
+    - trunk_pid: 21.T11969/b4db4a39a902f7abed4f
     is_a: MovingImageRecord
     abstract: true
     slots:
@@ -1050,6 +1142,8 @@ classes:
       in_language: de
     - literal_form: Running Time
       in_language: en
+    annotations:
+    - pid: 21.T11969/df7f2b4d340532f48431
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1069,6 +1163,8 @@ classes:
       in_language: de
     - literal_form: Extent
       in_language: en
+    annotations:
+    - pid: 21.T11969/9e169a9a3af6df0758ed
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1081,6 +1177,9 @@ classes:
     abstract: true
     slots:
     - type
+    annotations:
+    - pid: 21.T11969/9f6ce2fc052b3ae49a80
+    - trunk_pid: 21.T11969/d3869bbc9a1b9f1a0fd1
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
 
@@ -1097,6 +1196,8 @@ classes:
       in_language: default
     close_mappings:
     - fiaf:Audio
+    annotations:
+    - pid: 21.T11969/5d0612962482536035d7
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1117,6 +1218,8 @@ classes:
       in_language: en
     close_mappings:
     - fiaf:DigitalFile
+    annotations:
+    - pid: 21.T11969/f24e4ac9459b80d59472
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1137,6 +1240,8 @@ classes:
       in_language: en
     close_mappings:
     - fiaf:DigitalFileEncoding
+    annotations:
+    - pid: 21.T11969/7838de709db400991647
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1155,6 +1260,8 @@ classes:
       in_language: default
     close_mappings:
     - fiaf:Film
+    annotations:
+    - pid: 21.T11969/80d81e2684b42bb72bc0
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1173,6 +1280,8 @@ classes:
       in_language: de
     - literal_form: Optical
       in_language: en
+    annotations:
+    - pid: 21.T11969/8492e19b115e84682060
     in_subset:
     - TypeRegistrySubset
     description: FIAF Moving Image Cataloguing Manual D.7.2
@@ -1192,6 +1301,8 @@ classes:
       in_language: default
     close_mappings:
     - fiaf:Video
+    annotations:
+    - pid: 21.T11969/4df1c81c76d3c72a9538
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1221,6 +1332,8 @@ classes:
       in_language: default
     close_mappings:
     - fiaf:Manifestation
+    annotations:
+    - pid: 21.T11969/f3bf8470b8d25586300c
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1257,6 +1370,8 @@ classes:
       in_language: de
     - literal_form: Language
       in_language: en
+    annotations:
+    - pid: 21.T11969/ea0bf80a52047e9d46f5
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1287,6 +1402,8 @@ classes:
       in_language: en
     broad_mappings:
     - fiaf:Item
+    annotations:
+    - pid: 21.T11969/e8fb4f7dbead9e73589d
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1318,6 +1435,9 @@ classes:
         required: true
         in_subset:
         - TypeRegistrySubset
+    annotations:
+    - pid: 21.T11969/a170a3147e7ef872d701
+    - trunk_pid: 21.T11969/899f581d3d58acc1918d
     description: >-
       Root class for all identifiers from some kind of authority or
       public register widely accepted in the community
@@ -1325,6 +1445,9 @@ classes:
   MovingImageResource:
     is_a: AuthorityResource
     abstract: true
+    annotations:
+    - trunk_pid: 21.T11969/e15fa59d1733320642b6
+    - pid: 21.T11969/efb65a41ee9d746a5e69
     description: >-
       Either a persistent or local identifier for AVefi compliant
       moving image records. See subclasses for details
@@ -1395,6 +1518,7 @@ classes:
     in_subset:
     - TypeRegistrySubset
     annotations:
+    - pid: 21.T11969/03890667c65c11066ac2
     - formatter_uri_for_rdf_resource: https://www.filmportal.de/$1
     - formatter_uri_for_web_resource: https://www.filmportal.de/$1
     - tag: provides
@@ -1461,6 +1585,7 @@ classes:
     in_subset:
     - TypeRegistrySubset
     annotations:
+    - pid: 21.T11969/6a4cf32fdb37e46b2a3c
     - formatter_url_for_web_resource: https://w3id.org/isil/$1
     - tag: provides
       value:
@@ -1503,6 +1628,7 @@ classes:
     in_subset:
     - TypeRegistrySubset
     annotations:
+    - pid: 21.T11969/2296a5d6afe67e99fe50
     - formatter_uri_for_rdf_resource: http://vocab.getty.edu/tgn/$1
     - formatter_url_for_web_resource: https://vocab.getty.edu/page/tgn/$1
     - tag: provides
@@ -1530,6 +1656,7 @@ classes:
     in_subset:
     - TypeRegistrySubset
     annotations:
+    - pid: 21.T11969/b149c96db85b995926fa
     - formatter_uri_for_rdf_resource: http://viaf.org/viaf/$1
     - formatter_url_for_web_resource: https://viaf.org/viaf/$1
     - tag: provides
@@ -1561,6 +1688,7 @@ classes:
     in_subset:
     - TypeRegistrySubset
     annotations:
+    - pid: 21.T11969/1c463f1c2cf1187356d8
     - formatter_uri_for_rdf_resource: https://www.wikidata.org/entity/$1
     - formatter_url_for_web_resource: https://www.wikidata.org/entity/$1
     - tag: provides
