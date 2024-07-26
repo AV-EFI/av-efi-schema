@@ -6,6 +6,7 @@ import logging
 import pathlib
 import urllib.parse as urlparse
 
+from deepdiff import DeepDiff
 import jsonasobj2
 from linkml.generators.common.type_designators import get_type_designator_value
 from linkml.generators.jsonschemagen import json_schema_types
@@ -45,9 +46,10 @@ class DataTypeMismatchError(Exception):
         self.our_content = our_content
         self.their_content = their_content
         self.their_endpoint = their_endpoint
+        self.diff = DeepDiff(their_content, our_content)
         super().__init__(
             f"Locally generated data type: {our_content} deviates"
-            f" from {their_endpoint}: {their_content}")
+            f" from {their_endpoint} as follows: {self.diff}")
 
 
 @dataclass
