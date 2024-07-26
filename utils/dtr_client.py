@@ -315,7 +315,7 @@ class DataTypeGenerator(generator.Generator):
         designator = self.schemaview.get_type_designator_slot(cls.name)
         if designator:
             slot_names.add(designator.name)
-        for slot_name in slot_names:
+        for slot_name in sorted(list(slot_names)):
             slot = self.schemaview.induced_slot(slot_name, cls.name)
             if 'TypeRegistrySubset' not in slot.in_subset:
                 continue
