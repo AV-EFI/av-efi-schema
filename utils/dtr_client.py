@@ -252,10 +252,12 @@ class DataTypeGenerator(generator.Generator):
                 f" TypeRegistrySubset")
         children = self.get_nearest_non_abstract_descendants(cls)
         if children:
+            abstract = cls.abstract \
+                or 'TypeRegistrySubset' not in cls.in_subset
             description = \
-                f"Wrapper InfoType validating instances of AVefi class" \
-                f" {cls.name} and subclasses"
-            if cls.abstract or 'TypeRegistrySubset' not in cls.in_subset:
+                f"Wrapper InfoType validating instances of {cls.name}" \
+                f"{' and' if not abstract else ''} subclasses"
+            if abstract:
                 members = []
             else:
                 members = [
