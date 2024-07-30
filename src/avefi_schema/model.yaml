@@ -222,6 +222,7 @@ types:
     typeof: string
     pattern: ^10\.5240(/|%2F)((?![\"&\'])\S)+$
     annotations:
+    - pid: 21.T11969/99119b0c92c93022d478
     - tag: data_type_properties
       value:
         minLength: 1
@@ -1512,6 +1513,7 @@ classes:
     - literal_form: DOI
       in_language: default
     annotations:
+    - trunk_pid: 21.T11969/3118e53a91b1a64b2d8c
     - pid: 21.T11969/eba491f4edadbea9133c
     - formatter_uri_for_rdf_resource: http://dx.doi.org/$1
     - formatter_url_for_web_resource: https://doi.org/$1
@@ -1540,6 +1542,7 @@ classes:
     - literal_form: EIDR
       in_language: default
     annotations:
+    - pid: 21.T11969/8f381d5d7eec3f90d236
     - formatter_uri_for_rdf_resource: http://dx.doi.org/$1
     - formatter_url_for_web_resource: https://doi.org/$1
     - tag: provides
@@ -2061,6 +2064,8 @@ slots:
     - range: Subject
     - range: Agent
     - range: GeographicName
+    annotations:
+    - pid: 21.T11969/92555879f9ec3adef772
     in_subset:
     - TypeRegistrySubset
     description: >-
