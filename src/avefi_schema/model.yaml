@@ -1489,7 +1489,7 @@ classes:
     - literal_form: AVefi
       in_language: default
     annotations:
-    - pid: 21.T11969/7529ed598d0bd4fcf3d8
+    - pid: 21.T11969/ab7fbf47063917f34150
     - formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
     todos:
     - >-
