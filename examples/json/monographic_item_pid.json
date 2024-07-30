@@ -1,11 +1,20 @@
 {
   "has_record": {
     "category": "avefi:Item",
-    "id": "21.T11998/5CB143FE-756A-456E-B839-D2E8BB04E9D4",
     "has_primary_title": {
       "has_name": "Menschen am Sonntag",
       "type": "TitleProper"
     },
+    "has_identifier": [
+      {
+        "category": "avefi:AVefiResource",
+        "id": "21.T11998/5CB143FE-756A-456E-B839-D2E8BB04E9D4"
+      },
+      {
+        "category": "avefi:LocalResource",
+        "id": "150225499"
+      }
+    ],
     "has_extent": {
       "has_unit": "GigaByte",
       "has_value": 113

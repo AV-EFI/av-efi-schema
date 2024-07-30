@@ -2,7 +2,11 @@
 has_record:
   category: avefi:Item
   element_type: DCP
-  id: 21.T11998/5CB143FE-756A-456E-B839-D2E8BB04E9D4
+  has_identifier:
+  - category: avefi:AVefiResource
+    id: 21.T11998/5CB143FE-756A-456E-B839-D2E8BB04E9D4
+  - category: avefi:LocalResource
+    id: 150225499
   has_primary_title:
     type: TitleProper
     has_name: Menschen am Sonntag

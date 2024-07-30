@@ -1,7 +1,11 @@
 ---
 has_record:
   category: avefi:Manifestation
-  id: 21.T11998/F5471B8A-FF4D-407A-BC72-D63A8E53EAC0
+  has_identifier:
+  - category: avefi:AVefiResource
+    id: 21.T11998/F5471B8A-FF4D-407A-BC72-D63A8E53EAC0
+  - category: avefi:LocalResource
+    id: 150221536
   has_primary_title:
     type: TitleProper
     has_name: Menschen am Sonntag

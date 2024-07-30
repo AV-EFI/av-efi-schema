@@ -1,7 +1,6 @@
 {
   "has_record": {
     "category": "avefi:Manifestation",
-    "id": "21.T11998/F5471B8A-FF4D-407A-BC72-D63A8E53EAC0",
     "has_primary_title": {
       "has_name": "Menschen am Sonntag",
       "type": "TitleProper"
@@ -18,8 +17,8 @@
                 "type": "CorporateBody",
                 "same_as": [
                   {
-                    "category": "avefi:ISILResource",
-                    "id": "DE-MUS-407010"
+                    "category": "avefi:GNDResource",
+                    "id": "998208027"
                   }
                 ]
               }
@@ -34,8 +33,8 @@
                 "type": "CorporateBody",
                 "same_as": [
                   {
-                    "category": "avefi:ISILResource",
-                    "id": "DE-MUS-407010"
+                    "category": "avefi:GNDResource",
+                    "id": "998208027"
                   }
                 ]
               }
@@ -44,12 +43,22 @@
           }
         ],
         "has_date": "2013/2014",
-        "type": "ReproductionEvent"
+        "type": "RestorationEvent"
       },
       {
         "category": "avefi:PublicationEvent",
         "has_date": "2014",
         "type": "ReleaseEvent"
+      }
+    ],
+    "has_identifier": [
+      {
+        "category": "avefi:AVefiResource",
+        "id": "21.T11998/F5471B8A-FF4D-407A-BC72-D63A8E53EAC0"
+      },
+      {
+        "category": "avefi:LocalResource",
+        "id": "150221536"
       }
     ],
     "in_language": [
@@ -86,5 +95,6 @@
       }
     ],
     "has_sound_type": "Sound"
-  }
+  },
+  "@type": "MovingImageRecordContainer"
 }
