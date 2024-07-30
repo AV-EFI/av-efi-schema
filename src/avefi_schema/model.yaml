@@ -218,6 +218,25 @@ types:
     - https://dx.doi.org/
     - https://www.wikidata.org/wiki/Property:P356
 
+  EIDR:
+    typeof: string
+    pattern: ^10\.5240(/|%2F)((?![\"&\'])\S)+$
+    annotations:
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Entertainment Identifier Registry ID
+    examples:
+    - value: 10.5240/58DD-06EB-3EED-A705-EE28-7
+      description: EIDR for "The Simpsons"
+    see_also:
+    - https://www.eidr.org/
+    - https://www.wikidata.org/wiki/Property:P2704
+
   FilmportalID:
     typeof: string
     pattern: ^[\da-f]{32}$
@@ -1508,6 +1527,32 @@ classes:
     see_also:
     - https://dx.doi.org/
     - https://www.wikidata.org/wiki/Property:P356
+
+  EIDRResource:
+    rank: 51
+    is_a: DOIResource
+    slot_usage:
+      id:
+        range: EIDR
+        in_subset:
+        - TypeRegistrySubset
+    structured_aliases:
+    - literal_form: EIDR
+      in_language: default
+    annotations:
+    - formatter_uri_for_rdf_resource: http://dx.doi.org/$1
+    - formatter_url_for_web_resource: https://doi.org/$1
+    - tag: provides
+      value:
+      - CreativeWorkIdentifier
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Entertainment Identifier Registry ID. Check id slot range
+      documentation for examples
+    see_also:
+    - https://www.eidr.org/
+    - https://www.wikidata.org/wiki/Property:P2704
 
   FilmportalResource:
     rank: 51
