@@ -16,16 +16,16 @@ has_record:
         type: CorporateBody
         has_name: Deutsche Kinemathek - Museum für Film und Fernsehen
         same_as:
-        - category: avefi:ISILResource
-          id: DE-MUS-407010
+        - category: avefi:GNDResource
+          id: 998208027
     - category: avefi:ManifestationActivity
       type: AgentResponsibleForTheArchivalAvailability
       has_agent:
         type: CorporateBody
         has_name: Deutsche Kinemathek - Museum für Film und Fernsehen
         same_as:
-        - category: avefi:ISILResource
-          id: DE-MUS-407010
+        - category: avefi:GNDResource
+          id: 998208027
   - category: avefi:PublicationEvent
     type: ReleaseEvent
     has_date: 2014
