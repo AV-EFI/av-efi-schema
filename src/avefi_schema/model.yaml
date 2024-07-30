@@ -381,9 +381,6 @@ classes:
       Root for all classes with subclasses in this schema
 
   MovingImageRecord:
-    annotations:
-    - pid: 21.T11969/2e9c01efa0f0f6881365
-    - trunk_pid: 21.T11969/0e3ed2fb51ddeec3cb1f
     is_a: CategorizedThing
     abstract: true
     attributes:
@@ -413,6 +410,12 @@ classes:
     - has_event
     - has_identifier
     - in_language
+    annotations:
+    - pid: 21.T11969/2e9c01efa0f0f6881365
+    - trunk_pid: 21.T11969/0e3ed2fb51ddeec3cb1f
+    description: >-
+      Base class defining slots that are common to all levels of the
+      WVMI metadata model
 
   DescriptionResource:
     slots:
@@ -1116,8 +1119,6 @@ classes:
       FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
 
   ManifestationOrItem:
-    annotations:
-    - trunk_pid: 21.T11969/b4db4a39a902f7abed4f
     is_a: MovingImageRecord
     abstract: true
     slots:
@@ -1126,6 +1127,10 @@ classes:
     - has_format
     - has_note
     - has_webresource
+    annotations:
+    - trunk_pid: 21.T11969/b4db4a39a902f7abed4f
+    description: >-
+      Base class defining common slots for manifestations and items
 
   Duration:
     rank: 33
