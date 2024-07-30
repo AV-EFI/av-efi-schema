@@ -1514,7 +1514,7 @@ classes:
     annotations:
     - pid: 21.T11969/eba491f4edadbea9133c
     - formatter_uri_for_rdf_resource: http://dx.doi.org/$1
-    - formatter_url_for_web_resource: https://dx.doi.org/$1
+    - formatter_url_for_web_resource: https://doi.org/$1
     - tag: provides
       value:
       - CreativeWorkIdentifier
