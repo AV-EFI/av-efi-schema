@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-07-30T09:59:14
+# Generation date: 2024-07-30T11:30:50
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -264,7 +264,7 @@ class MovingImageRecord(CategorizedThing):
     has_primary_title: Union[dict, "Title"] = None
     described_by: Optional[Union[dict, "DescriptionResource"]] = None
     has_event: Optional[Union[Union[dict, "Event"], List[Union[dict, "Event"]]]] = empty_list()
-    has_identifier: Optional[Union[dict, "MovingImageResource"]] = None
+    has_identifier: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
     in_language: Optional[Union[Union[dict, "Language"], List[Union[dict, "Language"]]]] = empty_list()
     has_alternative_title: Optional[Union[Union[dict, "Title"], List[Union[dict, "Title"]]]] = empty_list()
 
@@ -281,8 +281,9 @@ class MovingImageRecord(CategorizedThing):
             self.has_event = [self.has_event] if self.has_event is not None else []
         self.has_event = [v if isinstance(v, Event) else Event(**as_dict(v)) for v in self.has_event]
 
-        if self.has_identifier is not None and not isinstance(self.has_identifier, MovingImageResource):
-            self.has_identifier = MovingImageResource(**as_dict(self.has_identifier))
+        if not isinstance(self.has_identifier, list):
+            self.has_identifier = [self.has_identifier] if self.has_identifier is not None else []
+        self.has_identifier = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.has_identifier]
 
         if not isinstance(self.in_language, list):
             self.in_language = [self.in_language] if self.in_language is not None else []
@@ -5218,7 +5219,7 @@ slots.id = Slot(uri=AVEFI.id, name="id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.id, domain=None, range=Optional[Union[str, IDString]])
 
 slots.has_identifier = Slot(uri=AVEFI.has_identifier, name="has_identifier", curie=AVEFI.curie('has_identifier'),
-                   model_uri=AVEFI.has_identifier, domain=None, range=Optional[Union[dict, MovingImageResource]])
+                   model_uri=AVEFI.has_identifier, domain=None, range=Optional[Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]]])
 
 slots.has_name = Slot(uri=SCHEMA.name, name="has_name", curie=SCHEMA.curie('name'),
                    model_uri=AVEFI.has_name, domain=None, range=Union[str, TextLine])

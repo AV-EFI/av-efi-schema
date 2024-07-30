@@ -3342,51 +3342,54 @@
                     "type": "array"
                 },
                 "has_identifier": {
-                    "anyOf": [
-                        {
-                            "additionalProperties": false,
-                            "description": "Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples",
-                            "properties": {
-                                "category": {
-                                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
-                                    "const": "avefi:AVefiResource"
+                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "additionalProperties": false,
+                                "description": "Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples",
+                                "properties": {
+                                    "category": {
+                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "const": "avefi:AVefiResource"
+                                    },
+                                    "id": {
+                                        "description": "A unique identifier for a thing",
+                                        "pattern": "^21(\\.([0-9A-Za-z])+)*/[!-~]+$",
+                                        "type": "string"
+                                    }
                                 },
-                                "id": {
-                                    "description": "A unique identifier for a thing",
-                                    "pattern": "^21(\\.([0-9A-Za-z])+)*/[!-~]+$",
-                                    "type": "string"
-                                }
+                                "required": [
+                                    "id",
+                                    "category"
+                                ],
+                                "title": "AVefiResource",
+                                "type": "object"
                             },
-                            "required": [
-                                "id",
-                                "category"
-                            ],
-                            "title": "AVefiResource",
-                            "type": "object"
-                        },
-                        {
-                            "additionalProperties": false,
-                            "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs",
-                            "properties": {
-                                "category": {
-                                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
-                                    "const": "avefi:LocalResource"
+                            {
+                                "additionalProperties": false,
+                                "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs",
+                                "properties": {
+                                    "category": {
+                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "const": "avefi:LocalResource"
+                                    },
+                                    "id": {
+                                        "description": "A unique identifier for a thing",
+                                        "pattern": "^((?![\\\"&\\'])\\S)+$",
+                                        "type": "string"
+                                    }
                                 },
-                                "id": {
-                                    "description": "A unique identifier for a thing",
-                                    "pattern": "^((?![\\\"&\\'])\\S)+$",
-                                    "type": "string"
-                                }
-                            },
-                            "required": [
-                                "id",
-                                "category"
-                            ],
-                            "title": "LocalResource",
-                            "type": "object"
-                        }
-                    ],
-                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs"
+                                "required": [
+                                    "id",
+                                    "category"
+                                ],
+                                "title": "LocalResource",
+                                "type": "object"
+                            }
+                        ]
+                    },
+                    "type": "array"
                 },
                 "has_note": {
                     "description": "FIAF Moving Image Cataloguing Manual Appendix B",

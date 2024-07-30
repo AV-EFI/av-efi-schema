@@ -952,15 +952,18 @@
                     "type": "array"
                 },
                 "has_identifier": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/AVefiResource"
-                        },
-                        {
-                            "$ref": "#/$defs/LocalResource"
-                        }
-                    ],
-                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs"
+                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": "array"
                 },
                 "has_note": {
                     "description": "FIAF Moving Image Cataloguing Manual Appendix B",
@@ -1773,15 +1776,18 @@
                     "type": "array"
                 },
                 "has_identifier": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/AVefiResource"
-                        },
-                        {
-                            "$ref": "#/$defs/LocalResource"
-                        }
-                    ],
-                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs"
+                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": "array"
                 },
                 "has_item": {
                     "description": "Indicate AVefi Items the institution has registered as part of the manifestation",
@@ -2906,15 +2912,18 @@
                     "type": "array"
                 },
                 "has_identifier": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/AVefiResource"
-                        },
-                        {
-                            "$ref": "#/$defs/LocalResource"
-                        }
-                    ],
-                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs"
+                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": "array"
                 },
                 "has_primary_title": {
                     "$ref": "#/$defs/Title",

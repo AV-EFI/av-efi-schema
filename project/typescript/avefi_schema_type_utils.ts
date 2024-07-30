@@ -1430,7 +1430,7 @@ export interface MovingImageRecord extends CategorizedThing {
     /** Associate event(s) with a moving image record */
     has_event?: Event[],
     /** Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs */
-    has_identifier?: MovingImageResource,
+    has_identifier?: MovingImageResource[],
     /** FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3 */
     in_language?: Language[],
     /** Additional title(s) associated with the work / variant, manifestation, or item. */
@@ -1451,7 +1451,7 @@ export function toMovingImageRecord(o: MovingImageRecord): MovingImageRecord {
     return {
         described_by: o.described_by ?? {},
         has_event: o.has_event ?? [],
-        has_identifier: o.has_identifier ?? {},
+        has_identifier: o.has_identifier ?? [],
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
@@ -1534,7 +1534,7 @@ export function toWorkVariant(o: WorkVariant): WorkVariant {
         variant_type: o.variant_type ?? null,
         described_by: o.described_by ?? {},
         has_event: o.has_event ?? [],
-        has_identifier: o.has_identifier ?? {},
+        has_identifier: o.has_identifier ?? [],
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
@@ -2266,7 +2266,7 @@ export function toManifestationOrItem(o: ManifestationOrItem): ManifestationOrIt
         has_webresource: o.has_webresource ?? null,
         described_by: o.described_by ?? {},
         has_event: o.has_event ?? [],
-        has_identifier: o.has_identifier ?? {},
+        has_identifier: o.has_identifier ?? [],
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
@@ -2507,7 +2507,7 @@ export function toManifestation(o: Manifestation): Manifestation {
         has_webresource: o.has_webresource ?? null,
         described_by: o.described_by ?? {},
         has_event: o.has_event ?? [],
-        has_identifier: o.has_identifier ?? {},
+        has_identifier: o.has_identifier ?? [],
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
@@ -2579,7 +2579,7 @@ export function toItem(o: Item): Item {
         has_webresource: o.has_webresource ?? null,
         described_by: o.described_by ?? {},
         has_event: o.has_event ?? [],
-        has_identifier: o.has_identifier ?? {},
+        has_identifier: o.has_identifier ?? [],
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
