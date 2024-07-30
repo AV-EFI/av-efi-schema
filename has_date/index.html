@@ -319,24 +319,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      See Also
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     <span class="md-ellipsis">
       Identifier and Mapping Information
@@ -388,7 +370,7 @@
 
 
 <h1 id="slot-has_date">Slot: has_date</h1>
-<p><em>Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information</em></p>
+<p><em>Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details</em></p>
 <p>URI: <a href="https://av-efi.net/av-efi-schema/has_date">avefi:has_date</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -403,8 +385,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../PreservationEvent/">PreservationEvent</a></td>
-<td>Preservation event originating a manifestation or possibly a vaniant.</td>
+<td><a href="../PublicationEvent/">PublicationEvent</a></td>
+<td>Publication event of a manifestation or possibly the first known publication of a work.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../RightsCopyrightRegistrationEvent/">RightsCopyrightRegistrationEvent</a></td>
+<td>Copyright and related rights registration event of a manifestation or possibly of a work/variant.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -413,8 +400,8 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../PublicationEvent/">PublicationEvent</a></td>
-<td>Publication event of a manifestation or possibly the first known publication of a work.</td>
+<td><a href="../PreservationEvent/">PreservationEvent</a></td>
+<td>Preservation event originating a manifestation or possibly a vaniant.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -427,48 +414,11 @@
 <td>Production event of a work/variant (or manifestation produced as a restoration).</td>
 <td>no</td>
 </tr>
-<tr>
-<td><a href="../RightsCopyrightRegistrationEvent/">RightsCopyrightRegistrationEvent</a></td>
-<td>Copyright and related rights registration event of a manifestation or possibly of a work/variant.</td>
-<td>no</td>
-</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>Range: <a href="../ISODate/">ISODate</a></li>
-</ul>
-<h2 id="examples">Examples</h2>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2024-04-24</td>
-</tr>
-<tr>
-<td>2024-04</td>
-</tr>
-<tr>
-<td>2024</td>
-</tr>
-<tr>
-<td>2024~</td>
-</tr>
-<tr>
-<td>2024?</td>
-</tr>
-<tr>
-<td>2023/2024</td>
-</tr>
-</tbody>
-</table>
-<h2 id="see-also">See Also</h2>
-<ul>
-<li><a href="https://www.loc.gov/standards/datetime/">https://www.loc.gov/standards/datetime/</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -480,26 +430,12 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_date</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Date (or interval/period) when an event has taken place. A subset of</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">? (uncertain date) and ~ (approximate date). See examples and references for more</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">information</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">? (uncertain date) and ~ (approximate date). See type ISODate definition for details</span>
 <span class="nt">notes</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.w3.org/TR/xmlschema11-2/#date</span>
-<span class="nt">examples</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2024-04-24&#39;</span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">complete date, i.e. year, month and day</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2024-04</span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">year and month</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2024&#39;</span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">year only</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2024~</span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">approximate date (2024 or at least close to 2024)</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2024?</span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uncertain date (2024 or may be something different)</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2023/2024</span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">interval (2023 until 2024)</span>
+<span class="nt">in_subset</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeRegistrySubset</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
-<span class="nt">see_also</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.loc.gov/standards/datetime/</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_date</span>
 <span class="nt">domain_of</span><span class="p">:</span>

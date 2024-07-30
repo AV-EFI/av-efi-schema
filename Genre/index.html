@@ -175,6 +175,13 @@
 <nav aria-label="Identifier and Mapping Information" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#annotations">
+<span class="md-ellipsis">
+      Annotations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#schema-source">
 <span class="md-ellipsis">
       Schema Source
@@ -295,6 +302,21 @@
 </tbody>
 </table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="annotations">Annotations</h3>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pid</td>
+<td>21.T11969/e70e5ae724f625a7477f</td>
+</tr>
+</tbody>
+</table>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
 <li>from schema: https://github.io/av-efi-schema/model</li>
@@ -323,12 +345,16 @@
 <h3 id="direct">Direct</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Genre</span>
+<span class="nt">annotations</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">pid</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pid</span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21.T11969/e70e5ae724f625a7477f</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Genre</span><span class="nv"> </span><span class="s">describes</span><span class="nv"> </span><span class="s">categories</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Works,</span><span class="nv"> </span><span class="s">characterized</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">similar</span><span class="nv"> </span><span class="s">plots,</span>
 <span class="w">  </span><span class="s">themes,</span><span class="nv"> </span><span class="s">settings,</span><span class="nv"> </span><span class="s">situations,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">characters.</span><span class="nv"> </span><span class="s">Examples</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">genres</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">“westerns”</span>
 <span class="w">  </span><span class="s">and</span><span class="nv"> </span><span class="s">“thrillers”.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">also:</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Moving</span><span class="nv"> </span><span class="s">Image</span><span class="nv"> </span><span class="s">Cataloguing</span><span class="nv"> </span><span class="s">Manual</span><span class="nv"> </span><span class="s">1.4.3</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Glossary</span>
 <span class="w">  </span><span class="s">of</span><span class="nv"> </span><span class="s">Filmographic</span><span class="nv"> </span><span class="s">Terms</span><span class="nv"> </span><span class="s">D.2.1'</span>
 <span class="nt">in_subset</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type_registry</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeRegistrySubset</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">structured_aliases</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Genre</span><span class="p">:</span>
@@ -342,6 +368,8 @@
 <span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">same_as</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">same_as</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeRegistrySubset</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkVariant</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GeographicName</span>
@@ -355,12 +383,16 @@
 <h3 id="induced">Induced</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Genre</span>
+<span class="nt">annotations</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">pid</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pid</span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21.T11969/e70e5ae724f625a7477f</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Genre</span><span class="nv"> </span><span class="s">describes</span><span class="nv"> </span><span class="s">categories</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Works,</span><span class="nv"> </span><span class="s">characterized</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">similar</span><span class="nv"> </span><span class="s">plots,</span>
 <span class="w">  </span><span class="s">themes,</span><span class="nv"> </span><span class="s">settings,</span><span class="nv"> </span><span class="s">situations,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">characters.</span><span class="nv"> </span><span class="s">Examples</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">genres</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">“westerns”</span>
 <span class="w">  </span><span class="s">and</span><span class="nv"> </span><span class="s">“thrillers”.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">also:</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Moving</span><span class="nv"> </span><span class="s">Image</span><span class="nv"> </span><span class="s">Cataloguing</span><span class="nv"> </span><span class="s">Manual</span><span class="nv"> </span><span class="s">1.4.3</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Glossary</span>
 <span class="w">  </span><span class="s">of</span><span class="nv"> </span><span class="s">Filmographic</span><span class="nv"> </span><span class="s">Terms</span><span class="nv"> </span><span class="s">D.2.1'</span>
 <span class="nt">in_subset</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type_registry</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeRegistrySubset</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">structured_aliases</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Genre</span><span class="p">:</span>
@@ -370,6 +402,8 @@
 <span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">same_as</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">same_as</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeRegistrySubset</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkVariant</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GeographicName</span>
@@ -384,6 +418,8 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Alternative human-readable name(s) for a thing. Whereas has_name</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">provides the preferred display name for the described entity, alternatives can</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">be recorded here in order to be indexed in search engines, for instance</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeRegistrySubset</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:alternateName</span>
@@ -401,6 +437,8 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Human-readable name for a thing. This is to be treated as the preferred</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">display label in a UI context, whereas has_alternate_name can provide additional</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">terms, e.g. for matching in search operations</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeRegistrySubset</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:name</span>
@@ -418,6 +456,8 @@
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">same_as</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">See [AuthorityResource doucmentation](AuthorityResource.md) for accepted</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">identifiers</span>
+<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeRegistrySubset</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>

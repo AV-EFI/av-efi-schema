@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://av-efi.github.io/av-efi-schema/TypeRegistry/">
+        <link rel="canonical" href="https://av-efi.github.io/av-efi-schema/EIDR/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Subset: TypeRegistry - AVefi Schema Documentation</title>
+        <title>Type: EIDR - AVefi Schema Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#subset-typeregistry" class="md-skip">
+        <a href="#type-eidr" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Subset: TypeRegistry
+              Type: EIDR
             
           </span>
         </div>
@@ -301,6 +301,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      See Also
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     <span class="md-ellipsis">
       Identifier and Mapping Information
@@ -309,6 +327,15 @@
   
     <nav class="md-nav" aria-label="Identifier and Mapping Information">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Annotations
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#schema-source" class="md-nav__link">
@@ -321,15 +348,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#classes-in-subset" class="md-nav__link">
-    <span class="md-ellipsis">
-      Classes in subset
-    </span>
-  </a>
   
 </li>
       
@@ -351,221 +369,61 @@
   
 
 
-<h1 id="subset-typeregistry">Subset: TypeRegistry</h1>
-<p><em>Classes that are to be implemented as InfoTypes in the type registry</em></p>
-<p>URI: <a href="./">TypeRegistry</a></p>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
+<h1 id="type-eidr">Type: EIDR</h1>
+<p><em>Entertainment Identifier Registry ID</em></p>
+<p>URI: <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></p>
 <ul>
-<li>from schema: https://github.io/av-efi-schema/model</li>
+<li>
+<p><a href="https://w3id.org/linkml/base">base</a>: str</p>
+</li>
+<li>
+<p><a href="https://w3id.org/linkml/uri">uri</a>: xsd:string</p>
+</li>
+<li>
+<p><a href="https://w3id.org/linkml/typeof">typeof</a>: string</p>
+</li>
+<li>
+<p><a href="https://w3id.org/linkml/pattern">pattern</a>: <code>^10\.5240(/|%2F)((?![\"&amp;\'])\S)+$</code></p>
+</li>
 </ul>
-<h2 id="classes-in-subset">Classes in subset</h2>
+<h2 id="examples">Examples</h2>
 <table>
 <thead>
 <tr>
-<th>Class</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../WorkVariant/">WorkVariant</a></td>
-<td>FIAF Moving Image Cataloguing Manual 1.0</td>
-</tr>
-<tr>
-<td><a href="../Manifestation/">Manifestation</a></td>
-<td>Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as publication event type</td>
-</tr>
-<tr>
-<td><a href="../Item/">Item</a></td>
-<td>FIAF Moving Image Cataloguing Manual 3.0</td>
-</tr>
-<tr>
-<td><a href="../Title/">Title</a></td>
-<td>FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2</td>
-</tr>
-<tr>
-<td><a href="../GeographicName/">GeographicName</a></td>
-<td>Name of country, region or other location.</td>
-</tr>
-<tr>
-<td><a href="../ProductionEvent/">ProductionEvent</a></td>
-<td>Production event of a work/variant (or manifestation produced as a restoration).</td>
-</tr>
-<tr>
-<td><a href="../PreservationEvent/">PreservationEvent</a></td>
-<td>Preservation event originating a manifestation or possibly a vaniant.</td>
-</tr>
-<tr>
-<td><a href="../PublicationEvent/">PublicationEvent</a></td>
-<td>Publication event of a manifestation or possibly the first known publication of a work.</td>
-</tr>
-<tr>
-<td><a href="../ManufactureEvent/">ManufactureEvent</a></td>
-<td>Manufacture event of a manifestation.</td>
-</tr>
-<tr>
-<td><a href="../RightsCopyrightRegistrationEvent/">RightsCopyrightRegistrationEvent</a></td>
-<td>Copyright and related rights registration event of a manifestation or possibly of a work/variant.</td>
-</tr>
-<tr>
-<td><a href="../AnimationActivity/">AnimationActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../CastActivity/">CastActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../CensorshipActivity/">CensorshipActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../CinematographyActivity/">CinematographyActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../CopyrightAndDistributionActivity/">CopyrightAndDistributionActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../DirectingActivity/">DirectingActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../EditingActivity/">EditingActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../LaboratoryActivity/">LaboratoryActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../MusicActivity/">MusicActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../ProducingActivity/">ProducingActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../ProductionDesignActivity/">ProductionDesignActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../PuppetActivity/">PuppetActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../SoundActivity/">SoundActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../SpecialEffectsActivity/">SpecialEffectsActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../WritingActivity/">WritingActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../ManifestationActivity/">ManifestationActivity</a></td>
-<td>Activity types / roles.</td>
-</tr>
-<tr>
-<td><a href="../Activity/">Activity</a></td>
-<td>FIAF Moving Image Cataloguing Manual 1.4.1.1</td>
-</tr>
-<tr>
-<td><a href="../Agent/">Agent</a></td>
-<td>Agent involved in some activity related to the moving image resource.</td>
-</tr>
-<tr>
-<td><a href="../Language/">Language</a></td>
-<td>Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled vocabulary.</td>
-</tr>
-<tr>
-<td><a href="../Subject/">Subject</a></td>
-<td>Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre.</td>
-</tr>
-<tr>
-<td><a href="../Genre/">Genre</a></td>
-<td>Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters.</td>
-</tr>
-<tr>
-<td><a href="../Audio/">Audio</a></td>
-<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
-</tr>
-<tr>
-<td><a href="../DigitalFile/">DigitalFile</a></td>
-<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
-</tr>
-<tr>
-<td><a href="../DigitalFileEncoding/">DigitalFileEncoding</a></td>
-<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
-</tr>
-<tr>
-<td><a href="../Film/">Film</a></td>
-<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
-</tr>
-<tr>
-<td><a href="../Optical/">Optical</a></td>
-<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
-</tr>
-<tr>
-<td><a href="../Video/">Video</a></td>
-<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
-</tr>
-<tr>
-<td><a href="../Duration/">Duration</a></td>
-<td>Total running time of the described object in ISO 8601 duration format.</td>
-</tr>
-<tr>
-<td><a href="../Extent/">Extent</a></td>
-<td>Physical length or size of the described object.</td>
-</tr>
-<tr>
-<td><a href="../AVefiResource/">AVefiResource</a></td>
-<td>Handle with the prefix allocated for AVefi (eventually)</td>
-</tr>
-<tr>
-<td><a href="../DOIResource/">DOIResource</a></td>
-<td>Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.</td>
-</tr>
-<tr>
-<td><a href="../FilmportalResource/">FilmportalResource</a></td>
-<td>Identifier of the German Filmportal.de</td>
-</tr>
-<tr>
-<td><a href="../GNDResource/">GNDResource</a></td>
-<td>Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)</td>
-</tr>
-<tr>
-<td><a href="../ISILResource/">ISILResource</a></td>
-<td>International Standard Identifier for Libraries and Related Organizations including (film) archives</td>
-</tr>
-<tr>
-<td><a href="../TGNResource/">TGNResource</a></td>
-<td>Getty Thesaurus of Geographic Names ID</td>
-</tr>
-<tr>
-<td><a href="../VIAFResource/">VIAFResource</a></td>
-<td>Virtual International Authority File identifier hosted by OCLC.</td>
-</tr>
-<tr>
-<td><a href="../WikidataResource/">WikidataResource</a></td>
-<td>Identifier for Wikidata entities</td>
-</tr>
-<tr>
-<td><a href="../MovingImageRecordContainer/">MovingImageRecordContainer</a></td>
-<td>A holder for MovingImageRecord objects</td>
-</tr>
-<tr>
-<td><a href="../DescriptionResource/">DescriptionResource</a></td>
-<td>Metadata about the PID rather than the identified object, i.e. who modified the PID metadata record when, making what changes</td>
+<td>10.5240/58DD-06EB-3EED-A705-EE28-7</td>
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://www.eidr.org/">https://www.eidr.org/</a></li>
+<li><a href="https://www.wikidata.org/wiki/Property:P2704">https://www.wikidata.org/wiki/Property:P2704</a></li>
+</ul>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="annotations">Annotations</h3>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pid</td>
+<td>21.T11969/99119b0c92c93022d478</td>
+</tr>
+</tbody>
+</table>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://github.io/av-efi-schema/model</li>
+</ul>
 
 
 

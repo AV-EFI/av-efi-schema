@@ -639,15 +639,19 @@ instructions and best practices</p>
 </tr>
 <tr>
 <td><a href="../AVefiResource/">AVefiResource</a></td>
-<td>Handle with the prefix allocated for AVefi (eventually)</td>
+<td>Handle with the prefix allocated for AVefi (eventually).</td>
 </tr>
 <tr>
 <td><a href="../DOIResource/">DOIResource</a></td>
 <td>Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.</td>
 </tr>
 <tr>
+<td><a href="../EIDRResource/">EIDRResource</a></td>
+<td>Entertainment Identifier Registry ID.</td>
+</tr>
+<tr>
 <td><a href="../FilmportalResource/">FilmportalResource</a></td>
-<td>Identifier of the German Filmportal.de</td>
+<td>Identifier of the German Filmportal.de.</td>
 </tr>
 <tr>
 <td><a href="../GNDResource/">GNDResource</a></td>
@@ -655,7 +659,7 @@ instructions and best practices</p>
 </tr>
 <tr>
 <td><a href="../ISILResource/">ISILResource</a></td>
-<td>International Standard Identifier for Libraries and Related Organizations including (film) archives</td>
+<td>International Standard Identifier for Libraries and Related Organizations including (film) archives.</td>
 </tr>
 <tr>
 <td><a href="../LocalResource/">LocalResource</a></td>
@@ -663,7 +667,7 @@ instructions and best practices</p>
 </tr>
 <tr>
 <td><a href="../TGNResource/">TGNResource</a></td>
-<td>Getty Thesaurus of Geographic Names ID</td>
+<td>Getty Thesaurus of Geographic Names ID.</td>
 </tr>
 <tr>
 <td><a href="../VIAFResource/">VIAFResource</a></td>
@@ -671,7 +675,7 @@ instructions and best practices</p>
 </tr>
 <tr>
 <td><a href="../WikidataResource/">WikidataResource</a></td>
-<td>Identifier for Wikidata entities</td>
+<td>Identifier for Wikidata entities.</td>
 </tr>
 <tr>
 <td><a href="../MovingImageRecordContainer/">MovingImageRecordContainer</a></td>
@@ -682,12 +686,8 @@ instructions and best practices</p>
 <td>Root for all classes with subclasses in this schema</td>
 </tr>
 <tr>
-<td><a href="../PIDRecord/">PIDRecord</a></td>
-<td>Grouping for all entities that represent a PID metadata record</td>
-</tr>
-<tr>
 <td><a href="../MovingImageRecord/">MovingImageRecord</a></td>
-<td></td>
+<td>Base class defining slots that are common to all levels of the WVMI metadata model</td>
 </tr>
 <tr>
 <td><a href="../DescriptionResource/">DescriptionResource</a></td>
@@ -695,11 +695,15 @@ instructions and best practices</p>
 </tr>
 <tr>
 <td><a href="../ManifestationOrItem/">ManifestationOrItem</a></td>
-<td></td>
+<td>Base class defining common slots for manifestations and items</td>
 </tr>
 <tr>
 <td><a href="../AuthorityResource/">AuthorityResource</a></td>
 <td>Root class for all identifiers from some kind of authority or public register widely accepted in the community</td>
+</tr>
+<tr>
+<td><a href="../MovingImageResource/">MovingImageResource</a></td>
+<td>Either a persistent or local identifier for AVefi compliant moving image records.</td>
 </tr>
 </tbody>
 </table>
@@ -735,6 +739,14 @@ instructions and best practices</p>
 <tr>
 <td><a href="../has_ordering_name/">has_ordering_name</a></td>
 <td>Provide normalised form, e.g. for sorting by title.</td>
+</tr>
+<tr>
+<td><a href="../id/">id</a></td>
+<td>A unique identifier for a thing</td>
+</tr>
+<tr>
+<td><a href="../has_identifier/">has_identifier</a></td>
+<td>Record PID in this slot when exporting data from the PID system.</td>
 </tr>
 <tr>
 <td><a href="../type/">type</a></td>
@@ -871,10 +883,6 @@ instructions and best practices</p>
 <tr>
 <td><a href="../is_derivative_of/">is_derivative_of</a></td>
 <td>Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project</td>
-</tr>
-<tr>
-<td><a href="../id/">id</a></td>
-<td>A unique identifier for a thing</td>
 </tr>
 <tr>
 <td><a href="../described_by/">described_by</a></td>
@@ -1080,63 +1088,71 @@ instructions and best practices</p>
 </tr>
 <tr>
 <td><a href="../TextArea/">TextArea</a></td>
-<td></td>
+<td>Non-empty string possibly containing line breaks</td>
 </tr>
 <tr>
 <td><a href="../HttpUri/">HttpUri</a></td>
-<td></td>
+<td>Full URI starting with http or https</td>
 </tr>
 <tr>
 <td><a href="../AVefiCurie/">AVefiCurie</a></td>
-<td></td>
+<td>To be used as range for type designator slots, i.e. const values</td>
+</tr>
+<tr>
+<td><a href="../Decimal/">Decimal</a></td>
+<td>Decimal numbers</td>
 </tr>
 <tr>
 <td><a href="../ISODate/">ISODate</a></td>
-<td></td>
+<td>ISO 8601 date or interval/period, more specifically, EDTF conformance level 0 as well as qualifiers ?</td>
 </tr>
 <tr>
 <td><a href="../ISODateTimeUTC/">ISODateTimeUTC</a></td>
-<td></td>
+<td>Timestamp in UTC</td>
 </tr>
 <tr>
 <td><a href="../ISODurationInHours/">ISODurationInHours</a></td>
-<td></td>
+<td>ISO 8601 duration format.</td>
 </tr>
 <tr>
 <td><a href="../IDString/">IDString</a></td>
-<td></td>
+<td>ASCII string suitable for identifiers</td>
 </tr>
 <tr>
 <td><a href="../AVefi/">AVefi</a></td>
-<td></td>
+<td>Handle with the prefix allocated for AVefi (eventually)</td>
 </tr>
 <tr>
 <td><a href="../DOI/">DOI</a></td>
-<td></td>
+<td>Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films</td>
+</tr>
+<tr>
+<td><a href="../EIDR/">EIDR</a></td>
+<td>Entertainment Identifier Registry ID</td>
 </tr>
 <tr>
 <td><a href="../FilmportalID/">FilmportalID</a></td>
-<td></td>
+<td>Identifier of the German Filmportal.de</td>
 </tr>
 <tr>
 <td><a href="../GNDID/">GNDID</a></td>
-<td></td>
+<td>Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)</td>
 </tr>
 <tr>
 <td><a href="../ISIL/">ISIL</a></td>
-<td></td>
+<td>International Standard Identifier for Libraries and Related Organizations including (film) archives</td>
 </tr>
 <tr>
 <td><a href="../TGNID/">TGNID</a></td>
-<td></td>
+<td>Getty Thesaurus of Geographic Names ID</td>
 </tr>
 <tr>
 <td><a href="../VIAFID/">VIAFID</a></td>
-<td></td>
+<td>Virtual International Authority File identifier</td>
 </tr>
 <tr>
 <td><a href="../WikidataID/">WikidataID</a></td>
-<td></td>
+<td>Identifier for Wikidata entities</td>
 </tr>
 <tr>
 <td><a href="../String/">String</a></td>
@@ -1226,8 +1242,8 @@ instructions and best practices</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../TypeRegistry/">TypeRegistry</a></td>
-<td>Classes that are to be implemented as InfoTypes in the type registry</td>
+<td><a href="../TypeRegistrySubset/">TypeRegistrySubset</a></td>
+<td>Classes that are to be implemented as infoTypes in the type registry</td>
 </tr>
 </tbody>
 </table>
