@@ -2012,7 +2012,10 @@ slots:
     rank: 14
     inlined_as_list: true
     multivalued: true
-    range: Subject
+    any_of:
+    - range: Subject
+    - range: Agent
+    - range: GeographicName
     in_subset:
     - TypeRegistrySubset
     description: >-
