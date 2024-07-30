@@ -1772,6 +1772,8 @@ slots:
 
   has_identifier:
     rank: 5
+    inlined_as_list: true
+    multivalued: true
     range: MovingImageResource
     description: >-
       Record PID in this slot when exporting data from the PID system.
