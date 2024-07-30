@@ -687,6 +687,519 @@ export enum ItemElementTypeEnum {
     SoundNegative = "SoundNegative",
 };
 /**
+* [ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)
+*/
+export enum LanguageCodeEnum {
+    
+    aar = "aar",
+    abk = "abk",
+    ace = "ace",
+    ach = "ach",
+    ada = "ada",
+    ady = "ady",
+    afa = "afa",
+    afh = "afh",
+    afr = "afr",
+    ain = "ain",
+    aka = "aka",
+    akk = "akk",
+    alb = "alb",
+    ale = "ale",
+    alg = "alg",
+    alt = "alt",
+    amh = "amh",
+    ang = "ang",
+    anp = "anp",
+    apa = "apa",
+    ara = "ara",
+    arc = "arc",
+    arg = "arg",
+    arm = "arm",
+    arn = "arn",
+    arp = "arp",
+    art = "art",
+    arw = "arw",
+    asm = "asm",
+    ast = "ast",
+    ath = "ath",
+    aus = "aus",
+    ava = "ava",
+    ave = "ave",
+    awa = "awa",
+    aym = "aym",
+    aze = "aze",
+    bad = "bad",
+    bai = "bai",
+    bak = "bak",
+    bal = "bal",
+    bam = "bam",
+    ban = "ban",
+    baq = "baq",
+    bas = "bas",
+    bat = "bat",
+    bej = "bej",
+    bel = "bel",
+    bem = "bem",
+    ben = "ben",
+    ber = "ber",
+    bho = "bho",
+    bih = "bih",
+    bik = "bik",
+    bin = "bin",
+    bis = "bis",
+    bla = "bla",
+    bnt = "bnt",
+    bod = "bod",
+    bos = "bos",
+    bra = "bra",
+    bre = "bre",
+    btk = "btk",
+    bua = "bua",
+    bug = "bug",
+    bul = "bul",
+    bur = "bur",
+    byn = "byn",
+    cad = "cad",
+    cai = "cai",
+    car = "car",
+    cat = "cat",
+    cau = "cau",
+    ceb = "ceb",
+    cel = "cel",
+    ces = "ces",
+    cha = "cha",
+    chb = "chb",
+    che = "che",
+    chg = "chg",
+    chi = "chi",
+    chk = "chk",
+    chm = "chm",
+    chn = "chn",
+    cho = "cho",
+    chp = "chp",
+    chr = "chr",
+    chu = "chu",
+    chv = "chv",
+    chy = "chy",
+    cmc = "cmc",
+    cnr = "cnr",
+    cop = "cop",
+    cor = "cor",
+    cos = "cos",
+    cpe = "cpe",
+    cpf = "cpf",
+    cpp = "cpp",
+    cre = "cre",
+    crh = "crh",
+    crp = "crp",
+    csb = "csb",
+    cus = "cus",
+    cym = "cym",
+    cze = "cze",
+    dak = "dak",
+    dan = "dan",
+    dar = "dar",
+    day = "day",
+    del = "del",
+    den = "den",
+    deu = "deu",
+    dgr = "dgr",
+    din = "din",
+    div = "div",
+    doi = "doi",
+    dra = "dra",
+    dsb = "dsb",
+    dua = "dua",
+    dum = "dum",
+    dut = "dut",
+    dyu = "dyu",
+    dzo = "dzo",
+    efi = "efi",
+    egy = "egy",
+    eka = "eka",
+    ell = "ell",
+    elx = "elx",
+    eng = "eng",
+    enm = "enm",
+    epo = "epo",
+    est = "est",
+    eus = "eus",
+    ewe = "ewe",
+    ewo = "ewo",
+    fan = "fan",
+    fao = "fao",
+    fas = "fas",
+    fat = "fat",
+    fij = "fij",
+    fil = "fil",
+    fin = "fin",
+    fiu = "fiu",
+    fon = "fon",
+    fra = "fra",
+    fre = "fre",
+    frm = "frm",
+    fro = "fro",
+    frr = "frr",
+    frs = "frs",
+    fry = "fry",
+    ful = "ful",
+    fur = "fur",
+    gaa = "gaa",
+    gay = "gay",
+    gba = "gba",
+    gem = "gem",
+    geo = "geo",
+    ger = "ger",
+    gez = "gez",
+    gil = "gil",
+    gla = "gla",
+    gle = "gle",
+    glg = "glg",
+    glv = "glv",
+    gmh = "gmh",
+    goh = "goh",
+    gon = "gon",
+    gor = "gor",
+    got = "got",
+    grb = "grb",
+    grc = "grc",
+    gre = "gre",
+    grn = "grn",
+    gsw = "gsw",
+    guj = "guj",
+    gwi = "gwi",
+    hai = "hai",
+    hat = "hat",
+    hau = "hau",
+    haw = "haw",
+    heb = "heb",
+    her = "her",
+    hil = "hil",
+    him = "him",
+    hin = "hin",
+    hit = "hit",
+    hmn = "hmn",
+    hmo = "hmo",
+    hrv = "hrv",
+    hsb = "hsb",
+    hun = "hun",
+    hup = "hup",
+    hye = "hye",
+    iba = "iba",
+    ibo = "ibo",
+    ice = "ice",
+    ido = "ido",
+    iii = "iii",
+    ijo = "ijo",
+    iku = "iku",
+    ile = "ile",
+    ilo = "ilo",
+    ina = "ina",
+    inc = "inc",
+    ind = "ind",
+    ine = "ine",
+    inh = "inh",
+    ipk = "ipk",
+    ira = "ira",
+    iro = "iro",
+    isl = "isl",
+    ita = "ita",
+    jav = "jav",
+    jbo = "jbo",
+    jpn = "jpn",
+    jpr = "jpr",
+    jrb = "jrb",
+    kaa = "kaa",
+    kab = "kab",
+    kac = "kac",
+    kal = "kal",
+    kam = "kam",
+    kan = "kan",
+    kar = "kar",
+    kas = "kas",
+    kat = "kat",
+    kau = "kau",
+    kaw = "kaw",
+    kaz = "kaz",
+    kbd = "kbd",
+    kha = "kha",
+    khi = "khi",
+    khm = "khm",
+    kho = "kho",
+    kik = "kik",
+    kin = "kin",
+    kir = "kir",
+    kmb = "kmb",
+    kok = "kok",
+    kom = "kom",
+    kon = "kon",
+    kor = "kor",
+    kos = "kos",
+    kpe = "kpe",
+    krc = "krc",
+    krl = "krl",
+    kro = "kro",
+    kru = "kru",
+    kua = "kua",
+    kum = "kum",
+    kur = "kur",
+    kut = "kut",
+    lad = "lad",
+    lah = "lah",
+    lam = "lam",
+    lao = "lao",
+    lat = "lat",
+    lav = "lav",
+    lez = "lez",
+    lim = "lim",
+    lin = "lin",
+    lit = "lit",
+    lol = "lol",
+    loz = "loz",
+    ltz = "ltz",
+    lua = "lua",
+    lub = "lub",
+    lug = "lug",
+    lui = "lui",
+    lun = "lun",
+    luo = "luo",
+    lus = "lus",
+    mac = "mac",
+    mad = "mad",
+    mag = "mag",
+    mah = "mah",
+    mai = "mai",
+    mak = "mak",
+    mal = "mal",
+    man = "man",
+    mao = "mao",
+    map = "map",
+    mar = "mar",
+    mas = "mas",
+    may = "may",
+    mdf = "mdf",
+    mdr = "mdr",
+    men = "men",
+    mga = "mga",
+    mic = "mic",
+    min = "min",
+    mis = "mis",
+    mkd = "mkd",
+    mkh = "mkh",
+    mlg = "mlg",
+    mlt = "mlt",
+    mnc = "mnc",
+    mni = "mni",
+    mno = "mno",
+    moh = "moh",
+    mon = "mon",
+    mos = "mos",
+    mri = "mri",
+    msa = "msa",
+    mul = "mul",
+    mun = "mun",
+    mus = "mus",
+    mwl = "mwl",
+    mwr = "mwr",
+    mya = "mya",
+    myn = "myn",
+    myv = "myv",
+    nah = "nah",
+    nai = "nai",
+    nap = "nap",
+    nau = "nau",
+    nav = "nav",
+    nbl = "nbl",
+    nde = "nde",
+    ndo = "ndo",
+    nds = "nds",
+    nep = "nep",
+    new = "new",
+    nia = "nia",
+    nic = "nic",
+    niu = "niu",
+    nld = "nld",
+    nno = "nno",
+    nob = "nob",
+    nog = "nog",
+    non = "non",
+    nor = "nor",
+    nqo = "nqo",
+    nso = "nso",
+    nub = "nub",
+    nwc = "nwc",
+    nya = "nya",
+    nym = "nym",
+    nyn = "nyn",
+    nyo = "nyo",
+    nzi = "nzi",
+    oci = "oci",
+    oji = "oji",
+    ori = "ori",
+    orm = "orm",
+    osa = "osa",
+    oss = "oss",
+    ota = "ota",
+    oto = "oto",
+    paa = "paa",
+    pag = "pag",
+    pal = "pal",
+    pam = "pam",
+    pan = "pan",
+    pap = "pap",
+    pau = "pau",
+    peo = "peo",
+    per = "per",
+    phi = "phi",
+    phn = "phn",
+    pli = "pli",
+    pol = "pol",
+    pon = "pon",
+    por = "por",
+    pra = "pra",
+    pro = "pro",
+    pus = "pus",
+    qaa_qtz = "qaa-qtz",
+    que = "que",
+    raj = "raj",
+    rap = "rap",
+    rar = "rar",
+    roa = "roa",
+    roh = "roh",
+    rom = "rom",
+    ron = "ron",
+    rum = "rum",
+    run = "run",
+    rup = "rup",
+    rus = "rus",
+    sad = "sad",
+    sag = "sag",
+    sah = "sah",
+    sai = "sai",
+    sal = "sal",
+    sam = "sam",
+    san = "san",
+    sas = "sas",
+    sat = "sat",
+    scn = "scn",
+    sco = "sco",
+    sel = "sel",
+    sem = "sem",
+    sga = "sga",
+    sgn = "sgn",
+    shn = "shn",
+    sid = "sid",
+    sin = "sin",
+    sio = "sio",
+    sit = "sit",
+    sla = "sla",
+    slk = "slk",
+    slo = "slo",
+    slv = "slv",
+    sma = "sma",
+    sme = "sme",
+    smi = "smi",
+    smj = "smj",
+    smn = "smn",
+    smo = "smo",
+    sms = "sms",
+    sna = "sna",
+    snd = "snd",
+    snk = "snk",
+    sog = "sog",
+    som = "som",
+    son = "son",
+    sot = "sot",
+    spa = "spa",
+    sqi = "sqi",
+    srd = "srd",
+    srn = "srn",
+    srp = "srp",
+    srr = "srr",
+    ssa = "ssa",
+    ssw = "ssw",
+    suk = "suk",
+    sun = "sun",
+    sus = "sus",
+    sux = "sux",
+    swa = "swa",
+    swe = "swe",
+    syc = "syc",
+    syr = "syr",
+    tah = "tah",
+    tai = "tai",
+    tam = "tam",
+    tat = "tat",
+    tel = "tel",
+    tem = "tem",
+    ter = "ter",
+    tet = "tet",
+    tgk = "tgk",
+    tgl = "tgl",
+    tha = "tha",
+    tib = "tib",
+    tig = "tig",
+    tir = "tir",
+    tiv = "tiv",
+    tkl = "tkl",
+    tlh = "tlh",
+    tli = "tli",
+    tmh = "tmh",
+    tog = "tog",
+    ton = "ton",
+    tpi = "tpi",
+    tsi = "tsi",
+    tsn = "tsn",
+    tso = "tso",
+    tuk = "tuk",
+    tum = "tum",
+    tup = "tup",
+    tur = "tur",
+    tut = "tut",
+    tvl = "tvl",
+    twi = "twi",
+    tyv = "tyv",
+    udm = "udm",
+    uga = "uga",
+    uig = "uig",
+    ukr = "ukr",
+    umb = "umb",
+    und = "und",
+    urd = "urd",
+    uzb = "uzb",
+    vai = "vai",
+    ven = "ven",
+    vie = "vie",
+    vol = "vol",
+    vot = "vot",
+    wak = "wak",
+    wal = "wal",
+    war = "war",
+    was = "was",
+    wel = "wel",
+    wen = "wen",
+    wln = "wln",
+    wol = "wol",
+    xal = "xal",
+    xho = "xho",
+    yao = "yao",
+    yap = "yap",
+    yid = "yid",
+    yor = "yor",
+    ypk = "ypk",
+    zap = "zap",
+    zbl = "zbl",
+    zen = "zen",
+    zgh = "zgh",
+    zha = "zha",
+    zho = "zho",
+    znd = "znd",
+    zul = "zul",
+    zun = "zun",
+    zxx = "zxx",
+    zza = "zza",
+};
+/**
 * FIAF Moving Image Cataloguing Manual 2.3.3, D.6
 */
 export enum LanguageUsageEnum {
@@ -909,33 +1422,15 @@ export function toCategorizedThing(o: CategorizedThing): CategorizedThing {
 }
 
 /**
- * Grouping for all entities that represent a PID metadata record
+ * Base class defining slots that are common to all levels of the WVMI metadata model
  */
-export interface PIDRecord extends CategorizedThing {
-    /** A unique identifier for a thing */
-    id?: string,
-}
-
-
-export function isPIDRecord(o: object): o is PIDRecord {
-    return (
-        'category' in o
-    )
-}
-
-export function toPIDRecord(o: PIDRecord): PIDRecord {
-    return {
-        id: o.id ?? '',
-        category: o.category ?? null
-    }
-}
-
-
-export interface MovingImageRecord extends PIDRecord {
+export interface MovingImageRecord extends CategorizedThing {
     /** Also record some metadata about the PID itself rather than the identified object */
     described_by?: DescriptionResource,
     /** Associate event(s) with a moving image record */
     has_event?: Event[],
+    /** Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs */
+    has_identifier?: MovingImageResource[],
     /** FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3 */
     in_language?: Language[],
     /** Additional title(s) associated with the work / variant, manifestation, or item. */
@@ -956,10 +1451,10 @@ export function toMovingImageRecord(o: MovingImageRecord): MovingImageRecord {
     return {
         described_by: o.described_by ?? {},
         has_event: o.has_event ?? [],
+        has_identifier: o.has_identifier ?? [],
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        id: o.id ?? '',
         category: o.category ?? null
     }
 }
@@ -991,7 +1486,7 @@ export function toDescriptionResource(o: DescriptionResource): DescriptionResour
     return {
         has_history: o.has_history ?? null,
         has_issuer_id: o.has_issuer_id ?? null,
-        has_issuer_name: o.has_issuer_name ?? '',
+        has_issuer_name: o.has_issuer_name ?? null,
         last_modified: o.last_modified ?? null
     }
 }
@@ -1005,11 +1500,11 @@ export interface WorkVariant extends MovingImageRecord {
     /** Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters. Examples of genres are “westerns” and “thrillers”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.1 */
     has_genre?: Genre[],
     /** Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3 */
-    has_subject?: Subject[],
+    has_subject?: string[],
     /** Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17 */
-    is_part_of?: AVefiResource[],
+    is_part_of?: MovingImageResource[],
     /** Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5 */
-    is_variant_of?: AVefiResource,
+    is_variant_of?: MovingImageResource,
     /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: AuthorityResource[],
     /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
@@ -1039,10 +1534,10 @@ export function toWorkVariant(o: WorkVariant): WorkVariant {
         variant_type: o.variant_type ?? null,
         described_by: o.described_by ?? {},
         has_event: o.has_event ?? [],
+        has_identifier: o.has_identifier ?? [],
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        id: o.id ?? '',
         category: o.category ?? null
     }
 }
@@ -1051,8 +1546,9 @@ export function toWorkVariant(o: WorkVariant): WorkVariant {
  * Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4
  */
 export interface GeographicName {
+    /** Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance */
     has_alternate_name?: string[],
-    /** A human-readable name for a thing */
+    /** Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations */
     has_name: string,
     /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: AuthorityResource[],
@@ -1068,7 +1564,7 @@ export function isGeographicName(o: object): o is GeographicName {
 export function toGeographicName(o: GeographicName): GeographicName {
     return {
         has_alternate_name: o.has_alternate_name ?? [],
-        has_name: o.has_name ?? '',
+        has_name: o.has_name ?? null,
         same_as: o.same_as ?? []
     }
 }
@@ -1077,8 +1573,9 @@ export function toGeographicName(o: GeographicName): GeographicName {
  * Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters. Examples of genres are “westerns” and “thrillers”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.1
  */
 export interface Genre {
+    /** Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance */
     has_alternate_name?: string[],
-    /** A human-readable name for a thing */
+    /** Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations */
     has_name: string,
     /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: GNDResource[],
@@ -1094,7 +1591,7 @@ export function isGenre(o: object): o is Genre {
 export function toGenre(o: Genre): Genre {
     return {
         has_alternate_name: o.has_alternate_name ?? [],
-        has_name: o.has_name ?? '',
+        has_name: o.has_name ?? null,
         same_as: o.same_as ?? []
     }
 }
@@ -1103,8 +1600,9 @@ export function toGenre(o: Genre): Genre {
  * Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. Provide name and if at all possible identifier(s) from supported authorities in the same_as slot. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3
  */
 export interface Subject {
+    /** Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance */
     has_alternate_name?: string[],
-    /** A human-readable name for a thing */
+    /** Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations */
     has_name: string,
     /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: AuthorityResource[],
@@ -1120,7 +1618,7 @@ export function isSubject(o: object): o is Subject {
 export function toSubject(o: Subject): Subject {
     return {
         has_alternate_name: o.has_alternate_name ?? [],
-        has_name: o.has_name ?? '',
+        has_name: o.has_name ?? null,
         same_as: o.same_as ?? []
     }
 }
@@ -1147,7 +1645,7 @@ export function isActivity(o: object): o is Activity {
 export function toActivity(o: Activity): Activity {
     return {
         has_agent: o.has_agent ?? [],
-        type: o.type ?? '',
+        type: o.type ?? null,
         category: o.category ?? null
     }
 }
@@ -1524,6 +2022,7 @@ export function toManifestationActivity(o: ManifestationActivity): Manifestation
  * Agent involved in some activity related to the moving image resource. For agents of type "Person" specify name according to the convention "family name, given name"
  */
 export interface Agent {
+    /** Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance */
     has_alternate_name?: string[],
     /** For natural persons, always use the convention "family name, given name" */
     has_name: string,
@@ -1544,7 +2043,7 @@ export function isAgent(o: object): o is Agent {
 export function toAgent(o: Agent): Agent {
     return {
         has_alternate_name: o.has_alternate_name ?? [],
-        has_name: o.has_name ?? '',
+        has_name: o.has_name ?? null,
         same_as: o.same_as ?? [],
         type: o.type ?? null
     }
@@ -1556,8 +2055,9 @@ export function toAgent(o: Agent): Agent {
 export interface Event extends CategorizedThing {
     /** Associate activity (and subsequently agents) with event */
     has_activity?: Activity[],
-    /** Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information */
+    /** Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details */
     has_date?: string,
+    /** Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event */
     located_in?: GeographicName[],
 }
 
@@ -1571,7 +2071,7 @@ export function isEvent(o: object): o is Event {
 export function toEvent(o: Event): Event {
     return {
         has_activity: o.has_activity ?? [],
-        has_date: o.has_date ?? '',
+        has_date: o.has_date ?? null,
         located_in: o.located_in ?? [],
         category: o.category ?? null
     }
@@ -1596,7 +2096,7 @@ export function toProductionEvent(o: ProductionEvent): ProductionEvent {
     return {
         type: o.type ?? null,
         has_activity: o.has_activity ?? [],
-        has_date: o.has_date ?? '',
+        has_date: o.has_date ?? null,
         located_in: o.located_in ?? [],
         category: o.category ?? null
     }
@@ -1623,7 +2123,7 @@ export function toPreservationEvent(o: PreservationEvent): PreservationEvent {
     return {
         type: o.type ?? null,
         has_activity: o.has_activity ?? [],
-        has_date: o.has_date ?? '',
+        has_date: o.has_date ?? null,
         located_in: o.located_in ?? [],
         category: o.category ?? null
     }
@@ -1649,7 +2149,7 @@ export function toPublicationEvent(o: PublicationEvent): PublicationEvent {
     return {
         type: o.type ?? null,
         has_activity: o.has_activity ?? [],
-        has_date: o.has_date ?? '',
+        has_date: o.has_date ?? null,
         located_in: o.located_in ?? [],
         category: o.category ?? null
     }
@@ -1676,7 +2176,7 @@ export function toManufactureEvent(o: ManufactureEvent): ManufactureEvent {
     return {
         type: o.type ?? null,
         has_activity: o.has_activity ?? [],
-        has_date: o.has_date ?? '',
+        has_date: o.has_date ?? null,
         located_in: o.located_in ?? [],
         category: o.category ?? null
     }
@@ -1699,7 +2199,7 @@ export function isRightsCopyrightRegistrationEvent(o: object): o is RightsCopyri
 export function toRightsCopyrightRegistrationEvent(o: RightsCopyrightRegistrationEvent): RightsCopyrightRegistrationEvent {
     return {
         has_activity: o.has_activity ?? [],
-        has_date: o.has_date ?? '',
+        has_date: o.has_date ?? null,
         located_in: o.located_in ?? [],
         category: o.category ?? null
     }
@@ -1709,7 +2209,7 @@ export function toRightsCopyrightRegistrationEvent(o: RightsCopyrightRegistratio
  * FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
  */
 export interface Title {
-    /** A human-readable name for a thing */
+    /** Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations */
     has_name: string,
     /** Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name */
     has_ordering_name?: string,
@@ -1727,18 +2227,21 @@ export function isTitle(o: object): o is Title {
 
 export function toTitle(o: Title): Title {
     return {
-        has_name: o.has_name ?? '',
-        has_ordering_name: o.has_ordering_name ?? '',
+        has_name: o.has_name ?? null,
+        has_ordering_name: o.has_ordering_name ?? null,
         type: o.type ?? null
     }
 }
 
-
+/**
+ * Base class defining common slots for manifestations and items
+ */
 export interface ManifestationOrItem extends MovingImageRecord {
     /** Total running time of the described object in ISO 8601 duration format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11 */
     has_duration?: Duration,
     /** Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8 */
     has_extent?: Extent,
+    /** FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1 */
     has_format?: Format[],
     /** FIAF Moving Image Cataloguing Manual Appendix B */
     has_note?: string[],
@@ -1763,20 +2266,20 @@ export function toManifestationOrItem(o: ManifestationOrItem): ManifestationOrIt
         has_webresource: o.has_webresource ?? null,
         described_by: o.described_by ?? {},
         has_event: o.has_event ?? [],
+        has_identifier: o.has_identifier ?? [],
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        id: o.id ?? '',
         category: o.category ?? null
     }
 }
 
 /**
- * Total running time of the described object in ISO 8601 duration format. The examples section lists possible values for the has_value slot. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
+ * Total running time of the described object in ISO 8601 duration format. Check has_value slot range documentation for examples of permissible values. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
  */
 export interface Duration {
     /** Value of some quantity */
-    has_value?: string,
+    has_value: string,
     /** Qualifier indicating the precision of an extent value or duration */
     has_precision?: string,
 }
@@ -1784,14 +2287,13 @@ export interface Duration {
 
 export function isDuration(o: object): o is Duration {
     return (
-        'has_value' in o ||
-        'has_precision' in o
+        'has_value' in o
     )
 }
 
 export function toDuration(o: Duration): Duration {
     return {
-        has_value: o.has_value ?? '',
+        has_value: o.has_value ?? null,
         has_precision: o.has_precision ?? null
     }
 }
@@ -1801,9 +2303,9 @@ export function toDuration(o: Duration): Duration {
  */
 export interface Extent {
     /** Unit of some quantity */
-    has_unit?: string,
+    has_unit: string,
     /** Value of some quantity */
-    has_value?: string,
+    has_value: string,
     /** Qualifier indicating the precision of an extent value or duration */
     has_precision?: string,
 }
@@ -1811,9 +2313,8 @@ export interface Extent {
 
 export function isExtent(o: object): o is Extent {
     return (
-        'has_unit' in o ||
-        'has_value' in o ||
-        'has_precision' in o
+        'has_unit' in o &&
+        'has_value' in o
     )
 }
 
@@ -1842,7 +2343,7 @@ export function isFormat(o: object): o is Format {
 
 export function toFormat(o: Format): Format {
     return {
-        type: o.type ?? '',
+        type: o.type ?? null,
         category: o.category ?? null
     }
 }
@@ -1974,13 +2475,13 @@ export interface Manifestation extends ManifestationOrItem {
     /** FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11 */
     has_colour_type?: string,
     /** Indicate AVefi Items the institution has registered as part of the manifestation */
-    has_item?: AVefiResource[],
+    has_item?: MovingImageResource[],
     /** FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4 */
     has_sound_type?: string,
     /** Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation */
-    is_manifestation_of: AVefiResource[],
+    is_manifestation_of: MovingImageResource[],
     /** Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work */
-    same_as?: AVefiResource[],
+    same_as?: MovingImageResource[],
 }
 
 
@@ -2006,10 +2507,10 @@ export function toManifestation(o: Manifestation): Manifestation {
         has_webresource: o.has_webresource ?? null,
         described_by: o.described_by ?? {},
         has_event: o.has_event ?? [],
+        has_identifier: o.has_identifier ?? [],
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        id: o.id ?? '',
         category: o.category ?? null
     }
 }
@@ -2020,6 +2521,7 @@ export function toManifestation(o: Manifestation): Manifestation {
 export interface Language {
     /** [ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3) */
     code: string,
+    /** FIAF Moving Image Cataloguing Manual 2.3.3.2 */
     usage: string,
 }
 
@@ -2033,7 +2535,7 @@ export function isLanguage(o: object): o is Language {
 
 export function toLanguage(o: Language): Language {
     return {
-        code: o.code ?? '',
+        code: o.code ?? null,
         usage: o.usage ?? null
     }
 }
@@ -2042,14 +2544,16 @@ export function toLanguage(o: Language): Language {
  * FIAF Moving Image Cataloguing Manual 3.0
  */
 export interface Item extends ManifestationOrItem {
+    /** FIAF Moving Image Cataloguing Manual D.7.8 */
     element_type?: string,
+    /** Status of item determining access conditions. See also FIAF Moving Image Cataloguing Manual D.7.1 */
     has_access_status?: string,
     /** Link to AVefi item registered by another institution indicating that the two are known to be copies of each other */
-    is_copy_of?: AVefiResource[],
+    is_copy_of?: MovingImageResource[],
     /** Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project */
-    is_derivative_of?: AVefiResource[],
+    is_derivative_of?: MovingImageResource[],
     /** Indicate AVefi Manifestation the item belongs to. Every item must be associated with a manifestation from the same data provider */
-    is_item_of: AVefiResource,
+    is_item_of: MovingImageResource,
 }
 
 
@@ -2075,10 +2579,10 @@ export function toItem(o: Item): Item {
         has_webresource: o.has_webresource ?? null,
         described_by: o.described_by ?? {},
         has_event: o.has_event ?? [],
+        has_identifier: o.has_identifier ?? [],
         in_language: o.in_language ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        id: o.id ?? '',
         category: o.category ?? null
     }
 }
@@ -2088,7 +2592,7 @@ export function toItem(o: Item): Item {
  */
 export interface MovingImageRecordContainer {
     /** Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual */
-    has_record?: MovingImageRecord,
+    has_record: MovingImageRecord,
 }
 
 
@@ -2122,15 +2626,36 @@ export function isAuthorityResource(o: object): o is AuthorityResource {
 
 export function toAuthorityResource(o: AuthorityResource): AuthorityResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
 
 /**
- * Handle with the prefix allocated for AVefi (eventually)
+ * Either a persistent or local identifier for AVefi compliant moving image records. See subclasses for details
  */
-export interface AVefiResource extends AuthorityResource {
+export interface MovingImageResource extends AuthorityResource {
+}
+
+
+export function isMovingImageResource(o: object): o is MovingImageResource {
+    return (
+        'id' in o &&
+        'category' in o
+    )
+}
+
+export function toMovingImageResource(o: MovingImageResource): MovingImageResource {
+    return {
+        id: o.id ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples
+ */
+export interface AVefiResource extends MovingImageResource {
 }
 
 
@@ -2143,13 +2668,13 @@ export function isAVefiResource(o: object): o is AVefiResource {
 
 export function toAVefiResource(o: AVefiResource): AVefiResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
 
 /**
- * Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.
+ * Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films. Check id slot range documentation for examples
  */
 export interface DOIResource extends AuthorityResource {
 }
@@ -2164,13 +2689,34 @@ export function isDOIResource(o: object): o is DOIResource {
 
 export function toDOIResource(o: DOIResource): DOIResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
 
 /**
- * Identifier of the German Filmportal.de
+ * Entertainment Identifier Registry ID. Check id slot range documentation for examples
+ */
+export interface EIDRResource extends DOIResource {
+}
+
+
+export function isEIDRResource(o: object): o is EIDRResource {
+    return (
+        'id' in o &&
+        'category' in o
+    )
+}
+
+export function toEIDRResource(o: EIDRResource): EIDRResource {
+    return {
+        id: o.id ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Identifier of the German Filmportal.de. Check id slot range documentation for examples
  */
 export interface FilmportalResource extends AuthorityResource {
 }
@@ -2185,7 +2731,7 @@ export function isFilmportalResource(o: object): o is FilmportalResource {
 
 export function toFilmportalResource(o: FilmportalResource): FilmportalResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
@@ -2206,13 +2752,13 @@ export function isGNDResource(o: object): o is GNDResource {
 
 export function toGNDResource(o: GNDResource): GNDResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
 
 /**
- * International Standard Identifier for Libraries and Related Organizations including (film) archives
+ * International Standard Identifier for Libraries and Related Organizations including (film) archives. Check id slot range documentation for examples
  */
 export interface ISILResource extends AuthorityResource {
 }
@@ -2227,13 +2773,34 @@ export function isISILResource(o: object): o is ISILResource {
 
 export function toISILResource(o: ISILResource): ISILResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
 
 /**
- * Getty Thesaurus of Geographic Names ID
+ * Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs
+ */
+export interface LocalResource extends MovingImageResource {
+}
+
+
+export function isLocalResource(o: object): o is LocalResource {
+    return (
+        'id' in o &&
+        'category' in o
+    )
+}
+
+export function toLocalResource(o: LocalResource): LocalResource {
+    return {
+        id: o.id ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples
  */
 export interface TGNResource extends AuthorityResource {
 }
@@ -2248,13 +2815,13 @@ export function isTGNResource(o: object): o is TGNResource {
 
 export function toTGNResource(o: TGNResource): TGNResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
 
 /**
- * Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world
+ * Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples
  */
 export interface VIAFResource extends AuthorityResource {
 }
@@ -2269,13 +2836,13 @@ export function isVIAFResource(o: object): o is VIAFResource {
 
 export function toVIAFResource(o: VIAFResource): VIAFResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }
 
 /**
- * Identifier for Wikidata entities
+ * Identifier for Wikidata entities. Check id slot range documentation for examples
  */
 export interface WikidataResource extends AuthorityResource {
 }
@@ -2290,7 +2857,7 @@ export function isWikidataResource(o: object): o is WikidataResource {
 
 export function toWikidataResource(o: WikidataResource): WikidataResource {
     return {
-        id: o.id ?? '',
+        id: o.id ?? null,
         category: o.category ?? null
     }
 }

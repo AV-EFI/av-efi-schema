@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-06-10T16:47:55
+# Generation date: 2024-07-30T11:30:50
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -56,6 +56,149 @@ DEFAULT_ = AVEFI
 
 
 # Types
+class TextLine(String):
+    """ Non-empty string without line breaks intended for names and similar data """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "TextLine"
+    type_model_uri = AVEFI.TextLine
+
+
+class TextArea(String):
+    """ Non-empty string possibly containing line breaks """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "TextArea"
+    type_model_uri = AVEFI.TextArea
+
+
+class HttpUri(Uri):
+    """ Full URI starting with http or https """
+    type_class_uri = XSD["anyURI"]
+    type_class_curie = "xsd:anyURI"
+    type_name = "HttpUri"
+    type_model_uri = AVEFI.HttpUri
+
+
+class AVefiCurie(Uriorcurie):
+    """ To be used as range for type designator slots, i.e. const values """
+    type_class_uri = XSD["anyURI"]
+    type_class_curie = "xsd:anyURI"
+    type_name = "AVefiCurie"
+    type_model_uri = AVEFI.AVefiCurie
+
+
+class Decimal(Decimal):
+    """ Decimal numbers """
+    type_class_uri = XSD["decimal"]
+    type_class_curie = "xsd:decimal"
+    type_name = "Decimal"
+    type_model_uri = AVEFI.Decimal
+
+
+class ISODate(String):
+    """ ISO 8601 date or interval/period, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "ISODate"
+    type_model_uri = AVEFI.ISODate
+
+
+class ISODateTimeUTC(Datetime):
+    """ Timestamp in UTC """
+    type_class_uri = XSD["dateTime"]
+    type_class_curie = "xsd:dateTime"
+    type_name = "ISODateTimeUTC"
+    type_model_uri = AVEFI.ISODateTimeUTC
+
+
+class ISODurationInHours(String):
+    """ ISO 8601 duration format. See examples """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "ISODurationInHours"
+    type_model_uri = AVEFI.ISODurationInHours
+
+
+class IDString(String):
+    """ ASCII string suitable for identifiers """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "IDString"
+    type_model_uri = AVEFI.IDString
+
+
+class AVefi(String):
+    """ Handle with the prefix allocated for AVefi (eventually) """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "AVefi"
+    type_model_uri = AVEFI.AVefi
+
+
+class DOI(String):
+    """ Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "DOI"
+    type_model_uri = AVEFI.DOI
+
+
+class EIDR(String):
+    """ Entertainment Identifier Registry ID """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "EIDR"
+    type_model_uri = AVEFI.EIDR
+
+
+class FilmportalID(String):
+    """ Identifier of the German Filmportal.de """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "FilmportalID"
+    type_model_uri = AVEFI.FilmportalID
+
+
+class GNDID(String):
+    """ Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library) """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "GNDID"
+    type_model_uri = AVEFI.GNDID
+
+
+class ISIL(String):
+    """ International Standard Identifier for Libraries and Related Organizations including (film) archives """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "ISIL"
+    type_model_uri = AVEFI.ISIL
+
+
+class TGNID(String):
+    """ Getty Thesaurus of Geographic Names ID """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "TGNID"
+    type_model_uri = AVEFI.TGNID
+
+
+class VIAFID(String):
+    """ Virtual International Authority File identifier """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "VIAFID"
+    type_model_uri = AVEFI.VIAFID
+
+
+class WikidataID(String):
+    """ Identifier for Wikidata entities """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "WikidataID"
+    type_model_uri = AVEFI.WikidataID
+
 
 # Class references
 
@@ -73,7 +216,7 @@ class CategorizedThing(YAMLRoot):
     class_name: ClassVar[str] = "CategorizedThing"
     class_model_uri: ClassVar[URIRef] = AVEFI.CategorizedThing
 
-    category: Optional[Union[str, URIorCURIE]] = None
+    category: Optional[Union[str, AVefiCurie]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         self.category = str(self.class_class_curie)
@@ -107,31 +250,10 @@ class CategorizedThing(YAMLRoot):
 
 
 @dataclass
-class PIDRecord(CategorizedThing):
+class MovingImageRecord(CategorizedThing):
     """
-    Grouping for all entities that represent a PID metadata record
+    Base class defining slots that are common to all levels of the WVMI metadata model
     """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = AVEFI["PIDRecord"]
-    class_class_curie: ClassVar[str] = "avefi:PIDRecord"
-    class_name: ClassVar[str] = "PIDRecord"
-    class_model_uri: ClassVar[URIRef] = AVEFI.PIDRecord
-
-    id: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, str):
-            self.id = str(self.id)
-
-        super().__post_init__(**kwargs)
-        if self._is_empty(self.category):
-            self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
-
-
-@dataclass
-class MovingImageRecord(PIDRecord):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = AVEFI["MovingImageRecord"]
@@ -142,6 +264,7 @@ class MovingImageRecord(PIDRecord):
     has_primary_title: Union[dict, "Title"] = None
     described_by: Optional[Union[dict, "DescriptionResource"]] = None
     has_event: Optional[Union[Union[dict, "Event"], List[Union[dict, "Event"]]]] = empty_list()
+    has_identifier: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
     in_language: Optional[Union[Union[dict, "Language"], List[Union[dict, "Language"]]]] = empty_list()
     has_alternative_title: Optional[Union[Union[dict, "Title"], List[Union[dict, "Title"]]]] = empty_list()
 
@@ -157,6 +280,10 @@ class MovingImageRecord(PIDRecord):
         if not isinstance(self.has_event, list):
             self.has_event = [self.has_event] if self.has_event is not None else []
         self.has_event = [v if isinstance(v, Event) else Event(**as_dict(v)) for v in self.has_event]
+
+        if not isinstance(self.has_identifier, list):
+            self.has_identifier = [self.has_identifier] if self.has_identifier is not None else []
+        self.has_identifier = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.has_identifier]
 
         if not isinstance(self.in_language, list):
             self.in_language = [self.in_language] if self.in_language is not None else []
@@ -185,29 +312,29 @@ class DescriptionResource(YAMLRoot):
     class_name: ClassVar[str] = "DescriptionResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.DescriptionResource
 
-    has_issuer_id: Union[str, URI] = None
-    has_issuer_name: str = None
-    last_modified: Union[str, XSDDateTime] = None
-    has_history: Optional[Union[str, URI]] = None
+    has_issuer_id: Union[str, HttpUri] = None
+    has_issuer_name: Union[str, TextLine] = None
+    last_modified: Union[str, ISODateTimeUTC] = None
+    has_history: Optional[Union[str, HttpUri]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.has_issuer_id):
             self.MissingRequiredField("has_issuer_id")
-        if not isinstance(self.has_issuer_id, URI):
-            self.has_issuer_id = URI(self.has_issuer_id)
+        if not isinstance(self.has_issuer_id, HttpUri):
+            self.has_issuer_id = HttpUri(self.has_issuer_id)
 
         if self._is_empty(self.has_issuer_name):
             self.MissingRequiredField("has_issuer_name")
-        if not isinstance(self.has_issuer_name, str):
-            self.has_issuer_name = str(self.has_issuer_name)
+        if not isinstance(self.has_issuer_name, TextLine):
+            self.has_issuer_name = TextLine(self.has_issuer_name)
 
         if self._is_empty(self.last_modified):
             self.MissingRequiredField("last_modified")
-        if not isinstance(self.last_modified, XSDDateTime):
-            self.last_modified = XSDDateTime(self.last_modified)
+        if not isinstance(self.last_modified, ISODateTimeUTC):
+            self.last_modified = ISODateTimeUTC(self.last_modified)
 
-        if self.has_history is not None and not isinstance(self.has_history, URI):
-            self.has_history = URI(self.has_history)
+        if self.has_history is not None and not isinstance(self.has_history, HttpUri):
+            self.has_history = HttpUri(self.has_history)
 
         super().__post_init__(**kwargs)
 
@@ -228,9 +355,9 @@ class WorkVariant(MovingImageRecord):
     type: Union[str, "WorkVariantTypeEnum"] = None
     has_form: Optional[Union[Union[str, "WorkFormEnum"], List[Union[str, "WorkFormEnum"]]]] = empty_list()
     has_genre: Optional[Union[Union[dict, "Genre"], List[Union[dict, "Genre"]]]] = empty_list()
-    has_subject: Optional[Union[Union[dict, "Subject"], List[Union[dict, "Subject"]]]] = empty_list()
-    is_part_of: Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]] = empty_list()
-    is_variant_of: Optional[Union[dict, "AVefiResource"]] = None
+    has_subject: Optional[Union[str, List[str]]] = empty_list()
+    is_part_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
+    is_variant_of: Optional[Union[dict, "MovingImageResource"]] = None
     same_as: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
     variant_type: Optional[Union[str, "VariantTypeEnum"]] = None
 
@@ -250,14 +377,14 @@ class WorkVariant(MovingImageRecord):
 
         if not isinstance(self.has_subject, list):
             self.has_subject = [self.has_subject] if self.has_subject is not None else []
-        self.has_subject = [v if isinstance(v, Subject) else Subject(**as_dict(v)) for v in self.has_subject]
+        self.has_subject = [v if isinstance(v, str) else str(v) for v in self.has_subject]
 
         if not isinstance(self.is_part_of, list):
             self.is_part_of = [self.is_part_of] if self.is_part_of is not None else []
-        self.is_part_of = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.is_part_of]
+        self.is_part_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_part_of]
 
-        if self.is_variant_of is not None and not isinstance(self.is_variant_of, AVefiResource):
-            self.is_variant_of = AVefiResource(**as_dict(self.is_variant_of))
+        if self.is_variant_of is not None and not isinstance(self.is_variant_of, MovingImageResource):
+            self.is_variant_of = MovingImageResource(**as_dict(self.is_variant_of))
 
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
@@ -286,19 +413,19 @@ class GeographicName(YAMLRoot):
     class_name: ClassVar[str] = "GeographicName"
     class_model_uri: ClassVar[URIRef] = AVEFI.GeographicName
 
-    has_name: str = None
-    has_alternate_name: Optional[Union[str, List[str]]] = empty_list()
+    has_name: Union[str, TextLine] = None
+    has_alternate_name: Optional[Union[Union[str, TextLine], List[Union[str, TextLine]]]] = empty_list()
     same_as: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.has_name):
             self.MissingRequiredField("has_name")
-        if not isinstance(self.has_name, str):
-            self.has_name = str(self.has_name)
+        if not isinstance(self.has_name, TextLine):
+            self.has_name = TextLine(self.has_name)
 
         if not isinstance(self.has_alternate_name, list):
             self.has_alternate_name = [self.has_alternate_name] if self.has_alternate_name is not None else []
-        self.has_alternate_name = [v if isinstance(v, str) else str(v) for v in self.has_alternate_name]
+        self.has_alternate_name = [v if isinstance(v, TextLine) else TextLine(v) for v in self.has_alternate_name]
 
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
@@ -321,19 +448,19 @@ class Genre(YAMLRoot):
     class_name: ClassVar[str] = "Genre"
     class_model_uri: ClassVar[URIRef] = AVEFI.Genre
 
-    has_name: str = None
-    has_alternate_name: Optional[Union[str, List[str]]] = empty_list()
+    has_name: Union[str, TextLine] = None
+    has_alternate_name: Optional[Union[Union[str, TextLine], List[Union[str, TextLine]]]] = empty_list()
     same_as: Optional[Union[Union[dict, "GNDResource"], List[Union[dict, "GNDResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.has_name):
             self.MissingRequiredField("has_name")
-        if not isinstance(self.has_name, str):
-            self.has_name = str(self.has_name)
+        if not isinstance(self.has_name, TextLine):
+            self.has_name = TextLine(self.has_name)
 
         if not isinstance(self.has_alternate_name, list):
             self.has_alternate_name = [self.has_alternate_name] if self.has_alternate_name is not None else []
-        self.has_alternate_name = [v if isinstance(v, str) else str(v) for v in self.has_alternate_name]
+        self.has_alternate_name = [v if isinstance(v, TextLine) else TextLine(v) for v in self.has_alternate_name]
 
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
@@ -356,19 +483,19 @@ class Subject(YAMLRoot):
     class_name: ClassVar[str] = "Subject"
     class_model_uri: ClassVar[URIRef] = AVEFI.Subject
 
-    has_name: str = None
-    has_alternate_name: Optional[Union[str, List[str]]] = empty_list()
+    has_name: Union[str, TextLine] = None
+    has_alternate_name: Optional[Union[Union[str, TextLine], List[Union[str, TextLine]]]] = empty_list()
     same_as: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.has_name):
             self.MissingRequiredField("has_name")
-        if not isinstance(self.has_name, str):
-            self.has_name = str(self.has_name)
+        if not isinstance(self.has_name, TextLine):
+            self.has_name = TextLine(self.has_name)
 
         if not isinstance(self.has_alternate_name, list):
             self.has_alternate_name = [self.has_alternate_name] if self.has_alternate_name is not None else []
-        self.has_alternate_name = [v if isinstance(v, str) else str(v) for v in self.has_alternate_name]
+        self.has_alternate_name = [v if isinstance(v, TextLine) else TextLine(v) for v in self.has_alternate_name]
 
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
@@ -390,7 +517,7 @@ class Activity(CategorizedThing):
     class_model_uri: ClassVar[URIRef] = AVEFI.Activity
 
     has_agent: Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]] = None
-    type: str = None
+    type: Union[str, IDString] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.has_agent):
@@ -401,8 +528,8 @@ class Activity(CategorizedThing):
 
         if self._is_empty(self.type):
             self.MissingRequiredField("type")
-        if not isinstance(self.type, str):
-            self.type = str(self.type)
+        if not isinstance(self.type, IDString):
+            self.type = IDString(self.type)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -855,16 +982,16 @@ class Agent(YAMLRoot):
     class_name: ClassVar[str] = "Agent"
     class_model_uri: ClassVar[URIRef] = AVEFI.Agent
 
-    has_name: str = None
+    has_name: Union[str, TextLine] = None
     type: Union[str, "AgentTypeEnum"] = None
-    has_alternate_name: Optional[Union[str, List[str]]] = empty_list()
+    has_alternate_name: Optional[Union[Union[str, TextLine], List[Union[str, TextLine]]]] = empty_list()
     same_as: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.has_name):
             self.MissingRequiredField("has_name")
-        if not isinstance(self.has_name, str):
-            self.has_name = str(self.has_name)
+        if not isinstance(self.has_name, TextLine):
+            self.has_name = TextLine(self.has_name)
 
         if self._is_empty(self.type):
             self.MissingRequiredField("type")
@@ -873,7 +1000,7 @@ class Agent(YAMLRoot):
 
         if not isinstance(self.has_alternate_name, list):
             self.has_alternate_name = [self.has_alternate_name] if self.has_alternate_name is not None else []
-        self.has_alternate_name = [v if isinstance(v, str) else str(v) for v in self.has_alternate_name]
+        self.has_alternate_name = [v if isinstance(v, TextLine) else TextLine(v) for v in self.has_alternate_name]
 
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
@@ -899,7 +1026,7 @@ class Event(CategorizedThing):
     class_model_uri: ClassVar[URIRef] = AVEFI.Event
 
     has_activity: Optional[Union[Union[dict, Activity], List[Union[dict, Activity]]]] = empty_list()
-    has_date: Optional[str] = None
+    has_date: Optional[Union[str, ISODate]] = None
     located_in: Optional[Union[Union[dict, GeographicName], List[Union[dict, GeographicName]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -907,8 +1034,8 @@ class Event(CategorizedThing):
             self.has_activity = [self.has_activity] if self.has_activity is not None else []
         self.has_activity = [v if isinstance(v, Activity) else Activity(**as_dict(v)) for v in self.has_activity]
 
-        if self.has_date is not None and not isinstance(self.has_date, str):
-            self.has_date = str(self.has_date)
+        if self.has_date is not None and not isinstance(self.has_date, ISODate):
+            self.has_date = ISODate(self.has_date)
 
         if not isinstance(self.located_in, list):
             self.located_in = [self.located_in] if self.located_in is not None else []
@@ -1098,29 +1225,32 @@ class Title(YAMLRoot):
     class_name: ClassVar[str] = "Title"
     class_model_uri: ClassVar[URIRef] = AVEFI.Title
 
-    has_name: str = None
+    has_name: Union[str, TextLine] = None
     type: Union[str, "TitleTypeEnum"] = None
-    has_ordering_name: Optional[str] = None
+    has_ordering_name: Optional[Union[str, TextLine]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.has_name):
             self.MissingRequiredField("has_name")
-        if not isinstance(self.has_name, str):
-            self.has_name = str(self.has_name)
+        if not isinstance(self.has_name, TextLine):
+            self.has_name = TextLine(self.has_name)
 
         if self._is_empty(self.type):
             self.MissingRequiredField("type")
         if not isinstance(self.type, TitleTypeEnum):
             self.type = TitleTypeEnum(self.type)
 
-        if self.has_ordering_name is not None and not isinstance(self.has_ordering_name, str):
-            self.has_ordering_name = str(self.has_ordering_name)
+        if self.has_ordering_name is not None and not isinstance(self.has_ordering_name, TextLine):
+            self.has_ordering_name = TextLine(self.has_ordering_name)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass
 class ManifestationOrItem(MovingImageRecord):
+    """
+    Base class defining common slots for manifestations and items
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = AVEFI["ManifestationOrItem"]
@@ -1132,8 +1262,8 @@ class ManifestationOrItem(MovingImageRecord):
     has_duration: Optional[Union[dict, "Duration"]] = None
     has_extent: Optional[Union[dict, "Extent"]] = None
     has_format: Optional[Union[Union[dict, "Format"], List[Union[dict, "Format"]]]] = empty_list()
-    has_note: Optional[Union[str, List[str]]] = empty_list()
-    has_webresource: Optional[Union[str, URI]] = None
+    has_note: Optional[Union[Union[str, TextArea], List[Union[str, TextArea]]]] = empty_list()
+    has_webresource: Optional[Union[str, HttpUri]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.has_duration is not None and not isinstance(self.has_duration, Duration):
@@ -1148,10 +1278,10 @@ class ManifestationOrItem(MovingImageRecord):
 
         if not isinstance(self.has_note, list):
             self.has_note = [self.has_note] if self.has_note is not None else []
-        self.has_note = [v if isinstance(v, str) else str(v) for v in self.has_note]
+        self.has_note = [v if isinstance(v, TextArea) else TextArea(v) for v in self.has_note]
 
-        if self.has_webresource is not None and not isinstance(self.has_webresource, URI):
-            self.has_webresource = URI(self.has_webresource)
+        if self.has_webresource is not None and not isinstance(self.has_webresource, HttpUri):
+            self.has_webresource = HttpUri(self.has_webresource)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1162,8 +1292,8 @@ class ManifestationOrItem(MovingImageRecord):
 @dataclass
 class Duration(YAMLRoot):
     """
-    Total running time of the described object in ISO 8601 duration format. The examples section lists possible values
-    for the has_value slot. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
+    Total running time of the described object in ISO 8601 duration format. Check has_value slot range documentation
+    for examples of permissible values. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1172,12 +1302,14 @@ class Duration(YAMLRoot):
     class_name: ClassVar[str] = "Duration"
     class_model_uri: ClassVar[URIRef] = AVEFI.Duration
 
-    has_value: Optional[str] = None
+    has_value: Union[str, ISODurationInHours] = None
     has_precision: Optional[Union[str, "PrecisionEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.has_value is not None and not isinstance(self.has_value, str):
-            self.has_value = str(self.has_value)
+        if self._is_empty(self.has_value):
+            self.MissingRequiredField("has_value")
+        if not isinstance(self.has_value, ISODurationInHours):
+            self.has_value = ISODurationInHours(self.has_value)
 
         if self.has_precision is not None and not isinstance(self.has_precision, PrecisionEnum):
             self.has_precision = PrecisionEnum(self.has_precision)
@@ -1197,15 +1329,19 @@ class Extent(YAMLRoot):
     class_name: ClassVar[str] = "Extent"
     class_model_uri: ClassVar[URIRef] = AVEFI.Extent
 
-    has_unit: Optional[Union[str, "UnitEnum"]] = None
-    has_value: Optional[Decimal] = None
+    has_unit: Union[str, "UnitEnum"] = None
+    has_value: Union[Decimal, Decimal] = None
     has_precision: Optional[Union[str, "PrecisionEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.has_unit is not None and not isinstance(self.has_unit, UnitEnum):
+        if self._is_empty(self.has_unit):
+            self.MissingRequiredField("has_unit")
+        if not isinstance(self.has_unit, UnitEnum):
             self.has_unit = UnitEnum(self.has_unit)
 
-        if self.has_value is not None and not isinstance(self.has_value, Decimal):
+        if self._is_empty(self.has_value):
+            self.MissingRequiredField("has_value")
+        if not isinstance(self.has_value, Decimal):
             self.has_value = Decimal(self.has_value)
 
         if self.has_precision is not None and not isinstance(self.has_precision, PrecisionEnum):
@@ -1226,11 +1362,11 @@ class Format(CategorizedThing):
     class_name: ClassVar[str] = "Format"
     class_model_uri: ClassVar[URIRef] = AVEFI.Format
 
-    type: Optional[str] = None
+    type: Optional[Union[str, IDString]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.type is not None and not isinstance(self.type, str):
-            self.type = str(self.type)
+        if self.type is not None and not isinstance(self.type, IDString):
+            self.type = IDString(self.type)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1396,32 +1532,32 @@ class Manifestation(ManifestationOrItem):
     class_model_uri: ClassVar[URIRef] = AVEFI.Manifestation
 
     has_primary_title: Union[dict, Title] = None
-    is_manifestation_of: Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]] = None
+    is_manifestation_of: Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]] = None
     has_colour_type: Optional[Union[str, "ColourTypeEnum"]] = None
-    has_item: Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]] = empty_list()
+    has_item: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
     has_sound_type: Optional[Union[str, "SoundTypeEnum"]] = None
-    same_as: Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]] = empty_list()
+    same_as: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.is_manifestation_of):
             self.MissingRequiredField("is_manifestation_of")
         if not isinstance(self.is_manifestation_of, list):
             self.is_manifestation_of = [self.is_manifestation_of] if self.is_manifestation_of is not None else []
-        self.is_manifestation_of = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.is_manifestation_of]
+        self.is_manifestation_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_manifestation_of]
 
         if self.has_colour_type is not None and not isinstance(self.has_colour_type, ColourTypeEnum):
             self.has_colour_type = ColourTypeEnum(self.has_colour_type)
 
         if not isinstance(self.has_item, list):
             self.has_item = [self.has_item] if self.has_item is not None else []
-        self.has_item = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.has_item]
+        self.has_item = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.has_item]
 
         if self.has_sound_type is not None and not isinstance(self.has_sound_type, SoundTypeEnum):
             self.has_sound_type = SoundTypeEnum(self.has_sound_type)
 
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
-        self.same_as = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.same_as]
+        self.same_as = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.same_as]
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1442,14 +1578,14 @@ class Language(YAMLRoot):
     class_name: ClassVar[str] = "Language"
     class_model_uri: ClassVar[URIRef] = AVEFI.Language
 
-    code: str = None
+    code: Union[str, "LanguageCodeEnum"] = None
     usage: Union[Union[str, "LanguageUsageEnum"], List[Union[str, "LanguageUsageEnum"]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.code):
             self.MissingRequiredField("code")
-        if not isinstance(self.code, str):
-            self.code = str(self.code)
+        if not isinstance(self.code, LanguageCodeEnum):
+            self.code = LanguageCodeEnum(self.code)
 
         if self._is_empty(self.usage):
             self.MissingRequiredField("usage")
@@ -1473,17 +1609,17 @@ class Item(ManifestationOrItem):
     class_model_uri: ClassVar[URIRef] = AVEFI.Item
 
     has_primary_title: Union[dict, Title] = None
-    is_item_of: Union[dict, "AVefiResource"] = None
+    is_item_of: Union[dict, "MovingImageResource"] = None
     element_type: Optional[Union[str, "ItemElementTypeEnum"]] = None
     has_access_status: Optional[Union[str, "ItemAccessStatusEnum"]] = None
-    is_copy_of: Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]] = empty_list()
-    is_derivative_of: Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]] = empty_list()
+    is_copy_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
+    is_derivative_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.is_item_of):
             self.MissingRequiredField("is_item_of")
-        if not isinstance(self.is_item_of, AVefiResource):
-            self.is_item_of = AVefiResource(**as_dict(self.is_item_of))
+        if not isinstance(self.is_item_of, MovingImageResource):
+            self.is_item_of = MovingImageResource(**as_dict(self.is_item_of))
 
         if self.element_type is not None and not isinstance(self.element_type, ItemElementTypeEnum):
             self.element_type = ItemElementTypeEnum(self.element_type)
@@ -1493,11 +1629,11 @@ class Item(ManifestationOrItem):
 
         if not isinstance(self.is_copy_of, list):
             self.is_copy_of = [self.is_copy_of] if self.is_copy_of is not None else []
-        self.is_copy_of = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.is_copy_of]
+        self.is_copy_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_copy_of]
 
         if not isinstance(self.is_derivative_of, list):
             self.is_derivative_of = [self.is_derivative_of] if self.is_derivative_of is not None else []
-        self.is_derivative_of = [v if isinstance(v, AVefiResource) else AVefiResource(**as_dict(v)) for v in self.is_derivative_of]
+        self.is_derivative_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_derivative_of]
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1517,10 +1653,12 @@ class MovingImageRecordContainer(YAMLRoot):
     class_name: ClassVar[str] = "MovingImageRecordContainer"
     class_model_uri: ClassVar[URIRef] = AVEFI.MovingImageRecordContainer
 
-    has_record: Optional[Union[dict, MovingImageRecord]] = None
+    has_record: Union[dict, MovingImageRecord] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.has_record is not None and not isinstance(self.has_record, MovingImageRecord):
+        if self._is_empty(self.has_record):
+            self.MissingRequiredField("has_record")
+        if not isinstance(self.has_record, MovingImageRecord):
             self.has_record = MovingImageRecord(**as_dict(self.has_record))
 
         super().__post_init__(**kwargs)
@@ -1538,13 +1676,13 @@ class AuthorityResource(CategorizedThing):
     class_name: ClassVar[str] = "AuthorityResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.AuthorityResource
 
-    id: str = None
+    id: Union[str, IDString] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, str):
-            self.id = str(self.id)
+        if not isinstance(self.id, IDString):
+            self.id = IDString(self.id)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1553,9 +1691,31 @@ class AuthorityResource(CategorizedThing):
 
 
 @dataclass
-class AVefiResource(AuthorityResource):
+class MovingImageResource(AuthorityResource):
     """
-    Handle with the prefix allocated for AVefi (eventually)
+    Either a persistent or local identifier for AVefi compliant moving image records. See subclasses for details
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["MovingImageResource"]
+    class_class_curie: ClassVar[str] = "avefi:MovingImageResource"
+    class_name: ClassVar[str] = "MovingImageResource"
+    class_model_uri: ClassVar[URIRef] = AVEFI.MovingImageResource
+
+    id: Union[str, IDString] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class AVefiResource(MovingImageResource):
+    """
+    Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1564,13 +1724,13 @@ class AVefiResource(AuthorityResource):
     class_name: ClassVar[str] = "AVefiResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.AVefiResource
 
-    id: str = None
+    id: Union[str, AVefi] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, str):
-            self.id = str(self.id)
+        if not isinstance(self.id, AVefi):
+            self.id = AVefi(self.id)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1582,7 +1742,7 @@ class AVefiResource(AuthorityResource):
 class DOIResource(AuthorityResource):
     """
     Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including
-    films.
+    films. Check id slot range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1591,13 +1751,39 @@ class DOIResource(AuthorityResource):
     class_name: ClassVar[str] = "DOIResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.DOIResource
 
-    id: str = None
+    id: Union[str, DOI] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, str):
-            self.id = str(self.id)
+        if not isinstance(self.id, DOI):
+            self.id = DOI(self.id)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class EIDRResource(DOIResource):
+    """
+    Entertainment Identifier Registry ID. Check id slot range documentation for examples
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["EIDRResource"]
+    class_class_curie: ClassVar[str] = "avefi:EIDRResource"
+    class_name: ClassVar[str] = "EIDRResource"
+    class_model_uri: ClassVar[URIRef] = AVEFI.EIDRResource
+
+    id: Union[str, EIDR] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, EIDR):
+            self.id = EIDR(self.id)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1608,7 +1794,7 @@ class DOIResource(AuthorityResource):
 @dataclass
 class FilmportalResource(AuthorityResource):
     """
-    Identifier of the German Filmportal.de
+    Identifier of the German Filmportal.de. Check id slot range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1617,13 +1803,13 @@ class FilmportalResource(AuthorityResource):
     class_name: ClassVar[str] = "FilmportalResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.FilmportalResource
 
-    id: str = None
+    id: Union[str, FilmportalID] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, str):
-            self.id = str(self.id)
+        if not isinstance(self.id, FilmportalID):
+            self.id = FilmportalID(self.id)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1643,13 +1829,13 @@ class GNDResource(AuthorityResource):
     class_name: ClassVar[str] = "GNDResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.GNDResource
 
-    id: str = None
+    id: Union[str, GNDID] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, str):
-            self.id = str(self.id)
+        if not isinstance(self.id, GNDID):
+            self.id = GNDID(self.id)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1660,7 +1846,8 @@ class GNDResource(AuthorityResource):
 @dataclass
 class ISILResource(AuthorityResource):
     """
-    International Standard Identifier for Libraries and Related Organizations including (film) archives
+    International Standard Identifier for Libraries and Related Organizations including (film) archives. Check id slot
+    range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1669,13 +1856,36 @@ class ISILResource(AuthorityResource):
     class_name: ClassVar[str] = "ISILResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.ISILResource
 
-    id: str = None
+    id: Union[str, ISIL] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, str):
-            self.id = str(self.id)
+        if not isinstance(self.id, ISIL):
+            self.id = ISIL(self.id)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class LocalResource(MovingImageResource):
+    """
+    Some identifier used by data provider to represent relations between work/variant, manifestation and item when
+    PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["LocalResource"]
+    class_class_curie: ClassVar[str] = "avefi:LocalResource"
+    class_name: ClassVar[str] = "LocalResource"
+    class_model_uri: ClassVar[URIRef] = AVEFI.LocalResource
+
+    id: Union[str, IDString] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1686,7 +1896,7 @@ class ISILResource(AuthorityResource):
 @dataclass
 class TGNResource(AuthorityResource):
     """
-    Getty Thesaurus of Geographic Names ID
+    Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1695,13 +1905,13 @@ class TGNResource(AuthorityResource):
     class_name: ClassVar[str] = "TGNResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.TGNResource
 
-    id: str = None
+    id: Union[str, TGNID] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, str):
-            self.id = str(self.id)
+        if not isinstance(self.id, TGNID):
+            self.id = TGNID(self.id)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1713,7 +1923,7 @@ class TGNResource(AuthorityResource):
 class VIAFResource(AuthorityResource):
     """
     Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well
-    established authority files from different parts of the world
+    established authority files from different parts of the world. Check id slot range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1722,13 +1932,13 @@ class VIAFResource(AuthorityResource):
     class_name: ClassVar[str] = "VIAFResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.VIAFResource
 
-    id: str = None
+    id: Union[str, VIAFID] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, str):
-            self.id = str(self.id)
+        if not isinstance(self.id, VIAFID):
+            self.id = VIAFID(self.id)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1739,7 +1949,7 @@ class VIAFResource(AuthorityResource):
 @dataclass
 class WikidataResource(AuthorityResource):
     """
-    Identifier for Wikidata entities
+    Identifier for Wikidata entities. Check id slot range documentation for examples
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1748,13 +1958,13 @@ class WikidataResource(AuthorityResource):
     class_name: ClassVar[str] = "WikidataResource"
     class_model_uri: ClassVar[URIRef] = AVEFI.WikidataResource
 
-    id: str = None
+    id: Union[str, WikidataID] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, str):
-            self.id = str(self.id)
+        if not isinstance(self.id, WikidataID):
+            self.id = WikidataID(self.id)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -3098,6 +3308,1543 @@ class ItemElementTypeEnum(EnumDefinitionImpl):
         description="FIAF Moving Image Cataloguing Manual D.7.8",
     )
 
+class LanguageCodeEnum(EnumDefinitionImpl):
+    """
+    [ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part
+    2: Alpha-3)
+    """
+    aar = PermissibleValue(
+        text="aar",
+        meaning=None)
+    abk = PermissibleValue(
+        text="abk",
+        meaning=None)
+    ace = PermissibleValue(
+        text="ace",
+        meaning=None)
+    ach = PermissibleValue(
+        text="ach",
+        meaning=None)
+    ada = PermissibleValue(
+        text="ada",
+        meaning=None)
+    ady = PermissibleValue(
+        text="ady",
+        meaning=None)
+    afa = PermissibleValue(
+        text="afa",
+        meaning=None)
+    afh = PermissibleValue(
+        text="afh",
+        meaning=None)
+    afr = PermissibleValue(
+        text="afr",
+        meaning=None)
+    ain = PermissibleValue(
+        text="ain",
+        meaning=None)
+    aka = PermissibleValue(
+        text="aka",
+        meaning=None)
+    akk = PermissibleValue(
+        text="akk",
+        meaning=None)
+    alb = PermissibleValue(
+        text="alb",
+        meaning=None)
+    ale = PermissibleValue(
+        text="ale",
+        meaning=None)
+    alg = PermissibleValue(
+        text="alg",
+        meaning=None)
+    alt = PermissibleValue(
+        text="alt",
+        meaning=None)
+    amh = PermissibleValue(
+        text="amh",
+        meaning=None)
+    ang = PermissibleValue(
+        text="ang",
+        meaning=None)
+    anp = PermissibleValue(
+        text="anp",
+        meaning=None)
+    apa = PermissibleValue(
+        text="apa",
+        meaning=None)
+    ara = PermissibleValue(
+        text="ara",
+        meaning=None)
+    arc = PermissibleValue(
+        text="arc",
+        meaning=None)
+    arg = PermissibleValue(
+        text="arg",
+        meaning=None)
+    arm = PermissibleValue(
+        text="arm",
+        meaning=None)
+    arn = PermissibleValue(
+        text="arn",
+        meaning=None)
+    arp = PermissibleValue(
+        text="arp",
+        meaning=None)
+    art = PermissibleValue(
+        text="art",
+        meaning=None)
+    arw = PermissibleValue(
+        text="arw",
+        meaning=None)
+    asm = PermissibleValue(
+        text="asm",
+        meaning=None)
+    ast = PermissibleValue(
+        text="ast",
+        meaning=None)
+    ath = PermissibleValue(
+        text="ath",
+        meaning=None)
+    aus = PermissibleValue(
+        text="aus",
+        meaning=None)
+    ava = PermissibleValue(
+        text="ava",
+        meaning=None)
+    ave = PermissibleValue(
+        text="ave",
+        meaning=None)
+    awa = PermissibleValue(
+        text="awa",
+        meaning=None)
+    aym = PermissibleValue(
+        text="aym",
+        meaning=None)
+    aze = PermissibleValue(
+        text="aze",
+        meaning=None)
+    bad = PermissibleValue(
+        text="bad",
+        meaning=None)
+    bai = PermissibleValue(
+        text="bai",
+        meaning=None)
+    bak = PermissibleValue(
+        text="bak",
+        meaning=None)
+    bal = PermissibleValue(
+        text="bal",
+        meaning=None)
+    bam = PermissibleValue(
+        text="bam",
+        meaning=None)
+    ban = PermissibleValue(
+        text="ban",
+        meaning=None)
+    baq = PermissibleValue(
+        text="baq",
+        meaning=None)
+    bas = PermissibleValue(
+        text="bas",
+        meaning=None)
+    bat = PermissibleValue(
+        text="bat",
+        meaning=None)
+    bej = PermissibleValue(
+        text="bej",
+        meaning=None)
+    bel = PermissibleValue(
+        text="bel",
+        meaning=None)
+    bem = PermissibleValue(
+        text="bem",
+        meaning=None)
+    ben = PermissibleValue(
+        text="ben",
+        meaning=None)
+    ber = PermissibleValue(
+        text="ber",
+        meaning=None)
+    bho = PermissibleValue(
+        text="bho",
+        meaning=None)
+    bih = PermissibleValue(
+        text="bih",
+        meaning=None)
+    bik = PermissibleValue(
+        text="bik",
+        meaning=None)
+    bin = PermissibleValue(
+        text="bin",
+        meaning=None)
+    bis = PermissibleValue(
+        text="bis",
+        meaning=None)
+    bla = PermissibleValue(
+        text="bla",
+        meaning=None)
+    bnt = PermissibleValue(
+        text="bnt",
+        meaning=None)
+    bod = PermissibleValue(
+        text="bod",
+        meaning=None)
+    bos = PermissibleValue(
+        text="bos",
+        meaning=None)
+    bra = PermissibleValue(
+        text="bra",
+        meaning=None)
+    bre = PermissibleValue(
+        text="bre",
+        meaning=None)
+    btk = PermissibleValue(
+        text="btk",
+        meaning=None)
+    bua = PermissibleValue(
+        text="bua",
+        meaning=None)
+    bug = PermissibleValue(
+        text="bug",
+        meaning=None)
+    bul = PermissibleValue(
+        text="bul",
+        meaning=None)
+    bur = PermissibleValue(
+        text="bur",
+        meaning=None)
+    byn = PermissibleValue(
+        text="byn",
+        meaning=None)
+    cad = PermissibleValue(
+        text="cad",
+        meaning=None)
+    cai = PermissibleValue(
+        text="cai",
+        meaning=None)
+    car = PermissibleValue(
+        text="car",
+        meaning=None)
+    cat = PermissibleValue(
+        text="cat",
+        meaning=None)
+    cau = PermissibleValue(
+        text="cau",
+        meaning=None)
+    ceb = PermissibleValue(
+        text="ceb",
+        meaning=None)
+    cel = PermissibleValue(
+        text="cel",
+        meaning=None)
+    ces = PermissibleValue(
+        text="ces",
+        meaning=None)
+    cha = PermissibleValue(
+        text="cha",
+        meaning=None)
+    chb = PermissibleValue(
+        text="chb",
+        meaning=None)
+    che = PermissibleValue(
+        text="che",
+        meaning=None)
+    chg = PermissibleValue(
+        text="chg",
+        meaning=None)
+    chi = PermissibleValue(
+        text="chi",
+        meaning=None)
+    chk = PermissibleValue(
+        text="chk",
+        meaning=None)
+    chm = PermissibleValue(
+        text="chm",
+        meaning=None)
+    chn = PermissibleValue(
+        text="chn",
+        meaning=None)
+    cho = PermissibleValue(
+        text="cho",
+        meaning=None)
+    chp = PermissibleValue(
+        text="chp",
+        meaning=None)
+    chr = PermissibleValue(
+        text="chr",
+        meaning=None)
+    chu = PermissibleValue(
+        text="chu",
+        meaning=None)
+    chv = PermissibleValue(
+        text="chv",
+        meaning=None)
+    chy = PermissibleValue(
+        text="chy",
+        meaning=None)
+    cmc = PermissibleValue(
+        text="cmc",
+        meaning=None)
+    cnr = PermissibleValue(
+        text="cnr",
+        meaning=None)
+    cop = PermissibleValue(
+        text="cop",
+        meaning=None)
+    cor = PermissibleValue(
+        text="cor",
+        meaning=None)
+    cos = PermissibleValue(
+        text="cos",
+        meaning=None)
+    cpe = PermissibleValue(
+        text="cpe",
+        meaning=None)
+    cpf = PermissibleValue(
+        text="cpf",
+        meaning=None)
+    cpp = PermissibleValue(
+        text="cpp",
+        meaning=None)
+    cre = PermissibleValue(
+        text="cre",
+        meaning=None)
+    crh = PermissibleValue(
+        text="crh",
+        meaning=None)
+    crp = PermissibleValue(
+        text="crp",
+        meaning=None)
+    csb = PermissibleValue(
+        text="csb",
+        meaning=None)
+    cus = PermissibleValue(
+        text="cus",
+        meaning=None)
+    cym = PermissibleValue(
+        text="cym",
+        meaning=None)
+    cze = PermissibleValue(
+        text="cze",
+        meaning=None)
+    dak = PermissibleValue(
+        text="dak",
+        meaning=None)
+    dan = PermissibleValue(
+        text="dan",
+        meaning=None)
+    dar = PermissibleValue(
+        text="dar",
+        meaning=None)
+    day = PermissibleValue(
+        text="day",
+        meaning=None)
+    den = PermissibleValue(
+        text="den",
+        meaning=None)
+    deu = PermissibleValue(
+        text="deu",
+        meaning=None)
+    dgr = PermissibleValue(
+        text="dgr",
+        meaning=None)
+    din = PermissibleValue(
+        text="din",
+        meaning=None)
+    div = PermissibleValue(
+        text="div",
+        meaning=None)
+    doi = PermissibleValue(
+        text="doi",
+        meaning=None)
+    dra = PermissibleValue(
+        text="dra",
+        meaning=None)
+    dsb = PermissibleValue(
+        text="dsb",
+        meaning=None)
+    dua = PermissibleValue(
+        text="dua",
+        meaning=None)
+    dum = PermissibleValue(
+        text="dum",
+        meaning=None)
+    dut = PermissibleValue(
+        text="dut",
+        meaning=None)
+    dyu = PermissibleValue(
+        text="dyu",
+        meaning=None)
+    dzo = PermissibleValue(
+        text="dzo",
+        meaning=None)
+    efi = PermissibleValue(
+        text="efi",
+        meaning=None)
+    egy = PermissibleValue(
+        text="egy",
+        meaning=None)
+    eka = PermissibleValue(
+        text="eka",
+        meaning=None)
+    ell = PermissibleValue(
+        text="ell",
+        meaning=None)
+    elx = PermissibleValue(
+        text="elx",
+        meaning=None)
+    eng = PermissibleValue(
+        text="eng",
+        meaning=None)
+    enm = PermissibleValue(
+        text="enm",
+        meaning=None)
+    epo = PermissibleValue(
+        text="epo",
+        meaning=None)
+    est = PermissibleValue(
+        text="est",
+        meaning=None)
+    eus = PermissibleValue(
+        text="eus",
+        meaning=None)
+    ewe = PermissibleValue(
+        text="ewe",
+        meaning=None)
+    ewo = PermissibleValue(
+        text="ewo",
+        meaning=None)
+    fan = PermissibleValue(
+        text="fan",
+        meaning=None)
+    fao = PermissibleValue(
+        text="fao",
+        meaning=None)
+    fas = PermissibleValue(
+        text="fas",
+        meaning=None)
+    fat = PermissibleValue(
+        text="fat",
+        meaning=None)
+    fij = PermissibleValue(
+        text="fij",
+        meaning=None)
+    fil = PermissibleValue(
+        text="fil",
+        meaning=None)
+    fin = PermissibleValue(
+        text="fin",
+        meaning=None)
+    fiu = PermissibleValue(
+        text="fiu",
+        meaning=None)
+    fon = PermissibleValue(
+        text="fon",
+        meaning=None)
+    fra = PermissibleValue(
+        text="fra",
+        meaning=None)
+    fre = PermissibleValue(
+        text="fre",
+        meaning=None)
+    frm = PermissibleValue(
+        text="frm",
+        meaning=None)
+    fro = PermissibleValue(
+        text="fro",
+        meaning=None)
+    frr = PermissibleValue(
+        text="frr",
+        meaning=None)
+    frs = PermissibleValue(
+        text="frs",
+        meaning=None)
+    fry = PermissibleValue(
+        text="fry",
+        meaning=None)
+    ful = PermissibleValue(
+        text="ful",
+        meaning=None)
+    fur = PermissibleValue(
+        text="fur",
+        meaning=None)
+    gaa = PermissibleValue(
+        text="gaa",
+        meaning=None)
+    gay = PermissibleValue(
+        text="gay",
+        meaning=None)
+    gba = PermissibleValue(
+        text="gba",
+        meaning=None)
+    gem = PermissibleValue(
+        text="gem",
+        meaning=None)
+    geo = PermissibleValue(
+        text="geo",
+        meaning=None)
+    ger = PermissibleValue(
+        text="ger",
+        meaning=None)
+    gez = PermissibleValue(
+        text="gez",
+        meaning=None)
+    gil = PermissibleValue(
+        text="gil",
+        meaning=None)
+    gla = PermissibleValue(
+        text="gla",
+        meaning=None)
+    gle = PermissibleValue(
+        text="gle",
+        meaning=None)
+    glg = PermissibleValue(
+        text="glg",
+        meaning=None)
+    glv = PermissibleValue(
+        text="glv",
+        meaning=None)
+    gmh = PermissibleValue(
+        text="gmh",
+        meaning=None)
+    goh = PermissibleValue(
+        text="goh",
+        meaning=None)
+    gon = PermissibleValue(
+        text="gon",
+        meaning=None)
+    gor = PermissibleValue(
+        text="gor",
+        meaning=None)
+    got = PermissibleValue(
+        text="got",
+        meaning=None)
+    grb = PermissibleValue(
+        text="grb",
+        meaning=None)
+    grc = PermissibleValue(
+        text="grc",
+        meaning=None)
+    gre = PermissibleValue(
+        text="gre",
+        meaning=None)
+    grn = PermissibleValue(
+        text="grn",
+        meaning=None)
+    gsw = PermissibleValue(
+        text="gsw",
+        meaning=None)
+    guj = PermissibleValue(
+        text="guj",
+        meaning=None)
+    gwi = PermissibleValue(
+        text="gwi",
+        meaning=None)
+    hai = PermissibleValue(
+        text="hai",
+        meaning=None)
+    hat = PermissibleValue(
+        text="hat",
+        meaning=None)
+    hau = PermissibleValue(
+        text="hau",
+        meaning=None)
+    haw = PermissibleValue(
+        text="haw",
+        meaning=None)
+    heb = PermissibleValue(
+        text="heb",
+        meaning=None)
+    her = PermissibleValue(
+        text="her",
+        meaning=None)
+    hil = PermissibleValue(
+        text="hil",
+        meaning=None)
+    him = PermissibleValue(
+        text="him",
+        meaning=None)
+    hin = PermissibleValue(
+        text="hin",
+        meaning=None)
+    hit = PermissibleValue(
+        text="hit",
+        meaning=None)
+    hmn = PermissibleValue(
+        text="hmn",
+        meaning=None)
+    hmo = PermissibleValue(
+        text="hmo",
+        meaning=None)
+    hrv = PermissibleValue(
+        text="hrv",
+        meaning=None)
+    hsb = PermissibleValue(
+        text="hsb",
+        meaning=None)
+    hun = PermissibleValue(
+        text="hun",
+        meaning=None)
+    hup = PermissibleValue(
+        text="hup",
+        meaning=None)
+    hye = PermissibleValue(
+        text="hye",
+        meaning=None)
+    iba = PermissibleValue(
+        text="iba",
+        meaning=None)
+    ibo = PermissibleValue(
+        text="ibo",
+        meaning=None)
+    ice = PermissibleValue(
+        text="ice",
+        meaning=None)
+    ido = PermissibleValue(
+        text="ido",
+        meaning=None)
+    iii = PermissibleValue(
+        text="iii",
+        meaning=None)
+    ijo = PermissibleValue(
+        text="ijo",
+        meaning=None)
+    iku = PermissibleValue(
+        text="iku",
+        meaning=None)
+    ile = PermissibleValue(
+        text="ile",
+        meaning=None)
+    ilo = PermissibleValue(
+        text="ilo",
+        meaning=None)
+    ina = PermissibleValue(
+        text="ina",
+        meaning=None)
+    inc = PermissibleValue(
+        text="inc",
+        meaning=None)
+    ind = PermissibleValue(
+        text="ind",
+        meaning=None)
+    ine = PermissibleValue(
+        text="ine",
+        meaning=None)
+    inh = PermissibleValue(
+        text="inh",
+        meaning=None)
+    ipk = PermissibleValue(
+        text="ipk",
+        meaning=None)
+    ira = PermissibleValue(
+        text="ira",
+        meaning=None)
+    iro = PermissibleValue(
+        text="iro",
+        meaning=None)
+    isl = PermissibleValue(
+        text="isl",
+        meaning=None)
+    ita = PermissibleValue(
+        text="ita",
+        meaning=None)
+    jav = PermissibleValue(
+        text="jav",
+        meaning=None)
+    jbo = PermissibleValue(
+        text="jbo",
+        meaning=None)
+    jpn = PermissibleValue(
+        text="jpn",
+        meaning=None)
+    jpr = PermissibleValue(
+        text="jpr",
+        meaning=None)
+    jrb = PermissibleValue(
+        text="jrb",
+        meaning=None)
+    kaa = PermissibleValue(
+        text="kaa",
+        meaning=None)
+    kab = PermissibleValue(
+        text="kab",
+        meaning=None)
+    kac = PermissibleValue(
+        text="kac",
+        meaning=None)
+    kal = PermissibleValue(
+        text="kal",
+        meaning=None)
+    kam = PermissibleValue(
+        text="kam",
+        meaning=None)
+    kan = PermissibleValue(
+        text="kan",
+        meaning=None)
+    kar = PermissibleValue(
+        text="kar",
+        meaning=None)
+    kas = PermissibleValue(
+        text="kas",
+        meaning=None)
+    kat = PermissibleValue(
+        text="kat",
+        meaning=None)
+    kau = PermissibleValue(
+        text="kau",
+        meaning=None)
+    kaw = PermissibleValue(
+        text="kaw",
+        meaning=None)
+    kaz = PermissibleValue(
+        text="kaz",
+        meaning=None)
+    kbd = PermissibleValue(
+        text="kbd",
+        meaning=None)
+    kha = PermissibleValue(
+        text="kha",
+        meaning=None)
+    khi = PermissibleValue(
+        text="khi",
+        meaning=None)
+    khm = PermissibleValue(
+        text="khm",
+        meaning=None)
+    kho = PermissibleValue(
+        text="kho",
+        meaning=None)
+    kik = PermissibleValue(
+        text="kik",
+        meaning=None)
+    kin = PermissibleValue(
+        text="kin",
+        meaning=None)
+    kir = PermissibleValue(
+        text="kir",
+        meaning=None)
+    kmb = PermissibleValue(
+        text="kmb",
+        meaning=None)
+    kok = PermissibleValue(
+        text="kok",
+        meaning=None)
+    kom = PermissibleValue(
+        text="kom",
+        meaning=None)
+    kon = PermissibleValue(
+        text="kon",
+        meaning=None)
+    kor = PermissibleValue(
+        text="kor",
+        meaning=None)
+    kos = PermissibleValue(
+        text="kos",
+        meaning=None)
+    kpe = PermissibleValue(
+        text="kpe",
+        meaning=None)
+    krc = PermissibleValue(
+        text="krc",
+        meaning=None)
+    krl = PermissibleValue(
+        text="krl",
+        meaning=None)
+    kro = PermissibleValue(
+        text="kro",
+        meaning=None)
+    kru = PermissibleValue(
+        text="kru",
+        meaning=None)
+    kua = PermissibleValue(
+        text="kua",
+        meaning=None)
+    kum = PermissibleValue(
+        text="kum",
+        meaning=None)
+    kur = PermissibleValue(
+        text="kur",
+        meaning=None)
+    kut = PermissibleValue(
+        text="kut",
+        meaning=None)
+    lad = PermissibleValue(
+        text="lad",
+        meaning=None)
+    lah = PermissibleValue(
+        text="lah",
+        meaning=None)
+    lam = PermissibleValue(
+        text="lam",
+        meaning=None)
+    lao = PermissibleValue(
+        text="lao",
+        meaning=None)
+    lat = PermissibleValue(
+        text="lat",
+        meaning=None)
+    lav = PermissibleValue(
+        text="lav",
+        meaning=None)
+    lez = PermissibleValue(
+        text="lez",
+        meaning=None)
+    lim = PermissibleValue(
+        text="lim",
+        meaning=None)
+    lin = PermissibleValue(
+        text="lin",
+        meaning=None)
+    lit = PermissibleValue(
+        text="lit",
+        meaning=None)
+    lol = PermissibleValue(
+        text="lol",
+        meaning=None)
+    loz = PermissibleValue(
+        text="loz",
+        meaning=None)
+    ltz = PermissibleValue(
+        text="ltz",
+        meaning=None)
+    lua = PermissibleValue(
+        text="lua",
+        meaning=None)
+    lub = PermissibleValue(
+        text="lub",
+        meaning=None)
+    lug = PermissibleValue(
+        text="lug",
+        meaning=None)
+    lui = PermissibleValue(
+        text="lui",
+        meaning=None)
+    lun = PermissibleValue(
+        text="lun",
+        meaning=None)
+    luo = PermissibleValue(
+        text="luo",
+        meaning=None)
+    lus = PermissibleValue(
+        text="lus",
+        meaning=None)
+    mac = PermissibleValue(
+        text="mac",
+        meaning=None)
+    mad = PermissibleValue(
+        text="mad",
+        meaning=None)
+    mag = PermissibleValue(
+        text="mag",
+        meaning=None)
+    mah = PermissibleValue(
+        text="mah",
+        meaning=None)
+    mai = PermissibleValue(
+        text="mai",
+        meaning=None)
+    mak = PermissibleValue(
+        text="mak",
+        meaning=None)
+    mal = PermissibleValue(
+        text="mal",
+        meaning=None)
+    man = PermissibleValue(
+        text="man",
+        meaning=None)
+    mao = PermissibleValue(
+        text="mao",
+        meaning=None)
+    map = PermissibleValue(
+        text="map",
+        meaning=None)
+    mar = PermissibleValue(
+        text="mar",
+        meaning=None)
+    mas = PermissibleValue(
+        text="mas",
+        meaning=None)
+    may = PermissibleValue(
+        text="may",
+        meaning=None)
+    mdf = PermissibleValue(
+        text="mdf",
+        meaning=None)
+    mdr = PermissibleValue(
+        text="mdr",
+        meaning=None)
+    men = PermissibleValue(
+        text="men",
+        meaning=None)
+    mga = PermissibleValue(
+        text="mga",
+        meaning=None)
+    mic = PermissibleValue(
+        text="mic",
+        meaning=None)
+    min = PermissibleValue(
+        text="min",
+        meaning=None)
+    mis = PermissibleValue(
+        text="mis",
+        meaning=None)
+    mkd = PermissibleValue(
+        text="mkd",
+        meaning=None)
+    mkh = PermissibleValue(
+        text="mkh",
+        meaning=None)
+    mlg = PermissibleValue(
+        text="mlg",
+        meaning=None)
+    mlt = PermissibleValue(
+        text="mlt",
+        meaning=None)
+    mnc = PermissibleValue(
+        text="mnc",
+        meaning=None)
+    mni = PermissibleValue(
+        text="mni",
+        meaning=None)
+    mno = PermissibleValue(
+        text="mno",
+        meaning=None)
+    moh = PermissibleValue(
+        text="moh",
+        meaning=None)
+    mon = PermissibleValue(
+        text="mon",
+        meaning=None)
+    mos = PermissibleValue(
+        text="mos",
+        meaning=None)
+    mri = PermissibleValue(
+        text="mri",
+        meaning=None)
+    msa = PermissibleValue(
+        text="msa",
+        meaning=None)
+    mul = PermissibleValue(
+        text="mul",
+        meaning=None)
+    mun = PermissibleValue(
+        text="mun",
+        meaning=None)
+    mus = PermissibleValue(
+        text="mus",
+        meaning=None)
+    mwl = PermissibleValue(
+        text="mwl",
+        meaning=None)
+    mwr = PermissibleValue(
+        text="mwr",
+        meaning=None)
+    mya = PermissibleValue(
+        text="mya",
+        meaning=None)
+    myn = PermissibleValue(
+        text="myn",
+        meaning=None)
+    myv = PermissibleValue(
+        text="myv",
+        meaning=None)
+    nah = PermissibleValue(
+        text="nah",
+        meaning=None)
+    nai = PermissibleValue(
+        text="nai",
+        meaning=None)
+    nap = PermissibleValue(
+        text="nap",
+        meaning=None)
+    nau = PermissibleValue(
+        text="nau",
+        meaning=None)
+    nav = PermissibleValue(
+        text="nav",
+        meaning=None)
+    nbl = PermissibleValue(
+        text="nbl",
+        meaning=None)
+    nde = PermissibleValue(
+        text="nde",
+        meaning=None)
+    ndo = PermissibleValue(
+        text="ndo",
+        meaning=None)
+    nds = PermissibleValue(
+        text="nds",
+        meaning=None)
+    nep = PermissibleValue(
+        text="nep",
+        meaning=None)
+    new = PermissibleValue(
+        text="new",
+        meaning=None)
+    nia = PermissibleValue(
+        text="nia",
+        meaning=None)
+    nic = PermissibleValue(
+        text="nic",
+        meaning=None)
+    niu = PermissibleValue(
+        text="niu",
+        meaning=None)
+    nld = PermissibleValue(
+        text="nld",
+        meaning=None)
+    nno = PermissibleValue(
+        text="nno",
+        meaning=None)
+    nob = PermissibleValue(
+        text="nob",
+        meaning=None)
+    nog = PermissibleValue(
+        text="nog",
+        meaning=None)
+    non = PermissibleValue(
+        text="non",
+        meaning=None)
+    nor = PermissibleValue(
+        text="nor",
+        meaning=None)
+    nqo = PermissibleValue(
+        text="nqo",
+        meaning=None)
+    nso = PermissibleValue(
+        text="nso",
+        meaning=None)
+    nub = PermissibleValue(
+        text="nub",
+        meaning=None)
+    nwc = PermissibleValue(
+        text="nwc",
+        meaning=None)
+    nya = PermissibleValue(
+        text="nya",
+        meaning=None)
+    nym = PermissibleValue(
+        text="nym",
+        meaning=None)
+    nyn = PermissibleValue(
+        text="nyn",
+        meaning=None)
+    nyo = PermissibleValue(
+        text="nyo",
+        meaning=None)
+    nzi = PermissibleValue(
+        text="nzi",
+        meaning=None)
+    oci = PermissibleValue(
+        text="oci",
+        meaning=None)
+    oji = PermissibleValue(
+        text="oji",
+        meaning=None)
+    ori = PermissibleValue(
+        text="ori",
+        meaning=None)
+    orm = PermissibleValue(
+        text="orm",
+        meaning=None)
+    osa = PermissibleValue(
+        text="osa",
+        meaning=None)
+    oss = PermissibleValue(
+        text="oss",
+        meaning=None)
+    ota = PermissibleValue(
+        text="ota",
+        meaning=None)
+    oto = PermissibleValue(
+        text="oto",
+        meaning=None)
+    paa = PermissibleValue(
+        text="paa",
+        meaning=None)
+    pag = PermissibleValue(
+        text="pag",
+        meaning=None)
+    pal = PermissibleValue(
+        text="pal",
+        meaning=None)
+    pam = PermissibleValue(
+        text="pam",
+        meaning=None)
+    pan = PermissibleValue(
+        text="pan",
+        meaning=None)
+    pap = PermissibleValue(
+        text="pap",
+        meaning=None)
+    pau = PermissibleValue(
+        text="pau",
+        meaning=None)
+    peo = PermissibleValue(
+        text="peo",
+        meaning=None)
+    per = PermissibleValue(
+        text="per",
+        meaning=None)
+    phi = PermissibleValue(
+        text="phi",
+        meaning=None)
+    phn = PermissibleValue(
+        text="phn",
+        meaning=None)
+    pli = PermissibleValue(
+        text="pli",
+        meaning=None)
+    pol = PermissibleValue(
+        text="pol",
+        meaning=None)
+    pon = PermissibleValue(
+        text="pon",
+        meaning=None)
+    por = PermissibleValue(
+        text="por",
+        meaning=None)
+    pra = PermissibleValue(
+        text="pra",
+        meaning=None)
+    pro = PermissibleValue(
+        text="pro",
+        meaning=None)
+    pus = PermissibleValue(
+        text="pus",
+        meaning=None)
+    que = PermissibleValue(
+        text="que",
+        meaning=None)
+    raj = PermissibleValue(
+        text="raj",
+        meaning=None)
+    rap = PermissibleValue(
+        text="rap",
+        meaning=None)
+    rar = PermissibleValue(
+        text="rar",
+        meaning=None)
+    roa = PermissibleValue(
+        text="roa",
+        meaning=None)
+    roh = PermissibleValue(
+        text="roh",
+        meaning=None)
+    rom = PermissibleValue(
+        text="rom",
+        meaning=None)
+    ron = PermissibleValue(
+        text="ron",
+        meaning=None)
+    rum = PermissibleValue(
+        text="rum",
+        meaning=None)
+    run = PermissibleValue(
+        text="run",
+        meaning=None)
+    rup = PermissibleValue(
+        text="rup",
+        meaning=None)
+    rus = PermissibleValue(
+        text="rus",
+        meaning=None)
+    sad = PermissibleValue(
+        text="sad",
+        meaning=None)
+    sag = PermissibleValue(
+        text="sag",
+        meaning=None)
+    sah = PermissibleValue(
+        text="sah",
+        meaning=None)
+    sai = PermissibleValue(
+        text="sai",
+        meaning=None)
+    sal = PermissibleValue(
+        text="sal",
+        meaning=None)
+    sam = PermissibleValue(
+        text="sam",
+        meaning=None)
+    san = PermissibleValue(
+        text="san",
+        meaning=None)
+    sas = PermissibleValue(
+        text="sas",
+        meaning=None)
+    sat = PermissibleValue(
+        text="sat",
+        meaning=None)
+    scn = PermissibleValue(
+        text="scn",
+        meaning=None)
+    sco = PermissibleValue(
+        text="sco",
+        meaning=None)
+    sel = PermissibleValue(
+        text="sel",
+        meaning=None)
+    sem = PermissibleValue(
+        text="sem",
+        meaning=None)
+    sga = PermissibleValue(
+        text="sga",
+        meaning=None)
+    sgn = PermissibleValue(
+        text="sgn",
+        meaning=None)
+    shn = PermissibleValue(
+        text="shn",
+        meaning=None)
+    sid = PermissibleValue(
+        text="sid",
+        meaning=None)
+    sin = PermissibleValue(
+        text="sin",
+        meaning=None)
+    sio = PermissibleValue(
+        text="sio",
+        meaning=None)
+    sit = PermissibleValue(
+        text="sit",
+        meaning=None)
+    sla = PermissibleValue(
+        text="sla",
+        meaning=None)
+    slk = PermissibleValue(
+        text="slk",
+        meaning=None)
+    slo = PermissibleValue(
+        text="slo",
+        meaning=None)
+    slv = PermissibleValue(
+        text="slv",
+        meaning=None)
+    sma = PermissibleValue(
+        text="sma",
+        meaning=None)
+    sme = PermissibleValue(
+        text="sme",
+        meaning=None)
+    smi = PermissibleValue(
+        text="smi",
+        meaning=None)
+    smj = PermissibleValue(
+        text="smj",
+        meaning=None)
+    smn = PermissibleValue(
+        text="smn",
+        meaning=None)
+    smo = PermissibleValue(
+        text="smo",
+        meaning=None)
+    sms = PermissibleValue(
+        text="sms",
+        meaning=None)
+    sna = PermissibleValue(
+        text="sna",
+        meaning=None)
+    snd = PermissibleValue(
+        text="snd",
+        meaning=None)
+    snk = PermissibleValue(
+        text="snk",
+        meaning=None)
+    sog = PermissibleValue(
+        text="sog",
+        meaning=None)
+    som = PermissibleValue(
+        text="som",
+        meaning=None)
+    son = PermissibleValue(
+        text="son",
+        meaning=None)
+    sot = PermissibleValue(
+        text="sot",
+        meaning=None)
+    spa = PermissibleValue(
+        text="spa",
+        meaning=None)
+    sqi = PermissibleValue(
+        text="sqi",
+        meaning=None)
+    srd = PermissibleValue(
+        text="srd",
+        meaning=None)
+    srn = PermissibleValue(
+        text="srn",
+        meaning=None)
+    srp = PermissibleValue(
+        text="srp",
+        meaning=None)
+    srr = PermissibleValue(
+        text="srr",
+        meaning=None)
+    ssa = PermissibleValue(
+        text="ssa",
+        meaning=None)
+    ssw = PermissibleValue(
+        text="ssw",
+        meaning=None)
+    suk = PermissibleValue(
+        text="suk",
+        meaning=None)
+    sun = PermissibleValue(
+        text="sun",
+        meaning=None)
+    sus = PermissibleValue(
+        text="sus",
+        meaning=None)
+    sux = PermissibleValue(
+        text="sux",
+        meaning=None)
+    swa = PermissibleValue(
+        text="swa",
+        meaning=None)
+    swe = PermissibleValue(
+        text="swe",
+        meaning=None)
+    syc = PermissibleValue(
+        text="syc",
+        meaning=None)
+    syr = PermissibleValue(
+        text="syr",
+        meaning=None)
+    tah = PermissibleValue(
+        text="tah",
+        meaning=None)
+    tai = PermissibleValue(
+        text="tai",
+        meaning=None)
+    tam = PermissibleValue(
+        text="tam",
+        meaning=None)
+    tat = PermissibleValue(
+        text="tat",
+        meaning=None)
+    tel = PermissibleValue(
+        text="tel",
+        meaning=None)
+    tem = PermissibleValue(
+        text="tem",
+        meaning=None)
+    ter = PermissibleValue(
+        text="ter",
+        meaning=None)
+    tet = PermissibleValue(
+        text="tet",
+        meaning=None)
+    tgk = PermissibleValue(
+        text="tgk",
+        meaning=None)
+    tgl = PermissibleValue(
+        text="tgl",
+        meaning=None)
+    tha = PermissibleValue(
+        text="tha",
+        meaning=None)
+    tib = PermissibleValue(
+        text="tib",
+        meaning=None)
+    tig = PermissibleValue(
+        text="tig",
+        meaning=None)
+    tir = PermissibleValue(
+        text="tir",
+        meaning=None)
+    tiv = PermissibleValue(
+        text="tiv",
+        meaning=None)
+    tkl = PermissibleValue(
+        text="tkl",
+        meaning=None)
+    tlh = PermissibleValue(
+        text="tlh",
+        meaning=None)
+    tli = PermissibleValue(
+        text="tli",
+        meaning=None)
+    tmh = PermissibleValue(
+        text="tmh",
+        meaning=None)
+    tog = PermissibleValue(
+        text="tog",
+        meaning=None)
+    ton = PermissibleValue(
+        text="ton",
+        meaning=None)
+    tpi = PermissibleValue(
+        text="tpi",
+        meaning=None)
+    tsi = PermissibleValue(
+        text="tsi",
+        meaning=None)
+    tsn = PermissibleValue(
+        text="tsn",
+        meaning=None)
+    tso = PermissibleValue(
+        text="tso",
+        meaning=None)
+    tuk = PermissibleValue(
+        text="tuk",
+        meaning=None)
+    tum = PermissibleValue(
+        text="tum",
+        meaning=None)
+    tup = PermissibleValue(
+        text="tup",
+        meaning=None)
+    tur = PermissibleValue(
+        text="tur",
+        meaning=None)
+    tut = PermissibleValue(
+        text="tut",
+        meaning=None)
+    tvl = PermissibleValue(
+        text="tvl",
+        meaning=None)
+    twi = PermissibleValue(
+        text="twi",
+        meaning=None)
+    tyv = PermissibleValue(
+        text="tyv",
+        meaning=None)
+    udm = PermissibleValue(
+        text="udm",
+        meaning=None)
+    uga = PermissibleValue(
+        text="uga",
+        meaning=None)
+    uig = PermissibleValue(
+        text="uig",
+        meaning=None)
+    ukr = PermissibleValue(
+        text="ukr",
+        meaning=None)
+    umb = PermissibleValue(
+        text="umb",
+        meaning=None)
+    und = PermissibleValue(
+        text="und",
+        meaning=None)
+    urd = PermissibleValue(
+        text="urd",
+        meaning=None)
+    uzb = PermissibleValue(
+        text="uzb",
+        meaning=None)
+    vai = PermissibleValue(
+        text="vai",
+        meaning=None)
+    ven = PermissibleValue(
+        text="ven",
+        meaning=None)
+    vie = PermissibleValue(
+        text="vie",
+        meaning=None)
+    vol = PermissibleValue(
+        text="vol",
+        meaning=None)
+    vot = PermissibleValue(
+        text="vot",
+        meaning=None)
+    wak = PermissibleValue(
+        text="wak",
+        meaning=None)
+    wal = PermissibleValue(
+        text="wal",
+        meaning=None)
+    war = PermissibleValue(
+        text="war",
+        meaning=None)
+    was = PermissibleValue(
+        text="was",
+        meaning=None)
+    wel = PermissibleValue(
+        text="wel",
+        meaning=None)
+    wen = PermissibleValue(
+        text="wen",
+        meaning=None)
+    wln = PermissibleValue(
+        text="wln",
+        meaning=None)
+    wol = PermissibleValue(
+        text="wol",
+        meaning=None)
+    xal = PermissibleValue(
+        text="xal",
+        meaning=None)
+    xho = PermissibleValue(
+        text="xho",
+        meaning=None)
+    yao = PermissibleValue(
+        text="yao",
+        meaning=None)
+    yap = PermissibleValue(
+        text="yap",
+        meaning=None)
+    yid = PermissibleValue(
+        text="yid",
+        meaning=None)
+    yor = PermissibleValue(
+        text="yor",
+        meaning=None)
+    ypk = PermissibleValue(
+        text="ypk",
+        meaning=None)
+    zap = PermissibleValue(
+        text="zap",
+        meaning=None)
+    zbl = PermissibleValue(
+        text="zbl",
+        meaning=None)
+    zen = PermissibleValue(
+        text="zen",
+        meaning=None)
+    zgh = PermissibleValue(
+        text="zgh",
+        meaning=None)
+    zha = PermissibleValue(
+        text="zha",
+        meaning=None)
+    zho = PermissibleValue(
+        text="zho",
+        meaning=None)
+    znd = PermissibleValue(
+        text="znd",
+        meaning=None)
+    zul = PermissibleValue(
+        text="zul",
+        meaning=None)
+    zun = PermissibleValue(
+        text="zun",
+        meaning=None)
+    zxx = PermissibleValue(
+        text="zxx",
+        meaning=None)
+    zza = PermissibleValue(
+        text="zza",
+        meaning=None)
+
+    _defn = EnumDefinition(
+        name="LanguageCodeEnum",
+        description="""[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)""",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "del",
+            PermissibleValue(
+                text="del",
+                meaning=None))
+        setattr(cls, "qaa-qtz",
+            PermissibleValue(
+                text="qaa-qtz",
+                meaning=None))
+
 class LanguageUsageEnum(EnumDefinitionImpl):
     """
     FIAF Moving Image Cataloguing Manual 2.3.3, D.6
@@ -3469,25 +5216,28 @@ class slots:
     pass
 
 slots.id = Slot(uri=AVEFI.id, name="id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.id, domain=None, range=Optional[str])
+                   model_uri=AVEFI.id, domain=None, range=Optional[Union[str, IDString]])
+
+slots.has_identifier = Slot(uri=AVEFI.has_identifier, name="has_identifier", curie=AVEFI.curie('has_identifier'),
+                   model_uri=AVEFI.has_identifier, domain=None, range=Optional[Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]]])
 
 slots.has_name = Slot(uri=SCHEMA.name, name="has_name", curie=SCHEMA.curie('name'),
-                   model_uri=AVEFI.has_name, domain=None, range=str)
+                   model_uri=AVEFI.has_name, domain=None, range=Union[str, TextLine])
 
 slots.has_alternate_name = Slot(uri=SCHEMA.alternateName, name="has_alternate_name", curie=SCHEMA.curie('alternateName'),
-                   model_uri=AVEFI.has_alternate_name, domain=None, range=Optional[Union[str, List[str]]])
+                   model_uri=AVEFI.has_alternate_name, domain=None, range=Optional[Union[Union[str, TextLine], List[Union[str, TextLine]]]])
 
 slots.has_ordering_name = Slot(uri=AVEFI.has_ordering_name, name="has_ordering_name", curie=AVEFI.curie('has_ordering_name'),
-                   model_uri=AVEFI.has_ordering_name, domain=None, range=Optional[str])
+                   model_uri=AVEFI.has_ordering_name, domain=None, range=Optional[Union[str, TextLine]])
 
 slots.has_record = Slot(uri=AVEFI.has_record, name="has_record", curie=AVEFI.curie('has_record'),
-                   model_uri=AVEFI.has_record, domain=None, range=Optional[Union[dict, MovingImageRecord]])
+                   model_uri=AVEFI.has_record, domain=None, range=Union[dict, MovingImageRecord])
 
 slots.type = Slot(uri=AVEFI.type, name="type", curie=AVEFI.curie('type'),
-                   model_uri=AVEFI.type, domain=None, range=Optional[str])
+                   model_uri=AVEFI.type, domain=None, range=Optional[Union[str, IDString]])
 
 slots.category = Slot(uri=RDF.type, name="category", curie=RDF.curie('type'),
-                   model_uri=AVEFI.category, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=AVEFI.category, domain=None, range=Optional[Union[str, AVefiCurie]])
 
 slots.same_as = Slot(uri=AVEFI.same_as, name="same_as", curie=AVEFI.curie('same_as'),
                    model_uri=AVEFI.same_as, domain=None, range=Optional[Union[Union[dict, AuthorityResource], List[Union[dict, AuthorityResource]]]])
@@ -3496,26 +5246,22 @@ slots.described_by = Slot(uri=WDRS.describedby, name="described_by", curie=WDRS.
                    model_uri=AVEFI.described_by, domain=None, range=Optional[Union[dict, DescriptionResource]])
 
 slots.has_history = Slot(uri=AVEFI.has_history, name="has_history", curie=AVEFI.curie('has_history'),
-                   model_uri=AVEFI.has_history, domain=None, range=Optional[Union[str, URI]],
-                   pattern=re.compile(r'^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$'))
+                   model_uri=AVEFI.has_history, domain=None, range=Optional[Union[str, HttpUri]])
 
 slots.has_issuer_id = Slot(uri=WDRS.issuedby, name="has_issuer_id", curie=WDRS.curie('issuedby'),
-                   model_uri=AVEFI.has_issuer_id, domain=None, range=Union[str, URI],
-                   pattern=re.compile(r'^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$'))
+                   model_uri=AVEFI.has_issuer_id, domain=None, range=Union[str, HttpUri])
 
 slots.has_issuer_name = Slot(uri=DCTERMS.contributor, name="has_issuer_name", curie=DCTERMS.curie('contributor'),
-                   model_uri=AVEFI.has_issuer_name, domain=None, range=str)
+                   model_uri=AVEFI.has_issuer_name, domain=None, range=Union[str, TextLine])
 
 slots.last_modified = Slot(uri=DCTERMS.modified, name="last_modified", curie=DCTERMS.curie('modified'),
-                   model_uri=AVEFI.last_modified, domain=None, range=Union[str, XSDDateTime],
-                   pattern=re.compile(r'^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|\+00:00)$'))
+                   model_uri=AVEFI.last_modified, domain=None, range=Union[str, ISODateTimeUTC])
 
 slots.has_event = Slot(uri=AVEFI.has_event, name="has_event", curie=AVEFI.curie('has_event'),
                    model_uri=AVEFI.has_event, domain=None, range=Optional[Union[Union[dict, Event], List[Union[dict, Event]]]])
 
 slots.has_date = Slot(uri=AVEFI.has_date, name="has_date", curie=AVEFI.curie('has_date'),
-                   model_uri=AVEFI.has_date, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$'))
+                   model_uri=AVEFI.has_date, domain=None, range=Optional[Union[str, ISODate]])
 
 slots.has_activity = Slot(uri=AVEFI.has_activity, name="has_activity", curie=AVEFI.curie('has_activity'),
                    model_uri=AVEFI.has_activity, domain=None, range=Optional[Union[Union[dict, Activity], List[Union[dict, Activity]]]])
@@ -3533,10 +5279,10 @@ slots.has_extent = Slot(uri=AVEFI.has_extent, name="has_extent", curie=AVEFI.cur
                    model_uri=AVEFI.has_extent, domain=None, range=Optional[Union[dict, Extent]])
 
 slots.has_unit = Slot(uri=AVEFI.has_unit, name="has_unit", curie=AVEFI.curie('has_unit'),
-                   model_uri=AVEFI.has_unit, domain=None, range=Optional[Union[str, "UnitEnum"]])
+                   model_uri=AVEFI.has_unit, domain=None, range=Union[str, "UnitEnum"])
 
 slots.has_value = Slot(uri=AVEFI.has_value, name="has_value", curie=AVEFI.curie('has_value'),
-                   model_uri=AVEFI.has_value, domain=None, range=Optional[Decimal])
+                   model_uri=AVEFI.has_value, domain=None, range=Union[Decimal, Decimal])
 
 slots.has_precision = Slot(uri=AVEFI.has_precision, name="has_precision", curie=AVEFI.curie('has_precision'),
                    model_uri=AVEFI.has_precision, domain=None, range=Optional[Union[str, "PrecisionEnum"]])
@@ -3548,13 +5294,13 @@ slots.has_genre = Slot(uri=AVEFI.has_genre, name="has_genre", curie=AVEFI.curie(
                    model_uri=AVEFI.has_genre, domain=None, range=Optional[Union[Union[dict, Genre], List[Union[dict, Genre]]]])
 
 slots.has_subject = Slot(uri=AVEFI.has_subject, name="has_subject", curie=AVEFI.curie('has_subject'),
-                   model_uri=AVEFI.has_subject, domain=None, range=Optional[Union[Union[dict, Subject], List[Union[dict, Subject]]]])
+                   model_uri=AVEFI.has_subject, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.is_variant_of = Slot(uri=AVEFI.is_variant_of, name="is_variant_of", curie=AVEFI.curie('is_variant_of'),
-                   model_uri=AVEFI.is_variant_of, domain=None, range=Optional[Union[dict, AVefiResource]])
+                   model_uri=AVEFI.is_variant_of, domain=None, range=Optional[Union[dict, MovingImageResource]])
 
 slots.is_part_of = Slot(uri=AVEFI.is_part_of, name="is_part_of", curie=AVEFI.curie('is_part_of'),
-                   model_uri=AVEFI.is_part_of, domain=None, range=Optional[Union[Union[dict, AVefiResource], List[Union[dict, AVefiResource]]]])
+                   model_uri=AVEFI.is_part_of, domain=None, range=Optional[Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]]])
 
 slots.variant_type = Slot(uri=AVEFI.variant_type, name="variant_type", curie=AVEFI.curie('variant_type'),
                    model_uri=AVEFI.variant_type, domain=None, range=Optional[Union[str, "VariantTypeEnum"]])
@@ -3566,35 +5312,34 @@ slots.has_format = Slot(uri=AVEFI.has_format, name="has_format", curie=AVEFI.cur
                    model_uri=AVEFI.has_format, domain=None, range=Optional[Union[Union[dict, Format], List[Union[dict, Format]]]])
 
 slots.has_item = Slot(uri=AVEFI.has_item, name="has_item", curie=AVEFI.curie('has_item'),
-                   model_uri=AVEFI.has_item, domain=None, range=Optional[Union[Union[dict, AVefiResource], List[Union[dict, AVefiResource]]]])
+                   model_uri=AVEFI.has_item, domain=None, range=Optional[Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]]])
 
 slots.has_note = Slot(uri=AVEFI.has_note, name="has_note", curie=AVEFI.curie('has_note'),
-                   model_uri=AVEFI.has_note, domain=None, range=Optional[Union[str, List[str]]])
+                   model_uri=AVEFI.has_note, domain=None, range=Optional[Union[Union[str, TextArea], List[Union[str, TextArea]]]])
 
 slots.has_sound_type = Slot(uri=AVEFI.has_sound_type, name="has_sound_type", curie=AVEFI.curie('has_sound_type'),
                    model_uri=AVEFI.has_sound_type, domain=None, range=Optional[Union[str, "SoundTypeEnum"]])
 
 slots.has_webresource = Slot(uri=AVEFI.has_webresource, name="has_webresource", curie=AVEFI.curie('has_webresource'),
-                   model_uri=AVEFI.has_webresource, domain=None, range=Optional[Union[str, URI]],
-                   pattern=re.compile(r'^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$'))
+                   model_uri=AVEFI.has_webresource, domain=None, range=Optional[Union[str, HttpUri]])
 
 slots.is_manifestation_of = Slot(uri=AVEFI.is_manifestation_of, name="is_manifestation_of", curie=AVEFI.curie('is_manifestation_of'),
-                   model_uri=AVEFI.is_manifestation_of, domain=None, range=Union[Union[dict, AVefiResource], List[Union[dict, AVefiResource]]])
+                   model_uri=AVEFI.is_manifestation_of, domain=None, range=Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]])
 
 slots.in_language = Slot(uri=AVEFI.in_language, name="in_language", curie=AVEFI.curie('in_language'),
                    model_uri=AVEFI.in_language, domain=None, range=Optional[Union[Union[dict, Language], List[Union[dict, Language]]]])
 
 slots.is_item_of = Slot(uri=AVEFI.is_item_of, name="is_item_of", curie=AVEFI.curie('is_item_of'),
-                   model_uri=AVEFI.is_item_of, domain=None, range=Union[dict, AVefiResource])
+                   model_uri=AVEFI.is_item_of, domain=None, range=Union[dict, MovingImageResource])
 
 slots.has_access_status = Slot(uri=AVEFI.has_access_status, name="has_access_status", curie=AVEFI.curie('has_access_status'),
                    model_uri=AVEFI.has_access_status, domain=None, range=Optional[Union[str, "ItemAccessStatusEnum"]])
 
 slots.is_copy_of = Slot(uri=AVEFI.is_copy_of, name="is_copy_of", curie=AVEFI.curie('is_copy_of'),
-                   model_uri=AVEFI.is_copy_of, domain=None, range=Optional[Union[Union[dict, AVefiResource], List[Union[dict, AVefiResource]]]])
+                   model_uri=AVEFI.is_copy_of, domain=None, range=Optional[Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]]])
 
 slots.is_derivative_of = Slot(uri=AVEFI.is_derivative_of, name="is_derivative_of", curie=AVEFI.curie('is_derivative_of'),
-                   model_uri=AVEFI.is_derivative_of, domain=None, range=Optional[Union[Union[dict, AVefiResource], List[Union[dict, AVefiResource]]]])
+                   model_uri=AVEFI.is_derivative_of, domain=None, range=Optional[Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]]])
 
 slots.element_type = Slot(uri=AVEFI.element_type, name="element_type", curie=AVEFI.curie('element_type'),
                    model_uri=AVEFI.element_type, domain=None, range=Optional[Union[str, "ItemElementTypeEnum"]])
@@ -3606,20 +5351,25 @@ slots.movingImageRecord__has_primary_title = Slot(uri=AVEFI.has_primary_title, n
                    model_uri=AVEFI.movingImageRecord__has_primary_title, domain=None, range=Union[dict, Title])
 
 slots.language__code = Slot(uri=AVEFI.code, name="language__code", curie=AVEFI.curie('code'),
-                   model_uri=AVEFI.language__code, domain=None, range=str,
-                   pattern=re.compile(r'^[a-z]{3}$'))
+                   model_uri=AVEFI.language__code, domain=None, range=Union[str, "LanguageCodeEnum"])
 
 slots.language__usage = Slot(uri=AVEFI.usage, name="language__usage", curie=AVEFI.curie('usage'),
                    model_uri=AVEFI.language__usage, domain=None, range=Union[Union[str, "LanguageUsageEnum"], List[Union[str, "LanguageUsageEnum"]]])
 
+slots.WorkVariant_same_as = Slot(uri=AVEFI.same_as, name="WorkVariant_same_as", curie=AVEFI.curie('same_as'),
+                   model_uri=AVEFI.WorkVariant_same_as, domain=WorkVariant, range=Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]])
+
 slots.WorkVariant_type = Slot(uri=AVEFI.type, name="WorkVariant_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.WorkVariant_type, domain=WorkVariant, range=Union[str, "WorkVariantTypeEnum"])
+
+slots.GeographicName_same_as = Slot(uri=AVEFI.same_as, name="GeographicName_same_as", curie=AVEFI.curie('same_as'),
+                   model_uri=AVEFI.GeographicName_same_as, domain=GeographicName, range=Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]])
 
 slots.Genre_same_as = Slot(uri=AVEFI.same_as, name="Genre_same_as", curie=AVEFI.curie('same_as'),
                    model_uri=AVEFI.Genre_same_as, domain=Genre, range=Optional[Union[Union[dict, "GNDResource"], List[Union[dict, "GNDResource"]]]])
 
 slots.Activity_type = Slot(uri=AVEFI.type, name="Activity_type", curie=AVEFI.curie('type'),
-                   model_uri=AVEFI.Activity_type, domain=Activity, range=str)
+                   model_uri=AVEFI.Activity_type, domain=Activity, range=Union[str, IDString])
 
 slots.AnimationActivity_type = Slot(uri=AVEFI.type, name="AnimationActivity_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.AnimationActivity_type, domain=AnimationActivity, range=Union[str, "AnimationActivityTypeEnum"])
@@ -3670,7 +5420,10 @@ slots.ManifestationActivity_type = Slot(uri=AVEFI.type, name="ManifestationActiv
                    model_uri=AVEFI.ManifestationActivity_type, domain=ManifestationActivity, range=Union[str, "ManifestationActivityTypeEnum"])
 
 slots.Agent_has_name = Slot(uri=SCHEMA.name, name="Agent_has_name", curie=SCHEMA.curie('name'),
-                   model_uri=AVEFI.Agent_has_name, domain=Agent, range=str)
+                   model_uri=AVEFI.Agent_has_name, domain=Agent, range=Union[str, TextLine])
+
+slots.Agent_same_as = Slot(uri=AVEFI.same_as, name="Agent_same_as", curie=AVEFI.curie('same_as'),
+                   model_uri=AVEFI.Agent_same_as, domain=Agent, range=Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]])
 
 slots.Agent_type = Slot(uri=AVEFI.type, name="Agent_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.Agent_type, domain=Agent, range=Union[str, "AgentTypeEnum"])
@@ -3703,14 +5456,13 @@ slots.RightsCopyrightRegistrationEvent_has_activity = Slot(uri=AVEFI.has_activit
                    model_uri=AVEFI.RightsCopyrightRegistrationEvent_has_activity, domain=RightsCopyrightRegistrationEvent, range=Union[Union[dict, CopyrightAndDistributionActivity], List[Union[dict, CopyrightAndDistributionActivity]]])
 
 slots.Title_has_name = Slot(uri=SCHEMA.name, name="Title_has_name", curie=SCHEMA.curie('name'),
-                   model_uri=AVEFI.Title_has_name, domain=Title, range=str)
+                   model_uri=AVEFI.Title_has_name, domain=Title, range=Union[str, TextLine])
 
 slots.Title_type = Slot(uri=AVEFI.type, name="Title_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.Title_type, domain=Title, range=Union[str, "TitleTypeEnum"])
 
 slots.Duration_has_value = Slot(uri=AVEFI.has_value, name="Duration_has_value", curie=AVEFI.curie('has_value'),
-                   model_uri=AVEFI.Duration_has_value, domain=Duration, range=Optional[str],
-                   pattern=re.compile(r'^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$'))
+                   model_uri=AVEFI.Duration_has_value, domain=Duration, range=Union[str, ISODurationInHours])
 
 slots.Audio_type = Slot(uri=AVEFI.type, name="Audio_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.Audio_type, domain=Audio, range=Optional[Union[str, "FormatAudioTypeEnum"]])
@@ -3731,39 +5483,34 @@ slots.Video_type = Slot(uri=AVEFI.type, name="Video_type", curie=AVEFI.curie('ty
                    model_uri=AVEFI.Video_type, domain=Video, range=Optional[Union[str, "FormatVideoTypeEnum"]])
 
 slots.Manifestation_same_as = Slot(uri=AVEFI.same_as, name="Manifestation_same_as", curie=AVEFI.curie('same_as'),
-                   model_uri=AVEFI.Manifestation_same_as, domain=Manifestation, range=Optional[Union[Union[dict, "AVefiResource"], List[Union[dict, "AVefiResource"]]]])
+                   model_uri=AVEFI.Manifestation_same_as, domain=Manifestation, range=Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]])
 
 slots.AuthorityResource_id = Slot(uri=AVEFI.id, name="AuthorityResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.AuthorityResource_id, domain=AuthorityResource, range=str)
+                   model_uri=AVEFI.AuthorityResource_id, domain=AuthorityResource, range=Union[str, IDString])
 
 slots.AVefiResource_id = Slot(uri=AVEFI.id, name="AVefiResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.AVefiResource_id, domain=AVefiResource, range=str,
-                   pattern=re.compile(r'^21(\.([0-9A-Za-z])+)*/[!-~]+$'))
+                   model_uri=AVEFI.AVefiResource_id, domain=AVefiResource, range=Union[str, AVefi])
 
 slots.DOIResource_id = Slot(uri=AVEFI.id, name="DOIResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.DOIResource_id, domain=DOIResource, range=str,
-                   pattern=re.compile(r'^10\.[0-9]{4,9}(\.[0-9]+)*(/|%2F)((?![\"&\'])\S)+$'))
+                   model_uri=AVEFI.DOIResource_id, domain=DOIResource, range=Union[str, DOI])
+
+slots.EIDRResource_id = Slot(uri=AVEFI.id, name="EIDRResource_id", curie=AVEFI.curie('id'),
+                   model_uri=AVEFI.EIDRResource_id, domain=EIDRResource, range=Union[str, EIDR])
 
 slots.FilmportalResource_id = Slot(uri=AVEFI.id, name="FilmportalResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.FilmportalResource_id, domain=FilmportalResource, range=str,
-                   pattern=re.compile(r'^[\da-f]{32}$'))
+                   model_uri=AVEFI.FilmportalResource_id, domain=FilmportalResource, range=Union[str, FilmportalID])
 
 slots.GNDResource_id = Slot(uri=AVEFI.id, name="GNDResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.GNDResource_id, domain=GNDResource, range=str,
-                   pattern=re.compile(r'^[-\dX]+$'))
+                   model_uri=AVEFI.GNDResource_id, domain=GNDResource, range=Union[str, GNDID])
 
 slots.ISILResource_id = Slot(uri=AVEFI.id, name="ISILResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.ISILResource_id, domain=ISILResource, range=str,
-                   pattern=re.compile(r'^[A-Z]{2}-[A-Za-z\-0-9:/]{1,15}$'))
+                   model_uri=AVEFI.ISILResource_id, domain=ISILResource, range=Union[str, ISIL])
 
 slots.TGNResource_id = Slot(uri=AVEFI.id, name="TGNResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.TGNResource_id, domain=TGNResource, range=str,
-                   pattern=re.compile(r'^[1-9][0-9]{6}$'))
+                   model_uri=AVEFI.TGNResource_id, domain=TGNResource, range=Union[str, TGNID])
 
 slots.VIAFResource_id = Slot(uri=AVEFI.id, name="VIAFResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.VIAFResource_id, domain=VIAFResource, range=str,
-                   pattern=re.compile(r'^\d+$'))
+                   model_uri=AVEFI.VIAFResource_id, domain=VIAFResource, range=Union[str, VIAFID])
 
 slots.WikidataResource_id = Slot(uri=AVEFI.id, name="WikidataResource_id", curie=AVEFI.curie('id'),
-                   model_uri=AVEFI.WikidataResource_id, domain=WikidataResource, range=str,
-                   pattern=re.compile(r'^[LPQ]\d+$'))
+                   model_uri=AVEFI.WikidataResource_id, domain=WikidataResource, range=Union[str, WikidataID])

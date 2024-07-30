@@ -2,8 +2,6 @@
 has_record:
   category: avefi:Manifestation
   has_identifier:
-  - category: avefi:AVefiResource
-    id: 21.T11998/F5471B8A-FF4D-407A-BC72-D63A8E53EAC0
   - category: avefi:LocalResource
     id: 150221536
   has_primary_title:
@@ -43,8 +41,8 @@ has_record:
   has_colour_type: BlackAndWhite
   has_sound_type: Sound
   is_manifestation_of:
-  - category: avefi:AVefiResource
-    id: 21.T11998/60BC0D95-6F00-4E84-B77B-F3174C211C12
+  - category: avefi:LocalResource
+    id: 150003397
   has_item:
-  - category: avefi:AVefiResource
-    id: 21.T11998/5CB143FE-756A-456E-B839-D2E8BB04E9D4
+  - category: avefi:LocalResource
+    id: 150225499

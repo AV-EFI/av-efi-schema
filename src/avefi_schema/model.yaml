@@ -39,25 +39,369 @@ default_range: string
 default_curi_maps:
 - semweb_context
 
+subsets:
+  TypeRegistrySubset:
+    description: >-
+      Classes that are to be implemented as infoTypes in the type
+      registry
+
+types:
+  TextLine:
+    typeof: string
+    pattern: ^.+$
+    annotations:
+    - pid: 21.T11969/7ac5a4f0445cbffc6a27
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 550
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Non-empty string without line breaks intended for names and
+      similar data
+
+  TextArea:
+    typeof: string
+    annotations:
+    - pid: 21.T11969/8717ca7ca5aff686b379
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 8192
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Non-empty string possibly containing line breaks
+
+  HttpUri:
+    typeof: uri
+    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
+    annotations:
+    - pid: 21.T11969/4f13820c6cdbd8a7136f
+    - tag: data_type_properties
+      value:
+        maxLength: 512
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Full URI starting with http or https
+
+  AVefiCurie:
+    typeof: uriorcurie
+    annotations:
+    - pid: 21.T11969/5ccbf9c9c5fc1bc34df8
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      To be used as range for type designator slots, i.e. const values
+
+  Decimal:
+    typeof: decimal
+    annotations:
+    - pid: 21.T11969/fcbe592c37410a1b261d
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Decimal numbers
+
+  ISODate:
+    typeof: string
+    pattern: 
+      ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$
+    annotations:
+    - pid: 21.T11969/90ce854c789144a37fb7
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      ISO 8601 date or interval/period, more specifically, EDTF
+      conformance level 0 as well as qualifiers ? (uncertain date) and
+      ~ (approximate date). See examples and references for more
+      information
+    examples:
+    - value: '2024-04-24'
+      description: complete date, i.e. year, month and day
+    - value: 2024-04
+      description: year and month
+    - value: '2024'
+      description: year only
+    - value: 2024~
+      description: approximate date (2024 or at least close to 2024)
+    - value: 2024?
+      description: uncertain date (2024 or may be something different)
+    - value: 2023/2024
+      description: interval (2023 until 2024)
+    see_also:
+    - https://www.loc.gov/standards/datetime/
+
+  ISODateTimeUTC:
+    typeof: datetime
+    pattern: 
+      ^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|\+00:00)$
+    annotations:
+    - pid: 21.T11969/27064b567b4f9f7017ae
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Timestamp in UTC
+    examples:
+    - value: 2024-04-24T16:36:14Z
+
+  ISODurationInHours:
+    typeof: string
+    pattern: 
+      ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
+    annotations:
+    - pid: 21.T11969/a9cc3bf7aa659fe0f9e5
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      ISO 8601 duration format. See examples
+    examples:
+    - value: PT3H18M45S
+      description: 3 hours, 18 minutes, 45 seconds
+    - value: PT2H9M
+      description: 2 hours, 9 minutes
+    - value: PT6M12S
+      description: 6 minutes, 12 seconds
+    notes:
+    - https://www.w3.org/TR/xmlschema11-2/#duration
+
+  IDString:
+    typeof: string
+    pattern: ^((?![\"&\'])\S)+$
+    annotations:
+    - pid: 21.T11969/4af5369dc8358733d34c
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      ASCII string suitable for identifiers
+
+  AVefi:
+    typeof: string
+    pattern: ^21(\.([0-9A-Za-z])+)*/[!-~]+$
+    annotations:
+    - pid: 21.T11969/10a6d4dc54ac4827a50b
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Handle with the prefix allocated for AVefi (eventually)
+
+  DOI:
+    typeof: string
+    pattern: ^10\.[0-9]{4,9}(\.[0-9]+)*(/|%2F)((?![\"&\'])\S)+$
+    annotations:
+    - pid: 21.T11969/94dbc30c6c4a38e84e6f
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Digital Object Identifier maintained by the DOI Foundation and
+      commonly used for scientific publications including films
+    examples:
+    - value: 10.2307/j.ctt2005t2g
+      description: DOI for "The FIAF Moving Image Cataloguing Manual"
+    - value: 10.1000/182
+      description: DOI for "DOI Handbook"
+    see_also:
+    - https://dx.doi.org/
+    - https://www.wikidata.org/wiki/Property:P356
+
+  EIDR:
+    typeof: string
+    pattern: ^10\.5240(/|%2F)((?![\"&\'])\S)+$
+    annotations:
+    - pid: 21.T11969/99119b0c92c93022d478
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Entertainment Identifier Registry ID
+    examples:
+    - value: 10.5240/58DD-06EB-3EED-A705-EE28-7
+      description: EIDR for "The Simpsons"
+    see_also:
+    - https://www.eidr.org/
+    - https://www.wikidata.org/wiki/Property:P2704
+
+  FilmportalID:
+    typeof: string
+    pattern: ^[\da-f]{32}$
+    annotations:
+    - pid: 21.T11969/4099938c39f6b2a57877
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Identifier of the German Filmportal.de
+    examples:
+    - value: d70835e558264328a39112994449d17f
+      description: Filmportal-ID for creative work "Nosferatu"
+    - value: a89f90efdb664915ad2651ff0406736f
+      description: Filmportal-ID for person "Rainer Werner Fassbinder"
+    see_also:
+    - https://www.filmportal.de/
+    - https://www.wikidata.org/entity/P2639
+
+  GNDID:
+    typeof: string
+    pattern: ^[-\dX]+$
+    annotations:
+    - pid: 21.T11969/85336bee084e8645831d
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Gemeinsame Normdatei (GND) identifier maintained by Deutsche
+      Nationalbibliothek (German National Library)
+    examples:
+    - value: 4228455-7
+      description: GND-ID for creative work "Nosferatu"
+    - value: 4018118-2
+      description: GND-ID for place "Frankfurt am Main"
+    - value: 10140798-1
+      description: GND-ID for organization "Deutsche Nationalbibliothek"
+    - value: 118532022
+      description: GND-ID for person "Rainer Werner Fassbinder"
+    - value: 4187368-3
+      description: GND-ID for subject heading "Vampir"
+    see_also:
+    - https://www.wikidata.org/entity/P227
+
+  ISIL:
+    typeof: string
+    pattern: ^[A-Z]{2}-[A-Za-z\-0-9:/]{1,15}$
+    annotations:
+    - pid: 21.T11969/0f04aac5809944fbe63f
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      International Standard Identifier for Libraries and Related
+      Organizations including (film) archives
+    examples:
+    - value: DE-MUS-432511
+      description: ISIL-ID for organization "Filmmuseum Düsseldorf"
+    - value: DE-B1528
+      description: ISIL-ID for organization "Deutsche Kinemathek"
+    see_also:
+    - https://biblstandard.dk/isil/index.htm
+    - https://www.wikidata.org/wiki/Property:P791
+
+  TGNID:
+    typeof: string
+    pattern: ^[1-9][0-9]{6}$
+    annotations:
+    - pid: 21.T11969/279a437ca7ffc31a26d6
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Getty Thesaurus of Geographic Names ID
+    examples:
+    - value: 7183809
+      description: TGN-ID for place "Göttingen"
+    - value: 7013260
+      description: TGN-ID for place "Hannover"
+    see_also:
+    - https://www.getty.edu/research/tools/vocabularies/tgn/index.html
+    - https://vocab.getty.edu/resource?uri=http://vocab.getty.edu/dataset/tgn
+    - https://www.wikidata.org/wiki/Property:P1667
+
+  VIAFID:
+    typeof: string
+    pattern: ^\d+$
+    annotations:
+    - pid: 21.T11969/815abb512b729cbe019d
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Virtual International Authority File identifier
+    examples:
+    - value: 316753491
+      description: VIAF-ID for creative work "Nosferatu"
+    - value: 122530980
+      description: VIAF-ID for place "Berlin"
+    - value: 7183809
+      description: VIAF-ID for organization "International Federation of Film Archives"
+    - value: 66467014
+      description: VIAF-ID for person "Rainer Werner Fassbinder"
+    see_also:
+    - https://viaf.org/
+    - https://www.wikidata.org/entity/P214
+
+  WikidataID:
+    typeof: string
+    pattern: ^[LPQ]\d+$
+    annotations:
+    - pid: 21.T11969/fa9d47f9d4107f21daa2
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Identifier for Wikidata entities
+    examples:
+    - value: Q151895
+      description: Wikidata-ID for creative work "Nosferatu"
+    - value: Q64
+      description: Wikidata-ID for place "Berlin"
+    - value: Q586693
+      description: >-
+        Wikidata-ID for organization "International Federation of Film
+        Archives"
+    - value: Q44426
+      description: Wikidata-ID for person "Rainer Werner Fassbinder"
+    - value: Q46721
+      description: Wikidata-ID for subject heading "Vampire"
+    see_also:
+    - https://www.wikidata.org/wiki/Wikidata:Identifiers
+
 classes:
 
   CategorizedThing:
     abstract: true
     slots:
     - category
+    annotations:
+    - trunk_pid: 21.T11969/be101407612d022cfdcc
     description: >-
       Root for all classes with subclasses in this schema
 
-  PIDRecord:
-    is_a: CategorizedThing
-    abstract: true
-    slots:
-    - id
-    description: >-
-      Grouping for all entities that represent a PID metadata record
-
   MovingImageRecord:
-    is_a: PIDRecord
+    is_a: CategorizedThing
     abstract: true
     attributes:
       has_alternative_title:
@@ -65,6 +409,8 @@ classes:
         multivalued: true
         inlined_as_list: true
         range: Title
+        in_subset:
+        - TypeRegistrySubset
         description: >-
           Additional title(s) associated with the work / variant,
           manifestation, or item.
@@ -72,6 +418,8 @@ classes:
         rank: 2
         range: Title
         required: true
+        in_subset:
+        - TypeRegistrySubset
         description: >-
           Primary title to be displayed in search results etc. The
           type should be PreferredTitle for works / variants and
@@ -80,7 +428,14 @@ classes:
     slots:
     - described_by
     - has_event
+    - has_identifier
     - in_language
+    annotations:
+    - pid: 21.T11969/2e9c01efa0f0f6881365
+    - trunk_pid: 21.T11969/0e3ed2fb51ddeec3cb1f
+    description: >-
+      Base class defining slots that are common to all levels of the
+      WVMI metadata model
 
   DescriptionResource:
     slots:
@@ -88,6 +443,10 @@ classes:
     - has_issuer_id
     - has_issuer_name
     - last_modified
+    annotations:
+    - pid: 21.T11969/d0995eaddeeb07f3428d
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Metadata about the PID rather than the identified object, i.e.
       who modified the PID metadata record when, making what changes
@@ -105,17 +464,22 @@ classes:
     - type
     - variant_type
     slot_usage:
-      ## Apparently not supported by jsonschema generator, unfortunately
-      # same_as:
-      #   any_of:
-      #   - range: DOIResource
-      #   - range: FilmportalResource
-      #   - range: GNDResource
-      #   - range: VIAFResource
-      #   - range: WikidataResource
+      same_as:
+        any_of:
+        - range: DOIResource
+        - range: FilmportalResource
+        - range: GNDResource
+        - range: VIAFResource
+        - range: WikidataResource
+        annotations:
+        - pid: 21.T11969/6cd9c85272885fefa9c0
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: WorkVariantTypeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Werk
       in_language: de
@@ -123,6 +487,10 @@ classes:
       in_language: en
     related_mappings:
     - fiaf:WorkVariant
+    annotations:
+    - pid: 21.T11969/7529ed598d0bd4fcf3d8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 1.0
 
@@ -132,16 +500,24 @@ classes:
     - has_alternate_name
     - has_name
     - same_as
-    ## Apparently not supported by jsonschema generator, unfortunately
-    # slot_usage:
-    #   same_as:
-    #     any_of:
-    #     - range: GNDResource
-    #     - range: VIAFResource
-    #     - range: WikidataResource
+    slot_usage:
+      same_as:
+        any_of:
+        - range: GNDResource
+        - range: TGNResource
+        - range: VIAFResource
+        - range: WikidataResource
+        annotations:
+        - pid: 21.T11969/dd35cd4d748c1785083a
+        in_subset:
+        - TypeRegistrySubset
     related_mappings:
     - fiaf:Country
     - fiaf:Location
+    annotations:
+    - pid: 21.T11969/bacbc4ae5eb2ac96982c
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Name of country, region or other location. Names should be taken
       from appropriate authorities (e.g. GND) and recorded as a human
@@ -158,9 +534,15 @@ classes:
     slot_usage:
       same_as:
         range: GNDResource
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Genre
       in_language: default
+    annotations:
+    - pid: 21.T11969/e70e5ae724f625a7477f
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Genre describes categories of Works, characterized by similar
       plots, themes, settings, situations, and characters. Examples of
@@ -179,6 +561,10 @@ classes:
       in_language: de
     - literal_form: Subject
       in_language: en
+    annotations:
+    - pid: 21.T11969/a3e99e02ddcb607c5242
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Subject descriptor terms for the content of a film specifying
       its period, themes, locations, etc. Not to be confused with
@@ -197,6 +583,13 @@ classes:
     slot_usage:
       type:
         required: true
+        in_subset:
+        - TypeRegistrySubset
+    annotations:
+    - trunk_pid: 21.T11969/e93415afce13f521e241
+    - pid: 21.T11969/56b195f0220b7e220710
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 1.4.1.1
 
@@ -206,8 +599,14 @@ classes:
     slot_usage:
       type:
         range: AnimationActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:AnimationActivity
+    annotations:
+    - pid: 21.T11969/253658316bd6be837db1
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.13
@@ -218,8 +617,14 @@ classes:
     slot_usage:
       type:
         range: CastActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:CastActivity
+    annotations:
+    - pid: 21.T11969/c6830294ff6a4d8cbd75
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.7
@@ -230,8 +635,14 @@ classes:
     slot_usage:
       type:
         range: CensorshipActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:CensorshipActivity
+    annotations:
+    - pid: 21.T11969/46ee382e391c4888ed22
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms C.1
@@ -242,8 +653,14 @@ classes:
     slot_usage:
       type:
         range: CinematographyActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:CinematographyActivity
+    annotations:
+    - pid: 21.T11969/bae0899a406a0bd2bdaf
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.5
@@ -254,8 +671,14 @@ classes:
     slot_usage:
       type:
         range: CopyrightAndDistributionActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:CopyrightandDistributionActivity
+    annotations:
+    - pid: 21.T11969/bc2aab64b865b9d83909
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms C.2
@@ -266,8 +689,14 @@ classes:
     slot_usage:
       type:
         range: DirectingActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:DirectingActivity
+    annotations:
+    - pid: 21.T11969/484efc6c28cfc7732e75
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.3
@@ -278,8 +707,14 @@ classes:
     slot_usage:
       type:
         range: EditingActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:EditingActivity
+    annotations:
+    - pid: 21.T11969/8b0add304c707db873f1
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.10
@@ -290,8 +725,14 @@ classes:
     slot_usage:
       type:
         range: LaboratoryActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:LaboratoryActivity
+    annotations:
+    - pid: 21.T11969/9d570998dedf7c199c50
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.12
@@ -302,8 +743,14 @@ classes:
     slot_usage:
       type:
         range: MusicActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:MusicActivity
+    annotations:
+    - pid: 21.T11969/92d2e34b5e93501ff9c7
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.11
@@ -314,8 +761,14 @@ classes:
     slot_usage:
       type:
         range: ProducingActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:ProducingActivity
+    annotations:
+    - pid: 21.T11969/77193f6b9ff25dfd42f6
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.2
@@ -326,8 +779,14 @@ classes:
     slot_usage:
       type:
         range: ProductionDesignActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:ProductionDesignActivity
+    annotations:
+    - pid: 21.T11969/66f94179b4bc0ed8553f
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.6
@@ -338,8 +797,14 @@ classes:
     slot_usage:
       type:
         range: PuppetActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:PuppetActivity
+    annotations:
+    - pid: 21.T11969/cfe02de2e73e35984272
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.14
@@ -350,8 +815,14 @@ classes:
     slot_usage:
       type:
         range: SoundActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:SoundActivity
+    annotations:
+    - pid: 21.T11969/33a013a7965dfd0337fa
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.9
@@ -362,8 +833,14 @@ classes:
     slot_usage:
       type:
         range: SpecialEffectsActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:SpecialEffectsActivity
+    annotations:
+    - pid: 21.T11969/ba0a31696080a881a41e
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.8
@@ -374,8 +851,14 @@ classes:
     slot_usage:
       type:
         range: WritingActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:WritingActivity
+    annotations:
+    - pid: 21.T11969/7b479b9faf0a25d41679
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.4
@@ -386,8 +869,14 @@ classes:
     slot_usage:
       type:
         range: ManifestationActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:ManifestationActivity
+    annotations:
+    - pid: 21.T11969/7a9e75d630f9d2d508f8
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Activity types / roles. See also: FIAF Moving Image Cataloguing
       Manual 2.4.1.1, D.8
@@ -401,22 +890,33 @@ classes:
     - type
     slot_usage:
       has_name:
+        in_subset:
+        - TypeRegistrySubset
         description: >-
           For natural persons, always use the convention "family name,
           given name"
-      ## Apparently not supported by jsonschema generator, unfortunately
-      # same_as:
-      #   any_of:
-      #   - range: FilmportalResource
-      #   - range: GNDResource
-      #   - range: VIAFResource
-      #   - range: WikidataResource
+      same_as:
+        any_of:
+        - range: FilmportalResource
+        - range: GNDResource
+        - range: VIAFResource
+        - range: WikidataResource
+        annotations:
+        - pid: 21.T11969/7e899c043d05318a8ef7
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: AgentTypeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
     related_mappings:
     - fiaf:Agent
     - foaf:Agent
+    annotations:
+    - pid: 21.T11969/77048147e58b6707508a
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Agent involved in some activity related to the moving image
       resource. For agents of type "Person" specify name according to
@@ -432,6 +932,9 @@ classes:
     - located_in
     close_mappings:
     - fiaf:Event
+    annotations:
+    - trunk_pid: 21.T11969/c60ff3f44c089ef17142
+    - pid: 21.T11969/28f74ae4dafa9d4dca35
     description: >-
       Significant event in the lifecycle of moving image work /
       variant, manifestation or item. Always specify the type of event
@@ -462,8 +965,14 @@ classes:
         - range: SoundActivity
         - range: SpecialEffectsActivity
         - range: WritingActivity
+        annotations:
+        - pid: 21.T11969/000ee0907b3a25f21d22
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: ProductionEventTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Produktion
       in_language: de
@@ -471,6 +980,10 @@ classes:
       in_language: en
     close_mappings:
     - fiaf:ProductionEvent
+    annotations:
+    - pid: 21.T11969/85073ea1c5b995826a3c
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Production event of a work/variant (or manifestation produced as
       a restoration). Provide a date or a period of time via has_date
@@ -489,11 +1002,19 @@ classes:
       has_activity:
         range: ManifestationActivity
         required: true
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: PreservationEventTypeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:PreservationEvent
+    annotations:
+    - pid: 21.T11969/267f87868c98b2157407
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Preservation event originating a manifestation or possibly a
       vaniant. Always specify the type of event and if possible a date
@@ -510,11 +1031,19 @@ classes:
     slot_usage:
       has_activity:
         range: ManifestationActivity
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: PublicationEventTypeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:PublicationEvent
+    annotations:
+    - pid: 21.T11969/8e1f90c97bb610491c08
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Publication event of a manifestation or possibly the first known
       publication of a work. Always specify the type of event and if
@@ -533,11 +1062,19 @@ classes:
       has_activity:
         range: LaboratoryActivity
         required: true
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: ManufactureEventTypeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
     close_mappings:
     - fiaf:ManufactureEvent
+    annotations:
+    - pid: 21.T11969/d714eff2626e41e41e78
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Manufacture event of a manifestation. Always specify the type of
       event and if possible a date or a period of time via has_date.
@@ -553,6 +1090,8 @@ classes:
       has_activity:
         range: CopyrightAndDistributionActivity
         required: true
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Rechte
       in_language: de
@@ -560,6 +1099,10 @@ classes:
       in_language: en
     close_mappings:
     - fiaf:RightsCopyrightRegistrationEvent
+    annotations:
+    - pid: 21.T11969/87d9e566e2a5a6a9d1d6
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Copyright and related rights registration event of a
       manifestation or possibly of a work/variant. Always specify date
@@ -579,11 +1122,19 @@ classes:
         close_mappings:
         - fiaf:hasTitleValue
         - schema:name
+        in_subset:
+        - TypeRegistrySubset
       type:
         range: TitleTypeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
         description: >-
           FIAF Moving Image Cataloguing Manual A.2
+    annotations:
+    - pid: 21.T11969/768e0c1c69573fb588f6
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
 
@@ -596,6 +1147,10 @@ classes:
     - has_format
     - has_note
     - has_webresource
+    annotations:
+    - trunk_pid: 21.T11969/b4db4a39a902f7abed4f
+    description: >-
+      Base class defining common slots for manifestations and items
 
   Duration:
     rank: 33
@@ -604,27 +1159,23 @@ classes:
     - has_precision
     slot_usage:
       has_value:
-        pattern: ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
-        range: string
+        range: ISODurationInHours
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Abspieldauer
       in_language: de
     - literal_form: Running Time
       in_language: en
+    annotations:
+    - pid: 21.T11969/df7f2b4d340532f48431
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Total running time of the described object in ISO 8601 duration
-      format. The examples section lists possible values for the
-      has_value slot. See also: FIAF Moving Image Cataloguing Manual
-      2.3.5.3, 3.1.5.11
-    examples:
-    - value: PT3H18M45S
-      description: 3 hours, 18 minutes, 45 seconds
-    - value: PT2H9M
-      description: 2 hours, 9 minutes
-    - value: PT6M12S
-      description: 6 minutes, 12 seconds
-    notes:
-    - https://www.w3.org/TR/xmlschema11-2/#duration
+      format. Check has_value slot range documentation for examples of
+      permissible values. See also: FIAF Moving Image Cataloguing
+      Manual 2.3.5.3, 3.1.5.11
 
   Extent:
     rank: 35
@@ -637,6 +1188,10 @@ classes:
       in_language: de
     - literal_form: Extent
       in_language: en
+    annotations:
+    - pid: 21.T11969/9e169a9a3af6df0758ed
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Physical length or size of the described object. See also: FIAF
       Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
@@ -647,6 +1202,9 @@ classes:
     abstract: true
     slots:
     - type
+    annotations:
+    - pid: 21.T11969/9f6ce2fc052b3ae49a80
+    - trunk_pid: 21.T11969/d3869bbc9a1b9f1a0fd1
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
 
@@ -656,11 +1214,17 @@ classes:
     slot_usage:
       type:
         range: FormatAudioTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Audio
       in_language: default
     close_mappings:
     - fiaf:Audio
+    annotations:
+    - pid: 21.T11969/5d0612962482536035d7
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
 
@@ -670,6 +1234,8 @@ classes:
     slot_usage:
       type:
         range: FormatDigitalFileTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Datei
       in_language: de
@@ -677,6 +1243,10 @@ classes:
       in_language: en
     close_mappings:
     - fiaf:DigitalFile
+    annotations:
+    - pid: 21.T11969/f24e4ac9459b80d59472
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
 
@@ -686,6 +1256,8 @@ classes:
     slot_usage:
       type:
         range: FormatDigitalFileEncodingTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Encoding
       in_language: de
@@ -693,6 +1265,10 @@ classes:
       in_language: en
     close_mappings:
     - fiaf:DigitalFileEncoding
+    annotations:
+    - pid: 21.T11969/7838de709db400991647
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
 
@@ -702,11 +1278,17 @@ classes:
     slot_usage:
       type:
         range: FormatFilmTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Film
       in_language: default
     close_mappings:
     - fiaf:Film
+    annotations:
+    - pid: 21.T11969/80d81e2684b42bb72bc0
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
 
@@ -716,11 +1298,17 @@ classes:
     slot_usage:
       type:
         range: FormatOpticalTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Optisch
       in_language: de
     - literal_form: Optical
       in_language: en
+    annotations:
+    - pid: 21.T11969/8492e19b115e84682060
+    in_subset:
+    - TypeRegistrySubset
     description: FIAF Moving Image Cataloguing Manual D.7.2
     close_mappings:
     - fiaf:Optical
@@ -731,11 +1319,17 @@ classes:
     slot_usage:
       type:
         range: FormatVideoTypeEnum
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Video
       in_language: default
     close_mappings:
     - fiaf:Video
+    annotations:
+    - pid: 21.T11969/4df1c81c76d3c72a9538
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.2
 
@@ -750,7 +1344,9 @@ classes:
     - same_as
     slot_usage:
       same_as:
-        range: AVefiResource
+        range: MovingImageResource
+        in_subset:
+        - TypeRegistrySubset
         description: >-
           Link to AVefi resource registered by another data provider
           indicating that the two manifestations are known to be the
@@ -761,6 +1357,10 @@ classes:
       in_language: default
     close_mappings:
     - fiaf:Manifestation
+    annotations:
+    - pid: 21.T11969/f3bf8470b8d25586300c
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Manifestation as defined in FIAF Moving Image Cataloguing Manual
       2.0. Note that manifestation type is recorded as publication
@@ -771,8 +1371,10 @@ classes:
     attributes:
       code:
         rank: 12
-        pattern: ^[a-z]{3}$
+        range: LanguageCodeEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
         description: >-
           [ISO 639-2
           code](https://id.loc.gov/vocabulary/iso639-2.html) for the
@@ -784,11 +1386,19 @@ classes:
         multivalued: true
         range: LanguageUsageEnum
         required: true
+        in_subset:
+        - TypeRegistrySubset
+        description: >-
+          FIAF Moving Image Cataloguing Manual 2.3.3.2
     structured_aliases:
     - literal_form: Sprache
       in_language: de
     - literal_form: Language
       in_language: en
+    annotations:
+    - pid: 21.T11969/ea0bf80a52047e9d46f5
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Provide language code from ISO 639-2 (Part 2: Alpha-3) and a
       list of language usage terms from our controlled vocabulary. See
@@ -817,16 +1427,24 @@ classes:
       in_language: en
     broad_mappings:
     - fiaf:Item
+    annotations:
+    - pid: 21.T11969/e8fb4f7dbead9e73589d
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 3.0
 
   MovingImageRecordContainer:
     rank: 100
-    description: >-
-      A holder for MovingImageRecord objects
+    tree_root: true
     slots:
     - has_record
-    tree_root: true
+    annotations:
+    - pid: 21.T11969/873d5c9f6ebbffecf1df
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      A holder for MovingImageRecord objects
 
   #-----------------------------------
   # Identifier classes
@@ -840,65 +1458,120 @@ classes:
     slot_usage:
       id:
         required: true
+        in_subset:
+        - TypeRegistrySubset
+    annotations:
+    - pid: 21.T11969/a170a3147e7ef872d701
+    - trunk_pid: 21.T11969/899f581d3d58acc1918d
     description: >-
       Root class for all identifiers from some kind of authority or
       public register widely accepted in the community
 
+  MovingImageResource:
+    is_a: AuthorityResource
+    abstract: true
+    annotations:
+    - trunk_pid: 21.T11969/e15fa59d1733320642b6
+    - pid: 21.T11969/efb65a41ee9d746a5e69
+    description: >-
+      Either a persistent or local identifier for AVefi compliant
+      moving image records. See subclasses for details
+
   AVefiResource:
     rank: 51
-    is_a: AuthorityResource
+    is_a: MovingImageResource
     slot_usage:
       id:
-        pattern: ^21(\.([0-9A-Za-z])+)*/[!-~]+$
+        range: AVefi
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: AVefi
       in_language: default
     annotations:
+    - pid: 21.T11969/7529ed598d0bd4fcf3d8
     - formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
     todos:
-      - >-
-        Possibly change formatter URIs/URLs to the av-efi.net domain when
-        the details have been sorted out
+    - >-
+      Possibly change formatter URIs/URLs to the av-efi.net domain when
+      the details have been sorted out
+    in_subset:
+    - TypeRegistrySubset
     description: >-
-      Handle with the prefix allocated for AVefi (eventually)
+      Handle with the prefix allocated for AVefi (eventually). Check
+      id slot range documentation for examples
 
   DOIResource:
     rank: 51
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^10\.[0-9]{4,9}(\.[0-9]+)*(/|%2F)((?![\"&\'])\S)+$
+        range: DOI
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: DOI
       in_language: default
     annotations:
-    - formatter_uri_for_rdf_resource: "http://dx.doi.org/$1"
-    - formatter_url_for_web_resource: "https://dx.doi.org/$1"
+    - trunk_pid: 21.T11969/3118e53a91b1a64b2d8c
+    - pid: 21.T11969/eba491f4edadbea9133c
+    - formatter_uri_for_rdf_resource: http://dx.doi.org/$1
+    - formatter_url_for_web_resource: https://doi.org/$1
     - tag: provides
       value:
       - CreativeWorkIdentifier
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Digital Object Identifier maintained by the DOI Foundation and
-      commonly used for scientific publications including films.
-    examples:
-    - value: 10.2307/j.ctt2005t2g
-      description: DOI for "The FIAF Moving Image Cataloguing Manual"
-    - value: 10.1000/182 
-      description: DOI for "DOI Handbook"
+      commonly used for scientific publications including films. Check
+      id slot range documentation for examples
     see_also:
     - https://dx.doi.org/
     - https://www.wikidata.org/wiki/Property:P356
+
+  EIDRResource:
+    rank: 51
+    is_a: DOIResource
+    slot_usage:
+      id:
+        range: EIDR
+        in_subset:
+        - TypeRegistrySubset
+    structured_aliases:
+    - literal_form: EIDR
+      in_language: default
+    annotations:
+    - pid: 21.T11969/8f381d5d7eec3f90d236
+    - formatter_uri_for_rdf_resource: http://dx.doi.org/$1
+    - formatter_url_for_web_resource: https://doi.org/$1
+    - tag: provides
+      value:
+      - CreativeWorkIdentifier
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Entertainment Identifier Registry ID. Check id slot range
+      documentation for examples
+    see_also:
+    - https://www.eidr.org/
+    - https://www.wikidata.org/wiki/Property:P2704
 
   FilmportalResource:
     rank: 51
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^[\da-f]{32}$
+        range: FilmportalID
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Filmportal
       in_language: default
+    in_subset:
+    - TypeRegistrySubset
     annotations:
+    - pid: 21.T11969/03890667c65c11066ac2
     - formatter_uri_for_rdf_resource: https://www.filmportal.de/$1
     - formatter_uri_for_web_resource: https://www.filmportal.de/$1
     - tag: provides
@@ -906,12 +1579,8 @@ classes:
       - CreativeWorkIdentifier
       - PersonIdentifier
     description: >-
-      Identifier of the German Filmportal.de
-    examples:
-    - value: d70835e558264328a39112994449d17f
-      description: Filmportal-ID for creative work "Nosferatu"
-    - value: a89f90efdb664915ad2651ff0406736f
-      description: Filmportal-ID for person "Rainer Werner Fassbinder"
+      Identifier of the German Filmportal.de. Check id slot range
+      documentation for examples
     see_also:
     - https://www.filmportal.de/
     - https://www.wikidata.org/entity/P2639
@@ -921,11 +1590,14 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^[-\dX]+$
+        range: GNDID
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: GND
       in_language: default
     annotations:
+    - pid: 21.T11969/1e67c576c1bdc5229b7a
     - formatter_uri_for_rdf_resource: https://d-nb.info/gnd/$1
     - formatter_url_for_web_resource: https://d-nb.info/gnd/$1
     - tag: provides
@@ -944,20 +1616,11 @@ classes:
     notes: >-
       API documentation including auto-complete suggestions at
       https://lobid.org/gnd/api
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Gemeinsame Normdatei (GND) identifier maintained by Deutsche
       Nationalbibliothek (German National Library)
-    examples:
-    - value: 4228455-7
-      description: GND-ID for creative work "Nosferatu"
-    - value: 4018118-2
-      description: GND-ID for place "Frankfurt am Main"
-    - value: 10140798-1
-      description: GND-ID for organization "Deutsche Nationalbibliothek"
-    - value: 118532022
-      description: GND-ID for person "Rainer Werner Fassbinder"
-    - value: 4187368-3
-      description: GND-ID for subject heading "Vampir"
     see_also:
     - https://www.wikidata.org/entity/P227
 
@@ -966,49 +1629,67 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^[A-Z]{2}-[A-Za-z\-0-9:/]{1,15}$
+        range: ISIL
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: ISIL
       in_language: default
+    in_subset:
+    - TypeRegistrySubset
     annotations:
+    - pid: 21.T11969/6a4cf32fdb37e46b2a3c
     - formatter_url_for_web_resource: https://w3id.org/isil/$1
     - tag: provides
       value:
       - OrganizationIdentifier
     description: >-
       International Standard Identifier for Libraries and Related
-      Organizations including (film) archives
-    examples:
-    - value: DE-MUS-432511
-      description: ISIL-ID for organization "Filmmuseum Düsseldorf"
-    - value: DE-B1528
-      description: ISIL-ID for organization "Deutsche Kinemathek"
+      Organizations including (film) archives. Check id slot range
+      documentation for examples
     see_also:
     - https://biblstandard.dk/isil/index.htm
     - https://www.wikidata.org/wiki/Property:P791
+
+  LocalResource:
+    rank: 51
+    is_a: MovingImageResource
+    notes:
+    - Not to be implemented in DTR
+    description: >-
+      Some identifier used by data provider to represent relations
+      between work/variant, manifestation and item when PIDs have not
+      been assigned yet. On ingest into AVefi, these identifiers will
+      be replaced by the generated PIDs
+    examples:
+    - value: some_fairly/arbitrary-string%for+1.work
+      description: Local / temporary identifier for work record
+    - value: id_for_manifestation
+      description: Local / temporary identifier for manifestation record
 
   TGNResource:
     rank: 51
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^[1-9][0-9]{6}$
+        range: TGNID
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: TGN
       in_language: default
+    in_subset:
+    - TypeRegistrySubset
     annotations:
+    - pid: 21.T11969/2296a5d6afe67e99fe50
     - formatter_uri_for_rdf_resource: http://vocab.getty.edu/tgn/$1
     - formatter_url_for_web_resource: https://vocab.getty.edu/page/tgn/$1
     - tag: provides
       value:
       - PlaceIdentifier
     description: >-
-      Getty Thesaurus of Geographic Names ID
-    examples:
-    - value: 7183809
-      description: TGN-ID for place "Göttingen"
-    - value: 7013260
-      description: TGN-ID for place "Hannover"
+      Getty Thesaurus of Geographic Names ID. Check id slot range
+      documentation for examples
     see_also:
     - https://www.getty.edu/research/tools/vocabularies/tgn/index.html
     - https://vocab.getty.edu/resource?uri=http://vocab.getty.edu/dataset/tgn
@@ -1019,11 +1700,16 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^\d+$
+        range: VIAFID
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: VIAF
       in_language: default
+    in_subset:
+    - TypeRegistrySubset
     annotations:
+    - pid: 21.T11969/b149c96db85b995926fa
     - formatter_uri_for_rdf_resource: http://viaf.org/viaf/$1
     - formatter_url_for_web_resource: https://viaf.org/viaf/$1
     - tag: provides
@@ -1035,16 +1721,8 @@ classes:
     description: >-
       Virtual International Authority File identifier hosted by OCLC.
       The data is accumulated from various well established authority
-      files from different parts of the world
-    examples:
-    - value: 316753491
-      description: VIAF-ID for creative work "Nosferatu"
-    - value: 122530980
-      description: VIAF-ID for place "Berlin"
-    - value: 7183809
-      description: VIAF-ID for organization "International Federation of Film Archives"
-    - value: 66467014
-      description: VIAF-ID for person "Rainer Werner Fassbinder"
+      files from different parts of the world. Check id slot range
+      documentation for examples
     see_also:
     - https://viaf.org/
     - https://www.wikidata.org/entity/P214
@@ -1054,11 +1732,16 @@ classes:
     is_a: AuthorityResource
     slot_usage:
       id:
-        pattern: ^[LPQ]\d+$
+        range: WikidataID
+        in_subset:
+        - TypeRegistrySubset
     structured_aliases:
     - literal_form: Wikidata
       in_language: default
+    in_subset:
+    - TypeRegistrySubset
     annotations:
+    - pid: 21.T11969/1c463f1c2cf1187356d8
     - formatter_uri_for_rdf_resource: https://www.wikidata.org/entity/$1
     - formatter_url_for_web_resource: https://www.wikidata.org/entity/$1
     - tag: provides
@@ -1069,20 +1752,8 @@ classes:
       - PersonIdentifier
       - SubjectHeadingIdentifier
     description: >-
-      Identifier for Wikidata entities
-    examples:
-    - value: Q151895
-      description: Wikidata-ID for creative work "Nosferatu"
-    - value: Q64
-      description: Wikidata-ID for place "Berlin"
-    - value: Q586693
-      description: >-
-        Wikidata-ID for organization "International Federation of Film
-        Archives"
-    - value: Q44426
-      description: Wikidata-ID for person "Rainer Werner Fassbinder"
-    - value: Q46721
-      description: Wikidata-ID for subject heading "Vampire"
+      Identifier for Wikidata entities. Check id slot range
+      documentation for examples
     see_also:
     - https://www.wikidata.org/wiki/Wikidata:Identifiers
 
@@ -1093,34 +1764,69 @@ slots:
   #-----------------------------------
 
   id:
-    range: string
+    rank: 5
+    range: IDString
+    in_subset:
+    - TypeRegistrySubset
     description: A unique identifier for a thing
+
+  has_identifier:
+    rank: 5
+    inlined_as_list: true
+    multivalued: true
+    range: MovingImageResource
+    description: >-
+      Record PID in this slot when exporting data from the PID system.
+      Use local identifiers instead when PIDs have not been registered
+      yet. The latter is suitable for transferring data to the agent
+      responsible for registering PIDs
 
   has_name:
     rank: 4
     slot_uri: schema:name
+    range: TextLine
     required: true
-    description: A human-readable name for a thing
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Human-readable name for a thing. This is to be treated as the
+      preferred display label in a UI context, whereas
+      has_alternate_name can provide additional terms, e.g. for
+      matching in search operations
 
   has_alternate_name:
     rank: 10
     slot_uri: schema:alternateName
     multivalued: true
+    range: TextLine
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Alternative human-readable name(s) for a thing. Whereas has_name
+      provides the preferred display name for the described entity,
+      alternatives can be recorded here in order to be indexed in
+      search engines, for instance
 
   has_ordering_name:
     rank: 4
+    range: TextLine
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Provide normalised form, e.g. for sorting by title. Only use
       this slot if value actually if different from has_name
     examples:
     - value: American in Paris, An
-      description: "For display title: An American in Paris"
-    - value: "Star Wars: Episode 9 – Der Aufstieg Skywalkers"
-      description: "For display title: Star Wars: Episode IX – Der Aufstieg Skywalkers"
+      description: 'For display title: An American in Paris'
+    - value: 'Star Wars: Episode 9 – Der Aufstieg Skywalkers'
+      description: 'For display title: Star Wars: Episode IX – Der Aufstieg Skywalkers'
 
   has_record:
     rank: 1
     range: MovingImageRecord
+    required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Root slot holding the moving image metadata record, i.e.
       metadata describing a work/variant, manifestation or item. See
@@ -1129,6 +1835,9 @@ slots:
 
   type:
     rank: 5
+    range: IDString
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       See specific class documentation for controlled vocabulary
       applicable to the type slot, respectively
@@ -1137,8 +1846,10 @@ slots:
     rank: 1
     slot_uri: rdf:type
     designates_type: true
-    range: uriorcurie
+    range: AVefiCurie
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Designates type, e.g. to distinguish different identifiers
       (GNDResource vs. VIAFResource)
@@ -1148,6 +1859,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: AuthorityResource
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       See [AuthorityResource doucmentation](AuthorityResource.md) for
       accepted identifiers
@@ -1156,21 +1869,23 @@ slots:
     slot_uri: wdrs:describedby
     inlined: true
     range: DescriptionResource
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Also record some metadata about the PID itself rather than the
       identified object
 
   has_history:
-    range: uri
-    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
+    range: HttpUri
     description: >-
       Link to revision history of this PID
 
   has_issuer_id:
     slot_uri: wdrs:issuedby
-    range: uri
-    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
+    range: HttpUri
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Identifier for the responsible party as an URI suitable for
       linked data
@@ -1185,8 +1900,10 @@ slots:
 
   has_issuer_name:
     slot_uri: dcterms:contributor
-    range: string
+    range: TextLine
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Name of the responsible party
     examples:
@@ -1195,9 +1912,10 @@ slots:
 
   last_modified:
     slot_uri: dcterms:modified
-    pattern: ^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|\+00:00)$
-    range: datetime
+    range: ISODateTimeUTC
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Timestamp (in UTC) for the latest modification to any field in
       the PID metadata record
@@ -1211,41 +1929,31 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: Event
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Associate event(s) with a moving image record
 
   has_date:
     rank: 7
-    pattern: ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$
+    range: ISODate
+    in_subset:
+    - TypeRegistrySubset
     notes:
     - https://www.w3.org/TR/xmlschema11-2/#date
     description: >-
       Date (or interval/period) when an event has taken place. A
       subset of ISO 8601 is supported, more specifically, EDTF
       conformance level 0 as well as qualifiers ? (uncertain date) and
-      ~ (approximate date). See examples and references for more
-      information
-    examples:
-    - value: '2024-04-24'
-      description: complete date, i.e. year, month and day
-    - value: '2024-04'
-      description: year and month
-    - value: '2024'
-      description: year only
-    - value: '2024~'
-      description: approximate date (2024 or at least close to 2024)
-    - value: '2024?'
-      description: uncertain date (2024 or may be something different)
-    - value: '2023/2024'
-      description: interval (2023 until 2024)
-    see_also:
-    - https://www.loc.gov/standards/datetime/
+      ~ (approximate date). See type ISODate definition for details
 
   has_activity:
     rank: 8
     inlined_as_list: true
     multivalued: true
     range: Activity
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Associate activity (and subsequently agents) with event
 
@@ -1255,6 +1963,8 @@ slots:
     multivalued: true
     range: Agent
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Agent involved in some activity related to the moving image
       resource
@@ -1268,10 +1978,19 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: GeographicName
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Location associated with an event, e.g. the country where the
+      principal offices or production facilities of the production
+      company are located should be associated with the production
+      event
 
   has_duration:
     rank: 24
     range: Duration
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Total running time of the described object in ISO 8601 duration
       format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3,
@@ -1280,6 +1999,8 @@ slots:
   has_extent:
     rank: 24
     range: Extent
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Physical length or size of the described object. See also: FIAF
       Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
@@ -1287,18 +2008,26 @@ slots:
   has_unit:
     rank: 26
     range: UnitEnum
+    required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Unit of some quantity
 
   has_value:
     rank: 25
-    range: decimal
+    range: Decimal
+    required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Value of some quantity
 
   has_precision:
     rank: 26
     range: PrecisionEnum
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Qualifier indicating the precision of an extent value or
       duration
@@ -1307,6 +2036,8 @@ slots:
     rank: 14
     multivalued: true
     range: WorkFormEnum
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Form describes the format and/or purpose of a Work, e.g.,
       “non-fiction”, “short” and “animation”. See also: FIAF Moving
@@ -1318,6 +2049,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: Genre
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Genre describes categories of Works, characterized by similar
       plots, themes, settings, situations, and characters. Examples of
@@ -1329,7 +2062,14 @@ slots:
     rank: 14
     inlined_as_list: true
     multivalued: true
-    range: Subject
+    any_of:
+    - range: Subject
+    - range: Agent
+    - range: GeographicName
+    annotations:
+    - pid: 21.T11969/92555879f9ec3adef772
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Subject descriptor terms for the content of a film specifying
       its period, themes, locations, etc. Not to be confused with
@@ -1338,7 +2078,9 @@ slots:
 
   is_variant_of:
     rank: 18
-    range: AVefiResource
+    range: MovingImageResource
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Link to the reference WorkVariant for the currently described
       variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2,
@@ -1348,7 +2090,9 @@ slots:
     rank: 17
     inlined_as_list: true
     multivalued: true
-    range: AVefiResource
+    range: MovingImageResource
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Relate, for instance, episodes to a series / serial. See also:
       FIAF Moving Image Cataloguing Manual D.17
@@ -1356,6 +2100,8 @@ slots:
   variant_type:
     rank: 18
     range: VariantTypeEnum
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.2
 
@@ -1366,6 +2112,8 @@ slots:
   has_colour_type:
     rank: 27
     range: ColourTypeEnum
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11
 
@@ -1374,33 +2122,45 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: Format
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
 
   has_item:
     rank: 22
     inlined_as_list: true
     multivalued: true
-    range: AVefiResource
+    range: MovingImageResource
+    in_subset:
+    - TypeRegistrySubset
     description: >-
-       Indicate AVefi Items the institution has registered as part of
-       the manifestation
+      Indicate AVefi Items the institution has registered as part of
+      the manifestation
 
   has_note:
     rank: 29
     inlined_as_list: true
     multivalued: true
+    range: TextArea
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual Appendix B
 
   has_sound_type:
     rank: 27
     range: SoundTypeEnum
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4
 
   has_webresource:
     rank: 28
-    range: uri
-    pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
+    range: HttpUri
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Link to data provider's own presentation of manifestation or
       item on the web
@@ -1409,8 +2169,10 @@ slots:
     rank: 21
     inlined_as_list: true
     multivalued: true
-    range: AVefiResource
+    range: MovingImageResource
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Indicate AVefi WorkVariant (possibly more but no less than one)
       that is subject of the manifestation
@@ -1423,6 +2185,8 @@ slots:
     related_mappings:
     - fiaf:hasLanguage
     - schema:inLanguage
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3
 
@@ -1433,8 +2197,10 @@ slots:
   is_item_of:
     rank: 31
     # multivalued: true
-    range: AVefiResource
+    range: MovingImageResource
     required: true
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Indicate AVefi Manifestation the item belongs to. Every item must
       be associated with a manifestation from the same data provider
@@ -1442,12 +2208,19 @@ slots:
   has_access_status:
     rank: 36
     range: ItemAccessStatusEnum
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Status of item determining access conditions. See also FIAF
+      Moving Image Cataloguing Manual D.7.1
 
   is_copy_of:
     rank: 39
     inlined_as_list: true
     multivalued: true
-    range: AVefiResource
+    range: MovingImageResource
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Link to AVefi item registered by another institution indicating
       that the two are known to be copies of each other
@@ -1456,9 +2229,11 @@ slots:
     rank: 39
     inlined_as_list: true
     multivalued: true
-    range: AVefiResource
+    range: MovingImageResource
     # related_mappings:
     # - edm:isDerivativeOf
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Link to AVefi item from which this one has been derived in whole
       or in part, e.g. as a result of a restoration or digitasation
@@ -1467,3 +2242,7 @@ slots:
   element_type:
     rank: 33
     range: ItemElementTypeEnum
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      FIAF Moving Image Cataloguing Manual D.7.8

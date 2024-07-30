@@ -26,7 +26,7 @@ build-backend = "pdm.backend"
 distribution = true
 
 [tool.pdm.build]
-package-dir = "project/python/"
+package-dir = "project/python"
 
 [tool.pdm.dev-dependencies]
 dev = [
@@ -36,4 +36,7 @@ dev = [
     "schemasheets>=0.2.1",
     "jsonref>=1.1.0",
     "doit>=0.36.0",
+    "ruamel-yaml>=0.18.6",
+    "requests>=2.32.3",
+    "deepdiff>=7.0.1",
 ]

@@ -2,7 +2,7 @@
     "$defs": {
         "AVefiResource": {
             "additionalProperties": false,
-            "description": "Handle with the prefix allocated for AVefi (eventually)",
+            "description": "Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples",
             "properties": {
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -29,13 +29,16 @@
             "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
             "properties": {
                 "has_alternate_name": {
+                    "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                     "items": {
+                        "pattern": "^.+$",
                         "type": "string"
                     },
                     "type": "array"
                 },
                 "has_name": {
                     "description": "For natural persons, always use the convention \"family name, given name\"",
+                    "pattern": "^.+$",
                     "type": "string"
                 },
                 "same_as": {
@@ -43,22 +46,10 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/AVefiResource"
-                            },
-                            {
-                                "$ref": "#/$defs/DOIResource"
-                            },
-                            {
                                 "$ref": "#/$defs/FilmportalResource"
                             },
                             {
                                 "$ref": "#/$defs/GNDResource"
-                            },
-                            {
-                                "$ref": "#/$defs/ISILResource"
-                            },
-                            {
-                                "$ref": "#/$defs/TGNResource"
                             },
                             {
                                 "$ref": "#/$defs/VIAFResource"
@@ -371,7 +362,7 @@
         },
         "DOIResource": {
             "additionalProperties": false,
-            "description": "Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.",
+            "description": "Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films. Check id slot range documentation for examples",
             "properties": {
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -409,6 +400,7 @@
                 },
                 "has_issuer_name": {
                     "description": "Name of the responsible party",
+                    "pattern": "^.+$",
                     "type": "string"
                 },
                 "last_modified": {
@@ -517,7 +509,7 @@
         },
         "Duration": {
             "additionalProperties": false,
-            "description": "Total running time of the described object in ISO 8601 duration format. The examples section lists possible values for the has_value slot. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11",
+            "description": "Total running time of the described object in ISO 8601 duration format. Check has_value slot range documentation for examples of permissible values. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11",
             "properties": {
                 "has_precision": {
                     "$ref": "#/$defs/PrecisionEnum",
@@ -529,7 +521,34 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "has_value"
+            ],
             "title": "Duration",
+            "type": "object"
+        },
+        "EIDRResource": {
+            "additionalProperties": false,
+            "description": "Entertainment Identifier Registry ID. Check id slot range documentation for examples",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:EIDRResource"
+                    ],
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "pattern": "^10\\.5240(/|%2F)((?![\\\"&\\'])\\S)+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "category"
+            ],
+            "title": "EIDRResource",
             "type": "object"
         },
         "EditingActivity": {
@@ -589,6 +608,10 @@
                     "type": "number"
                 }
             },
+            "required": [
+                "has_unit",
+                "has_value"
+            ],
             "title": "Extent",
             "type": "object"
         },
@@ -616,7 +639,7 @@
         },
         "FilmportalResource": {
             "additionalProperties": false,
-            "description": "Identifier of the German Filmportal.de",
+            "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
             "properties": {
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -747,13 +770,16 @@
             "description": "Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters. Examples of genres are \u201cwesterns\u201d and \u201cthrillers\u201d. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.1",
             "properties": {
                 "has_alternate_name": {
+                    "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                     "items": {
+                        "pattern": "^.+$",
                         "type": "string"
                     },
                     "type": "array"
                 },
                 "has_name": {
-                    "description": "A human-readable name for a thing",
+                    "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
+                    "pattern": "^.+$",
                     "type": "string"
                 },
                 "same_as": {
@@ -775,13 +801,16 @@
             "description": "Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4",
             "properties": {
                 "has_alternate_name": {
+                    "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                     "items": {
+                        "pattern": "^.+$",
                         "type": "string"
                     },
                     "type": "array"
                 },
                 "has_name": {
-                    "description": "A human-readable name for a thing",
+                    "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
+                    "pattern": "^.+$",
                     "type": "string"
                 },
                 "same_as": {
@@ -789,19 +818,7 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/AVefiResource"
-                            },
-                            {
-                                "$ref": "#/$defs/DOIResource"
-                            },
-                            {
-                                "$ref": "#/$defs/FilmportalResource"
-                            },
-                            {
                                 "$ref": "#/$defs/GNDResource"
-                            },
-                            {
-                                "$ref": "#/$defs/ISILResource"
                             },
                             {
                                 "$ref": "#/$defs/TGNResource"
@@ -825,7 +842,7 @@
         },
         "ISILResource": {
             "additionalProperties": false,
-            "description": "International Standard Identifier for Libraries and Related Organizations including (film) archives",
+            "description": "International Standard Identifier for Libraries and Related Organizations including (film) archives. Check id slot range documentation for examples",
             "properties": {
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -863,10 +880,12 @@
                     "description": "Also record some metadata about the PID itself rather than the identified object"
                 },
                 "element_type": {
-                    "$ref": "#/$defs/ItemElementTypeEnum"
+                    "$ref": "#/$defs/ItemElementTypeEnum",
+                    "description": "FIAF Moving Image Cataloguing Manual D.7.8"
                 },
                 "has_access_status": {
-                    "$ref": "#/$defs/ItemAccessStatusEnum"
+                    "$ref": "#/$defs/ItemAccessStatusEnum",
+                    "description": "Status of item determining access conditions. See also FIAF Moving Image Cataloguing Manual D.7.1"
                 },
                 "has_alternative_title": {
                     "description": "Additional title(s) associated with the work / variant, manifestation, or item.",
@@ -907,6 +926,7 @@
                     "description": "Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8"
                 },
                 "has_format": {
+                    "description": "FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1",
                     "items": {
                         "anyOf": [
                             {
@@ -931,6 +951,20 @@
                     },
                     "type": "array"
                 },
+                "has_identifier": {
+                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
                 "has_note": {
                     "description": "FIAF Moving Image Cataloguing Manual Appendix B",
                     "items": {
@@ -947,10 +981,6 @@
                     "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
-                "id": {
-                    "description": "A unique identifier for a thing",
-                    "type": "string"
-                },
                 "in_language": {
                     "description": "FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3",
                     "items": {
@@ -961,19 +991,40 @@
                 "is_copy_of": {
                     "description": "Link to AVefi item registered by another institution indicating that the two are known to be copies of each other",
                     "items": {
-                        "$ref": "#/$defs/AVefiResource"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
                     },
                     "type": "array"
                 },
                 "is_derivative_of": {
                     "description": "Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project",
                     "items": {
-                        "$ref": "#/$defs/AVefiResource"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
                     },
                     "type": "array"
                 },
                 "is_item_of": {
-                    "$ref": "#/$defs/AVefiResource",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AVefiResource"
+                        },
+                        {
+                            "$ref": "#/$defs/LocalResource"
+                        }
+                    ],
                     "description": "Indicate AVefi Manifestation the item belongs to. Every item must be associated with a manifestation from the same data provider"
                 }
             },
@@ -1065,11 +1116,11 @@
             "description": "Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled vocabulary. See also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3",
             "properties": {
                 "code": {
-                    "description": "[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)",
-                    "pattern": "^[a-z]{3}$",
-                    "type": "string"
+                    "$ref": "#/$defs/LanguageCodeEnum",
+                    "description": "[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)"
                 },
                 "usage": {
+                    "description": "FIAF Moving Image Cataloguing Manual 2.3.3.2",
                     "items": {
                         "$ref": "#/$defs/LanguageUsageEnum"
                     },
@@ -1082,6 +1133,520 @@
             ],
             "title": "Language",
             "type": "object"
+        },
+        "LanguageCodeEnum": {
+            "description": "[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)",
+            "enum": [
+                "aar",
+                "abk",
+                "ace",
+                "ach",
+                "ada",
+                "ady",
+                "afa",
+                "afh",
+                "afr",
+                "ain",
+                "aka",
+                "akk",
+                "alb",
+                "ale",
+                "alg",
+                "alt",
+                "amh",
+                "ang",
+                "anp",
+                "apa",
+                "ara",
+                "arc",
+                "arg",
+                "arm",
+                "arn",
+                "arp",
+                "art",
+                "arw",
+                "asm",
+                "ast",
+                "ath",
+                "aus",
+                "ava",
+                "ave",
+                "awa",
+                "aym",
+                "aze",
+                "bad",
+                "bai",
+                "bak",
+                "bal",
+                "bam",
+                "ban",
+                "baq",
+                "bas",
+                "bat",
+                "bej",
+                "bel",
+                "bem",
+                "ben",
+                "ber",
+                "bho",
+                "bih",
+                "bik",
+                "bin",
+                "bis",
+                "bla",
+                "bnt",
+                "bod",
+                "bos",
+                "bra",
+                "bre",
+                "btk",
+                "bua",
+                "bug",
+                "bul",
+                "bur",
+                "byn",
+                "cad",
+                "cai",
+                "car",
+                "cat",
+                "cau",
+                "ceb",
+                "cel",
+                "ces",
+                "cha",
+                "chb",
+                "che",
+                "chg",
+                "chi",
+                "chk",
+                "chm",
+                "chn",
+                "cho",
+                "chp",
+                "chr",
+                "chu",
+                "chv",
+                "chy",
+                "cmc",
+                "cnr",
+                "cop",
+                "cor",
+                "cos",
+                "cpe",
+                "cpf",
+                "cpp",
+                "cre",
+                "crh",
+                "crp",
+                "csb",
+                "cus",
+                "cym",
+                "cze",
+                "dak",
+                "dan",
+                "dar",
+                "day",
+                "del",
+                "den",
+                "deu",
+                "dgr",
+                "din",
+                "div",
+                "doi",
+                "dra",
+                "dsb",
+                "dua",
+                "dum",
+                "dut",
+                "dyu",
+                "dzo",
+                "efi",
+                "egy",
+                "eka",
+                "ell",
+                "elx",
+                "eng",
+                "enm",
+                "epo",
+                "est",
+                "eus",
+                "ewe",
+                "ewo",
+                "fan",
+                "fao",
+                "fas",
+                "fat",
+                "fij",
+                "fil",
+                "fin",
+                "fiu",
+                "fon",
+                "fra",
+                "fre",
+                "frm",
+                "fro",
+                "frr",
+                "frs",
+                "fry",
+                "ful",
+                "fur",
+                "gaa",
+                "gay",
+                "gba",
+                "gem",
+                "geo",
+                "ger",
+                "gez",
+                "gil",
+                "gla",
+                "gle",
+                "glg",
+                "glv",
+                "gmh",
+                "goh",
+                "gon",
+                "gor",
+                "got",
+                "grb",
+                "grc",
+                "gre",
+                "grn",
+                "gsw",
+                "guj",
+                "gwi",
+                "hai",
+                "hat",
+                "hau",
+                "haw",
+                "heb",
+                "her",
+                "hil",
+                "him",
+                "hin",
+                "hit",
+                "hmn",
+                "hmo",
+                "hrv",
+                "hsb",
+                "hun",
+                "hup",
+                "hye",
+                "iba",
+                "ibo",
+                "ice",
+                "ido",
+                "iii",
+                "ijo",
+                "iku",
+                "ile",
+                "ilo",
+                "ina",
+                "inc",
+                "ind",
+                "ine",
+                "inh",
+                "ipk",
+                "ira",
+                "iro",
+                "isl",
+                "ita",
+                "jav",
+                "jbo",
+                "jpn",
+                "jpr",
+                "jrb",
+                "kaa",
+                "kab",
+                "kac",
+                "kal",
+                "kam",
+                "kan",
+                "kar",
+                "kas",
+                "kat",
+                "kau",
+                "kaw",
+                "kaz",
+                "kbd",
+                "kha",
+                "khi",
+                "khm",
+                "kho",
+                "kik",
+                "kin",
+                "kir",
+                "kmb",
+                "kok",
+                "kom",
+                "kon",
+                "kor",
+                "kos",
+                "kpe",
+                "krc",
+                "krl",
+                "kro",
+                "kru",
+                "kua",
+                "kum",
+                "kur",
+                "kut",
+                "lad",
+                "lah",
+                "lam",
+                "lao",
+                "lat",
+                "lav",
+                "lez",
+                "lim",
+                "lin",
+                "lit",
+                "lol",
+                "loz",
+                "ltz",
+                "lua",
+                "lub",
+                "lug",
+                "lui",
+                "lun",
+                "luo",
+                "lus",
+                "mac",
+                "mad",
+                "mag",
+                "mah",
+                "mai",
+                "mak",
+                "mal",
+                "man",
+                "mao",
+                "map",
+                "mar",
+                "mas",
+                "may",
+                "mdf",
+                "mdr",
+                "men",
+                "mga",
+                "mic",
+                "min",
+                "mis",
+                "mkd",
+                "mkh",
+                "mlg",
+                "mlt",
+                "mnc",
+                "mni",
+                "mno",
+                "moh",
+                "mon",
+                "mos",
+                "mri",
+                "msa",
+                "mul",
+                "mun",
+                "mus",
+                "mwl",
+                "mwr",
+                "mya",
+                "myn",
+                "myv",
+                "nah",
+                "nai",
+                "nap",
+                "nau",
+                "nav",
+                "nbl",
+                "nde",
+                "ndo",
+                "nds",
+                "nep",
+                "new",
+                "nia",
+                "nic",
+                "niu",
+                "nld",
+                "nno",
+                "nob",
+                "nog",
+                "non",
+                "nor",
+                "nqo",
+                "nso",
+                "nub",
+                "nwc",
+                "nya",
+                "nym",
+                "nyn",
+                "nyo",
+                "nzi",
+                "oci",
+                "oji",
+                "ori",
+                "orm",
+                "osa",
+                "oss",
+                "ota",
+                "oto",
+                "paa",
+                "pag",
+                "pal",
+                "pam",
+                "pan",
+                "pap",
+                "pau",
+                "peo",
+                "per",
+                "phi",
+                "phn",
+                "pli",
+                "pol",
+                "pon",
+                "por",
+                "pra",
+                "pro",
+                "pus",
+                "qaa-qtz",
+                "que",
+                "raj",
+                "rap",
+                "rar",
+                "roa",
+                "roh",
+                "rom",
+                "ron",
+                "rum",
+                "run",
+                "rup",
+                "rus",
+                "sad",
+                "sag",
+                "sah",
+                "sai",
+                "sal",
+                "sam",
+                "san",
+                "sas",
+                "sat",
+                "scn",
+                "sco",
+                "sel",
+                "sem",
+                "sga",
+                "sgn",
+                "shn",
+                "sid",
+                "sin",
+                "sio",
+                "sit",
+                "sla",
+                "slk",
+                "slo",
+                "slv",
+                "sma",
+                "sme",
+                "smi",
+                "smj",
+                "smn",
+                "smo",
+                "sms",
+                "sna",
+                "snd",
+                "snk",
+                "sog",
+                "som",
+                "son",
+                "sot",
+                "spa",
+                "sqi",
+                "srd",
+                "srn",
+                "srp",
+                "srr",
+                "ssa",
+                "ssw",
+                "suk",
+                "sun",
+                "sus",
+                "sux",
+                "swa",
+                "swe",
+                "syc",
+                "syr",
+                "tah",
+                "tai",
+                "tam",
+                "tat",
+                "tel",
+                "tem",
+                "ter",
+                "tet",
+                "tgk",
+                "tgl",
+                "tha",
+                "tib",
+                "tig",
+                "tir",
+                "tiv",
+                "tkl",
+                "tlh",
+                "tli",
+                "tmh",
+                "tog",
+                "ton",
+                "tpi",
+                "tsi",
+                "tsn",
+                "tso",
+                "tuk",
+                "tum",
+                "tup",
+                "tur",
+                "tut",
+                "tvl",
+                "twi",
+                "tyv",
+                "udm",
+                "uga",
+                "uig",
+                "ukr",
+                "umb",
+                "und",
+                "urd",
+                "uzb",
+                "vai",
+                "ven",
+                "vie",
+                "vol",
+                "vot",
+                "wak",
+                "wal",
+                "war",
+                "was",
+                "wel",
+                "wen",
+                "wln",
+                "wol",
+                "xal",
+                "xho",
+                "yao",
+                "yap",
+                "yid",
+                "yor",
+                "ypk",
+                "zap",
+                "zbl",
+                "zen",
+                "zgh",
+                "zha",
+                "zho",
+                "znd",
+                "zul",
+                "zun",
+                "zxx",
+                "zza"
+            ],
+            "title": "LanguageCodeEnum",
+            "type": "string"
         },
         "LanguageUsageEnum": {
             "description": "FIAF Moving Image Cataloguing Manual 2.3.3, D.6",
@@ -1102,6 +1667,30 @@
             ],
             "title": "LanguageUsageEnum",
             "type": "string"
+        },
+        "LocalResource": {
+            "additionalProperties": false,
+            "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:LocalResource"
+                    ],
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "pattern": "^((?![\\\"&\\'])\\S)+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "category"
+            ],
+            "title": "LocalResource",
+            "type": "object"
         },
         "Manifestation": {
             "additionalProperties": false,
@@ -1161,6 +1750,7 @@
                     "description": "Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8"
                 },
                 "has_format": {
+                    "description": "FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1",
                     "items": {
                         "anyOf": [
                             {
@@ -1185,10 +1775,31 @@
                     },
                     "type": "array"
                 },
+                "has_identifier": {
+                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
                 "has_item": {
                     "description": "Indicate AVefi Items the institution has registered as part of the manifestation",
                     "items": {
-                        "$ref": "#/$defs/AVefiResource"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
                     },
                     "type": "array"
                 },
@@ -1212,10 +1823,6 @@
                     "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
-                "id": {
-                    "description": "A unique identifier for a thing",
-                    "type": "string"
-                },
                 "in_language": {
                     "description": "FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3",
                     "items": {
@@ -1226,14 +1833,28 @@
                 "is_manifestation_of": {
                     "description": "Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation",
                     "items": {
-                        "$ref": "#/$defs/AVefiResource"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
                     },
                     "type": "array"
                 },
                 "same_as": {
                     "description": "Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work",
                     "items": {
-                        "$ref": "#/$defs/AVefiResource"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
                     },
                     "type": "array"
                 }
@@ -1315,11 +1936,12 @@
                     "type": "array"
                 },
                 "has_date": {
-                    "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information",
+                    "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
                     "pattern": "^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
                     "type": "string"
                 },
                 "located_in": {
+                    "description": "Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event",
                     "items": {
                         "$ref": "#/$defs/GeographicName"
                     },
@@ -1370,6 +1992,9 @@
                     "description": "Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual"
                 }
             },
+            "required": [
+                "has_record"
+            ],
             "title": "MovingImageRecordContainer",
             "type": "object"
         },
@@ -1472,11 +2097,12 @@
                     "type": "array"
                 },
                 "has_date": {
-                    "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information",
+                    "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
                     "pattern": "^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
                     "type": "string"
                 },
                 "located_in": {
+                    "description": "Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event",
                     "items": {
                         "$ref": "#/$defs/GeographicName"
                     },
@@ -1681,11 +2307,12 @@
                     "type": "array"
                 },
                 "has_date": {
-                    "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information",
+                    "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
                     "pattern": "^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
                     "type": "string"
                 },
                 "located_in": {
+                    "description": "Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event",
                     "items": {
                         "$ref": "#/$defs/GeographicName"
                     },
@@ -1732,11 +2359,12 @@
                     "type": "array"
                 },
                 "has_date": {
-                    "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information",
+                    "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
                     "pattern": "^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
                     "type": "string"
                 },
                 "located_in": {
+                    "description": "Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event",
                     "items": {
                         "$ref": "#/$defs/GeographicName"
                     },
@@ -1829,11 +2457,12 @@
                     "type": "array"
                 },
                 "has_date": {
-                    "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information",
+                    "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
                     "pattern": "^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
                     "type": "string"
                 },
                 "located_in": {
+                    "description": "Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event",
                     "items": {
                         "$ref": "#/$defs/GeographicName"
                     },
@@ -1968,22 +2597,22 @@
             "description": "Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. Provide name and if at all possible identifier(s) from supported authorities in the same_as slot. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3",
             "properties": {
                 "has_alternate_name": {
+                    "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                     "items": {
+                        "pattern": "^.+$",
                         "type": "string"
                     },
                     "type": "array"
                 },
                 "has_name": {
-                    "description": "A human-readable name for a thing",
+                    "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
+                    "pattern": "^.+$",
                     "type": "string"
                 },
                 "same_as": {
                     "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                     "items": {
                         "anyOf": [
-                            {
-                                "$ref": "#/$defs/AVefiResource"
-                            },
                             {
                                 "$ref": "#/$defs/DOIResource"
                             },
@@ -2004,6 +2633,15 @@
                             },
                             {
                                 "$ref": "#/$defs/WikidataResource"
+                            },
+                            {
+                                "$ref": "#/$defs/EIDRResource"
+                            },
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
                             }
                         ]
                     },
@@ -2018,7 +2656,7 @@
         },
         "TGNResource": {
             "additionalProperties": false,
-            "description": "Getty Thesaurus of Geographic Names ID",
+            "description": "Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples",
             "properties": {
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2045,11 +2683,13 @@
             "description": "FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2",
             "properties": {
                 "has_name": {
-                    "description": "A human-readable name for a thing",
+                    "description": "Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations",
+                    "pattern": "^.+$",
                     "type": "string"
                 },
                 "has_ordering_name": {
                     "description": "Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name",
+                    "pattern": "^.+$",
                     "type": "string"
                 },
                 "type": {
@@ -2099,7 +2739,7 @@
         },
         "VIAFResource": {
             "additionalProperties": false,
-            "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world",
+            "description": "Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well established authority files from different parts of the world. Check id slot range documentation for examples",
             "properties": {
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2162,7 +2802,7 @@
         },
         "WikidataResource": {
             "additionalProperties": false,
-            "description": "Identifier for Wikidata entities",
+            "description": "Identifier for Wikidata entities. Check id slot range documentation for examples",
             "properties": {
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -2271,6 +2911,20 @@
                     },
                     "type": "array"
                 },
+                "has_identifier": {
+                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
                 "has_primary_title": {
                     "$ref": "#/$defs/Title",
                     "description": "Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead."
@@ -2278,13 +2932,20 @@
                 "has_subject": {
                     "description": "Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3",
                     "items": {
-                        "$ref": "#/$defs/Subject"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Subject"
+                            },
+                            {
+                                "$ref": "#/$defs/Agent"
+                            },
+                            {
+                                "$ref": "#/$defs/GeographicName"
+                            }
+                        ],
+                        "type": "string"
                     },
                     "type": "array"
-                },
-                "id": {
-                    "description": "A unique identifier for a thing",
-                    "type": "string"
                 },
                 "in_language": {
                     "description": "FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3",
@@ -2296,12 +2957,26 @@
                 "is_part_of": {
                     "description": "Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17",
                     "items": {
-                        "$ref": "#/$defs/AVefiResource"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
                     },
                     "type": "array"
                 },
                 "is_variant_of": {
-                    "$ref": "#/$defs/AVefiResource",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AVefiResource"
+                        },
+                        {
+                            "$ref": "#/$defs/LocalResource"
+                        }
+                    ],
                     "description": "Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5"
                 },
                 "same_as": {
@@ -2309,22 +2984,20 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/AVefiResource"
-                            },
-                            {
-                                "$ref": "#/$defs/DOIResource"
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/$defs/DOIResource"
+                                    },
+                                    {
+                                        "$ref": "#/$defs/EIDRResource"
+                                    }
+                                ]
                             },
                             {
                                 "$ref": "#/$defs/FilmportalResource"
                             },
                             {
                                 "$ref": "#/$defs/GNDResource"
-                            },
-                            {
-                                "$ref": "#/$defs/ISILResource"
-                            },
-                            {
-                                "$ref": "#/$defs/TGNResource"
                             },
                             {
                                 "$ref": "#/$defs/VIAFResource"
@@ -2434,6 +3107,9 @@
             "description": "Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual"
         }
     },
+    "required": [
+        "has_record"
+    ],
     "title": "AVefi data model",
     "type": "object",
     "version": null

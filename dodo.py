@@ -7,6 +7,8 @@ import json
 from pathlib import Path
 from urllib.request import urlopen
 
+from doit import tools
+
 
 DOIT_CONFIG = {
     'action_string_formatting': 'new',
@@ -297,7 +299,7 @@ def gen_doc(dependencies, targets):
         """
         if input is None:
             return ""
-        match = re.search(r'^(.*?([.;?!] |\n|$))', input)
+        match = re.search(r'^(.*?([.;?!] (?<!(etc|.\..)\. )|\n|$))', input)
         input = match.group()
         return input
     docgen.enshorten = enshorten
@@ -337,16 +339,6 @@ def task_copy_src_docs():
         ],
         'file_dep': dependencies,
         'targets': targets,
-    }
-
-
-def task_build_pages():
-    """Build ."""
-    return {
-        'actions': [
-            "mkdocs serve",
-        ],
-        'task_dep': ['sync_dependencies', 'docs']
     }
 
 
@@ -428,3 +420,25 @@ def task_fetch_efi_schemas():
             'clean': True,
             'uptodate': (True,),
             'verbosity': 2}
+
+
+def task_check_dtr():
+    """Compare each type and class against Data Type Registry."""
+    def check_dtr(sync):
+        from utils import dtr_client
+        dtr_gen = dtr_client.DataTypeGenerator(SRC_MODEL, sync_mode=sync)
+        dtr_gen.process_schema()
+    return {
+        'actions': [tools.PythonInteractiveAction(check_dtr)],
+        'file_dep': SRC_SCHEMA_DEPENDENCIES,
+        'params': [
+            {
+                'name': 'sync',
+                'long': 'sync',
+                'type': bool,
+                'default': False,
+                'help':
+                'Ask for credentials and push changes to Data Type Registry.',
+            },
+        ],
+    }
