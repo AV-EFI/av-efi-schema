@@ -19,6 +19,7 @@ DOIT_CONFIG = {
         'python',
         'typescript',
         'json_lc_messages',
+        'diagram',
     ],
 }
 HERE = Path(__file__).parent
