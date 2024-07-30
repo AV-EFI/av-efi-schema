@@ -7,7 +7,7 @@ has_record:
     has_name: Menschen am Sonntag
   has_event:
   - category: avefi:PreservationEvent
-    type: ReproductionEvent
+    type: RestorationEvent
     has_date: 2013/2014
     has_activity:
     - category: avefi:ManifestationActivity
