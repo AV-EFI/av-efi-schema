@@ -1,0 +1,20 @@
+---
+has_record:
+  category: avefi:Item
+  element_type: DCP
+  has_identifier:
+  - category: avefi:LocalResource
+    id: 150225499
+  has_primary_title:
+    type: TitleProper
+    has_name: Menschen am Sonntag
+  has_access_status: Distribution
+  has_extent:
+    has_unit: GigaByte
+    has_value: 113
+  has_format:
+  - category: avefi:DigitalFile
+    type: MXF
+  is_item_of:
+    category: avefi:LocalResource
+    id: 150221536
