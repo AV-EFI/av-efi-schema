@@ -1421,7 +1421,9 @@ export function toCategorizedThing(o: CategorizedThing): CategorizedThing {
     }
 }
 
-
+/**
+ * Base class defining slots that are common to all levels of the WVMI metadata model
+ */
 export interface MovingImageRecord extends CategorizedThing {
     /** Also record some metadata about the PID itself rather than the identified object */
     described_by?: DescriptionResource,
@@ -1498,7 +1500,7 @@ export interface WorkVariant extends MovingImageRecord {
     /** Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters. Examples of genres are “westerns” and “thrillers”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.1 */
     has_genre?: Genre[],
     /** Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3 */
-    has_subject?: Subject[],
+    has_subject?: string[],
     /** Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17 */
     is_part_of?: MovingImageResource[],
     /** Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5 */
@@ -2231,7 +2233,9 @@ export function toTitle(o: Title): Title {
     }
 }
 
-
+/**
+ * Base class defining common slots for manifestations and items
+ */
 export interface ManifestationOrItem extends MovingImageRecord {
     /** Total running time of the described object in ISO 8601 duration format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11 */
     has_duration?: Duration,
@@ -2684,6 +2688,27 @@ export function isDOIResource(o: object): o is DOIResource {
 }
 
 export function toDOIResource(o: DOIResource): DOIResource {
+    return {
+        id: o.id ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
+ * Entertainment Identifier Registry ID. Check id slot range documentation for examples
+ */
+export interface EIDRResource extends DOIResource {
+}
+
+
+export function isEIDRResource(o: object): o is EIDRResource {
+    return (
+        'id' in o &&
+        'category' in o
+    )
+}
+
+export function toEIDRResource(o: EIDRResource): EIDRResource {
     return {
         id: o.id ?? null,
         category: o.category ?? null

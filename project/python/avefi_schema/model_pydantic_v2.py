@@ -1454,6 +1454,9 @@ class CategorizedThing(ConfiguredBaseModel):
 
 
 class MovingImageRecord(CategorizedThing):
+    """
+    Base class defining slots that are common to all levels of the WVMI metadata model
+    """
     described_by: Optional[DescriptionResource] = Field(None, description="""Also record some metadata about the PID itself rather than the identified object""")
     has_event: Optional[List[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default_factory=list, description="""Associate event(s) with a moving image record""")
     has_identifier: Optional[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(None, description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""")
@@ -1479,10 +1482,10 @@ class WorkVariant(MovingImageRecord):
     """
     has_form: Optional[List[WorkFormEnum]] = Field(default_factory=list, description="""Form describes the format and/or purpose of a Work, e.g., “non-fiction”, “short” and “animation”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.1""")
     has_genre: Optional[List[Genre]] = Field(default_factory=list, description="""Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters. Examples of genres are “westerns” and “thrillers”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.1""")
-    has_subject: Optional[List[Subject]] = Field(default_factory=list, description="""Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3""")
+    has_subject: Optional[List[Union[Agent, GeographicName, Subject]]] = Field(default_factory=list, description="""Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3""")
     is_part_of: Optional[List[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default_factory=list, description="""Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17""")
     is_variant_of: Optional[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(None, description="""Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5""")
-    same_as: Optional[List[Union[DOIResource, FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
+    same_as: Optional[List[Union[FilmportalResource, GNDResource, Union[DOIResource,EIDRResource], VIAFResource, WikidataResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
     type: WorkVariantTypeEnum = Field(..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""")
     variant_type: Optional[VariantTypeEnum] = Field(None, description="""FIAF Moving Image Cataloguing Manual D.2""")
     described_by: Optional[DescriptionResource] = Field(None, description="""Also record some metadata about the PID itself rather than the identified object""")
@@ -1518,7 +1521,7 @@ class Subject(ConfiguredBaseModel):
     """
     has_alternate_name: Optional[List[str]] = Field(default_factory=list, description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""")
     has_name: str = Field(..., description="""Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations""")
-    same_as: Optional[List[Union[AuthorityResource,MovingImageResource,DOIResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
+    same_as: Optional[List[Union[AuthorityResource,MovingImageResource,DOIResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,EIDRResource,AVefiResource,LocalResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
 
 
 class Activity(CategorizedThing):
@@ -1758,6 +1761,9 @@ class Title(ConfiguredBaseModel):
 
 
 class ManifestationOrItem(MovingImageRecord):
+    """
+    Base class defining common slots for manifestations and items
+    """
     has_duration: Optional[Duration] = Field(None, description="""Total running time of the described object in ISO 8601 duration format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11""")
     has_extent: Optional[Extent] = Field(None, description="""Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8""")
     has_format: Optional[List[Union[Format,Audio,DigitalFile,DigitalFileEncoding,Film,Optical,Video]]] = Field(default_factory=list, description="""FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1""")
@@ -1938,6 +1944,14 @@ class DOIResource(AuthorityResource):
     category: Literal["https://av-efi.net/av-efi-schema/DOIResource","avefi:DOIResource"] = Field("avefi:DOIResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
+class EIDRResource(DOIResource):
+    """
+    Entertainment Identifier Registry ID. Check id slot range documentation for examples
+    """
+    id: str = Field(..., description="""A unique identifier for a thing""")
+    category: Literal["https://av-efi.net/av-efi-schema/EIDRResource","avefi:EIDRResource"] = Field("avefi:EIDRResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
+
+
 class FilmportalResource(AuthorityResource):
     """
     Identifier of the German Filmportal.de. Check id slot range documentation for examples
@@ -2046,6 +2060,7 @@ AuthorityResource.model_rebuild()
 MovingImageResource.model_rebuild()
 AVefiResource.model_rebuild()
 DOIResource.model_rebuild()
+EIDRResource.model_rebuild()
 FilmportalResource.model_rebuild()
 GNDResource.model_rebuild()
 ISILResource.model_rebuild()

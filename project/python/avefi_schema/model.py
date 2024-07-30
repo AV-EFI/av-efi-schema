@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-07-24T12:42:49
+# Generation date: 2024-07-30T09:59:14
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -88,6 +88,14 @@ class AVefiCurie(Uriorcurie):
     type_model_uri = AVEFI.AVefiCurie
 
 
+class Decimal(Decimal):
+    """ Decimal numbers """
+    type_class_uri = XSD["decimal"]
+    type_class_curie = "xsd:decimal"
+    type_name = "Decimal"
+    type_model_uri = AVEFI.Decimal
+
+
 class ISODate(String):
     """ ISO 8601 date or interval/period, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See examples and references for more information """
     type_class_uri = XSD["string"]
@@ -134,6 +142,14 @@ class DOI(String):
     type_class_curie = "xsd:string"
     type_name = "DOI"
     type_model_uri = AVEFI.DOI
+
+
+class EIDR(String):
+    """ Entertainment Identifier Registry ID """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "EIDR"
+    type_model_uri = AVEFI.EIDR
 
 
 class FilmportalID(String):
@@ -235,6 +251,9 @@ class CategorizedThing(YAMLRoot):
 
 @dataclass
 class MovingImageRecord(CategorizedThing):
+    """
+    Base class defining slots that are common to all levels of the WVMI metadata model
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = AVEFI["MovingImageRecord"]
@@ -335,7 +354,7 @@ class WorkVariant(MovingImageRecord):
     type: Union[str, "WorkVariantTypeEnum"] = None
     has_form: Optional[Union[Union[str, "WorkFormEnum"], List[Union[str, "WorkFormEnum"]]]] = empty_list()
     has_genre: Optional[Union[Union[dict, "Genre"], List[Union[dict, "Genre"]]]] = empty_list()
-    has_subject: Optional[Union[Union[dict, "Subject"], List[Union[dict, "Subject"]]]] = empty_list()
+    has_subject: Optional[Union[str, List[str]]] = empty_list()
     is_part_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
     is_variant_of: Optional[Union[dict, "MovingImageResource"]] = None
     same_as: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
@@ -357,7 +376,7 @@ class WorkVariant(MovingImageRecord):
 
         if not isinstance(self.has_subject, list):
             self.has_subject = [self.has_subject] if self.has_subject is not None else []
-        self.has_subject = [v if isinstance(v, Subject) else Subject(**as_dict(v)) for v in self.has_subject]
+        self.has_subject = [v if isinstance(v, str) else str(v) for v in self.has_subject]
 
         if not isinstance(self.is_part_of, list):
             self.is_part_of = [self.is_part_of] if self.is_part_of is not None else []
@@ -1228,6 +1247,9 @@ class Title(YAMLRoot):
 
 @dataclass
 class ManifestationOrItem(MovingImageRecord):
+    """
+    Base class defining common slots for manifestations and items
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = AVEFI["ManifestationOrItem"]
@@ -1307,7 +1329,7 @@ class Extent(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = AVEFI.Extent
 
     has_unit: Union[str, "UnitEnum"] = None
-    has_value: Decimal = None
+    has_value: Union[Decimal, Decimal] = None
     has_precision: Optional[Union[str, "PrecisionEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1735,6 +1757,32 @@ class DOIResource(AuthorityResource):
             self.MissingRequiredField("id")
         if not isinstance(self.id, DOI):
             self.id = DOI(self.id)
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass
+class EIDRResource(DOIResource):
+    """
+    Entertainment Identifier Registry ID. Check id slot range documentation for examples
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["EIDRResource"]
+    class_class_curie: ClassVar[str] = "avefi:EIDRResource"
+    class_name: ClassVar[str] = "EIDRResource"
+    class_model_uri: ClassVar[URIRef] = AVEFI.EIDRResource
+
+    id: Union[str, EIDR] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, EIDR):
+            self.id = EIDR(self.id)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -5233,7 +5281,7 @@ slots.has_unit = Slot(uri=AVEFI.has_unit, name="has_unit", curie=AVEFI.curie('ha
                    model_uri=AVEFI.has_unit, domain=None, range=Union[str, "UnitEnum"])
 
 slots.has_value = Slot(uri=AVEFI.has_value, name="has_value", curie=AVEFI.curie('has_value'),
-                   model_uri=AVEFI.has_value, domain=None, range=Decimal)
+                   model_uri=AVEFI.has_value, domain=None, range=Union[Decimal, Decimal])
 
 slots.has_precision = Slot(uri=AVEFI.has_precision, name="has_precision", curie=AVEFI.curie('has_precision'),
                    model_uri=AVEFI.has_precision, domain=None, range=Optional[Union[str, "PrecisionEnum"]])
@@ -5245,7 +5293,7 @@ slots.has_genre = Slot(uri=AVEFI.has_genre, name="has_genre", curie=AVEFI.curie(
                    model_uri=AVEFI.has_genre, domain=None, range=Optional[Union[Union[dict, Genre], List[Union[dict, Genre]]]])
 
 slots.has_subject = Slot(uri=AVEFI.has_subject, name="has_subject", curie=AVEFI.curie('has_subject'),
-                   model_uri=AVEFI.has_subject, domain=None, range=Optional[Union[Union[dict, Subject], List[Union[dict, Subject]]]])
+                   model_uri=AVEFI.has_subject, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.is_variant_of = Slot(uri=AVEFI.is_variant_of, name="is_variant_of", curie=AVEFI.curie('is_variant_of'),
                    model_uri=AVEFI.is_variant_of, domain=None, range=Optional[Union[dict, MovingImageResource]])
@@ -5444,6 +5492,9 @@ slots.AVefiResource_id = Slot(uri=AVEFI.id, name="AVefiResource_id", curie=AVEFI
 
 slots.DOIResource_id = Slot(uri=AVEFI.id, name="DOIResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.DOIResource_id, domain=DOIResource, range=Union[str, DOI])
+
+slots.EIDRResource_id = Slot(uri=AVEFI.id, name="EIDRResource_id", curie=AVEFI.curie('id'),
+                   model_uri=AVEFI.EIDRResource_id, domain=EIDRResource, range=Union[str, EIDR])
 
 slots.FilmportalResource_id = Slot(uri=AVEFI.id, name="FilmportalResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.FilmportalResource_id, domain=FilmportalResource, range=Union[str, FilmportalID])

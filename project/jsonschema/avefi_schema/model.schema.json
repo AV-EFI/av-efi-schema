@@ -527,6 +527,30 @@
             "title": "Duration",
             "type": "object"
         },
+        "EIDRResource": {
+            "additionalProperties": false,
+            "description": "Entertainment Identifier Registry ID. Check id slot range documentation for examples",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:EIDRResource"
+                    ],
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "pattern": "^10\\.5240(/|%2F)((?![\\\"&\\'])\\S)+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "category"
+            ],
+            "title": "EIDRResource",
+            "type": "object"
+        },
         "EditingActivity": {
             "additionalProperties": false,
             "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10",
@@ -2605,6 +2629,9 @@
                                 "$ref": "#/$defs/WikidataResource"
                             },
                             {
+                                "$ref": "#/$defs/EIDRResource"
+                            },
+                            {
                                 "$ref": "#/$defs/AVefiResource"
                             },
                             {
@@ -2896,7 +2923,18 @@
                 "has_subject": {
                     "description": "Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3",
                     "items": {
-                        "$ref": "#/$defs/Subject"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Subject"
+                            },
+                            {
+                                "$ref": "#/$defs/Agent"
+                            },
+                            {
+                                "$ref": "#/$defs/GeographicName"
+                            }
+                        ],
+                        "type": "string"
                     },
                     "type": "array"
                 },
@@ -2937,7 +2975,14 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/DOIResource"
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/$defs/DOIResource"
+                                    },
+                                    {
+                                        "$ref": "#/$defs/EIDRResource"
+                                    }
+                                ]
                             },
                             {
                                 "$ref": "#/$defs/FilmportalResource"
