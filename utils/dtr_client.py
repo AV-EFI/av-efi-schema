@@ -1,3 +1,39 @@
+"""Module generating InfoTypes and BasicInfoTypes from LinkML via API.
+
+The DataTypeGenerator class can be used in two modes of operation as
+determined by the sync_mode parameter: By default,
+``(sync_mode=False)`` it operates on a read-only basis trying to find
+PIDs for types, enums and classes in the source schema, resolving them
+and comparing the retrieved data to the InfoType or BasicInfoType
+generated on the fly from that type, enum or class. Otherwise,
+(``sync_mode=True``) InfoTypes (respectively BasicInfoTypes) are
+updated as far as a PID has been registered for them already and is on
+record in the source schema, or they are registered to begin with and
+the resulting PID is added to the source schema.
+
+Briefly, LinkML concepts are represented in the Data Type Registry as
+follows::
+
+- LinkML types are mapped to BasicInfoTypes in a fairly straight
+  forward way. Additional constraints known to the Type Registry but
+  not to LinkML can be added under data_type_properties in the
+  annotations section.
+
+- Enumerations are duplicated as json files in the repository and then
+  referenced via the `$ref` property of BasicInfoTypes in the Type
+  Registry.
+
+- A LinkML class will yield one InfoType containing one Property for
+  each slot or attribute of the class and possibly an additional
+  wrapper InfoType if there are subclasses defined in the source
+  schema.
+
+More details about the mapping of LinkML constructs to InfoTypes and
+BasicInfoTypes have been documented in README.md next to this module
+in the source distribution.
+
+"""
+
 import copy
 from dataclasses import dataclass
 import getpass
@@ -87,6 +123,58 @@ class DataTypeGenerator(generator.Generator):
                 log.warning(e)
 
     def get_verified_pid(self, obj: meta.Definition, *, cls=None, trunk=False):
+        """Get recorded PID of InfoType and check if it is up to date.
+
+        Return None if the given schema element is not part of the
+        TypeRegistrySubset (see below for exceptions). Otherwise,
+        check if the element has a PID for the corresponding InfoType
+        or BasicInfoType recorded in the annotations section. If so,
+        fetch the referenced InfoType, generate one on-the-fly from
+        the source schema, and compare them to each other. Only if
+        those two are found to be equal, return the PID to the caller.
+
+        Verified PIDs are cached per session, so it will perform
+        costly validation steps only once and can be used as the
+        standard PID look-up function for the purposes of this module.
+
+        In sync mode, a PID will simply be created if none is on
+        record yet. User will be asked for credentials and the PID for
+        the generated InfoType (or BasicInfoType) will be added as an
+        annotation to the source schema on successful completion.
+
+        Parameters
+        ----------
+        obj : linkml_model.meta.Definition
+            Type, Enum, Class or Slot definition as per the LinkML meta
+            model.
+        cls : linkml_model.meta.ClassDefinition, optional
+            Class for context if `obj` is a slot definition.
+        trunk : bool, optional
+            Request the PID for either the trunk definition of a class
+            or the wrapper definition which validates instances of the
+            class as well as registered subclasses.
+
+        Returns
+        -------
+        str, None
+            PID if on record and up to date, None if not part of
+            TypeRegistrySubset.
+
+        Raises
+        ------
+        NoPIDOnRecordError
+            No PID found for `obj` in the source schema. Note that each
+            slot_usage section in the LinkML schema is treated as a
+            different instance of the slot and gets its own PID,
+            provided there is an explicit in_subset statement too. Only
+            applicable if sync_mode is False (the default).
+        DataTypeMismatchError
+            Generating an InfoType from the source schema does not yield
+            the same result as what is currently referenced via the PID
+            on record. Only applicable if sync_mode is False (the
+            default).
+
+        """
         obj_type, src_locator = self.get_characteristics(
             obj, cls=cls, trunk=trunk)
         try:
