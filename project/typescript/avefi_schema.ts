@@ -1452,7 +1452,7 @@ export interface WorkVariant extends MovingImageRecord {
     /** Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters. Examples of genres are “westerns” and “thrillers”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.1 */
     has_genre?: Genre[],
     /** Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3 */
-    has_subject?: string[],
+    has_subject?: CategorizedThing[],
     /** Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17 */
     is_part_of?: MovingImageResource[],
     /** Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5 */
@@ -1469,7 +1469,7 @@ export interface WorkVariant extends MovingImageRecord {
 /**
  * Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4
  */
-export interface GeographicName {
+export interface GeographicName extends CategorizedThing {
     /** Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance */
     has_alternate_name?: string[],
     /** Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations */
@@ -1631,7 +1631,7 @@ export interface ManifestationActivity extends Activity {
 /**
  * Agent involved in some activity related to the moving image resource. For agents of type "Person" specify name according to the convention "family name, given name"
  */
-export interface Agent {
+export interface Agent extends CategorizedThing {
     /** Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance */
     has_alternate_name?: string[],
     /** For natural persons, always use the convention "family name, given name" */

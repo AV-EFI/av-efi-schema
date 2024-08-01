@@ -27,6 +27,7 @@ Event {
 GeographicName {
     TextLineList has_alternate_name  
     TextLine has_name  
+    AVefiCurie category  
 }
 AuthorityResource {
     IDString id  
@@ -40,6 +41,7 @@ Agent {
     TextLineList has_alternate_name  
     TextLine has_name  
     AgentTypeEnum type  
+    AVefiCurie category  
 }
 DescriptionResource {
     HttpUri has_history  
@@ -69,9 +71,11 @@ Manifestation {
 }
 WorkVariant {
     WorkFormEnumList has_form  
-    stringList has_subject  
     WorkVariantTypeEnum type  
     VariantTypeEnum variant_type  
+    AVefiCurie category  
+}
+CategorizedThing {
     AVefiCurie category  
 }
 Genre {
@@ -113,6 +117,7 @@ Manifestation ||--}o Language : "in_language"
 Manifestation ||--}o Title : "has_alternative_title"
 Manifestation ||--|| Title : "has_primary_title"
 WorkVariant ||--}o Genre : "has_genre"
+WorkVariant ||--}o CategorizedThing : "has_subject"
 WorkVariant ||--}o MovingImageResource : "is_part_of"
 WorkVariant ||--|o MovingImageResource : "is_variant_of"
 WorkVariant ||--}o AuthorityResource : "same_as"

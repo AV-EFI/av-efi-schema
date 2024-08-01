@@ -1497,13 +1497,14 @@ class WorkVariant(MovingImageRecord):
     category: Literal["https://av-efi.net/av-efi-schema/WorkVariant","avefi:WorkVariant"] = Field("avefi:WorkVariant", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
-class GeographicName(ConfiguredBaseModel):
+class GeographicName(CategorizedThing):
     """
     Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4
     """
     has_alternate_name: Optional[List[str]] = Field(default_factory=list, description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""")
     has_name: str = Field(..., description="""Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations""")
     same_as: Optional[List[Union[GNDResource, TGNResource, VIAFResource, WikidataResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
+    category: Literal["https://av-efi.net/av-efi-schema/GeographicName","avefi:GeographicName"] = Field("avefi:GeographicName", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Genre(ConfiguredBaseModel):
@@ -1677,7 +1678,7 @@ class ManifestationActivity(Activity):
     category: Literal["https://av-efi.net/av-efi-schema/ManifestationActivity","avefi:ManifestationActivity"] = Field("avefi:ManifestationActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
-class Agent(ConfiguredBaseModel):
+class Agent(CategorizedThing):
     """
     Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"
     """
@@ -1685,6 +1686,7 @@ class Agent(ConfiguredBaseModel):
     has_name: str = Field(..., description="""For natural persons, always use the convention \"family name, given name\"""")
     same_as: Optional[List[Union[FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
     type: AgentTypeEnum = Field(..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""")
+    category: Literal["https://av-efi.net/av-efi-schema/Agent","avefi:Agent"] = Field("avefi:Agent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""")
 
 
 class Event(CategorizedThing):

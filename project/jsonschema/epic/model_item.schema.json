@@ -135,6 +135,10 @@
                                                                 "additionalProperties": false,
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
+                                                                    "category": {
+                                                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "const": "avefi:Agent"
+                                                                    },
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
@@ -247,7 +251,8 @@
                                                                 },
                                                                 "required": [
                                                                     "has_name",
-                                                                    "type"
+                                                                    "type",
+                                                                    "category"
                                                                 ],
                                                                 "title": "Agent",
                                                                 "type": "object"
@@ -281,6 +286,10 @@
                                                                 "additionalProperties": false,
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
+                                                                    "category": {
+                                                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "const": "avefi:Agent"
+                                                                    },
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
@@ -393,7 +402,8 @@
                                                                 },
                                                                 "required": [
                                                                     "has_name",
-                                                                    "type"
+                                                                    "type",
+                                                                    "category"
                                                                 ],
                                                                 "title": "Agent",
                                                                 "type": "object"
@@ -427,6 +437,10 @@
                                                                 "additionalProperties": false,
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
+                                                                    "category": {
+                                                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "const": "avefi:Agent"
+                                                                    },
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
@@ -539,7 +553,8 @@
                                                                 },
                                                                 "required": [
                                                                     "has_name",
-                                                                    "type"
+                                                                    "type",
+                                                                    "category"
                                                                 ],
                                                                 "title": "Agent",
                                                                 "type": "object"
@@ -573,6 +588,10 @@
                                                                 "additionalProperties": false,
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
+                                                                    "category": {
+                                                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "const": "avefi:Agent"
+                                                                    },
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
@@ -685,7 +704,8 @@
                                                                 },
                                                                 "required": [
                                                                     "has_name",
-                                                                    "type"
+                                                                    "type",
+                                                                    "category"
                                                                 ],
                                                                 "title": "Agent",
                                                                 "type": "object"
@@ -719,6 +739,10 @@
                                                                 "additionalProperties": false,
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
+                                                                    "category": {
+                                                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "const": "avefi:Agent"
+                                                                    },
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
@@ -831,7 +855,8 @@
                                                                 },
                                                                 "required": [
                                                                     "has_name",
-                                                                    "type"
+                                                                    "type",
+                                                                    "category"
                                                                 ],
                                                                 "title": "Agent",
                                                                 "type": "object"
@@ -865,6 +890,10 @@
                                                                 "additionalProperties": false,
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
+                                                                    "category": {
+                                                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "const": "avefi:Agent"
+                                                                    },
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
@@ -977,7 +1006,8 @@
                                                                 },
                                                                 "required": [
                                                                     "has_name",
-                                                                    "type"
+                                                                    "type",
+                                                                    "category"
                                                                 ],
                                                                 "title": "Agent",
                                                                 "type": "object"
@@ -1011,6 +1041,10 @@
                                                                 "additionalProperties": false,
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
+                                                                    "category": {
+                                                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "const": "avefi:Agent"
+                                                                    },
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
@@ -1123,7 +1157,8 @@
                                                                 },
                                                                 "required": [
                                                                     "has_name",
-                                                                    "type"
+                                                                    "type",
+                                                                    "category"
                                                                 ],
                                                                 "title": "Agent",
                                                                 "type": "object"
@@ -1157,6 +1192,10 @@
                                                                 "additionalProperties": false,
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
+                                                                    "category": {
+                                                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "const": "avefi:Agent"
+                                                                    },
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
@@ -1269,7 +1308,8 @@
                                                                 },
                                                                 "required": [
                                                                     "has_name",
-                                                                    "type"
+                                                                    "type",
+                                                                    "category"
                                                                 ],
                                                                 "title": "Agent",
                                                                 "type": "object"
@@ -1303,6 +1343,10 @@
                                                                 "additionalProperties": false,
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
+                                                                    "category": {
+                                                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "const": "avefi:Agent"
+                                                                    },
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
@@ -1415,7 +1459,8 @@
                                                                 },
                                                                 "required": [
                                                                     "has_name",
-                                                                    "type"
+                                                                    "type",
+                                                                    "category"
                                                                 ],
                                                                 "title": "Agent",
                                                                 "type": "object"
@@ -1449,6 +1494,10 @@
                                                                 "additionalProperties": false,
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
+                                                                    "category": {
+                                                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "const": "avefi:Agent"
+                                                                    },
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
@@ -1561,7 +1610,8 @@
                                                                 },
                                                                 "required": [
                                                                     "has_name",
-                                                                    "type"
+                                                                    "type",
+                                                                    "category"
                                                                 ],
                                                                 "title": "Agent",
                                                                 "type": "object"
@@ -1595,6 +1645,10 @@
                                                                 "additionalProperties": false,
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
+                                                                    "category": {
+                                                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "const": "avefi:Agent"
+                                                                    },
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
@@ -1707,7 +1761,8 @@
                                                                 },
                                                                 "required": [
                                                                     "has_name",
-                                                                    "type"
+                                                                    "type",
+                                                                    "category"
                                                                 ],
                                                                 "title": "Agent",
                                                                 "type": "object"
@@ -1741,6 +1796,10 @@
                                                                 "additionalProperties": false,
                                                                 "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                                 "properties": {
+                                                                    "category": {
+                                                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                        "const": "avefi:Agent"
+                                                                    },
                                                                     "has_alternate_name": {
                                                                         "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                         "items": {
@@ -1853,7 +1912,8 @@
                                                                 },
                                                                 "required": [
                                                                     "has_name",
-                                                                    "type"
+                                                                    "type",
+                                                                    "category"
                                                                 ],
                                                                 "title": "Agent",
                                                                 "type": "object"
@@ -1888,6 +1948,10 @@
                                             "additionalProperties": false,
                                             "description": "Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4",
                                             "properties": {
+                                                "category": {
+                                                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "const": "avefi:GeographicName"
+                                                },
                                                 "has_alternate_name": {
                                                     "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
@@ -1995,7 +2059,8 @@
                                                 }
                                             },
                                             "required": [
-                                                "has_name"
+                                                "has_name",
+                                                "category"
                                             ],
                                             "title": "GeographicName",
                                             "type": "object"
@@ -2037,6 +2102,10 @@
                                                         "additionalProperties": false,
                                                         "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                         "properties": {
+                                                            "category": {
+                                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                "const": "avefi:Agent"
+                                                            },
                                                             "has_alternate_name": {
                                                                 "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                 "items": {
@@ -2149,7 +2218,8 @@
                                                         },
                                                         "required": [
                                                             "has_name",
-                                                            "type"
+                                                            "type",
+                                                            "category"
                                                         ],
                                                         "title": "Agent",
                                                         "type": "object"
@@ -2182,6 +2252,10 @@
                                             "additionalProperties": false,
                                             "description": "Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4",
                                             "properties": {
+                                                "category": {
+                                                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "const": "avefi:GeographicName"
+                                                },
                                                 "has_alternate_name": {
                                                     "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
@@ -2289,7 +2363,8 @@
                                                 }
                                             },
                                             "required": [
-                                                "has_name"
+                                                "has_name",
+                                                "category"
                                             ],
                                             "title": "GeographicName",
                                             "type": "object"
@@ -2333,6 +2408,10 @@
                                                         "additionalProperties": false,
                                                         "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                         "properties": {
+                                                            "category": {
+                                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                "const": "avefi:Agent"
+                                                            },
                                                             "has_alternate_name": {
                                                                 "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                 "items": {
@@ -2445,7 +2524,8 @@
                                                         },
                                                         "required": [
                                                             "has_name",
-                                                            "type"
+                                                            "type",
+                                                            "category"
                                                         ],
                                                         "title": "Agent",
                                                         "type": "object"
@@ -2478,6 +2558,10 @@
                                             "additionalProperties": false,
                                             "description": "Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4",
                                             "properties": {
+                                                "category": {
+                                                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "const": "avefi:GeographicName"
+                                                },
                                                 "has_alternate_name": {
                                                     "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
@@ -2585,7 +2669,8 @@
                                                 }
                                             },
                                             "required": [
-                                                "has_name"
+                                                "has_name",
+                                                "category"
                                             ],
                                             "title": "GeographicName",
                                             "type": "object"
@@ -2628,6 +2713,10 @@
                                                         "additionalProperties": false,
                                                         "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                         "properties": {
+                                                            "category": {
+                                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                "const": "avefi:Agent"
+                                                            },
                                                             "has_alternate_name": {
                                                                 "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                 "items": {
@@ -2740,7 +2829,8 @@
                                                         },
                                                         "required": [
                                                             "has_name",
-                                                            "type"
+                                                            "type",
+                                                            "category"
                                                         ],
                                                         "title": "Agent",
                                                         "type": "object"
@@ -2773,6 +2863,10 @@
                                             "additionalProperties": false,
                                             "description": "Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4",
                                             "properties": {
+                                                "category": {
+                                                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "const": "avefi:GeographicName"
+                                                },
                                                 "has_alternate_name": {
                                                     "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
@@ -2880,7 +2974,8 @@
                                                 }
                                             },
                                             "required": [
-                                                "has_name"
+                                                "has_name",
+                                                "category"
                                             ],
                                             "title": "GeographicName",
                                             "type": "object"
@@ -2924,6 +3019,10 @@
                                                         "additionalProperties": false,
                                                         "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
                                                         "properties": {
+                                                            "category": {
+                                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                                "const": "avefi:Agent"
+                                                            },
                                                             "has_alternate_name": {
                                                                 "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                                 "items": {
@@ -3036,7 +3135,8 @@
                                                         },
                                                         "required": [
                                                             "has_name",
-                                                            "type"
+                                                            "type",
+                                                            "category"
                                                         ],
                                                         "title": "Agent",
                                                         "type": "object"
@@ -3069,6 +3169,10 @@
                                             "additionalProperties": false,
                                             "description": "Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also: FIAF Moving Image Cataloguing Manual 1.3.3, D.4",
                                             "properties": {
+                                                "category": {
+                                                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                    "const": "avefi:GeographicName"
+                                                },
                                                 "has_alternate_name": {
                                                     "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                                                     "items": {
@@ -3176,7 +3280,8 @@
                                                 }
                                             },
                                             "required": [
-                                                "has_name"
+                                                "has_name",
+                                                "category"
                                             ],
                                             "title": "GeographicName",
                                             "type": "object"
