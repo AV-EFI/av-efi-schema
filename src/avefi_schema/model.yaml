@@ -496,6 +496,7 @@ classes:
 
   GeographicName:
     rank: 12
+    is_a: CategorizedThing
     slots:
     - has_alternate_name
     - has_name
@@ -883,6 +884,7 @@ classes:
 
   Agent:
     rank: 18
+    is_a: CategorizedThing
     slots:
     - has_alternate_name
     - has_name
@@ -2062,6 +2064,7 @@ slots:
     rank: 14
     inlined_as_list: true
     multivalued: true
+    range: CategorizedThing
     any_of:
     - range: Subject
     - range: Agent
