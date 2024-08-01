@@ -18,6 +18,7 @@
             "category": "avefi:CastActivity",
             "has_agent": [
               {
+                "category": "avefi:Agent",
                 "has_name": "Borchert, Brigitte",
                 "type": "Person",
                 "same_as": [
@@ -28,6 +29,7 @@
                 ]
               },
               {
+                "category": "avefi:Agent",
                 "has_name": "Splettstößer, Erwin",
                 "type": "Person",
                 "same_as": [
@@ -38,6 +40,7 @@
                 ]
               },
               {
+                "category": "avefi:Agent",
                 "has_name": "Waltershausen, Wolfgang von",
                 "type": "Person",
                 "same_as": [
@@ -54,6 +57,7 @@
             "category": "avefi:WritingActivity",
             "has_agent": [
               {
+                "category": "avefi:Agent",
                 "has_name": "Wilder, Billy",
                 "type": "Person",
                 "same_as": [
@@ -70,6 +74,7 @@
             "category": "avefi:DirectingActivity",
             "has_agent": [
               {
+                "category": "avefi:Agent",
                 "has_name": "Siodmak, Robert",
                 "type": "Person",
                 "same_as": [
@@ -80,6 +85,7 @@
                 ]
               },
               {
+                "category": "avefi:Agent",
                 "has_name": "Ulmer, Edgar G.",
                 "type": "Person",
                 "same_as": [
@@ -90,6 +96,7 @@
                 ]
               },
               {
+                "category": "avefi:Agent",
                 "has_name": "Gliese, Rochus",
                 "type": "Person",
                 "same_as": [
@@ -106,6 +113,7 @@
             "category": "avefi:CinematographyActivity",
             "has_agent": [
               {
+                "category": "avefi:Agent",
                 "has_name": "Schüfftan, Eugen",
                 "type": "Person",
                 "same_as": [
@@ -122,6 +130,7 @@
             "category": "avefi:EditingActivity",
             "has_agent": [
               {
+                "category": "avefi:Agent",
                 "has_name": "Siodmak, Robert",
                 "type": "Person",
                 "same_as": [
@@ -138,6 +147,7 @@
             "category": "avefi:MusicActivity",
             "has_agent": [
               {
+                "category": "avefi:Agent",
                 "has_name": "Stenzel, Otto",
                 "type": "Person"
               }
@@ -148,6 +158,7 @@
         "has_date": "1929/1930",
         "located_in": [
           {
+            "category": "avefi:GeographicName",
             "has_name": "Germany (German Reich)",
             "same_as": [
               {
@@ -181,6 +192,5 @@
         "id": "f570e1abdad841dc8d5b25b0f7737065"
       }
     ]
-  },
-  "@type": "MovingImageRecordContainer"
+  }
 }

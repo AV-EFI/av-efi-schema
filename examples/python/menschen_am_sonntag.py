@@ -74,7 +74,7 @@ def sample_work():
 
     # If no EFI has been registered yet, assign arbitrary identifier,
     # e.g. from local database, with prefix "local:"
-    work.id = 'local:mams_1'
+    work.has_identifier.append(efi.LocalResource(id='mams_1'))
     work.same_as.append(
         efi.FilmportalResource(id='f570e1abdad841dc8d5b25b0f7737065'))
     return work
@@ -82,9 +82,9 @@ def sample_work():
 
 def sample_manifestation(*works):
     manifestation = efi.Manifestation(
-        id='local:mams_12',
+        has_identifier=[efi.LocalResource(id='mams_12')],
         is_manifestation_of=[
-            efi.LocalResource(id=work.id) for work in works],
+            efi.LocalResource(id=work.has_identifier[0].id) for work in works],
         has_primary_title=efi.Title(
             type=efi.TitleTypeEnum.TitleProper,
             has_name='Menschen am Sonntag')
@@ -126,8 +126,8 @@ def sample_manifestation(*works):
 
 def sample_item(manifestation):
     item = efi.Item(
-        id='local:mams_123',
-        is_item_of=efi.LocalResource(id=manifestation.id),
+        has_identifier=[efi.LocalResource(id='mams_123')],
+        is_item_of=efi.LocalResource(id=manifestation.has_identifier[0].id),
         element_type=efi.ItemElementTypeEnum.DCP,
         has_primary_title=manifestation.has_primary_title,
         has_access_status=efi.ItemAccessStatusEnum.Distribution,
