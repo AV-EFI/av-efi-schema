@@ -306,6 +306,13 @@
 
       WorkVariant : has_subject
 
+
+
+
+    WorkVariant --&gt; "*" CategorizedThing : has_subject
+    click CategorizedThing href "../CategorizedThing"
+
+
       WorkVariant : in_language
 
 
@@ -396,7 +403,7 @@
 </tr>
 <tr>
 <td><a href="../has_subject/">has_subject</a></td>
-<td>* <br/> <a href="../String/">String</a> or <br/><a href="../Subject/">Subject</a> or <br/><a href="../Agent/">Agent</a> or <br/><a href="../GeographicName/">GeographicName</a></td>
+<td>* <br/> <a href="../CategorizedThing/">CategorizedThing</a> or <br/><a href="../Subject/">Subject</a> or <br/><a href="../Agent/">Agent</a> or <br/><a href="../GeographicName/">GeographicName</a></td>
 <td>Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre.</td>
 <td>direct</td>
 </tr>
@@ -703,7 +710,7 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkVariant</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkVariant</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CategorizedThing</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">any_of</span><span class="p">:</span>
