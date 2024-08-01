@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-08-01T06:31:02
+# Generation date: 2024-08-01T08:08:47
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -5373,6 +5373,9 @@ slots.GeographicName_same_as = Slot(uri=AVEFI.same_as, name="GeographicName_same
 
 slots.Genre_same_as = Slot(uri=AVEFI.same_as, name="Genre_same_as", curie=AVEFI.curie('same_as'),
                    model_uri=AVEFI.Genre_same_as, domain=Genre, range=Optional[Union[Union[dict, "GNDResource"], List[Union[dict, "GNDResource"]]]])
+
+slots.Subject_same_as = Slot(uri=AVEFI.same_as, name="Subject_same_as", curie=AVEFI.curie('same_as'),
+                   model_uri=AVEFI.Subject_same_as, domain=Subject, range=Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]])
 
 slots.Activity_type = Slot(uri=AVEFI.type, name="Activity_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.Activity_type, domain=Activity, range=Union[str, IDString])

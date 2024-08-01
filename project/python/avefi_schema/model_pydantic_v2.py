@@ -1522,7 +1522,7 @@ class Subject(ConfiguredBaseModel):
     """
     has_alternate_name: Optional[List[str]] = Field(default_factory=list, description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""")
     has_name: str = Field(..., description="""Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations""")
-    same_as: Optional[List[Union[AuthorityResource,MovingImageResource,DOIResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,EIDRResource,AVefiResource,LocalResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
+    same_as: Optional[List[Union[AVefiResource, FilmportalResource, GNDResource, Union[DOIResource,EIDRResource], VIAFResource, WikidataResource]]] = Field(default_factory=list, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""")
 
 
 class Activity(CategorizedThing):
