@@ -626,6 +626,8 @@ class FormatDigitalFileTypeEnum(str, Enum):
     MP4 = "MP4"
     # FIAF Moving Image Cataloguing Manual D.7.2
     MXF = "MXF"
+    # Video Object File (MPEG-2 subset)
+    VOB = "VOB"
 
 
 class FormatFilmTypeEnum(str, Enum):

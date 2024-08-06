@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-08-01T08:08:47
+# Generation date: 2024-08-06T14:55:52
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -3094,6 +3094,10 @@ class FormatDigitalFileTypeEnum(EnumDefinitionImpl):
         text="MXF",
         description="FIAF Moving Image Cataloguing Manual D.7.2",
         meaning=FIAF["MXF"])
+    VOB = PermissibleValue(
+        text="VOB",
+        description="Video Object File (MPEG-2 subset)",
+        meaning=PRONOM["fmt/425"])
 
     _defn = EnumDefinition(
         name="FormatDigitalFileTypeEnum",

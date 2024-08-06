@@ -6,7 +6,8 @@
     "DPX",
     "MOV",
     "MP4",
-    "MXF"
+    "MXF",
+    "VOB"
   ],
   "title": "FormatDigitalFileTypeEnum",
   "type": "string"
