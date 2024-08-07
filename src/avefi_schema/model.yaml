@@ -467,6 +467,7 @@ classes:
       same_as:
         any_of:
         - range: DOIResource
+        # EIDRResource is subclass of DOIResource
         - range: FilmportalResource
         - range: GNDResource
         - range: VIAFResource
@@ -496,6 +497,7 @@ classes:
 
   GeographicName:
     rank: 12
+    is_a: CategorizedThing
     slots:
     - has_alternate_name
     - has_name
@@ -556,6 +558,16 @@ classes:
     - has_alternate_name
     - has_name
     - same_as
+    slot_usage:
+      same_as:
+        any_of:
+        - range: AVefiResource
+        - range: DOIResource
+        # EIDRResource is subclass of DOIResource
+        - range: FilmportalResource
+        - range: GNDResource
+        - range: VIAFResource
+        - range: WikidataResource
     structured_aliases:
     - literal_form: Schlagwort
       in_language: de
@@ -883,6 +895,7 @@ classes:
 
   Agent:
     rank: 18
+    is_a: CategorizedThing
     slots:
     - has_alternate_name
     - has_name
@@ -1489,7 +1502,7 @@ classes:
     - literal_form: AVefi
       in_language: default
     annotations:
-    - pid: 21.T11969/7529ed598d0bd4fcf3d8
+    - pid: 21.T11969/ab7fbf47063917f34150
     - formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
     todos:
     - >-
@@ -2062,6 +2075,7 @@ slots:
     rank: 14
     inlined_as_list: true
     multivalued: true
+    range: CategorizedThing
     any_of:
     - range: Subject
     - range: Agent

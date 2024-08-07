@@ -3,9 +3,9 @@ has_record:
   category: avefi:Manifestation
   has_identifier:
   - category: avefi:AVefiResource
-    id: 21.T11998/F5471B8A-FF4D-407A-BC72-D63A8E53EAC0
+    id: 21.11155/BC3C8794-9225-441A-8D00-6A86F8105721
   - category: avefi:LocalResource
-    id: 150221536
+    id: '150221536'
   has_primary_title:
     type: TitleProper
     has_name: Menschen am Sonntag
@@ -17,34 +17,39 @@ has_record:
     - category: avefi:ManifestationActivity
       type: AgentResponsibleForReproductionOrTransfer
       has_agent:
+      - category: avefi:Agent
         type: CorporateBody
         has_name: Deutsche Kinemathek - Museum für Film und Fernsehen
         same_as:
         - category: avefi:GNDResource
-          id: 998208027
+          id: '998208027'
     - category: avefi:ManifestationActivity
       type: AgentResponsibleForTheArchivalAvailability
       has_agent:
+      - category: avefi:Agent
         type: CorporateBody
         has_name: Deutsche Kinemathek - Museum für Film und Fernsehen
         same_as:
         - category: avefi:GNDResource
-          id: 998208027
+          id: '998208027'
   - category: avefi:PublicationEvent
     type: ReleaseEvent
-    has_date: 2014
+    has_date: '2014'
   in_language:
-  - usage: Intertitles
-    code: deu
-  - usage: Subtitles
-    code: eng
-  - usage: Subtitles
-    code: fra
+  - code: deu
+    usage:
+    - Intertitles
+  - code: eng
+    usage:
+    - Subtitles
+  - code: fra
+    usage:
+    - Subtitles
   has_colour_type: BlackAndWhite
   has_sound_type: Sound
   is_manifestation_of:
   - category: avefi:AVefiResource
-    id: 21.T11998/60BC0D95-6F00-4E84-B77B-F3174C211C12
+    id: 21.11155/B18C4B70-D6A5-45F1-A38F-6816EA633587
   has_item:
   - category: avefi:AVefiResource
-    id: 21.T11998/5CB143FE-756A-456E-B839-D2E8BB04E9D4
+    id: 21.11155/EDEF1591-BF32-4003-9850-73FABCC0D0E3

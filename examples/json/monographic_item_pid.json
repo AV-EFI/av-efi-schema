@@ -8,7 +8,7 @@
     "has_identifier": [
       {
         "category": "avefi:AVefiResource",
-        "id": "21.T11998/5CB143FE-756A-456E-B839-D2E8BB04E9D4"
+        "id": "21.11155/EDEF1591-BF32-4003-9850-73FABCC0D0E3"
       },
       {
         "category": "avefi:LocalResource",
@@ -27,10 +27,9 @@
     ],
     "is_item_of": {
       "category": "avefi:AVefiResource",
-      "id": "21.T11998/F5471B8A-FF4D-407A-BC72-D63A8E53EAC0"
+      "id": "21.11155/BC3C8794-9225-441A-8D00-6A86F8105721"
     },
     "element_type": "DCP",
     "has_access_status": "Distribution"
-  },
-  "@type": "MovingImageRecordContainer"
+  }
 }

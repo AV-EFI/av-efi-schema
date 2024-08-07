@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-07-30T11:30:50
+# Generation date: 2024-08-06T14:55:52
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -355,7 +355,7 @@ class WorkVariant(MovingImageRecord):
     type: Union[str, "WorkVariantTypeEnum"] = None
     has_form: Optional[Union[Union[str, "WorkFormEnum"], List[Union[str, "WorkFormEnum"]]]] = empty_list()
     has_genre: Optional[Union[Union[dict, "Genre"], List[Union[dict, "Genre"]]]] = empty_list()
-    has_subject: Optional[Union[str, List[str]]] = empty_list()
+    has_subject: Optional[Union[Union[dict, CategorizedThing], List[Union[dict, CategorizedThing]]]] = empty_list()
     is_part_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
     is_variant_of: Optional[Union[dict, "MovingImageResource"]] = None
     same_as: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
@@ -377,7 +377,7 @@ class WorkVariant(MovingImageRecord):
 
         if not isinstance(self.has_subject, list):
             self.has_subject = [self.has_subject] if self.has_subject is not None else []
-        self.has_subject = [v if isinstance(v, str) else str(v) for v in self.has_subject]
+        self.has_subject = [v if isinstance(v, CategorizedThing) else CategorizedThing(**as_dict(v)) for v in self.has_subject]
 
         if not isinstance(self.is_part_of, list):
             self.is_part_of = [self.is_part_of] if self.is_part_of is not None else []
@@ -400,7 +400,7 @@ class WorkVariant(MovingImageRecord):
 
 
 @dataclass
-class GeographicName(YAMLRoot):
+class GeographicName(CategorizedThing):
     """
     Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and
     recorded as a human readable string in the name attribute and as linked data in the same_as attribute. See also:
@@ -432,6 +432,9 @@ class GeographicName(YAMLRoot):
         self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
 
 
 @dataclass
@@ -970,7 +973,7 @@ class ManifestationActivity(Activity):
 
 
 @dataclass
-class Agent(YAMLRoot):
+class Agent(CategorizedThing):
     """
     Agent involved in some activity related to the moving image resource. For agents of type "Person" specify name
     according to the convention "family name, given name"
@@ -1007,6 +1010,9 @@ class Agent(YAMLRoot):
         self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
 
 
 @dataclass
@@ -3088,6 +3094,10 @@ class FormatDigitalFileTypeEnum(EnumDefinitionImpl):
         text="MXF",
         description="FIAF Moving Image Cataloguing Manual D.7.2",
         meaning=FIAF["MXF"])
+    VOB = PermissibleValue(
+        text="VOB",
+        description="Video Object File (MPEG-2 subset)",
+        meaning=PRONOM["fmt/425"])
 
     _defn = EnumDefinition(
         name="FormatDigitalFileTypeEnum",
@@ -5294,7 +5304,7 @@ slots.has_genre = Slot(uri=AVEFI.has_genre, name="has_genre", curie=AVEFI.curie(
                    model_uri=AVEFI.has_genre, domain=None, range=Optional[Union[Union[dict, Genre], List[Union[dict, Genre]]]])
 
 slots.has_subject = Slot(uri=AVEFI.has_subject, name="has_subject", curie=AVEFI.curie('has_subject'),
-                   model_uri=AVEFI.has_subject, domain=None, range=Optional[Union[str, List[str]]])
+                   model_uri=AVEFI.has_subject, domain=None, range=Optional[Union[Union[dict, CategorizedThing], List[Union[dict, CategorizedThing]]]])
 
 slots.is_variant_of = Slot(uri=AVEFI.is_variant_of, name="is_variant_of", curie=AVEFI.curie('is_variant_of'),
                    model_uri=AVEFI.is_variant_of, domain=None, range=Optional[Union[dict, MovingImageResource]])
@@ -5367,6 +5377,9 @@ slots.GeographicName_same_as = Slot(uri=AVEFI.same_as, name="GeographicName_same
 
 slots.Genre_same_as = Slot(uri=AVEFI.same_as, name="Genre_same_as", curie=AVEFI.curie('same_as'),
                    model_uri=AVEFI.Genre_same_as, domain=Genre, range=Optional[Union[Union[dict, "GNDResource"], List[Union[dict, "GNDResource"]]]])
+
+slots.Subject_same_as = Slot(uri=AVEFI.same_as, name="Subject_same_as", curie=AVEFI.curie('same_as'),
+                   model_uri=AVEFI.Subject_same_as, domain=Subject, range=Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]])
 
 slots.Activity_type = Slot(uri=AVEFI.type, name="Activity_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.Activity_type, domain=Activity, range=Union[str, IDString])

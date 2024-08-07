@@ -13,6 +13,7 @@ prefixes:
   fiaf: https://fiafcore.org/ontology/
   foaf: http://xmlns.com/foaf/0.1/
   linkml: https://w3id.org/linkml/
+  pronom: https://www.nationalarchives.gov.uk/PRONOM/
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   schema: http://schema.org/
@@ -1970,6 +1971,12 @@ enums:
           in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:MXF
+      VOB:
+        structured_aliases:
+        - literal_form: VOB
+          in_language: default
+        description: Video Object File (MPEG-2 subset)
+        meaning: pronom:fmt/425
 
   FormatFilmTypeEnum:
     rank: 23

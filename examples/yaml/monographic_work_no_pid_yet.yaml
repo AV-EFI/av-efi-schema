@@ -4,7 +4,7 @@ has_record:
   type: Monographic
   has_identifier:
   - category: avefi:LocalResource
-    id: 150003397
+    id: '150003397'
   has_primary_title:
     type: PreferredTitle
     has_name: Menschen am Sonntag – Das Dokument der Gegenwart
@@ -12,7 +12,8 @@ has_record:
   - category: avefi:ProductionEvent
     has_date: 1929/1930
     located_in:
-    - has_name: Germany (German Reich)
+    - category: avefi:GeographicName
+      has_name: Germany (German Reich)
       same_as:
       - category: avefi:GNDResource
         id: 2008993-4
@@ -20,17 +21,20 @@ has_record:
     - category: avefi:CastActivity
       type: CastMember
       has_agent:
-      - type: Person
+      - category: avefi:Agent
+        type: Person
         has_name: Borchert, Brigitte
         same_as:
         - category: avefi:GNDResource
           id: '173787681'
-      - type: Person
+      - category: avefi:Agent
+        type: Person
         has_name: Splettstößer, Erwin
         same_as:
         - category: avefi:GNDResource
           id: '1061393046'
-      - type: Person
+      - category: avefi:Agent
+        type: Person
         has_name: Waltershausen, Wolfgang von
         same_as:
         - category: avefi:GNDResource
@@ -38,7 +42,8 @@ has_record:
     - category: avefi:WritingActivity
       type: Writer
       has_agent:
-      - type: Person
+      - category: avefi:Agent
+        type: Person
         has_name: Wilder, Billy
         same_as:
         - category: avefi:GNDResource
@@ -46,17 +51,20 @@ has_record:
     - category: avefi:DirectingActivity
       type: Director
       has_agent:
-      - type: Person
+      - category: avefi:Agent
+        type: Person
         has_name: Siodmak, Robert
         same_as:
         - category: avefi:GNDResource
           id: 11861472X
-      - type: Person
+      - category: avefi:Agent
+        type: Person
         has_name: Ulmer, Edgar G.
         same_as:
         - category: avefi:GNDResource
           id: '124471196'
-      - type: Person
+      - category: avefi:Agent
+        type: Person
         has_name: Gliese, Rochus
         same_as:
         - category: avefi:GNDResource
@@ -64,7 +72,8 @@ has_record:
     - category: avefi:CinematographyActivity
       type: Cinematographer
       has_agent:
-      - type: Person
+      - category: avefi:Agent
+        type: Person
         has_name: Schüfftan, Eugen
         same_as:
         - category: avefi:GNDResource
@@ -72,7 +81,8 @@ has_record:
     - category: avefi:EditingActivity
       type: FilmEditor
       has_agent:
-      - type: Person
+      - category: avefi:Agent
+        type: Person
         has_name: Siodmak, Robert
         same_as:
         - category: avefi:GNDResource
@@ -80,7 +90,8 @@ has_record:
     - category: avefi:MusicActivity
       type: Composer
       has_agent:
-      - type: Person
+      - category: avefi:Agent
+        type: Person
         has_name: Stenzel, Otto
   has_genre:
   - has_name: Fiction

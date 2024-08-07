@@ -19,6 +19,7 @@ DOIT_CONFIG = {
         'python',
         'typescript',
         'json_lc_messages',
+        'diagram',
     ],
 }
 HERE = Path(__file__).parent
@@ -430,7 +431,6 @@ def task_check_dtr():
         dtr_gen.process_schema()
     return {
         'actions': [tools.PythonInteractiveAction(check_dtr)],
-        'file_dep': SRC_SCHEMA_DEPENDENCIES,
         'params': [
             {
                 'name': 'sync',
