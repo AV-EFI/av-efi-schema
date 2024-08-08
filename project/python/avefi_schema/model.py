@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-08-06T14:55:52
+# Generation date: 2024-08-08T08:32:47
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -46,6 +46,7 @@ FIAF = CurieNamespace('fiaf', 'https://fiafcore.org/ontology/')
 FOAF = CurieNamespace('foaf', 'http://xmlns.com/foaf/0.1/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 OWL = CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#')
+PRONOM = CurieNamespace('pronom', 'https://www.nationalarchives.gov.uk/PRONOM/')
 RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')

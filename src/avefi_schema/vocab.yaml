@@ -22,6 +22,7 @@ prefixes:
 
 emit_prefixes:
 - fiaf
+- pronom
 - rdfs
 
 default_prefix: avefi
