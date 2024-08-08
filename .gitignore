@@ -4,5 +4,4 @@
 __pycache__/
 .doit.db*
 .pdm-python
-.stamp-*
 *~
