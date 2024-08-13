@@ -1603,7 +1603,7 @@ export function toGenre(o: Genre): Genre {
 /**
  * Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. Provide name and if at all possible identifier(s) from supported authorities in the same_as slot. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3
  */
-export interface Subject {
+export interface Subject extends CategorizedThing {
     /** Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance */
     has_alternate_name?: string[],
     /** Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations */
@@ -1615,7 +1615,8 @@ export interface Subject {
 
 export function isSubject(o: object): o is Subject {
     return (
-        'has_name' in o
+        'has_name' in o &&
+        'category' in o
     )
 }
 
@@ -1623,7 +1624,8 @@ export function toSubject(o: Subject): Subject {
     return {
         has_alternate_name: o.has_alternate_name ?? [],
         has_name: o.has_name ?? null,
-        same_as: o.same_as ?? []
+        same_as: o.same_as ?? [],
+        category: o.category ?? null
     }
 }
 

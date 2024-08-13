@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-08-08T08:32:47
+# Generation date: 2024-08-13T16:05:48
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -474,7 +474,7 @@ class Genre(YAMLRoot):
 
 
 @dataclass
-class Subject(YAMLRoot):
+class Subject(CategorizedThing):
     """
     Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be
     confused with Genre. Provide name and if at all possible identifier(s) from supported authorities in the same_as
@@ -506,6 +506,9 @@ class Subject(YAMLRoot):
         self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
 
         super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
 
 
 @dataclass

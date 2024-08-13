@@ -2613,6 +2613,13 @@
             "additionalProperties": false,
             "description": "Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. Provide name and if at all possible identifier(s) from supported authorities in the same_as slot. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3",
             "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:Subject"
+                    ],
+                    "type": "string"
+                },
                 "has_alternate_name": {
                     "description": "Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance",
                     "items": {
@@ -2661,7 +2668,8 @@
                 }
             },
             "required": [
-                "has_name"
+                "has_name",
+                "category"
             ],
             "title": "Subject",
             "type": "object"
