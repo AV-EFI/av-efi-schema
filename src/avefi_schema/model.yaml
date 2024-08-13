@@ -54,7 +54,7 @@ types:
     - tag: data_type_properties
       value:
         minLength: 1
-        maxLength: 550
+        maxLength: 250
     in_subset:
     - TypeRegistrySubset
     description: >-
