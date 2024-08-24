@@ -429,6 +429,7 @@ classes:
     - described_by
     - has_event
     - has_identifier
+    - has_source_key
     - in_language
     annotations:
     - pid: 21.T11969/2e9c01efa0f0f6881365
@@ -1794,6 +1795,17 @@ slots:
       Use local identifiers instead when PIDs have not been registered
       yet. The latter is suitable for transferring data to the agent
       responsible for registering PIDs
+
+  has_source_key:
+    rank: 5
+    inlined_as_list: true
+    multivalued: true
+    range: IDString
+    description: >-
+      Indicate a dataset this record has been generated or derived
+      from. For example, a converter generating AVefi moving image
+      records from data in some other schema may record the original
+      identifier here.
 
   has_name:
     rank: 4
