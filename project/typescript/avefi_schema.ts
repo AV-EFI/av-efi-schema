@@ -1421,6 +1421,8 @@ export interface MovingImageRecord extends CategorizedThing {
     has_event?: Event[],
     /** Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs */
     has_identifier?: MovingImageResource[],
+    /** Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here. */
+    has_source_key?: string[],
     /** FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3 */
     in_language?: Language[],
     /** Additional title(s) associated with the work / variant, manifestation, or item. */

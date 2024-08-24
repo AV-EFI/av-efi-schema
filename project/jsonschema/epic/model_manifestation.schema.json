@@ -3579,6 +3579,14 @@
                     "$ref": "https://raw.githubusercontent.com/AV-EFI/av-efi-schema/main/project/jsonschema/epic/vocabularies/SoundTypeEnum.json",
                     "description": "FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4"
                 },
+                "has_source_key": {
+                    "description": "Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.",
+                    "items": {
+                        "pattern": "^((?![\\\"&\\'])\\S)+$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "has_webresource": {
                     "description": "Link to data provider's own presentation of manifestation or item on the web",
                     "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",

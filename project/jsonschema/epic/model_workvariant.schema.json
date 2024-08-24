@@ -3408,6 +3408,14 @@
                     "title": "Title",
                     "type": "object"
                 },
+                "has_source_key": {
+                    "description": "Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.",
+                    "items": {
+                        "pattern": "^((?![\\\"&\\'])\\S)+$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "has_subject": {
                     "description": "Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3",
                     "items": {
