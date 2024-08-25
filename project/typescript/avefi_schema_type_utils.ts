@@ -1475,15 +1475,14 @@ export interface DescriptionResource {
     /** Name of the responsible party */
     has_issuer_name: string,
     /** Timestamp (in UTC) for the latest modification to any field in the PID metadata record */
-    last_modified: string,
+    last_modified?: string,
 }
 
 
 export function isDescriptionResource(o: object): o is DescriptionResource {
     return (
         'has_issuer_id' in o &&
-        'has_issuer_name' in o &&
-        'last_modified' in o
+        'has_issuer_name' in o
     )
 }
 

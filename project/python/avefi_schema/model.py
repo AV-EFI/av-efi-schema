@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-08-24T10:24:21
+# Generation date: 2024-08-25T14:57:10
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -320,8 +320,8 @@ class DescriptionResource(YAMLRoot):
 
     has_issuer_id: Union[str, HttpUri] = None
     has_issuer_name: Union[str, TextLine] = None
-    last_modified: Union[str, ISODateTimeUTC] = None
     has_history: Optional[Union[str, HttpUri]] = None
+    last_modified: Optional[Union[str, ISODateTimeUTC]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.has_issuer_id):
@@ -334,13 +334,11 @@ class DescriptionResource(YAMLRoot):
         if not isinstance(self.has_issuer_name, TextLine):
             self.has_issuer_name = TextLine(self.has_issuer_name)
 
-        if self._is_empty(self.last_modified):
-            self.MissingRequiredField("last_modified")
-        if not isinstance(self.last_modified, ISODateTimeUTC):
-            self.last_modified = ISODateTimeUTC(self.last_modified)
-
         if self.has_history is not None and not isinstance(self.has_history, HttpUri):
             self.has_history = HttpUri(self.has_history)
+
+        if self.last_modified is not None and not isinstance(self.last_modified, ISODateTimeUTC):
+            self.last_modified = ISODateTimeUTC(self.last_modified)
 
         super().__post_init__(**kwargs)
 
@@ -5277,7 +5275,7 @@ slots.has_issuer_name = Slot(uri=DCTERMS.contributor, name="has_issuer_name", cu
                    model_uri=AVEFI.has_issuer_name, domain=None, range=Union[str, TextLine])
 
 slots.last_modified = Slot(uri=DCTERMS.modified, name="last_modified", curie=DCTERMS.curie('modified'),
-                   model_uri=AVEFI.last_modified, domain=None, range=Union[str, ISODateTimeUTC])
+                   model_uri=AVEFI.last_modified, domain=None, range=Optional[Union[str, ISODateTimeUTC]])
 
 slots.has_event = Slot(uri=AVEFI.has_event, name="has_event", curie=AVEFI.curie('has_event'),
                    model_uri=AVEFI.has_event, domain=None, range=Optional[Union[Union[dict, Event], List[Union[dict, Event]]]])

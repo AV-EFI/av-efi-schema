@@ -1443,7 +1443,7 @@ export interface DescriptionResource {
     /** Name of the responsible party */
     has_issuer_name: string,
     /** Timestamp (in UTC) for the latest modification to any field in the PID metadata record */
-    last_modified: string,
+    last_modified?: string,
 }
 
 

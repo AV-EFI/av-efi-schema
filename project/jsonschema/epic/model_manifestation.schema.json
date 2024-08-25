@@ -41,8 +41,7 @@
                     },
                     "required": [
                         "has_issuer_id",
-                        "has_issuer_name",
-                        "last_modified"
+                        "has_issuer_name"
                     ],
                     "title": "DescriptionResource",
                     "type": "object"

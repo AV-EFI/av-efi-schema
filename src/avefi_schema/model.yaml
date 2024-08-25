@@ -1939,7 +1939,6 @@ slots:
   last_modified:
     slot_uri: dcterms:modified
     range: ISODateTimeUTC
-    required: true
     in_subset:
     - TypeRegistrySubset
     description: >-

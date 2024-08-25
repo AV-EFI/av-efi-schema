@@ -1476,7 +1476,7 @@ class DescriptionResource(ConfiguredBaseModel):
     has_history: Optional[str] = Field(None, description="""Link to revision history of this PID""")
     has_issuer_id: str = Field(..., description="""Identifier for the responsible party as an URI suitable for linked data""")
     has_issuer_name: str = Field(..., description="""Name of the responsible party""")
-    last_modified: datetime  = Field(..., description="""Timestamp (in UTC) for the latest modification to any field in the PID metadata record""")
+    last_modified: Optional[datetime ] = Field(None, description="""Timestamp (in UTC) for the latest modification to any field in the PID metadata record""")
 
 
 class WorkVariant(MovingImageRecord):
