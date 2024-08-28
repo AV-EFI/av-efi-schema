@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://av-efi.github.io/av-efi-schema/has_alternative_title/">
+        <link rel="canonical" href="https://av-efi.github.io/av-efi-schema/has_source_key/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: has_alternative_title - AVefi Schema Documentation</title>
+        <title>Slot: has_source_key - AVefi Schema Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-has_alternative_title" class="md-skip">
+        <a href="#slot-has_source_key" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: has_alternative_title
+              Slot: has_source_key
             
           </span>
         </div>
@@ -369,9 +369,9 @@
   
 
 
-<h1 id="slot-has_alternative_title">Slot: has_alternative_title</h1>
-<p><em>Additional title(s) associated with the work / variant, manifestation, or item.</em></p>
-<p>URI: <a href="https://av-efi.net/av-efi-schema/has_alternative_title">avefi:has_alternative_title</a></p>
+<h1 id="slot-has_source_key">Slot: has_source_key</h1>
+<p><em>Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.</em></p>
+<p>URI: <a href="https://av-efi.net/av-efi-schema/has_source_key">avefi:has_source_key</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -414,7 +414,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../Title/">Title</a></p>
+<p>Range: <a href="../IDString/">IDString</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -427,19 +427,17 @@
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_alternative_title</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Additional title(s) associated with the work / variant, manifestation,</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">or item.</span>
-<span class="nt">in_subset</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeRegistrySubset</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_source_key</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Indicate a dataset this record has been generated or derived from. For</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">example, a converter generating AVefi moving image records from data in some other</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">schema may record the original identifier here.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
-<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_alternative_title</span>
-<span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MovingImageRecord</span>
+<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_source_key</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MovingImageRecord</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Title</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IDString</span>
 <span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
