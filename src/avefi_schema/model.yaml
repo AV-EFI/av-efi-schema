@@ -2184,6 +2184,8 @@ slots:
 
   has_webresource:
     rank: 28
+    inlined_as_list: true
+    multivalued: true
     range: HttpUri
     in_subset:
     - TypeRegistrySubset
