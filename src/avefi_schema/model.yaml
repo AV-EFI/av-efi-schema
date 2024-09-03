@@ -1939,8 +1939,6 @@ slots:
   last_modified:
     slot_uri: dcterms:modified
     range: ISODateTimeUTC
-    in_subset:
-    - TypeRegistrySubset
     description: >-
       Timestamp (in UTC) for the latest modification to any field in
       the PID metadata record
