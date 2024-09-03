@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-09-03T10:03:46
+# Generation date: 2024-09-03T12:26:10
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -1276,7 +1276,7 @@ class ManifestationOrItem(MovingImageRecord):
     has_extent: Optional[Union[dict, "Extent"]] = None
     has_format: Optional[Union[Union[dict, "Format"], List[Union[dict, "Format"]]]] = empty_list()
     has_note: Optional[Union[Union[str, TextArea], List[Union[str, TextArea]]]] = empty_list()
-    has_webresource: Optional[Union[str, HttpUri]] = None
+    has_webresource: Optional[Union[Union[str, HttpUri], List[Union[str, HttpUri]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.has_duration is not None and not isinstance(self.has_duration, Duration):
@@ -1293,8 +1293,9 @@ class ManifestationOrItem(MovingImageRecord):
             self.has_note = [self.has_note] if self.has_note is not None else []
         self.has_note = [v if isinstance(v, TextArea) else TextArea(v) for v in self.has_note]
 
-        if self.has_webresource is not None and not isinstance(self.has_webresource, HttpUri):
-            self.has_webresource = HttpUri(self.has_webresource)
+        if not isinstance(self.has_webresource, list):
+            self.has_webresource = [self.has_webresource] if self.has_webresource is not None else []
+        self.has_webresource = [v if isinstance(v, HttpUri) else HttpUri(v) for v in self.has_webresource]
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -5344,7 +5345,7 @@ slots.has_sound_type = Slot(uri=AVEFI.has_sound_type, name="has_sound_type", cur
                    model_uri=AVEFI.has_sound_type, domain=None, range=Optional[Union[str, "SoundTypeEnum"]])
 
 slots.has_webresource = Slot(uri=AVEFI.has_webresource, name="has_webresource", curie=AVEFI.curie('has_webresource'),
-                   model_uri=AVEFI.has_webresource, domain=None, range=Optional[Union[str, HttpUri]])
+                   model_uri=AVEFI.has_webresource, domain=None, range=Optional[Union[Union[str, HttpUri], List[Union[str, HttpUri]]]])
 
 slots.is_manifestation_of = Slot(uri=AVEFI.is_manifestation_of, name="is_manifestation_of", curie=AVEFI.curie('is_manifestation_of'),
                    model_uri=AVEFI.is_manifestation_of, domain=None, range=Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]])

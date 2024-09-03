@@ -2259,7 +2259,7 @@ export interface ManifestationOrItem extends MovingImageRecord {
     /** FIAF Moving Image Cataloguing Manual Appendix B */
     has_note?: string[],
     /** Link to data provider's own presentation of manifestation or item on the web */
-    has_webresource?: string,
+    has_webresource?: string[],
 }
 
 
@@ -2276,7 +2276,7 @@ export function toManifestationOrItem(o: ManifestationOrItem): ManifestationOrIt
         has_extent: o.has_extent ?? {},
         has_format: o.has_format ?? [],
         has_note: o.has_note ?? [],
-        has_webresource: o.has_webresource ?? null,
+        has_webresource: o.has_webresource ?? [],
         described_by: o.described_by ?? {},
         has_event: o.has_event ?? [],
         has_identifier: o.has_identifier ?? [],
@@ -2518,7 +2518,7 @@ export function toManifestation(o: Manifestation): Manifestation {
         has_extent: o.has_extent ?? {},
         has_format: o.has_format ?? [],
         has_note: o.has_note ?? [],
-        has_webresource: o.has_webresource ?? null,
+        has_webresource: o.has_webresource ?? [],
         described_by: o.described_by ?? {},
         has_event: o.has_event ?? [],
         has_identifier: o.has_identifier ?? [],
@@ -2591,7 +2591,7 @@ export function toItem(o: Item): Item {
         has_extent: o.has_extent ?? {},
         has_format: o.has_format ?? [],
         has_note: o.has_note ?? [],
-        has_webresource: o.has_webresource ?? null,
+        has_webresource: o.has_webresource ?? [],
         described_by: o.described_by ?? {},
         has_event: o.has_event ?? [],
         has_identifier: o.has_identifier ?? [],

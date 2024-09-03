@@ -1731,7 +1731,7 @@ export interface ManifestationOrItem extends MovingImageRecord {
     /** FIAF Moving Image Cataloguing Manual Appendix B */
     has_note?: string[],
     /** Link to data provider's own presentation of manifestation or item on the web */
-    has_webresource?: string,
+    has_webresource?: string[],
 }
 
 

@@ -4,7 +4,7 @@ Item {
     ItemElementTypeEnum element_type  
     ItemAccessStatusEnum has_access_status  
     TextAreaList has_note  
-    HttpUri has_webresource  
+    HttpUriList has_webresource  
     IDStringList has_source_key  
     AVefiCurie category  
 }
@@ -67,7 +67,7 @@ Manifestation {
     ColourTypeEnum has_colour_type  
     SoundTypeEnum has_sound_type  
     TextAreaList has_note  
-    HttpUri has_webresource  
+    HttpUriList has_webresource  
     IDStringList has_source_key  
     AVefiCurie category  
 }

@@ -3538,8 +3538,11 @@
                 },
                 "has_webresource": {
                     "description": "Link to data provider's own presentation of manifestation or item on the web",
-                    "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
-                    "type": "string"
+                    "items": {
+                        "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "in_language": {
                     "description": "FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3",
