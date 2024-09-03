@@ -200,6 +200,8 @@ class EditingActivityTypeEnum(str, Enum):
     """
     # FIAF Glossary of Filmographic Terms B.10.2
     AssistantFilmEditor = "AssistantFilmEditor"
+    # Person responsible content-wise in a non-fiction film production, e.g. a documentary. Unlike a film editor, this activity includes duties like writing a concept, drafting the story, and preparing interviews in preproduction as well as supervising and supporting the camera team
+    Editor = "Editor"
     # FIAF Glossary of Filmographic Terms B.10.1
     FilmEditor = "FilmEditor"
 

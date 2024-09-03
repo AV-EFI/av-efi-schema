@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-08-25T14:57:10
+# Generation date: 2024-09-03T10:03:46
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -2278,6 +2278,9 @@ class EditingActivityTypeEnum(EnumDefinitionImpl):
         text="AssistantFilmEditor",
         description="FIAF Glossary of Filmographic Terms B.10.2",
         meaning=FIAF["AssistantFilmEditor"])
+    Editor = PermissibleValue(
+        text="Editor",
+        description="""Person responsible content-wise in a non-fiction film production, e.g. a documentary. Unlike a film editor, this activity includes duties like writing a concept, drafting the story, and preparing interviews in preproduction as well as supervising and supporting the camera team""")
     FilmEditor = PermissibleValue(
         text="FilmEditor",
         description="FIAF Glossary of Filmographic Terms B.10.1",
