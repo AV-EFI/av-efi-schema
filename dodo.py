@@ -28,7 +28,6 @@ DOCS_DIR = HERE / 'docs'
 SCHEMA_OVERVIEW = DOCS_DIR / 'schema_overview.md'
 ER_DIAGRAM = HERE / 'avefi_er_diagram.md'
 SITE_DIR = HERE / 'site'
-WORKING_DIR = HERE / 'KIP_DTR'
 SCHEMA_NAME = 'avefi_schema'
 SRC_SCHEMA_DIR = HERE / 'src' / SCHEMA_NAME
 SRC_MODEL = SRC_SCHEMA_DIR / 'model.yaml'
@@ -394,33 +393,6 @@ def task_update_dependencies():
         ],
         'uptodate': (True,),
     }
-
-
-def task_fetch_efi_schemas():
-    """Fetch EFI JSON Schemas from the Data Type Registry."""
-    def fetch_efi_schema(task):
-        efi_type = task.name.rpartition(':')[2]
-        pid = SCHEMA_PIDS[efi_type]
-        response = urlopen(f"{TYPEAPI}{pid}{REQUEST_PARAMS}")
-        jsondata = json.loads(response.read())
-        if 'error' in jsondata.get('status', '').lower():
-            raise RuntimeError(
-                f"Request to {response.url} yielded this response: {jsondata}")
-        with open(task.targets[0], 'w+') as f:
-            f.write(json.dumps(jsondata, indent=4, sort_keys=True))
-
-    for efi_type in SCHEMA_PIDS.keys():
-        yield {
-            'name': efi_type,
-            'actions': [
-                fetch_efi_schema,
-            ],
-            'targets': [
-                WORKING_DIR / f"schema_{efi_type}_DTR.json",
-            ],
-            'clean': True,
-            'uptodate': (True,),
-            'verbosity': 2}
 
 
 def task_check_dtr():
