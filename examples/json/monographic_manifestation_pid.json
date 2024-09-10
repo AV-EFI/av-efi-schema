@@ -1,101 +1,99 @@
 {
-  "has_record": {
-    "category": "avefi:Manifestation",
-    "has_primary_title": {
-      "has_name": "Menschen am Sonntag",
-      "type": "TitleProper"
+  "category": "avefi:Manifestation",
+  "has_primary_title": {
+    "has_name": "Menschen am Sonntag",
+    "type": "TitleProper"
+  },
+  "has_event": [
+    {
+      "category": "avefi:PreservationEvent",
+      "has_activity": [
+        {
+          "category": "avefi:ManifestationActivity",
+          "has_agent": [
+            {
+              "category": "avefi:Agent",
+              "has_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+              "type": "CorporateBody",
+              "same_as": [
+                {
+                  "category": "avefi:GNDResource",
+                  "id": "998208027"
+                }
+              ]
+            }
+          ],
+          "type": "AgentResponsibleForReproductionOrTransfer"
+        },
+        {
+          "category": "avefi:ManifestationActivity",
+          "has_agent": [
+            {
+              "category": "avefi:Agent",
+              "has_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+              "type": "CorporateBody",
+              "same_as": [
+                {
+                  "category": "avefi:GNDResource",
+                  "id": "998208027"
+                }
+              ]
+            }
+          ],
+          "type": "AgentResponsibleForTheArchivalAvailability"
+        }
+      ],
+      "has_date": "2013/2014",
+      "type": "RestorationEvent"
     },
-    "has_event": [
-      {
-        "category": "avefi:PreservationEvent",
-        "has_activity": [
-          {
-            "category": "avefi:ManifestationActivity",
-            "has_agent": [
-              {
-                "category": "avefi:Agent",
-                "has_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
-                "type": "CorporateBody",
-                "same_as": [
-                  {
-                    "category": "avefi:GNDResource",
-                    "id": "998208027"
-                  }
-                ]
-              }
-            ],
-            "type": "AgentResponsibleForReproductionOrTransfer"
-          },
-          {
-            "category": "avefi:ManifestationActivity",
-            "has_agent": [
-              {
-                "category": "avefi:Agent",
-                "has_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
-                "type": "CorporateBody",
-                "same_as": [
-                  {
-                    "category": "avefi:GNDResource",
-                    "id": "998208027"
-                  }
-                ]
-              }
-            ],
-            "type": "AgentResponsibleForTheArchivalAvailability"
-          }
-        ],
-        "has_date": "2013/2014",
-        "type": "RestorationEvent"
-      },
-      {
-        "category": "avefi:PublicationEvent",
-        "has_date": "2014",
-        "type": "ReleaseEvent"
-      }
-    ],
-    "has_identifier": [
-      {
-        "category": "avefi:AVefiResource",
-        "id": "21.11155/BC3C8794-9225-441A-8D00-6A86F8105721"
-      },
-      {
-        "category": "avefi:LocalResource",
-        "id": "150221536"
-      }
-    ],
-    "in_language": [
-      {
-        "code": "deu",
-        "usage": [
-          "Intertitles"
-        ]
-      },
-      {
-        "code": "eng",
-        "usage": [
-          "Subtitles"
-        ]
-      },
-      {
-        "code": "fra",
-        "usage": [
-          "Subtitles"
-        ]
-      }
-    ],
-    "is_manifestation_of": [
-      {
-        "category": "avefi:AVefiResource",
-        "id": "21.11155/B18C4B70-D6A5-45F1-A38F-6816EA633587"
-      }
-    ],
-    "has_colour_type": "BlackAndWhite",
-    "has_item": [
-      {
-        "category": "avefi:AVefiResource",
-        "id": "21.11155/EDEF1591-BF32-4003-9850-73FABCC0D0E3"
-      }
-    ],
-    "has_sound_type": "Sound"
-  }
+    {
+      "category": "avefi:PublicationEvent",
+      "has_date": "2014",
+      "type": "ReleaseEvent"
+    }
+  ],
+  "has_identifier": [
+    {
+      "category": "avefi:AVefiResource",
+      "id": "21.11155/BC3C8794-9225-441A-8D00-6A86F8105721"
+    },
+    {
+      "category": "avefi:LocalResource",
+      "id": "150221536"
+    }
+  ],
+  "in_language": [
+    {
+      "code": "deu",
+      "usage": [
+        "Intertitles"
+      ]
+    },
+    {
+      "code": "eng",
+      "usage": [
+        "Subtitles"
+      ]
+    },
+    {
+      "code": "fra",
+      "usage": [
+        "Subtitles"
+      ]
+    }
+  ],
+  "is_manifestation_of": [
+    {
+      "category": "avefi:AVefiResource",
+      "id": "21.11155/B18C4B70-D6A5-45F1-A38F-6816EA633587"
+    }
+  ],
+  "has_colour_type": "BlackAndWhite",
+  "has_item": [
+    {
+      "category": "avefi:AVefiResource",
+      "id": "21.11155/EDEF1591-BF32-4003-9850-73FABCC0D0E3"
+    }
+  ],
+  "has_sound_type": "Sound"
 }
