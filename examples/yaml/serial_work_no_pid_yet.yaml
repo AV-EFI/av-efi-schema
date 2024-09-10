@@ -1,0 +1,118 @@
+---
+category: avefi:WorkVariant
+type: Serial
+has_identifier:
+- category: avefi:LocalResource
+  id: id_for_serial
+has_primary_title:
+  type: PreferredTitle
+  has_name: Im Angesicht des Verbrechens
+has_event:
+- category: avefi:ProductionEvent
+  has_date: 2008/2010
+  located_in:
+  - category: avefi:GeographicName
+    has_name: Germany
+    same_as:
+    - category: avefi:GNDResource
+      id: 4011882-4
+  has_activity:
+  - category: avefi:DirectingActivity
+    type: Director
+    has_agent:
+    - category: avefi:Agent
+      type: Person
+      has_name: Graf, Dominik
+      same_as:
+      - category: avefi:GNDResource
+        id: '120745305'
+      - category: avefi:FilmportalResource
+        id: '9d20d1edbfda48ae8d93c0e05da3de5f'
+  - category: avefi:WritingActivity
+    type: Writer
+    has_agent:
+    - category: avefi:Agent
+      type: Person
+      has_name: Basedow, Rolf
+      same_as:
+      - category: avefi:GNDResource
+        id: '173787681'
+    - category: avefi:Agent
+      type: Person
+      has_name: Graf, Dominik
+      same_as:
+      - category: avefi:GNDResource
+        id: '120745305'
+      - category: avefi:FilmportalResource
+        id: '9d20d1edbfda48ae8d93c0e05da3de5f'
+  - category: avefi:CinematographyActivity
+    type: Cinematographer
+    has_agent:
+    - category: avefi:Agent
+      type: Person
+      has_name: Wiesweg, Michael
+      same_as:
+      - category: avefi:GNDResource
+        id: '131834983'
+  - category: avefi:EditingActivity
+    type: FilmEditor
+    has_agent:
+    - category: avefi:Agent
+      type: Person
+      has_name: Wolscht, Claudia
+      same_as:
+      - category: avefi:GNDResource
+        id: '1062104587'
+  - category: avefi:MusicActivity
+    type: Composer
+    has_agent:
+    - category: avefi:Agent
+      type: Person
+      has_name: Rossenbach, Sven
+      same_as:
+      - category: avefi:GNDResource
+        id: '135456029'
+    - category: avefi:Agent
+      type: Person
+      has_name: Volxem, Florian van
+      same_as:
+      - category: avefi:GNDResource
+        id: '135456053'
+  - category: avefi:CastActivity
+    type: CastMember
+    has_agent:
+    - category: avefi:Agent
+      type: Person
+      has_name: Riemelt, Max
+      same_as:
+      - category: avefi:GNDResource
+        id: '140862072'
+    - category: avefi:Agent
+      type: Person
+      has_name: Zehrfeld, Ronald
+      same_as:
+      - category: avefi:GNDResource
+        id: '142906948'
+    - category: avefi:Agent
+      type: Person
+      has_name: Matičević, Mišel
+      same_as:
+      - category: avefi:GNDResource
+        id: '133725065'
+    - category: avefi:Agent
+      type: Person
+      has_name: Bäumer, Marie
+      same_as:
+      - category: avefi:GNDResource
+        id: '129076007'
+    - category: avefi:Agent
+      type: Person
+      has_name: Nesytowa, Katharina
+      same_as:
+      - category: avefi:GNDResource
+        id: '1062190351'
+has_genre:
+- has_name: Crime
+described_by:
+  has_issuer_id: https://w3id.org/isil/DE-MUS-407010
+  has_issuer_name: Deutsche Kinemathek - Museum für Film und Fernsehen
