@@ -13,7 +13,7 @@ schemas and controlled vocabularies as part of the [AVefi project][].
 Some [documentation and examples][] are provided too.
 
 [AVefi project]: https://projects.tib.eu/av-efi/
-[schema documentation]: https://av-efi.github.io/av-efi-schema/
+[documentation and examples]: https://av-efi.github.io/av-efi-schema/
 
 ## Developer notes
 
