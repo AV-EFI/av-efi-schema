@@ -398,8 +398,8 @@ def task_update_dependencies():
 def task_check_dtr():
     """Compare each type and class against Data Type Registry."""
     def check_dtr(sync):
-        from utils import dtr_client
-        dtr_gen = dtr_client.DataTypeGenerator(SRC_MODEL, sync_mode=sync)
+        from utils import datatypegen
+        dtr_gen = datatypegen.DataTypeGenerator(SRC_MODEL, sync_mode=sync)
         dtr_gen.process_schema()
     return {
         'actions': [tools.PythonInteractiveAction(check_dtr)],
