@@ -1,10 +1,41 @@
 # LinkML generator for the Data Type Registry
 
-## Purpose and usage of the TypeRegistrySubset
+The DataTypeGenerator class can be used in two modes of operation as
+determined by the sync_mode parameter: By default,
+`(sync_mode=False)` it operates on a read-only basis trying to find
+PIDs for types, enums and classes in the source schema, resolving them
+and comparing the retrieved data to the InfoType or BasicInfoType
+generated on the fly from that type, enum or class. Otherwise,
+(`sync_mode=True`) InfoTypes (respectively BasicInfoTypes) are
+updated as far as a PID has been registered for them already and is on
+record in the source schema, or they are registered to begin with and
+the resulting PID is added to the source schema.
 
-Given the source schema expressed in LinkML, types, enumerations,
-classes and slots can be flagged for export to the Data Type Registry
-by adding them to the TypeRegistrySubset.
+Note that types, enums, classes and even slots must be added to the
+TypeRegistrySubset in order to get processed by the generator,
+otherwise they are simply ignored. Only (abstract) parent classes will
+be silently added to the TypeRegistrySubset if a non-abstract child
+was part of it already.
+
+Also, be aware that the range of every slot processed by the generator
+must itself be explicitly defined as a type, enum or class. This is
+because slots translate into properties of InfoTypes and the type of
+such a property must always be the PID of some other InfoType or
+BasicInfoType.
+
+Briefly, LinkML concepts are represented in the Data Type Registry as
+follows:
+*   LinkML types are mapped to BasicInfoTypes in a fairly straight
+    forward way. Additional constraints known to the Type Registry but
+    not to LinkML can be added under data_type_properties in the
+    annotations section.
+*   Enumerations are duplicated as json files in the repository and then
+    referenced via the `$ref` property of BasicInfoTypes in the Type
+    Registry.
+*   A LinkML class will yield one InfoType containing one Property for
+    each slot or attribute of the class and possibly an additional
+    wrapper InfoType if there are subclasses defined in the source
+    schema.
 
 ## Modelling LinkML classes and inheritance in the Type Registry
 
@@ -179,3 +210,5 @@ valid against the schema, but instances of children are (as long as
 they are not abstract themselves). In terms of the InfoTypes outlined
 above this means that MovingImageRecord__Trunk itself would not be
 mentioned as a valid alternative in the MovingImageRecord InfoType.
+
+[typeregistry]: https://faircore4eosc.eu/eosc-core-components/eosc-data-type-registry-dtr
