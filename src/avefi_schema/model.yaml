@@ -1387,7 +1387,6 @@ classes:
       code:
         rank: 12
         range: LanguageCodeEnum
-        required: true
         in_subset:
         - TypeRegistrySubset
         description: >-
