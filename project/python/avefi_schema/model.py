@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-09-03T12:26:10
+# Generation date: 2024-10-01T20:43:39
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -1592,20 +1592,18 @@ class Language(YAMLRoot):
     class_name: ClassVar[str] = "Language"
     class_model_uri: ClassVar[URIRef] = AVEFI.Language
 
-    code: Union[str, "LanguageCodeEnum"] = None
     usage: Union[Union[str, "LanguageUsageEnum"], List[Union[str, "LanguageUsageEnum"]]] = None
+    code: Optional[Union[str, "LanguageCodeEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.code):
-            self.MissingRequiredField("code")
-        if not isinstance(self.code, LanguageCodeEnum):
-            self.code = LanguageCodeEnum(self.code)
-
         if self._is_empty(self.usage):
             self.MissingRequiredField("usage")
         if not isinstance(self.usage, list):
             self.usage = [self.usage] if self.usage is not None else []
         self.usage = [v if isinstance(v, LanguageUsageEnum) else LanguageUsageEnum(v) for v in self.usage]
+
+        if self.code is not None and not isinstance(self.code, LanguageCodeEnum):
+            self.code = LanguageCodeEnum(self.code)
 
         super().__post_init__(**kwargs)
 
@@ -5375,7 +5373,7 @@ slots.movingImageRecord__has_primary_title = Slot(uri=AVEFI.has_primary_title, n
                    model_uri=AVEFI.movingImageRecord__has_primary_title, domain=None, range=Union[dict, Title])
 
 slots.language__code = Slot(uri=AVEFI.code, name="language__code", curie=AVEFI.curie('code'),
-                   model_uri=AVEFI.language__code, domain=None, range=Union[str, "LanguageCodeEnum"])
+                   model_uri=AVEFI.language__code, domain=None, range=Optional[Union[str, "LanguageCodeEnum"]])
 
 slots.language__usage = Slot(uri=AVEFI.usage, name="language__usage", curie=AVEFI.curie('usage'),
                    model_uri=AVEFI.language__usage, domain=None, range=Union[Union[str, "LanguageUsageEnum"], List[Union[str, "LanguageUsageEnum"]]])

@@ -2535,7 +2535,7 @@ export function toManifestation(o: Manifestation): Manifestation {
  */
 export interface Language {
     /** [ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3) */
-    code: string,
+    code?: string,
     /** FIAF Moving Image Cataloguing Manual 2.3.3.2 */
     usage: string,
 }
@@ -2543,7 +2543,6 @@ export interface Language {
 
 export function isLanguage(o: object): o is Language {
     return (
-        'code' in o &&
         'usage' in o
     )
 }

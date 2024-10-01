@@ -1156,7 +1156,6 @@
                 }
             },
             "required": [
-                "code",
                 "usage"
             ],
             "title": "Language",
