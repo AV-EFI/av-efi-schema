@@ -2241,6 +2241,8 @@ slots:
     - range: DOIResource
     # EIDRResource is subclass of DOIResource
     - range: MovingImageResource
+    annotations:
+    - pid: 21.T11969/4e81c9e20d5eba03f957
     in_subset:
     - TypeRegistrySubset
     description: >-
