@@ -2983,8 +2983,6 @@
                                     }
                                 },
                                 "required": [
-                                    "type",
-                                    "has_activity",
                                     "category"
                                 ],
                                 "title": "ManufactureEvent",

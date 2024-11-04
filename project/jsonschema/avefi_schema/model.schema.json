@@ -1021,12 +1021,27 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/AVefiResource"
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/$defs/DOIResource"
+                                    },
+                                    {
+                                        "$ref": "#/$defs/EIDRResource"
+                                    }
+                                ]
                             },
                             {
-                                "$ref": "#/$defs/LocalResource"
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/$defs/AVefiResource"
+                                    },
+                                    {
+                                        "$ref": "#/$defs/LocalResource"
+                                    }
+                                ]
                             }
-                        ]
+                        ],
+                        "type": "string"
                     },
                     "type": "array"
                 },
@@ -1991,8 +2006,6 @@
                 }
             },
             "required": [
-                "type",
-                "has_activity",
                 "category"
             ],
             "title": "ManufactureEvent",
@@ -2662,16 +2675,6 @@
                                 "$ref": "#/$defs/AVefiResource"
                             },
                             {
-                                "anyOf": [
-                                    {
-                                        "$ref": "#/$defs/DOIResource"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/EIDRResource"
-                                    }
-                                ]
-                            },
-                            {
                                 "$ref": "#/$defs/FilmportalResource"
                             },
                             {
@@ -3031,16 +3034,6 @@
                     "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                     "items": {
                         "anyOf": [
-                            {
-                                "anyOf": [
-                                    {
-                                        "$ref": "#/$defs/DOIResource"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/EIDRResource"
-                                    }
-                                ]
-                            },
                             {
                                 "$ref": "#/$defs/FilmportalResource"
                             },

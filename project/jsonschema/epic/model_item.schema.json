@@ -2987,8 +2987,6 @@
                                     }
                                 },
                                 "required": [
-                                    "type",
-                                    "has_activity",
                                     "category"
                                 ],
                                 "title": "ManufactureEvent",
@@ -3575,48 +3573,99 @@
                     "items": {
                         "anyOf": [
                             {
-                                "additionalProperties": false,
-                                "description": "Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples",
-                                "properties": {
-                                    "category": {
-                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
-                                        "const": "avefi:AVefiResource"
+                                "anyOf": [
+                                    {
+                                        "additionalProperties": false,
+                                        "description": "Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films. Check id slot range documentation for examples",
+                                        "properties": {
+                                            "category": {
+                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                "const": "avefi:DOIResource"
+                                            },
+                                            "id": {
+                                                "description": "A unique identifier for a thing",
+                                                "pattern": "^10\\.[0-9]{4,9}(\\.[0-9]+)*(/|%2F)((?![\\\"&\\'])\\S)+$",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "category"
+                                        ],
+                                        "title": "DOIResource",
+                                        "type": "object"
                                     },
-                                    "id": {
-                                        "description": "A unique identifier for a thing",
-                                        "pattern": "^21(\\.([0-9A-Za-z])+)*/[!-~]+$",
-                                        "type": "string"
+                                    {
+                                        "additionalProperties": false,
+                                        "description": "Entertainment Identifier Registry ID. Check id slot range documentation for examples",
+                                        "properties": {
+                                            "category": {
+                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                "const": "avefi:EIDRResource"
+                                            },
+                                            "id": {
+                                                "description": "A unique identifier for a thing",
+                                                "pattern": "^10\\.5240(/|%2F)((?![\\\"&\\'])\\S)+$",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "category"
+                                        ],
+                                        "title": "EIDRResource",
+                                        "type": "object"
                                     }
-                                },
-                                "required": [
-                                    "id",
-                                    "category"
-                                ],
-                                "title": "AVefiResource",
-                                "type": "object"
+                                ]
                             },
                             {
-                                "additionalProperties": false,
-                                "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs",
-                                "properties": {
-                                    "category": {
-                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
-                                        "const": "avefi:LocalResource"
+                                "anyOf": [
+                                    {
+                                        "additionalProperties": false,
+                                        "description": "Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples",
+                                        "properties": {
+                                            "category": {
+                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                "const": "avefi:AVefiResource"
+                                            },
+                                            "id": {
+                                                "description": "A unique identifier for a thing",
+                                                "pattern": "^21(\\.([0-9A-Za-z])+)*/[!-~]+$",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "category"
+                                        ],
+                                        "title": "AVefiResource",
+                                        "type": "object"
                                     },
-                                    "id": {
-                                        "description": "A unique identifier for a thing",
-                                        "pattern": "^((?![\\\"&\\'])\\S)+$",
-                                        "type": "string"
+                                    {
+                                        "additionalProperties": false,
+                                        "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs",
+                                        "properties": {
+                                            "category": {
+                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                "const": "avefi:LocalResource"
+                                            },
+                                            "id": {
+                                                "description": "A unique identifier for a thing",
+                                                "pattern": "^((?![\\\"&\\'])\\S)+$",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "category"
+                                        ],
+                                        "title": "LocalResource",
+                                        "type": "object"
                                     }
-                                },
-                                "required": [
-                                    "id",
-                                    "category"
-                                ],
-                                "title": "LocalResource",
-                                "type": "object"
+                                ]
                             }
-                        ]
+                        ],
+                        "type": "string"
                     },
                     "type": "array"
                 },

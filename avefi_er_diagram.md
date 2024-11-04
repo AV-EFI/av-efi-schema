@@ -3,6 +3,7 @@ erDiagram
 Item {
     ItemElementTypeEnum element_type  
     ItemAccessStatusEnum has_access_status  
+    stringList is_copy_of  
     TextAreaList has_note  
     HttpUriList has_webresource  
     IDStringList has_source_key  
@@ -90,7 +91,6 @@ GNDResource {
     AVefiCurie category  
 }
 
-Item ||--}o MovingImageResource : "is_copy_of"
 Item ||--}o MovingImageResource : "is_derivative_of"
 Item ||--|| MovingImageResource : "is_item_of"
 Item ||--|o Duration : "has_duration"

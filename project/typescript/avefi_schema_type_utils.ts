@@ -2173,14 +2173,12 @@ export function toPublicationEvent(o: PublicationEvent): PublicationEvent {
  */
 export interface ManufactureEvent extends Event {
     /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
-    type: string,
+    type?: string,
 }
 
 
 export function isManufactureEvent(o: object): o is ManufactureEvent {
     return (
-        'type' in o &&
-        'has_activity' in o &&
         'category' in o
     )
 }
@@ -2563,7 +2561,7 @@ export interface Item extends ManifestationOrItem {
     /** Status of item determining access conditions. See also FIAF Moving Image Cataloguing Manual D.7.1 */
     has_access_status?: string,
     /** Link to AVefi item registered by another institution indicating that the two are known to be copies of each other */
-    is_copy_of?: MovingImageResource[],
+    is_copy_of?: string[],
     /** Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project */
     is_derivative_of?: MovingImageResource[],
     /** Indicate AVefi Manifestation the item belongs to. Every item must be associated with a manifestation from the same data provider */

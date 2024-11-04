@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-10-01T20:43:39
+# Generation date: 2024-11-04T12:17:29
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -1175,17 +1175,13 @@ class ManufactureEvent(Event):
     class_name: ClassVar[str] = "ManufactureEvent"
     class_model_uri: ClassVar[URIRef] = AVEFI.ManufactureEvent
 
-    type: Union[str, "ManufactureEventTypeEnum"] = None
-    has_activity: Union[Union[dict, LaboratoryActivity], List[Union[dict, LaboratoryActivity]]] = None
+    type: Optional[Union[str, "ManufactureEventTypeEnum"]] = None
+    has_activity: Optional[Union[Union[dict, LaboratoryActivity], List[Union[dict, LaboratoryActivity]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.type):
-            self.MissingRequiredField("type")
-        if not isinstance(self.type, ManufactureEventTypeEnum):
+        if self.type is not None and not isinstance(self.type, ManufactureEventTypeEnum):
             self.type = ManufactureEventTypeEnum(self.type)
 
-        if self._is_empty(self.has_activity):
-            self.MissingRequiredField("has_activity")
         if not isinstance(self.has_activity, list):
             self.has_activity = [self.has_activity] if self.has_activity is not None else []
         self.has_activity = [v if isinstance(v, LaboratoryActivity) else LaboratoryActivity(**as_dict(v)) for v in self.has_activity]
@@ -1624,7 +1620,7 @@ class Item(ManifestationOrItem):
     is_item_of: Union[dict, "MovingImageResource"] = None
     element_type: Optional[Union[str, "ItemElementTypeEnum"]] = None
     has_access_status: Optional[Union[str, "ItemAccessStatusEnum"]] = None
-    is_copy_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
+    is_copy_of: Optional[Union[str, List[str]]] = empty_list()
     is_derivative_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1641,7 +1637,7 @@ class Item(ManifestationOrItem):
 
         if not isinstance(self.is_copy_of, list):
             self.is_copy_of = [self.is_copy_of] if self.is_copy_of is not None else []
-        self.is_copy_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_copy_of]
+        self.is_copy_of = [v if isinstance(v, str) else str(v) for v in self.is_copy_of]
 
         if not isinstance(self.is_derivative_of, list):
             self.is_derivative_of = [self.is_derivative_of] if self.is_derivative_of is not None else []
@@ -5358,7 +5354,7 @@ slots.has_access_status = Slot(uri=AVEFI.has_access_status, name="has_access_sta
                    model_uri=AVEFI.has_access_status, domain=None, range=Optional[Union[str, "ItemAccessStatusEnum"]])
 
 slots.is_copy_of = Slot(uri=AVEFI.is_copy_of, name="is_copy_of", curie=AVEFI.curie('is_copy_of'),
-                   model_uri=AVEFI.is_copy_of, domain=None, range=Optional[Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]]])
+                   model_uri=AVEFI.is_copy_of, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.is_derivative_of = Slot(uri=AVEFI.is_derivative_of, name="is_derivative_of", curie=AVEFI.curie('is_derivative_of'),
                    model_uri=AVEFI.is_derivative_of, domain=None, range=Optional[Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]]])
@@ -5472,10 +5468,10 @@ slots.PublicationEvent_type = Slot(uri=AVEFI.type, name="PublicationEvent_type",
                    model_uri=AVEFI.PublicationEvent_type, domain=PublicationEvent, range=Union[str, "PublicationEventTypeEnum"])
 
 slots.ManufactureEvent_has_activity = Slot(uri=AVEFI.has_activity, name="ManufactureEvent_has_activity", curie=AVEFI.curie('has_activity'),
-                   model_uri=AVEFI.ManufactureEvent_has_activity, domain=ManufactureEvent, range=Union[Union[dict, LaboratoryActivity], List[Union[dict, LaboratoryActivity]]])
+                   model_uri=AVEFI.ManufactureEvent_has_activity, domain=ManufactureEvent, range=Optional[Union[Union[dict, LaboratoryActivity], List[Union[dict, LaboratoryActivity]]]])
 
 slots.ManufactureEvent_type = Slot(uri=AVEFI.type, name="ManufactureEvent_type", curie=AVEFI.curie('type'),
-                   model_uri=AVEFI.ManufactureEvent_type, domain=ManufactureEvent, range=Union[str, "ManufactureEventTypeEnum"])
+                   model_uri=AVEFI.ManufactureEvent_type, domain=ManufactureEvent, range=Optional[Union[str, "ManufactureEventTypeEnum"]])
 
 slots.RightsCopyrightRegistrationEvent_has_activity = Slot(uri=AVEFI.has_activity, name="RightsCopyrightRegistrationEvent_has_activity", curie=AVEFI.curie('has_activity'),
                    model_uri=AVEFI.RightsCopyrightRegistrationEvent_has_activity, domain=RightsCopyrightRegistrationEvent, range=Union[Union[dict, CopyrightAndDistributionActivity], List[Union[dict, CopyrightAndDistributionActivity]]])
