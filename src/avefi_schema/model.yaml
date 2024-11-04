@@ -467,8 +467,6 @@ classes:
     slot_usage:
       same_as:
         any_of:
-        - range: DOIResource
-        # EIDRResource is subclass of DOIResource
         - range: FilmportalResource
         - range: GNDResource
         - range: VIAFResource
@@ -564,8 +562,6 @@ classes:
       same_as:
         any_of:
         - range: AVefiResource
-        - range: DOIResource
-        # EIDRResource is subclass of DOIResource
         - range: FilmportalResource
         - range: GNDResource
         - range: VIAFResource
@@ -1533,7 +1529,7 @@ classes:
     - formatter_url_for_web_resource: https://doi.org/$1
     - tag: provides
       value:
-      - CreativeWorkIdentifier
+      - ItemIdentifier
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1561,7 +1557,7 @@ classes:
     - formatter_url_for_web_resource: https://doi.org/$1
     - tag: provides
       value:
-      - CreativeWorkIdentifier
+      - ItemIdentifier
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -2243,7 +2239,10 @@ slots:
     rank: 39
     inlined_as_list: true
     multivalued: true
-    range: MovingImageResource
+    any_of:
+    - range: DOIResource
+    # EIDRResource is subclass of DOIResource
+    - range: MovingImageResource
     in_subset:
     - TypeRegistrySubset
     description: >-
