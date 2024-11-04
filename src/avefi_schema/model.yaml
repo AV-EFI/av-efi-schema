@@ -1072,12 +1072,10 @@ classes:
     slot_usage:
       has_activity:
         range: LaboratoryActivity
-        required: true
         in_subset:
         - TypeRegistrySubset
       type:
         range: ManufactureEventTypeEnum
-        required: true
         in_subset:
         - TypeRegistrySubset
     close_mappings:
