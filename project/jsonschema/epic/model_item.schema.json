@@ -3664,8 +3664,7 @@
                                     }
                                 ]
                             }
-                        ],
-                        "type": "string"
+                        ]
                     },
                     "type": "array"
                 },

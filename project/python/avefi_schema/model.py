@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-11-04T12:17:29
+# Generation date: 2024-11-04T16:33:48
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -1620,7 +1620,7 @@ class Item(ManifestationOrItem):
     is_item_of: Union[dict, "MovingImageResource"] = None
     element_type: Optional[Union[str, "ItemElementTypeEnum"]] = None
     has_access_status: Optional[Union[str, "ItemAccessStatusEnum"]] = None
-    is_copy_of: Optional[Union[str, List[str]]] = empty_list()
+    is_copy_of: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
     is_derivative_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1637,7 +1637,7 @@ class Item(ManifestationOrItem):
 
         if not isinstance(self.is_copy_of, list):
             self.is_copy_of = [self.is_copy_of] if self.is_copy_of is not None else []
-        self.is_copy_of = [v if isinstance(v, str) else str(v) for v in self.is_copy_of]
+        self.is_copy_of = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.is_copy_of]
 
         if not isinstance(self.is_derivative_of, list):
             self.is_derivative_of = [self.is_derivative_of] if self.is_derivative_of is not None else []
@@ -5354,7 +5354,7 @@ slots.has_access_status = Slot(uri=AVEFI.has_access_status, name="has_access_sta
                    model_uri=AVEFI.has_access_status, domain=None, range=Optional[Union[str, "ItemAccessStatusEnum"]])
 
 slots.is_copy_of = Slot(uri=AVEFI.is_copy_of, name="is_copy_of", curie=AVEFI.curie('is_copy_of'),
-                   model_uri=AVEFI.is_copy_of, domain=None, range=Optional[Union[str, List[str]]])
+                   model_uri=AVEFI.is_copy_of, domain=None, range=Optional[Union[Union[dict, AuthorityResource], List[Union[dict, AuthorityResource]]]])
 
 slots.is_derivative_of = Slot(uri=AVEFI.is_derivative_of, name="is_derivative_of", curie=AVEFI.curie('is_derivative_of'),
                    model_uri=AVEFI.is_derivative_of, domain=None, range=Optional[Union[Union[dict, MovingImageResource], List[Union[dict, MovingImageResource]]]])
