@@ -1,5 +1,18 @@
 # -*- coding: utf-8 -*-
 
+"""Produce AVefi compliant JSON data using Python language bindings.
+
+Demo code generating a schema compliant JSON file and reading it back
+again. Install requirements in a virtualenv and run this demo code as
+follows::
+
+    $ python3 -m venv demo_venv
+    $ . demo_venv/bin/activate
+    (demo_venv) $ pip install "avefi_schema @ git+https://github.com/AV-EFI/av-efi-schema.git"
+    (demo_venv) $ python menschen_am_sonntag.py
+
+"""
+
 import os
 import tempfile
 
