@@ -92,7 +92,7 @@ def sample_manifestation(*works):
     kinemathek = efi.Agent(
         type=efi.AgentTypeEnum.CorporateBody,
         has_name='Deutsche Kinemathek - Museum für Film und Fernsehen',
-        same_as=[efi.ISILResource(id='DE-MUS-407010')])
+        same_as=[efi.GNDResource(id='998208027')])
     restoration_activities = [
         efi.ManifestationActivity(
             type=efi.ManifestationActivityTypeEnum.AgentResponsibleForReproductionOrTransfer,
