@@ -1063,7 +1063,6 @@ export enum LanguageCodeEnum {
     pra = "pra",
     pro = "pro",
     pus = "pus",
-    qaa_qtz = "qaa-qtz",
     que = "que",
     raj = "raj",
     rap = "rap",

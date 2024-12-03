@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-11-04T16:33:48
+# Generation date: 2024-12-03T19:19:52
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -4854,10 +4854,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
         setattr(cls, "del",
             PermissibleValue(
                 text="del",
-                meaning=None))
-        setattr(cls, "qaa-qtz",
-            PermissibleValue(
-                text="qaa-qtz",
                 meaning=None))
 
 class LanguageUsageEnum(EnumDefinitionImpl):
