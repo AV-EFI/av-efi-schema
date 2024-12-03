@@ -4831,13 +4831,13 @@ enums:
         - literal_form: Pushto |  Pashto
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/pus
-      qaa-qtz:
-        structured_aliases:
-        - literal_form: Reserviert für lokale Verwendung
-          in_language: de
-        - literal_form: Reserved for local use
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/qaa-qtz
+      # qaa-qtz:
+      #   structured_aliases:
+      #   - literal_form: Reserviert für lokale Verwendung
+      #     in_language: de
+      #   - literal_form: Reserved for local use
+      #     in_language: en
+      #   meaning: http://id.loc.gov/vocabulary/iso639-2/qaa-qtz
       que:
         structured_aliases:
         - literal_form: Quechua-Sprache
