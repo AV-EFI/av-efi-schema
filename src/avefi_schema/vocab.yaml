@@ -5410,7 +5410,7 @@ enums:
         meaning: http://id.loc.gov/vocabulary/iso639-2/tli
       tmh:
         structured_aliases:
-        - literal_form: "Tama\x9Aeq"
+        - literal_form: Tuareg
           in_language: de
         - literal_form: Tamashek
           in_language: en
