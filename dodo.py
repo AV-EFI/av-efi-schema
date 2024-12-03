@@ -251,7 +251,9 @@ def task_json_lc_messages():
                         lc_messages[key] = result
         lc_messages_path = Path(targets[0])
         with open(lc_messages_path, 'w') as f:
-            json.dump(lc_message_catalog, f, indent=4, sort_keys=True)
+            json.dump(
+                lc_message_catalog, f, indent=4, sort_keys=True,
+                ensure_ascii=False)
             f.write('\n')
 
     return {
