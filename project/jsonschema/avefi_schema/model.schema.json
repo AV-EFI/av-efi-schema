@@ -1021,14 +1021,7 @@
                     "items": {
                         "anyOf": [
                             {
-                                "anyOf": [
-                                    {
-                                        "$ref": "#/$defs/DOIResource"
-                                    },
-                                    {
-                                        "$ref": "#/$defs/EIDRResource"
-                                    }
-                                ]
+                                "$ref": "#/$defs/DOIResource"
                             },
                             {
                                 "anyOf": [
@@ -1900,10 +1893,17 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/AVefiResource"
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/$defs/AVefiResource"
+                                    },
+                                    {
+                                        "$ref": "#/$defs/LocalResource"
+                                    }
+                                ]
                             },
                             {
-                                "$ref": "#/$defs/LocalResource"
+                                "$ref": "#/$defs/EIDRResource"
                             }
                         ]
                     },
@@ -2673,6 +2673,9 @@
                                 "$ref": "#/$defs/AVefiResource"
                             },
                             {
+                                "$ref": "#/$defs/EIDRResource"
+                            },
+                            {
                                 "$ref": "#/$defs/FilmportalResource"
                             },
                             {
@@ -3032,6 +3035,9 @@
                     "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                     "items": {
                         "anyOf": [
+                            {
+                                "$ref": "#/$defs/EIDRResource"
+                            },
                             {
                                 "$ref": "#/$defs/FilmportalResource"
                             },

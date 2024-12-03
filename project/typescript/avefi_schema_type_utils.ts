@@ -2492,7 +2492,7 @@ export interface Manifestation extends ManifestationOrItem {
     /** Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation */
     is_manifestation_of: MovingImageResource[],
     /** Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work */
-    same_as?: MovingImageResource[],
+    same_as?: AuthorityResource[],
 }
 
 
@@ -2709,7 +2709,7 @@ export function toDOIResource(o: DOIResource): DOIResource {
 /**
  * Entertainment Identifier Registry ID. Check id slot range documentation for examples
  */
-export interface EIDRResource extends DOIResource {
+export interface EIDRResource extends AuthorityResource {
 }
 
 

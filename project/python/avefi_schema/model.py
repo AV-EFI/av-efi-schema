@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-12-03T19:19:52
+# Generation date: 2024-12-03T19:38:59
 # Schema: model
 #
 # id: https://github.io/av-efi-schema/model
@@ -1546,7 +1546,7 @@ class Manifestation(ManifestationOrItem):
     has_colour_type: Optional[Union[str, "ColourTypeEnum"]] = None
     has_item: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
     has_sound_type: Optional[Union[str, "SoundTypeEnum"]] = None
-    same_as: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
+    same_as: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.is_manifestation_of):
@@ -1567,7 +1567,7 @@ class Manifestation(ManifestationOrItem):
 
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
-        self.same_as = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.same_as]
+        self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1774,7 +1774,7 @@ class DOIResource(AuthorityResource):
 
 
 @dataclass
-class EIDRResource(DOIResource):
+class EIDRResource(AuthorityResource):
     """
     Entertainment Identifier Registry ID. Check id slot range documentation for examples
     """
@@ -5500,7 +5500,7 @@ slots.Video_type = Slot(uri=AVEFI.type, name="Video_type", curie=AVEFI.curie('ty
                    model_uri=AVEFI.Video_type, domain=Video, range=Optional[Union[str, "FormatVideoTypeEnum"]])
 
 slots.Manifestation_same_as = Slot(uri=AVEFI.same_as, name="Manifestation_same_as", curie=AVEFI.curie('same_as'),
-                   model_uri=AVEFI.Manifestation_same_as, domain=Manifestation, range=Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]])
+                   model_uri=AVEFI.Manifestation_same_as, domain=Manifestation, range=Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]])
 
 slots.AuthorityResource_id = Slot(uri=AVEFI.id, name="AuthorityResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.AuthorityResource_id, domain=AuthorityResource, range=Union[str, IDString])

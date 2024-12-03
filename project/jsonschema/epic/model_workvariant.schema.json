@@ -3465,6 +3465,27 @@
                                                 },
                                                 {
                                                     "additionalProperties": false,
+                                                    "description": "Entertainment Identifier Registry ID. Check id slot range documentation for examples",
+                                                    "properties": {
+                                                        "category": {
+                                                            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                            "const": "avefi:EIDRResource"
+                                                        },
+                                                        "id": {
+                                                            "description": "A unique identifier for a thing",
+                                                            "pattern": "^10\\.5240(/|%2F)((?![\\\"&\\'])\\S)+$",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "id",
+                                                        "category"
+                                                    ],
+                                                    "title": "EIDRResource",
+                                                    "type": "object"
+                                                },
+                                                {
+                                                    "additionalProperties": false,
                                                     "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",
                                                     "properties": {
                                                         "category": {
@@ -3937,6 +3958,27 @@
                     "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                     "items": {
                         "anyOf": [
+                            {
+                                "additionalProperties": false,
+                                "description": "Entertainment Identifier Registry ID. Check id slot range documentation for examples",
+                                "properties": {
+                                    "category": {
+                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                        "const": "avefi:EIDRResource"
+                                    },
+                                    "id": {
+                                        "description": "A unique identifier for a thing",
+                                        "pattern": "^10\\.5240(/|%2F)((?![\\\"&\\'])\\S)+$",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "id",
+                                    "category"
+                                ],
+                                "title": "EIDRResource",
+                                "type": "object"
+                            },
                             {
                                 "additionalProperties": false,
                                 "description": "Identifier of the German Filmportal.de. Check id slot range documentation for examples",

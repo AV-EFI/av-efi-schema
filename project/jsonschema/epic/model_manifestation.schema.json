@@ -3673,37 +3673,62 @@
                     "items": {
                         "anyOf": [
                             {
-                                "additionalProperties": false,
-                                "description": "Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples",
-                                "properties": {
-                                    "category": {
-                                        "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
-                                        "const": "avefi:AVefiResource"
+                                "anyOf": [
+                                    {
+                                        "additionalProperties": false,
+                                        "description": "Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples",
+                                        "properties": {
+                                            "category": {
+                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                "const": "avefi:AVefiResource"
+                                            },
+                                            "id": {
+                                                "description": "A unique identifier for a thing",
+                                                "pattern": "^21(\\.([0-9A-Za-z])+)*/[!-~]+$",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "category"
+                                        ],
+                                        "title": "AVefiResource",
+                                        "type": "object"
                                     },
-                                    "id": {
-                                        "description": "A unique identifier for a thing",
-                                        "pattern": "^21(\\.([0-9A-Za-z])+)*/[!-~]+$",
-                                        "type": "string"
+                                    {
+                                        "additionalProperties": false,
+                                        "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs",
+                                        "properties": {
+                                            "category": {
+                                                "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                                                "const": "avefi:LocalResource"
+                                            },
+                                            "id": {
+                                                "description": "A unique identifier for a thing",
+                                                "pattern": "^((?![\\\"&\\'])\\S)+$",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "category"
+                                        ],
+                                        "title": "LocalResource",
+                                        "type": "object"
                                     }
-                                },
-                                "required": [
-                                    "id",
-                                    "category"
-                                ],
-                                "title": "AVefiResource",
-                                "type": "object"
+                                ]
                             },
                             {
                                 "additionalProperties": false,
-                                "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs",
+                                "description": "Entertainment Identifier Registry ID. Check id slot range documentation for examples",
                                 "properties": {
                                     "category": {
                                         "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
-                                        "const": "avefi:LocalResource"
+                                        "const": "avefi:EIDRResource"
                                     },
                                     "id": {
                                         "description": "A unique identifier for a thing",
-                                        "pattern": "^((?![\\\"&\\'])\\S)+$",
+                                        "pattern": "^10\\.5240(/|%2F)((?![\\\"&\\'])\\S)+$",
                                         "type": "string"
                                     }
                                 },
@@ -3711,7 +3736,7 @@
                                     "id",
                                     "category"
                                 ],
-                                "title": "LocalResource",
+                                "title": "EIDRResource",
                                 "type": "object"
                             }
                         ]
