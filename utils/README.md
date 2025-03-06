@@ -1,5 +1,9 @@
 # LinkML generator for the Data Type Registry
 
+Please consult the [Data Type Registry user
+documentation][typeregistry] and [LinkML generator
+documentation][linkml_gen] for background information.
+
 The DataTypeGenerator class can be used in two modes of operation as
 determined by the sync_mode parameter: By default,
 `(sync_mode=False)` it operates on a read-only basis trying to find
@@ -211,4 +215,5 @@ they are not abstract themselves). In terms of the InfoTypes outlined
 above this means that MovingImageRecord__Trunk itself would not be
 mentioned as a valid alternative in the MovingImageRecord InfoType.
 
-[typeregistry]: https://faircore4eosc.eu/eosc-core-components/eosc-data-type-registry-dtr
+[typeregistry]: https://fc4e-t4-3.github.io/
+[linkml_gen]: https://linkml.io/linkml/generators/index.html
