@@ -97,6 +97,3 @@ has_genre:
 same_as:
 - category: avefi:FilmportalResource
   id: f570e1abdad841dc8d5b25b0f7737065
-described_by:
-  has_issuer_id: https://w3id.org/isil/DE-MUS-407010
-  has_issuer_name: Deutsche Kinemathek - Museum für Film und Fernsehen

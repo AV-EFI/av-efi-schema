@@ -19,3 +19,6 @@ has_format:
 is_item_of:
   category: avefi:AVefiResource
   id: 21.11155/BC3C8794-9225-441A-8D00-6A86F8105721
+described_by:
+  has_issuer_id: https://w3id.org/isil/DE-MUS-407010
+  has_issuer_name: Deutsche Kinemathek - Museum für Film und Fernsehen

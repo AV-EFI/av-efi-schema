@@ -4,6 +4,10 @@
     "has_name": "Menschen am Sonntag",
     "type": "TitleProper"
   },
+  "described_by": {
+    "has_issuer_id": "https://w3id.org/isil/DE-MUS-407010",
+    "has_issuer_name": "Deutsche Kinemathek - Museum für Film und Fernsehen"
+  },
   "has_identifier": [
     {
       "category": "avefi:LocalResource",

@@ -50,3 +50,6 @@ is_manifestation_of:
 has_item:
 - category: avefi:LocalResource
   id: '150225499'
+described_by:
+  has_issuer_id: https://w3id.org/isil/DE-MUS-407010
+  has_issuer_name: Deutsche Kinemathek - Museum für Film und Fernsehen
