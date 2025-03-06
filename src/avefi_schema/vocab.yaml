@@ -554,7 +554,7 @@ enums:
         meaning: fiaf:AssistantFilmEditor
       Editor:
         structured_aliases:
-        - literal_form: Redakteur
+        - literal_form: Redaktion
           in_language: de
         - literal_form: Editor
           in_language: en
