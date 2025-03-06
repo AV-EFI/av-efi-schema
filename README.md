@@ -10,10 +10,15 @@ license
 
 This repository has been created in order to track the development of
 schemas and controlled vocabularies as part of the [AVefi project][].
-Some [documentation and examples][] are provided too.
+Some [documentation and examples][] are provided too. Validation
+against this schema is enforced during PID registration. For this
+purpose, the schema is deployed to the [Data Type Registry][] and
+there available as the [AVefi Kernel Information Profile][AVefi_KIP].
 
 [AVefi project]: https://projects.tib.eu/av-efi/
 [documentation and examples]: https://av-efi.github.io/av-efi-schema/
+[Data Type Registry]: https://faircore4eosc.eu/eosc-core-components/eosc-data-type-registry-dtr
+[AVefi_KIP]: https://typeregistry.lab.pidconsortium.net/#objects/21.T11969/873d5c9f6ebbffecf1df
 
 ## Developer notes
 
@@ -47,6 +52,17 @@ $ pdm run doit serve-site       # serve static site of docs locally for testing
 $ pdm run doit deploy-site      # deploy static site of docs to GitHub Pages
 ```
 
+In order to push the latest changes to the Kernel Information Profile
+in the Data Type REgistry, use the following commands:
+
+```console
+$ pdm run doit check_dtr --sync
+```
+
+This relies on a custom [LinkML generator for the Data Type
+Registry][dtr_gen] which is part of this repository.
+
 [LinkML]: https://linkml.io/
 [doit]: https://pydoit.org/
 [pdm_install]: https://pdm-project.org/en/latest/#installation
+[dtr_gen]: ./utils/README.md
