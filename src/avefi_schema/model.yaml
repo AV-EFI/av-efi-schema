@@ -150,7 +150,7 @@ types:
   ISODurationInHours:
     typeof: string
     pattern: 
-      ^PT(([1-9][0-9]*H)?(([1-5][0-9]|[1-9])M)?([1-5][0-9]|[1-9])S|([1-9][0-9]*H)?([1-5][0-9]|[1-9])M|[1-9][0-9]*H)$
+      ^PT[1-9]*[0-9][0-9]H[0-5][0-9]M[0-5][0-9]S$
     annotations:
     - pid: 21.T11969/a9cc3bf7aa659fe0f9e5
     in_subset:
@@ -158,11 +158,11 @@ types:
     description: >-
       ISO 8601 duration format. See examples
     examples:
-    - value: PT3H18M45S
+    - value: PT03H18M45S
       description: 3 hours, 18 minutes, 45 seconds
-    - value: PT2H9M
+    - value: PT02H09M00S
       description: 2 hours, 9 minutes
-    - value: PT6M12S
+    - value: PT00H06M12S
       description: 6 minutes, 12 seconds
     notes:
     - https://www.w3.org/TR/xmlschema11-2/#duration
