@@ -385,13 +385,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Item/">Item</a></td>
-<td>FIAF Moving Image Cataloguing Manual 3.0</td>
+<td><a href="../ManifestationOrItem/">ManifestationOrItem</a></td>
+<td>Base class defining common slots for manifestations and items</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../ManifestationOrItem/">ManifestationOrItem</a></td>
-<td>Base class defining common slots for manifestations and items</td>
+<td><a href="../Item/">Item</a></td>
+<td>FIAF Moving Image Cataloguing Manual 3.0</td>
 <td>no</td>
 </tr>
 <tr>
@@ -403,7 +403,12 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../HttpUri/">HttpUri</a></li>
+<li>
+<p>Range: <a href="../HttpUri/">HttpUri</a></p>
+</li>
+<li>
+<p>Multivalued: True</p>
+</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -419,10 +424,13 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeRegistrySubset</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.io/av-efi-schema/model</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">28</span>
+<span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_webresource</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ManifestationOrItem</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HttpUri</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 

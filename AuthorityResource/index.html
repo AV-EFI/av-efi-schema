@@ -254,6 +254,8 @@
         click MovingImageResource href "../MovingImageResource"
       AuthorityResource &lt;|-- DOIResource
         click DOIResource href "../DOIResource"
+      AuthorityResource &lt;|-- EIDRResource
+        click EIDRResource href "../EIDRResource"
       AuthorityResource &lt;|-- FilmportalResource
         click FilmportalResource href "../FilmportalResource"
       AuthorityResource &lt;|-- GNDResource
@@ -279,6 +281,7 @@
 <li><strong>AuthorityResource</strong><ul>
 <li><a href="../MovingImageResource/">MovingImageResource</a></li>
 <li><a href="../DOIResource/">DOIResource</a></li>
+<li><a href="../EIDRResource/">EIDRResource</a></li>
 <li><a href="../FilmportalResource/">FilmportalResource</a></li>
 <li><a href="../GNDResource/">GNDResource</a></li>
 <li><a href="../ISILResource/">ISILResource</a></li>
@@ -347,6 +350,18 @@
 <tr>
 <td><a href="../Agent/">Agent</a></td>
 <td><a href="../same_as/">same_as</a></td>
+<td>range</td>
+<td><a href="./">AuthorityResource</a></td>
+</tr>
+<tr>
+<td><a href="../Manifestation/">Manifestation</a></td>
+<td><a href="../same_as/">same_as</a></td>
+<td>range</td>
+<td><a href="./">AuthorityResource</a></td>
+</tr>
+<tr>
+<td><a href="../Item/">Item</a></td>
+<td><a href="../is_copy_of/">is_copy_of</a></td>
 <td>range</td>
 <td><a href="./">AuthorityResource</a></td>
 </tr>

@@ -1153,7 +1153,7 @@
 </tr>
 <tr>
 <td><a href="../same_as/">same_as</a></td>
-<td>* <br/> <a href="../MovingImageResource/">MovingImageResource</a></td>
+<td>* <br/> <a href="../AuthorityResource/">AuthorityResource</a></td>
 <td>Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same.</td>
 </tr>
 <tr>
@@ -1203,7 +1203,7 @@
 </tr>
 <tr>
 <td><a href="../has_webresource/">has_webresource</a></td>
-<td>0..1 <br/> <a href="../HttpUri/">HttpUri</a></td>
+<td>* <br/> <a href="../HttpUri/">HttpUri</a></td>
 <td>Link to data provider's own presentation of manifestation or item on the web</td>
 </tr>
 <tr>
@@ -1270,7 +1270,7 @@
 </tr>
 <tr>
 <td><a href="../has_webresource/">has_webresource</a></td>
-<td>0..1 <br/> <a href="../HttpUri/">HttpUri</a></td>
+<td>* <br/> <a href="../HttpUri/">HttpUri</a></td>
 <td>Link to data provider's own presentation of manifestation or item on the web</td>
 </tr>
 <tr>
@@ -1295,7 +1295,7 @@
 </tr>
 <tr>
 <td><a href="../is_copy_of/">is_copy_of</a></td>
-<td>* <br/> <a href="../MovingImageResource/">MovingImageResource</a></td>
+<td>* <br/> <a href="../AuthorityResource/">AuthorityResource</a></td>
 <td>Link to AVefi item registered by another institution indicating that the two are known to be copies of each other</td>
 </tr>
 <tr>
@@ -1497,7 +1497,7 @@
 </tr>
 <tr>
 <td><a href="../type/">type</a></td>
-<td>1 <br/> <a href="../ManufactureEventTypeEnum/">ManufactureEventTypeEnum</a></td>
+<td>0..1 <br/> <a href="../ManufactureEventTypeEnum/">ManufactureEventTypeEnum</a></td>
 <td>See specific class documentation for controlled vocabulary applicable to the type slot, respectively</td>
 </tr>
 <tr>
@@ -1512,7 +1512,7 @@
 </tr>
 <tr>
 <td><a href="../has_activity/">has_activity</a></td>
-<td>1..* <br/> <a href="../LaboratoryActivity/">LaboratoryActivity</a></td>
+<td>* <br/> <a href="../LaboratoryActivity/">LaboratoryActivity</a></td>
 <td>Associate activity (and subsequently agents) with event</td>
 </tr>
 </tbody>
@@ -2057,7 +2057,7 @@
 <tbody>
 <tr>
 <td><a href="../code/">code</a></td>
-<td>1 <br/> <a href="../LanguageCodeEnum/">LanguageCodeEnum</a></td>
+<td>0..1 <br/> <a href="../LanguageCodeEnum/">LanguageCodeEnum</a></td>
 <td><a href="https://id.loc.gov/vocabulary/iso639-2.html">ISO 639-2 code</a> for the Representation of Names of Languages (Part 2: Alpha-3)</td>
 </tr>
 <tr>
@@ -2542,11 +2542,6 @@
 <td>1 <br/> <a href="../TextLine/">TextLine</a></td>
 <td>Name of the responsible party</td>
 </tr>
-<tr>
-<td><a href="../last_modified/">last_modified</a></td>
-<td>0..1 <br/> <a href="../ISODateTimeUTC/">ISODateTimeUTC</a></td>
-<td>Timestamp (in UTC) for the latest modification to any field in the PID metadata record</td>
-</tr>
 </tbody>
 </table>
 <h2 id="slots-in-subset">Slots in subset</h2>
@@ -2733,10 +2728,6 @@
 <tr>
 <td><a href="../has_issuer_name/">has_issuer_name</a></td>
 <td>Name of the responsible party</td>
-</tr>
-<tr>
-<td><a href="../last_modified/">last_modified</a></td>
-<td>Timestamp (in UTC) for the latest modification to any field in the PID metadata record</td>
 </tr>
 </tbody>
 </table>
