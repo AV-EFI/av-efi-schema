@@ -3142,7 +3142,7 @@
     },
     "$id": "https://av-efi.github.io/av-efi-schema/model",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
-    "additionalProperties": false,
+    "additionalProperties": true,
     "metamodel_version": "1.7.0",
     "title": "AVefi data model",
     "type": "object",

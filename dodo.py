@@ -77,7 +77,7 @@ def task_jsonschema():
     """Generate derived JSON Schema."""
     return {
         'actions': [
-            f"gen-json-schema --closed --title-from title"
+            f"gen-json-schema --title-from title"
             f" --top-class MovingImageRecord {SRC_MODEL}"
             f" > {{targets}}",
         ],
