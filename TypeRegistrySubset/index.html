@@ -831,7 +831,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://github.io/av-efi-schema/model</li>
+<li>from schema: https://av-efi.github.io/av-efi-schema/model</li>
 </ul>
 <h2 id="classes-in-subset">Classes in subset</h2>
 <table>
@@ -1085,11 +1085,6 @@
 <td>Associate event(s) with a moving image record</td>
 </tr>
 <tr>
-<td><a href="../in_language/">in_language</a></td>
-<td>* <br/> <a href="../Language/">Language</a></td>
-<td>FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3</td>
-</tr>
-<tr>
 <td><a href="../has_form/">has_form</a></td>
 <td>* <br/> <a href="../WorkFormEnum/">WorkFormEnum</a></td>
 <td>Form describes the format and/or purpose of a Work, e.g., “non-fiction”, “short” and “animation”.</td>
@@ -1143,7 +1138,7 @@
 </tr>
 <tr>
 <td><a href="../has_primary_title/">has_primary_title</a></td>
-<td>1 <br/> <a href="../Title/">Title</a></td>
+<td>0..1 <br/> <a href="../Title/">Title</a></td>
 <td>Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items.</td>
 </tr>
 <tr>
@@ -1235,7 +1230,7 @@
 </tr>
 <tr>
 <td><a href="../has_primary_title/">has_primary_title</a></td>
-<td>1 <br/> <a href="../Title/">Title</a></td>
+<td>0..1 <br/> <a href="../Title/">Title</a></td>
 <td>Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items.</td>
 </tr>
 <tr>
@@ -1292,6 +1287,11 @@
 <td><a href="../has_access_status/">has_access_status</a></td>
 <td>0..1 <br/> <a href="../ItemAccessStatusEnum/">ItemAccessStatusEnum</a></td>
 <td>Status of item determining access conditions.</td>
+</tr>
+<tr>
+<td><a href="../has_frame_rate/">has_frame_rate</a></td>
+<td>0..1 <br/> <a href="../FrameRateEnum/">FrameRateEnum</a></td>
+<td>Frame Rate describes the number of frames per second of an item.</td>
 </tr>
 <tr>
 <td><a href="../is_copy_of/">is_copy_of</a></td>
@@ -2710,6 +2710,10 @@
 <td>Status of item determining access conditions.</td>
 </tr>
 <tr>
+<td><a href="../has_frame_rate/">has_frame_rate</a></td>
+<td>Frame Rate describes the number of frames per second of an item.</td>
+</tr>
+<tr>
 <td><a href="../is_copy_of/">is_copy_of</a></td>
 <td>Link to AVefi item registered by another institution indicating that the two are known to be copies of each other</td>
 </tr>
@@ -2761,6 +2765,7 @@
 <p>| <a href="../FormatFilmTypeEnum/">FormatFilmTypeEnum</a> | FIAF Moving Image Cataloguing Manual D.7.2 |</p>
 <p>| <a href="../FormatOpticalTypeEnum/">FormatOpticalTypeEnum</a> | FIAF Moving Image Cataloguing Manual D.7.2 |</p>
 <p>| <a href="../FormatVideoTypeEnum/">FormatVideoTypeEnum</a> | FIAF Moving Image Cataloguing Manual D.7.2 |</p>
+<p>| <a href="../FrameRateEnum/">FrameRateEnum</a> | Frames per second of an item. |</p>
 <p>| <a href="../ItemAccessStatusEnum/">ItemAccessStatusEnum</a> | FIAF Moving Image Cataloguing Manual D.7.3 |</p>
 <p>| <a href="../ItemElementTypeEnum/">ItemElementTypeEnum</a> | FIAF Moving Image Cataloguing Manual D.7.8 |</p>
 <p>| <a href="../LaboratoryActivityTypeEnum/">LaboratoryActivityTypeEnum</a> | Activity types / roles.  |</p>

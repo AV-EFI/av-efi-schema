@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://av-efi.github.io/av-efi-schema/has_subject/">
+        <link rel="canonical" href="https://av-efi.github.io/av-efi-schema/has_frame_rate/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: has_subject - AVefi Schema Documentation</title>
+        <title>Slot: has_frame_rate - AVefi Schema Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-has_subject" class="md-skip">
+        <a href="#slot-has_frame_rate" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: has_subject
+              Slot: has_frame_rate
             
           </span>
         </div>
@@ -329,15 +329,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#annotations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Annotations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#schema-source" class="md-nav__link">
     <span class="md-ellipsis">
       Schema Source
@@ -378,9 +369,9 @@
   
 
 
-<h1 id="slot-has_subject">Slot: has_subject</h1>
-<p><em>Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3</em></p>
-<p>URI: <a href="https://av-efi.net/av-efi-schema/has_subject">avefi:has_subject</a></p>
+<h1 id="slot-has_frame_rate">Slot: has_frame_rate</h1>
+<p><em>Frame Rate describes the number of frames per second of an item. See also: FIAF Moving Image Cataloguing Manual 3.1.5.12.</em></p>
+<p>URI: <a href="https://av-efi.net/av-efi-schema/has_frame_rate">avefi:has_frame_rate</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -394,66 +385,34 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../WorkVariant/">WorkVariant</a></td>
-<td>FIAF Moving Image Cataloguing Manual 1.0</td>
+<td><a href="../Item/">Item</a></td>
+<td>FIAF Moving Image Cataloguing Manual 3.0</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../CategorizedThing/">CategorizedThing</a>&nbsp;or&nbsp;<br /><a href="../Subject/">Subject</a>&nbsp;or&nbsp;<br /><a href="../Agent/">Agent</a>&nbsp;or&nbsp;<br /><a href="../GeographicName/">GeographicName</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
+<li>Range: <a href="../FrameRateEnum/">FrameRateEnum</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="annotations">Annotations</h3>
-<table>
-<thead>
-<tr>
-<th>property</th>
-<th>value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pid</td>
-<td>21.T11969/92555879f9ec3adef772</td>
-</tr>
-</tbody>
-</table>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
 <li>from schema: https://av-efi.github.io/av-efi-schema/model</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_subject</span>
-<span class="nt">annotations</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">pid</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pid</span>
-<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21.T11969/92555879f9ec3adef772</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Subject</span><span class="nv"> </span><span class="s">descriptor</span><span class="nv"> </span><span class="s">terms</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">content</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">film</span><span class="nv"> </span><span class="s">specifying</span><span class="nv"> </span><span class="s">its</span><span class="nv"> </span><span class="s">period,</span>
-<span class="w">  </span><span class="s">themes,</span><span class="nv"> </span><span class="s">locations,</span><span class="nv"> </span><span class="s">etc.</span><span class="nv"> </span><span class="s">Not</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">confused</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Genre.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">also:</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Moving</span><span class="nv"> </span><span class="s">Image</span>
-<span class="w">  </span><span class="s">Cataloguing</span><span class="nv"> </span><span class="s">Manual</span><span class="nv"> </span><span class="s">1.4.3</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Glossary</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Filmographic</span><span class="nv"> </span><span class="s">Terms</span><span class="nv"> </span><span class="s">D.2.3&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_frame_rate</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Frame</span><span class="nv"> </span><span class="s">Rate</span><span class="nv"> </span><span class="s">describes</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">number</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">frames</span><span class="nv"> </span><span class="s">per</span><span class="nv"> </span><span class="s">second</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">item.</span><span class="nv"> </span><span class="s">See</span>
+<span class="w">  </span><span class="s">also:</span><span class="nv"> </span><span class="s">FIAF</span><span class="nv"> </span><span class="s">Moving</span><span class="nv"> </span><span class="s">Image</span><span class="nv"> </span><span class="s">Cataloguing</span><span class="nv"> </span><span class="s">Manual</span><span class="nv"> </span><span class="s">3.1.5.12.&#39;</span>
 <span class="nt">in_subset</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeRegistrySubset</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://av-efi.github.io/av-efi-schema/model</span>
-<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">14</span>
-<span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_subject</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">36</span>
+<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_frame_rate</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkVariant</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CategorizedThing</span>
-<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">any_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Subject</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GeographicName</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Item</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FrameRateEnum</span>
 </code></pre></div>
 </details>
 
