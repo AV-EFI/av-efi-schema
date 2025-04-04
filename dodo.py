@@ -5,7 +5,6 @@
 import copy
 import json
 from pathlib import Path
-from urllib.request import urlopen
 
 from doit import tools
 
@@ -14,7 +13,6 @@ DOIT_CONFIG = {
     'action_string_formatting': 'new',
     'default_tasks': [
         'jsonschema',
-        'pid_schema',
         'vocabularies',
         'python',
         'typescript',
@@ -38,25 +36,8 @@ SRC_SCHEMA_DEPENDENCIES = [
 PROJECT_DIR = HERE / 'project'
 JSON_SCHEMA = PROJECT_DIR / 'jsonschema' / SCHEMA_NAME \
     / f"{SRC_MODEL.stem}.schema.json"
-EPIC_SCHEMA_DIR = PROJECT_DIR / 'jsonschema' / 'epic'
-EPIC_VOCAB_DIR = EPIC_SCHEMA_DIR / 'vocabularies'
-EPIC_VOCAB_BASE_URL = \
-    f"https://raw.githubusercontent.com/AV-EFI/av-efi-schema/main/"\
-    f"{'/'.join(EPIC_VOCAB_DIR.relative_to(HERE).parts)}/"
-PID_SCHEMAS = [
-    EPIC_SCHEMA_DIR / f"{SRC_MODEL.stem}_{subschema}.schema.json"
-    for subschema in ('workvariant', 'manifestation', 'item')
-]
+EPIC_VOCAB_DIR = PROJECT_DIR / 'jsonschema' / 'epic' / 'vocabularies'
 TYPESCRIPT_DIR = PROJECT_DIR / 'typescript'
-
-
-SCHEMA_PIDS = {
-    'work': '21.T11148/31b848e871121c47d064',
-    'manifestation': '21.T11148/ef6836b80e4d64e574e3',
-    'item': '21.T11148/b0047df54c686b9df82a',
-}
-TYPEAPI = 'http://typeapi.lab.pidconsortium.net/v1/types/schema/'
-REQUEST_PARAMS = '?refresh=true'
 
 
 def task_vocabularies():
@@ -90,63 +71,6 @@ def generate_json_enum_files(dependencies, targets):
                 with output_path.open('w') as f:
                     json.dump(output, f, indent=2)
                     f.write('\n')
-
-
-def expand_and_split_json_schema(dependencies, targets):
-    """Generate separate schemas for work, manifestation and item."""
-    import jsonref
-
-    schema_path = Path(dependencies[0])
-    with schema_path.open('r') as f:
-        schema = jsonref.load(f, jsonschema=True)
-    jsonref._walk_refs(schema, _expand_refs_except_enums, replace=True)
-    for i in range(len(schema['properties']['has_record']['anyOf'])):
-        name = schema['properties']['has_record']['anyOf'][i]['title']
-        output = copy.deepcopy(schema)
-        output['$id'] = f"{schema['$id']}-{name.lower()}"
-        output['title'] += f" for {name}"
-        output['description'] = \
-            f"Auto-generated from {schema['$id']} for {name} PIDs"
-        output['properties']['has_record'] = \
-            output['properties']['has_record']['anyOf'][i]
-        del output['$defs']
-        output_path = EPIC_SCHEMA_DIR / \
-            f"{SRC_MODEL.stem}_{name.lower()}.schema.json"
-        assert output_path in PID_SCHEMAS, \
-            f"Abort generating {output_path} because it is not listed in" \
-            f" {PID_SCHEMAS}"
-        with output_path.open('w') as f:
-            jsonref.dump(output, f, indent=4)
-
-
-def _expand_refs_except_enums(obj):
-    """Expand internal references and make category a const."""
-    if obj.__reference__['$ref'].endswith('Enum'):
-        # Replace by external $ref to enum in Github repo
-        result = obj.__reference__
-        enum_name = result['$ref'].split('/')[-1]
-        result['$ref'] = f"{EPIC_VOCAB_BASE_URL}{enum_name}.json"
-    else:
-        # Replace by referenced object and do some minor transformations
-        result = obj.__subject__
-        properties = result.get('properties')
-        if properties:
-            category = properties.get('category')
-            if category and 'enum' in category:
-                category['const'] = category['enum'][0]
-                del category['enum']
-                del category['type']
-    return result
-
-
-def task_pid_schema():
-    """Generate derived schemas for WorkVariant, Manifestation, Item."""
-    return {
-        'actions': [expand_and_split_json_schema],
-        'file_dep': [JSON_SCHEMA],
-        'task_dep': ['sync_dependencies'],
-        'targets': PID_SCHEMAS,
-    }
 
 
 def task_jsonschema():
