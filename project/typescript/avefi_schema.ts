@@ -643,6 +643,26 @@ export enum FormatVideoTypeEnum {
     HDCAMSR = "HDCAMSR",
 };
 /**
+* Frames per second of an item.
+*/
+export enum FrameRateEnum {
+    
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    number_16fps = "16fps",
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    number_23FULL_STOP98fps = "23.98fps",
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    number_24fps = "24fps",
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    number_25fps = "25fps",
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    number_30fps = "30fps",
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    number_48fps = "48fps",
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    VariableFrameRate = "VariableFrameRate",
+};
+/**
 * FIAF Moving Image Cataloguing Manual D.7.3
 */
 export enum ItemAccessStatusEnum {
@@ -1418,18 +1438,16 @@ export interface CategorizedThing {
 export interface MovingImageRecord extends CategorizedThing {
     /** Also record some metadata about the PID itself rather than the identified object */
     described_by?: DescriptionResource,
+    /** Additional title(s) associated with the work / variant, manifestation, or item. */
+    has_alternative_title?: Title[],
     /** Associate event(s) with a moving image record */
     has_event?: Event[],
     /** Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs */
     has_identifier?: MovingImageResource[],
+    /** Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead. */
+    has_primary_title?: Title,
     /** Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here. */
     has_source_key?: string[],
-    /** FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3 */
-    in_language?: Language[],
-    /** Additional title(s) associated with the work / variant, manifestation, or item. */
-    has_alternative_title?: Title[],
-    /** Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead. */
-    has_primary_title: Title,
 }
 
 
@@ -1731,6 +1749,8 @@ export interface ManifestationOrItem extends MovingImageRecord {
     has_note?: string[],
     /** Link to data provider's own presentation of manifestation or item on the web */
     has_webresource?: string[],
+    /** FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3 */
+    in_language?: Language[],
 }
 
 
@@ -1845,6 +1865,8 @@ export interface Item extends ManifestationOrItem {
     element_type?: string,
     /** Status of item determining access conditions. See also FIAF Moving Image Cataloguing Manual D.7.1 */
     has_access_status?: string,
+    /** Frame Rate describes the number of frames per second of an item. See also: FIAF Moving Image Cataloguing Manual 3.1.5.12. */
+    has_frame_rate?: string,
     /** Link to AVefi item registered by another institution indicating that the two are known to be copies of each other */
     is_copy_of?: AuthorityResource[],
     /** Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project */

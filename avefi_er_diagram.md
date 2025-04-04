@@ -3,6 +3,7 @@ erDiagram
 Item {
     ItemElementTypeEnum element_type  
     ItemAccessStatusEnum has_access_status  
+    FrameRateEnum has_frame_rate  
     TextAreaList has_note  
     HttpUriList has_webresource  
     IDStringList has_source_key  
@@ -12,10 +13,6 @@ Title {
     TextLine has_name  
     TextLine has_ordering_name  
     TitleTypeEnum type  
-}
-Language {
-    LanguageCodeEnum code  
-    LanguageUsageEnumList usage  
 }
 MovingImageResource {
     IDString id  
@@ -49,6 +46,10 @@ DescriptionResource {
     HttpUri has_issuer_id  
     TextLine has_issuer_name  
     ISODateTimeUTC last_modified  
+}
+Language {
+    LanguageCodeEnum code  
+    LanguageUsageEnumList usage  
 }
 Format {
     IDString type  
@@ -96,12 +97,12 @@ Item ||--|| MovingImageResource : "is_item_of"
 Item ||--|o Duration : "has_duration"
 Item ||--|o Extent : "has_extent"
 Item ||--}o Format : "has_format"
+Item ||--}o Language : "in_language"
 Item ||--|o DescriptionResource : "described_by"
+Item ||--}o Title : "has_alternative_title"
 Item ||--}o Event : "has_event"
 Item ||--}o MovingImageResource : "has_identifier"
-Item ||--}o Language : "in_language"
-Item ||--}o Title : "has_alternative_title"
-Item ||--|| Title : "has_primary_title"
+Item ||--|o Title : "has_primary_title"
 Event ||--}o Activity : "has_activity"
 Event ||--}o GeographicName : "located_in"
 GeographicName ||--}o AuthorityResource : "same_as"
@@ -113,22 +114,21 @@ Manifestation ||--}o AuthorityResource : "same_as"
 Manifestation ||--|o Duration : "has_duration"
 Manifestation ||--|o Extent : "has_extent"
 Manifestation ||--}o Format : "has_format"
+Manifestation ||--}o Language : "in_language"
 Manifestation ||--|o DescriptionResource : "described_by"
+Manifestation ||--}o Title : "has_alternative_title"
 Manifestation ||--}o Event : "has_event"
 Manifestation ||--}o MovingImageResource : "has_identifier"
-Manifestation ||--}o Language : "in_language"
-Manifestation ||--}o Title : "has_alternative_title"
-Manifestation ||--|| Title : "has_primary_title"
+Manifestation ||--|o Title : "has_primary_title"
 WorkVariant ||--}o Genre : "has_genre"
 WorkVariant ||--}o CategorizedThing : "has_subject"
 WorkVariant ||--}o MovingImageResource : "is_part_of"
 WorkVariant ||--|o MovingImageResource : "is_variant_of"
 WorkVariant ||--}o AuthorityResource : "same_as"
 WorkVariant ||--|o DescriptionResource : "described_by"
+WorkVariant ||--}o Title : "has_alternative_title"
 WorkVariant ||--}o Event : "has_event"
 WorkVariant ||--}o MovingImageResource : "has_identifier"
-WorkVariant ||--}o Language : "in_language"
-WorkVariant ||--}o Title : "has_alternative_title"
 WorkVariant ||--|| Title : "has_primary_title"
 Genre ||--}o GNDResource : "same_as"
 

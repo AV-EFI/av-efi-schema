@@ -643,6 +643,26 @@ export enum FormatVideoTypeEnum {
     HDCAMSR = "HDCAMSR",
 };
 /**
+* Frames per second of an item.
+*/
+export enum FrameRateEnum {
+    
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    number_16fps = "16fps",
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    number_23FULL_STOP98fps = "23.98fps",
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    number_24fps = "24fps",
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    number_25fps = "25fps",
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    number_30fps = "30fps",
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    number_48fps = "48fps",
+    /** FIAF Moving Image Cataloguing Manual D.7.18 */
+    VariableFrameRate = "VariableFrameRate",
+};
+/**
 * FIAF Moving Image Cataloguing Manual D.7.3
 */
 export enum ItemAccessStatusEnum {
@@ -1430,24 +1450,21 @@ export function toCategorizedThing(o: CategorizedThing): CategorizedThing {
 export interface MovingImageRecord extends CategorizedThing {
     /** Also record some metadata about the PID itself rather than the identified object */
     described_by?: DescriptionResource,
+    /** Additional title(s) associated with the work / variant, manifestation, or item. */
+    has_alternative_title?: Title[],
     /** Associate event(s) with a moving image record */
     has_event?: Event[],
     /** Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs */
     has_identifier?: MovingImageResource[],
+    /** Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead. */
+    has_primary_title?: Title,
     /** Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here. */
     has_source_key?: string[],
-    /** FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3 */
-    in_language?: Language[],
-    /** Additional title(s) associated with the work / variant, manifestation, or item. */
-    has_alternative_title?: Title[],
-    /** Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead. */
-    has_primary_title: Title,
 }
 
 
 export function isMovingImageRecord(o: object): o is MovingImageRecord {
     return (
-        'has_primary_title' in o &&
         'category' in o
     )
 }
@@ -1455,12 +1472,11 @@ export function isMovingImageRecord(o: object): o is MovingImageRecord {
 export function toMovingImageRecord(o: MovingImageRecord): MovingImageRecord {
     return {
         described_by: o.described_by ?? {},
+        has_alternative_title: o.has_alternative_title ?? [],
         has_event: o.has_event ?? [],
         has_identifier: o.has_identifier ?? [],
-        has_source_key: o.has_source_key ?? [],
-        in_language: o.in_language ?? [],
-        has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
+        has_source_key: o.has_source_key ?? [],
         category: o.category ?? null
     }
 }
@@ -1538,12 +1554,11 @@ export function toWorkVariant(o: WorkVariant): WorkVariant {
         type: o.type ?? null,
         variant_type: o.variant_type ?? null,
         described_by: o.described_by ?? {},
+        has_alternative_title: o.has_alternative_title ?? [],
         has_event: o.has_event ?? [],
         has_identifier: o.has_identifier ?? [],
-        has_source_key: o.has_source_key ?? [],
-        in_language: o.in_language ?? [],
-        has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
+        has_source_key: o.has_source_key ?? [],
         category: o.category ?? null
     }
 }
@@ -2257,12 +2272,13 @@ export interface ManifestationOrItem extends MovingImageRecord {
     has_note?: string[],
     /** Link to data provider's own presentation of manifestation or item on the web */
     has_webresource?: string[],
+    /** FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3 */
+    in_language?: Language[],
 }
 
 
 export function isManifestationOrItem(o: object): o is ManifestationOrItem {
     return (
-        'has_primary_title' in o &&
         'category' in o
     )
 }
@@ -2274,13 +2290,13 @@ export function toManifestationOrItem(o: ManifestationOrItem): ManifestationOrIt
         has_format: o.has_format ?? [],
         has_note: o.has_note ?? [],
         has_webresource: o.has_webresource ?? [],
+        in_language: o.in_language ?? [],
         described_by: o.described_by ?? {},
+        has_alternative_title: o.has_alternative_title ?? [],
         has_event: o.has_event ?? [],
         has_identifier: o.has_identifier ?? [],
-        has_source_key: o.has_source_key ?? [],
-        in_language: o.in_language ?? [],
-        has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
+        has_source_key: o.has_source_key ?? [],
         category: o.category ?? null
     }
 }
@@ -2499,7 +2515,6 @@ export interface Manifestation extends ManifestationOrItem {
 export function isManifestation(o: object): o is Manifestation {
     return (
         'is_manifestation_of' in o &&
-        'has_primary_title' in o &&
         'category' in o
     )
 }
@@ -2516,13 +2531,13 @@ export function toManifestation(o: Manifestation): Manifestation {
         has_format: o.has_format ?? [],
         has_note: o.has_note ?? [],
         has_webresource: o.has_webresource ?? [],
+        in_language: o.in_language ?? [],
         described_by: o.described_by ?? {},
+        has_alternative_title: o.has_alternative_title ?? [],
         has_event: o.has_event ?? [],
         has_identifier: o.has_identifier ?? [],
-        has_source_key: o.has_source_key ?? [],
-        in_language: o.in_language ?? [],
-        has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
+        has_source_key: o.has_source_key ?? [],
         category: o.category ?? null
     }
 }
@@ -2559,6 +2574,8 @@ export interface Item extends ManifestationOrItem {
     element_type?: string,
     /** Status of item determining access conditions. See also FIAF Moving Image Cataloguing Manual D.7.1 */
     has_access_status?: string,
+    /** Frame Rate describes the number of frames per second of an item. See also: FIAF Moving Image Cataloguing Manual 3.1.5.12. */
+    has_frame_rate?: string,
     /** Link to AVefi item registered by another institution indicating that the two are known to be copies of each other */
     is_copy_of?: AuthorityResource[],
     /** Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project */
@@ -2571,7 +2588,6 @@ export interface Item extends ManifestationOrItem {
 export function isItem(o: object): o is Item {
     return (
         'is_item_of' in o &&
-        'has_primary_title' in o &&
         'category' in o
     )
 }
@@ -2580,6 +2596,7 @@ export function toItem(o: Item): Item {
     return {
         element_type: o.element_type ?? null,
         has_access_status: o.has_access_status ?? null,
+        has_frame_rate: o.has_frame_rate ?? null,
         is_copy_of: o.is_copy_of ?? [],
         is_derivative_of: o.is_derivative_of ?? [],
         is_item_of: o.is_item_of ?? {},
@@ -2588,13 +2605,13 @@ export function toItem(o: Item): Item {
         has_format: o.has_format ?? [],
         has_note: o.has_note ?? [],
         has_webresource: o.has_webresource ?? [],
+        in_language: o.in_language ?? [],
         described_by: o.described_by ?? {},
+        has_alternative_title: o.has_alternative_title ?? [],
         has_event: o.has_event ?? [],
         has_identifier: o.has_identifier ?? [],
-        has_source_key: o.has_source_key ?? [],
-        in_language: o.in_language ?? [],
-        has_alternative_title: o.has_alternative_title ?? [],
         has_primary_title: o.has_primary_title ?? {},
+        has_source_key: o.has_source_key ?? [],
         category: o.category ?? null
     }
 }

@@ -750,6 +750,20 @@
             "title": "FormatVideoTypeEnum",
             "type": "string"
         },
+        "FrameRateEnum": {
+            "description": "Frames per second of an item.",
+            "enum": [
+                "16fps",
+                "23.98fps",
+                "24fps",
+                "25fps",
+                "30fps",
+                "48fps",
+                "VariableFrameRate"
+            ],
+            "title": "FrameRateEnum",
+            "type": "string"
+        },
         "GNDResource": {
             "additionalProperties": false,
             "description": "Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)",
@@ -968,6 +982,10 @@
                     },
                     "type": "array"
                 },
+                "has_frame_rate": {
+                    "$ref": "#/$defs/FrameRateEnum",
+                    "description": "Frame Rate describes the number of frames per second of an item. See also: FIAF Moving Image Cataloguing Manual 3.1.5.12."
+                },
                 "has_identifier": {
                     "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
                     "items": {
@@ -1065,7 +1083,6 @@
             },
             "required": [
                 "is_item_of",
-                "has_primary_title",
                 "category"
             ],
             "title": "Item",
@@ -1912,7 +1929,6 @@
             },
             "required": [
                 "is_manifestation_of",
-                "has_primary_title",
                 "category"
             ],
             "title": "Manifestation",
@@ -2999,13 +3015,6 @@
                     },
                     "type": "array"
                 },
-                "in_language": {
-                    "description": "FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3",
-                    "items": {
-                        "$ref": "#/$defs/Language"
-                    },
-                    "type": "array"
-                },
                 "is_part_of": {
                     "description": "Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17",
                     "items": {
@@ -3131,30 +3140,10 @@
             "type": "string"
         }
     },
-    "$id": "https://github.io/av-efi-schema/model",
+    "$id": "https://av-efi.github.io/av-efi-schema/model",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": false,
-    "description": "A holder for MovingImageRecord objects",
     "metamodel_version": "1.7.0",
-    "properties": {
-        "has_record": {
-            "anyOf": [
-                {
-                    "$ref": "#/$defs/WorkVariant"
-                },
-                {
-                    "$ref": "#/$defs/Manifestation"
-                },
-                {
-                    "$ref": "#/$defs/Item"
-                }
-            ],
-            "description": "Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual"
-        }
-    },
-    "required": [
-        "has_record"
-    ],
     "title": "AVefi data model",
     "type": "object",
     "version": null

@@ -1,8 +1,8 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-12-03T19:38:59
+# Generation date: 2025-04-04T13:39:48
 # Schema: model
 #
-# id: https://github.io/av-efi-schema/model
+# id: https://av-efi.github.io/av-efi-schema/model
 # description: Metadata schema for persistent film identifiers developed in the
 #   AVefi project. See also the corresponding [Entity relation
 #   diagram](https://github.com/AV-EFI/av-efi-schema/blob/main/avefi_er_diagram.md).
@@ -262,22 +262,20 @@ class MovingImageRecord(CategorizedThing):
     class_name: ClassVar[str] = "MovingImageRecord"
     class_model_uri: ClassVar[URIRef] = AVEFI.MovingImageRecord
 
-    has_primary_title: Union[dict, "Title"] = None
     described_by: Optional[Union[dict, "DescriptionResource"]] = None
+    has_alternative_title: Optional[Union[Union[dict, "Title"], List[Union[dict, "Title"]]]] = empty_list()
     has_event: Optional[Union[Union[dict, "Event"], List[Union[dict, "Event"]]]] = empty_list()
     has_identifier: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
+    has_primary_title: Optional[Union[dict, "Title"]] = None
     has_source_key: Optional[Union[Union[str, IDString], List[Union[str, IDString]]]] = empty_list()
-    in_language: Optional[Union[Union[dict, "Language"], List[Union[dict, "Language"]]]] = empty_list()
-    has_alternative_title: Optional[Union[Union[dict, "Title"], List[Union[dict, "Title"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.has_primary_title):
-            self.MissingRequiredField("has_primary_title")
-        if not isinstance(self.has_primary_title, Title):
-            self.has_primary_title = Title(**as_dict(self.has_primary_title))
-
         if self.described_by is not None and not isinstance(self.described_by, DescriptionResource):
             self.described_by = DescriptionResource(**as_dict(self.described_by))
+
+        if not isinstance(self.has_alternative_title, list):
+            self.has_alternative_title = [self.has_alternative_title] if self.has_alternative_title is not None else []
+        self.has_alternative_title = [v if isinstance(v, Title) else Title(**as_dict(v)) for v in self.has_alternative_title]
 
         if not isinstance(self.has_event, list):
             self.has_event = [self.has_event] if self.has_event is not None else []
@@ -287,17 +285,12 @@ class MovingImageRecord(CategorizedThing):
             self.has_identifier = [self.has_identifier] if self.has_identifier is not None else []
         self.has_identifier = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.has_identifier]
 
+        if self.has_primary_title is not None and not isinstance(self.has_primary_title, Title):
+            self.has_primary_title = Title(**as_dict(self.has_primary_title))
+
         if not isinstance(self.has_source_key, list):
             self.has_source_key = [self.has_source_key] if self.has_source_key is not None else []
         self.has_source_key = [v if isinstance(v, IDString) else IDString(v) for v in self.has_source_key]
-
-        if not isinstance(self.in_language, list):
-            self.in_language = [self.in_language] if self.in_language is not None else []
-        self.in_language = [v if isinstance(v, Language) else Language(**as_dict(v)) for v in self.in_language]
-
-        if not isinstance(self.has_alternative_title, list):
-            self.has_alternative_title = [self.has_alternative_title] if self.has_alternative_title is not None else []
-        self.has_alternative_title = [v if isinstance(v, Title) else Title(**as_dict(v)) for v in self.has_alternative_title]
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -355,8 +348,8 @@ class WorkVariant(MovingImageRecord):
     class_name: ClassVar[str] = "WorkVariant"
     class_model_uri: ClassVar[URIRef] = AVEFI.WorkVariant
 
-    has_primary_title: Union[dict, "Title"] = None
     type: Union[str, "WorkVariantTypeEnum"] = None
+    has_primary_title: Union[dict, "Title"] = None
     has_form: Optional[Union[Union[str, "WorkFormEnum"], List[Union[str, "WorkFormEnum"]]]] = empty_list()
     has_genre: Optional[Union[Union[dict, "Genre"], List[Union[dict, "Genre"]]]] = empty_list()
     has_subject: Optional[Union[Union[dict, CategorizedThing], List[Union[dict, CategorizedThing]]]] = empty_list()
@@ -370,6 +363,11 @@ class WorkVariant(MovingImageRecord):
             self.MissingRequiredField("type")
         if not isinstance(self.type, WorkVariantTypeEnum):
             self.type = WorkVariantTypeEnum(self.type)
+
+        if self._is_empty(self.has_primary_title):
+            self.MissingRequiredField("has_primary_title")
+        if not isinstance(self.has_primary_title, Title):
+            self.has_primary_title = Title(**as_dict(self.has_primary_title))
 
         if not isinstance(self.has_form, list):
             self.has_form = [self.has_form] if self.has_form is not None else []
@@ -1267,12 +1265,12 @@ class ManifestationOrItem(MovingImageRecord):
     class_name: ClassVar[str] = "ManifestationOrItem"
     class_model_uri: ClassVar[URIRef] = AVEFI.ManifestationOrItem
 
-    has_primary_title: Union[dict, Title] = None
     has_duration: Optional[Union[dict, "Duration"]] = None
     has_extent: Optional[Union[dict, "Extent"]] = None
     has_format: Optional[Union[Union[dict, "Format"], List[Union[dict, "Format"]]]] = empty_list()
     has_note: Optional[Union[Union[str, TextArea], List[Union[str, TextArea]]]] = empty_list()
     has_webresource: Optional[Union[Union[str, HttpUri], List[Union[str, HttpUri]]]] = empty_list()
+    in_language: Optional[Union[Union[dict, "Language"], List[Union[dict, "Language"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.has_duration is not None and not isinstance(self.has_duration, Duration):
@@ -1292,6 +1290,10 @@ class ManifestationOrItem(MovingImageRecord):
         if not isinstance(self.has_webresource, list):
             self.has_webresource = [self.has_webresource] if self.has_webresource is not None else []
         self.has_webresource = [v if isinstance(v, HttpUri) else HttpUri(v) for v in self.has_webresource]
+
+        if not isinstance(self.in_language, list):
+            self.in_language = [self.in_language] if self.in_language is not None else []
+        self.in_language = [v if isinstance(v, Language) else Language(**as_dict(v)) for v in self.in_language]
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1541,7 +1543,6 @@ class Manifestation(ManifestationOrItem):
     class_name: ClassVar[str] = "Manifestation"
     class_model_uri: ClassVar[URIRef] = AVEFI.Manifestation
 
-    has_primary_title: Union[dict, Title] = None
     is_manifestation_of: Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]] = None
     has_colour_type: Optional[Union[str, "ColourTypeEnum"]] = None
     has_item: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
@@ -1616,10 +1617,10 @@ class Item(ManifestationOrItem):
     class_name: ClassVar[str] = "Item"
     class_model_uri: ClassVar[URIRef] = AVEFI.Item
 
-    has_primary_title: Union[dict, Title] = None
     is_item_of: Union[dict, "MovingImageResource"] = None
     element_type: Optional[Union[str, "ItemElementTypeEnum"]] = None
     has_access_status: Optional[Union[str, "ItemAccessStatusEnum"]] = None
+    has_frame_rate: Optional[Union[str, "FrameRateEnum"]] = None
     is_copy_of: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
     is_derivative_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
 
@@ -1634,6 +1635,9 @@ class Item(ManifestationOrItem):
 
         if self.has_access_status is not None and not isinstance(self.has_access_status, ItemAccessStatusEnum):
             self.has_access_status = ItemAccessStatusEnum(self.has_access_status)
+
+        if self.has_frame_rate is not None and not isinstance(self.has_frame_rate, FrameRateEnum):
+            self.has_frame_rate = FrameRateEnum(self.has_frame_rate)
 
         if not isinstance(self.is_copy_of, list):
             self.is_copy_of = [self.is_copy_of] if self.is_copy_of is not None else []
@@ -3232,6 +3236,53 @@ class FormatVideoTypeEnum(EnumDefinitionImpl):
                 text="2InchQuadruplex",
                 description="FIAF Moving Image Cataloguing Manual D.7.2",
                 meaning=FIAF["2InchQuadruplex"]))
+
+class FrameRateEnum(EnumDefinitionImpl):
+    """
+    Frames per second of an item.
+    """
+    VariableFrameRate = PermissibleValue(
+        text="VariableFrameRate",
+        description="FIAF Moving Image Cataloguing Manual D.7.18",
+        meaning=FIAF["VariableFrameRate"])
+
+    _defn = EnumDefinition(
+        name="FrameRateEnum",
+        description="Frames per second of an item.",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "16fps",
+            PermissibleValue(
+                text="16fps",
+                description="FIAF Moving Image Cataloguing Manual D.7.18",
+                meaning=FIAF["16fps"]))
+        setattr(cls, "23.98fps",
+            PermissibleValue(
+                text="23.98fps",
+                description="FIAF Moving Image Cataloguing Manual D.7.18",
+                meaning=FIAF["23.98fps"]))
+        setattr(cls, "24fps",
+            PermissibleValue(
+                text="24fps",
+                description="FIAF Moving Image Cataloguing Manual D.7.18",
+                meaning=FIAF["24fps"]))
+        setattr(cls, "25fps",
+            PermissibleValue(
+                text="25fps",
+                description="FIAF Moving Image Cataloguing Manual D.7.18",
+                meaning=FIAF["25fps"]))
+        setattr(cls, "30fps",
+            PermissibleValue(
+                text="30fps",
+                description="FIAF Moving Image Cataloguing Manual D.7.18",
+                meaning=FIAF["30fps"]))
+        setattr(cls, "48fps",
+            PermissibleValue(
+                text="48fps",
+                description="FIAF Moving Image Cataloguing Manual D.7.18",
+                meaning=FIAF["48fps"]))
 
 class ItemAccessStatusEnum(EnumDefinitionImpl):
     """
@@ -5235,6 +5286,12 @@ slots.has_identifier = Slot(uri=AVEFI.has_identifier, name="has_identifier", cur
 slots.has_source_key = Slot(uri=AVEFI.has_source_key, name="has_source_key", curie=AVEFI.curie('has_source_key'),
                    model_uri=AVEFI.has_source_key, domain=None, range=Optional[Union[Union[str, IDString], List[Union[str, IDString]]]])
 
+slots.has_primary_title = Slot(uri=AVEFI.has_primary_title, name="has_primary_title", curie=AVEFI.curie('has_primary_title'),
+                   model_uri=AVEFI.has_primary_title, domain=None, range=Optional[Union[dict, Title]])
+
+slots.has_alternative_title = Slot(uri=AVEFI.has_alternative_title, name="has_alternative_title", curie=AVEFI.curie('has_alternative_title'),
+                   model_uri=AVEFI.has_alternative_title, domain=None, range=Optional[Union[Union[dict, Title], List[Union[dict, Title]]]])
+
 slots.has_name = Slot(uri=SCHEMA.name, name="has_name", curie=SCHEMA.curie('name'),
                    model_uri=AVEFI.has_name, domain=None, range=Union[str, TextLine])
 
@@ -5358,17 +5415,17 @@ slots.is_derivative_of = Slot(uri=AVEFI.is_derivative_of, name="is_derivative_of
 slots.element_type = Slot(uri=AVEFI.element_type, name="element_type", curie=AVEFI.curie('element_type'),
                    model_uri=AVEFI.element_type, domain=None, range=Optional[Union[str, "ItemElementTypeEnum"]])
 
-slots.movingImageRecord__has_alternative_title = Slot(uri=AVEFI.has_alternative_title, name="movingImageRecord__has_alternative_title", curie=AVEFI.curie('has_alternative_title'),
-                   model_uri=AVEFI.movingImageRecord__has_alternative_title, domain=None, range=Optional[Union[Union[dict, Title], List[Union[dict, Title]]]])
-
-slots.movingImageRecord__has_primary_title = Slot(uri=AVEFI.has_primary_title, name="movingImageRecord__has_primary_title", curie=AVEFI.curie('has_primary_title'),
-                   model_uri=AVEFI.movingImageRecord__has_primary_title, domain=None, range=Union[dict, Title])
+slots.has_frame_rate = Slot(uri=AVEFI.has_frame_rate, name="has_frame_rate", curie=AVEFI.curie('has_frame_rate'),
+                   model_uri=AVEFI.has_frame_rate, domain=None, range=Optional[Union[str, "FrameRateEnum"]])
 
 slots.language__code = Slot(uri=AVEFI.code, name="language__code", curie=AVEFI.curie('code'),
                    model_uri=AVEFI.language__code, domain=None, range=Optional[Union[str, "LanguageCodeEnum"]])
 
 slots.language__usage = Slot(uri=AVEFI.usage, name="language__usage", curie=AVEFI.curie('usage'),
                    model_uri=AVEFI.language__usage, domain=None, range=Union[Union[str, "LanguageUsageEnum"], List[Union[str, "LanguageUsageEnum"]]])
+
+slots.WorkVariant_has_primary_title = Slot(uri=AVEFI.has_primary_title, name="WorkVariant_has_primary_title", curie=AVEFI.curie('has_primary_title'),
+                   model_uri=AVEFI.WorkVariant_has_primary_title, domain=WorkVariant, range=Union[dict, "Title"])
 
 slots.WorkVariant_same_as = Slot(uri=AVEFI.same_as, name="WorkVariant_same_as", curie=AVEFI.curie('same_as'),
                    model_uri=AVEFI.WorkVariant_same_as, domain=WorkVariant, range=Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]])
