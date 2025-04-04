@@ -1414,6 +1414,7 @@ classes:
     slots:
     - element_type
     - has_access_status
+    - has_frame_rate
     - is_copy_of
     - is_derivative_of
     - is_item_of
@@ -2281,3 +2282,12 @@ slots:
     - TypeRegistrySubset
     description: >-
       FIAF Moving Image Cataloguing Manual D.7.8
+
+  has_frame_rate:
+    rank: 36
+    range: FrameRateEnum
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Frame Rate describes the number of frames per second of an item.
+      See also: FIAF Moving Image Cataloguing Manual 3.1.5.12.

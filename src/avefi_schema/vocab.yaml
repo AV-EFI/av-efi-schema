@@ -2149,6 +2149,77 @@ enums:
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:HDCAMSR
 
+  FrameRateEnum:
+    rank: 36
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Frames per second of an item.
+    permissible_values:
+      16fps:
+        structured_aliases:
+        - literal_form: 16 BPS
+          in_language: de
+        - literal_form: 16 fps
+          in_language: en
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.7.18
+        meaning: fiaf:16fps
+      23.98fps:
+        structured_aliases:
+        - literal_form: 23,98 BPS
+          in_language: de
+        - literal_form: 23.98 fps
+          in_language: en
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.7.18
+        meaning: fiaf:23.98fps
+      24fps:
+        structured_aliases:
+        - literal_form: 24 BPS
+          in_language: de
+        - literal_form: 24 fps
+          in_language: en
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.7.18
+        meaning: fiaf:24fps
+      25fps:
+        structured_aliases:
+        - literal_form: 25 BPS
+          in_language: de
+        - literal_form: 25 fps
+          in_language: en
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.7.18
+        meaning: fiaf:25fps
+      30fps:
+        structured_aliases:
+        - literal_form: 30 BPS
+          in_language: de
+        - literal_form: 30 fps
+          in_language: en
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.7.18
+        meaning: fiaf:30fps
+      48fps:
+        structured_aliases:
+        - literal_form: 48 BPS
+          in_language: de
+        - literal_form: 48 fps
+          in_language: en
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.7.18
+        meaning: fiaf:48fps
+      VariableFrameRate:
+        structured_aliases:
+        - literal_form: variable Bildrate
+          in_language: de
+        - literal_form: variable frame rate
+          in_language: en
+        description: >-
+          FIAF Moving Image Cataloguing Manual D.7.18
+        meaning: fiaf:VariableFrameRate
+
   ItemAccessStatusEnum:
     rank: 36
     annotations:

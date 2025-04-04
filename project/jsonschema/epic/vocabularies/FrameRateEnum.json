@@ -1,0 +1,15 @@
+{
+  "$id": "FrameRateEnum",
+  "description": "Frames per second of an item.",
+  "enum": [
+    "16fps",
+    "23.98fps",
+    "24fps",
+    "25fps",
+    "30fps",
+    "48fps",
+    "VariableFrameRate"
+  ],
+  "title": "FrameRateEnum",
+  "type": "string"
+}
