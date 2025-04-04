@@ -2307,6 +2307,7 @@ enums:
         meaning: fiaf:SoundNegative
 
   LanguageCodeEnum:
+    rank: 12
     annotations:
     - pid: 21.T11969/8c58342ed02a2fdbc319
     in_subset:
