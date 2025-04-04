@@ -403,7 +403,6 @@ classes:
   MovingImageRecord:
     is_a: CategorizedThing
     abstract: true
-    attributes:
     slots:
     - described_by
     - has_alternative_title
