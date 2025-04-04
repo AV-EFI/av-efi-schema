@@ -2151,6 +2151,8 @@ enums:
 
   FrameRateEnum:
     rank: 36
+    annotations:
+    - pid: 21.T11969/b5f58314836c2183e8f3
     in_subset:
     - TypeRegistrySubset
     description: >-
