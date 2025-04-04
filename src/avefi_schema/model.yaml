@@ -404,31 +404,12 @@ classes:
     is_a: CategorizedThing
     abstract: true
     attributes:
-      has_alternative_title:
-        rank: 3
-        multivalued: true
-        inlined_as_list: true
-        range: Title
-        in_subset:
-        - TypeRegistrySubset
-        description: >-
-          Additional title(s) associated with the work / variant,
-          manifestation, or item.
-      has_primary_title:
-        rank: 2
-        range: Title
-        required: true
-        in_subset:
-        - TypeRegistrySubset
-        description: >-
-          Primary title to be displayed in search results etc. The
-          type should be PreferredTitle for works / variants and
-          TitleProper for manifestations / items. If not available,
-          type must be SuppliedDevisedTitle, instead.
     slots:
     - described_by
+    - has_alternative_title
     - has_event
     - has_identifier
+    - has_primary_title
     - has_source_key
     - in_language
     annotations:
@@ -465,6 +446,8 @@ classes:
     - type
     - variant_type
     slot_usage:
+      has_primary_title:
+        required: true
       same_as:
         any_of:
         - range: EIDRResource
@@ -1805,6 +1788,28 @@ slots:
       from. For example, a converter generating AVefi moving image
       records from data in some other schema may record the original
       identifier here.
+
+  has_primary_title:
+    rank: 2
+    range: Title
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Primary title to be displayed in search results etc. The
+      type should be PreferredTitle for works / variants and
+      TitleProper for manifestations / items. If not available,
+      type must be SuppliedDevisedTitle, instead.
+
+  has_alternative_title:
+    rank: 3
+    multivalued: true
+    inlined_as_list: true
+    range: Title
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Additional title(s) associated with the work / variant,
+      manifestation, or item.
 
   has_name:
     rank: 4
