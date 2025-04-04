@@ -411,7 +411,6 @@ classes:
     - has_identifier
     - has_primary_title
     - has_source_key
-    - in_language
     annotations:
     - pid: 21.T11969/2e9c01efa0f0f6881365
     - trunk_pid: 21.T11969/0e3ed2fb51ddeec3cb1f
@@ -1141,6 +1140,7 @@ classes:
     - has_format
     - has_note
     - has_webresource
+    - in_language
     annotations:
     - trunk_pid: 21.T11969/b4db4a39a902f7abed4f
     description: >-
