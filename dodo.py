@@ -96,10 +96,9 @@ def task_python():
     value automatically on instantiation.
 
     """
-    def generate_bindings(module_name, class_name, source, target, **kwargs):
+    def generate_bindings(module_path, class_name, source, target, **kwargs):
         import importlib
-        gen_module = importlib.import_module(
-            f"linkml.generators.{module_name}")
+        gen_module = importlib.import_module(module_path)
         gen = getattr(gen_module, class_name)(source, **kwargs)
         # Make category slot optional and rely on constructors to fill
         # it correctly
@@ -111,13 +110,21 @@ def task_python():
     python_model = PROJECT_DIR / 'python' / SCHEMA_NAME \
         / f"{SRC_MODEL.stem}.py"
     for module, cls, target, kwargs in [
-            ('pythongen', 'PythonGenerator', python_model, {}),
-            ('pydanticgen', 'PydanticGenerator',
+            ('linkml.generators.pythongen', 'PythonGenerator',
+             python_model, {}),
+            ('utils.pydanticgen', 'PydanticGenerator',
              python_model.with_stem(f"{python_model.stem}_pydantic_v2"),
-             {'pydantic_version': 2}),
+             {
+                 'template_dir': 'utils/templates/pydantic/',
+             }),
+            ('utils.pydanticgen', 'PydanticGenerator',
+             python_model.with_stem(f"{python_model.stem}_pydantic_v2_light"),
+             {
+                 'template_dir': 'utils/templates/pydantic_light/',
+             }),
     ]:
         yield {
-            'name': module,
+            'name': target,
             'actions': [
                 (generate_bindings, [module, cls, SRC_MODEL, target],
                  kwargs),
