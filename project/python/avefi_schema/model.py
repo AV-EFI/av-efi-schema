@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-04-04T13:39:48
+# Generation date: 2025-04-17T13:22:29
 # Schema: model
 #
 # id: https://av-efi.github.io/av-efi-schema/model
@@ -16,20 +16,55 @@
 
 import dataclasses
 import re
-from jsonasobj2 import JsonObj, as_dict
-from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
-from datetime import date, datetime
-from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+from datetime import (
+    date,
+    datetime,
+    time
+)
+from typing import (
+    Any,
+    ClassVar,
+    Dict,
+    List,
+    Optional,
+    Union
+)
 
-from linkml_runtime.utils.slot import Slot
-from linkml_runtime.utils.metamodelcore import empty_list, empty_dict, bnode
-from linkml_runtime.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
-from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
-from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
-from linkml_runtime.utils.enumerations import EnumDefinitionImpl
-from rdflib import Namespace, URIRef
+from jsonasobj2 import (
+    JsonObj,
+    as_dict
+)
+from linkml_runtime.linkml_model.meta import (
+    EnumDefinition,
+    PermissibleValue,
+    PvFormulaOptions
+)
 from linkml_runtime.utils.curienamespace import CurieNamespace
+from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
+from linkml_runtime.utils.enumerations import EnumDefinitionImpl
+from linkml_runtime.utils.formatutils import (
+    camelcase,
+    sfx,
+    underscore
+)
+from linkml_runtime.utils.metamodelcore import (
+    bnode,
+    empty_dict,
+    empty_list
+)
+from linkml_runtime.utils.slot import Slot
+from linkml_runtime.utils.yamlutils import (
+    YAMLRoot,
+    extended_float,
+    extended_int,
+    extended_str
+)
+from rdflib import (
+    Namespace,
+    URIRef
+)
+
 from linkml_runtime.linkml_model.types import Datetime, Decimal, String, Uri, Uriorcurie
 from linkml_runtime.utils.metamodelcore import Decimal, URI, URIorCURIE, XSDDateTime
 
@@ -205,7 +240,7 @@ class WikidataID(String):
 
 
 
-@dataclass
+@dataclass(repr=False)
 class CategorizedThing(YAMLRoot):
     """
     Root for all classes with subclasses in this schema
@@ -250,7 +285,7 @@ class CategorizedThing(YAMLRoot):
 
 
 
-@dataclass
+@dataclass(repr=False)
 class MovingImageRecord(CategorizedThing):
     """
     Base class defining slots that are common to all levels of the WVMI metadata model
@@ -298,7 +333,7 @@ class MovingImageRecord(CategorizedThing):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class DescriptionResource(YAMLRoot):
     """
     Metadata about the PID rather than the identified object, i.e. who modified the PID metadata record when, making
@@ -336,7 +371,7 @@ class DescriptionResource(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class WorkVariant(MovingImageRecord):
     """
     FIAF Moving Image Cataloguing Manual 1.0
@@ -401,7 +436,7 @@ class WorkVariant(MovingImageRecord):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class GeographicName(CategorizedThing):
     """
     Name of country, region or other location. Names should be taken from appropriate authorities (e.g. GND) and
@@ -439,7 +474,7 @@ class GeographicName(CategorizedThing):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class Genre(YAMLRoot):
     """
     Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters.
@@ -474,7 +509,7 @@ class Genre(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class Subject(CategorizedThing):
     """
     Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be
@@ -512,7 +547,7 @@ class Subject(CategorizedThing):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class Activity(CategorizedThing):
     """
     FIAF Moving Image Cataloguing Manual 1.4.1.1
@@ -545,7 +580,7 @@ class Activity(CategorizedThing):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class AnimationActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.13
@@ -572,7 +607,7 @@ class AnimationActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class CastActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.7
@@ -599,7 +634,7 @@ class CastActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class CensorshipActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.1
@@ -626,7 +661,7 @@ class CensorshipActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class CinematographyActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.5
@@ -653,7 +688,7 @@ class CinematographyActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class CopyrightAndDistributionActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.2
@@ -680,7 +715,7 @@ class CopyrightAndDistributionActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class DirectingActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.3
@@ -707,7 +742,7 @@ class DirectingActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class EditingActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10
@@ -734,7 +769,7 @@ class EditingActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class LaboratoryActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.12
@@ -761,7 +796,7 @@ class LaboratoryActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class MusicActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.11
@@ -788,7 +823,7 @@ class MusicActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class ProducingActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.2
@@ -815,7 +850,7 @@ class ProducingActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class ProductionDesignActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.6
@@ -842,7 +877,7 @@ class ProductionDesignActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class PuppetActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.14
@@ -869,7 +904,7 @@ class PuppetActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class SoundActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.9
@@ -896,7 +931,7 @@ class SoundActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class SpecialEffectsActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.8
@@ -923,7 +958,7 @@ class SpecialEffectsActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class WritingActivity(Activity):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.4
@@ -950,7 +985,7 @@ class WritingActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class ManifestationActivity(Activity):
     """
     Activity types / roles. See also: FIAF Moving Image Cataloguing Manual 2.4.1.1, D.8
@@ -977,7 +1012,7 @@ class ManifestationActivity(Activity):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class Agent(CategorizedThing):
     """
     Agent involved in some activity related to the moving image resource. For agents of type "Person" specify name
@@ -1020,7 +1055,7 @@ class Agent(CategorizedThing):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class Event(CategorizedThing):
     """
     Significant event in the lifecycle of moving image work / variant, manifestation or item. Always specify the type
@@ -1058,7 +1093,7 @@ class Event(CategorizedThing):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class ProductionEvent(Event):
     """
     Production event of a work/variant (or manifestation produced as a restoration). Provide a date or a period of
@@ -1090,7 +1125,7 @@ class ProductionEvent(Event):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class PreservationEvent(Event):
     """
     Preservation event originating a manifestation or possibly a vaniant. Always specify the type of event and if
@@ -1125,7 +1160,7 @@ class PreservationEvent(Event):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class PublicationEvent(Event):
     """
     Publication event of a manifestation or possibly the first known publication of a work. Always specify the type of
@@ -1159,7 +1194,7 @@ class PublicationEvent(Event):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class ManufactureEvent(Event):
     """
     Manufacture event of a manifestation. Always specify the type of event and if possible a date or a period of time
@@ -1190,7 +1225,7 @@ class ManufactureEvent(Event):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class RightsCopyrightRegistrationEvent(Event):
     """
     Copyright and related rights registration event of a manifestation or possibly of a work/variant. Always specify
@@ -1220,7 +1255,7 @@ class RightsCopyrightRegistrationEvent(Event):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class Title(YAMLRoot):
     """
     FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2
@@ -1253,7 +1288,7 @@ class Title(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class ManifestationOrItem(MovingImageRecord):
     """
     Base class defining common slots for manifestations and items
@@ -1265,14 +1300,19 @@ class ManifestationOrItem(MovingImageRecord):
     class_name: ClassVar[str] = "ManifestationOrItem"
     class_model_uri: ClassVar[URIRef] = AVEFI.ManifestationOrItem
 
+    has_colour_type: Optional[Union[str, "ColourTypeEnum"]] = None
     has_duration: Optional[Union[dict, "Duration"]] = None
     has_extent: Optional[Union[dict, "Extent"]] = None
     has_format: Optional[Union[Union[dict, "Format"], List[Union[dict, "Format"]]]] = empty_list()
     has_note: Optional[Union[Union[str, TextArea], List[Union[str, TextArea]]]] = empty_list()
+    has_sound_type: Optional[Union[str, "SoundTypeEnum"]] = None
     has_webresource: Optional[Union[Union[str, HttpUri], List[Union[str, HttpUri]]]] = empty_list()
     in_language: Optional[Union[Union[dict, "Language"], List[Union[dict, "Language"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.has_colour_type is not None and not isinstance(self.has_colour_type, ColourTypeEnum):
+            self.has_colour_type = ColourTypeEnum(self.has_colour_type)
+
         if self.has_duration is not None and not isinstance(self.has_duration, Duration):
             self.has_duration = Duration(**as_dict(self.has_duration))
 
@@ -1286,6 +1326,9 @@ class ManifestationOrItem(MovingImageRecord):
         if not isinstance(self.has_note, list):
             self.has_note = [self.has_note] if self.has_note is not None else []
         self.has_note = [v if isinstance(v, TextArea) else TextArea(v) for v in self.has_note]
+
+        if self.has_sound_type is not None and not isinstance(self.has_sound_type, SoundTypeEnum):
+            self.has_sound_type = SoundTypeEnum(self.has_sound_type)
 
         if not isinstance(self.has_webresource, list):
             self.has_webresource = [self.has_webresource] if self.has_webresource is not None else []
@@ -1301,7 +1344,7 @@ class ManifestationOrItem(MovingImageRecord):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class Duration(YAMLRoot):
     """
     Total running time of the described object in ISO 8601 duration format. Check has_value slot range documentation
@@ -1329,7 +1372,7 @@ class Duration(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class Extent(YAMLRoot):
     """
     Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
@@ -1362,7 +1405,7 @@ class Extent(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class Format(CategorizedThing):
     """
     FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
@@ -1386,7 +1429,7 @@ class Format(CategorizedThing):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class Audio(Format):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
@@ -1410,7 +1453,7 @@ class Audio(Format):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class DigitalFile(Format):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
@@ -1434,7 +1477,7 @@ class DigitalFile(Format):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class DigitalFileEncoding(Format):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
@@ -1458,7 +1501,7 @@ class DigitalFileEncoding(Format):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class Film(Format):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
@@ -1482,7 +1525,7 @@ class Film(Format):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class Optical(Format):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
@@ -1506,7 +1549,7 @@ class Optical(Format):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class Video(Format):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
@@ -1530,7 +1573,7 @@ class Video(Format):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class Manifestation(ManifestationOrItem):
     """
     Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as
@@ -1544,9 +1587,7 @@ class Manifestation(ManifestationOrItem):
     class_model_uri: ClassVar[URIRef] = AVEFI.Manifestation
 
     is_manifestation_of: Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]] = None
-    has_colour_type: Optional[Union[str, "ColourTypeEnum"]] = None
     has_item: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
-    has_sound_type: Optional[Union[str, "SoundTypeEnum"]] = None
     same_as: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1556,15 +1597,9 @@ class Manifestation(ManifestationOrItem):
             self.is_manifestation_of = [self.is_manifestation_of] if self.is_manifestation_of is not None else []
         self.is_manifestation_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_manifestation_of]
 
-        if self.has_colour_type is not None and not isinstance(self.has_colour_type, ColourTypeEnum):
-            self.has_colour_type = ColourTypeEnum(self.has_colour_type)
-
         if not isinstance(self.has_item, list):
             self.has_item = [self.has_item] if self.has_item is not None else []
         self.has_item = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.has_item]
-
-        if self.has_sound_type is not None and not isinstance(self.has_sound_type, SoundTypeEnum):
-            self.has_sound_type = SoundTypeEnum(self.has_sound_type)
 
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
@@ -1576,7 +1611,7 @@ class Manifestation(ManifestationOrItem):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class Language(YAMLRoot):
     """
     Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled
@@ -1605,7 +1640,7 @@ class Language(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class Item(ManifestationOrItem):
     """
     FIAF Moving Image Cataloguing Manual 3.0
@@ -1653,7 +1688,7 @@ class Item(ManifestationOrItem):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class MovingImageRecordContainer(YAMLRoot):
     """
     A holder for MovingImageRecord objects
@@ -1676,7 +1711,7 @@ class MovingImageRecordContainer(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class AuthorityResource(CategorizedThing):
     """
     Root class for all identifiers from some kind of authority or public register widely accepted in the community
@@ -1702,7 +1737,7 @@ class AuthorityResource(CategorizedThing):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class MovingImageResource(AuthorityResource):
     """
     Either a persistent or local identifier for AVefi compliant moving image records. See subclasses for details
@@ -1724,7 +1759,7 @@ class MovingImageResource(AuthorityResource):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class AVefiResource(MovingImageResource):
     """
     Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples
@@ -1750,7 +1785,7 @@ class AVefiResource(MovingImageResource):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class DOIResource(AuthorityResource):
     """
     Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including
@@ -1777,7 +1812,7 @@ class DOIResource(AuthorityResource):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class EIDRResource(AuthorityResource):
     """
     Entertainment Identifier Registry ID. Check id slot range documentation for examples
@@ -1803,7 +1838,7 @@ class EIDRResource(AuthorityResource):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class FilmportalResource(AuthorityResource):
     """
     Identifier of the German Filmportal.de. Check id slot range documentation for examples
@@ -1829,7 +1864,7 @@ class FilmportalResource(AuthorityResource):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class GNDResource(AuthorityResource):
     """
     Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)
@@ -1855,7 +1890,7 @@ class GNDResource(AuthorityResource):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class ISILResource(AuthorityResource):
     """
     International Standard Identifier for Libraries and Related Organizations including (film) archives. Check id slot
@@ -1882,7 +1917,7 @@ class ISILResource(AuthorityResource):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class LocalResource(MovingImageResource):
     """
     Some identifier used by data provider to represent relations between work/variant, manifestation and item when
@@ -1905,7 +1940,7 @@ class LocalResource(MovingImageResource):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class TGNResource(AuthorityResource):
     """
     Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples
@@ -1931,7 +1966,7 @@ class TGNResource(AuthorityResource):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class VIAFResource(AuthorityResource):
     """
     Virtual International Authority File identifier hosted by OCLC. The data is accumulated from various well
@@ -1958,7 +1993,7 @@ class VIAFResource(AuthorityResource):
         self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class WikidataResource(AuthorityResource):
     """
     Identifier for Wikidata entities. Check id slot range documentation for examples

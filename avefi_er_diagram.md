@@ -4,7 +4,9 @@ Item {
     ItemElementTypeEnum element_type  
     ItemAccessStatusEnum has_access_status  
     FrameRateEnum has_frame_rate  
+    ColourTypeEnum has_colour_type  
     TextAreaList has_note  
+    SoundTypeEnum has_sound_type  
     HttpUriList has_webresource  
     IDStringList has_source_key  
     AVefiCurie category  
@@ -66,8 +68,8 @@ Duration {
 }
 Manifestation {
     ColourTypeEnum has_colour_type  
-    SoundTypeEnum has_sound_type  
     TextAreaList has_note  
+    SoundTypeEnum has_sound_type  
     HttpUriList has_webresource  
     IDStringList has_source_key  
     AVefiCurie category  

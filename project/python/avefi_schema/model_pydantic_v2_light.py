@@ -425,1428 +425,245 @@ linkml_meta = LinkMLMeta({'default_curi_maps': ['semweb_context'],
                               'see_also': ['https://www.wikidata.org/wiki/Wikidata:Identifiers'],
                               'typeof': 'string'}}} )
 
-class AnimationActivityTypeEnum(str, Enum):
+class AnimationActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.13
     """
-    # FIAF Glossary of Filmographic Terms B.13.1
-    Animation = "Animation"
-    # FIAF Glossary of Filmographic Terms B.13.9
-    AnimationDirector = "AnimationDirector"
-    # FIAF Glossary of Filmographic Terms B.13.19
-    AnimationLighter = "AnimationLighter"
-    # FIAF Glossary of Filmographic Terms B.13.11
-    Animator = "Animator"
-    # FIAF Glossary of Filmographic Terms B.13.14
-    CharacterDesigner = "CharacterDesigner"
-    # FIAF Glossary of Filmographic Terms B.13.15
-    Cleanup = "Cleanup"
-    # FIAF Glossary of Filmographic Terms B.13.10
-    LeadAnimator = "LeadAnimator"
-    # FIAF Glossary of Filmographic Terms B.13.17
-    ModelMaker = "ModelMaker"
+    pass
 
-
-class CastActivityTypeEnum(str, Enum):
+class CastActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.7
     """
-    # FIAF Glossary of Filmographic Terms B.7.12
-    AnimalTrainer = "AnimalTrainer"
-    # FIAF Glossary of Filmographic Terms B.7.1
-    CastMember = "CastMember"
-    # FIAF Glossary of Filmographic Terms B.7.5
-    Dancer = "Dancer"
-    # FIAF Glossary of Filmographic Terms B.7.8
-    DialogueCoach = "DialogueCoach"
-    # FIAF Glossary of Filmographic Terms B.7.2
-    Double = "Double"
-    # FIAF Glossary of Filmographic Terms B.7.4
-    Extra = "Extra"
-    # FIAF Glossary of Filmographic Terms B.7.9
-    Interviewer = "Interviewer"
-    # FIAF Glossary of Filmographic Terms B.7.10
-    Narrator = "Narrator"
-    # FIAF Glossary of Filmographic Terms B.7.6
-    Singer = "Singer"
-    # FIAF Glossary of Filmographic Terms B.7.3
-    StandIn = "StandIn"
-    # FIAF Glossary of Filmographic Terms B.7.11
-    StuntPerformer = "StuntPerformer"
-    # FIAF Glossary of Filmographic Terms B.7.7
-    Voices = "Voices"
-    # FIAF Glossary of Filmographic Terms B.7.13
-    Wrangler = "Wrangler"
+    pass
 
-
-class CensorshipActivityTypeEnum(str, Enum):
+class CensorshipActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.1
     """
-    # FIAF Glossary of Filmographic Terms C.1.1
-    Censor = "Censor"
+    pass
 
-
-class CinematographyActivityTypeEnum(str, Enum):
+class CinematographyActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.5
     """
-    # FIAF Glossary of Filmographic Terms B.5.4
-    AerialPhotography = "AerialPhotography"
-    # FIAF Glossary of Filmographic Terms B.5.12
-    BestBoy = "BestBoy"
-    # FIAF Glossary of Filmographic Terms B.5.7
-    CameraAssistant = "CameraAssistant"
-    # FIAF Glossary of Filmographic Terms B.5.3
-    CameraOperator = "CameraOperator"
-    # FIAF Glossary of Filmographic Terms B.5.1
-    Cinematographer = "Cinematographer"
-    # FIAF Glossary of Filmographic Terms B.5.19
-    ColorConsultant = "ColorConsultant"
-    # FIAF Glossary of Filmographic Terms B.5.16
-    CraneOperator = "CraneOperator"
-    # FIAF Glossary of Filmographic Terms B.5.15
-    DollyGrip = "DollyGrip"
-    # FIAF Glossary of Filmographic Terms B.5.13
-    Electrician = "Electrician"
-    # FIAF Glossary of Filmographic Terms B.5.8
-    FocusPuller = "FocusPuller"
-    # FIAF Glossary of Filmographic Terms B.5.11
-    GafferLighting = "GafferLighting"
-    # FIAF Glossary of Filmographic Terms B.5.17
-    GeneratorOperator = "GeneratorOperator"
-    # FIAF Glossary of Filmographic Terms B.5.14
-    Grip = "Grip"
-    # FIAF Glossary of Filmographic Terms B.5.20
-    Lenses = "Lenses"
-    # FIAF Glossary of Filmographic Terms B.5.9
-    LoaderClapper = "LoaderClapper"
-    # FIAF Glossary of Filmographic Terms B.5.2
-    SecondUnitDirectorofPhotography = "SecondUnitDirectorofPhotography"
-    # FIAF Glossary of Filmographic Terms B.5.6
-    SteadicamOperator = "SteadicamOperator"
-    # FIAF Glossary of Filmographic Terms B.5.18
-    StillPhotographer = "StillPhotographer"
-    # FIAF Glossary of Filmographic Terms B.5.5
-    UnderwaterPhotography = "UnderwaterPhotography"
-    # FIAF Glossary of Filmographic Terms B.5.10
-    VideoAssist = "VideoAssist"
+    pass
 
-
-class CopyrightAndDistributionActivityTypeEnum(str, Enum):
+class CopyrightAndDistributionActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.2
     """
-    # FIAF Glossary of Filmographic Terms C.2.3
-    Distributor = "Distributor"
-    # FIAF Glossary of Filmographic Terms C.2.6
-    NationalDistributor = "NationalDistributor"
-    # FIAF Glossary of Filmographic Terms C.2.1
-    OriginalCopyrightOwner = "OriginalCopyrightOwner"
-    # FIAF Glossary of Filmographic Terms C.2.4
-    OriginalDistributor = "OriginalDistributor"
-    # FIAF Glossary of Filmographic Terms C.2.2
-    PresentCopyrightOwner = "PresentCopyrightOwner"
-    # FIAF Glossary of Filmographic Terms C.2.7
-    RegionalDistributor = "RegionalDistributor"
-    # FIAF Glossary of Filmographic Terms C.2.5
-    WorldDistributor = "WorldDistributor"
+    pass
 
-
-class DirectingActivityTypeEnum(str, Enum):
+class DirectingActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.3
     """
-    # FIAF Glossary of Filmographic Terms B.3.2
-    AssistantDirector = "AssistantDirector"
-    # FIAF Glossary of Filmographic Terms B.3.4
-    CastingDirector = "CastingDirector"
-    # FIAF Glossary of Filmographic Terms B.3.5
-    Continuity = "Continuity"
-    # FIAF Glossary of Filmographic Terms B.3.1
-    Director = "Director"
-    # FIAF Glossary of Filmographic Terms B.3.7
-    FightArranger = "FightArranger"
-    # FIAF Glossary of Filmographic Terms B.3.3
-    SecondUnitDirector = "SecondUnitDirector"
-    # FIAF Glossary of Filmographic Terms B.3.6
-    StuntArranger = "StuntArranger"
+    pass
 
-
-class EditingActivityTypeEnum(str, Enum):
+class EditingActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10
     """
-    # FIAF Glossary of Filmographic Terms B.10.2
-    AssistantFilmEditor = "AssistantFilmEditor"
-    # Person responsible content-wise in a non-fiction film production, e.g. a documentary. Unlike a film editor, this activity includes duties like writing a concept, drafting the story, and preparing interviews in preproduction as well as supervising and supporting the camera team
-    Editor = "Editor"
-    # FIAF Glossary of Filmographic Terms B.10.1
-    FilmEditor = "FilmEditor"
+    pass
 
-
-class LaboratoryActivityTypeEnum(str, Enum):
+class LaboratoryActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.12
     """
-    # FIAF Glossary of Filmographic Terms B.12.4
-    Colorist = "Colorist"
-    # FIAF Glossary of Filmographic Terms B.12.1
-    Laboratory = "Laboratory"
-    # FIAF Glossary of Filmographic Terms B.12.2
-    LaboratoryTechnician = "LaboratoryTechnician"
-    # FIAF Glossary of Filmographic Terms B.12.3
-    NegativeCutter = "NegativeCutter"
+    pass
 
-
-class MusicActivityTypeEnum(str, Enum):
+class MusicActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.11
     """
-    # FIAF Glossary of Filmographic Terms B.11.15
-    Choreographer = "Choreographer"
-    # FIAF Glossary of Filmographic Terms B.11.1
-    Composer = "Composer"
-    # FIAF Glossary of Filmographic Terms B.11.13
-    Lyricist = "Lyricist"
-    # FIAF Glossary of Filmographic Terms B.11.4
-    MusicArranger = "MusicArranger"
-    # FIAF Glossary of Filmographic Terms B.11.6
-    MusicConductor = "MusicConductor"
-    # FIAF Glossary of Filmographic Terms B.11.9
-    MusicContractor = "MusicContractor"
-    # FIAF Glossary of Filmographic Terms B.11.14
-    MusicEditor = "MusicEditor"
-    # FIAF Glossary of Filmographic Terms B.11.7
-    MusicPerformer = "MusicPerformer"
-    # FIAF Glossary of Filmographic Terms B.11.3
-    MusicSupervisor = "MusicSupervisor"
-    # FIAF Glossary of Filmographic Terms B.11.8
-    SingingVoice = "SingingVoice"
-    # FIAF Glossary of Filmographic Terms B.11.12
-    SongComposer = "SongComposer"
+    pass
 
-
-class ProducingActivityTypeEnum(str, Enum):
+class ProducingActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.2
     """
-    # FIAF Glossary of Filmographic Terms B.2.19
-    Advisor = "Advisor"
-    # FIAF Glossary of Filmographic Terms B.2.8
-    AssistantProducer = "AssistantProducer"
-    # FIAF Glossary of Filmographic Terms B.2.6
-    AssociateProducer = "AssociateProducer"
-    # FIAF Glossary of Filmographic Terms B.2.22
-    Cooperation = "Cooperation"
-    # FIAF Glossary of Filmographic Terms B.2.5
-    Coproducer = "Coproducer"
-    # FIAF Glossary of Filmographic Terms B.2.4
-    ExecutiveProducer = "ExecutiveProducer"
-    # FIAF Glossary of Filmographic Terms B.2.7
-    LineProducer = "LineProducer"
-    # FIAF Glossary of Filmographic Terms B.2.12
-    LocationManager = "LocationManager"
-    # FIAF Glossary of Filmographic Terms B.2.15
-    PostProductionSupervisor = "PostProductionSupervisor"
-    # FIAF Glossary of Filmographic Terms B.2.21
-    Presenter = "Presenter"
-    # FIAF Glossary of Filmographic Terms B.2.3
-    Producer = "Producer"
-    # FIAF Glossary of Filmographic Terms B.2.11
-    ProductionAccountant = "ProductionAccountant"
-    # FIAF Glossary of Filmographic Terms B.2.14
-    ProductionAssistant = "ProductionAssistant"
-    # FIAF Glossary of Filmographic Terms B.2.1
-    ProductionCompany = "ProductionCompany"
-    # FIAF Glossary of Filmographic Terms B.2.10
-    ProductionCoordinator = "ProductionCoordinator"
-    # FIAF Glossary of Filmographic Terms B.2.9
-    ProductionManager = "ProductionManager"
-    # FIAF Glossary of Filmographic Terms B.2.16
-    Publicist = "Publicist"
-    # FIAF Glossary of Filmographic Terms B.2.17
-    SeriesProducer = "SeriesProducer"
-    # FIAF Glossary of Filmographic Terms B.2.20
-    Sponsor = "Sponsor"
-    # FIAF Glossary of Filmographic Terms B.2.23
-    Studio = "Studio"
-    # FIAF Glossary of Filmographic Terms B.2.13
-    TransportationManager = "TransportationManager"
+    pass
 
-
-class ProductionDesignActivityTypeEnum(str, Enum):
+class ProductionDesignActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.6
     """
-    # FIAF Glossary of Filmographic Terms B.6.2
-    ArtDirector = "ArtDirector"
-    # FIAF Glossary of Filmographic Terms B.6.3
-    AssistantArtDirector = "AssistantArtDirector"
-    # FIAF Glossary of Filmographic Terms B.6.8
-    ConstructionCoordinator = "ConstructionCoordinator"
-    # FIAF Glossary of Filmographic Terms B.6.12
-    CostumeDesigner = "CostumeDesigner"
-    # FIAF Glossary of Filmographic Terms B.6.17
-    CostumeMaker = "CostumeMaker"
-    # FIAF Glossary of Filmographic Terms B.6.13
-    CostumeSupervisor = "CostumeSupervisor"
-    # FIAF Glossary of Filmographic Terms B.6.18
-    CostumeSupplier = "CostumeSupplier"
-    # FIAF Glossary of Filmographic Terms B.6.14
-    Costumer = "Costumer"
-    # FIAF Glossary of Filmographic Terms B.6.16
-    Gowns = "Gowns"
-    # FIAF Glossary of Filmographic Terms B.6.11
-    Greensperson = "Greensperson"
-    # FIAF Glossary of Filmographic Terms B.6.20
-    HairStylist = "HairStylist"
-    # FIAF Glossary of Filmographic Terms B.6.9
-    LeadPerson = "LeadPerson"
-    # FIAF Glossary of Filmographic Terms B.6.19
-    MakeUpArtist = "MakeUpArtist"
-    # FIAF Glossary of Filmographic Terms B.6.1
-    ProductionDesigner = "ProductionDesigner"
-    # FIAF Glossary of Filmographic Terms B.6.7
-    PropertyMaster = "PropertyMaster"
-    # FIAF Glossary of Filmographic Terms B.6.10
-    ScenicArtist = "ScenicArtist"
-    # FIAF Glossary of Filmographic Terms B.6.6
-    SetDecorator = "SetDecorator"
-    # FIAF Glossary of Filmographic Terms B.6.5
-    SetDesigner = "SetDesigner"
-    # FIAF Glossary of Filmographic Terms B.6.4
-    StoryboardArtist = "StoryboardArtist"
-    # FIAF Glossary of Filmographic Terms B.6.21
-    TitleDesigner = "TitleDesigner"
-    # FIAF Glossary of Filmographic Terms B.6.15
-    WardrobeSupervisor = "WardrobeSupervisor"
+    pass
 
-
-class PuppetActivityTypeEnum(str, Enum):
+class PuppetActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.14
     """
-    # FIAF Glossary of Filmographic Terms B.14.7
-    Puppeteer = "Puppeteer"
+    pass
 
-
-class SoundActivityTypeEnum(str, Enum):
+class SoundActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.9
     """
-    # FIAF Glossary of Filmographic Terms B.9.4
-    BoomOperator = "BoomOperator"
-    # FIAF Glossary of Filmographic Terms B.9.8
-    DialogueEditor = "DialogueEditor"
-    # FIAF Glossary of Filmographic Terms B.9.13
-    DubbingDirector = "DubbingDirector"
-    # FIAF Glossary of Filmographic Terms B.9.14
-    DubbingEditor = "DubbingEditor"
-    # FIAF Glossary of Filmographic Terms B.9.11
-    DubbingMixer = "DubbingMixer"
-    # FIAF Glossary of Filmographic Terms B.9.15
-    DubbingSpeaker = "DubbingSpeaker"
-    # FIAF Glossary of Filmographic Terms B.9.9
-    FoleyArtist = "FoleyArtist"
-    # FIAF Glossary of Filmographic Terms B.9.1
-    SoundDesigner = "SoundDesigner"
-    # FIAF Glossary of Filmographic Terms B.9.7
-    SoundEditor = "SoundEditor"
-    # FIAF Glossary of Filmographic Terms B.9.5
-    SoundEngineer = "SoundEngineer"
-    # FIAF Glossary of Filmographic Terms B.9.3
-    SoundRecorderMixer = "SoundRecorderMixer"
-    # FIAF Glossary of Filmographic Terms B.9.2
-    SoundSupervisor = "SoundSupervisor"
-    # FIAF Glossary of Filmographic Terms B.9.6
-    SupervisingSoundEditor = "SupervisingSoundEditor"
+    pass
 
-
-class SpecialEffectsActivityTypeEnum(str, Enum):
+class SpecialEffectsActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.8
     """
-    # FIAF Glossary of Filmographic Terms B.8.4
-    Animatronics = "Animatronics"
-    # FIAF Glossary of Filmographic Terms B.8.7
-    Armorer = "Armorer"
-    # FIAF Glossary of Filmographic Terms B.8.12
-    CGIArtist = "CGIArtist"
-    # FIAF Glossary of Filmographic Terms B.8.10
-    Compositor = "Compositor"
-    # FIAF Glossary of Filmographic Terms B.8.8
-    MatteArtist = "MatteArtist"
-    # FIAF Glossary of Filmographic Terms B.8.3
-    MechanicalEffects = "MechanicalEffects"
-    # FIAF Glossary of Filmographic Terms B.8.13
-    MotionCapture = "MotionCapture"
-    # FIAF Glossary of Filmographic Terms B.8.5
-    Prosthetics = "Prosthetics"
-    # FIAF Glossary of Filmographic Terms B.8.6
-    Pyrotechnics = "Pyrotechnics"
-    # FIAF Glossary of Filmographic Terms B.8.9
-    RotoscopeArtist = "RotoscopeArtist"
-    # FIAF Glossary of Filmographic Terms B.8.1
-    SpecialEffects = "SpecialEffects"
-    # FIAF Glossary of Filmographic Terms B.8.2
-    VisualEffects = "VisualEffects"
+    pass
 
-
-class WritingActivityTypeEnum(str, Enum):
+class WritingActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.4
     """
-    # FIAF Glossary of Filmographic Terms B.4.11
-    Adaptation = "Adaptation"
-    # FIAF Glossary of Filmographic Terms B.4.5
-    BasedonCharactersCreatedby = "BasedonCharactersCreatedby"
-    # FIAF Glossary of Filmographic Terms B.4.6
-    Idea = "Idea"
-    # FIAF Glossary of Filmographic Terms B.4.15
-    NarrationWriter = "NarrationWriter"
-    # FIAF Glossary of Filmographic Terms B.4.16
-    Research = "Research"
-    # FIAF Glossary of Filmographic Terms B.4.3
-    ScreenStory = "ScreenStory"
-    # FIAF Glossary of Filmographic Terms B.4.7
-    SeriesCreatedby = "SeriesCreatedby"
-    # FIAF Glossary of Filmographic Terms B.4.4
-    SourceMaterial = "SourceMaterial"
-    # FIAF Glossary of Filmographic Terms B.4.8
-    Stagedby = "Stagedby"
-    # FIAF Glossary of Filmographic Terms B.4.2
-    Writer = "Writer"
+    pass
 
-
-class ManifestationActivityTypeEnum(str, Enum):
+class ManifestationActivityTypeEnum(str):
     """
     Activity types / roles. See also: FIAF Moving Image Cataloguing Manual 2.4.1.1, D.8
     """
-    # FIAF Moving Image Cataloguing Manual D.8.11
-    AgentNotIdentified = "AgentNotIdentified"
-    # FIAF Moving Image Cataloguing Manual D.8.6
-    AgentResponsibleForPreservation = "AgentResponsibleForPreservation"
-    # FIAF Moving Image Cataloguing Manual D.8.7
-    AgentResponsibleForReproductionOrTransfer = "AgentResponsibleForReproductionOrTransfer"
-    # FIAF Moving Image Cataloguing Manual D.8.8
-    AgentResponsibleForTheArchivalAvailability = "AgentResponsibleForTheArchivalAvailability"
-    # FIAF Moving Image Cataloguing Manual D.8.9
-    AgentResponsibleForTheMereAvailability = "AgentResponsibleForTheMereAvailability"
-    # FIAF Moving Image Cataloguing Manual D.8.10
-    AgentUnclearOrUndetermined = "AgentUnclearOrUndetermined"
-    # FIAF Moving Image Cataloguing Manual D.8.3
-    Broadcaster = "Broadcaster"
-    # FIAF Moving Image Cataloguing Manual D.8.2
-    DistributorNonTheatrical = "DistributorNonTheatrical"
-    # FIAF Moving Image Cataloguing Manual D.8.1
-    DistributorTheatrical = "DistributorTheatrical"
-    # FIAF Moving Image Cataloguing Manual D.8.5
-    Manufacturer = "Manufacturer"
-    # FIAF Moving Image Cataloguing Manual D.8.4
-    Publisher = "Publisher"
-    # FIAF Moving Image Cataloguing Manual 1.4.1.1, 2.4.1.1, 3.3.1.1
-    UnknownActivity = "UnknownActivity"
+    pass
 
-
-class AgentTypeEnum(str, Enum):
+class AgentTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual 1.4.1
     """
-    CorporateBody = "CorporateBody"
-    Family = "Family"
-    Person = "Person"
-    PersonGroup = "PersonGroup"
+    pass
 
-
-class ColourTypeEnum(str, Enum):
+class ColourTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11
     """
-    # FIAF Moving Image Cataloguing Manual D.7.11
-    BlackAndWhite = "BlackAndWhite"
-    # FIAF Moving Image Cataloguing Manual D.7.11
-    BlackAndWhiteTinted = "BlackAndWhiteTinted"
-    # FIAF Moving Image Cataloguing Manual D.7.11
-    BlackAndWhiteTintedAndToned = "BlackAndWhiteTintedAndToned"
-    # FIAF Moving Image Cataloguing Manual D.7.11
-    BlackAndWhiteToned = "BlackAndWhiteToned"
-    # FIAF Moving Image Cataloguing Manual D.7.11
-    Colour = "Colour"
-    # FIAF Moving Image Cataloguing Manual D.7.11
-    ColourBlackAndWhite = "ColourBlackAndWhite"
-    # FIAF Moving Image Cataloguing Manual D.7.11
-    Sepia = "Sepia"
-    # FIAF Moving Image Cataloguing Manual D.7.11
-    Tinted = "Tinted"
+    pass
 
-
-class ManufactureEventTypeEnum(str, Enum):
+class ManufactureEventTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual D.4.7, D.14
     """
-    # FIAF Moving Image Cataloguing Manual D.14
-    FilmPrintingEvent = "FilmPrintingEvent"
-    # FIAF Moving Image Cataloguing Manual D.14
-    MasteringEvent = "MasteringEvent"
-    # FIAF Moving Image Cataloguing Manual D.14
-    ScanningEvent = "ScanningEvent"
-    # FIAF Moving Image Cataloguing Manual D.14
-    TelecineEvent = "TelecineEvent"
-    # FIAF Moving Image Cataloguing Manual D.14
-    UploadingEvent = "UploadingEvent"
-    # FIAF Moving Image Cataloguing Manual D.14
-    VideoCopyingEvent = "VideoCopyingEvent"
+    pass
 
-
-class PreservationEventTypeEnum(str, Enum):
+class PreservationEventTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual D.4.5
     """
-    # FIAF Moving Image Cataloguing Manual D.12
-    DigitisationEvent = "DigitisationEvent"
-    # FIAF Moving Image Cataloguing Manual D.12
-    DuplicationEvent = "DuplicationEvent"
-    # FIAF Moving Image Cataloguing Manual D.12
-    ReproductionEvent = "ReproductionEvent"
-    # FIAF Moving Image Cataloguing Manual D.4.5
-    RestorationEvent = "RestorationEvent"
-    # FIAF Moving Image Cataloguing Manual D.12
-    TransferEvent = "TransferEvent"
+    pass
 
-
-class ProductionEventTypeEnum(str, Enum):
+class ProductionEventTypeEnum(str):
     """
     Leave unset for main production event, otherwise see FIAF Moving Image Cataloguing Manual D.4.3, D.11
     """
-    # FIAF Moving Image Cataloguing Manual D.11
-    CastingEvent = "CastingEvent"
-    # FIAF Moving Image Cataloguing Manual D.11
-    IndoorShootingEvent = "IndoorShootingEvent"
-    # FIAF Moving Image Cataloguing Manual D.11
-    OutdoorShootingEvent = "OutdoorShootingEvent"
-    # FIAF Moving Image Cataloguing Manual D.11
-    PostProductionEvent = "PostProductionEvent"
+    pass
 
-
-class PublicationEventTypeEnum(str, Enum):
+class PublicationEventTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual D.4.1, D.10
     """
-    # FIAF Moving Image Cataloguing Manual D.10
-    BroadcastEvent = "BroadcastEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
-    DistributionEvent = "DistributionEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
-    HomeVideoPublicationEvent = "HomeVideoPublicationEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
-    NonTheatricalDistributionEvent = "NonTheatricalDistributionEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
-    NotForReleaseEvent = "NotForReleaseEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
-    OnlineTransmissionEvent = "OnlineTransmissionEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
-    PreReleaseEvent = "PreReleaseEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
-    ReleaseEvent = "ReleaseEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
-    TheatricalDistributionEvent = "TheatricalDistributionEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
-    UnknownEvent = "UnknownEvent"
+    pass
 
-
-class FormatAudioTypeEnum(str, Enum):
+class FormatAudioTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    number_16mmMagneticTrack = "16mmMagneticTrack"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    number_35mmMagneticTrack = "35mmMagneticTrack"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    Audiocassette = "Audiocassette"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    HalfInchAudioReel = "HalfInchAudioReel"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    OneInchAudioReel = "OneInchAudioReel"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    QuarterInchAudioReel = "QuarterInchAudioReel"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    TwoInchAudioReel = "TwoInchAudioReel"
+    pass
 
-
-class FormatDigitalFileEncodingTypeEnum(str, Enum):
+class FormatDigitalFileEncodingTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    MPEG4 = "MPEG4"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    Quicktime = "Quicktime"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    RealVideo = "RealVideo"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    SVCD = "SVCD"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    VCD = "VCD"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    WindowsMedia = "WindowsMedia"
+    pass
 
-
-class FormatDigitalFileTypeEnum(str, Enum):
+class FormatDigitalFileTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    AVI = "AVI"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    DPX = "DPX"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    MOV = "MOV"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    MP4 = "MP4"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    MXF = "MXF"
-    # Video Object File (MPEG-2 subset)
-    VOB = "VOB"
+    pass
 
-
-class FormatFilmTypeEnum(str, Enum):
+class FormatFilmTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    number_16mmFilm = "16mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    number_17FULL_STOP5mmFilm = "17.5mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    number_35mmFilm = "35mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    number_70mmFilm = "70mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    number_8mmFilm = "8mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    number_9FULL_STOP5mmFilm = "9.5mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    Super16mmFilm = "Super16mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    Super8mmFilm = "Super8mmFilm"
+    pass
 
-
-class FormatOpticalTypeEnum(str, Enum):
+class FormatOpticalTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    BluRay = "BluRay"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    CD = "CD"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    DVD = "DVD"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    LaserDisc = "LaserDisc"
+    pass
 
-
-class FormatVideoTypeEnum(str, Enum):
+class FormatVideoTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    number_1InchCFormat = "1InchCFormat"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    number_2InchQuadruplex = "2InchQuadruplex"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    BetacamSP = "BetacamSP"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    D1 = "D1"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    D5 = "D5"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    DVCPROHD = "DVCPROHD"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    DigitalBetacam = "DigitalBetacam"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    HDCAMSR = "HDCAMSR"
+    pass
 
-
-class FrameRateEnum(str, Enum):
+class FrameRateEnum(str):
     """
     Frames per second of an item.
     """
-    # FIAF Moving Image Cataloguing Manual D.7.18
-    number_16fps = "16fps"
-    # FIAF Moving Image Cataloguing Manual D.7.18
-    number_23FULL_STOP98fps = "23.98fps"
-    # FIAF Moving Image Cataloguing Manual D.7.18
-    number_24fps = "24fps"
-    # FIAF Moving Image Cataloguing Manual D.7.18
-    number_25fps = "25fps"
-    # FIAF Moving Image Cataloguing Manual D.7.18
-    number_30fps = "30fps"
-    # FIAF Moving Image Cataloguing Manual D.7.18
-    number_48fps = "48fps"
-    # FIAF Moving Image Cataloguing Manual D.7.18
-    VariableFrameRate = "VariableFrameRate"
+    pass
 
-
-class ItemAccessStatusEnum(str, Enum):
+class ItemAccessStatusEnum(str):
     """
     FIAF Moving Image Cataloguing Manual D.7.3
     """
-    Archive = "Archive"
-    Distribution = "Distribution"
-    # FIAF Moving Image Cataloguing Manual D.7.3
-    Master = "Master"
-    # FIAF Moving Image Cataloguing Manual D.7.3
-    Removed = "Removed"
-    # FIAF Moving Image Cataloguing Manual D.7.3
-    Viewing = "Viewing"
+    pass
 
-
-class ItemElementTypeEnum(str, Enum):
+class ItemElementTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual D.7.8
     """
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    ColourNegative = "ColourNegative"
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    ColourPositive = "ColourPositive"
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    CopperTonedPositive = "CopperTonedPositive"
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    CyanMatrix = "CyanMatrix"
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    DCP = "DCP"
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    DirectBWPositive = "DirectBWPositive"
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    DuplicateNegative = "DuplicateNegative"
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    DuplicatePositive = "DuplicatePositive"
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    ImageNegative = "ImageNegative"
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    Lavender = "Lavender"
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    OriginalNegative = "OriginalNegative"
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    OriginalPositiveReversalFilm = "OriginalPositiveReversalFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    Positive = "Positive"
-    # FIAF Moving Image Cataloguing Manual D.7.8
-    SoundNegative = "SoundNegative"
+    pass
 
-
-class LanguageCodeEnum(str, Enum):
+class LanguageCodeEnum(str):
     """
     [ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)
     """
-    aar = "aar"
-    abk = "abk"
-    ace = "ace"
-    ach = "ach"
-    ada = "ada"
-    ady = "ady"
-    afa = "afa"
-    afh = "afh"
-    afr = "afr"
-    ain = "ain"
-    aka = "aka"
-    akk = "akk"
-    alb = "alb"
-    ale = "ale"
-    alg = "alg"
-    alt = "alt"
-    amh = "amh"
-    ang = "ang"
-    anp = "anp"
-    apa = "apa"
-    ara = "ara"
-    arc = "arc"
-    arg = "arg"
-    arm = "arm"
-    arn = "arn"
-    arp = "arp"
-    art = "art"
-    arw = "arw"
-    asm = "asm"
-    ast = "ast"
-    ath = "ath"
-    aus = "aus"
-    ava = "ava"
-    ave = "ave"
-    awa = "awa"
-    aym = "aym"
-    aze = "aze"
-    bad = "bad"
-    bai = "bai"
-    bak = "bak"
-    bal = "bal"
-    bam = "bam"
-    ban = "ban"
-    baq = "baq"
-    bas = "bas"
-    bat = "bat"
-    bej = "bej"
-    bel = "bel"
-    bem = "bem"
-    ben = "ben"
-    ber = "ber"
-    bho = "bho"
-    bih = "bih"
-    bik = "bik"
-    bin = "bin"
-    bis = "bis"
-    bla = "bla"
-    bnt = "bnt"
-    bod = "bod"
-    bos = "bos"
-    bra = "bra"
-    bre = "bre"
-    btk = "btk"
-    bua = "bua"
-    bug = "bug"
-    bul = "bul"
-    bur = "bur"
-    byn = "byn"
-    cad = "cad"
-    cai = "cai"
-    car = "car"
-    cat = "cat"
-    cau = "cau"
-    ceb = "ceb"
-    cel = "cel"
-    ces = "ces"
-    cha = "cha"
-    chb = "chb"
-    che = "che"
-    chg = "chg"
-    chi = "chi"
-    chk = "chk"
-    chm = "chm"
-    chn = "chn"
-    cho = "cho"
-    chp = "chp"
-    chr = "chr"
-    chu = "chu"
-    chv = "chv"
-    chy = "chy"
-    cmc = "cmc"
-    cnr = "cnr"
-    cop = "cop"
-    cor = "cor"
-    cos = "cos"
-    cpe = "cpe"
-    cpf = "cpf"
-    cpp = "cpp"
-    cre = "cre"
-    crh = "crh"
-    crp = "crp"
-    csb = "csb"
-    cus = "cus"
-    cym = "cym"
-    cze = "cze"
-    dak = "dak"
-    dan = "dan"
-    dar = "dar"
-    day = "day"
-    del_ = "del"
-    den = "den"
-    deu = "deu"
-    dgr = "dgr"
-    din = "din"
-    div = "div"
-    doi = "doi"
-    dra = "dra"
-    dsb = "dsb"
-    dua = "dua"
-    dum = "dum"
-    dut = "dut"
-    dyu = "dyu"
-    dzo = "dzo"
-    efi = "efi"
-    egy = "egy"
-    eka = "eka"
-    ell = "ell"
-    elx = "elx"
-    eng = "eng"
-    enm = "enm"
-    epo = "epo"
-    est = "est"
-    eus = "eus"
-    ewe = "ewe"
-    ewo = "ewo"
-    fan = "fan"
-    fao = "fao"
-    fas = "fas"
-    fat = "fat"
-    fij = "fij"
-    fil = "fil"
-    fin = "fin"
-    fiu = "fiu"
-    fon = "fon"
-    fra = "fra"
-    fre = "fre"
-    frm = "frm"
-    fro = "fro"
-    frr = "frr"
-    frs = "frs"
-    fry = "fry"
-    ful = "ful"
-    fur = "fur"
-    gaa = "gaa"
-    gay = "gay"
-    gba = "gba"
-    gem = "gem"
-    geo = "geo"
-    ger = "ger"
-    gez = "gez"
-    gil = "gil"
-    gla = "gla"
-    gle = "gle"
-    glg = "glg"
-    glv = "glv"
-    gmh = "gmh"
-    goh = "goh"
-    gon = "gon"
-    gor = "gor"
-    got = "got"
-    grb = "grb"
-    grc = "grc"
-    gre = "gre"
-    grn = "grn"
-    gsw = "gsw"
-    guj = "guj"
-    gwi = "gwi"
-    hai = "hai"
-    hat = "hat"
-    hau = "hau"
-    haw = "haw"
-    heb = "heb"
-    her = "her"
-    hil = "hil"
-    him = "him"
-    hin = "hin"
-    hit = "hit"
-    hmn = "hmn"
-    hmo = "hmo"
-    hrv = "hrv"
-    hsb = "hsb"
-    hun = "hun"
-    hup = "hup"
-    hye = "hye"
-    iba = "iba"
-    ibo = "ibo"
-    ice = "ice"
-    ido = "ido"
-    iii = "iii"
-    ijo = "ijo"
-    iku = "iku"
-    ile = "ile"
-    ilo = "ilo"
-    ina = "ina"
-    inc = "inc"
-    ind = "ind"
-    ine = "ine"
-    inh = "inh"
-    ipk = "ipk"
-    ira = "ira"
-    iro = "iro"
-    isl = "isl"
-    ita = "ita"
-    jav = "jav"
-    jbo = "jbo"
-    jpn = "jpn"
-    jpr = "jpr"
-    jrb = "jrb"
-    kaa = "kaa"
-    kab = "kab"
-    kac = "kac"
-    kal = "kal"
-    kam = "kam"
-    kan = "kan"
-    kar = "kar"
-    kas = "kas"
-    kat = "kat"
-    kau = "kau"
-    kaw = "kaw"
-    kaz = "kaz"
-    kbd = "kbd"
-    kha = "kha"
-    khi = "khi"
-    khm = "khm"
-    kho = "kho"
-    kik = "kik"
-    kin = "kin"
-    kir = "kir"
-    kmb = "kmb"
-    kok = "kok"
-    kom = "kom"
-    kon = "kon"
-    kor = "kor"
-    kos = "kos"
-    kpe = "kpe"
-    krc = "krc"
-    krl = "krl"
-    kro = "kro"
-    kru = "kru"
-    kua = "kua"
-    kum = "kum"
-    kur = "kur"
-    kut = "kut"
-    lad = "lad"
-    lah = "lah"
-    lam = "lam"
-    lao = "lao"
-    lat = "lat"
-    lav = "lav"
-    lez = "lez"
-    lim = "lim"
-    lin = "lin"
-    lit = "lit"
-    lol = "lol"
-    loz = "loz"
-    ltz = "ltz"
-    lua = "lua"
-    lub = "lub"
-    lug = "lug"
-    lui = "lui"
-    lun = "lun"
-    luo = "luo"
-    lus = "lus"
-    mac = "mac"
-    mad = "mad"
-    mag = "mag"
-    mah = "mah"
-    mai = "mai"
-    mak = "mak"
-    mal = "mal"
-    man = "man"
-    mao = "mao"
-    map = "map"
-    mar = "mar"
-    mas = "mas"
-    may = "may"
-    mdf = "mdf"
-    mdr = "mdr"
-    men = "men"
-    mga = "mga"
-    mic = "mic"
-    min = "min"
-    mis = "mis"
-    mkd = "mkd"
-    mkh = "mkh"
-    mlg = "mlg"
-    mlt = "mlt"
-    mnc = "mnc"
-    mni = "mni"
-    mno = "mno"
-    moh = "moh"
-    mon = "mon"
-    mos = "mos"
-    mri = "mri"
-    msa = "msa"
-    mul = "mul"
-    mun = "mun"
-    mus = "mus"
-    mwl = "mwl"
-    mwr = "mwr"
-    mya = "mya"
-    myn = "myn"
-    myv = "myv"
-    nah = "nah"
-    nai = "nai"
-    nap = "nap"
-    nau = "nau"
-    nav = "nav"
-    nbl = "nbl"
-    nde = "nde"
-    ndo = "ndo"
-    nds = "nds"
-    nep = "nep"
-    new = "new"
-    nia = "nia"
-    nic = "nic"
-    niu = "niu"
-    nld = "nld"
-    nno = "nno"
-    nob = "nob"
-    nog = "nog"
-    non = "non"
-    nor = "nor"
-    nqo = "nqo"
-    nso = "nso"
-    nub = "nub"
-    nwc = "nwc"
-    nya = "nya"
-    nym = "nym"
-    nyn = "nyn"
-    nyo = "nyo"
-    nzi = "nzi"
-    oci = "oci"
-    oji = "oji"
-    ori = "ori"
-    orm = "orm"
-    osa = "osa"
-    oss = "oss"
-    ota = "ota"
-    oto = "oto"
-    paa = "paa"
-    pag = "pag"
-    pal = "pal"
-    pam = "pam"
-    pan = "pan"
-    pap = "pap"
-    pau = "pau"
-    peo = "peo"
-    per = "per"
-    phi = "phi"
-    phn = "phn"
-    pli = "pli"
-    pol = "pol"
-    pon = "pon"
-    por = "por"
-    pra = "pra"
-    pro = "pro"
-    pus = "pus"
-    que = "que"
-    raj = "raj"
-    rap = "rap"
-    rar = "rar"
-    roa = "roa"
-    roh = "roh"
-    rom = "rom"
-    ron = "ron"
-    rum = "rum"
-    run = "run"
-    rup = "rup"
-    rus = "rus"
-    sad = "sad"
-    sag = "sag"
-    sah = "sah"
-    sai = "sai"
-    sal = "sal"
-    sam = "sam"
-    san = "san"
-    sas = "sas"
-    sat = "sat"
-    scn = "scn"
-    sco = "sco"
-    sel = "sel"
-    sem = "sem"
-    sga = "sga"
-    sgn = "sgn"
-    shn = "shn"
-    sid = "sid"
-    sin = "sin"
-    sio = "sio"
-    sit = "sit"
-    sla = "sla"
-    slk = "slk"
-    slo = "slo"
-    slv = "slv"
-    sma = "sma"
-    sme = "sme"
-    smi = "smi"
-    smj = "smj"
-    smn = "smn"
-    smo = "smo"
-    sms = "sms"
-    sna = "sna"
-    snd = "snd"
-    snk = "snk"
-    sog = "sog"
-    som = "som"
-    son = "son"
-    sot = "sot"
-    spa = "spa"
-    sqi = "sqi"
-    srd = "srd"
-    srn = "srn"
-    srp = "srp"
-    srr = "srr"
-    ssa = "ssa"
-    ssw = "ssw"
-    suk = "suk"
-    sun = "sun"
-    sus = "sus"
-    sux = "sux"
-    swa = "swa"
-    swe = "swe"
-    syc = "syc"
-    syr = "syr"
-    tah = "tah"
-    tai = "tai"
-    tam = "tam"
-    tat = "tat"
-    tel = "tel"
-    tem = "tem"
-    ter = "ter"
-    tet = "tet"
-    tgk = "tgk"
-    tgl = "tgl"
-    tha = "tha"
-    tib = "tib"
-    tig = "tig"
-    tir = "tir"
-    tiv = "tiv"
-    tkl = "tkl"
-    tlh = "tlh"
-    tli = "tli"
-    tmh = "tmh"
-    tog = "tog"
-    ton = "ton"
-    tpi = "tpi"
-    tsi = "tsi"
-    tsn = "tsn"
-    tso = "tso"
-    tuk = "tuk"
-    tum = "tum"
-    tup = "tup"
-    tur = "tur"
-    tut = "tut"
-    tvl = "tvl"
-    twi = "twi"
-    tyv = "tyv"
-    udm = "udm"
-    uga = "uga"
-    uig = "uig"
-    ukr = "ukr"
-    umb = "umb"
-    und = "und"
-    urd = "urd"
-    uzb = "uzb"
-    vai = "vai"
-    ven = "ven"
-    vie = "vie"
-    vol = "vol"
-    vot = "vot"
-    wak = "wak"
-    wal = "wal"
-    war = "war"
-    was = "was"
-    wel = "wel"
-    wen = "wen"
-    wln = "wln"
-    wol = "wol"
-    xal = "xal"
-    xho = "xho"
-    yao = "yao"
-    yap = "yap"
-    yid = "yid"
-    yor = "yor"
-    ypk = "ypk"
-    zap = "zap"
-    zbl = "zbl"
-    zen = "zen"
-    zgh = "zgh"
-    zha = "zha"
-    zho = "zho"
-    znd = "znd"
-    zul = "zul"
-    zun = "zun"
-    zxx = "zxx"
-    zza = "zza"
+    pass
 
-
-class LanguageUsageEnum(str, Enum):
+class LanguageUsageEnum(str):
     """
     FIAF Moving Image Cataloguing Manual 2.3.3, D.6
     """
-    # Audio description for the visually impaired
-    AudioDescription = "AudioDescription"
-    # FIAF Moving Image Cataloguing Manual D.6
-    Captions = "Captions"
-    ClosingCredits = "ClosingCredits"
-    # FIAF Moving Image Cataloguing Manual 2.3.3
-    Dubbed = "Dubbed"
-    # FIAF Moving Image Cataloguing Manual D.6
-    Intertitles = "Intertitles"
-    # FIAF Moving Image Cataloguing Manual D.6
-    NoDialogue = "NoDialogue"
-    OpeningCredits = "OpeningCredits"
-    # Subtitles for the Deaf and Hard of hearing
-    SDHSubtitles = "SDHSubtitles"
-    # FIAF Moving Image Cataloguing Manual D.6
-    SignedLanguage = "SignedLanguage"
-    # FIAF Moving Image Cataloguing Manual D.6
-    SpokenLanguage = "SpokenLanguage"
-    # FIAF Moving Image Cataloguing Manual D.6
-    Subtitles = "Subtitles"
-    # FIAF Moving Image Cataloguing Manual D.6
-    SungLanguage = "SungLanguage"
-    VoiceOver = "VoiceOver"
+    pass
 
-
-class PrecisionEnum(str, Enum):
+class PrecisionEnum(str):
     """
     Qualifier indicating the precision of an extent value or duration
     """
-    # Value may be inaccurate but is regarded to be close to the real thing
-    Approximate = "Approximate"
-    # Sources for the given value are deemed unreliable, so it may as well be off the mark
-    Uncertain = "Uncertain"
+    pass
 
-
-class SoundTypeEnum(str, Enum):
+class SoundTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4
     """
-    # FIAF Moving Image Cataloguing Manual D.7.4
-    Combined = "Combined"
-    # FIAF Moving Image Cataloguing Manual D.7.4
-    CombinedAsMute = "CombinedAsMute"
-    # FIAF Moving Image Cataloguing Manual D.7.4
-    CombinedAsSound = "CombinedAsSound"
-    # FIAF Moving Image Cataloguing Manual D.7.4
-    MixedSound = "MixedSound"
-    # FIAF Moving Image Cataloguing Manual D.7.4
-    Mute = "Mute"
-    # FIAF Moving Image Cataloguing Manual D.7.4
-    Silent = "Silent"
-    # FIAF Moving Image Cataloguing Manual D.7.4
-    Sound = "Sound"
-    # FIAF Moving Image Cataloguing Manual D.7.4
-    Temporary = "Temporary"
+    pass
 
-
-class TitleTypeEnum(str, Enum):
+class TitleTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual A.2
     """
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
-    AbbreviatedTitle = "AbbreviatedTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
-    AcquisitionTitle = "AcquisitionTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4
-    AlternativeTitle = "AlternativeTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
-    CorrectedTitle = "CorrectedTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
-    PreReleaseTitle = "PreReleaseTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.0
-    PreferredTitle = "PreferredTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
-    SearchTitle = "SearchTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
-    SeriesTitle = "SeriesTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.5
-    SuppliedDevisedTitle = "SuppliedDevisedTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.2
-    TitleProper = "TitleProper"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
-    TranslatedTitle = "TranslatedTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
-    TransliteratedTitle = "TransliteratedTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
-    WorkingTitle = "WorkingTitle"
+    pass
 
-
-class UnitEnum(str, Enum):
+class UnitEnum(str):
     """
     Units of measurement. Definitions are taken from the Quantities, Units, Dimensions and Data Types Ontologies (QUDT)
     """
-    # Unit of length defined as being 0.3048 metres
-    Feet = "Feet"
-    # Unit for digital information equivalent to 1000 megabytes
-    GigaByte = "GigaByte"
-    # Unit for digital information equivalent to 1000 bytes
-    KiloByte = "KiloByte"
-    # Metric and SI base unit of distance
-    Metre = "Metre"
-    # Unit for digital information equivalent to 1000 kilobytes
-    MegaByte = "MegaByte"
-    # Unit for digital information equivalent to 1000 gigabytes
-    TeraByte = "TeraByte"
+    pass
 
-
-class VariantTypeEnum(str, Enum):
+class VariantTypeEnum(str):
     """
     FIAF Moving Image Cataloguing Manual D.2
     """
-    # FIAF Moving Image Cataloguing Manual D.2
-    AbridgedCondensed = "AbridgedCondensed"
-    # FIAF Moving Image Cataloguing Manual D.2
-    Augmented = "Augmented"
-    # FIAF Moving Image Cataloguing Manual D.2
-    BlackAndWhiteCopyOfWorkOriginallyIssuedInColour = "BlackAndWhiteCopyOfWorkOriginallyIssuedInColour"
-    # FIAF Moving Image Cataloguing Manual D.2
-    Censored = "Censored"
-    # FIAF Moving Image Cataloguing Manual D.2
-    Colourized = "Colourized"
-    # FIAF Moving Image Cataloguing Manual D.2
-    DifferentSoundTrack = "DifferentSoundTrack"
-    # FIAF Moving Image Cataloguing Manual D.2
-    Dubbed = "Dubbed"
-    # FIAF Moving Image Cataloguing Manual D.2
-    PreservationRestoration = "PreservationRestoration"
-    # FIAF Moving Image Cataloguing Manual D.2
-    Sonorized = "Sonorized"
-    # FIAF Moving Image Cataloguing Manual D.2
-    Subtitled = "Subtitled"
+    pass
 
-
-class WorkVariantTypeEnum(str, Enum):
+class WorkVariantTypeEnum(str):
     """
     Work/Variant description type. See also: FIAF Moving Image Cataloguing Manual 1.2.1, D.1
     """
-    # Content that is contained in another content
-    Analytic = "Analytic"
-    # Content issued in several independent parts; an ‘umbrella’ work title covering a number of different Works/Variants/Manifestations
-    Collection = "Collection"
-    # Complete content in one part or intended to be completed in a finite number of parts
-    Monographic = "Monographic"
-    # Content issued in successive parts and intended to be continued indefinitely, or across a span of time. A Work record for a television series is catalogued as a “Serial”, individual episodes may be catalogued as a Monographic record
-    Serial = "Serial"
+    pass
 
-
-class WorkFormEnum(str, Enum):
+class WorkFormEnum(str):
     """
     FIAF Glossary of Filmographic Terms D.1.9
     """
-    # FIAF Glossary of Filmographic Terms D.1.9
-    AmateurFilm = "AmateurFilm"
-    # FIAF Glossary of Filmographic Terms D.1.9
-    Compilation = "Compilation"
-    # FIAF Glossary of Filmographic Terms D.1.9
-    Excerpt = "Excerpt"
-    # FIAF Glossary of Filmographic Terms D.1.9
-    Feature = "Feature"
-    # FIAF Glossary of Filmographic Terms D.1.9
-    Featurette = "Featurette"
-    # FIAF Glossary of Filmographic Terms D.1.9
-    HomeMovie = "HomeMovie"
-    # FIAF Glossary of Filmographic Terms D.1.9
-    Outtake = "Outtake"
-    # FIAF Glossary of Filmographic Terms D.1.9
-    ScreenTest = "ScreenTest"
-    # FIAF Glossary of Filmographic Terms D.1.9
-    Series = "Series"
-    # FIAF Glossary of Filmographic Terms D.1.9
-    Short = "Short"
-    # FIAF Glossary of Filmographic Terms D.1.9
-    StockFootage = "StockFootage"
-    # FIAF Glossary of Filmographic Terms D.1.9
-    Trailer = "Trailer"
-    # FIAF Glossary of Filmographic Terms D.1.9
-    UneditedFootage = "UneditedFootage"
-    # FIAF Moving Image Cataloguing Manual E.2.2
-    AnthologyFilm = "AnthologyFilm"
-    # FIAF Moving Image Cataloguing Manual E.2.2
-    Commercial = "Commercial"
-    # FIAF Moving Image Cataloguing Manual 0.1.2, D.5.3
-    EducationalFilm = "EducationalFilm"
-    # FIAF Moving Image Cataloguing Manual 0.1.2
-    EssayFilm = "EssayFilm"
-    # FIAF Moving Image Cataloguing Manual 0.1.2
-    ExperimentalFilm = "ExperimentalFilm"
-    # FIAF Moving Image Cataloguing Manual D.5.3
-    IndustrialFilm = "IndustrialFilm"
-    # FIAF Moving Image Cataloguing Manual D.18
-    MusicVideo = "MusicVideo"
-    # http://www.screenonline.org.uk/film/id/476463/index.html
-    Newsreel = "Newsreel"
-
+    pass
 
 
 class CategorizedThing(ConfiguredBaseModel):

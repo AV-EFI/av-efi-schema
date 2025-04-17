@@ -2262,6 +2262,8 @@ export function toTitle(o: Title): Title {
  * Base class defining common slots for manifestations and items
  */
 export interface ManifestationOrItem extends MovingImageRecord {
+    /** FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11 */
+    has_colour_type?: string,
     /** Total running time of the described object in ISO 8601 duration format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11 */
     has_duration?: Duration,
     /** Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8 */
@@ -2270,6 +2272,8 @@ export interface ManifestationOrItem extends MovingImageRecord {
     has_format?: Format[],
     /** FIAF Moving Image Cataloguing Manual Appendix B */
     has_note?: string[],
+    /** FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4 */
+    has_sound_type?: string,
     /** Link to data provider's own presentation of manifestation or item on the web */
     has_webresource?: string[],
     /** FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3 */
@@ -2285,10 +2289,12 @@ export function isManifestationOrItem(o: object): o is ManifestationOrItem {
 
 export function toManifestationOrItem(o: ManifestationOrItem): ManifestationOrItem {
     return {
+        has_colour_type: o.has_colour_type ?? null,
         has_duration: o.has_duration ?? {},
         has_extent: o.has_extent ?? {},
         has_format: o.has_format ?? [],
         has_note: o.has_note ?? [],
+        has_sound_type: o.has_sound_type ?? null,
         has_webresource: o.has_webresource ?? [],
         in_language: o.in_language ?? [],
         described_by: o.described_by ?? {},
@@ -2499,12 +2505,8 @@ export function toVideo(o: Video): Video {
  * Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as publication event type
  */
 export interface Manifestation extends ManifestationOrItem {
-    /** FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11 */
-    has_colour_type?: string,
     /** Indicate AVefi Items the institution has registered as part of the manifestation */
     has_item?: MovingImageResource[],
-    /** FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4 */
-    has_sound_type?: string,
     /** Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation */
     is_manifestation_of: MovingImageResource[],
     /** Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work */
@@ -2521,15 +2523,15 @@ export function isManifestation(o: object): o is Manifestation {
 
 export function toManifestation(o: Manifestation): Manifestation {
     return {
-        has_colour_type: o.has_colour_type ?? null,
         has_item: o.has_item ?? [],
-        has_sound_type: o.has_sound_type ?? null,
         is_manifestation_of: o.is_manifestation_of ?? [],
         same_as: o.same_as ?? [],
+        has_colour_type: o.has_colour_type ?? null,
         has_duration: o.has_duration ?? {},
         has_extent: o.has_extent ?? {},
         has_format: o.has_format ?? [],
         has_note: o.has_note ?? [],
+        has_sound_type: o.has_sound_type ?? null,
         has_webresource: o.has_webresource ?? [],
         in_language: o.in_language ?? [],
         described_by: o.described_by ?? {},
@@ -2600,10 +2602,12 @@ export function toItem(o: Item): Item {
         is_copy_of: o.is_copy_of ?? [],
         is_derivative_of: o.is_derivative_of ?? [],
         is_item_of: o.is_item_of ?? {},
+        has_colour_type: o.has_colour_type ?? null,
         has_duration: o.has_duration ?? {},
         has_extent: o.has_extent ?? {},
         has_format: o.has_format ?? [],
         has_note: o.has_note ?? [],
+        has_sound_type: o.has_sound_type ?? null,
         has_webresource: o.has_webresource ?? [],
         in_language: o.in_language ?? [],
         described_by: o.described_by ?? {},

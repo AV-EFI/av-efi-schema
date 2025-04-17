@@ -1739,6 +1739,8 @@ export interface Title {
  * Base class defining common slots for manifestations and items
  */
 export interface ManifestationOrItem extends MovingImageRecord {
+    /** FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11 */
+    has_colour_type?: string,
     /** Total running time of the described object in ISO 8601 duration format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11 */
     has_duration?: Duration,
     /** Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8 */
@@ -1747,6 +1749,8 @@ export interface ManifestationOrItem extends MovingImageRecord {
     has_format?: Format[],
     /** FIAF Moving Image Cataloguing Manual Appendix B */
     has_note?: string[],
+    /** FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4 */
+    has_sound_type?: string,
     /** Link to data provider's own presentation of manifestation or item on the web */
     has_webresource?: string[],
     /** FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3 */
@@ -1833,12 +1837,8 @@ export interface Video extends Format {
  * Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as publication event type
  */
 export interface Manifestation extends ManifestationOrItem {
-    /** FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11 */
-    has_colour_type?: string,
     /** Indicate AVefi Items the institution has registered as part of the manifestation */
     has_item?: MovingImageResource[],
-    /** FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4 */
-    has_sound_type?: string,
     /** Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation */
     is_manifestation_of: MovingImageResource[],
     /** Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work */
