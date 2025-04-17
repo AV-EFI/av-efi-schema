@@ -1134,10 +1134,12 @@ classes:
     is_a: MovingImageRecord
     abstract: true
     slots:
+    - has_colour_type
     - has_duration
     - has_extent
     - has_format
     - has_note
+    - has_sound_type
     - has_webresource
     - in_language
     annotations:
@@ -1330,9 +1332,7 @@ classes:
     rank: 2
     is_a: ManifestationOrItem
     slots:
-    - has_colour_type
     - has_item
-    - has_sound_type
     - is_manifestation_of
     - same_as
     slot_usage:
