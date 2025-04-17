@@ -47,9 +47,9 @@ def main():
 
 def sample_work():
     work = efi.WorkVariant(
-        type=efi.WorkVariantTypeEnum.Monographic,
+        type=efi.WorkVariantTypeEnum('Monographic'),
         has_primary_title=efi.Title(
-            type=efi.TitleTypeEnum.PreferredTitle,
+            type=efi.TitleTypeEnum('PreferredTitle'),
             has_name='Menschen am Sonntag – Das Dokument der Gegenwart'))
     event = efi.ProductionEvent(
         has_date='1929/1930',
@@ -58,27 +58,27 @@ def sample_work():
             same_as=efi.GNDResource(id='2008993-4')))
     work.has_event.append(event)
     directors = efi.DirectingActivity(
-        type=efi.DirectingActivityTypeEnum.Director,
+        type=efi.DirectingActivityTypeEnum('Director'),
         has_agent=[
             efi.Agent(
-                type=efi.AgentTypeEnum.Person,
+                type=efi.AgentTypeEnum('Person'),
                 has_name='Siodmak, Robert',
                 same_as=[efi.GNDResource(id='11861472X')]),
             efi.Agent(
-                type=efi.AgentTypeEnum.Person,
+                type=efi.AgentTypeEnum('Person'),
                 has_name='Ulmer, Edgar G.',
                 same_as=[efi.GNDResource(id='124471196')]),
             efi.Agent(
-                type=efi.AgentTypeEnum.Person,
+                type=efi.AgentTypeEnum('Person'),
                 has_name='Gliese, Rochus',
                 same_as=[efi.GNDResource(id='116663308')])
         ])
     event.has_activity.append(directors)
     event.has_activity.append(
         efi.WritingActivity(
-            type=efi.WritingActivityTypeEnum.Writer,
+            type=efi.WritingActivityTypeEnum('Writer'),
             has_agent=efi.Agent(
-                type=efi.AgentTypeEnum.Person,
+                type=efi.AgentTypeEnum('Person'),
                 has_name='Wilder, Billy',
                 same_as=[
                     efi.GNDResource(id='118632795')])))
@@ -99,38 +99,40 @@ def sample_manifestation(*works):
         is_manifestation_of=[
             efi.LocalResource(id=work.has_identifier[0].id) for work in works],
         has_primary_title=efi.Title(
-            type=efi.TitleTypeEnum.TitleProper,
+            type=efi.TitleTypeEnum('TitleProper'),
             has_name='Menschen am Sonntag')
     )
     kinemathek = efi.Agent(
-        type=efi.AgentTypeEnum.CorporateBody,
+        type=efi.AgentTypeEnum('CorporateBody'),
         has_name='Deutsche Kinemathek - Museum für Film und Fernsehen',
         same_as=[efi.GNDResource(id='998208027')])
     restoration_activities = [
         efi.ManifestationActivity(
-            type=efi.ManifestationActivityTypeEnum.AgentResponsibleForReproductionOrTransfer,
+            type=efi.ManifestationActivityTypeEnum(
+                'AgentResponsibleForReproductionOrTransfer'),
             has_agent=[kinemathek]),
         efi.ManifestationActivity(
-            type=efi.ManifestationActivityTypeEnum.AgentResponsibleForTheArchivalAvailability,
+            type=efi.ManifestationActivityTypeEnum(
+                'AgentResponsibleForTheArchivalAvailability'),
             has_agent=[kinemathek]),
     ]
     manifestation.has_event.append(efi.PreservationEvent(
-        type=efi.PreservationEventTypeEnum.RestorationEvent,
+        type=efi.PreservationEventTypeEnum('RestorationEvent'),
         has_date='2013/2014',
         has_activity=restoration_activities))
     manifestation.has_event.append(efi.PublicationEvent(
-        type=efi.PublicationEventTypeEnum.ReleaseEvent,
+        type=efi.PublicationEventTypeEnum('ReleaseEvent'),
         has_date='2014'))
     manifestation.in_language = [
         efi.Language(
-            usage=efi.LanguageUsageEnum.Intertitles,
-            code=efi.LanguageCodeEnum.deu),
+            usage=efi.LanguageUsageEnum('Intertitles'),
+            code=efi.LanguageCodeEnum('deu')),
         efi.Language(
-            usage=efi.LanguageUsageEnum.Subtitles,
-            code=efi.LanguageCodeEnum.eng),
+            usage=efi.LanguageUsageEnum('Subtitles'),
+            code=efi.LanguageCodeEnum('eng')),
         efi.Language(
-            usage=efi.LanguageUsageEnum.Subtitles,
-            code=efi.LanguageCodeEnum.fra)
+            usage=efi.LanguageUsageEnum('Subtitles'),
+            code=efi.LanguageCodeEnum('fra'))
     ]
     manifestation.has_colour_type = 'BlackAndWhite'
     manifestation.has_sound_type = 'Sound'
@@ -141,12 +143,12 @@ def sample_item(manifestation):
     item = efi.Item(
         has_identifier=[efi.LocalResource(id='mams_123')],
         is_item_of=efi.LocalResource(id=manifestation.has_identifier[0].id),
-        element_type=efi.ItemElementTypeEnum.DCP,
+        element_type=efi.ItemElementTypeEnum('DCP'),
         has_primary_title=manifestation.has_primary_title,
-        has_access_status=efi.ItemAccessStatusEnum.Distribution,
-        has_extent=efi.Extent(has_unit=efi.UnitEnum.GigaByte, has_value=113),
+        has_access_status=efi.ItemAccessStatusEnum('Distribution'),
+        has_extent=efi.Extent(has_unit=efi.UnitEnum('GigaByte'), has_value=113),
         has_format=[
-            efi.DigitalFile(type=efi.FormatDigitalFileTypeEnum.MXF),
+            efi.DigitalFile(type=efi.FormatDigitalFileTypeEnum('MXF')),
         ],
     )
     return item
