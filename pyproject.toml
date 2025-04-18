@@ -6,7 +6,7 @@ authors = [
     {name = "AVefi Working Group", email = "contact@av-efi.net"},
 ]
 dependencies = [
-    "linkml-runtime>=1.8.0",
+    "pydantic>=2.10.0"
 ]
 requires-python = ">=3.10"
 readme = "README.md"
@@ -16,6 +16,9 @@ license = {text = "MIT"}
 docs = [
     "linkml>=1.8.0",
     "mkdocs-material>=9.5.17",
+]
+dataclasses = [
+    "linkml-runtime>=1.8.0",
 ]
 [build-system]
 requires = ["pdm-backend"]
@@ -28,13 +31,13 @@ distribution = true
 [tool.pdm.build]
 package-dir = "project/python"
 
-[tool.pdm.dev-dependencies]
+
+[dependency-groups]
 dev = [
     "linkml>=1.8.0",
     "mkdocs-material>=9.5.17",
     "mkdocs-mermaid2-plugin>=1.1.1",
     "schemasheets>=0.2.1",
-    "jsonref>=1.1.0",
     "doit>=0.36.0",
     "ruamel-yaml>=0.18.6",
     "requests>=2.32.3",

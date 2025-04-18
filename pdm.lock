@@ -2,10 +2,10 @@
 # It is not intended for manual editing.
 
 [metadata]
-groups = ["default", "dev", "docs"]
+groups = ["default", "dataclasses", "dev", "docs"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:f7a0960d7791c7b622e717ee762160f34b35ca37eae83e93e24bcdc25f1dbf43"
+content_hash = "sha256:19028090d91e3f99398125668453d3dfbb8e1f571d6687759134c696c86f0982"
 
 [[metadata.targets]]
 requires_python = ">=3.10"
@@ -15,7 +15,7 @@ name = "annotated-types"
 version = "0.7.0"
 requires_python = ">=3.8"
 summary = "Reusable constraint types to use with typing.Annotated"
-groups = ["default", "dev", "docs"]
+groups = ["default", "dataclasses", "dev", "docs"]
 dependencies = [
     "typing-extensions>=4.0.0; python_version < \"3.9\"",
 ]
@@ -56,7 +56,7 @@ name = "attrs"
 version = "25.3.0"
 requires_python = ">=3.8"
 summary = "Classes Without Boilerplate"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "attrs-25.3.0-py3-none-any.whl", hash = "sha256:427318ce031701fea540783410126f03899a97ffc6f61596ad581ac2e40e3bc3"},
     {file = "attrs-25.3.0.tar.gz", hash = "sha256:75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"},
@@ -141,7 +141,7 @@ name = "certifi"
 version = "2025.1.31"
 requires_python = ">=3.6"
 summary = "Python package for providing Mozilla's CA Bundle."
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "certifi-2025.1.31-py3-none-any.whl", hash = "sha256:ca78db4565a652026a4db2bcdf68f2fb589ea80d0be70e03929ed730746b84fe"},
     {file = "certifi-2025.1.31.tar.gz", hash = "sha256:3d5da6925056f6f18f119200434a4780a94263f10d1c21d032a6f6b2baa20651"},
@@ -175,7 +175,7 @@ name = "charset-normalizer"
 version = "3.4.1"
 requires_python = ">=3.7"
 summary = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "charset_normalizer-3.4.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:91b36a978b5ae0ee86c394f5a54d6ef44db1de0815eb43de826d41d21e4af3de"},
     {file = "charset_normalizer-3.4.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:7461baadb4dc00fd9e0acbe254e3d7d2112e7f92ced2adc96e54ef6501c5f176"},
@@ -238,7 +238,7 @@ name = "click"
 version = "8.1.8"
 requires_python = ">=3.7"
 summary = "Composable command line interface toolkit"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "colorama; platform_system == \"Windows\"",
     "importlib-metadata; python_version < \"3.8\"",
@@ -264,7 +264,7 @@ name = "colorama"
 version = "0.4.6"
 requires_python = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 summary = "Cross-platform colored terminal text."
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
@@ -275,7 +275,7 @@ name = "curies"
 version = "0.10.10"
 requires_python = ">=3.9"
 summary = "Idiomatic conversion between URIs and compact URIs (CURIEs)"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "eval-type-backport; python_version < \"3.10\"",
     "pydantic>=2.0",
@@ -315,7 +315,7 @@ name = "deprecated"
 version = "1.2.18"
 requires_python = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
 summary = "Python @deprecated decorator to deprecate old python classes, functions or methods."
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "wrapt<2,>=1.10",
 ]
@@ -391,7 +391,7 @@ name = "exceptiongroup"
 version = "1.2.2"
 requires_python = ">=3.7"
 summary = "Backport of PEP 654 (exception groups)"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 marker = "python_version < \"3.11\""
 files = [
     {file = "exceptiongroup-1.2.2-py3-none-any.whl", hash = "sha256:3111b9d131c238bec2f8f516e123e14ba243563fb135d3fe885990585aa7795b"},
@@ -631,7 +631,7 @@ name = "hbreader"
 version = "0.9.1"
 requires_python = ">=3.7"
 summary = "Honey Badger reader - a generic file/url/string open and read tool"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "hbreader-0.9.1-py3-none-any.whl", hash = "sha256:9a6e76c9d1afc1b977374a5dc430a1ebb0ea0488205546d4678d6e31cc5f6801"},
     {file = "hbreader-0.9.1.tar.gz", hash = "sha256:d2c132f8ba6276d794c66224c3297cec25c8079d0a4cf019c061611e0a3b94fa"},
@@ -657,7 +657,7 @@ name = "idna"
 version = "3.10"
 requires_python = ">=3.6"
 summary = "Internationalized Domain Names in Applications (IDNA)"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "idna-3.10-py3-none-any.whl", hash = "sha256:946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3"},
     {file = "idna-3.10.tar.gz", hash = "sha256:12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"},
@@ -683,7 +683,7 @@ name = "iniconfig"
 version = "2.1.0"
 requires_python = ">=3.8"
 summary = "brain-dead simple config-ini parsing"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "iniconfig-2.1.0-py3-none-any.whl", hash = "sha256:9deba5723312380e77435581c6bf4935c94cbfab9b1ed33ef8d238ea168eb760"},
     {file = "iniconfig-2.1.0.tar.gz", hash = "sha256:3abbd2e30b36733fee78f9c7f7308f2d0050e88f0087fd25c2645f63c773e1c7"},
@@ -694,7 +694,7 @@ name = "isodate"
 version = "0.7.2"
 requires_python = ">=3.7"
 summary = "An ISO 8601 date/time/duration parser and formatter"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "isodate-0.7.2-py3-none-any.whl", hash = "sha256:28009937d8031054830160fce6d409ed342816b543597cece116d966c6d99e15"},
     {file = "isodate-0.7.2.tar.gz", hash = "sha256:4cd1aa0f43ca76f4a6c6c0292a85f40b35ec2e43e315b59f06e6d32171a953e6"},
@@ -747,7 +747,7 @@ name = "json-flattener"
 version = "0.1.9"
 requires_python = ">=3.7.0"
 summary = "Python library for denormalizing nested dicts or json objects to tables and back"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "click",
     "pyyaml",
@@ -772,7 +772,7 @@ name = "jsonasobj2"
 version = "1.0.4"
 requires_python = ">=3.6"
 summary = "JSON as python objects - version 2"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "hbreader",
 ]
@@ -820,22 +820,11 @@ files = [
 ]
 
 [[package]]
-name = "jsonref"
-version = "1.1.0"
-requires_python = ">=3.7"
-summary = "jsonref is a library for automatic dereferencing of JSON Reference objects for Python."
-groups = ["dev"]
-files = [
-    {file = "jsonref-1.1.0-py3-none-any.whl", hash = "sha256:590dc7773df6c21cbf948b5dac07a72a251db28b0238ceecce0a2abfa8ec30a9"},
-    {file = "jsonref-1.1.0.tar.gz", hash = "sha256:32fe8e1d85af0fdefbebce950af85590b22b60f9e95443176adbde4e1ecea552"},
-]
-
-[[package]]
 name = "jsonschema"
 version = "4.23.0"
 requires_python = ">=3.8"
 summary = "An implementation of JSON Schema validation for Python"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "attrs>=22.2.0",
     "importlib-resources>=1.4.0; python_version < \"3.9\"",
@@ -854,7 +843,7 @@ name = "jsonschema-specifications"
 version = "2024.10.1"
 requires_python = ">=3.9"
 summary = "The JSON Schema meta-schemas and vocabularies, exposed as a Registry"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "referencing>=0.31.0",
 ]
@@ -947,7 +936,7 @@ name = "linkml-runtime"
 version = "1.9.1"
 requires_python = "<4.0.0,>=3.8.1"
 summary = "Runtime environment for LinkML, the Linked open data modeling language"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "click",
     "curies>=0.5.4",
@@ -1228,7 +1217,7 @@ name = "packaging"
 version = "24.2"
 requires_python = ">=3.8"
 summary = "Core utilities for Python packages"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "packaging-24.2-py3-none-any.whl", hash = "sha256:09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759"},
     {file = "packaging-24.2.tar.gz", hash = "sha256:c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"},
@@ -1281,7 +1270,7 @@ name = "pluggy"
 version = "1.5.0"
 requires_python = ">=3.8"
 summary = "plugin and hook calling mechanisms for python"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "pluggy-1.5.0-py3-none-any.whl", hash = "sha256:44e1ad92c8ca002de6377e165f3e0f1be63266ab4d554740532335b9d75ea669"},
     {file = "pluggy-1.5.0.tar.gz", hash = "sha256:2cffa88e94fdc978c4c574f15f9e59b7f4201d439195c3715ca9e2486f1d0cf1"},
@@ -1302,7 +1291,7 @@ name = "prefixcommons"
 version = "0.1.12"
 requires_python = ">=3.7,<4.0"
 summary = "A python API for working with ID prefixes"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "PyYAML<7.0,>=6.0",
     "click<9.0.0,>=8.1.3",
@@ -1319,7 +1308,7 @@ name = "prefixmaps"
 version = "0.2.6"
 requires_python = "<4.0,>=3.8"
 summary = "A python library for retrieving semantic prefix maps"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "curies>=0.5.3",
     "pyyaml>=5.3.1",
@@ -1389,7 +1378,7 @@ name = "pydantic"
 version = "2.11.3"
 requires_python = ">=3.9"
 summary = "Data validation using Python type hints"
-groups = ["default", "dev", "docs"]
+groups = ["default", "dataclasses", "dev", "docs"]
 dependencies = [
     "annotated-types>=0.6.0",
     "pydantic-core==2.33.1",
@@ -1406,7 +1395,7 @@ name = "pydantic-core"
 version = "2.33.1"
 requires_python = ">=3.9"
 summary = "Core functionality for Pydantic validation and serialization"
-groups = ["default", "dev", "docs"]
+groups = ["default", "dataclasses", "dev", "docs"]
 dependencies = [
     "typing-extensions!=4.7.0,>=4.6.0",
 ]
@@ -1551,7 +1540,7 @@ name = "pyparsing"
 version = "3.2.3"
 requires_python = ">=3.9"
 summary = "pyparsing module - Classes and methods to define and execute parsing grammars"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "pyparsing-3.2.3-py3-none-any.whl", hash = "sha256:a749938e02d6fd0b59b356ca504a24982314bb090c383e3cf201c95ef7e2bfcf"},
     {file = "pyparsing-3.2.3.tar.gz", hash = "sha256:b9c13f1ab8b3b542f72e28f634bad4de758ab3ce4546e4301970ad6fa77c38be"},
@@ -1620,7 +1609,7 @@ name = "pytest"
 version = "8.3.5"
 requires_python = ">=3.8"
 summary = "pytest: simple powerful testing with Python"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "colorama; sys_platform == \"win32\"",
     "exceptiongroup>=1.0.0rc8; python_version < \"3.11\"",
@@ -1638,7 +1627,7 @@ files = [
 name = "pytest-logging"
 version = "2015.11.4"
 summary = "Configures logging and allows tweaking the log level with a py.test flag"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "pytest>=2.8.1",
 ]
@@ -1664,7 +1653,7 @@ files = [
 name = "pytrie"
 version = "0.4.0"
 summary = "A pure Python implementation of the trie data structure."
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "sortedcontainers",
 ]
@@ -1678,7 +1667,7 @@ name = "pyyaml"
 version = "6.0.2"
 requires_python = ">=3.8"
 summary = "YAML parser and emitter for Python"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "PyYAML-6.0.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:0a9a2848a5b7feac301353437eb7d5957887edbf81d56e903999a75a3d743086"},
     {file = "PyYAML-6.0.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:29717114e51c84ddfba879543fb232a6ed60086602313ca38cce623c1d62cfbf"},
@@ -1738,7 +1727,7 @@ name = "rdflib"
 version = "7.1.4"
 requires_python = "<4.0.0,>=3.8.1"
 summary = "RDFLib is a Python library for working with RDF, a simple yet powerful language for representing information."
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "isodate<1.0.0,>=0.7.2; python_version < \"3.11\"",
     "pyparsing<4,>=2.1.0",
@@ -1781,7 +1770,7 @@ name = "referencing"
 version = "0.36.2"
 requires_python = ">=3.9"
 summary = "JSON Referencing + Python"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "attrs>=22.2.0",
     "rpds-py>=0.7.0",
@@ -1797,7 +1786,7 @@ name = "requests"
 version = "2.32.3"
 requires_python = ">=3.8"
 summary = "Python HTTP for Humans."
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 dependencies = [
     "certifi>=2017.4.17",
     "charset-normalizer<4,>=2",
@@ -1853,7 +1842,7 @@ name = "rpds-py"
 version = "0.24.0"
 requires_python = ">=3.9"
 summary = "Python bindings to Rust's persistent data structures (rpds)"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "rpds_py-0.24.0-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:006f4342fe729a368c6df36578d7a348c7c716be1da0a1a0f86e3021f8e98724"},
     {file = "rpds_py-0.24.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:2d53747da70a4e4b17f559569d5f9506420966083a31c5fbd84e764461c4444b"},
@@ -2078,7 +2067,7 @@ files = [
 name = "sortedcontainers"
 version = "2.4.0"
 summary = "Sorted Containers -- Sorted List, Sorted Dict, Sorted Set"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "sortedcontainers-2.4.0-py2.py3-none-any.whl", hash = "sha256:a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0"},
     {file = "sortedcontainers-2.4.0.tar.gz", hash = "sha256:25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88"},
@@ -2200,7 +2189,7 @@ name = "tomli"
 version = "2.2.1"
 requires_python = ">=3.8"
 summary = "A lil' TOML parser"
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 marker = "python_version < \"3.11\""
 files = [
     {file = "tomli-2.2.1-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:678e4fa69e4575eb77d103de3df8a895e1591b48e740211bd1067378c69e8249"},
@@ -2267,7 +2256,7 @@ name = "typing-extensions"
 version = "4.13.2"
 requires_python = ">=3.8"
 summary = "Backported and Experimental Type Hints for Python 3.8+"
-groups = ["default", "dev", "docs"]
+groups = ["default", "dataclasses", "dev", "docs"]
 files = [
     {file = "typing_extensions-4.13.2-py3-none-any.whl", hash = "sha256:a439e7c04b49fec3e5d3e2beaa21755cadbbdc391694e28ccdd36ca4a1408f8c"},
     {file = "typing_extensions-4.13.2.tar.gz", hash = "sha256:e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"},
@@ -2278,7 +2267,7 @@ name = "typing-inspection"
 version = "0.4.0"
 requires_python = ">=3.9"
 summary = "Runtime typing introspection tools"
-groups = ["default", "dev", "docs"]
+groups = ["default", "dataclasses", "dev", "docs"]
 dependencies = [
     "typing-extensions>=4.12.0",
 ]
@@ -2314,7 +2303,7 @@ name = "urllib3"
 version = "2.4.0"
 requires_python = ">=3.9"
 summary = "HTTP library with thread-safe connection pooling, file post, and more."
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "urllib3-2.4.0-py3-none-any.whl", hash = "sha256:4e16665048960a0900c702d4a66415956a584919c03361cac9f1df5c5dd7e813"},
     {file = "urllib3-2.4.0.tar.gz", hash = "sha256:414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"},
@@ -2370,7 +2359,7 @@ name = "wrapt"
 version = "1.17.2"
 requires_python = ">=3.8"
 summary = "Module for decorators, wrappers and monkey patching."
-groups = ["default", "dev", "docs"]
+groups = ["dataclasses", "dev", "docs"]
 files = [
     {file = "wrapt-1.17.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:3d57c572081fed831ad2d26fd430d565b76aa277ed1d30ff4d40670b1c0dd984"},
     {file = "wrapt-1.17.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:b5e251054542ae57ac7f3fba5d10bfff615b6c2fb09abeb37d2f1463f841ae22"},
