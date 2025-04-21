@@ -117,11 +117,6 @@ def task_python():
              {
                  'template_dir': 'utils/templates/pydantic/',
              }),
-            ('utils.pydanticgen', 'PydanticGenerator',
-             python_model.with_stem(f"{python_model.stem}_pydantic_v2_light"),
-             {
-                 'template_dir': 'utils/templates/pydantic_light/',
-             }),
     ]:
         yield {
             'name': target,
