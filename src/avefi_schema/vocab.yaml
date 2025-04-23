@@ -6388,14 +6388,14 @@ enums:
           record
         meaning: fiaf:Serial
 
-  WorkFormEnum:
+   WorkFormEnum:
     rank: 14
     annotations:
     - pid: 21.T11969/3bf743031ba50f01e936
     in_subset:
     - TypeRegistrySubset
     description: >-
-      FIAF Glossary of Filmographic Terms D.1.9
+      FIAF Glossary of Filmographic Terms D.1
     permissible_values:
       AmateurFilm:
         structured_aliases:
@@ -6414,7 +6414,7 @@ enums:
           in_language: en
         meaning: fiaf:Compilation
         description: >-
-          FIAF Glossary of Filmographic Terms D.1.9
+          FIAF Glossary of Filmographic Terms D.1.6
       Excerpt:
         structured_aliases:
         - literal_form: Filmausschnitt
@@ -6423,7 +6423,7 @@ enums:
           in_language: en
         meaning: fiaf:Excerpt
         description: >-
-          FIAF Glossary of Filmographic Terms D.1.9
+          FIAF Glossary of Filmographic Terms D.1.13
       Feature:
         structured_aliases:
         - literal_form: Langfilm
@@ -6432,7 +6432,7 @@ enums:
           in_language: en
         meaning: fiaf:Feature
         description: >-
-          FIAF Glossary of Filmographic Terms D.1.9
+          FIAF Glossary of Filmographic Terms D.1.2
       Featurette:
         structured_aliases:
         - literal_form: Kurzfilm über Filmherstellung
@@ -6441,21 +6441,21 @@ enums:
           in_language: en
         meaning: fiaf:Featurette
         description: >-
-          FIAF Glossary of Filmographic Terms D.1.9
+          FIAF Glossary of Filmographic Terms D.1.8
       HomeMovie:
         structured_aliases:
         - literal_form: Home Movie
           in_language: default
         meaning: fiaf:HomeMovie
         description: >-
-          FIAF Glossary of Filmographic Terms D.1.9
+          FIAF Glossary of Filmographic Terms D.1.10
       Outtake:
         structured_aliases:
         - literal_form: Outtake
           in_language: default
         meaning: fiaf:Outtake
         description: >-
-          FIAF Glossary of Filmographic Terms D.1.9
+          FIAF Glossary of Filmographic Terms D.1.11
       ScreenTest:
         structured_aliases:
         - literal_form: Probeaufnahmen
@@ -6464,7 +6464,7 @@ enums:
           in_language: en
         meaning: fiaf:ScreenTest
         description: >-
-          FIAF Glossary of Filmographic Terms D.1.9
+          FIAF Glossary of Filmographic Terms D.1.15
       Series:
         structured_aliases:
         - literal_form: Serie
@@ -6473,7 +6473,7 @@ enums:
           in_language: en
         meaning: fiaf:Series
         description: >-
-          FIAF Glossary of Filmographic Terms D.1.9
+          FIAF Glossary of Filmographic Terms D.1.4
       Short:
         structured_aliases:
         - literal_form: Kurzfilm
@@ -6482,7 +6482,7 @@ enums:
           in_language: en
         meaning: fiaf:Short
         description: >-
-          FIAF Glossary of Filmographic Terms D.1.9
+          FIAF Glossary of Filmographic Terms D.1.3
       StockFootage:
         structured_aliases:
         - literal_form: Archivaufnahmen
@@ -6491,14 +6491,14 @@ enums:
           in_language: en
         meaning: fiaf:StockFootage
         description: >-
-          FIAF Glossary of Filmographic Terms D.1.9
+          FIAF Glossary of Filmographic Terms D.1.12
       Trailer:
         structured_aliases:
         - literal_form: Trailer
           in_language: default
         meaning: fiaf:Trailer
         description: >-
-          FIAF Glossary of Filmographic Terms D.1.9
+          FIAF Glossary of Filmographic Terms D.1.7
       UneditedFootage:
         structured_aliases:
         - literal_form: Unbearbeitetes Material
@@ -6507,7 +6507,7 @@ enums:
           in_language: en
         meaning: fiaf:UneditedFootage
         description: >-
-          FIAF Glossary of Filmographic Terms D.1.9
+          FIAF Glossary of Filmographic Terms D.1.14
       AnthologyFilm:
         structured_aliases:
         - literal_form: Episodenfilm
@@ -6567,3 +6567,4 @@ enums:
           in_language: en
         description: >-
           http://www.screenonline.org.uk/film/id/476463/index.html
+
