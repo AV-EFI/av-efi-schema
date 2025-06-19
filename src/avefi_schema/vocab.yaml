@@ -6388,7 +6388,7 @@ enums:
           record
         meaning: fiaf:Serial
 
-   WorkFormEnum:
+  WorkFormEnum:
     rank: 14
     annotations:
     - pid: 21.T11969/3bf743031ba50f01e936
@@ -6567,4 +6567,3 @@ enums:
           in_language: en
         description: >-
           http://www.screenonline.org.uk/film/id/476463/index.html
-
