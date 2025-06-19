@@ -1606,49 +1606,43 @@ enums:
     permissible_values:
       FilmPrintingEvent:
         structured_aliases:
-        - literal_form: Filmdruckereignis
+        - literal_form: Filmdruck
           in_language: de
-        - literal_form: Film Printing Event
+        - literal_form: Film Printing
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:FilmPrintingEvent
       MasteringEvent:
         structured_aliases:
-        - literal_form: Mastering-Ereignis
-          in_language: de
-        - literal_form: Mastering Event
-          in_language: en
+        - literal_form: Mastering
+          in_language: default
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:MasteringEvent
       ScanningEvent:
         structured_aliases:
-        - literal_form: Scanning-Ereignis
-          in_language: de
-        - literal_form: Scanning Event
-          in_language: en
+        - literal_form: Scanning
+          in_language: default
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:ScanningEvent
       TelecineEvent:
         structured_aliases:
-        - literal_form: Telecine-Ereignis
-          in_language: de
-        - literal_form: Telecine Event
-          in_language: en
+        - literal_form: Telecine
+          in_language: default
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:TelecineEvent
       UploadingEvent:
         structured_aliases:
-        - literal_form: Upload-Ereignis
+        - literal_form: Upload
           in_language: de
-        - literal_form: Uploading Event
+        - literal_form: Uploading
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:UploadingEvent
       VideoCopyingEvent:
         structured_aliases:
-        - literal_form: Videokopierereignis
+        - literal_form: Videokopie
           in_language: de
-        - literal_form: Video Copying Event
+        - literal_form: Video Copying
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.14
         meaning: fiaf:VideoCopyingEvent
@@ -1663,25 +1657,25 @@ enums:
     permissible_values:
       DigitisationEvent:
         structured_aliases:
-        - literal_form: Digitalisierungsereignis
+        - literal_form: Digitalisierung
           in_language: de
-        - literal_form: Digitisation Event
+        - literal_form: Digitisation
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.12
         meaning: fiaf:DigitisationEvent
       DuplicationEvent:
         structured_aliases:
-        - literal_form: Duplikationsereignis
+        - literal_form: Duplikation
           in_language: de
-        - literal_form: Duplication Event
+        - literal_form: Duplication
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.12
         meaning: fiaf:DuplicationEvent
       ReproductionEvent:
         structured_aliases:
-        - literal_form: Reproduktionsereignis
+        - literal_form: Reproduktion
           in_language: de
-        - literal_form: Reproduction Event
+        - literal_form: Reproduction
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.12
         meaning: fiaf:ReproductionEvent
@@ -1694,10 +1688,8 @@ enums:
         description: FIAF Moving Image Cataloguing Manual D.4.5
       TransferEvent:
         structured_aliases:
-        - literal_form: Transfer-Ereignis
-          in_language: de
-        - literal_form: Transfer Event
-          in_language: en
+        - literal_form: Transfer
+          in_language: default
         description: FIAF Moving Image Cataloguing Manual D.12
         meaning: fiaf:TransferEvent
 
@@ -1713,33 +1705,31 @@ enums:
     permissible_values:
       CastingEvent:
         structured_aliases:
-        - literal_form: Casting-Ereignis
-          in_language: de
-        - literal_form: Casting Event
-          in_language: en
+        - literal_form: Casting
+          in_language: default
         description: FIAF Moving Image Cataloguing Manual D.11
         meaning: fiaf:CastingEvent
       IndoorShootingEvent:
         structured_aliases:
-        - literal_form: Innenaufnahmenereignis
+        - literal_form: Innenaufnahmen
           in_language: de
-        - literal_form: Indoor Shooting Event
+        - literal_form: Indoor Shooting
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.11
         meaning: fiaf:IndoorShootingEvent
       OutdoorShootingEvent:
         structured_aliases:
-        - literal_form: Außenaufnahmenereignis
+        - literal_form: Außenaufnahmen
           in_language: de
-        - literal_form: Outdoor Shooting Event
+        - literal_form: Outdoor Shooting
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.11
         meaning: fiaf:OutdoorShootingEvent
       PostProductionEvent:
         structured_aliases:
-        - literal_form: Postproduktionsereignis
+        - literal_form: Postproduktion
           in_language: de
-        - literal_form: Post-Production Event
+        - literal_form: Post-Production
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.11
         meaning: fiaf:PostProductionEvent
@@ -1770,65 +1760,63 @@ enums:
         meaning: fiaf:DistributionEvent
       HomeVideoPublicationEvent:
         structured_aliases:
-        - literal_form: Home Movie-Veröffentlichungsereignis
+        - literal_form: Home Movie-Veröffentlichung
           in_language: de
-        - literal_form: Home Video Publication Event
+        - literal_form: Home Video Publication
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:HomeVideoPublicationEvent
       NonTheatricalDistributionEvent:
         structured_aliases:
-        - literal_form: Distributionsereignis (nicht für Kino)
+        - literal_form: Distribution (nicht für Kino)
           in_language: de
-        - literal_form: Non-Theatrical Distribution Event
+        - literal_form: Non-Theatrical Distribution
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:NonTheatricalDistributionEvent
       NotForReleaseEvent:
         structured_aliases:
-        - literal_form: Nicht zur Veröffentlichung-Ereignis
+        - literal_form: Nicht zur Veröffentlichung
           in_language: de
-        - literal_form: Not For Release Event
+        - literal_form: Not For Release
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:NotForReleaseEvent
       OnlineTransmissionEvent:
         structured_aliases:
-        - literal_form: Online-Übertragungsereignis
+        - literal_form: Online-Übertragung
           in_language: de
-        - literal_form: Online Transmission Event
+        - literal_form: Online Transmission
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:OnlineTransmissionEvent
       PreReleaseEvent:
         structured_aliases:
-        - literal_form: Vorabveröffentlichungsereignis
-          in_language: de
-        - literal_form: Pre-Release Event
-          in_language: en
+        - literal_form: Pre-Release
+          in_language: default
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:PreReleaseEvent
       ReleaseEvent:
         structured_aliases:
-        - literal_form: Veröffentlichungsereignis
+        - literal_form: Veröffentlichung
           in_language: de
-        - literal_form: Release Event
+        - literal_form: Release
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:ReleaseEvent
       TheatricalDistributionEvent:
         structured_aliases:
-        - literal_form: Distributionsereignis (für Kino)
+        - literal_form: Distribution (für Kino)
           in_language: de
-        - literal_form: Theatrical Distribution Event
+        - literal_form: Theatrical Distribution
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:TheatricalDistributionEvent
       UnknownEvent:
         structured_aliases:
-        - literal_form: Unbekanntes Ereignis
+        - literal_form: Unbekannt
           in_language: de
-        - literal_form: Unknown Event
+        - literal_form: Unknown
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:UnknownEvent
