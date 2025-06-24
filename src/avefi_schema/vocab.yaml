@@ -2292,6 +2292,10 @@ enums:
           in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:CyanMatrix
+      DCDM:
+        structured_aliases:
+        - literal_form: DCDM
+          in_language: default
       DCP:
         structured_aliases:
         - literal_form: DCP
@@ -2320,6 +2324,12 @@ enums:
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:DuplicatePositive
+      EditDecisionList:
+        structured_aliases:
+        - literal_form: Schnittliste
+          in_language: de
+        - literal_form: Edit Decision List
+          in_language: en
       ImageNegative:
         structured_aliases:
         - literal_form: Bildnegativ
@@ -2366,6 +2376,12 @@ enums:
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:SoundNegative
+      Subtitles:
+        structured_aliases:
+        - literal_form: Untertitel
+          in_language: de
+        - literal_form: Subtitles
+          in_language: en
 
   LanguageCodeEnum:
     rank: 12
