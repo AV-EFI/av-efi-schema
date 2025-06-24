@@ -961,6 +961,7 @@ class FormatAudioTypeEnum(str, Enum):
     """
     # FIAF Moving Image Cataloguing Manual D.7.2
     number_16mmMagneticTrack = "16mmMagneticTrack"
+    number_17FULL_STOP5mmMagneticTrack = "17.5mmMagneticTrack"
     # FIAF Moving Image Cataloguing Manual D.7.2
     number_35mmMagneticTrack = "35mmMagneticTrack"
     # FIAF Moving Image Cataloguing Manual D.7.2
@@ -1001,6 +1002,7 @@ class FormatDigitalFileTypeEnum(str, Enum):
     AVI = "AVI"
     # FIAF Moving Image Cataloguing Manual D.7.2
     DPX = "DPX"
+    DV = "DV"
     # FIAF Moving Image Cataloguing Manual D.7.2
     MOV = "MOV"
     # FIAF Moving Image Cataloguing Manual D.7.2
@@ -1009,6 +1011,7 @@ class FormatDigitalFileTypeEnum(str, Enum):
     MXF = "MXF"
     # Video Object File (MPEG-2 subset)
     VOB = "VOB"
+    WebM = "WebM"
 
 
 class FormatFilmTypeEnum(str, Enum):
@@ -1061,12 +1064,24 @@ class FormatVideoTypeEnum(str, Enum):
     D1 = "D1"
     # FIAF Moving Image Cataloguing Manual D.7.2
     D5 = "D5"
-    # FIAF Moving Image Cataloguing Manual D.7.2
-    DVCPROHD = "DVCPROHD"
+    Digital8 = "Digital8"
     # FIAF Moving Image Cataloguing Manual D.7.2
     DigitalBetacam = "DigitalBetacam"
+    DV = "DV"
+    DVCAM = "DVCAM"
+    DVCPro = "DVCPro"
+    DVCPro50 = "DVCPro50"
+    # FIAF Moving Image Cataloguing Manual D.7.2
+    DVCPROHD = "DVCPROHD"
+    HDCAM = "HDCAM"
     # FIAF Moving Image Cataloguing Manual D.7.2
     HDCAMSR = "HDCAMSR"
+    HDV = "HDV"
+    MiniDV = "MiniDV"
+    SVHS = "SVHS"
+    UMatic = "UMatic"
+    IMX = "IMX"
+    VHS = "VHS"
 
 
 class FrameRateEnum(str, Enum):
@@ -1115,6 +1130,7 @@ class ItemElementTypeEnum(str, Enum):
     CopperTonedPositive = "CopperTonedPositive"
     # FIAF Moving Image Cataloguing Manual D.7.8
     CyanMatrix = "CyanMatrix"
+    DCDM = "DCDM"
     # FIAF Moving Image Cataloguing Manual D.7.8
     DCP = "DCP"
     # FIAF Moving Image Cataloguing Manual D.7.8
@@ -1123,6 +1139,7 @@ class ItemElementTypeEnum(str, Enum):
     DuplicateNegative = "DuplicateNegative"
     # FIAF Moving Image Cataloguing Manual D.7.8
     DuplicatePositive = "DuplicatePositive"
+    EditDecisionList = "EditDecisionList"
     # FIAF Moving Image Cataloguing Manual D.7.8
     ImageNegative = "ImageNegative"
     # FIAF Moving Image Cataloguing Manual D.7.8
@@ -1135,6 +1152,7 @@ class ItemElementTypeEnum(str, Enum):
     Positive = "Positive"
     # FIAF Moving Image Cataloguing Manual D.7.8
     SoundNegative = "SoundNegative"
+    Subtitles = "Subtitles"
 
 
 class LanguageCodeEnum(str, Enum):
@@ -1802,33 +1820,33 @@ class WorkVariantTypeEnum(str, Enum):
 
 class WorkFormEnum(str, Enum):
     """
-    FIAF Glossary of Filmographic Terms D.1.9
+    FIAF Glossary of Filmographic Terms D.1
     """
     # FIAF Glossary of Filmographic Terms D.1.9
     AmateurFilm = "AmateurFilm"
-    # FIAF Glossary of Filmographic Terms D.1.9
+    # FIAF Glossary of Filmographic Terms D.1.6
     Compilation = "Compilation"
-    # FIAF Glossary of Filmographic Terms D.1.9
+    # FIAF Glossary of Filmographic Terms D.1.13
     Excerpt = "Excerpt"
-    # FIAF Glossary of Filmographic Terms D.1.9
+    # FIAF Glossary of Filmographic Terms D.1.2
     Feature = "Feature"
-    # FIAF Glossary of Filmographic Terms D.1.9
+    # FIAF Glossary of Filmographic Terms D.1.8
     Featurette = "Featurette"
-    # FIAF Glossary of Filmographic Terms D.1.9
+    # FIAF Glossary of Filmographic Terms D.1.10
     HomeMovie = "HomeMovie"
-    # FIAF Glossary of Filmographic Terms D.1.9
+    # FIAF Glossary of Filmographic Terms D.1.11
     Outtake = "Outtake"
-    # FIAF Glossary of Filmographic Terms D.1.9
+    # FIAF Glossary of Filmographic Terms D.1.15
     ScreenTest = "ScreenTest"
-    # FIAF Glossary of Filmographic Terms D.1.9
+    # FIAF Glossary of Filmographic Terms D.1.4
     Series = "Series"
-    # FIAF Glossary of Filmographic Terms D.1.9
+    # FIAF Glossary of Filmographic Terms D.1.3
     Short = "Short"
-    # FIAF Glossary of Filmographic Terms D.1.9
+    # FIAF Glossary of Filmographic Terms D.1.12
     StockFootage = "StockFootage"
-    # FIAF Glossary of Filmographic Terms D.1.9
+    # FIAF Glossary of Filmographic Terms D.1.7
     Trailer = "Trailer"
-    # FIAF Glossary of Filmographic Terms D.1.9
+    # FIAF Glossary of Filmographic Terms D.1.14
     UneditedFootage = "UneditedFootage"
     # FIAF Moving Image Cataloguing Manual E.2.2
     AnthologyFilm = "AnthologyFilm"

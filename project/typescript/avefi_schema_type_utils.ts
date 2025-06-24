@@ -535,6 +535,7 @@ export enum FormatAudioTypeEnum {
     
     /** FIAF Moving Image Cataloguing Manual D.7.2 */
     number_16mmMagneticTrack = "16mmMagneticTrack",
+    number_17FULL_STOP5mmMagneticTrack = "17.5mmMagneticTrack",
     /** FIAF Moving Image Cataloguing Manual D.7.2 */
     number_35mmMagneticTrack = "35mmMagneticTrack",
     /** FIAF Moving Image Cataloguing Manual D.7.2 */
@@ -575,6 +576,7 @@ export enum FormatDigitalFileTypeEnum {
     AVI = "AVI",
     /** FIAF Moving Image Cataloguing Manual D.7.2 */
     DPX = "DPX",
+    DV = "DV",
     /** FIAF Moving Image Cataloguing Manual D.7.2 */
     MOV = "MOV",
     /** FIAF Moving Image Cataloguing Manual D.7.2 */
@@ -583,6 +585,7 @@ export enum FormatDigitalFileTypeEnum {
     MXF = "MXF",
     /** Video Object File (MPEG-2 subset) */
     VOB = "VOB",
+    WebM = "WebM",
 };
 /**
 * FIAF Moving Image Cataloguing Manual D.7.2
@@ -635,12 +638,24 @@ export enum FormatVideoTypeEnum {
     D1 = "D1",
     /** FIAF Moving Image Cataloguing Manual D.7.2 */
     D5 = "D5",
-    /** FIAF Moving Image Cataloguing Manual D.7.2 */
-    DVCPROHD = "DVCPROHD",
+    Digital8 = "Digital8",
     /** FIAF Moving Image Cataloguing Manual D.7.2 */
     DigitalBetacam = "DigitalBetacam",
+    DV = "DV",
+    DVCAM = "DVCAM",
+    DVCPro = "DVCPro",
+    DVCPro50 = "DVCPro50",
+    /** FIAF Moving Image Cataloguing Manual D.7.2 */
+    DVCPROHD = "DVCPROHD",
+    HDCAM = "HDCAM",
     /** FIAF Moving Image Cataloguing Manual D.7.2 */
     HDCAMSR = "HDCAMSR",
+    HDV = "HDV",
+    MiniDV = "MiniDV",
+    SVHS = "SVHS",
+    UMatic = "UMatic",
+    IMX = "IMX",
+    VHS = "VHS",
 };
 /**
 * Frames per second of an item.
@@ -689,6 +704,7 @@ export enum ItemElementTypeEnum {
     CopperTonedPositive = "CopperTonedPositive",
     /** FIAF Moving Image Cataloguing Manual D.7.8 */
     CyanMatrix = "CyanMatrix",
+    DCDM = "DCDM",
     /** FIAF Moving Image Cataloguing Manual D.7.8 */
     DCP = "DCP",
     /** FIAF Moving Image Cataloguing Manual D.7.8 */
@@ -697,6 +713,7 @@ export enum ItemElementTypeEnum {
     DuplicateNegative = "DuplicateNegative",
     /** FIAF Moving Image Cataloguing Manual D.7.8 */
     DuplicatePositive = "DuplicatePositive",
+    EditDecisionList = "EditDecisionList",
     /** FIAF Moving Image Cataloguing Manual D.7.8 */
     ImageNegative = "ImageNegative",
     /** FIAF Moving Image Cataloguing Manual D.7.8 */
@@ -709,6 +726,7 @@ export enum ItemElementTypeEnum {
     Positive = "Positive",
     /** FIAF Moving Image Cataloguing Manual D.7.8 */
     SoundNegative = "SoundNegative",
+    Subtitles = "Subtitles",
 };
 /**
 * [ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)
@@ -1374,35 +1392,35 @@ export enum WorkVariantTypeEnum {
     Serial = "Serial",
 };
 /**
-* FIAF Glossary of Filmographic Terms D.1.9
+* FIAF Glossary of Filmographic Terms D.1
 */
 export enum WorkFormEnum {
     
     /** FIAF Glossary of Filmographic Terms D.1.9 */
     AmateurFilm = "AmateurFilm",
-    /** FIAF Glossary of Filmographic Terms D.1.9 */
+    /** FIAF Glossary of Filmographic Terms D.1.6 */
     Compilation = "Compilation",
-    /** FIAF Glossary of Filmographic Terms D.1.9 */
+    /** FIAF Glossary of Filmographic Terms D.1.13 */
     Excerpt = "Excerpt",
-    /** FIAF Glossary of Filmographic Terms D.1.9 */
+    /** FIAF Glossary of Filmographic Terms D.1.2 */
     Feature = "Feature",
-    /** FIAF Glossary of Filmographic Terms D.1.9 */
+    /** FIAF Glossary of Filmographic Terms D.1.8 */
     Featurette = "Featurette",
-    /** FIAF Glossary of Filmographic Terms D.1.9 */
+    /** FIAF Glossary of Filmographic Terms D.1.10 */
     HomeMovie = "HomeMovie",
-    /** FIAF Glossary of Filmographic Terms D.1.9 */
+    /** FIAF Glossary of Filmographic Terms D.1.11 */
     Outtake = "Outtake",
-    /** FIAF Glossary of Filmographic Terms D.1.9 */
+    /** FIAF Glossary of Filmographic Terms D.1.15 */
     ScreenTest = "ScreenTest",
-    /** FIAF Glossary of Filmographic Terms D.1.9 */
+    /** FIAF Glossary of Filmographic Terms D.1.4 */
     Series = "Series",
-    /** FIAF Glossary of Filmographic Terms D.1.9 */
+    /** FIAF Glossary of Filmographic Terms D.1.3 */
     Short = "Short",
-    /** FIAF Glossary of Filmographic Terms D.1.9 */
+    /** FIAF Glossary of Filmographic Terms D.1.12 */
     StockFootage = "StockFootage",
-    /** FIAF Glossary of Filmographic Terms D.1.9 */
+    /** FIAF Glossary of Filmographic Terms D.1.7 */
     Trailer = "Trailer",
-    /** FIAF Glossary of Filmographic Terms D.1.9 */
+    /** FIAF Glossary of Filmographic Terms D.1.14 */
     UneditedFootage = "UneditedFootage",
     /** FIAF Moving Image Cataloguing Manual E.2.2 */
     AnthologyFilm = "AnthologyFilm",

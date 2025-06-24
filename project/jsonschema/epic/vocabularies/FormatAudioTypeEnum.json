@@ -3,6 +3,7 @@
   "description": "FIAF Moving Image Cataloguing Manual D.7.2",
   "enum": [
     "16mmMagneticTrack",
+    "17.5mmMagneticTrack",
     "35mmMagneticTrack",
     "Audiocassette",
     "HalfInchAudioReel",

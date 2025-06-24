@@ -685,6 +685,7 @@
             "description": "FIAF Moving Image Cataloguing Manual D.7.2",
             "enum": [
                 "16mmMagneticTrack",
+                "17.5mmMagneticTrack",
                 "35mmMagneticTrack",
                 "Audiocassette",
                 "HalfInchAudioReel",
@@ -713,10 +714,12 @@
             "enum": [
                 "AVI",
                 "DPX",
+                "DV",
                 "MOV",
                 "MP4",
                 "MXF",
-                "VOB"
+                "VOB",
+                "WebM"
             ],
             "title": "FormatDigitalFileTypeEnum",
             "type": "string"
@@ -755,9 +758,21 @@
                 "BetacamSP",
                 "D1",
                 "D5",
-                "DVCPROHD",
+                "Digital8",
                 "DigitalBetacam",
-                "HDCAMSR"
+                "DV",
+                "DVCAM",
+                "DVCPro",
+                "DVCPro50",
+                "DVCPROHD",
+                "HDCAM",
+                "HDCAMSR",
+                "HDV",
+                "MiniDV",
+                "SVHS",
+                "UMatic",
+                "IMX",
+                "VHS"
             ],
             "title": "FormatVideoTypeEnum",
             "type": "string"
@@ -1197,16 +1212,19 @@
                 "ColourPositive",
                 "CopperTonedPositive",
                 "CyanMatrix",
+                "DCDM",
                 "DCP",
                 "DirectBWPositive",
                 "DuplicateNegative",
                 "DuplicatePositive",
+                "EditDecisionList",
                 "ImageNegative",
                 "Lavender",
                 "OriginalNegative",
                 "OriginalPositiveReversalFilm",
                 "Positive",
-                "SoundNegative"
+                "SoundNegative",
+                "Subtitles"
             ],
             "title": "ItemElementTypeEnum",
             "type": "string"
@@ -3082,7 +3100,7 @@
             "type": "object"
         },
         "WorkFormEnum": {
-            "description": "FIAF Glossary of Filmographic Terms D.1.9",
+            "description": "FIAF Glossary of Filmographic Terms D.1",
             "enum": [
                 "AmateurFilm",
                 "Compilation",

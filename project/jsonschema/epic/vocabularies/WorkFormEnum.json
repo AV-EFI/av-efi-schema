@@ -1,6 +1,6 @@
 {
   "$id": "WorkFormEnum",
-  "description": "FIAF Glossary of Filmographic Terms D.1.9",
+  "description": "FIAF Glossary of Filmographic Terms D.1",
   "enum": [
     "AmateurFilm",
     "Compilation",

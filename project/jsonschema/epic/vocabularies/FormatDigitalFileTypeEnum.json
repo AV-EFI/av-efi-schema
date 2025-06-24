@@ -4,10 +4,12 @@
   "enum": [
     "AVI",
     "DPX",
+    "DV",
     "MOV",
     "MP4",
     "MXF",
-    "VOB"
+    "VOB",
+    "WebM"
   ],
   "title": "FormatDigitalFileTypeEnum",
   "type": "string"

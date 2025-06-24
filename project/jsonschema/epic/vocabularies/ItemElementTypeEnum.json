@@ -6,16 +6,19 @@
     "ColourPositive",
     "CopperTonedPositive",
     "CyanMatrix",
+    "DCDM",
     "DCP",
     "DirectBWPositive",
     "DuplicateNegative",
     "DuplicatePositive",
+    "EditDecisionList",
     "ImageNegative",
     "Lavender",
     "OriginalNegative",
     "OriginalPositiveReversalFilm",
     "Positive",
-    "SoundNegative"
+    "SoundNegative",
+    "Subtitles"
   ],
   "title": "ItemElementTypeEnum",
   "type": "string"

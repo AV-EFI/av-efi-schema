@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-04-18T12:26:11
+# Generation date: 2025-06-24T13:46:00
 # Schema: model
 #
 # id: https://av-efi.github.io/av-efi-schema/model
@@ -3074,6 +3074,8 @@ class FormatAudioTypeEnum(EnumDefinitionImpl):
                 text="16mmMagneticTrack",
                 description="FIAF Moving Image Cataloguing Manual D.7.2",
                 meaning=FIAF["16mmMagneticTrack"]))
+        setattr(cls, "17.5mmMagneticTrack",
+            PermissibleValue(text="17.5mmMagneticTrack"))
         setattr(cls, "35mmMagneticTrack",
             PermissibleValue(
                 text="35mmMagneticTrack",
@@ -3126,6 +3128,7 @@ class FormatDigitalFileTypeEnum(EnumDefinitionImpl):
         text="DPX",
         description="FIAF Moving Image Cataloguing Manual D.7.2",
         meaning=FIAF["DPX"])
+    DV = PermissibleValue(text="DV")
     MOV = PermissibleValue(
         text="MOV",
         description="FIAF Moving Image Cataloguing Manual D.7.2",
@@ -3142,6 +3145,7 @@ class FormatDigitalFileTypeEnum(EnumDefinitionImpl):
         text="VOB",
         description="Video Object File (MPEG-2 subset)",
         meaning=PRONOM["fmt/425"])
+    WebM = PermissibleValue(text="WebM")
 
     _defn = EnumDefinition(
         name="FormatDigitalFileTypeEnum",
@@ -3241,18 +3245,30 @@ class FormatVideoTypeEnum(EnumDefinitionImpl):
         text="D5",
         description="FIAF Moving Image Cataloguing Manual D.7.2",
         meaning=FIAF["D5"])
-    DVCPROHD = PermissibleValue(
-        text="DVCPROHD",
-        description="FIAF Moving Image Cataloguing Manual D.7.2",
-        meaning=FIAF["DVCPROHD"])
+    Digital8 = PermissibleValue(text="Digital8")
     DigitalBetacam = PermissibleValue(
         text="DigitalBetacam",
         description="FIAF Moving Image Cataloguing Manual D.7.2",
         meaning=FIAF["DigitalBetacam"])
+    DV = PermissibleValue(text="DV")
+    DVCAM = PermissibleValue(text="DVCAM")
+    DVCPro = PermissibleValue(text="DVCPro")
+    DVCPro50 = PermissibleValue(text="DVCPro50")
+    DVCPROHD = PermissibleValue(
+        text="DVCPROHD",
+        description="FIAF Moving Image Cataloguing Manual D.7.2",
+        meaning=FIAF["DVCPROHD"])
+    HDCAM = PermissibleValue(text="HDCAM")
     HDCAMSR = PermissibleValue(
         text="HDCAMSR",
         description="FIAF Moving Image Cataloguing Manual D.7.2",
         meaning=FIAF["HDCAMSR"])
+    HDV = PermissibleValue(text="HDV")
+    MiniDV = PermissibleValue(text="MiniDV")
+    SVHS = PermissibleValue(text="SVHS")
+    UMatic = PermissibleValue(text="UMatic")
+    IMX = PermissibleValue(text="IMX")
+    VHS = PermissibleValue(text="VHS")
 
     _defn = EnumDefinition(
         name="FormatVideoTypeEnum",
@@ -3363,6 +3379,7 @@ class ItemElementTypeEnum(EnumDefinitionImpl):
         text="CyanMatrix",
         description="FIAF Moving Image Cataloguing Manual D.7.8",
         meaning=FIAF["CyanMatrix"])
+    DCDM = PermissibleValue(text="DCDM")
     DCP = PermissibleValue(
         text="DCP",
         description="FIAF Moving Image Cataloguing Manual D.7.8",
@@ -3379,6 +3396,7 @@ class ItemElementTypeEnum(EnumDefinitionImpl):
         text="DuplicatePositive",
         description="FIAF Moving Image Cataloguing Manual D.7.8",
         meaning=FIAF["DuplicatePositive"])
+    EditDecisionList = PermissibleValue(text="EditDecisionList")
     ImageNegative = PermissibleValue(
         text="ImageNegative",
         description="FIAF Moving Image Cataloguing Manual D.7.8",
@@ -3403,6 +3421,7 @@ class ItemElementTypeEnum(EnumDefinitionImpl):
         text="SoundNegative",
         description="FIAF Moving Image Cataloguing Manual D.7.8",
         meaning=FIAF["SoundNegative"])
+    Subtitles = PermissibleValue(text="Subtitles")
 
     _defn = EnumDefinition(
         name="ItemElementTypeEnum",
@@ -5224,7 +5243,7 @@ class WorkVariantTypeEnum(EnumDefinitionImpl):
 
 class WorkFormEnum(EnumDefinitionImpl):
     """
-    FIAF Glossary of Filmographic Terms D.1.9
+    FIAF Glossary of Filmographic Terms D.1
     """
     AmateurFilm = PermissibleValue(
         text="AmateurFilm",
@@ -5232,51 +5251,51 @@ class WorkFormEnum(EnumDefinitionImpl):
         meaning=FIAF["AmateurFilm"])
     Compilation = PermissibleValue(
         text="Compilation",
-        description="FIAF Glossary of Filmographic Terms D.1.9",
+        description="FIAF Glossary of Filmographic Terms D.1.6",
         meaning=FIAF["Compilation"])
     Excerpt = PermissibleValue(
         text="Excerpt",
-        description="FIAF Glossary of Filmographic Terms D.1.9",
+        description="FIAF Glossary of Filmographic Terms D.1.13",
         meaning=FIAF["Excerpt"])
     Feature = PermissibleValue(
         text="Feature",
-        description="FIAF Glossary of Filmographic Terms D.1.9",
+        description="FIAF Glossary of Filmographic Terms D.1.2",
         meaning=FIAF["Feature"])
     Featurette = PermissibleValue(
         text="Featurette",
-        description="FIAF Glossary of Filmographic Terms D.1.9",
+        description="FIAF Glossary of Filmographic Terms D.1.8",
         meaning=FIAF["Featurette"])
     HomeMovie = PermissibleValue(
         text="HomeMovie",
-        description="FIAF Glossary of Filmographic Terms D.1.9",
+        description="FIAF Glossary of Filmographic Terms D.1.10",
         meaning=FIAF["HomeMovie"])
     Outtake = PermissibleValue(
         text="Outtake",
-        description="FIAF Glossary of Filmographic Terms D.1.9",
+        description="FIAF Glossary of Filmographic Terms D.1.11",
         meaning=FIAF["Outtake"])
     ScreenTest = PermissibleValue(
         text="ScreenTest",
-        description="FIAF Glossary of Filmographic Terms D.1.9",
+        description="FIAF Glossary of Filmographic Terms D.1.15",
         meaning=FIAF["ScreenTest"])
     Series = PermissibleValue(
         text="Series",
-        description="FIAF Glossary of Filmographic Terms D.1.9",
+        description="FIAF Glossary of Filmographic Terms D.1.4",
         meaning=FIAF["Series"])
     Short = PermissibleValue(
         text="Short",
-        description="FIAF Glossary of Filmographic Terms D.1.9",
+        description="FIAF Glossary of Filmographic Terms D.1.3",
         meaning=FIAF["Short"])
     StockFootage = PermissibleValue(
         text="StockFootage",
-        description="FIAF Glossary of Filmographic Terms D.1.9",
+        description="FIAF Glossary of Filmographic Terms D.1.12",
         meaning=FIAF["StockFootage"])
     Trailer = PermissibleValue(
         text="Trailer",
-        description="FIAF Glossary of Filmographic Terms D.1.9",
+        description="FIAF Glossary of Filmographic Terms D.1.7",
         meaning=FIAF["Trailer"])
     UneditedFootage = PermissibleValue(
         text="UneditedFootage",
-        description="FIAF Glossary of Filmographic Terms D.1.9",
+        description="FIAF Glossary of Filmographic Terms D.1.14",
         meaning=FIAF["UneditedFootage"])
     AnthologyFilm = PermissibleValue(
         text="AnthologyFilm",
@@ -5305,7 +5324,7 @@ class WorkFormEnum(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="WorkFormEnum",
-        description="FIAF Glossary of Filmographic Terms D.1.9",
+        description="FIAF Glossary of Filmographic Terms D.1",
     )
 
 # Slots
