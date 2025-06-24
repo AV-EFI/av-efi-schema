@@ -1838,6 +1838,12 @@ enums:
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:16mmMagneticTrack
+      17.5mmMagneticTrack:
+        structured_aliases:
+        - literal_form: 17,5mm Magnetband
+          in_language: de
+        - literal_form: 17.5mm Magnetic Track
+          in_language: en
       35mmMagneticTrack:
         structured_aliases:
         - literal_form: 35mm Magnetband
@@ -1954,6 +1960,10 @@ enums:
           in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:DPX
+      DV:
+        structured_aliases:
+        - literal_form: DV
+          in_language: default
       MOV:
         structured_aliases:
         - literal_form: MOV
@@ -1978,6 +1988,10 @@ enums:
           in_language: default
         description: Video Object File (MPEG-2 subset)
         meaning: pronom:fmt/425
+      WebM:
+        structured_aliases:
+        - literal_form: WebM
+          in_language: default
 
   FormatFilmTypeEnum:
     rank: 23
@@ -2118,24 +2132,72 @@ enums:
           in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:D5
-      DVCPROHD:
+      Digital8:
         structured_aliases:
-        - literal_form: DVCPRO HD
+        - literal_form: Digital 8
           in_language: default
-        description: FIAF Moving Image Cataloguing Manual D.7.2
-        meaning: fiaf:DVCPROHD
       DigitalBetacam:
         structured_aliases:
         - literal_form: Digital Betacam
           in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:DigitalBetacam
+      DV:
+        structured_aliases:
+        - literal_form: DV
+          in_language: default
+      DVCAM:
+        structured_aliases:
+        - literal_form: DVCAM
+          in_language: default
+      DVCPro:
+        structured_aliases:
+        - literal_form: DVCPro
+          in_language: default
+      DVCPro50:
+        structured_aliases:
+        - literal_form: DVCPro50
+          in_language: default
+      DVCPROHD:
+        structured_aliases:
+        - literal_form: DVCPRO HD
+          in_language: default
+        description: FIAF Moving Image Cataloguing Manual D.7.2
+        meaning: fiaf:DVCPROHD
+      HDCAM:
+        structured_aliases:
+        - literal_form: HDCAM
+          in_language: default
       HDCAMSR:
         structured_aliases:
         - literal_form: HDCAM SR
           in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.2
         meaning: fiaf:HDCAMSR
+      HDV:
+        structured_aliases:
+        - literal_form: HDV
+          in_language: default
+      MiniDV:
+        structured_aliases:
+        - literal_form: MiniDV
+          in_language: default
+      SVHS:
+        structured_aliases:
+        - literal_form: S-VHS
+          in_language: default
+      UMatic:
+        structured_aliases:
+        - literal_form: U-Matic
+          in_language: default
+      IMX:
+        structured_aliases:
+        - literal_form: IMX
+          in_language: default
+      VHS:
+        structured_aliases:
+        - literal_form: VHS
+          in_language: default
 
   FrameRateEnum:
     rank: 36
