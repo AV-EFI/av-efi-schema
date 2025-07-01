@@ -1400,12 +1400,16 @@ export enum WorkFormEnum {
     AmateurFilm = "AmateurFilm",
     /** FIAF Glossary of Filmographic Terms D.1.6 */
     Compilation = "Compilation",
+    /** https://d-nb.info/gnd/4012653-5 */
+    Documentary = "Documentary",
     /** FIAF Glossary of Filmographic Terms D.1.13 */
     Excerpt = "Excerpt",
     /** FIAF Glossary of Filmographic Terms D.1.2 */
     Feature = "Feature",
     /** FIAF Glossary of Filmographic Terms D.1.8 */
     Featurette = "Featurette",
+    /** https://d-nb.info/gnd/1286825091 */
+    Fiction = "Fiction",
     /** FIAF Glossary of Filmographic Terms D.1.10 */
     HomeMovie = "HomeMovie",
     /** FIAF Glossary of Filmographic Terms D.1.11 */

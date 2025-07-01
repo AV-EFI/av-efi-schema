@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-06-24T13:46:00
+# Generation date: 2025-07-01T17:30:24
 # Schema: model
 #
 # id: https://av-efi.github.io/av-efi-schema/model
@@ -5253,6 +5253,9 @@ class WorkFormEnum(EnumDefinitionImpl):
         text="Compilation",
         description="FIAF Glossary of Filmographic Terms D.1.6",
         meaning=FIAF["Compilation"])
+    Documentary = PermissibleValue(
+        text="Documentary",
+        description="https://d-nb.info/gnd/4012653-5")
     Excerpt = PermissibleValue(
         text="Excerpt",
         description="FIAF Glossary of Filmographic Terms D.1.13",
@@ -5265,6 +5268,9 @@ class WorkFormEnum(EnumDefinitionImpl):
         text="Featurette",
         description="FIAF Glossary of Filmographic Terms D.1.8",
         meaning=FIAF["Featurette"])
+    Fiction = PermissibleValue(
+        text="Fiction",
+        description="https://d-nb.info/gnd/1286825091")
     HomeMovie = PermissibleValue(
         text="HomeMovie",
         description="FIAF Glossary of Filmographic Terms D.1.10",

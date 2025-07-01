@@ -4,9 +4,11 @@
   "enum": [
     "AmateurFilm",
     "Compilation",
+    "Documentary",
     "Excerpt",
     "Feature",
     "Featurette",
+    "Fiction",
     "HomeMovie",
     "Outtake",
     "ScreenTest",
