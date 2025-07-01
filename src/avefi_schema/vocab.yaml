@@ -1640,7 +1640,7 @@ enums:
         meaning: fiaf:UploadingEvent
       VideoCopyingEvent:
         structured_aliases:
-        - literal_form: Videokopie
+        - literal_form: Videokopierung
           in_language: de
         - literal_form: Video Copying
           in_language: en
@@ -1744,7 +1744,7 @@ enums:
     permissible_values:
       BroadcastEvent:
         structured_aliases:
-        - literal_form: Übertragungsereignis
+        - literal_form: Fernsehausstrahlung
           in_language: de
         - literal_form: Broadcast Event
           in_language: en
@@ -1752,15 +1752,15 @@ enums:
         meaning: fiaf:BroadcastEvent
       DistributionEvent:
         structured_aliases:
-        - literal_form: Distributionsereignis
+        - literal_form: Distribution
           in_language: de
-        - literal_form: Distribution Event
+        - literal_form: Distribution
           in_language: en
         description: FIAF Moving Image Cataloguing Manual D.10
         meaning: fiaf:DistributionEvent
       HomeVideoPublicationEvent:
         structured_aliases:
-        - literal_form: Home Movie-Veröffentlichung
+        - literal_form: Home Video-Veröffentlichung
           in_language: de
         - literal_form: Home Video Publication
           in_language: en
@@ -1768,7 +1768,7 @@ enums:
         meaning: fiaf:HomeVideoPublicationEvent
       NonTheatricalDistributionEvent:
         structured_aliases:
-        - literal_form: Distribution (nicht für Kino)
+        - literal_form: Nicht-Kino-Distribution
           in_language: de
         - literal_form: Non-Theatrical Distribution
           in_language: en
@@ -1776,7 +1776,7 @@ enums:
         meaning: fiaf:NonTheatricalDistributionEvent
       NotForReleaseEvent:
         structured_aliases:
-        - literal_form: Nicht zur Veröffentlichung
+        - literal_form: Nicht zur Veröffentlichung bestimmt
           in_language: de
         - literal_form: Not For Release
           in_language: en
@@ -1784,7 +1784,7 @@ enums:
         meaning: fiaf:NotForReleaseEvent
       OnlineTransmissionEvent:
         structured_aliases:
-        - literal_form: Online-Übertragung
+        - literal_form: Online
           in_language: de
         - literal_form: Online Transmission
           in_language: en
@@ -1806,7 +1806,7 @@ enums:
         meaning: fiaf:ReleaseEvent
       TheatricalDistributionEvent:
         structured_aliases:
-        - literal_form: Distribution (für Kino)
+        - literal_form: Kinovertrieb
           in_language: de
         - literal_form: Theatrical Distribution
           in_language: en
