@@ -6481,6 +6481,14 @@ enums:
         meaning: fiaf:Compilation
         description: >-
           FIAF Glossary of Filmographic Terms D.1.6
+      Documentary:
+        structured_aliases:
+        - literal_form: Dokumentarfilm
+          in_language: de
+        - literal_form: Documentary
+          in_language: en
+        description:
+          https://d-nb.info/gnd/4012653-5
       Excerpt:
         structured_aliases:
         - literal_form: Filmausschnitt
@@ -6508,6 +6516,13 @@ enums:
         meaning: fiaf:Featurette
         description: >-
           FIAF Glossary of Filmographic Terms D.1.8
+      Fiction:
+        structured_aliases:
+        - literal_form: Spielfilm
+          in_language: de
+        - literal_form: Fiction
+          in_language: en
+        description: https://d-nb.info/gnd/1286825091
       HomeMovie:
         structured_aliases:
         - literal_form: Home Movie
