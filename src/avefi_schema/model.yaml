@@ -409,6 +409,7 @@ classes:
     - has_identifier
     - has_primary_title
     - has_source_key
+    - handle
     annotations:
     - pid: 21.T11969/2e9c01efa0f0f6881365
     - trunk_pid: 21.T11969/0e3ed2fb51ddeec3cb1f
