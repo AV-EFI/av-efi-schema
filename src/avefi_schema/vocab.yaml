@@ -1752,7 +1752,7 @@ enums:
         meaning: fiaf:BroadcastEvent
       DistributionEvent:
         structured_aliases:
-        - literal_form: Distribution
+        - literal_form: Vertrieb
           in_language: de
         - literal_form: Distribution
           in_language: en
@@ -1768,7 +1768,7 @@ enums:
         meaning: fiaf:HomeVideoPublicationEvent
       NonTheatricalDistributionEvent:
         structured_aliases:
-        - literal_form: Nicht-Kino-Distribution
+        - literal_form: Nicht-Kino-Vertrieb
           in_language: de
         - literal_form: Non-Theatrical Distribution
           in_language: en
