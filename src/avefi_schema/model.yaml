@@ -403,6 +403,7 @@ classes:
     is_a: CategorizedThing
     abstract: true
     slots:
+    - has_record
     - described_by
     - has_alternative_title
     - has_event
