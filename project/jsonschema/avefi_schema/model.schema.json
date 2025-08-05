@@ -3393,7 +3393,7 @@
             "type": "string"
         }
     },
-    "$id": "https://av-efi.github.io/av-efi-schema/model",
+    "$id": "https://www.av-efi.net/av-efi-schema/model",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "metamodel_version": "1.7.0",
