@@ -409,6 +409,7 @@ classes:
     - has_identifier
     - has_primary_title
     - has_source_key
+    - same_as
     annotations:
     - pid: 21.T11969/2e9c01efa0f0f6881365
     - trunk_pid: 21.T11969/0e3ed2fb51ddeec3cb1f
@@ -439,7 +440,6 @@ classes:
     - has_subject
     - is_part_of
     - is_variant_of
-    - same_as
     - type
     - variant_type
     slot_usage:
@@ -1335,7 +1335,6 @@ classes:
     slots:
     - has_item
     - is_manifestation_of
-    - same_as
     slot_usage:
       same_as:
         any_of:
@@ -1418,6 +1417,20 @@ classes:
     - is_copy_of
     - is_derivative_of
     - is_item_of
+    slot_usage:
+      same_as:
+        any_of:
+        - range: MovingImageResource
+        - range: DOIResource
+        annotations:
+        - pid: 21.T11969/b4df5cbef35756648e4d
+        in_subset:
+        - TypeRegistrySubset
+        description: >-
+          Another identifier for the same item, e.g. a DOI. Can also
+          be used to link to another AVefi record describing the same
+          item, e.g. when it has changed hands and the new custodian
+          registers its own record for the item
     structured_aliases:
     - literal_form: Exemplar
       in_language: de
