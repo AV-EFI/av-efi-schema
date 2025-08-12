@@ -3,6 +3,7 @@
 # starting with task_). This way, task_sync() gets a chance to update
 # dependencies transparently even for this module
 import copy
+import itertools
 import json
 from pathlib import Path
 
@@ -154,28 +155,27 @@ def task_json_lc_messages():
     def lc_messages_from_labels(dependencies, targets):
         import linkml_runtime as linkmlr
         schema = linkmlr.SchemaView(SRC_MODEL)
-        lc_message_catalog = {}
-        for lc_code in ('en', 'de'):
-            lc_messages = lc_message_catalog.setdefault(lc_code, {})
-            for cls in schema.all_classes().values():
-                result = None
-                for label, attrs in cls.structured_aliases.items():
-                    if attrs.in_language == 'default' and result == None:
-                        result = label
-                    elif attrs.in_language == lc_code:
-                        result = label
-                if result:
-                    lc_messages[schema.get_uri(cls.name)] = result
-            for enum in schema.all_enums().values():
-                for key, value in enum.permissible_values.items():
-                    result = None
-                    for label, attrs in value.structured_aliases.items():
-                        if attrs.in_language == 'default' and result == None:
-                            result = label
-                        elif attrs.in_language == lc_code:
-                            result = label
+        lc_message_catalog = {lc_code: {} for lc_code in ('en', 'de')}
+        for key, obj in itertools.chain(
+                [
+                    (schema.get_uri(cls.name), cls)
+                    for cls in schema.all_classes().values()
+                ],
+                schema.all_slots().items(),
+                itertools.chain.from_iterable(
+                    enum.permissible_values.items()
+                    for enum in schema.all_enums().values())):
+            label_dict = {
+                attrs.in_language: label
+                for label, attrs in obj.structured_aliases.items()
+            }
+            if label_dict:
+                for lc_code in ('en', 'de'):
+                    result = label_dict.get(
+                        lc_code,
+                        label_dict.get('default', None))
                     if result:
-                        lc_messages[key] = result
+                        lc_message_catalog[lc_code][key] = result
         lc_messages_path = Path(targets[0])
         with open(lc_messages_path, 'w') as f:
             json.dump(
