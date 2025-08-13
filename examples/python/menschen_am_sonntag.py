@@ -14,18 +14,22 @@ follows::
 """
 
 import os
+import pathlib
 import tempfile
+from typing import Annotated
 
-from avefi_schema import model as efi
-from linkml_runtime.dumpers import JSONDumper
-from linkml_runtime.loaders import JSONLoader
+from avefi_schema import model_pydantic_v2 as efi
+from pydantic import Field, RootModel
+
+
+class MovingImageRecords(RootModel):
+    root: list[Annotated[
+        efi.WorkVariant | efi.Manifestation | efi.Item,
+        Field(discriminator='category'),
+    ]]
 
 
 def main():
-    # Initialise helpers
-    dumper = JSONDumper()
-    loader = JSONLoader()
-
     # Instantiate moving image records
     work = sample_work()
     manifestation = sample_manifestation(work)
@@ -37,11 +41,14 @@ def main():
     os.close(file_obj)
 
     # Write data to file
-    dumper.dump([work, manifestation, item], json_file, inject_type=False)
+    records = MovingImageRecords([work, manifestation, item])
+    with open(json_file, 'w') as f:
+        f.write(records.model_dump_json(exclude_none=True, indent=2))
 
     # Read data back again
-    records = loader.load_any(json_file, efi.MovingImageRecord)
-    assert records[0] == work
+    with open(json_file) as f:
+        records = MovingImageRecords.model_validate_json(f.read())
+    assert records.root[0] == work
     print(f"Wrote data to {json_file} and read it back again")
 
 
@@ -53,10 +60,10 @@ def sample_work():
             has_name='Menschen am Sonntag – Das Dokument der Gegenwart'))
     event = efi.ProductionEvent(
         has_date='1929/1930',
-        located_in=efi.GeographicName(
+        located_in=[efi.GeographicName(
             has_name='Germany (German Reich)',
-            same_as=efi.GNDResource(id='2008993-4')))
-    work.has_event.append(event)
+            same_as=[efi.GNDResource(id='2008993-4')])])
+    work.has_event = [event]
     directors = efi.DirectingActivity(
         type=efi.DirectingActivityTypeEnum('Director'),
         has_agent=[
@@ -73,23 +80,22 @@ def sample_work():
                 has_name='Gliese, Rochus',
                 same_as=[efi.GNDResource(id='116663308')])
         ])
-    event.has_activity.append(directors)
+    event.has_activity = [directors]
     event.has_activity.append(
         efi.WritingActivity(
             type=efi.WritingActivityTypeEnum('Writer'),
-            has_agent=efi.Agent(
+            has_agent=[efi.Agent(
                 type=efi.AgentTypeEnum('Person'),
                 has_name='Wilder, Billy',
                 same_as=[
-                    efi.GNDResource(id='118632795')])))
-    work.has_genre.append(
-        efi.Genre(has_name='Fiction'))
+                    efi.GNDResource(id='118632795')])]))
+    work.has_genre = [efi.Genre(has_name='Fiction')]
 
     # If no EFI has been registered yet, assign arbitrary identifier,
     # e.g. from local database, with prefix "local:"
-    work.has_identifier.append(efi.LocalResource(id='mams_1'))
-    work.same_as.append(
-        efi.FilmportalResource(id='f570e1abdad841dc8d5b25b0f7737065'))
+    work.has_identifier = [efi.LocalResource(id='mams_1')]
+    work.same_as = [
+        efi.FilmportalResource(id='f570e1abdad841dc8d5b25b0f7737065')]
     return work
 
 
@@ -116,26 +122,26 @@ def sample_manifestation(*works):
                 'AgentResponsibleForTheArchivalAvailability'),
             has_agent=[kinemathek]),
     ]
-    manifestation.has_event.append(efi.PreservationEvent(
+    manifestation.has_event = [efi.PreservationEvent(
         type=efi.PreservationEventTypeEnum('RestorationEvent'),
         has_date='2013/2014',
-        has_activity=restoration_activities))
+        has_activity=restoration_activities)]
     manifestation.has_event.append(efi.PublicationEvent(
         type=efi.PublicationEventTypeEnum('ReleaseEvent'),
         has_date='2014'))
     manifestation.in_language = [
         efi.Language(
-            usage=efi.LanguageUsageEnum('Intertitles'),
+            usage=[efi.LanguageUsageEnum('Intertitles')],
             code=efi.LanguageCodeEnum('deu')),
         efi.Language(
-            usage=efi.LanguageUsageEnum('Subtitles'),
+            usage=[efi.LanguageUsageEnum('Subtitles')],
             code=efi.LanguageCodeEnum('eng')),
         efi.Language(
-            usage=efi.LanguageUsageEnum('Subtitles'),
+            usage=[efi.LanguageUsageEnum('Subtitles')],
             code=efi.LanguageCodeEnum('fra'))
     ]
-    manifestation.has_colour_type = 'BlackAndWhite'
-    manifestation.has_sound_type = 'Sound'
+    manifestation.has_colour_type = efi.ColourTypeEnum('BlackAndWhite')
+    manifestation.has_sound_type = efi.SoundTypeEnum('Sound')
     return manifestation
 
 

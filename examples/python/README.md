@@ -10,13 +10,13 @@ In a virtual environment, you can install the language bindings with
 pip like this:
 
 ```console
-$ pip install "avefi_schema[dataclasses] @ git+https://github.com/AV-EFI/av-efi-schema.git"
+$ pip install "avefi_schema @ git+https://github.com/AV-EFI/av-efi-schema.git"
 ```
 
 The module is then available as:
 
 ```python
->>> from avefi_schema import model as efi
+>>> from avefi_schema import model_pydantic_v2 as efi
 ```
 
 See [menschen_am_sonntag.py](./menschen_am_sonntag.py) in this
@@ -33,15 +33,42 @@ references to local identifiers can be resolved within the same file.
 Please refer to the check module in the [efi-conv
 repository](https://github.com/AV-EFI/efi-conv).
 
-A pydantic model of the AVefi schema is available too and can be used
+A dataclasses model of the AVefi schema is available too and can be used
 as follows:
 
 ```python
->>> from avefi_schema import model_pydantic_v2 as efi
+>>> from avefi_schema import model as efi
 ```
 
-This module only depends on pydantic and not on the linkml-runtime
-library. So, if your application does not rely on certain polymorphism
-features supported only by the dataclasses module, it may be desirable
-to use this one instead and reduce dependencies by leaving out the
-`[dataclasses]` qualifier from the installation command above.
+This module has additional dependencies on the linkml-runtime library,
+though. So, if you need this module, you will have to run the
+following command in order to pull in those dependencies:
+
+```console
+$ pip install "avefi_schema[dataclasses] @ git+https://github.com/AV-EFI/av-efi-schema.git"
+```
+
+[LinkML loaders and
+dumpers](https://linkml.io/linkml/developers/loaders-and-dumpers.html)
+may come in handy when using the dataclasses module. The
+[menschen_am_sonntag.py example](./menschen_am_sonntag.py) would have
+to be modified along these lines:
+
+```python
+from avefi_schema import model as efi
+from linkml_runtime.dumpers import JSONDumper
+from linkml_runtime.loaders import JSONLoader
+
+def main():
+    # Initialise helpers
+    dumper = JSONDumper()
+    loader = JSONLoader()
+    
+    # ...
+
+    # Write data to file
+    dumper.dump([work, manifestation, item], json_file, inject_type=False)
+
+    # Read data back again
+    records = loader.load_any(json_file, efi.MovingImageRecord)
+```
