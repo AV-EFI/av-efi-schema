@@ -1924,6 +1924,14 @@ class MovingImageRecord(CategorizedThing):
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
     has_source_key: Optional[List[str]] = Field(default=None, description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    same_as: Optional[List[Union[AuthorityResource,MovingImageResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=None, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
+         'domain_of': ['MovingImageRecord',
+                       'GeographicName',
+                       'Genre',
+                       'Subject',
+                       'Agent'],
+         'in_subset': ['TypeRegistrySubset'],
+         'rank': 5} })
     category: Literal["https://www.av-efi.net/av-efi-schema/MovingImageRecord","avefi:MovingImageRecord"] = Field(default="avefi:MovingImageRecord", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['CategorizedThing'],
@@ -2029,22 +2037,6 @@ class WorkVariant(MovingImageRecord):
                                                   'literal_form': 'Is variant of'},
                                 'Variante von': {'in_language': 'de',
                                                  'literal_form': 'Variante von'}}} })
-    same_as: Optional[List[Union[EIDRResource, FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default=None, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
-         'annotations': {'pid': {'tag': 'pid',
-                                 'value': '21.T11969/6cd9c85272885fefa9c0'}},
-         'any_of': [{'range': 'EIDRResource'},
-                    {'range': 'FilmportalResource'},
-                    {'range': 'GNDResource'},
-                    {'range': 'VIAFResource'},
-                    {'range': 'WikidataResource'}],
-         'domain_of': ['WorkVariant',
-                       'GeographicName',
-                       'Genre',
-                       'Subject',
-                       'Agent',
-                       'Manifestation'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 5} })
     type: WorkVariantTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
          'domain_of': ['WorkVariant',
                        'Activity',
@@ -2090,6 +2082,21 @@ class WorkVariant(MovingImageRecord):
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
     has_source_key: Optional[List[str]] = Field(default=None, description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    same_as: Optional[List[Union[EIDRResource, FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default=None, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
+         'annotations': {'pid': {'tag': 'pid',
+                                 'value': '21.T11969/6cd9c85272885fefa9c0'}},
+         'any_of': [{'range': 'EIDRResource'},
+                    {'range': 'FilmportalResource'},
+                    {'range': 'GNDResource'},
+                    {'range': 'VIAFResource'},
+                    {'range': 'WikidataResource'}],
+         'domain_of': ['MovingImageRecord',
+                       'GeographicName',
+                       'Genre',
+                       'Subject',
+                       'Agent'],
+         'in_subset': ['TypeRegistrySubset'],
+         'rank': 5} })
     category: Literal["https://www.av-efi.net/av-efi-schema/WorkVariant","avefi:WorkVariant"] = Field(default="avefi:WorkVariant", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['CategorizedThing'],
@@ -2134,12 +2141,11 @@ class GeographicName(CategorizedThing):
                     {'range': 'TGNResource'},
                     {'range': 'VIAFResource'},
                     {'range': 'WikidataResource'}],
-         'domain_of': ['WorkVariant',
+         'domain_of': ['MovingImageRecord',
                        'GeographicName',
                        'Genre',
                        'Subject',
-                       'Agent',
-                       'Manifestation'],
+                       'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
     category: Literal["https://www.av-efi.net/av-efi-schema/GeographicName","avefi:GeographicName"] = Field(default="avefi:GeographicName", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
@@ -2176,12 +2182,11 @@ class Genre(ConfiguredBaseModel):
          'rank': 4,
          'slot_uri': 'schema:name'} })
     same_as: Optional[List[GNDResource]] = Field(default=None, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
-         'domain_of': ['WorkVariant',
+         'domain_of': ['MovingImageRecord',
                        'GeographicName',
                        'Genre',
                        'Subject',
-                       'Agent',
-                       'Manifestation'],
+                       'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
 
@@ -2228,12 +2233,11 @@ class Subject(CategorizedThing):
                     {'range': 'GNDResource'},
                     {'range': 'VIAFResource'},
                     {'range': 'WikidataResource'}],
-         'domain_of': ['WorkVariant',
+         'domain_of': ['MovingImageRecord',
                        'GeographicName',
                        'Genre',
                        'Subject',
-                       'Agent',
-                       'Manifestation'],
+                       'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
     category: Literal["https://www.av-efi.net/av-efi-schema/Subject","avefi:Subject"] = Field(default="avefi:Subject", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
@@ -2937,12 +2941,11 @@ class Agent(CategorizedThing):
                     {'range': 'GNDResource'},
                     {'range': 'VIAFResource'},
                     {'range': 'WikidataResource'}],
-         'domain_of': ['WorkVariant',
+         'domain_of': ['MovingImageRecord',
                        'GeographicName',
                        'Genre',
                        'Subject',
-                       'Agent',
-                       'Manifestation'],
+                       'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
     type: AgentTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
@@ -3420,6 +3423,14 @@ class ManifestationOrItem(MovingImageRecord):
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
     has_source_key: Optional[List[str]] = Field(default=None, description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    same_as: Optional[List[Union[AuthorityResource,MovingImageResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=None, description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
+         'domain_of': ['MovingImageRecord',
+                       'GeographicName',
+                       'Genre',
+                       'Subject',
+                       'Agent'],
+         'in_subset': ['TypeRegistrySubset'],
+         'rank': 5} })
     category: Literal["https://www.av-efi.net/av-efi-schema/ManifestationOrItem","avefi:ManifestationOrItem"] = Field(default="avefi:ManifestationOrItem", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['CategorizedThing'],
@@ -3771,18 +3782,6 @@ class Manifestation(ManifestationOrItem):
          'domain_of': ['Manifestation'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 21} })
-    same_as: Optional[List[Union[EIDRResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=None, description="""Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
-         'annotations': {'pid': {'tag': 'pid',
-                                 'value': '21.T11969/3b99e7540cf4f5f55cac'}},
-         'any_of': [{'range': 'MovingImageResource'}, {'range': 'EIDRResource'}],
-         'domain_of': ['WorkVariant',
-                       'GeographicName',
-                       'Genre',
-                       'Subject',
-                       'Agent',
-                       'Manifestation'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 5} })
     has_colour_type: Optional[ColourTypeEnum] = Field(default=None, description="""FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11""", json_schema_extra = { "linkml_meta": {'alias': 'has_colour_type',
          'domain_of': ['ManifestationOrItem'],
          'in_subset': ['TypeRegistrySubset'],
@@ -3866,6 +3865,17 @@ class Manifestation(ManifestationOrItem):
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
     has_source_key: Optional[List[str]] = Field(default=None, description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    same_as: Optional[List[Union[EIDRResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=None, description="""Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
+         'annotations': {'pid': {'tag': 'pid',
+                                 'value': '21.T11969/3b99e7540cf4f5f55cac'}},
+         'any_of': [{'range': 'MovingImageResource'}, {'range': 'EIDRResource'}],
+         'domain_of': ['MovingImageRecord',
+                       'GeographicName',
+                       'Genre',
+                       'Subject',
+                       'Agent'],
+         'in_subset': ['TypeRegistrySubset'],
+         'rank': 5} })
     category: Literal["https://www.av-efi.net/av-efi-schema/Manifestation","avefi:Manifestation"] = Field(default="avefi:Manifestation", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['CategorizedThing'],
@@ -3912,6 +3922,19 @@ class Item(ManifestationOrItem):
          'from_schema': 'https://www.av-efi.net/av-efi-schema/model',
          'in_subset': ['TypeRegistrySubset'],
          'rank': 3,
+         'slot_usage': {'same_as': {'annotations': {'pid': {'tag': 'pid',
+                                                            'value': '21.T11969/b4df5cbef35756648e4d'}},
+                                    'any_of': [{'range': 'MovingImageResource'},
+                                               {'range': 'DOIResource'}],
+                                    'description': 'Another identifier for the same '
+                                                   'item, e.g. a DOI. Can also be used '
+                                                   'to link to another AVefi record '
+                                                   'describing the same item, e.g. '
+                                                   'when it has changed hands and the '
+                                                   'new custodian registers its own '
+                                                   'record for the item',
+                                    'in_subset': ['TypeRegistrySubset'],
+                                    'name': 'same_as'}},
          'structured_aliases': {'Exemplar': {'in_language': 'de',
                                              'literal_form': 'Exemplar'},
                                 'Item': {'in_language': 'en', 'literal_form': 'Item'}}})
@@ -4043,6 +4066,17 @@ class Item(ManifestationOrItem):
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
     has_source_key: Optional[List[str]] = Field(default=None, description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    same_as: Optional[List[Union[DOIResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=None, description="""Another identifier for the same item, e.g. a DOI. Can also be used to link to another AVefi record describing the same item, e.g. when it has changed hands and the new custodian registers its own record for the item""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
+         'annotations': {'pid': {'tag': 'pid',
+                                 'value': '21.T11969/b4df5cbef35756648e4d'}},
+         'any_of': [{'range': 'MovingImageResource'}, {'range': 'DOIResource'}],
+         'domain_of': ['MovingImageRecord',
+                       'GeographicName',
+                       'Genre',
+                       'Subject',
+                       'Agent'],
+         'in_subset': ['TypeRegistrySubset'],
+         'rank': 5} })
     category: Literal["https://www.av-efi.net/av-efi-schema/Item","avefi:Item"] = Field(default="avefi:Item", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['CategorizedThing'],

@@ -1482,6 +1482,8 @@ export interface MovingImageRecord extends CategorizedThing {
     has_primary_title?: Title,
     /** Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here. */
     has_source_key?: string[],
+    /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
+    same_as?: AuthorityResource[],
 }
 
 
@@ -1499,6 +1501,7 @@ export function toMovingImageRecord(o: MovingImageRecord): MovingImageRecord {
         has_identifier: o.has_identifier ?? [],
         has_primary_title: o.has_primary_title ?? {},
         has_source_key: o.has_source_key ?? [],
+        same_as: o.same_as ?? [],
         category: o.category ?? null
     }
 }
@@ -1548,8 +1551,6 @@ export interface WorkVariant extends MovingImageRecord {
     is_part_of?: MovingImageResource[],
     /** Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5 */
     is_variant_of?: MovingImageResource,
-    /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
-    same_as?: AuthorityResource[],
     /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
     type: string,
     /** FIAF Moving Image Cataloguing Manual D.2 */
@@ -1572,7 +1573,6 @@ export function toWorkVariant(o: WorkVariant): WorkVariant {
         has_subject: o.has_subject ?? [],
         is_part_of: o.is_part_of ?? [],
         is_variant_of: o.is_variant_of ?? {},
-        same_as: o.same_as ?? [],
         type: o.type ?? null,
         variant_type: o.variant_type ?? null,
         described_by: o.described_by ?? {},
@@ -1581,6 +1581,7 @@ export function toWorkVariant(o: WorkVariant): WorkVariant {
         has_identifier: o.has_identifier ?? [],
         has_primary_title: o.has_primary_title ?? {},
         has_source_key: o.has_source_key ?? [],
+        same_as: o.same_as ?? [],
         category: o.category ?? null
     }
 }
@@ -2325,6 +2326,7 @@ export function toManifestationOrItem(o: ManifestationOrItem): ManifestationOrIt
         has_identifier: o.has_identifier ?? [],
         has_primary_title: o.has_primary_title ?? {},
         has_source_key: o.has_source_key ?? [],
+        same_as: o.same_as ?? [],
         category: o.category ?? null
     }
 }
@@ -2531,8 +2533,6 @@ export interface Manifestation extends ManifestationOrItem {
     has_item?: MovingImageResource[],
     /** Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation */
     is_manifestation_of: MovingImageResource[],
-    /** Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work */
-    same_as?: AuthorityResource[],
 }
 
 
@@ -2547,7 +2547,6 @@ export function toManifestation(o: Manifestation): Manifestation {
     return {
         has_item: o.has_item ?? [],
         is_manifestation_of: o.is_manifestation_of ?? [],
-        same_as: o.same_as ?? [],
         has_colour_type: o.has_colour_type ?? null,
         has_duration: o.has_duration ?? {},
         has_extent: o.has_extent ?? {},
@@ -2562,6 +2561,7 @@ export function toManifestation(o: Manifestation): Manifestation {
         has_identifier: o.has_identifier ?? [],
         has_primary_title: o.has_primary_title ?? {},
         has_source_key: o.has_source_key ?? [],
+        same_as: o.same_as ?? [],
         category: o.category ?? null
     }
 }
@@ -2638,6 +2638,7 @@ export function toItem(o: Item): Item {
         has_identifier: o.has_identifier ?? [],
         has_primary_title: o.has_primary_title ?? {},
         has_source_key: o.has_source_key ?? [],
+        same_as: o.same_as ?? [],
         category: o.category ?? null
     }
 }

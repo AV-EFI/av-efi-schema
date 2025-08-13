@@ -1470,6 +1470,8 @@ export interface MovingImageRecord extends CategorizedThing {
     has_primary_title?: Title,
     /** Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here. */
     has_source_key?: string[],
+    /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
+    same_as?: AuthorityResource[],
 }
 
 
@@ -1502,8 +1504,6 @@ export interface WorkVariant extends MovingImageRecord {
     is_part_of?: MovingImageResource[],
     /** Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5 */
     is_variant_of?: MovingImageResource,
-    /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
-    same_as?: AuthorityResource[],
     /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
     type: string,
     /** FIAF Moving Image Cataloguing Manual D.2 */
@@ -1863,8 +1863,6 @@ export interface Manifestation extends ManifestationOrItem {
     has_item?: MovingImageResource[],
     /** Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation */
     is_manifestation_of: MovingImageResource[],
-    /** Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work */
-    same_as?: AuthorityResource[],
 }
 
 

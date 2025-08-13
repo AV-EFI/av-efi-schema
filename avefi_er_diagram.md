@@ -11,6 +11,10 @@ Item {
     IDStringList has_source_key  
     AVefiCurie category  
 }
+AuthorityResource {
+    IDString id  
+    AVefiCurie category  
+}
 Title {
     TextLine has_name  
     TextLine has_ordering_name  
@@ -27,10 +31,6 @@ Event {
 GeographicName {
     TextLineList has_alternate_name  
     TextLine has_name  
-    AVefiCurie category  
-}
-AuthorityResource {
-    IDString id  
     AVefiCurie category  
 }
 Activity {
@@ -105,6 +105,7 @@ Item ||--}o Title : "has_alternative_title"
 Item ||--}o Event : "has_event"
 Item ||--}o MovingImageResource : "has_identifier"
 Item ||--|o Title : "has_primary_title"
+Item ||--}o AuthorityResource : "same_as"
 Event ||--}o Activity : "has_activity"
 Event ||--}o GeographicName : "located_in"
 GeographicName ||--}o AuthorityResource : "same_as"
@@ -112,7 +113,6 @@ Activity ||--}| Agent : "has_agent"
 Agent ||--}o AuthorityResource : "same_as"
 Manifestation ||--}o MovingImageResource : "has_item"
 Manifestation ||--}| MovingImageResource : "is_manifestation_of"
-Manifestation ||--}o AuthorityResource : "same_as"
 Manifestation ||--|o Duration : "has_duration"
 Manifestation ||--|o Extent : "has_extent"
 Manifestation ||--}o Format : "has_format"
@@ -122,16 +122,17 @@ Manifestation ||--}o Title : "has_alternative_title"
 Manifestation ||--}o Event : "has_event"
 Manifestation ||--}o MovingImageResource : "has_identifier"
 Manifestation ||--|o Title : "has_primary_title"
+Manifestation ||--}o AuthorityResource : "same_as"
 WorkVariant ||--}o Genre : "has_genre"
 WorkVariant ||--}o CategorizedThing : "has_subject"
 WorkVariant ||--}o MovingImageResource : "is_part_of"
 WorkVariant ||--|o MovingImageResource : "is_variant_of"
-WorkVariant ||--}o AuthorityResource : "same_as"
 WorkVariant ||--|o DescriptionResource : "described_by"
 WorkVariant ||--}o Title : "has_alternative_title"
 WorkVariant ||--}o Event : "has_event"
 WorkVariant ||--}o MovingImageResource : "has_identifier"
 WorkVariant ||--|| Title : "has_primary_title"
+WorkVariant ||--}o AuthorityResource : "same_as"
 Genre ||--}o GNDResource : "same_as"
 
 ```

@@ -1184,6 +1184,30 @@
                         }
                     ],
                     "description": "Indicate AVefi Manifestation the item belongs to. Every item must be associated with a manifestation from the same data provider"
+                },
+                "same_as": {
+                    "description": "Another identifier for the same item, e.g. a DOI. Can also be used to link to another AVefi record describing the same item, e.g. when it has changed hands and the new custodian registers its own record for the item",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/$defs/AVefiResource"
+                                    },
+                                    {
+                                        "$ref": "#/$defs/LocalResource"
+                                    }
+                                ]
+                            },
+                            {
+                                "$ref": "#/$defs/DOIResource"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [

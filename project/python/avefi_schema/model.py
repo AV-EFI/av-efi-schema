@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-08-12T11:18:21
+# Generation date: 2025-08-13T15:20:47
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -303,6 +303,7 @@ class MovingImageRecord(CategorizedThing):
     has_identifier: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
     has_primary_title: Optional[Union[dict, "Title"]] = None
     has_source_key: Optional[Union[Union[str, IDString], List[Union[str, IDString]]]] = empty_list()
+    same_as: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.described_by is not None and not isinstance(self.described_by, DescriptionResource):
@@ -326,6 +327,10 @@ class MovingImageRecord(CategorizedThing):
         if not isinstance(self.has_source_key, list):
             self.has_source_key = [self.has_source_key] if self.has_source_key is not None else []
         self.has_source_key = [v if isinstance(v, IDString) else IDString(v) for v in self.has_source_key]
+
+        if not isinstance(self.same_as, list):
+            self.same_as = [self.same_as] if self.same_as is not None else []
+        self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -390,8 +395,8 @@ class WorkVariant(MovingImageRecord):
     has_subject: Optional[Union[Union[dict, CategorizedThing], List[Union[dict, CategorizedThing]]]] = empty_list()
     is_part_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
     is_variant_of: Optional[Union[dict, "MovingImageResource"]] = None
-    same_as: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
     variant_type: Optional[Union[str, "VariantTypeEnum"]] = None
+    same_as: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.type):
@@ -423,12 +428,12 @@ class WorkVariant(MovingImageRecord):
         if self.is_variant_of is not None and not isinstance(self.is_variant_of, MovingImageResource):
             self.is_variant_of = MovingImageResource(**as_dict(self.is_variant_of))
 
+        if self.variant_type is not None and not isinstance(self.variant_type, VariantTypeEnum):
+            self.variant_type = VariantTypeEnum(self.variant_type)
+
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
         self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
-
-        if self.variant_type is not None and not isinstance(self.variant_type, VariantTypeEnum):
-            self.variant_type = VariantTypeEnum(self.variant_type)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1658,6 +1663,7 @@ class Item(ManifestationOrItem):
     has_frame_rate: Optional[Union[str, "FrameRateEnum"]] = None
     is_copy_of: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
     is_derivative_of: Optional[Union[Union[dict, "MovingImageResource"], List[Union[dict, "MovingImageResource"]]]] = empty_list()
+    same_as: Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.is_item_of):
@@ -1681,6 +1687,10 @@ class Item(ManifestationOrItem):
         if not isinstance(self.is_derivative_of, list):
             self.is_derivative_of = [self.is_derivative_of] if self.is_derivative_of is not None else []
         self.is_derivative_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_derivative_of]
+
+        if not isinstance(self.same_as, list):
+            self.same_as = [self.same_as] if self.same_as is not None else []
+        self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -5618,6 +5628,9 @@ slots.Video_type = Slot(uri=AVEFI.type, name="Video_type", curie=AVEFI.curie('ty
 
 slots.Manifestation_same_as = Slot(uri=AVEFI.same_as, name="Manifestation_same_as", curie=AVEFI.curie('same_as'),
                    model_uri=AVEFI.Manifestation_same_as, domain=Manifestation, range=Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]])
+
+slots.Item_same_as = Slot(uri=AVEFI.same_as, name="Item_same_as", curie=AVEFI.curie('same_as'),
+                   model_uri=AVEFI.Item_same_as, domain=Item, range=Optional[Union[Union[dict, "AuthorityResource"], List[Union[dict, "AuthorityResource"]]]])
 
 slots.AuthorityResource_id = Slot(uri=AVEFI.id, name="AuthorityResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.AuthorityResource_id, domain=AuthorityResource, range=Union[str, IDString])
