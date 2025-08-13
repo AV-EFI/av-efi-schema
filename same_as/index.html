@@ -404,6 +404,31 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../Manifestation/">Manifestation</a></td>
+<td>Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as publication event type</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../GeographicName/">GeographicName</a></td>
+<td>Name of country, region or other location.</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../Agent/">Agent</a></td>
+<td>Agent involved in some activity related to the moving image resource.</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../WorkVariant/">WorkVariant</a></td>
+<td>FIAF Moving Image Cataloguing Manual 1.0</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../MovingImageRecord/">MovingImageRecord</a></td>
+<td>Base class defining slots that are common to all levels of the WVMI metadata model</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../Genre/">Genre</a></td>
 <td>Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters.</td>
 <td>yes</td>
@@ -414,23 +439,13 @@
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../GeographicName/">GeographicName</a></td>
-<td>Name of country, region or other location.</td>
-<td>yes</td>
+<td><a href="../ManifestationOrItem/">ManifestationOrItem</a></td>
+<td>Base class defining common slots for manifestations and items</td>
+<td>no</td>
 </tr>
 <tr>
-<td><a href="../WorkVariant/">WorkVariant</a></td>
-<td>FIAF Moving Image Cataloguing Manual 1.0</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../Manifestation/">Manifestation</a></td>
-<td>Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as publication event type</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../Agent/">Agent</a></td>
-<td>Agent involved in some activity related to the moving image resource.</td>
+<td><a href="../Item/">Item</a></td>
+<td>FIAF Moving Image Cataloguing Manual 3.0</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -479,12 +494,11 @@
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">same_as</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkVariant</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MovingImageRecord</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GeographicName</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Genre</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Subject</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Manifestation</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuthorityResource</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
