@@ -6,7 +6,7 @@ authors = [
     {name = "AVefi Working Group", email = "contact@av-efi.net"},
 ]
 dependencies = [
-    "pydantic>=2.10.0"
+    "pydantic>=2.11.0",
 ]
 requires-python = ">=3.10"
 readme = "README.md"
