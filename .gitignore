@@ -1,7 +1,5 @@
-/dist/
 /docs/
 /site/
 __pycache__/
 .doit.db*
-.pdm-python
 *~

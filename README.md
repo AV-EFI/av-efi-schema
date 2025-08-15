@@ -37,26 +37,26 @@ capable of generating schema compliant moving image metadata records.
 In this repository, housekeeping tasks are managed by the [doit task
 runner][doit], i.e. a central file [dodo.py](./dodo.py) in the root
 directory. In order to get things up and running, you should [install
-the Python Dependency Manager (PDM)][pdm_install] as explained and
-recommended on their website first or just use `pip pdm` in a
+the uv Python package manager][uv_install] as explained and
+recommended on their website first or just use `pip uv` in a
 virtualenv. Then, you can proceed as follows:
 
 ```console
-$ pdm --version                 # just make sure that pdm is properly instaled
-PDM, version 2.15.2
-$ pdm sync                      # pull in dependencies on initial setup and occasionally after git pull
+$ uv --version                 # just make sure that uv is properly instaled
+uv 0.8.11
+$ uv sync                      # pull in dependencies on initial setup and occasionally after git pull
 [Lots of messages about required packages]
-$ pdm run doit                  # update derivatives in project/ after changes have been made in src/
-$ pdm run doit docs             # generate documentation in docs/ directory
-$ pdm run doit serve-site       # serve static site of docs locally for testing
-$ pdm run doit deploy-site      # deploy static site of docs to GitHub Pages
+$ uv run doit                  # update derivatives in project/ after changes have been made in src/
+$ uv run doit docs             # generate documentation in docs/ directory
+$ uv run doit serve-site       # serve static site of docs locally for testing
+$ uv run doit deploy-site      # deploy static site of docs to GitHub Pages
 ```
 
 In order to push the latest changes to the Kernel Information Profile
 in the Data Type REgistry, use the following commands:
 
 ```console
-$ pdm run doit check_dtr --sync
+$ uv run doit check_dtr --sync
 ```
 
 This relies on a custom [LinkML generator for the Data Type
@@ -64,5 +64,5 @@ Registry][dtr_gen] which is part of this repository.
 
 [LinkML]: https://linkml.io/
 [doit]: https://pydoit.org/
-[pdm_install]: https://pdm-project.org/en/latest/#installation
+[uv_install]: https://docs.astral.sh/uv/getting-started/installation/
 [dtr_gen]: ./utils/README.md

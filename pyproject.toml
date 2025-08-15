@@ -20,17 +20,13 @@ docs = [
 dataclasses = [
     "linkml-runtime>=1.8.0",
 ]
+
 [build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
+requires = ["uv_build>=0.8.9,<0.9.0"]
+build-backend = "uv_build"
 
-
-[tool.pdm]
-distribution = true
-
-[tool.pdm.build]
-package-dir = "project/python"
-
+[tool.uv.build-backend]
+module-root = "project/python"
 
 [dependency-groups]
 dev = [

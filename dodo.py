@@ -304,13 +304,28 @@ def task_deploy_site():
     }
 
 
+def task_check_for_obsolete_pdm():
+    """Notify user that we have moved to uv package manager."""
+    def pdm_check():
+        try:
+            Path('.pdm-python').unlink()
+        except FileNotFoundError:
+            pass
+        else:
+            raise RuntimeError("Please use uv instead of pdm (see README.md)")
+    return {
+        'actions': [pdm_check],
+    }
+
+
 def task_sync_dependencies():
-    """Install dependencies according to pdm.lock (for developers)."""
+    """Install dependencies according to uv.lock (for developers)."""
     return {
         'actions': [
-            'pdm sync',
+            'uv sync',
         ],
-        'file_dep': ['pdm.lock'],
+        'file_dep': ['uv.lock'],
+        'task_dep': ['check_for_obsolete_pdm'],
     }
 
 
@@ -318,7 +333,7 @@ def task_update_dependencies():
     """Update dependencies (linkml, etc.)."""
     return {
         'actions': [
-            'pdm update -u',
+            'uv sync -U',
         ],
         'uptodate': (True,),
     }
