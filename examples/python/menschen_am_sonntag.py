@@ -19,15 +19,6 @@ import tempfile
 from typing import Annotated
 
 from avefi_schema import model_pydantic_v2 as efi
-from pydantic import Field, RootModel
-
-
-class MovingImageRecords(RootModel):
-    root: list[Annotated[
-        efi.WorkVariant | efi.Manifestation | efi.Item,
-        Field(discriminator='category'),
-    ]]
-
 
 def main():
     # Instantiate moving image records
@@ -41,13 +32,13 @@ def main():
     os.close(file_obj)
 
     # Write data to file
-    records = MovingImageRecords([work, manifestation, item])
+    records = efi.MovingImageRecords([work, manifestation, item])
     with open(json_file, 'w') as f:
         f.write(records.model_dump_json(exclude_none=True, indent=2))
 
     # Read data back again
     with open(json_file) as f:
-        records = MovingImageRecords.model_validate_json(f.read())
+        records = efi.MovingImageRecords.model_validate_json(f.read())
     assert records.root[0] == work
     print(f"Wrote data to {json_file} and read it back again")
 
