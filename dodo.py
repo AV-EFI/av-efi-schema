@@ -34,6 +34,9 @@ SRC_SCHEMA_DEPENDENCIES = [
     SRC_MODEL,
     SRC_SCHEMA_DIR / 'vocab.yaml',
 ]
+PYTHON_DEPENDENCIES = SRC_SCHEMA_DEPENDENCIES.copy()
+PYTHON_DEPENDENCIES.extend(
+    Path('utils/templates/pydantic/').glob('*.jinja'))
 PROJECT_DIR = HERE / 'project'
 JSON_SCHEMA = PROJECT_DIR / 'jsonschema' / SCHEMA_NAME \
     / f"{SRC_MODEL.stem}.schema.json"
@@ -126,7 +129,7 @@ def task_python():
                  kwargs),
             ],
             'task_dep': ['sync_dependencies'],
-            'file_dep': SRC_SCHEMA_DEPENDENCIES,
+            'file_dep': PYTHON_DEPENDENCIES,
             'targets': [target],
         }
 
