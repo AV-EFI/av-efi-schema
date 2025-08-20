@@ -10,6 +10,7 @@ from datetime import (
 from decimal import Decimal 
 from enum import Enum 
 from typing import (
+    Annotated,
     Any,
     ClassVar,
     Literal,
@@ -39,8 +40,27 @@ class ConfiguredBaseModel(BaseModel):
         use_enum_values = True,
         strict = False,
     )
-    pass
 
+    def drop_empty_lists(self):
+        for field, info in type(self).model_fields.items():
+            if getattr(self, field) == [] and info.default is None:
+                setattr(self, field, None)
+
+    def model_dump(self, *args, exclude_none=False, **kwargs):
+        if exclude_none:
+            self.drop_empty_lists()
+        return super().model_dump(*args, exclude_none=exclude_none, **kwargs)
+
+    def model_dump_json(self, *args, exclude_none=False, **kwargs):
+        if exclude_none:
+            self.drop_empty_lists()
+        return super().model_dump(*args, exclude_none=exclude_none, **kwargs)
+
+class MovingImageRecords(RootModel):
+    root: list[Annotated[
+        WorkVariant | Manifestation | Item,
+        Field(discriminator='category'),
+    ]]
 
 
 
