@@ -100,6 +100,12 @@ def task_python():
     value automatically on instantiation.
 
     """
+    from linkml.generators.pydanticgen.template import (
+        ObjectImport,
+        Import,
+        Imports
+    )
+
     def generate_bindings(module_path, class_name, source, target, **kwargs):
         import importlib
         gen_module = importlib.import_module(module_path)
@@ -113,6 +119,13 @@ def task_python():
 
     python_model = PROJECT_DIR / 'python' / SCHEMA_NAME \
         / f"{SRC_MODEL.stem}.py"
+    pydantic_imports = (
+        Imports() + Import(
+            module='typing', objects=[
+                ObjectImport(name="Annotated"),
+            ]
+        )
+    )
     for module, cls, target, kwargs in [
             ('linkml.generators.pythongen', 'PythonGenerator',
              python_model, {}),
@@ -120,6 +133,7 @@ def task_python():
              python_model.with_stem(f"{python_model.stem}_pydantic_v2"),
              {
                  'template_dir': 'utils/templates/pydantic/',
+                 'imports': pydantic_imports,
              }),
     ]:
         yield {

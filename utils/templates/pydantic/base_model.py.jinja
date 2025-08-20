@@ -27,3 +27,9 @@ class {{ name }}(BaseModel):
         if exclude_none:
             self.drop_empty_lists()
         return super().model_dump(*args, exclude_none=exclude_none, **kwargs)
+
+class MovingImageRecords(RootModel):
+    root: list[Annotated[
+        WorkVariant | Manifestation | Item,
+        Field(discriminator='category'),
+    ]]
