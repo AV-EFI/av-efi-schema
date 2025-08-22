@@ -120,11 +120,15 @@ def task_python():
     python_model = PROJECT_DIR / 'python' / SCHEMA_NAME \
         / f"{SRC_MODEL.stem}.py"
     pydantic_imports = (
-        Imports() + Import(
-            module='typing', objects=[
-                ObjectImport(name="Annotated"),
-            ]
-        )
+        Imports()
+        + Import(module='typing', objects=[
+            ObjectImport(name="Annotated"),
+        ])
+        + Import(module='pydantic', objects=[
+            ObjectImport(name="model_serializer"),
+            ObjectImport(name="SerializationInfo"),
+            ObjectImport(name="SerializerFunctionWrapHandler"),
+        ])
     )
     for module, cls, target, kwargs in [
             ('linkml.generators.pythongen', 'PythonGenerator',

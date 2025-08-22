@@ -13,20 +13,19 @@ class {{ name }}(BaseModel):
     {% endfor %}
 {% endif %}
 
-    def drop_empty_lists(self):
-        for field, info in type(self).model_fields.items():
-            if getattr(self, field) == [] and info.default is None:
-                setattr(self, field, None)
-
-    def model_dump(self, *args, exclude_none=False, **kwargs):
-        if exclude_none:
-            self.drop_empty_lists()
-        return super().model_dump(*args, exclude_none=exclude_none, **kwargs)
-
-    def model_dump_json(self, *args, exclude_none=False, **kwargs):
-        if exclude_none:
-            self.drop_empty_lists()
-        return super().model_dump(*args, exclude_none=exclude_none, **kwargs)
+    @model_serializer(mode='wrap', when_used='unless-none')
+    def treat_empty_lists_as_none(
+            self, handler: SerializerFunctionWrapHandler,
+            info: SerializationInfo) -> dict[str, Any]:
+        if info.exclude_none:
+            _instance = self.copy()
+            for field, field_info in type(_instance).model_fields.items():
+                if getattr(_instance, field) == [] and not(
+                        field_info.is_required()):
+                    setattr(_instance, field, None)
+        else:
+            _instance = self
+        return handler(_instance, info)
 
 class MovingImageRecords(RootModel):
     root: list[Annotated[
