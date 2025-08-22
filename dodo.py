@@ -34,9 +34,11 @@ SRC_SCHEMA_DEPENDENCIES = [
     SRC_MODEL,
     SRC_SCHEMA_DIR / 'vocab.yaml',
 ]
+UTILS_DIR = Path('utils')
+PYDANTIC_TEMPLATE_DIR = UTILS_DIR / 'templates' / 'pydantic'
 PYTHON_DEPENDENCIES = SRC_SCHEMA_DEPENDENCIES.copy()
-PYTHON_DEPENDENCIES.extend(
-    Path('utils/templates/pydantic/').glob('*.jinja'))
+PYTHON_DEPENDENCIES.extend(PYDANTIC_TEMPLATE_DIR.glob('*.jinja'))
+PYTHON_DEPENDENCIES.append(UTILS_DIR / 'pydanticgen.py')
 PROJECT_DIR = HERE / 'project'
 JSON_SCHEMA = PROJECT_DIR / 'jsonschema' / SCHEMA_NAME \
     / f"{SRC_MODEL.stem}.schema.json"
@@ -137,7 +139,7 @@ def task_python():
             ('utils.pydanticgen', 'PydanticGenerator',
              python_model.with_stem(f"{python_model.stem}_pydantic_v2"),
              {
-                 'template_dir': 'utils/templates/pydantic/',
+                 'template_dir': str(PYDANTIC_TEMPLATE_DIR),
                  'imports': pydantic_imports,
              }),
     ]:
