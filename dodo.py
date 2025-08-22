@@ -123,6 +123,7 @@ def task_python():
         Imports()
         + Import(module='typing', objects=[
             ObjectImport(name="Annotated"),
+            ObjectImport(name="TypeVar"),
         ])
         + Import(module='pydantic', objects=[
             ObjectImport(name="model_serializer"),

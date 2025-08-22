@@ -26,9 +26,3 @@ class {{ name }}(BaseModel):
         else:
             _instance = self
         return handler(_instance, info)
-
-class MovingImageRecords(RootModel):
-    root: list[Annotated[
-        WorkVariant | Manifestation | Item,
-        Field(discriminator='category'),
-    ]]
