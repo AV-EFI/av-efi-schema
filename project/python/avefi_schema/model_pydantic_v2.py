@@ -50,7 +50,7 @@ class ConfiguredBaseModel(BaseModel):
             self, handler: SerializerFunctionWrapHandler,
             info: SerializationInfo) -> dict[str, Any]:
         if info.exclude_none:
-            _instance = self.copy()
+            _instance = self.model_copy()
             for field, field_info in type(_instance).model_fields.items():
                 if getattr(_instance, field) == [] and not(
                         field_info.is_required()):
