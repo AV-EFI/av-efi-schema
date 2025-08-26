@@ -2649,6 +2649,8 @@ export function toItem(o: Item): Item {
 export interface MovingImageRecordContainer {
     /** Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual */
     has_record: MovingImageRecord,
+    /** URL specifying the destination where clients should be redirected to when resolving the PID of a moving image record */
+    URL?: string,
 }
 
 
@@ -2660,7 +2662,8 @@ export function isMovingImageRecordContainer(o: object): o is MovingImageRecordC
 
 export function toMovingImageRecordContainer(o: MovingImageRecordContainer): MovingImageRecordContainer {
     return {
-        has_record: o.has_record ?? {}
+        has_record: o.has_record ?? {},
+        URL: o.URL ?? null
     }
 }
 

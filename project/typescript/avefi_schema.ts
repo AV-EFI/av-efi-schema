@@ -1902,6 +1902,8 @@ export interface Item extends ManifestationOrItem {
 export interface MovingImageRecordContainer {
     /** Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual */
     has_record: MovingImageRecord,
+    /** URL specifying the destination where clients should be redirected to when resolving the PID of a moving image record */
+    URL?: string,
 }
 
 

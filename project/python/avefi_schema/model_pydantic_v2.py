@@ -4115,6 +4115,9 @@ class MovingImageRecordContainer(ConfiguredBaseModel):
          'domain_of': ['MovingImageRecordContainer'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1} })
+    URL: Optional[str] = Field(default=None, description="""URL specifying the destination where clients should be redirected to when resolving the PID of a moving image record""", json_schema_extra = { "linkml_meta": {'alias': 'URL',
+         'domain_of': ['MovingImageRecordContainer'],
+         'in_subset': ['TypeRegistrySubset']} })
 
 
 class AuthorityResource(CategorizedThing):

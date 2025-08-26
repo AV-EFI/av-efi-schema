@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-08-15T18:01:52
+# Generation date: 2025-08-26T11:04:13
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -1707,12 +1707,16 @@ class MovingImageRecordContainer(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = AVEFI.MovingImageRecordContainer
 
     has_record: Union[dict, MovingImageRecord] = None
+    URL: Optional[Union[str, HttpUri]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.has_record):
             self.MissingRequiredField("has_record")
         if not isinstance(self.has_record, MovingImageRecord):
             self.has_record = MovingImageRecord(**as_dict(self.has_record))
+
+        if self.URL is not None and not isinstance(self.URL, HttpUri):
+            self.URL = HttpUri(self.URL)
 
         super().__post_init__(**kwargs)
 
@@ -5489,6 +5493,9 @@ slots.language__code = Slot(uri=AVEFI.code, name="language__code", curie=AVEFI.c
 
 slots.language__usage = Slot(uri=AVEFI.usage, name="language__usage", curie=AVEFI.curie('usage'),
                    model_uri=AVEFI.language__usage, domain=None, range=Union[Union[str, "LanguageUsageEnum"], list[Union[str, "LanguageUsageEnum"]]])
+
+slots.movingImageRecordContainer__URL = Slot(uri=AVEFI.URL, name="movingImageRecordContainer__URL", curie=AVEFI.curie('URL'),
+                   model_uri=AVEFI.movingImageRecordContainer__URL, domain=None, range=Optional[Union[str, HttpUri]])
 
 slots.WorkVariant_has_primary_title = Slot(uri=AVEFI.has_primary_title, name="WorkVariant_has_primary_title", curie=AVEFI.curie('has_primary_title'),
                    model_uri=AVEFI.WorkVariant_has_primary_title, domain=WorkVariant, range=Union[dict, "Title"])

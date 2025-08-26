@@ -2241,6 +2241,14 @@
             "additionalProperties": false,
             "description": "A holder for MovingImageRecord objects",
             "properties": {
+                "URL": {
+                    "description": "URL specifying the destination where clients should be redirected to when resolving the PID of a moving image record",
+                    "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "has_record": {
                     "anyOf": [
                         {
