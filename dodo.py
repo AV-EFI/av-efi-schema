@@ -131,6 +131,7 @@ def task_python():
             ObjectImport(name="model_serializer"),
             ObjectImport(name="SerializationInfo"),
             ObjectImport(name="SerializerFunctionWrapHandler"),
+            ObjectImport(name="TypeAdapter"),
         ])
     )
     for module, cls, target, kwargs in [

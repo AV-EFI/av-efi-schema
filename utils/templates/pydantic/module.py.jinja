@@ -29,11 +29,15 @@ linkml_meta = None
 {{ c }}
 {% endfor %}
 
-RecordTypes = TypeVar('RecordTypes', bound=list[Annotated[
+MovingImageRecordType = Annotated[
     WorkVariant | Manifestation | Item, Field(discriminator='category'),
-]])
+]
+MovingImageRecordTypeAdapter: TypeAdapter[
+    MovingImageRecordType] = TypeAdapter(MovingImageRecordType)
+MovingImageRecordsTypeVar = TypeVar(
+    'MovingImageRecordTypeVar', bound=list[MovingImageRecordType])
 
-class MovingImageRecords(RootModel[RecordTypes]):
+class MovingImageRecords(RootModel[MovingImageRecordsTypeVar]):
     pass
 
 {% include 'footer.py.jinja' %}
