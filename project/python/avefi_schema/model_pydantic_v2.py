@@ -26,6 +26,7 @@ from pydantic import (
     RootModel,
     SerializationInfo,
     SerializerFunctionWrapHandler,
+    TypeAdapter,
     field_validator,
     model_serializer
 )
@@ -4521,20 +4522,15 @@ class WikidataResource(AuthorityResource):
          'slot_uri': 'rdf:type'} })
 
 
-def treat_empty_lists_as_none(instance: Any, handler, info):
-    if info.exclude_none:
-        _instance = instance.copy()
-        for field, field_info in type(_instance).model_fields.items():
-            if getattr(_instance, field) == [] and not(
-                    field_info.is_required()):
-                setattr(_instance, field, None)
-    return handler(_instance, info)
-
-RecordTypes = TypeVar('RecordTypes', bound=list[Annotated[
+MovingImageRecordType = Annotated[
     WorkVariant | Manifestation | Item, Field(discriminator='category'),
-]])
+]
+MovingImageRecordTypeAdapter: TypeAdapter[
+    MovingImageRecordType] = TypeAdapter(MovingImageRecordType)
+MovingImageRecordsTypeVar = TypeVar(
+    'MovingImageRecordTypeVar', bound=list[MovingImageRecordType])
 
-class MovingImageRecords(RootModel[RecordTypes]):
+class MovingImageRecords(RootModel[MovingImageRecordsTypeVar]):
     pass
 
 # Model rebuild
