@@ -1448,6 +1448,15 @@ classes:
   MovingImageRecordContainer:
     rank: 100
     tree_root: true
+    attributes:
+      URL:
+        range: HttpUri
+        in_subset:
+        - TypeRegistrySubset
+        description: >-
+          URL specifying the destination where clients should be
+          redirected to when resolving the PID of a moving image
+          record
     slots:
     - has_record
     annotations:
