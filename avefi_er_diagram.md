@@ -56,10 +56,10 @@ GeographicName {
 Item {
     ItemElementTypeEnum element_type  
     ItemAccessStatusEnum has_access_status  
-    FrameRateEnum has_frame_rate  
     ColourTypeEnum has_colour_type  
-    TextAreaList has_note  
+    FrameRateEnum has_frame_rate  
     SoundTypeEnum has_sound_type  
+    TextAreaList has_note  
     HttpUriList has_webresource  
     IDStringList has_source_key  
     AVefiCurie category  
@@ -69,9 +69,7 @@ Language {
     LanguageUsageEnumList usage  
 }
 Manifestation {
-    ColourTypeEnum has_colour_type  
     TextAreaList has_note  
-    SoundTypeEnum has_sound_type  
     HttpUriList has_webresource  
     IDStringList has_source_key  
     AVefiCurie category  
@@ -113,13 +111,9 @@ Item ||--}o MovingImageResource : "has_identifier"
 Item ||--}o MovingImageResource : "is_derivative_of"
 Item ||--}o Title : "has_alternative_title"
 Manifestation ||--|o DescriptionResource : "described_by"
-Manifestation ||--|o Duration : "has_duration"
-Manifestation ||--|o Extent : "has_extent"
 Manifestation ||--|o Title : "has_primary_title"
 Manifestation ||--}o AuthorityResource : "same_as"
 Manifestation ||--}o Event : "has_event"
-Manifestation ||--}o Format : "has_format"
-Manifestation ||--}o Language : "in_language"
 Manifestation ||--}o MovingImageResource : "has_identifier"
 Manifestation ||--}o MovingImageResource : "has_item"
 Manifestation ||--}o Title : "has_alternative_title"

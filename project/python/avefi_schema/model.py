@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-08-26T11:04:13
+# Generation date: 2025-09-02T14:52:36
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -1301,43 +1301,17 @@ class ManifestationOrItem(MovingImageRecord):
     class_name: ClassVar[str] = "ManifestationOrItem"
     class_model_uri: ClassVar[URIRef] = AVEFI.ManifestationOrItem
 
-    has_colour_type: Optional[Union[str, "ColourTypeEnum"]] = None
-    has_duration: Optional[Union[dict, "Duration"]] = None
-    has_extent: Optional[Union[dict, "Extent"]] = None
-    has_format: Optional[Union[Union[dict, "Format"], list[Union[dict, "Format"]]]] = empty_list()
     has_note: Optional[Union[Union[str, TextArea], list[Union[str, TextArea]]]] = empty_list()
-    has_sound_type: Optional[Union[str, "SoundTypeEnum"]] = None
     has_webresource: Optional[Union[Union[str, HttpUri], list[Union[str, HttpUri]]]] = empty_list()
-    in_language: Optional[Union[Union[dict, "Language"], list[Union[dict, "Language"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.has_colour_type is not None and not isinstance(self.has_colour_type, ColourTypeEnum):
-            self.has_colour_type = ColourTypeEnum(self.has_colour_type)
-
-        if self.has_duration is not None and not isinstance(self.has_duration, Duration):
-            self.has_duration = Duration(**as_dict(self.has_duration))
-
-        if self.has_extent is not None and not isinstance(self.has_extent, Extent):
-            self.has_extent = Extent(**as_dict(self.has_extent))
-
-        if not isinstance(self.has_format, list):
-            self.has_format = [self.has_format] if self.has_format is not None else []
-        self.has_format = [v if isinstance(v, Format) else Format(**as_dict(v)) for v in self.has_format]
-
         if not isinstance(self.has_note, list):
             self.has_note = [self.has_note] if self.has_note is not None else []
         self.has_note = [v if isinstance(v, TextArea) else TextArea(v) for v in self.has_note]
 
-        if self.has_sound_type is not None and not isinstance(self.has_sound_type, SoundTypeEnum):
-            self.has_sound_type = SoundTypeEnum(self.has_sound_type)
-
         if not isinstance(self.has_webresource, list):
             self.has_webresource = [self.has_webresource] if self.has_webresource is not None else []
         self.has_webresource = [v if isinstance(v, HttpUri) else HttpUri(v) for v in self.has_webresource]
-
-        if not isinstance(self.in_language, list):
-            self.in_language = [self.in_language] if self.in_language is not None else []
-        self.in_language = [v if isinstance(v, Language) else Language(**as_dict(v)) for v in self.in_language]
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1656,7 +1630,13 @@ class Item(ManifestationOrItem):
     is_item_of: Union[dict, "MovingImageResource"] = None
     element_type: Optional[Union[str, "ItemElementTypeEnum"]] = None
     has_access_status: Optional[Union[str, "ItemAccessStatusEnum"]] = None
+    has_colour_type: Optional[Union[str, "ColourTypeEnum"]] = None
+    has_duration: Optional[Union[dict, Duration]] = None
+    has_extent: Optional[Union[dict, Extent]] = None
+    has_format: Optional[Union[Union[dict, Format], list[Union[dict, Format]]]] = empty_list()
     has_frame_rate: Optional[Union[str, "FrameRateEnum"]] = None
+    has_sound_type: Optional[Union[str, "SoundTypeEnum"]] = None
+    in_language: Optional[Union[Union[dict, Language], list[Union[dict, Language]]]] = empty_list()
     is_copy_of: Optional[Union[Union[dict, "AuthorityResource"], list[Union[dict, "AuthorityResource"]]]] = empty_list()
     is_derivative_of: Optional[Union[Union[dict, "MovingImageResource"], list[Union[dict, "MovingImageResource"]]]] = empty_list()
     same_as: Optional[Union[Union[dict, "AuthorityResource"], list[Union[dict, "AuthorityResource"]]]] = empty_list()
@@ -1673,8 +1653,28 @@ class Item(ManifestationOrItem):
         if self.has_access_status is not None and not isinstance(self.has_access_status, ItemAccessStatusEnum):
             self.has_access_status = ItemAccessStatusEnum(self.has_access_status)
 
+        if self.has_colour_type is not None and not isinstance(self.has_colour_type, ColourTypeEnum):
+            self.has_colour_type = ColourTypeEnum(self.has_colour_type)
+
+        if self.has_duration is not None and not isinstance(self.has_duration, Duration):
+            self.has_duration = Duration(**as_dict(self.has_duration))
+
+        if self.has_extent is not None and not isinstance(self.has_extent, Extent):
+            self.has_extent = Extent(**as_dict(self.has_extent))
+
+        if not isinstance(self.has_format, list):
+            self.has_format = [self.has_format] if self.has_format is not None else []
+        self.has_format = [v if isinstance(v, Format) else Format(**as_dict(v)) for v in self.has_format]
+
         if self.has_frame_rate is not None and not isinstance(self.has_frame_rate, FrameRateEnum):
             self.has_frame_rate = FrameRateEnum(self.has_frame_rate)
+
+        if self.has_sound_type is not None and not isinstance(self.has_sound_type, SoundTypeEnum):
+            self.has_sound_type = SoundTypeEnum(self.has_sound_type)
+
+        if not isinstance(self.in_language, list):
+            self.in_language = [self.in_language] if self.in_language is not None else []
+        self.in_language = [v if isinstance(v, Language) else Language(**as_dict(v)) for v in self.in_language]
 
         if not isinstance(self.is_copy_of, list):
             self.is_copy_of = [self.is_copy_of] if self.is_copy_of is not None else []

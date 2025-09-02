@@ -2285,22 +2285,10 @@ export function toTitle(o: Title): Title {
  * Base class defining common slots for manifestations and items
  */
 export interface ManifestationOrItem extends MovingImageRecord {
-    /** FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11 */
-    has_colour_type?: string,
-    /** Total running time of the described object in ISO 8601 duration format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11 */
-    has_duration?: Duration,
-    /** Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8 */
-    has_extent?: Extent,
-    /** FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1 */
-    has_format?: Format[],
     /** FIAF Moving Image Cataloguing Manual Appendix B */
     has_note?: string[],
-    /** FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4 */
-    has_sound_type?: string,
     /** Link to data provider's own presentation of manifestation or item on the web */
     has_webresource?: string[],
-    /** FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3 */
-    in_language?: Language[],
 }
 
 
@@ -2312,14 +2300,8 @@ export function isManifestationOrItem(o: object): o is ManifestationOrItem {
 
 export function toManifestationOrItem(o: ManifestationOrItem): ManifestationOrItem {
     return {
-        has_colour_type: o.has_colour_type ?? null,
-        has_duration: o.has_duration ?? {},
-        has_extent: o.has_extent ?? {},
-        has_format: o.has_format ?? [],
         has_note: o.has_note ?? [],
-        has_sound_type: o.has_sound_type ?? null,
         has_webresource: o.has_webresource ?? [],
-        in_language: o.in_language ?? [],
         described_by: o.described_by ?? {},
         has_alternative_title: o.has_alternative_title ?? [],
         has_event: o.has_event ?? [],
@@ -2547,14 +2529,8 @@ export function toManifestation(o: Manifestation): Manifestation {
     return {
         has_item: o.has_item ?? [],
         is_manifestation_of: o.is_manifestation_of ?? [],
-        has_colour_type: o.has_colour_type ?? null,
-        has_duration: o.has_duration ?? {},
-        has_extent: o.has_extent ?? {},
-        has_format: o.has_format ?? [],
         has_note: o.has_note ?? [],
-        has_sound_type: o.has_sound_type ?? null,
         has_webresource: o.has_webresource ?? [],
-        in_language: o.in_language ?? [],
         described_by: o.described_by ?? {},
         has_alternative_title: o.has_alternative_title ?? [],
         has_event: o.has_event ?? [],
@@ -2598,8 +2574,20 @@ export interface Item extends ManifestationOrItem {
     element_type?: string,
     /** Status of item determining access conditions. See also FIAF Moving Image Cataloguing Manual D.7.1 */
     has_access_status?: string,
+    /** FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11 */
+    has_colour_type?: string,
+    /** Total running time of the described object in ISO 8601 duration format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11 */
+    has_duration?: Duration,
+    /** Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8 */
+    has_extent?: Extent,
+    /** FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1 */
+    has_format?: Format[],
     /** Frame Rate describes the number of frames per second of an item. See also: FIAF Moving Image Cataloguing Manual 3.1.5.12. */
     has_frame_rate?: string,
+    /** FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4 */
+    has_sound_type?: string,
+    /** FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3 */
+    in_language?: Language[],
     /** Link to AVefi item registered by another institution indicating that the two are known to be copies of each other */
     is_copy_of?: AuthorityResource[],
     /** Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project */
@@ -2620,18 +2608,18 @@ export function toItem(o: Item): Item {
     return {
         element_type: o.element_type ?? null,
         has_access_status: o.has_access_status ?? null,
-        has_frame_rate: o.has_frame_rate ?? null,
-        is_copy_of: o.is_copy_of ?? [],
-        is_derivative_of: o.is_derivative_of ?? [],
-        is_item_of: o.is_item_of ?? {},
         has_colour_type: o.has_colour_type ?? null,
         has_duration: o.has_duration ?? {},
         has_extent: o.has_extent ?? {},
         has_format: o.has_format ?? [],
-        has_note: o.has_note ?? [],
+        has_frame_rate: o.has_frame_rate ?? null,
         has_sound_type: o.has_sound_type ?? null,
-        has_webresource: o.has_webresource ?? [],
         in_language: o.in_language ?? [],
+        is_copy_of: o.is_copy_of ?? [],
+        is_derivative_of: o.is_derivative_of ?? [],
+        is_item_of: o.is_item_of ?? {},
+        has_note: o.has_note ?? [],
+        has_webresource: o.has_webresource ?? [],
         described_by: o.described_by ?? {},
         has_alternative_title: o.has_alternative_title ?? [],
         has_event: o.has_event ?? [],
