@@ -3,11 +3,20 @@ site_name: "AVefi Schema Documentation"
 theme:
   name: material
   palette:
-    scheme: black
-    primary: black
+    scheme: default
+    primary: blue grey
+    accent: blue
+  # Uncomment when logo is available
   #logo: images/avefi-logo.png
   features:
     - content.tabs.link
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
 plugins:
   - search
   - mermaid2
@@ -19,7 +28,64 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
 nav:
   - Home: index.md
-  - Overview: schema_overview.md
+  - Schema Overview: schema_overview.md
   - Examples: examples.md
+  - Core Concepts:
+    - Main Classes:
+      - Work Variant: WorkVariant.md
+      - Manifestation: Manifestation.md
+      - Item: Item.md
+      - Moving Image Record: MovingImageRecord.md
+      - Title: Title.md
+      - Agent: Agent.md
+      - Activity: Activity.md
+      - Event: Event.md
+      - Geographic Name: GeographicName.md
+    - Media Types:
+      - Format: Format.md
+      - Film: Film.md
+      - Video: Video.md
+      - Audio: Audio.md
+      - Digital File: DigitalFile.md
+      - Optical: Optical.md
+    - Activities:
+      - Animation Activity: AnimationActivity.md
+      - Cast Activity: CastActivity.md
+      - Cinematography Activity: CinematographyActivity.md
+      - Directing Activity: DirectingActivity.md
+      - Editing Activity: EditingActivity.md
+      - Music Activity: MusicActivity.md
+      - Production Activity: ProducingActivity.md
+      - Writing Activity: WritingActivity.md
+    - Events:
+      - Production Event: ProductionEvent.md
+      - Publication Event: PublicationEvent.md
+      - Preservation Event: PreservationEvent.md
+      - Manufacture Event: ManufactureEvent.md
+  - Data Types & Enums:
+    - Core Enums:
+      - Agent Types: AgentTypeEnum.md
+      - Work Forms: WorkFormEnum.md
+      - Language Codes: LanguageCodeEnum.md
+      - Colour Types: ColourTypeEnum.md
+      - Sound Types: SoundTypeEnum.md
+      - Frame Rates: FrameRateEnum.md
+    - Format Enums:
+      - Film Format Types: FormatFilmTypeEnum.md
+      - Video Format Types: FormatVideoTypeEnum.md
+      - Audio Format Types: FormatAudioTypeEnum.md
+      - Digital File Types: FormatDigitalFileTypeEnum.md
+      - Optical Format Types: FormatOpticalTypeEnum.md
+  - Authority Resources:
+    - Identifiers:
+      - DOI: DOIResource.md
+      - EIDR: EIDRResource.md
+      - GND: GNDResource.md
+      - Wikidata: WikidataResource.md
+      - VIAF: VIAFResource.md
+      - ISIL: ISILResource.md
+      - Filmportal: FilmportalResource.md
+      - TGN: TGNResource.md
+  - Full Schema Reference: model.md
 site_url: https://av-efi.github.io/av-efi-schema
 repo_url: https://github.com/AV-EFI/av-efi-schema
