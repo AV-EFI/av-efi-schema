@@ -1135,14 +1135,8 @@ classes:
     is_a: MovingImageRecord
     abstract: true
     slots:
-    - has_colour_type
-    - has_duration
-    - has_extent
-    - has_format
     - has_note
-    - has_sound_type
     - has_webresource
-    - in_language
     annotations:
     - trunk_pid: 21.T11969/b4db4a39a902f7abed4f
     description: >-
@@ -1413,7 +1407,13 @@ classes:
     slots:
     - element_type
     - has_access_status
+    - has_colour_type
+    - has_duration
+    - has_extent
+    - has_format
     - has_frame_rate
+    - has_sound_type
+    - in_language
     - is_copy_of
     - is_derivative_of
     - is_item_of
