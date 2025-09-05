@@ -3113,8 +3113,7 @@ class PreservationEvent(Event):
          'rank': 13,
          'slot_usage': {'has_activity': {'in_subset': ['TypeRegistrySubset'],
                                          'name': 'has_activity',
-                                         'range': 'ManifestationActivity',
-                                         'required': True},
+                                         'range': 'ManifestationActivity'},
                         'type': {'in_subset': ['TypeRegistrySubset'],
                                  'name': 'type',
                                  'range': 'PreservationEventTypeEnum',
@@ -3132,7 +3131,7 @@ class PreservationEvent(Event):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    has_activity: list[ManifestationActivity] = Field(default=..., description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'alias': 'has_activity',
+    has_activity: Optional[list[ManifestationActivity]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'alias': 'has_activity',
          'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 8} })

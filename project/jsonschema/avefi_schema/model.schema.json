@@ -2297,7 +2297,10 @@
                     "items": {
                         "$ref": "#/$defs/ManifestationActivity"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "has_date": {
                     "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
@@ -2324,7 +2327,6 @@
             },
             "required": [
                 "type",
-                "has_activity",
                 "category"
             ],
             "title": "PreservationEvent",

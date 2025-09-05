@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-09-02T14:52:36
+# Generation date: 2025-09-05T18:00:18
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -1141,7 +1141,7 @@ class PreservationEvent(Event):
     class_model_uri: ClassVar[URIRef] = AVEFI.PreservationEvent
 
     type: Union[str, "PreservationEventTypeEnum"] = None
-    has_activity: Union[Union[dict, ManifestationActivity], list[Union[dict, ManifestationActivity]]] = None
+    has_activity: Optional[Union[Union[dict, ManifestationActivity], list[Union[dict, ManifestationActivity]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.type):
@@ -1149,8 +1149,6 @@ class PreservationEvent(Event):
         if not isinstance(self.type, PreservationEventTypeEnum):
             self.type = PreservationEventTypeEnum(self.type)
 
-        if self._is_empty(self.has_activity):
-            self.MissingRequiredField("has_activity")
         if not isinstance(self.has_activity, list):
             self.has_activity = [self.has_activity] if self.has_activity is not None else []
         self.has_activity = [v if isinstance(v, ManifestationActivity) else ManifestationActivity(**as_dict(v)) for v in self.has_activity]
@@ -5582,7 +5580,7 @@ slots.ProductionEvent_type = Slot(uri=AVEFI.type, name="ProductionEvent_type", c
                    model_uri=AVEFI.ProductionEvent_type, domain=ProductionEvent, range=Optional[Union[str, "ProductionEventTypeEnum"]])
 
 slots.PreservationEvent_has_activity = Slot(uri=AVEFI.has_activity, name="PreservationEvent_has_activity", curie=AVEFI.curie('has_activity'),
-                   model_uri=AVEFI.PreservationEvent_has_activity, domain=PreservationEvent, range=Union[Union[dict, ManifestationActivity], list[Union[dict, ManifestationActivity]]])
+                   model_uri=AVEFI.PreservationEvent_has_activity, domain=PreservationEvent, range=Optional[Union[Union[dict, ManifestationActivity], list[Union[dict, ManifestationActivity]]]])
 
 slots.PreservationEvent_type = Slot(uri=AVEFI.type, name="PreservationEvent_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.PreservationEvent_type, domain=PreservationEvent, range=Union[str, "PreservationEventTypeEnum"])

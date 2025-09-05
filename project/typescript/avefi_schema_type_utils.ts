@@ -2164,7 +2164,6 @@ export interface PreservationEvent extends Event {
 export function isPreservationEvent(o: object): o is PreservationEvent {
     return (
         'type' in o &&
-        'has_activity' in o &&
         'category' in o
     )
 }
