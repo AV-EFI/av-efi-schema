@@ -996,7 +996,6 @@ classes:
     slot_usage:
       has_activity:
         range: ManifestationActivity
-        required: true
         in_subset:
         - TypeRegistrySubset
       type:
