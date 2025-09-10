@@ -120,19 +120,6 @@ def sample_manifestation(*works):
     manifestation.has_event.append(efi.PublicationEvent(
         type=efi.PublicationEventTypeEnum('ReleaseEvent'),
         has_date='2014'))
-    manifestation.in_language = [
-        efi.Language(
-            usage=[efi.LanguageUsageEnum('Intertitles')],
-            code=efi.LanguageCodeEnum('deu')),
-        efi.Language(
-            usage=[efi.LanguageUsageEnum('Subtitles')],
-            code=efi.LanguageCodeEnum('eng')),
-        efi.Language(
-            usage=[efi.LanguageUsageEnum('Subtitles')],
-            code=efi.LanguageCodeEnum('fra'))
-    ]
-    manifestation.has_colour_type = efi.ColourTypeEnum('BlackAndWhite')
-    manifestation.has_sound_type = efi.SoundTypeEnum('Sound')
     return manifestation
 
 
@@ -143,9 +130,22 @@ def sample_item(manifestation):
         element_type=efi.ItemElementTypeEnum('DCP'),
         has_primary_title=manifestation.has_primary_title,
         has_access_status=efi.ItemAccessStatusEnum('Distribution'),
+        has_colour_type=efi.ColourTypeEnum('BlackAndWhite'),
         has_extent=efi.Extent(has_unit=efi.UnitEnum('GigaByte'), has_value=113),
         has_format=[
             efi.DigitalFile(type=efi.FormatDigitalFileTypeEnum('MXF')),
+        ],
+        has_sound_type=efi.SoundTypeEnum('Sound'),
+        in_language=[
+            efi.Language(
+                usage=[efi.LanguageUsageEnum('Intertitles')],
+                code=efi.LanguageCodeEnum('deu')),
+            efi.Language(
+                usage=[efi.LanguageUsageEnum('Subtitles')],
+                code=efi.LanguageCodeEnum('eng')),
+            efi.Language(
+                usage=[efi.LanguageUsageEnum('Subtitles')],
+                code=efi.LanguageCodeEnum('fra'))
         ],
     )
     return item
