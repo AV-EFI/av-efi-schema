@@ -1,0 +1,59 @@
+{
+  "category": "avefi:Item",
+  "element_type": "DCP",
+  "has_primary_title": {
+    "has_name": "Menschen am Sonntag",
+    "type": "TitleProper"
+  },
+  "has_identifier": [
+    {
+      "category": "avefi:AVefiResource",
+      "id": "21.11155/EDEF1591-BF32-4003-9850-73FABCC0D0E3"
+    },
+    {
+      "category": "avefi:LocalResource",
+      "id": "150225499"
+    }
+  ],
+  "has_access_status": "Distribution",
+  "has_colour_type": "BlackAndWhite",
+  "has_extent": {
+    "has_unit": "GigaByte",
+    "has_value": 113
+  },
+  "has_format": [
+    {
+      "category": "avefi:DigitalFile",
+      "type": "MXF"
+    }
+  ],
+  "has_sound_type": "Sound",
+  "in_language": [
+    {
+      "usage": [
+        "Intertitles"
+      ],
+      "code": "deu"
+    },
+    {
+      "usage": [
+        "Subtitles"
+      ],
+      "code": "eng"
+    },
+    {
+      "usage": [
+        "Subtitles"
+      ],
+      "code": "fra"
+    }
+  ],
+  "is_item_of": {
+    "category": "avefi:LocalResource",
+    "id": "150221536"
+  },
+  "described_by": {
+    "has_issuer_id": "https://w3id.org/isil/DE-MUS-407010",
+    "has_issuer_name": "Deutsche Kinemathek - Museum für Film und Fernsehen"
+  }
+}
