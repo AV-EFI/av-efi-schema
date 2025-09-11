@@ -25,7 +25,7 @@ DOIT_CONFIG = {
 HERE = Path(__file__).parent
 SRC_DOCS_DIR = HERE / 'src' / 'docs'
 DOCS_DIR = HERE / 'docs'
-SCHEMA_OVERVIEW = DOCS_DIR / 'schema_overview.md'
+SCHEMA_OVERVIEW = DOCS_DIR / 'index.md'
 ER_DIAGRAM = HERE / 'avefi_er_diagram.md'
 SITE_DIR = HERE / 'site'
 SCHEMA_NAME = 'avefi_schema'
@@ -338,7 +338,7 @@ def task_build_site():
         ],
         'task_dep': ['docs'],
         'file_dep': [SCHEMA_OVERVIEW],
-        'targets': [SITE_DIR / 'schema_overview' / 'index.html'],
+        'targets': [SITE_DIR / 'index.html'],
         'clean': [f"rm -rf {SITE_DIR}"],
     }
 
