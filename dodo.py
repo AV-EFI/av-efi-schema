@@ -16,6 +16,7 @@ DOIT_CONFIG = {
         'jsonschema',
         'vocabularies',
         'python',
+        'rebuild_example',
         'typescript',
         'json_lc_messages',
         'diagram',
@@ -39,6 +40,13 @@ PYDANTIC_TEMPLATE_DIR = UTILS_DIR / 'templates' / 'pydantic'
 PYTHON_DEPENDENCIES = SRC_SCHEMA_DEPENDENCIES.copy()
 PYTHON_DEPENDENCIES.extend(PYDANTIC_TEMPLATE_DIR.glob('*.jinja'))
 PYTHON_DEPENDENCIES.append(UTILS_DIR / 'pydanticgen.py')
+JSON_EXAMPLES = HERE / 'examples' / 'json'
+EXAMPLE_SRC_FILES = [
+    JSON_EXAMPLES / 'menschen_am_sonntag_work.json',
+    JSON_EXAMPLES / 'menschen_am_sonntag_manifestation.json',
+    JSON_EXAMPLES / 'menschen_am_sonntag_item.json',
+]
+EXAMPLE_TARGET_FILE = JSON_EXAMPLES / 'menschen_am_sonntag_all_in_one.json'
 PROJECT_DIR = HERE / 'project'
 JSON_SCHEMA = PROJECT_DIR / 'jsonschema' / SCHEMA_NAME \
     / f"{SRC_MODEL.stem}.schema.json"
@@ -154,6 +162,32 @@ def task_python():
             'file_dep': PYTHON_DEPENDENCIES,
             'targets': [target],
         }
+
+
+def task_rebuild_example():
+    """Rebuild `menschen_am_sonntag_all_in_one.json` example.
+
+    """
+    def rebuild_example(sources, target):
+        from avefi_schema import model_pydantic_v2 as efi
+        efi_records = []
+        for src_file in sources:
+            with src_file.open() as f:
+                efi_records.append(
+                    efi.MovingImageRecordTypeAdapter.validate_json(f.read()))
+        records = efi.MovingImageRecords(efi_records)
+        with target.open('w') as f:
+            f.write(records.model_dump_json(exclude_none=True, indent=2))
+            f.write('\n')
+
+    return {
+        'actions': [(
+            rebuild_example, [EXAMPLE_SRC_FILES, EXAMPLE_TARGET_FILE],
+        )],
+        'task_dep': ['python'],
+        'file_dep': EXAMPLE_SRC_FILES,
+        'targets': [EXAMPLE_TARGET_FILE],
+    }
 
 
 def task_typescript():

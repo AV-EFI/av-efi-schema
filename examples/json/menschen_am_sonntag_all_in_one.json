@@ -1,0 +1,325 @@
+[
+  {
+    "category": "avefi:WorkVariant",
+    "has_event": [
+      {
+        "category": "avefi:ProductionEvent",
+        "has_activity": [
+          {
+            "category": "avefi:CastActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Borchert, Brigitte",
+                "same_as": [
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "173787681"
+                  }
+                ],
+                "type": "Person"
+              },
+              {
+                "category": "avefi:Agent",
+                "has_name": "Splettstößer, Erwin",
+                "same_as": [
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "1061393046"
+                  }
+                ],
+                "type": "Person"
+              },
+              {
+                "category": "avefi:Agent",
+                "has_name": "Waltershausen, Wolfgang von",
+                "same_as": [
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "173857868"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "CastMember"
+          },
+          {
+            "category": "avefi:WritingActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Wilder, Billy",
+                "same_as": [
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "118632795"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "Writer"
+          },
+          {
+            "category": "avefi:DirectingActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Siodmak, Robert",
+                "same_as": [
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "11861472X"
+                  }
+                ],
+                "type": "Person"
+              },
+              {
+                "category": "avefi:Agent",
+                "has_name": "Ulmer, Edgar G.",
+                "same_as": [
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "124471196"
+                  }
+                ],
+                "type": "Person"
+              },
+              {
+                "category": "avefi:Agent",
+                "has_name": "Gliese, Rochus",
+                "same_as": [
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "116663308"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "Director"
+          },
+          {
+            "category": "avefi:CinematographyActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Schüfftan, Eugen",
+                "same_as": [
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "12495748X"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "Cinematographer"
+          },
+          {
+            "category": "avefi:EditingActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Siodmak, Robert",
+                "same_as": [
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "11861472X"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "FilmEditor"
+          },
+          {
+            "category": "avefi:MusicActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Stenzel, Otto",
+                "type": "Person"
+              }
+            ],
+            "type": "Composer"
+          }
+        ],
+        "has_date": "1929/1930",
+        "located_in": [
+          {
+            "category": "avefi:GeographicName",
+            "has_name": "Germany (German Reich)",
+            "same_as": [
+              {
+                "category": "avefi:GNDResource",
+                "id": "2008993-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "has_identifier": [
+      {
+        "category": "avefi:AVefiResource",
+        "id": "21.11155/B18C4B70-D6A5-45F1-A38F-6816EA633587"
+      },
+      {
+        "category": "avefi:LocalResource",
+        "id": "150003397"
+      }
+    ],
+    "has_primary_title": {
+      "has_name": "Menschen am Sonntag – Das Dokument der Gegenwart",
+      "type": "PreferredTitle"
+    },
+    "same_as": [
+      {
+        "category": "avefi:FilmportalResource",
+        "id": "f570e1abdad841dc8d5b25b0f7737065"
+      }
+    ],
+    "has_genre": [
+      {
+        "has_name": "Fiction"
+      }
+    ],
+    "type": "Monographic"
+  },
+  {
+    "category": "avefi:Manifestation",
+    "described_by": {
+      "has_issuer_id": "https://w3id.org/isil/DE-MUS-407010",
+      "has_issuer_name": "Deutsche Kinemathek - Museum für Film und Fernsehen"
+    },
+    "has_event": [
+      {
+        "category": "avefi:PreservationEvent",
+        "has_activity": [
+          {
+            "category": "avefi:ManifestationActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+                "same_as": [
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "998208027"
+                  }
+                ],
+                "type": "CorporateBody"
+              }
+            ],
+            "type": "AgentResponsibleForReproductionOrTransfer"
+          },
+          {
+            "category": "avefi:ManifestationActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+                "same_as": [
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "998208027"
+                  }
+                ],
+                "type": "CorporateBody"
+              }
+            ],
+            "type": "AgentResponsibleForTheArchivalAvailability"
+          }
+        ],
+        "has_date": "2013/2014",
+        "type": "RestorationEvent"
+      },
+      {
+        "category": "avefi:PublicationEvent",
+        "has_date": "2014",
+        "type": "ReleaseEvent"
+      }
+    ],
+    "has_identifier": [
+      {
+        "category": "avefi:AVefiResource",
+        "id": "21.11155/BC3C8794-9225-441A-8D00-6A86F8105721"
+      },
+      {
+        "category": "avefi:LocalResource",
+        "id": "150221536"
+      }
+    ],
+    "has_primary_title": {
+      "has_name": "Menschen am Sonntag",
+      "type": "TitleProper"
+    },
+    "is_manifestation_of": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "150003397"
+      }
+    ]
+  },
+  {
+    "category": "avefi:Item",
+    "described_by": {
+      "has_issuer_id": "https://w3id.org/isil/DE-MUS-407010",
+      "has_issuer_name": "Deutsche Kinemathek - Museum für Film und Fernsehen"
+    },
+    "has_identifier": [
+      {
+        "category": "avefi:AVefiResource",
+        "id": "21.11155/EDEF1591-BF32-4003-9850-73FABCC0D0E3"
+      },
+      {
+        "category": "avefi:LocalResource",
+        "id": "150225499"
+      }
+    ],
+    "has_primary_title": {
+      "has_name": "Menschen am Sonntag",
+      "type": "TitleProper"
+    },
+    "element_type": "DCP",
+    "has_access_status": "Distribution",
+    "has_colour_type": "BlackAndWhite",
+    "has_extent": {
+      "has_unit": "GigaByte",
+      "has_value": "113"
+    },
+    "has_format": [
+      {
+        "category": "avefi:DigitalFile",
+        "type": "MXF"
+      }
+    ],
+    "has_sound_type": "Sound",
+    "in_language": [
+      {
+        "code": "deu",
+        "usage": [
+          "Intertitles"
+        ]
+      },
+      {
+        "code": "eng",
+        "usage": [
+          "Subtitles"
+        ]
+      },
+      {
+        "code": "fra",
+        "usage": [
+          "Subtitles"
+        ]
+      }
+    ],
+    "is_item_of": {
+      "category": "avefi:LocalResource",
+      "id": "150221536"
+    }
+  }
+]
