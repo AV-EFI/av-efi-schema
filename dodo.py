@@ -36,6 +36,7 @@ SRC_SCHEMA_DEPENDENCIES = [
     SRC_SCHEMA_DIR / 'vocab.yaml',
 ]
 UTILS_DIR = Path('utils')
+DOCGEN_TEMPLATE_DIR = UTILS_DIR / 'templates' / 'docgen'
 PYDANTIC_TEMPLATE_DIR = UTILS_DIR / 'templates' / 'pydantic'
 PYTHON_DEPENDENCIES = SRC_SCHEMA_DEPENDENCIES.copy()
 PYTHON_DEPENDENCIES.extend(PYDANTIC_TEMPLATE_DIR.glob('*.jinja'))
@@ -299,6 +300,7 @@ def gen_doc(dependencies, targets):
         hierarchical_class_view=False,
         index_name=index_file.stem,
         sort_by='rank',
+        template_directory=DOCGEN_TEMPLATE_DIR,
     )
     print(gen.serialize())
 
