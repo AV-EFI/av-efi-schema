@@ -76,6 +76,7 @@ dev = [
     { name = "linkml" },
     { name = "mkdocs-material" },
     { name = "mkdocs-mermaid2-plugin" },
+    { name = "mkdocs-redirects" },
     { name = "requests" },
     { name = "ruamel-yaml" },
     { name = "schemasheets" },
@@ -96,6 +97,7 @@ dev = [
     { name = "linkml", specifier = ">=1.8.0" },
     { name = "mkdocs-material", specifier = ">=9.5.17" },
     { name = "mkdocs-mermaid2-plugin", specifier = ">=1.1.1" },
+    { name = "mkdocs-redirects", specifier = ">=1.2.2" },
     { name = "requests", specifier = ">=2.32.3" },
     { name = "ruamel-yaml", specifier = ">=0.18.6" },
     { name = "schemasheets", specifier = ">=0.2.1" },
@@ -1005,6 +1007,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/3c/d4/efbabe9d04252b3007bc79b0d6db2206b40b74e20619cbed23c1e1d03b2a/mkdocs_mermaid2_plugin-1.2.2.tar.gz", hash = "sha256:20a44440d32cf5fd1811b3e261662adb3e1b98be272e6f6fb9a476f3e28fd507", size = 16209, upload-time = "2025-08-27T23:51:51.078Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/8e/d5/15f6eeeb755e57a501fad6dcfb3fe406dea5f6a6347a77c3be114294f7bb/mkdocs_mermaid2_plugin-1.2.2-py3-none-any.whl", hash = "sha256:a003dddd6346ecc0ad530f48f577fe6f8b21ea23fbee09eabf0172bbc1f23df8", size = 17300, upload-time = "2025-08-27T23:51:49.988Z" },
+]
+
+[[package]]
+name = "mkdocs-redirects"
+version = "1.2.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mkdocs" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f1/a8/6d44a6cf07e969c7420cb36ab287b0669da636a2044de38a7d2208d5a758/mkdocs_redirects-1.2.2.tar.gz", hash = "sha256:3094981b42ffab29313c2c1b8ac3969861109f58b2dd58c45fc81cd44bfa0095", size = 7162, upload-time = "2024-11-07T14:57:21.109Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c4/ec/38443b1f2a3821bbcb24e46cd8ba979154417794d54baf949fefde1c2146/mkdocs_redirects-1.2.2-py3-none-any.whl", hash = "sha256:7dbfa5647b79a3589da4401403d69494bd1f4ad03b9c15136720367e1f340ed5", size = 6142, upload-time = "2024-11-07T14:57:19.143Z" },
 ]
 
 [[package]]

@@ -11,6 +11,9 @@ theme:
 plugins:
   - search
   - mermaid2
+  - redirects:
+      redirect_maps:
+        schema_overview.md: index.md
 markdown_extensions:
   - pymdownx.superfences:
       custom_fences:
