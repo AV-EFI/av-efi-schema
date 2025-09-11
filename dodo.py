@@ -321,6 +321,7 @@ def task_diagram():
 def task_copy_src_docs():
     """Copy files over from src/docs."""
     dependencies = list(SRC_DOCS_DIR.glob('*.md'))
+    dependencies.extend(SRC_DOCS_DIR.glob('*.jpg'))
     targets = [DOCS_DIR / d.name for d in dependencies]
     return {
         'actions': [

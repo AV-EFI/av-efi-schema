@@ -5,7 +5,7 @@ theme:
   palette:
     scheme: black
     primary: black
-  #logo: images/avefi-logo.png
+  logo: avefi_logo_lg.jpg
   features:
     - content.tabs.link
 plugins:
