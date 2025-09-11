@@ -1,320 +1,1331 @@
 
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://av-efi.github.io/av-efi-schema/">
+      
+      
+      
+        <link rel="next" href="design/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+    
+    
+      
+        <title>AVefi Schema Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://av-efi.github.io/av-efi-schema/" rel="canonical"/>
-<link href="schema_overview/" rel="next"/>
-<link href="assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.18" name="generator"/>
-<title>AVefi Schema Documentation</title>
-<link href="assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
-<link href="assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
-<body data-md-color-accent="indigo" data-md-color-primary="black" data-md-color-scheme="black" dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#schema-for-audio-visual-material">
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="black" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#avefi-data-model" class="md-skip">
           Skip to content
         </a>
-</div>
-<div data-md-component="announce">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
 <header class="md-header md-header--shadow" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="AVefi Schema Documentation" class="md-header__button md-logo" data-md-component="logo" href="." title="AVefi Schema Documentation">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="AVefi Schema Documentation" class="md-header__button md-logo" aria-label="AVefi Schema Documentation" data-md-component="logo">
+      
+  <img src="docs/avefi_ph_gray.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             AVefi Schema Documentation
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Home
             
           </span>
-</div>
-</div>
-</div>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list" role="presentation"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="md-header__source">
-<a class="md-source" data-md-component="source" href="https://github.com/AV-EFI/av-efi-schema" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4" fill="currentColor"></path></svg>
-</div>
-<div class="md-source__repository">
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AV-EFI/av-efi-schema" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
     GitHub
   </div>
 </a>
-</div>
-</nav>
+      </div>
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="AVefi Schema Documentation" class="md-nav__button md-logo" data-md-component="logo" href="." title="AVefi Schema Documentation">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
-</a>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="AVefi Schema Documentation" class="md-nav__button md-logo" aria-label="AVefi Schema Documentation" data-md-component="logo">
+      
+  <img src="docs/avefi_ph_gray.svg" alt="logo">
+
+    </a>
     AVefi Schema Documentation
   </label>
-<div class="md-nav__source">
-<a class="md-source" data-md-component="source" href="https://github.com/AV-EFI/av-efi-schema" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4" fill="currentColor"></path></svg>
-</div>
-<div class="md-source__repository">
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AV-EFI/av-efi-schema" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
     GitHub
   </div>
 </a>
-</div>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
     Home
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href=".">
-<span class="md-ellipsis">
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
     Home
     
   </span>
-</a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#example-1-two-archives-have-registered-efis-for-the-same-work">
-<span class="md-ellipsis">
-      Example 1: Two archives have registered EFIs for the same work
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#example-2-archive-has-registered-efis-for-a-dvd-of-shorts">
-<span class="md-ellipsis">
-      Example 2: Archive has registered EFIs for a DVD of shorts
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slots
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#acknowledgements">
-<span class="md-ellipsis">
-      Acknowledgements
+      
+        <li class="md-nav__item">
+  <a href="#enumerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enumerations
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subsets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subsets
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="schema_overview/">
-<span class="md-ellipsis">
-    Overview
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Design principles
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="examples/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     Examples
     
   </span>
-</a>
-</li>
-</ul>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
 </nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#example-1-two-archives-have-registered-efis-for-the-same-work">
-<span class="md-ellipsis">
-      Example 1: Two archives have registered EFIs for the same work
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#example-2-archive-has-registered-efis-for-a-dvd-of-shorts">
-<span class="md-ellipsis">
-      Example 2: Archive has registered EFIs for a DVD of shorts
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slots
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#acknowledgements">
-<span class="md-ellipsis">
-      Acknowledgements
+      
+        <li class="md-nav__item">
+  <a href="#enumerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enumerations
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subsets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subsets
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
-<h1 id="schema-for-audio-visual-material">Schema for Audio-Visual Material</h1>
-<p>The <a href="https://projects.tib.eu/av-efi/">AVefi project</a> is all about persistent identifiers for
-audio-visual material called EFI Film Identifiers. The following EFI
-types are differentiated and have associated metadata as per the
-<a href="https://github.com/AV-EFI/av-efi-schema/">schema</a>:</p>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="avefi-data-model">AVefi data model</h1>
+<p>Metadata schema for persistent film identifiers developed in the
+AVefi project. See also the corresponding <a href="https://github.com/AV-EFI/av-efi-schema/blob/main/avefi_er_diagram.md">Entity relation
+diagram</a>.
+Additionally, consult the <a href="https://www.fiafnet.org/pages/E-Resources/Cataloguing-Manual.html">FIAF Moving Image Cataloguing
+Manual</a>
+and the <a href="https://www.fiafnet.org/images/tinyUpload/E-Resources/Reports-Glossaries-And-Papers/GlossaryMasterCombo19.htm">FIAF Glossary of Filmographic
+Terms</a>
+as indicated in the documentation below for definitions, usage
+instructions and best practices</p>
+<p>URI: https://www.av-efi.net/av-efi-schema/model</p>
+<p>Name: model</p>
+<h2 id="classes">Classes</h2>
 <table>
 <thead>
 <tr>
-<th>EFI type:</th>
-<th>work</th>
-<th>manifestation</th>
-<th>item</th>
+<th>Class</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Definition:</strong></td>
-<td><strong><a href="https://www.fiafnet.org/pages/E-Resources/Cataloguing-Manual.html">FIAF Cataloguing Manual</a> section 1.0.1:</strong><br/> A moving image Work comprises both the intellectual or artistic content and the process of realisation in a cinematographic medium, e.g., what it is called, when it was made, who made it, who was in it, what it is about, etc. A Work as a conceptual entity is the topmost level of description. [...] It is intended to function as the “node” that relates all Variants and Manifestations of a Work to a common creation. A Work contains the characteristics that are inherited across any Variant, Manifestation, or Item derived from that Work. [...]</td>
-<td><strong><a href="https://www.fiafnet.org/pages/E-Resources/Cataloguing-Manual.html">FIAF Cataloguing Manual</a> section 2.0:</strong><br/> A moving image Manifestation is the embodiment of a moving image Work/Variant. [...] A Manifestation possesses common characteristics with respect to shared intellectual content and physical format, e.g., releases, broadcasts, etc. It may be whole or incomplete or a fragment. A Manifestation is not exclusively bound to a single Work/Variant, since it can be an aggregate for reasons connected to the publication, to the commercial release, or for mere convenience. A Manifestation can therefore be associated or linked to more than one Work/Variant. [...]</td>
-<td><strong><a href="https://www.fiafnet.org/pages/E-Resources/Cataloguing-Manual.html">FIAF Cataloguing Manual</a> section 3.0:</strong><br/> A moving image Item is the physical or digital product of a Manifestation of a Work or Variant, i.e. the actual copy of a Work or Variant. Whereas the Manifestation record describes the “ideal” of a particular format or publication, the Item record represents the actual holding in a repository’s collection. An Item may consist of one or more components, i.e. the whole Item may consist of 1 reel or 5 reels, 2 VHS tapes or 1 DVD. [...] The Item may be whole or incomplete or a fragment. In the case of purely digital media, an Item is defined as the availability of the computer file, irrespective of the number of backup copies that may exist.</td>
+<td><a href="WorkVariant/">WorkVariant</a></td>
+<td>FIAF Moving Image Cataloguing Manual 1.0</td>
 </tr>
 <tr>
-<td><strong>Accept CREATE if user:</strong></td>
-<td>is authenticated and provides metadata or EFI for at least one accompanying manifestation and item.</td>
-<td>is authenticated and provides metadata or EFI for at least one accompanying item and work.</td>
-<td>is authenticated and provides metadata or EFI for at least one accompanying manifestation and work.</td>
+<td><a href="Manifestation/">Manifestation</a></td>
+<td>Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as publication event type</td>
 </tr>
 <tr>
-<td><strong>Accept UPDATE if user:</strong></td>
-<td>is authenticated and owns at least one manifestation associated with this work.</td>
-<td>is authenticated and owns the manifestation.</td>
-<td>is authenticated and owns the item.</td>
+<td><a href="Item/">Item</a></td>
+<td>FIAF Moving Image Cataloguing Manual 3.0</td>
+</tr>
+<tr>
+<td><a href="Title/">Title</a></td>
+<td>FIAF Moving Image Cataloguing Manual 1.3.2, 2.3.2, 3.1.2</td>
+</tr>
+<tr>
+<td><a href="GeographicName/">GeographicName</a></td>
+<td>Name of country, region or other location.</td>
+</tr>
+<tr>
+<td><a href="ProductionEvent/">ProductionEvent</a></td>
+<td>Production event of a work/variant (or manifestation produced as a restoration).</td>
+</tr>
+<tr>
+<td><a href="PreservationEvent/">PreservationEvent</a></td>
+<td>Preservation event originating a manifestation or possibly a vaniant.</td>
+</tr>
+<tr>
+<td><a href="PublicationEvent/">PublicationEvent</a></td>
+<td>Publication event of a manifestation or possibly the first known publication of a work.</td>
+</tr>
+<tr>
+<td><a href="ManufactureEvent/">ManufactureEvent</a></td>
+<td>Manufacture event of a manifestation.</td>
+</tr>
+<tr>
+<td><a href="RightsCopyrightRegistrationEvent/">RightsCopyrightRegistrationEvent</a></td>
+<td>Copyright and related rights registration event of a manifestation or possibly of a work/variant.</td>
+</tr>
+<tr>
+<td><a href="Event/">Event</a></td>
+<td>Significant event in the lifecycle of moving image work / variant, manifestation or item.</td>
+</tr>
+<tr>
+<td><a href="AnimationActivity/">AnimationActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="CastActivity/">CastActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="CensorshipActivity/">CensorshipActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="CinematographyActivity/">CinematographyActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="CopyrightAndDistributionActivity/">CopyrightAndDistributionActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="DirectingActivity/">DirectingActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="EditingActivity/">EditingActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="LaboratoryActivity/">LaboratoryActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="MusicActivity/">MusicActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="ProducingActivity/">ProducingActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="ProductionDesignActivity/">ProductionDesignActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="PuppetActivity/">PuppetActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="SoundActivity/">SoundActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="SpecialEffectsActivity/">SpecialEffectsActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="WritingActivity/">WritingActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="ManifestationActivity/">ManifestationActivity</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="Activity/">Activity</a></td>
+<td>FIAF Moving Image Cataloguing Manual 1.4.1.1</td>
+</tr>
+<tr>
+<td><a href="Agent/">Agent</a></td>
+<td>Agent involved in some activity related to the moving image resource.</td>
+</tr>
+<tr>
+<td><a href="Language/">Language</a></td>
+<td>Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled vocabulary.</td>
+</tr>
+<tr>
+<td><a href="Subject/">Subject</a></td>
+<td>Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre.</td>
+</tr>
+<tr>
+<td><a href="Genre/">Genre</a></td>
+<td>Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters.</td>
+</tr>
+<tr>
+<td><a href="Format/">Format</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1</td>
+</tr>
+<tr>
+<td><a href="Audio/">Audio</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
+</tr>
+<tr>
+<td><a href="DigitalFile/">DigitalFile</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
+</tr>
+<tr>
+<td><a href="DigitalFileEncoding/">DigitalFileEncoding</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
+</tr>
+<tr>
+<td><a href="Film/">Film</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
+</tr>
+<tr>
+<td><a href="Optical/">Optical</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
+</tr>
+<tr>
+<td><a href="Video/">Video</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
+</tr>
+<tr>
+<td><a href="Duration/">Duration</a></td>
+<td>Total running time of the described object in ISO 8601 duration format.</td>
+</tr>
+<tr>
+<td><a href="Extent/">Extent</a></td>
+<td>Physical length or size of the described object.</td>
+</tr>
+<tr>
+<td><a href="AVefiResource/">AVefiResource</a></td>
+<td>Handle with the prefix allocated for AVefi (eventually).</td>
+</tr>
+<tr>
+<td><a href="DOIResource/">DOIResource</a></td>
+<td>Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films.</td>
+</tr>
+<tr>
+<td><a href="EIDRResource/">EIDRResource</a></td>
+<td>Entertainment Identifier Registry ID.</td>
+</tr>
+<tr>
+<td><a href="FilmportalResource/">FilmportalResource</a></td>
+<td>Identifier of the German Filmportal.de.</td>
+</tr>
+<tr>
+<td><a href="GNDResource/">GNDResource</a></td>
+<td>Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)</td>
+</tr>
+<tr>
+<td><a href="ISILResource/">ISILResource</a></td>
+<td>International Standard Identifier for Libraries and Related Organizations including (film) archives.</td>
+</tr>
+<tr>
+<td><a href="LocalResource/">LocalResource</a></td>
+<td>Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet.</td>
+</tr>
+<tr>
+<td><a href="TGNResource/">TGNResource</a></td>
+<td>Getty Thesaurus of Geographic Names ID.</td>
+</tr>
+<tr>
+<td><a href="VIAFResource/">VIAFResource</a></td>
+<td>Virtual International Authority File identifier hosted by OCLC.</td>
+</tr>
+<tr>
+<td><a href="WikidataResource/">WikidataResource</a></td>
+<td>Identifier for Wikidata entities.</td>
+</tr>
+<tr>
+<td><a href="MovingImageRecordContainer/">MovingImageRecordContainer</a></td>
+<td>A holder for MovingImageRecord objects</td>
+</tr>
+<tr>
+<td><a href="CategorizedThing/">CategorizedThing</a></td>
+<td>Root for all classes with subclasses in this schema</td>
+</tr>
+<tr>
+<td><a href="MovingImageRecord/">MovingImageRecord</a></td>
+<td>Base class defining slots that are common to all levels of the WVMI metadata model</td>
+</tr>
+<tr>
+<td><a href="DescriptionResource/">DescriptionResource</a></td>
+<td>Metadata about the PID rather than the identified object, i.e. who modified the PID metadata record when, making what changes</td>
+</tr>
+<tr>
+<td><a href="ManifestationOrItem/">ManifestationOrItem</a></td>
+<td>Base class defining common slots for manifestations and items</td>
+</tr>
+<tr>
+<td><a href="AuthorityResource/">AuthorityResource</a></td>
+<td>Root class for all identifiers from some kind of authority or public register widely accepted in the community</td>
+</tr>
+<tr>
+<td><a href="MovingImageResource/">MovingImageResource</a></td>
+<td>Either a persistent or local identifier for AVefi compliant moving image records.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="example-1-two-archives-have-registered-efis-for-the-same-work">Example 1: Two archives have registered EFIs for the same work</h3>
-<pre class="mermaid"><code>flowchart TD
-m1(manifestation 1)
-m1i1(((some item)))
-m2(manifestation 2)
-m2i1(((another item)))
-u1[user 1]
-u2[user 2]
-w((work))
-m1--&gt;|created by|u1
-m1i1--&gt;|created by|u1
-m1---m1i1
-w---m1
-m2--&gt;|created by|u2
-m2i1--&gt;|created by|u2
-m2---m2i1
-w---m2</code></pre>
-<h3 id="example-2-archive-has-registered-efis-for-a-dvd-of-shorts">Example 2: Archive has registered EFIs for a DVD of shorts</h3>
-<pre class="mermaid"><code>flowchart TD
-w1((first short))
-w2((second short))
-w1---m
-w2---m
-m(manifestation of two shorts on DVD)
-mi(((DVD)))
-u[user]
-m--&gt;|created by|u
-mi--&gt;|created by|u
-m---mi</code></pre>
-<h2 id="acknowledgements">Acknowledgements</h2>
-<p>The schema is reasonably well aligned with and heavily inspired by the
-<a href="https://fiafcore.org/">FIAFcore ontology</a>. Using <a href="https://linkml.io/">LinkML</a> as a development framework, we
-generate the documentation and other derivatives from the <a href="https://github.com/AV-EFI/av-efi-schema/">AVefi
-schema repository</a>.</p>
-</article>
-</div>
-<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="has_record/">has_record</a></td>
+<td>Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item.</td>
+</tr>
+<tr>
+<td><a href="category/">category</a></td>
+<td>Designates type, e.g. to distinguish different identifiers (GNDResource vs.</td>
+</tr>
+<tr>
+<td><a href="has_primary_title/">has_primary_title</a></td>
+<td>Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items.</td>
+</tr>
+<tr>
+<td><a href="has_alternative_title/">has_alternative_title</a></td>
+<td>Additional title(s) associated with the work / variant, manifestation, or item.</td>
+</tr>
+<tr>
+<td><a href="has_name/">has_name</a></td>
+<td>Human-readable name for a thing.</td>
+</tr>
+<tr>
+<td><a href="has_ordering_name/">has_ordering_name</a></td>
+<td>Provide normalised form, e.g. for sorting by title.</td>
+</tr>
+<tr>
+<td><a href="id/">id</a></td>
+<td>A unique identifier for a thing</td>
+</tr>
+<tr>
+<td><a href="has_identifier/">has_identifier</a></td>
+<td>Record PID in this slot when exporting data from the PID system.</td>
+</tr>
+<tr>
+<td><a href="has_source_key/">has_source_key</a></td>
+<td>Indicate a dataset this record has been generated or derived from.</td>
+</tr>
+<tr>
+<td><a href="type/">type</a></td>
+<td>See specific class documentation for controlled vocabulary applicable to the type slot, respectively</td>
+</tr>
+<tr>
+<td><a href="same_as/">same_as</a></td>
+<td>See <a href="AuthorityResource/">AuthorityResource doucmentation</a> for accepted identifiers</td>
+</tr>
+<tr>
+<td><a href="has_event/">has_event</a></td>
+<td>Associate event(s) with a moving image record</td>
+</tr>
+<tr>
+<td><a href="has_date/">has_date</a></td>
+<td>Date (or interval/period) when an event has taken place.</td>
+</tr>
+<tr>
+<td><a href="located_in/">located_in</a></td>
+<td>Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event</td>
+</tr>
+<tr>
+<td><a href="has_activity/">has_activity</a></td>
+<td>Associate activity (and subsequently agents) with event</td>
+</tr>
+<tr>
+<td><a href="has_agent/">has_agent</a></td>
+<td>Agent involved in some activity related to the moving image resource</td>
+</tr>
+<tr>
+<td><a href="has_alternate_name/">has_alternate_name</a></td>
+<td>Alternative human-readable name(s) for a thing.</td>
+</tr>
+<tr>
+<td><a href="in_language/">in_language</a></td>
+<td>FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3</td>
+</tr>
+<tr>
+<td><a href="code/">code</a></td>
+<td><a href="https://id.loc.gov/vocabulary/iso639-2.html">ISO 639-2 code</a> for the Representation of Names of Languages (Part 2: Alpha-3)</td>
+</tr>
+<tr>
+<td><a href="usage/">usage</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2.3.3.2</td>
+</tr>
+<tr>
+<td><a href="has_form/">has_form</a></td>
+<td>Form describes the format and/or purpose of a Work, e.g., “non-fiction”, “short” and “animation”.</td>
+</tr>
+<tr>
+<td><a href="has_subject/">has_subject</a></td>
+<td>Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre.</td>
+</tr>
+<tr>
+<td><a href="has_genre/">has_genre</a></td>
+<td>Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters.</td>
+</tr>
+<tr>
+<td><a href="is_part_of/">is_part_of</a></td>
+<td>Relate, for instance, episodes to a series / serial.</td>
+</tr>
+<tr>
+<td><a href="is_variant_of/">is_variant_of</a></td>
+<td>Link to the reference WorkVariant for the currently described variant.</td>
+</tr>
+<tr>
+<td><a href="variant_type/">variant_type</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.2</td>
+</tr>
+<tr>
+<td><a href="is_manifestation_of/">is_manifestation_of</a></td>
+<td>Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation</td>
+</tr>
+<tr>
+<td><a href="has_item/">has_item</a></td>
+<td>Indicate AVefi Items the institution has registered as part of the manifestation</td>
+</tr>
+<tr>
+<td><a href="has_format/">has_format</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1</td>
+</tr>
+<tr>
+<td><a href="has_duration/">has_duration</a></td>
+<td>Total running time of the described object in ISO 8601 duration format.</td>
+</tr>
+<tr>
+<td><a href="has_extent/">has_extent</a></td>
+<td>Physical length or size of the described object.</td>
+</tr>
+<tr>
+<td><a href="has_value/">has_value</a></td>
+<td>Value of some quantity</td>
+</tr>
+<tr>
+<td><a href="has_unit/">has_unit</a></td>
+<td>Unit of some quantity</td>
+</tr>
+<tr>
+<td><a href="has_precision/">has_precision</a></td>
+<td>Qualifier indicating the precision of an extent value or duration</td>
+</tr>
+<tr>
+<td><a href="has_colour_type/">has_colour_type</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11</td>
+</tr>
+<tr>
+<td><a href="has_sound_type/">has_sound_type</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4</td>
+</tr>
+<tr>
+<td><a href="has_webresource/">has_webresource</a></td>
+<td>Link to data provider's own presentation of manifestation or item on the web</td>
+</tr>
+<tr>
+<td><a href="has_note/">has_note</a></td>
+<td>FIAF Moving Image Cataloguing Manual Appendix B</td>
+</tr>
+<tr>
+<td><a href="is_item_of/">is_item_of</a></td>
+<td>Indicate AVefi Manifestation the item belongs to.</td>
+</tr>
+<tr>
+<td><a href="element_type/">element_type</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.8</td>
+</tr>
+<tr>
+<td><a href="has_access_status/">has_access_status</a></td>
+<td>Status of item determining access conditions.</td>
+</tr>
+<tr>
+<td><a href="has_frame_rate/">has_frame_rate</a></td>
+<td>Frame Rate describes the number of frames per second of an item.</td>
+</tr>
+<tr>
+<td><a href="is_copy_of/">is_copy_of</a></td>
+<td>Link to AVefi item registered by another institution indicating that the two are known to be copies of each other</td>
+</tr>
+<tr>
+<td><a href="is_derivative_of/">is_derivative_of</a></td>
+<td>Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project</td>
+</tr>
+<tr>
+<td><a href="described_by/">described_by</a></td>
+<td>Also record some metadata about the PID itself rather than the identified object</td>
+</tr>
+<tr>
+<td><a href="has_history/">has_history</a></td>
+<td>Link to revision history of this PID</td>
+</tr>
+<tr>
+<td><a href="has_issuer_id/">has_issuer_id</a></td>
+<td>Identifier for the responsible party as an URI suitable for linked data</td>
+</tr>
+<tr>
+<td><a href="has_issuer_name/">has_issuer_name</a></td>
+<td>Name of the responsible party</td>
+</tr>
+<tr>
+<td><a href="last_modified/">last_modified</a></td>
+<td>Timestamp (in UTC) for the latest modification to any field in the PID metadata record</td>
+</tr>
+<tr>
+<td><a href="URL/">URL</a></td>
+<td>URL specifying the destination where clients should be redirected to when resolving the PID of a moving image record</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enumerations">Enumerations</h2>
+<table>
+<thead>
+<tr>
+<th>Enumeration</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="WorkVariantTypeEnum/">WorkVariantTypeEnum</a></td>
+<td>Work/Variant description type.</td>
+</tr>
+<tr>
+<td><a href="TitleTypeEnum/">TitleTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual A.2</td>
+</tr>
+<tr>
+<td><a href="ManufactureEventTypeEnum/">ManufactureEventTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.4.7, D.14</td>
+</tr>
+<tr>
+<td><a href="PreservationEventTypeEnum/">PreservationEventTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.4.5</td>
+</tr>
+<tr>
+<td><a href="ProductionEventTypeEnum/">ProductionEventTypeEnum</a></td>
+<td>Leave unset for main production event, otherwise see FIAF Moving Image Cataloguing Manual D.4.3, D.11</td>
+</tr>
+<tr>
+<td><a href="PublicationEventTypeEnum/">PublicationEventTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.4.1, D.10</td>
+</tr>
+<tr>
+<td><a href="AnimationActivityTypeEnum/">AnimationActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="CastActivityTypeEnum/">CastActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="CensorshipActivityTypeEnum/">CensorshipActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="CinematographyActivityTypeEnum/">CinematographyActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="CopyrightAndDistributionActivityTypeEnum/">CopyrightAndDistributionActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="DirectingActivityTypeEnum/">DirectingActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="EditingActivityTypeEnum/">EditingActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="LaboratoryActivityTypeEnum/">LaboratoryActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="MusicActivityTypeEnum/">MusicActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="ProducingActivityTypeEnum/">ProducingActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="ProductionDesignActivityTypeEnum/">ProductionDesignActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="PuppetActivityTypeEnum/">PuppetActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="SoundActivityTypeEnum/">SoundActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="SpecialEffectsActivityTypeEnum/">SpecialEffectsActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="WritingActivityTypeEnum/">WritingActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="ManifestationActivityTypeEnum/">ManifestationActivityTypeEnum</a></td>
+<td>Activity types / roles.</td>
+</tr>
+<tr>
+<td><a href="AgentTypeEnum/">AgentTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual 1.4.1</td>
+</tr>
+<tr>
+<td><a href="LanguageCodeEnum/">LanguageCodeEnum</a></td>
+<td><a href="https://id.loc.gov/vocabulary/iso639-2.html">ISO 639-2 code</a> for the Representation of Names of Languages (Part 2: Alpha-3)</td>
+</tr>
+<tr>
+<td><a href="LanguageUsageEnum/">LanguageUsageEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2.3.3, D.6</td>
+</tr>
+<tr>
+<td><a href="WorkFormEnum/">WorkFormEnum</a></td>
+<td>FIAF Glossary of Filmographic Terms D.1</td>
+</tr>
+<tr>
+<td><a href="VariantTypeEnum/">VariantTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.2</td>
+</tr>
+<tr>
+<td><a href="FormatAudioTypeEnum/">FormatAudioTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
+</tr>
+<tr>
+<td><a href="FormatDigitalFileEncodingTypeEnum/">FormatDigitalFileEncodingTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
+</tr>
+<tr>
+<td><a href="FormatDigitalFileTypeEnum/">FormatDigitalFileTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
+</tr>
+<tr>
+<td><a href="FormatFilmTypeEnum/">FormatFilmTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
+</tr>
+<tr>
+<td><a href="FormatOpticalTypeEnum/">FormatOpticalTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
+</tr>
+<tr>
+<td><a href="FormatVideoTypeEnum/">FormatVideoTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.2</td>
+</tr>
+<tr>
+<td><a href="PrecisionEnum/">PrecisionEnum</a></td>
+<td>Qualifier indicating the precision of an extent value or duration</td>
+</tr>
+<tr>
+<td><a href="UnitEnum/">UnitEnum</a></td>
+<td>Units of measurement.</td>
+</tr>
+<tr>
+<td><a href="ColourTypeEnum/">ColourTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11</td>
+</tr>
+<tr>
+<td><a href="SoundTypeEnum/">SoundTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4</td>
+</tr>
+<tr>
+<td><a href="ItemElementTypeEnum/">ItemElementTypeEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.8</td>
+</tr>
+<tr>
+<td><a href="FrameRateEnum/">FrameRateEnum</a></td>
+<td>Frames per second of an item.</td>
+</tr>
+<tr>
+<td><a href="ItemAccessStatusEnum/">ItemAccessStatusEnum</a></td>
+<td>FIAF Moving Image Cataloguing Manual D.7.3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="types">Types</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="TextLine/">TextLine</a></td>
+<td>Non-empty string without line breaks intended for names and similar data</td>
+</tr>
+<tr>
+<td><a href="TextArea/">TextArea</a></td>
+<td>Non-empty string possibly containing line breaks</td>
+</tr>
+<tr>
+<td><a href="HttpUri/">HttpUri</a></td>
+<td>Full URI starting with http or https</td>
+</tr>
+<tr>
+<td><a href="AVefiCurie/">AVefiCurie</a></td>
+<td>To be used as range for type designator slots, i.e. const values</td>
+</tr>
+<tr>
+<td><a href="Decimal/">Decimal</a></td>
+<td>Decimal numbers</td>
+</tr>
+<tr>
+<td><a href="ISODate/">ISODate</a></td>
+<td>ISO 8601 date or interval/period, more specifically, EDTF conformance level 0 as well as qualifiers ?</td>
+</tr>
+<tr>
+<td><a href="ISODateTimeUTC/">ISODateTimeUTC</a></td>
+<td>Timestamp in UTC</td>
+</tr>
+<tr>
+<td><a href="ISODurationInHours/">ISODurationInHours</a></td>
+<td>ISO 8601 duration format.</td>
+</tr>
+<tr>
+<td><a href="IDString/">IDString</a></td>
+<td>ASCII string suitable for identifiers</td>
+</tr>
+<tr>
+<td><a href="AVefi/">AVefi</a></td>
+<td>Handle with the prefix allocated for AVefi (eventually)</td>
+</tr>
+<tr>
+<td><a href="DOI/">DOI</a></td>
+<td>Digital Object Identifier maintained by the DOI Foundation and commonly used for scientific publications including films</td>
+</tr>
+<tr>
+<td><a href="EIDR/">EIDR</a></td>
+<td>Entertainment Identifier Registry ID</td>
+</tr>
+<tr>
+<td><a href="FilmportalID/">FilmportalID</a></td>
+<td>Identifier of the German Filmportal.de</td>
+</tr>
+<tr>
+<td><a href="GNDID/">GNDID</a></td>
+<td>Gemeinsame Normdatei (GND) identifier maintained by Deutsche Nationalbibliothek (German National Library)</td>
+</tr>
+<tr>
+<td><a href="ISIL/">ISIL</a></td>
+<td>International Standard Identifier for Libraries and Related Organizations including (film) archives</td>
+</tr>
+<tr>
+<td><a href="TGNID/">TGNID</a></td>
+<td>Getty Thesaurus of Geographic Names ID</td>
+</tr>
+<tr>
+<td><a href="VIAFID/">VIAFID</a></td>
+<td>Virtual International Authority File identifier</td>
+</tr>
+<tr>
+<td><a href="WikidataID/">WikidataID</a></td>
+<td>Identifier for Wikidata entities</td>
+</tr>
+<tr>
+<td><a href="String/">String</a></td>
+<td>A character string</td>
+</tr>
+<tr>
+<td><a href="Integer/">Integer</a></td>
+<td>An integer</td>
+</tr>
+<tr>
+<td><a href="Boolean/">Boolean</a></td>
+<td>A binary (true or false) value</td>
+</tr>
+<tr>
+<td><a href="Float/">Float</a></td>
+<td>A real number that conforms to the xsd:float specification</td>
+</tr>
+<tr>
+<td><a href="Double/">Double</a></td>
+<td>A real number that conforms to the xsd:double specification</td>
+</tr>
+<tr>
+<td><a href="Decimal/">Decimal</a></td>
+<td>A real number with arbitrary precision that conforms to the xsd:decimal specification</td>
+</tr>
+<tr>
+<td><a href="Time/">Time</a></td>
+<td>A time object represents a (local) time of day, independent of any particular day</td>
+</tr>
+<tr>
+<td><a href="Date/">Date</a></td>
+<td>a date (year, month and day) in an idealized calendar</td>
+</tr>
+<tr>
+<td><a href="Datetime/">Datetime</a></td>
+<td>The combination of a date and time</td>
+</tr>
+<tr>
+<td><a href="DateOrDatetime/">DateOrDatetime</a></td>
+<td>Either a date or a datetime</td>
+</tr>
+<tr>
+<td><a href="Uriorcurie/">Uriorcurie</a></td>
+<td>a URI or a CURIE</td>
+</tr>
+<tr>
+<td><a href="Curie/">Curie</a></td>
+<td>a compact URI</td>
+</tr>
+<tr>
+<td><a href="Uri/">Uri</a></td>
+<td>a complete URI</td>
+</tr>
+<tr>
+<td><a href="Ncname/">Ncname</a></td>
+<td>Prefix part of CURIE</td>
+</tr>
+<tr>
+<td><a href="Objectidentifier/">Objectidentifier</a></td>
+<td>A URI or CURIE that represents an object in the model.</td>
+</tr>
+<tr>
+<td><a href="Nodeidentifier/">Nodeidentifier</a></td>
+<td>A URI, CURIE or BNODE that represents a node in a model.</td>
+</tr>
+<tr>
+<td><a href="Jsonpointer/">Jsonpointer</a></td>
+<td>A string encoding a JSON Pointer.</td>
+</tr>
+<tr>
+<td><a href="Jsonpath/">Jsonpath</a></td>
+<td>A string encoding a JSON Path.</td>
+</tr>
+<tr>
+<td><a href="Sparqlpath/">Sparqlpath</a></td>
+<td>A string encoding a SPARQL Property Path.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="subsets">Subsets</h2>
+<table>
+<thead>
+<tr>
+<th>Subset</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="TypeRegistrySubset/">TypeRegistrySubset</a></td>
+<td>Classes that are to be implemented as infoTypes in the type registry</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-</div>
-</main>
-<footer class="md-footer">
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
+  
 </div>
-</div>
-</div>
+      
+    </div>
+  </div>
 </footer>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<script id="__config" type="application/json">{"base": ".", "features": ["content.tabs.link"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="assets/javascripts/bundle.92b07e13.min.js"></script>
-</body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": ".", "features": ["content.tabs.link"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
 </html>

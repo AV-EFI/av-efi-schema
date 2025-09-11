@@ -5,10 +5,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://av-efi.github.io/av-efi-schema/CategorizedThing/" rel="canonical"/>
+<link href="https://av-efi.github.io/av-efi-schema/design/" rel="canonical"/>
+<link href=".." rel="prev"/>
+<link href="../examples/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.19" name="generator"/>
-<title>Class: CategorizedThing - AVefi Schema Documentation</title>
+<title>Design principles - AVefi Schema Documentation</title>
 <link href="../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-categorizedthing">
+<a class="md-skip" href="#schema-for-audio-visual-material">
           Skip to content
         </a>
 </div>
@@ -45,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: CategorizedThing
+              Design principles
             
           </span>
 </div>
@@ -125,13 +127,50 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../design/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Design principles
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Design principles
     
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-1-two-archives-have-registered-efis-for-the-same-work">
+<span class="md-ellipsis">
+      Example 1: Two archives have registered efis for the same work
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-2-archive-has-registered-efis-for-a-dvd-of-shorts">
+<span class="md-ellipsis">
+      Example 2: Archive has registered efis for a DVD of shorts
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acknowledgements">
+<span class="md-ellipsis">
+      Acknowledgements
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../examples/">
@@ -156,82 +195,25 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#inheritance">
+<a class="md-nav__link" href="#example-1-two-archives-have-registered-efis-for-the-same-work">
 <span class="md-ellipsis">
-      Inheritance
+      Example 1: Two archives have registered efis for the same work
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#slots">
+<a class="md-nav__link" href="#example-2-archive-has-registered-efis-for-a-dvd-of-shorts">
 <span class="md-ellipsis">
-      Slots
+      Example 2: Archive has registered efis for a DVD of shorts
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
+<a class="md-nav__link" href="#acknowledgements">
 <span class="md-ellipsis">
-      Usages
+      Acknowledgements
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#identifier-and-mapping-information">
-<span class="md-ellipsis">
-      Identifier and Mapping Information
-    </span>
-</a>
-<nav aria-label="Identifier and Mapping Information" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annotations">
-<span class="md-ellipsis">
-      Annotations
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#schema-source">
-<span class="md-ellipsis">
-      Schema Source
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#mappings">
-<span class="md-ellipsis">
-      Mappings
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#linkml-source">
-<span class="md-ellipsis">
-      LinkML Source
-    </span>
-</a>
-<nav aria-label="LinkML Source" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#direct">
-<span class="md-ellipsis">
-      Direct
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#induced">
-<span class="md-ellipsis">
-      Induced
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -240,173 +222,75 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="class-categorizedthing">Class: CategorizedThing</h1>
-<p><em>Root for all classes with subclasses in this schema</em></p>
-<ul>
-<li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
-</ul>
-<p>URI: <a href="https://www.av-efi.net/av-efi-schema/CategorizedThing">avefi:CategorizedThing</a></p>
-<pre class="mermaid"><code> classDiagram
-    class CategorizedThing
-    click CategorizedThing href "../CategorizedThing/"
-      CategorizedThing &lt;|-- MovingImageRecord
-        click MovingImageRecord href "../MovingImageRecord/"
-      CategorizedThing &lt;|-- GeographicName
-        click GeographicName href "../GeographicName/"
-      CategorizedThing &lt;|-- Subject
-        click Subject href "../Subject/"
-      CategorizedThing &lt;|-- Activity
-        click Activity href "../Activity/"
-      CategorizedThing &lt;|-- Agent
-        click Agent href "../Agent/"
-      CategorizedThing &lt;|-- Event
-        click Event href "../Event/"
-      CategorizedThing &lt;|-- Format
-        click Format href "../Format/"
-      CategorizedThing &lt;|-- AuthorityResource
-        click AuthorityResource href "../AuthorityResource/"
-
-      CategorizedThing : category
-
-</code></pre>
-<h2 id="inheritance">Inheritance</h2>
-<ul>
-<li><strong>CategorizedThing</strong><ul>
-<li><a href="../MovingImageRecord/">MovingImageRecord</a></li>
-<li><a href="../GeographicName/">GeographicName</a></li>
-<li><a href="../Subject/">Subject</a></li>
-<li><a href="../Activity/">Activity</a></li>
-<li><a href="../Agent/">Agent</a></li>
-<li><a href="../Event/">Event</a></li>
-<li><a href="../Format/">Format</a></li>
-<li><a href="../AuthorityResource/">AuthorityResource</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="slots">Slots</h2>
+<h1 id="schema-for-audio-visual-material">Schema for Audio-Visual Material</h1>
+<p>The <a href="https://projects.tib.eu/av-efi/">AVefi project</a> is all about persistent identifiers for
+audio-visual material called efi Film Identifiers. The following efi
+types are differentiated and have associated metadata as per the
+<a href="https://github.com/AV-efi/av-efi-schema/">schema</a>:</p>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Cardinality and Range</th>
-<th>Description</th>
-<th>Inheritance</th>
+<th>efi type:</th>
+<th>work</th>
+<th>manifestation</th>
+<th>item</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../category/">category</a></td>
-<td>1 <br/> <a href="../AVefiCurie/">AVefiCurie</a></td>
-<td>Designates type, e.g. to distinguish different identifiers (GNDResource vs.</td>
-<td>direct</td>
+<td><strong>Definition:</strong></td>
+<td><strong><a href="https://www.fiafnet.org/pages/E-Resources/Cataloguing-Manual.html">FIAF Cataloguing Manual</a> section 1.0.1:</strong><br/> A moving image Work comprises both the intellectual or artistic content and the process of realisation in a cinematographic medium, e.g., what it is called, when it was made, who made it, who was in it, what it is about, etc. A Work as a conceptual entity is the topmost level of description. [...] It is intended to function as the “node” that relates all Variants and Manifestations of a Work to a common creation. A Work contains the characteristics that are inherited across any Variant, Manifestation, or Item derived from that Work. [...]</td>
+<td><strong><a href="https://www.fiafnet.org/pages/E-Resources/Cataloguing-Manual.html">FIAF Cataloguing Manual</a> section 2.0:</strong><br/> A moving image Manifestation is the embodiment of a moving image Work/Variant. [...] A Manifestation possesses common characteristics with respect to shared intellectual content and physical format, e.g., releases, broadcasts, etc. It may be whole or incomplete or a fragment. A Manifestation is not exclusively bound to a single Work/Variant, since it can be an aggregate for reasons connected to the publication, to the commercial release, or for mere convenience. A Manifestation can therefore be associated or linked to more than one Work/Variant. [...]</td>
+<td><strong><a href="https://www.fiafnet.org/pages/E-Resources/Cataloguing-Manual.html">FIAF Cataloguing Manual</a> section 3.0:</strong><br/> A moving image Item is the physical or digital product of a Manifestation of a Work or Variant, i.e. the actual copy of a Work or Variant. Whereas the Manifestation record describes the “ideal” of a particular format or publication, the Item record represents the actual holding in a repository’s collection. An Item may consist of one or more components, i.e. the whole Item may consist of 1 reel or 5 reels, 2 VHS tapes or 1 DVD. [...] The Item may be whole or incomplete or a fragment. In the case of purely digital media, an Item is defined as the availability of the computer file, irrespective of the number of backup copies that may exist.</td>
+</tr>
+<tr>
+<td><strong>Accept CREATE if user:</strong></td>
+<td>is authenticated and provides metadata or efi for at least one accompanying manifestation and item.</td>
+<td>is authenticated and provides metadata or efi for at least one accompanying item and work.</td>
+<td>is authenticated and provides metadata or efi for at least one accompanying manifestation and work.</td>
+</tr>
+<tr>
+<td><strong>Accept UPDATE if user:</strong></td>
+<td>is authenticated and owns at least one manifestation associated with this work.</td>
+<td>is authenticated and owns the manifestation.</td>
+<td>is authenticated and owns the item.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../WorkVariant/">WorkVariant</a></td>
-<td><a href="../has_subject/">has_subject</a></td>
-<td>range</td>
-<td><a href="./">CategorizedThing</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="annotations">Annotations</h3>
-<table>
-<thead>
-<tr>
-<th>property</th>
-<th>value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>trunk_pid</td>
-<td>21.T11969/be101407612d022cfdcc</td>
-</tr>
-</tbody>
-</table>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://www.av-efi.net/av-efi-schema/model</li>
-</ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>avefi:CategorizedThing</td>
-</tr>
-<tr>
-<td>native</td>
-<td>avefi:CategorizedThing</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linkml-source">LinkML Source</h2>
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-<h3 id="direct">Direct</h3>
-<details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CategorizedThing</span>
-<span class="nt">annotations</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">trunk_pid</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trunk_pid</span>
-<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21.T11969/be101407612d022cfdcc</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Root for all classes with subclasses in this schema</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.av-efi.net/av-efi-schema/model</span>
-<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">abstract</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
-</code></pre></div>
-</details>
-<h3 id="induced">Induced</h3>
-<details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CategorizedThing</span>
-<span class="nt">annotations</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">trunk_pid</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trunk_pid</span>
-<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21.T11969/be101407612d022cfdcc</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Root for all classes with subclasses in this schema</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.av-efi.net/av-efi-schema/model</span>
-<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">abstract</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">category</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Designates type, e.g. to distinguish different identifiers (GNDResource</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">vs. VIAFResource)</span>
-<span class="w">    </span><span class="nt">in_subset</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeRegistrySubset</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.av-efi.net/av-efi-schema/model</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdf:type</span>
-<span class="w">    </span><span class="nt">designates_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">category</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CategorizedThing</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CategorizedThing</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AVefiCurie</span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</code></pre></div>
-</details>
+<h3 id="example-1-two-archives-have-registered-efis-for-the-same-work">Example 1: Two archives have registered efis for the same work</h3>
+<pre class="mermaid"><code>flowchart TD
+m1(manifestation 1)
+m1i1(((some item)))
+m2(manifestation 2)
+m2i1(((another item)))
+u1[user 1]
+u2[user 2]
+w((work))
+m1--&gt;|created by|u1
+m1i1--&gt;|created by|u1
+m1---m1i1
+w---m1
+m2--&gt;|created by|u2
+m2i1--&gt;|created by|u2
+m2---m2i1
+w---m2</code></pre>
+<h3 id="example-2-archive-has-registered-efis-for-a-dvd-of-shorts">Example 2: Archive has registered efis for a DVD of shorts</h3>
+<pre class="mermaid"><code>flowchart TD
+w1((first short))
+w2((second short))
+w1---m
+w2---m
+m(manifestation of two shorts on DVD)
+mi(((DVD)))
+u[user]
+m--&gt;|created by|u
+mi--&gt;|created by|u
+m---mi</code></pre>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>The schema is reasonably well aligned with and heavily inspired by the
+<a href="https://fiafcore.org/">FIAFcore ontology</a>. Using <a href="https://linkml.io/">LinkML</a> as a development framework, we
+generate the documentation and other derivatives from the <a href="https://github.com/AV-efi/av-efi-schema/">AVefi
+schema repository</a>.</p>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>

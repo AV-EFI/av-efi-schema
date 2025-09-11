@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
@@ -86,8 +86,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="AVefi Schema Documentation" class="md-header__button md-logo" aria-label="AVefi Schema Documentation" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../docs/avefi_ph_gray.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -196,8 +195,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="AVefi Schema Documentation" class="md-nav__button md-logo" aria-label="AVefi Schema Documentation" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../docs/avefi_ph_gray.svg" alt="logo">
 
     </a>
     AVefi Schema Documentation
@@ -246,12 +244,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../schema_overview/" class="md-nav__link">
+      <a href="../design/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Overview
+    Design principles
     
   </span>
   
@@ -405,9 +403,14 @@ Alias: same_as</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../ManifestationOrItem/">ManifestationOrItem</a></td>
-<td>Base class defining common slots for manifestations and items</td>
-<td>no</td>
+<td><a href="../Subject/">Subject</a></td>
+<td>Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre.</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../Genre/">Genre</a></td>
+<td>Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters.</td>
+<td>yes</td>
 </tr>
 <tr>
 <td><a href="../MovingImageRecord/">MovingImageRecord</a></td>
@@ -415,8 +418,8 @@ Alias: same_as</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Genre/">Genre</a></td>
-<td>Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters.</td>
+<td><a href="../Manifestation/">Manifestation</a></td>
+<td>Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as publication event type</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -425,18 +428,13 @@ Alias: same_as</p>
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../Subject/">Subject</a></td>
-<td>Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre.</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../Manifestation/">Manifestation</a></td>
-<td>Manifestation as defined in FIAF Moving Image Cataloguing Manual 2.0. Note that manifestation type is recorded as publication event type</td>
-<td>yes</td>
-</tr>
-<tr>
 <td><a href="../Item/">Item</a></td>
 <td>FIAF Moving Image Cataloguing Manual 3.0</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../GeographicName/">GeographicName</a></td>
+<td>Name of country, region or other location.</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -445,9 +443,9 @@ Alias: same_as</p>
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../GeographicName/">GeographicName</a></td>
-<td>Name of country, region or other location.</td>
-<td>yes</td>
+<td><a href="../ManifestationOrItem/">ManifestationOrItem</a></td>
+<td>Base class defining common slots for manifestations and items</td>
+<td>no</td>
 </tr>
 </tbody>
 </table>
