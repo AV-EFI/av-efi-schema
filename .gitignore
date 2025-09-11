@@ -3,3 +3,23 @@
 __pycache__/
 .doit.db*
 *~
+
+# Temporary files and build artifacts
+.venv/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
