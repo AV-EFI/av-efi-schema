@@ -1480,8 +1480,6 @@ export interface MovingImageRecord extends CategorizedThing {
     has_identifier?: MovingImageResource[],
     /** Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead. */
     has_primary_title?: Title,
-    /** Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here. */
-    has_source_key?: string[],
     /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: AuthorityResource[],
 }
@@ -1500,7 +1498,6 @@ export function toMovingImageRecord(o: MovingImageRecord): MovingImageRecord {
         has_event: o.has_event ?? [],
         has_identifier: o.has_identifier ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        has_source_key: o.has_source_key ?? [],
         same_as: o.same_as ?? [],
         category: o.category ?? null
     }
@@ -1516,6 +1513,8 @@ export interface DescriptionResource {
     has_issuer_id: string,
     /** Name of the responsible party */
     has_issuer_name: string,
+    /** Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here. */
+    has_source_key?: string[],
     /** Timestamp (in UTC) for the latest modification to any field in the PID metadata record */
     last_modified?: string,
 }
@@ -1533,6 +1532,7 @@ export function toDescriptionResource(o: DescriptionResource): DescriptionResour
         has_history: o.has_history ?? null,
         has_issuer_id: o.has_issuer_id ?? null,
         has_issuer_name: o.has_issuer_name ?? null,
+        has_source_key: o.has_source_key ?? [],
         last_modified: o.last_modified ?? null
     }
 }
@@ -1575,12 +1575,11 @@ export function toWorkVariant(o: WorkVariant): WorkVariant {
         is_variant_of: o.is_variant_of ?? {},
         type: o.type ?? null,
         variant_type: o.variant_type ?? null,
-        described_by: o.described_by ?? {},
+        described_by: o.described_by ?? [],
         has_alternative_title: o.has_alternative_title ?? [],
         has_event: o.has_event ?? [],
         has_identifier: o.has_identifier ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        has_source_key: o.has_source_key ?? [],
         same_as: o.same_as ?? [],
         category: o.category ?? null
     }
@@ -2306,7 +2305,6 @@ export function toManifestationOrItem(o: ManifestationOrItem): ManifestationOrIt
         has_event: o.has_event ?? [],
         has_identifier: o.has_identifier ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        has_source_key: o.has_source_key ?? [],
         same_as: o.same_as ?? [],
         category: o.category ?? null
     }
@@ -2535,7 +2533,6 @@ export function toManifestation(o: Manifestation): Manifestation {
         has_event: o.has_event ?? [],
         has_identifier: o.has_identifier ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        has_source_key: o.has_source_key ?? [],
         same_as: o.same_as ?? [],
         category: o.category ?? null
     }
@@ -2624,7 +2621,6 @@ export function toItem(o: Item): Item {
         has_event: o.has_event ?? [],
         has_identifier: o.has_identifier ?? [],
         has_primary_title: o.has_primary_title ?? {},
-        has_source_key: o.has_source_key ?? [],
         same_as: o.same_as ?? [],
         category: o.category ?? null
     }

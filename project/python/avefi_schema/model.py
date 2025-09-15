@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-09-05T18:00:18
+# Generation date: 2025-09-15T12:58:00
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -298,7 +298,6 @@ class MovingImageRecord(CategorizedThing):
     has_event: Optional[Union[Union[dict, "Event"], list[Union[dict, "Event"]]]] = empty_list()
     has_identifier: Optional[Union[Union[dict, "MovingImageResource"], list[Union[dict, "MovingImageResource"]]]] = empty_list()
     has_primary_title: Optional[Union[dict, "Title"]] = None
-    has_source_key: Optional[Union[Union[str, IDString], list[Union[str, IDString]]]] = empty_list()
     same_as: Optional[Union[Union[dict, "AuthorityResource"], list[Union[dict, "AuthorityResource"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -319,10 +318,6 @@ class MovingImageRecord(CategorizedThing):
 
         if self.has_primary_title is not None and not isinstance(self.has_primary_title, Title):
             self.has_primary_title = Title(**as_dict(self.has_primary_title))
-
-        if not isinstance(self.has_source_key, list):
-            self.has_source_key = [self.has_source_key] if self.has_source_key is not None else []
-        self.has_source_key = [v if isinstance(v, IDString) else IDString(v) for v in self.has_source_key]
 
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
@@ -350,6 +345,7 @@ class DescriptionResource(YAMLRoot):
     has_issuer_id: Union[str, HttpUri] = None
     has_issuer_name: Union[str, TextLine] = None
     has_history: Optional[Union[str, HttpUri]] = None
+    has_source_key: Optional[Union[Union[str, IDString], list[Union[str, IDString]]]] = empty_list()
     last_modified: Optional[Union[str, ISODateTimeUTC]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -365,6 +361,10 @@ class DescriptionResource(YAMLRoot):
 
         if self.has_history is not None and not isinstance(self.has_history, HttpUri):
             self.has_history = HttpUri(self.has_history)
+
+        if not isinstance(self.has_source_key, list):
+            self.has_source_key = [self.has_source_key] if self.has_source_key is not None else []
+        self.has_source_key = [v if isinstance(v, IDString) else IDString(v) for v in self.has_source_key]
 
         if self.last_modified is not None and not isinstance(self.last_modified, ISODateTimeUTC):
             self.last_modified = ISODateTimeUTC(self.last_modified)
@@ -392,6 +392,7 @@ class WorkVariant(MovingImageRecord):
     is_part_of: Optional[Union[Union[dict, "MovingImageResource"], list[Union[dict, "MovingImageResource"]]]] = empty_list()
     is_variant_of: Optional[Union[dict, "MovingImageResource"]] = None
     variant_type: Optional[Union[str, "VariantTypeEnum"]] = None
+    described_by: Optional[Union[Union[dict, DescriptionResource], list[Union[dict, DescriptionResource]]]] = empty_list()
     same_as: Optional[Union[Union[dict, "AuthorityResource"], list[Union[dict, "AuthorityResource"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -426,6 +427,10 @@ class WorkVariant(MovingImageRecord):
 
         if self.variant_type is not None and not isinstance(self.variant_type, VariantTypeEnum):
             self.variant_type = VariantTypeEnum(self.variant_type)
+
+        if not isinstance(self.described_by, list):
+            self.described_by = [self.described_by] if self.described_by is not None else []
+        self.described_by = [v if isinstance(v, DescriptionResource) else DescriptionResource(**as_dict(v)) for v in self.described_by]
 
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
@@ -5494,6 +5499,9 @@ slots.language__usage = Slot(uri=AVEFI.usage, name="language__usage", curie=AVEF
 
 slots.movingImageRecordContainer__URL = Slot(uri=AVEFI.URL, name="movingImageRecordContainer__URL", curie=AVEFI.curie('URL'),
                    model_uri=AVEFI.movingImageRecordContainer__URL, domain=None, range=Optional[Union[str, HttpUri]])
+
+slots.WorkVariant_described_by = Slot(uri=WDRS.describedby, name="WorkVariant_described_by", curie=WDRS.curie('describedby'),
+                   model_uri=AVEFI.WorkVariant_described_by, domain=WorkVariant, range=Optional[Union[Union[dict, DescriptionResource], list[Union[dict, DescriptionResource]]]])
 
 slots.WorkVariant_has_primary_title = Slot(uri=AVEFI.has_primary_title, name="WorkVariant_has_primary_title", curie=AVEFI.curie('has_primary_title'),
                    model_uri=AVEFI.WorkVariant_has_primary_title, domain=WorkVariant, range=Union[dict, "Title"])

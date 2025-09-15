@@ -21,6 +21,7 @@ DescriptionResource {
     HttpUri has_history  
     HttpUri has_issuer_id  
     TextLine has_issuer_name  
+    IDStringList has_source_key  
     ISODateTimeUTC last_modified  
 }
 Duration {
@@ -61,7 +62,6 @@ Item {
     SoundTypeEnum has_sound_type  
     TextAreaList has_note  
     HttpUriList has_webresource  
-    IDStringList has_source_key  
     AVefiCurie category  
 }
 Language {
@@ -71,7 +71,6 @@ Language {
 Manifestation {
     TextAreaList has_note  
     HttpUriList has_webresource  
-    IDStringList has_source_key  
     AVefiCurie category  
 }
 MovingImageResource {
@@ -87,7 +86,6 @@ WorkVariant {
     WorkFormEnumList has_form  
     WorkVariantTypeEnum type  
     VariantTypeEnum variant_type  
-    IDStringList has_source_key  
     AVefiCurie category  
 }
 
@@ -118,11 +116,11 @@ Manifestation ||--}o MovingImageResource : "has_identifier"
 Manifestation ||--}o MovingImageResource : "has_item"
 Manifestation ||--}o Title : "has_alternative_title"
 Manifestation ||--}| MovingImageResource : "is_manifestation_of"
-WorkVariant ||--|o DescriptionResource : "described_by"
 WorkVariant ||--|o MovingImageResource : "is_variant_of"
 WorkVariant ||--|| Title : "has_primary_title"
 WorkVariant ||--}o AuthorityResource : "same_as"
 WorkVariant ||--}o CategorizedThing : "has_subject"
+WorkVariant ||--}o DescriptionResource : "described_by"
 WorkVariant ||--}o Event : "has_event"
 WorkVariant ||--}o Genre : "has_genre"
 WorkVariant ||--}o MovingImageResource : "has_identifier"
