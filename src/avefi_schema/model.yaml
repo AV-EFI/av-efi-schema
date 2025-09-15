@@ -408,7 +408,6 @@ classes:
     - has_event
     - has_identifier
     - has_primary_title
-    - has_source_key
     - same_as
     annotations:
     - pid: 21.T11969/2e9c01efa0f0f6881365
@@ -422,6 +421,7 @@ classes:
     - has_history
     - has_issuer_id
     - has_issuer_name
+    - has_source_key
     - last_modified
     annotations:
     - pid: 21.T11969/d0995eaddeeb07f3428d
@@ -443,6 +443,9 @@ classes:
     - type
     - variant_type
     slot_usage:
+      described_by:
+        inlined_as_list: true
+        multivalued: true
       has_primary_title:
         required: true
       same_as:
