@@ -1981,7 +1981,10 @@ class DescriptionResource(ConfiguredBaseModel):
                        'value': 'Filmmuseum Düsseldorf'}],
          'in_subset': ['TypeRegistrySubset'],
          'slot_uri': 'dcterms:contributor'} })
-    has_source_key: Optional[list[str]] = Field(default=[], description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key', 'domain_of': ['DescriptionResource'], 'rank': 5} })
+    has_source_key: Optional[list[str]] = Field(default=[], description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key',
+         'domain_of': ['DescriptionResource'],
+         'in_subset': ['TypeRegistrySubset'],
+         'rank': 5} })
     last_modified: Optional[datetime ] = Field(default=None, description="""Timestamp (in UTC) for the latest modification to any field in the PID metadata record""", json_schema_extra = { "linkml_meta": {'alias': 'last_modified',
          'domain_of': ['DescriptionResource'],
          'in_subset': ['TypeRegistrySubset'],
