@@ -1808,6 +1808,8 @@ slots:
     inlined_as_list: true
     multivalued: true
     range: IDString
+    in_subset:
+    - TypeRegistrySubset
     description: >-
       Indicate a dataset this record has been generated or derived
       from. For example, a converter generating AVefi moving image
