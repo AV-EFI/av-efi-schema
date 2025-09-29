@@ -1,15 +1,33 @@
 {
   "category": "avefi:WorkVariant",
+  "type": "Monographic",
   "has_primary_title": {
     "has_name": "Menschen am Sonntag – Das Dokument der Gegenwart",
     "type": "PreferredTitle"
   },
+  "has_identifier": [
+    {
+      "category": "avefi:AVefiResource",
+      "id": "21.11155/B18C4B70-D6A5-45F1-A38F-6816EA633587"
+    },
+    {
+      "category": "avefi:LocalResource",
+      "id": "150003397"
+    }
+  ],
+  "same_as": [
+    {
+      "category": "avefi:FilmportalResource",
+      "id": "f570e1abdad841dc8d5b25b0f7737065"
+    }
+  ],
   "has_event": [
     {
       "category": "avefi:ProductionEvent",
       "has_activity": [
         {
           "category": "avefi:CastActivity",
+          "type": "CastMember",
           "has_agent": [
             {
               "category": "avefi:Agent",
@@ -44,11 +62,11 @@
                 }
               ]
             }
-          ],
-          "type": "CastMember"
+          ]
         },
         {
           "category": "avefi:WritingActivity",
+          "type": "Writer",
           "has_agent": [
             {
               "category": "avefi:Agent",
@@ -61,11 +79,11 @@
                 }
               ]
             }
-          ],
-          "type": "Writer"
+          ]
         },
         {
           "category": "avefi:DirectingActivity",
+          "type": "Director",
           "has_agent": [
             {
               "category": "avefi:Agent",
@@ -100,11 +118,11 @@
                 }
               ]
             }
-          ],
-          "type": "Director"
+          ]
         },
         {
           "category": "avefi:CinematographyActivity",
+          "type": "Cinematographer",
           "has_agent": [
             {
               "category": "avefi:Agent",
@@ -117,11 +135,11 @@
                 }
               ]
             }
-          ],
-          "type": "Cinematographer"
+          ]
         },
         {
           "category": "avefi:EditingActivity",
+          "type": "FilmEditor",
           "has_agent": [
             {
               "category": "avefi:Agent",
@@ -134,19 +152,18 @@
                 }
               ]
             }
-          ],
-          "type": "FilmEditor"
+          ]
         },
         {
           "category": "avefi:MusicActivity",
+          "type": "Composer",
           "has_agent": [
             {
               "category": "avefi:Agent",
               "has_name": "Stenzel, Otto",
               "type": "Person"
             }
-          ],
-          "type": "Composer"
+          ]
         }
       ],
       "has_date": "1929/1930",
@@ -164,26 +181,9 @@
       ]
     }
   ],
-  "has_identifier": [
-    {
-      "category": "avefi:AVefiResource",
-      "id": "21.11155/B18C4B70-D6A5-45F1-A38F-6816EA633587"
-    },
-    {
-      "category": "avefi:LocalResource",
-      "id": "150003397"
-    }
-  ],
-  "type": "Monographic",
   "has_genre": [
     {
       "has_name": "Fiction"
-    }
-  ],
-  "same_as": [
-    {
-      "category": "avefi:FilmportalResource",
-      "id": "f570e1abdad841dc8d5b25b0f7737065"
     }
   ]
 }

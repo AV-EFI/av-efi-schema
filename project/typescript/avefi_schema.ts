@@ -1468,8 +1468,6 @@ export interface MovingImageRecord extends CategorizedThing {
     has_identifier?: MovingImageResource[],
     /** Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead. */
     has_primary_title?: Title,
-    /** Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here. */
-    has_source_key?: string[],
     /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: AuthorityResource[],
 }
@@ -1485,6 +1483,8 @@ export interface DescriptionResource {
     has_issuer_id: string,
     /** Name of the responsible party */
     has_issuer_name: string,
+    /** Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here. */
+    has_source_key?: string[],
     /** Timestamp (in UTC) for the latest modification to any field in the PID metadata record */
     last_modified?: string,
 }

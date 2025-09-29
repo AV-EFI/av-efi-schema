@@ -5,12 +5,15 @@ theme:
   palette:
     scheme: black
     primary: black
-  #logo: images/avefi-logo.png
+  logo: avefi_logo_lg.jpg
   features:
     - content.tabs.link
 plugins:
   - search
   - mermaid2
+  - redirects:
+      redirect_maps:
+        schema_overview.md: index.md
 markdown_extensions:
   - pymdownx.superfences:
       custom_fences:
@@ -19,7 +22,7 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
 nav:
   - Home: index.md
-  - Overview: schema_overview.md
+  - Design principles: design.md
   - Examples: examples.md
 site_url: https://av-efi.github.io/av-efi-schema
 repo_url: https://github.com/AV-EFI/av-efi-schema

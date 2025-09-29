@@ -16,6 +16,7 @@ DOIT_CONFIG = {
         'jsonschema',
         'vocabularies',
         'python',
+        'rebuild_example',
         'typescript',
         'json_lc_messages',
         'diagram',
@@ -24,7 +25,7 @@ DOIT_CONFIG = {
 HERE = Path(__file__).parent
 SRC_DOCS_DIR = HERE / 'src' / 'docs'
 DOCS_DIR = HERE / 'docs'
-SCHEMA_OVERVIEW = DOCS_DIR / 'schema_overview.md'
+SCHEMA_OVERVIEW = DOCS_DIR / 'index.md'
 ER_DIAGRAM = HERE / 'avefi_er_diagram.md'
 SITE_DIR = HERE / 'site'
 SCHEMA_NAME = 'avefi_schema'
@@ -35,10 +36,18 @@ SRC_SCHEMA_DEPENDENCIES = [
     SRC_SCHEMA_DIR / 'vocab.yaml',
 ]
 UTILS_DIR = Path('utils')
+DOCGEN_TEMPLATE_DIR = UTILS_DIR / 'templates' / 'docgen'
 PYDANTIC_TEMPLATE_DIR = UTILS_DIR / 'templates' / 'pydantic'
 PYTHON_DEPENDENCIES = SRC_SCHEMA_DEPENDENCIES.copy()
 PYTHON_DEPENDENCIES.extend(PYDANTIC_TEMPLATE_DIR.glob('*.jinja'))
 PYTHON_DEPENDENCIES.append(UTILS_DIR / 'pydanticgen.py')
+JSON_EXAMPLES = HERE / 'examples' / 'json'
+EXAMPLE_SRC_FILES = [
+    JSON_EXAMPLES / 'menschen_am_sonntag_work.json',
+    JSON_EXAMPLES / 'menschen_am_sonntag_manifestation.json',
+    JSON_EXAMPLES / 'menschen_am_sonntag_item.json',
+]
+EXAMPLE_TARGET_FILE = JSON_EXAMPLES / 'menschen_am_sonntag_all_in_one.json'
 PROJECT_DIR = HERE / 'project'
 JSON_SCHEMA = PROJECT_DIR / 'jsonschema' / SCHEMA_NAME \
     / f"{SRC_MODEL.stem}.schema.json"
@@ -156,6 +165,32 @@ def task_python():
         }
 
 
+def task_rebuild_example():
+    """Rebuild `menschen_am_sonntag_all_in_one.json` example.
+
+    """
+    def rebuild_example(sources, target):
+        from avefi_schema import model_pydantic_v2 as efi
+        efi_records = []
+        for src_file in sources:
+            with src_file.open() as f:
+                efi_records.append(
+                    efi.MovingImageRecordTypeAdapter.validate_json(f.read()))
+        records = efi.MovingImageRecords(efi_records)
+        with target.open('w') as f:
+            f.write(records.model_dump_json(exclude_none=True, indent=2))
+            f.write('\n')
+
+    return {
+        'actions': [(
+            rebuild_example, [EXAMPLE_SRC_FILES, EXAMPLE_TARGET_FILE],
+        )],
+        'task_dep': ['python'],
+        'file_dep': EXAMPLE_SRC_FILES,
+        'targets': [EXAMPLE_TARGET_FILE],
+    }
+
+
 def task_typescript():
     """Generate typescript derivatives."""
     typescript_path = TYPESCRIPT_DIR / f"{SCHEMA_NAME}.ts"
@@ -265,6 +300,7 @@ def gen_doc(dependencies, targets):
         hierarchical_class_view=False,
         index_name=index_file.stem,
         sort_by='rank',
+        template_directory=DOCGEN_TEMPLATE_DIR,
     )
     print(gen.serialize())
 
@@ -285,6 +321,7 @@ def task_diagram():
 def task_copy_src_docs():
     """Copy files over from src/docs."""
     dependencies = list(SRC_DOCS_DIR.glob('*.md'))
+    dependencies.extend(SRC_DOCS_DIR.glob('*.jpg'))
     targets = [DOCS_DIR / d.name for d in dependencies]
     return {
         'actions': [
@@ -304,7 +341,7 @@ def task_build_site():
         ],
         'task_dep': ['docs'],
         'file_dep': [SCHEMA_OVERVIEW],
-        'targets': [SITE_DIR / 'schema_overview' / 'index.html'],
+        'targets': [SITE_DIR / 'index.html'],
         'clean': [f"rm -rf {SITE_DIR}"],
     }
 

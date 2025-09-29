@@ -9,7 +9,7 @@ repository.
 [sample datasets]: https://github.com/AV-EFI/av-efi-schema/tree/main/examples/
 
 For demonstration purposes and better readability, here is an example
-in YAML, is it might be provided by a film archive in order to
+in YAML, as it might be provided by a film archive in order to
 register PIDs for a film work, a particular manifestation and the
 local item:
 

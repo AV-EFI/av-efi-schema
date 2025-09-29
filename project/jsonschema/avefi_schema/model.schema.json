@@ -420,6 +420,17 @@
                     "pattern": "^.+$",
                     "type": "string"
                 },
+                "has_source_key": {
+                    "description": "Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.",
+                    "items": {
+                        "pattern": "^((?![\\\"&\\'])\\S)+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "last_modified": {
                     "description": "Timestamp (in UTC) for the latest modification to any field in the PID metadata record",
                     "format": "date-time",
@@ -1100,17 +1111,6 @@
                 "has_sound_type": {
                     "$ref": "#/$defs/SoundTypeEnum",
                     "description": "FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4"
-                },
-                "has_source_key": {
-                    "description": "Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.",
-                    "items": {
-                        "pattern": "^((?![\\\"&\\'])\\S)+$",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
                 },
                 "has_webresource": {
                     "description": "Link to data provider's own presentation of manifestation or item on the web",
@@ -1987,17 +1987,6 @@
                     ],
                     "description": "Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead."
                 },
-                "has_source_key": {
-                    "description": "Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.",
-                    "items": {
-                        "pattern": "^((?![\\\"&\\'])\\S)+$",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "has_webresource": {
                     "description": "Link to data provider's own presentation of manifestation or item on the web",
                     "items": {
@@ -2297,7 +2286,10 @@
                     "items": {
                         "$ref": "#/$defs/ManifestationActivity"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "has_date": {
                     "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
@@ -2324,7 +2316,6 @@
             },
             "required": [
                 "type",
-                "has_activity",
                 "category"
             ],
             "title": "PreservationEvent",
@@ -3104,15 +3095,14 @@
                     "type": "string"
                 },
                 "described_by": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DescriptionResource"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Also record some metadata about the PID itself rather than the identified object"
+                    "description": "Also record some metadata about the PID itself rather than the identified object",
+                    "items": {
+                        "$ref": "#/$defs/DescriptionResource"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "has_alternative_title": {
                     "description": "Additional title(s) associated with the work / variant, manifestation, or item.",
@@ -3190,17 +3180,6 @@
                 "has_primary_title": {
                     "$ref": "#/$defs/Title",
                     "description": "Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead."
-                },
-                "has_source_key": {
-                    "description": "Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.",
-                    "items": {
-                        "pattern": "^((?![\\\"&\\'])\\S)+$",
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
                 },
                 "has_subject": {
                     "description": "Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3",

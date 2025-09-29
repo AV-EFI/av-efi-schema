@@ -1939,7 +1939,6 @@ class MovingImageRecord(CategorizedThing):
          'structured_aliases': {'Titel': {'in_language': 'de', 'literal_form': 'Titel'},
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
-    has_source_key: Optional[list[str]] = Field(default=[], description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
     same_as: Optional[list[Union[AuthorityResource,MovingImageResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
          'domain_of': ['MovingImageRecord',
                        'GeographicName',
@@ -1982,8 +1981,13 @@ class DescriptionResource(ConfiguredBaseModel):
                        'value': 'Filmmuseum Düsseldorf'}],
          'in_subset': ['TypeRegistrySubset'],
          'slot_uri': 'dcterms:contributor'} })
+    has_source_key: Optional[list[str]] = Field(default=[], description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key',
+         'domain_of': ['DescriptionResource'],
+         'in_subset': ['TypeRegistrySubset'],
+         'rank': 5} })
     last_modified: Optional[datetime ] = Field(default=None, description="""Timestamp (in UTC) for the latest modification to any field in the PID metadata record""", json_schema_extra = { "linkml_meta": {'alias': 'last_modified',
          'domain_of': ['DescriptionResource'],
+         'in_subset': ['TypeRegistrySubset'],
          'slot_uri': 'dcterms:modified'} })
 
 
@@ -1997,7 +2001,10 @@ class WorkVariant(MovingImageRecord):
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
          'related_mappings': ['fiaf:WorkVariant'],
-         'slot_usage': {'has_primary_title': {'name': 'has_primary_title',
+         'slot_usage': {'described_by': {'inlined_as_list': True,
+                                         'multivalued': True,
+                                         'name': 'described_by'},
+                        'has_primary_title': {'name': 'has_primary_title',
                                               'required': True},
                         'same_as': {'annotations': {'pid': {'tag': 'pid',
                                                             'value': '21.T11969/6cd9c85272885fefa9c0'}},
@@ -2073,7 +2080,7 @@ class WorkVariant(MovingImageRecord):
                                                  'literal_form': 'Variant type'},
                                 'Variantentyp': {'in_language': 'de',
                                                  'literal_form': 'Variantentyp'}}} })
-    described_by: Optional[DescriptionResource] = Field(default=None, description="""Also record some metadata about the PID itself rather than the identified object""", json_schema_extra = { "linkml_meta": {'alias': 'described_by',
+    described_by: Optional[list[DescriptionResource]] = Field(default=[], description="""Also record some metadata about the PID itself rather than the identified object""", json_schema_extra = { "linkml_meta": {'alias': 'described_by',
          'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'slot_uri': 'wdrs:describedby',
@@ -2097,7 +2104,6 @@ class WorkVariant(MovingImageRecord):
          'structured_aliases': {'Titel': {'in_language': 'de', 'literal_form': 'Titel'},
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
-    has_source_key: Optional[list[str]] = Field(default=[], description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
     same_as: Optional[list[Union[EIDRResource, FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
          'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/6cd9c85272885fefa9c0'}},
@@ -3113,8 +3119,7 @@ class PreservationEvent(Event):
          'rank': 13,
          'slot_usage': {'has_activity': {'in_subset': ['TypeRegistrySubset'],
                                          'name': 'has_activity',
-                                         'range': 'ManifestationActivity',
-                                         'required': True},
+                                         'range': 'ManifestationActivity'},
                         'type': {'in_subset': ['TypeRegistrySubset'],
                                  'name': 'type',
                                  'range': 'PreservationEventTypeEnum',
@@ -3132,7 +3137,7 @@ class PreservationEvent(Event):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    has_activity: list[ManifestationActivity] = Field(default=..., description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'alias': 'has_activity',
+    has_activity: Optional[list[ManifestationActivity]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'alias': 'has_activity',
          'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 8} })
@@ -3392,7 +3397,6 @@ class ManifestationOrItem(MovingImageRecord):
          'structured_aliases': {'Titel': {'in_language': 'de', 'literal_form': 'Titel'},
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
-    has_source_key: Optional[list[str]] = Field(default=[], description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
     same_as: Optional[list[Union[AuthorityResource,MovingImageResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
          'domain_of': ['MovingImageRecord',
                        'GeographicName',
@@ -3788,7 +3792,6 @@ class Manifestation(ManifestationOrItem):
          'structured_aliases': {'Titel': {'in_language': 'de', 'literal_form': 'Titel'},
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
-    has_source_key: Optional[list[str]] = Field(default=[], description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
     same_as: Optional[list[Union[EIDRResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=[], description="""Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
          'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/3b99e7540cf4f5f55cac'}},
@@ -3989,7 +3992,6 @@ class Item(ManifestationOrItem):
          'structured_aliases': {'Titel': {'in_language': 'de', 'literal_form': 'Titel'},
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
-    has_source_key: Optional[list[str]] = Field(default=[], description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
     same_as: Optional[list[Union[DOIResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=[], description="""Another identifier for the same item, e.g. a DOI. Can also be used to link to another AVefi record describing the same item, e.g. when it has changed hands and the new custodian registers its own record for the item""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
          'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/b4df5cbef35756648e4d'}},
