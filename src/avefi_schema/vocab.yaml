@@ -6110,14 +6110,18 @@ enums:
         meaning: fiaf:MixedSound
       Mute:
         structured_aliases:
+        - literal_form: Tonlos / Stummgeschaltet / Stumme Tonspur
+          in_language: de
         - literal_form: Mute
-          in_language: default
+          in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.4
         meaning: fiaf:Mute
       Silent:
         structured_aliases:
+        - literal_form: Stumm / Stummfilm
+          in_language: de
         - literal_form: Silent
-          in_language: default
+          in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.4
         meaning: fiaf:Silent
       Sound:
