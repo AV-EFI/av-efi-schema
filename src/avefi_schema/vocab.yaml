@@ -6088,8 +6088,10 @@ enums:
         meaning: fiaf:Combined
       CombinedAsMute:
         structured_aliases:
+        - literal_form: Kombiniert als ohne Ton
+          in_language: de
         - literal_form: Combined as Mute
-          in_language: default
+          in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.4
         meaning: fiaf:CombinedAsMute
       CombinedAsSound:
@@ -6110,7 +6112,7 @@ enums:
         meaning: fiaf:MixedSound
       Mute:
         structured_aliases:
-        - literal_form: Tonlos / Stummgeschaltet / Stumme Tonspur
+        - literal_form: Ohne Ton
           in_language: de
         - literal_form: Mute
           in_language: en
@@ -6118,7 +6120,7 @@ enums:
         meaning: fiaf:Mute
       Silent:
         structured_aliases:
-        - literal_form: Stumm / Stummfilm
+        - literal_form: Stumm
           in_language: de
         - literal_form: Silent
           in_language: en
