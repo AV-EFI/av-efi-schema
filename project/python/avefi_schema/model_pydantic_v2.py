@@ -1,4 +1,4 @@
-from __future__ import annotations 
+from __future__ import annotations
 
 import re
 import sys
@@ -7,8 +7,8 @@ from datetime import (
     datetime,
     time
 )
-from decimal import Decimal 
-from enum import Enum 
+from decimal import Decimal
+from enum import Enum
 from typing import (
     Annotated,
     Any,
@@ -38,6 +38,8 @@ version = "None"
 
 class ConfiguredBaseModel(BaseModel):
     model_config = ConfigDict(
+        serialize_by_alias = True,
+        validate_by_name = True,
         validate_assignment = True,
         validate_default = True,
         extra = "forbid",
@@ -445,424 +447,752 @@ class AnimationActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.13
     """
-    # FIAF Glossary of Filmographic Terms B.13.1
     Animation = "Animation"
-    # FIAF Glossary of Filmographic Terms B.13.9
+    """
+    FIAF Glossary of Filmographic Terms B.13.1
+    """
     AnimationDirector = "AnimationDirector"
-    # FIAF Glossary of Filmographic Terms B.13.19
+    """
+    FIAF Glossary of Filmographic Terms B.13.9
+    """
     AnimationLighter = "AnimationLighter"
-    # FIAF Glossary of Filmographic Terms B.13.11
+    """
+    FIAF Glossary of Filmographic Terms B.13.19
+    """
     Animator = "Animator"
-    # FIAF Glossary of Filmographic Terms B.13.14
+    """
+    FIAF Glossary of Filmographic Terms B.13.11
+    """
     CharacterDesigner = "CharacterDesigner"
-    # FIAF Glossary of Filmographic Terms B.13.15
+    """
+    FIAF Glossary of Filmographic Terms B.13.14
+    """
     Cleanup = "Cleanup"
-    # FIAF Glossary of Filmographic Terms B.13.10
+    """
+    FIAF Glossary of Filmographic Terms B.13.15
+    """
     LeadAnimator = "LeadAnimator"
-    # FIAF Glossary of Filmographic Terms B.13.17
+    """
+    FIAF Glossary of Filmographic Terms B.13.10
+    """
     ModelMaker = "ModelMaker"
+    """
+    FIAF Glossary of Filmographic Terms B.13.17
+    """
 
 
 class CastActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.7
     """
-    # FIAF Glossary of Filmographic Terms B.7.12
     AnimalTrainer = "AnimalTrainer"
-    # FIAF Glossary of Filmographic Terms B.7.1
+    """
+    FIAF Glossary of Filmographic Terms B.7.12
+    """
     CastMember = "CastMember"
-    # FIAF Glossary of Filmographic Terms B.7.5
+    """
+    FIAF Glossary of Filmographic Terms B.7.1
+    """
     Dancer = "Dancer"
-    # FIAF Glossary of Filmographic Terms B.7.8
+    """
+    FIAF Glossary of Filmographic Terms B.7.5
+    """
     DialogueCoach = "DialogueCoach"
-    # FIAF Glossary of Filmographic Terms B.7.2
+    """
+    FIAF Glossary of Filmographic Terms B.7.8
+    """
     Double = "Double"
-    # FIAF Glossary of Filmographic Terms B.7.4
+    """
+    FIAF Glossary of Filmographic Terms B.7.2
+    """
     Extra = "Extra"
-    # FIAF Glossary of Filmographic Terms B.7.9
+    """
+    FIAF Glossary of Filmographic Terms B.7.4
+    """
     Interviewer = "Interviewer"
-    # FIAF Glossary of Filmographic Terms B.7.10
+    """
+    FIAF Glossary of Filmographic Terms B.7.9
+    """
     Narrator = "Narrator"
-    # FIAF Glossary of Filmographic Terms B.7.6
+    """
+    FIAF Glossary of Filmographic Terms B.7.10
+    """
     Singer = "Singer"
-    # FIAF Glossary of Filmographic Terms B.7.3
+    """
+    FIAF Glossary of Filmographic Terms B.7.6
+    """
     StandIn = "StandIn"
-    # FIAF Glossary of Filmographic Terms B.7.11
+    """
+    FIAF Glossary of Filmographic Terms B.7.3
+    """
     StuntPerformer = "StuntPerformer"
-    # FIAF Glossary of Filmographic Terms B.7.7
+    """
+    FIAF Glossary of Filmographic Terms B.7.11
+    """
     Voices = "Voices"
-    # FIAF Glossary of Filmographic Terms B.7.13
+    """
+    FIAF Glossary of Filmographic Terms B.7.7
+    """
     Wrangler = "Wrangler"
+    """
+    FIAF Glossary of Filmographic Terms B.7.13
+    """
 
 
 class CensorshipActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.1
     """
-    # FIAF Glossary of Filmographic Terms C.1.1
     Censor = "Censor"
+    """
+    FIAF Glossary of Filmographic Terms C.1.1
+    """
 
 
 class CinematographyActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.5
     """
-    # FIAF Glossary of Filmographic Terms B.5.4
     AerialPhotography = "AerialPhotography"
-    # FIAF Glossary of Filmographic Terms B.5.12
+    """
+    FIAF Glossary of Filmographic Terms B.5.4
+    """
     BestBoy = "BestBoy"
-    # FIAF Glossary of Filmographic Terms B.5.7
+    """
+    FIAF Glossary of Filmographic Terms B.5.12
+    """
     CameraAssistant = "CameraAssistant"
-    # FIAF Glossary of Filmographic Terms B.5.3
+    """
+    FIAF Glossary of Filmographic Terms B.5.7
+    """
     CameraOperator = "CameraOperator"
-    # FIAF Glossary of Filmographic Terms B.5.1
+    """
+    FIAF Glossary of Filmographic Terms B.5.3
+    """
     Cinematographer = "Cinematographer"
-    # FIAF Glossary of Filmographic Terms B.5.19
+    """
+    FIAF Glossary of Filmographic Terms B.5.1
+    """
     ColorConsultant = "ColorConsultant"
-    # FIAF Glossary of Filmographic Terms B.5.16
+    """
+    FIAF Glossary of Filmographic Terms B.5.19
+    """
     CraneOperator = "CraneOperator"
-    # FIAF Glossary of Filmographic Terms B.5.15
+    """
+    FIAF Glossary of Filmographic Terms B.5.16
+    """
     DollyGrip = "DollyGrip"
-    # FIAF Glossary of Filmographic Terms B.5.13
+    """
+    FIAF Glossary of Filmographic Terms B.5.15
+    """
     Electrician = "Electrician"
-    # FIAF Glossary of Filmographic Terms B.5.8
+    """
+    FIAF Glossary of Filmographic Terms B.5.13
+    """
     FocusPuller = "FocusPuller"
-    # FIAF Glossary of Filmographic Terms B.5.11
+    """
+    FIAF Glossary of Filmographic Terms B.5.8
+    """
     GafferLighting = "GafferLighting"
-    # FIAF Glossary of Filmographic Terms B.5.17
+    """
+    FIAF Glossary of Filmographic Terms B.5.11
+    """
     GeneratorOperator = "GeneratorOperator"
-    # FIAF Glossary of Filmographic Terms B.5.14
+    """
+    FIAF Glossary of Filmographic Terms B.5.17
+    """
     Grip = "Grip"
-    # FIAF Glossary of Filmographic Terms B.5.20
+    """
+    FIAF Glossary of Filmographic Terms B.5.14
+    """
     Lenses = "Lenses"
-    # FIAF Glossary of Filmographic Terms B.5.9
+    """
+    FIAF Glossary of Filmographic Terms B.5.20
+    """
     LoaderClapper = "LoaderClapper"
-    # FIAF Glossary of Filmographic Terms B.5.2
+    """
+    FIAF Glossary of Filmographic Terms B.5.9
+    """
     SecondUnitDirectorofPhotography = "SecondUnitDirectorofPhotography"
-    # FIAF Glossary of Filmographic Terms B.5.6
+    """
+    FIAF Glossary of Filmographic Terms B.5.2
+    """
     SteadicamOperator = "SteadicamOperator"
-    # FIAF Glossary of Filmographic Terms B.5.18
+    """
+    FIAF Glossary of Filmographic Terms B.5.6
+    """
     StillPhotographer = "StillPhotographer"
-    # FIAF Glossary of Filmographic Terms B.5.5
+    """
+    FIAF Glossary of Filmographic Terms B.5.18
+    """
     UnderwaterPhotography = "UnderwaterPhotography"
-    # FIAF Glossary of Filmographic Terms B.5.10
+    """
+    FIAF Glossary of Filmographic Terms B.5.5
+    """
     VideoAssist = "VideoAssist"
+    """
+    FIAF Glossary of Filmographic Terms B.5.10
+    """
 
 
 class CopyrightAndDistributionActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.2
     """
-    # FIAF Glossary of Filmographic Terms C.2.3
     Distributor = "Distributor"
-    # FIAF Glossary of Filmographic Terms C.2.6
+    """
+    FIAF Glossary of Filmographic Terms C.2.3
+    """
     NationalDistributor = "NationalDistributor"
-    # FIAF Glossary of Filmographic Terms C.2.1
+    """
+    FIAF Glossary of Filmographic Terms C.2.6
+    """
     OriginalCopyrightOwner = "OriginalCopyrightOwner"
-    # FIAF Glossary of Filmographic Terms C.2.4
+    """
+    FIAF Glossary of Filmographic Terms C.2.1
+    """
     OriginalDistributor = "OriginalDistributor"
-    # FIAF Glossary of Filmographic Terms C.2.2
+    """
+    FIAF Glossary of Filmographic Terms C.2.4
+    """
     PresentCopyrightOwner = "PresentCopyrightOwner"
-    # FIAF Glossary of Filmographic Terms C.2.7
+    """
+    FIAF Glossary of Filmographic Terms C.2.2
+    """
     RegionalDistributor = "RegionalDistributor"
-    # FIAF Glossary of Filmographic Terms C.2.5
+    """
+    FIAF Glossary of Filmographic Terms C.2.7
+    """
     WorldDistributor = "WorldDistributor"
+    """
+    FIAF Glossary of Filmographic Terms C.2.5
+    """
 
 
 class DirectingActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.3
     """
-    # FIAF Glossary of Filmographic Terms B.3.2
     AssistantDirector = "AssistantDirector"
-    # FIAF Glossary of Filmographic Terms B.3.4
+    """
+    FIAF Glossary of Filmographic Terms B.3.2
+    """
     CastingDirector = "CastingDirector"
-    # FIAF Glossary of Filmographic Terms B.3.5
+    """
+    FIAF Glossary of Filmographic Terms B.3.4
+    """
     Continuity = "Continuity"
-    # FIAF Glossary of Filmographic Terms B.3.1
+    """
+    FIAF Glossary of Filmographic Terms B.3.5
+    """
     Director = "Director"
-    # FIAF Glossary of Filmographic Terms B.3.7
+    """
+    FIAF Glossary of Filmographic Terms B.3.1
+    """
     FightArranger = "FightArranger"
-    # FIAF Glossary of Filmographic Terms B.3.3
+    """
+    FIAF Glossary of Filmographic Terms B.3.7
+    """
     SecondUnitDirector = "SecondUnitDirector"
-    # FIAF Glossary of Filmographic Terms B.3.6
+    """
+    FIAF Glossary of Filmographic Terms B.3.3
+    """
     StuntArranger = "StuntArranger"
+    """
+    FIAF Glossary of Filmographic Terms B.3.6
+    """
 
 
 class EditingActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10
     """
-    # FIAF Glossary of Filmographic Terms B.10.2
     AssistantFilmEditor = "AssistantFilmEditor"
-    # Person responsible content-wise in a non-fiction film production, e.g. a documentary. Unlike a film editor, this activity includes duties like writing a concept, drafting the story, and preparing interviews in preproduction as well as supervising and supporting the camera team
+    """
+    FIAF Glossary of Filmographic Terms B.10.2
+    """
     Editor = "Editor"
-    # FIAF Glossary of Filmographic Terms B.10.1
+    """
+    Person responsible content-wise in a non-fiction film production, e.g. a documentary. Unlike a film editor, this activity includes duties like writing a concept, drafting the story, and preparing interviews in preproduction as well as supervising and supporting the camera team
+    """
     FilmEditor = "FilmEditor"
+    """
+    FIAF Glossary of Filmographic Terms B.10.1
+    """
 
 
 class LaboratoryActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.12
     """
-    # FIAF Glossary of Filmographic Terms B.12.4
     Colorist = "Colorist"
-    # FIAF Glossary of Filmographic Terms B.12.1
+    """
+    FIAF Glossary of Filmographic Terms B.12.4
+    """
     Laboratory = "Laboratory"
-    # FIAF Glossary of Filmographic Terms B.12.2
+    """
+    FIAF Glossary of Filmographic Terms B.12.1
+    """
     LaboratoryTechnician = "LaboratoryTechnician"
-    # FIAF Glossary of Filmographic Terms B.12.3
+    """
+    FIAF Glossary of Filmographic Terms B.12.2
+    """
     NegativeCutter = "NegativeCutter"
+    """
+    FIAF Glossary of Filmographic Terms B.12.3
+    """
 
 
 class MusicActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.11
     """
-    # FIAF Glossary of Filmographic Terms B.11.15
     Choreographer = "Choreographer"
-    # FIAF Glossary of Filmographic Terms B.11.1
+    """
+    FIAF Glossary of Filmographic Terms B.11.15
+    """
     Composer = "Composer"
-    # FIAF Glossary of Filmographic Terms B.11.13
+    """
+    FIAF Glossary of Filmographic Terms B.11.1
+    """
     Lyricist = "Lyricist"
-    # FIAF Glossary of Filmographic Terms B.11.4
+    """
+    FIAF Glossary of Filmographic Terms B.11.13
+    """
     MusicArranger = "MusicArranger"
-    # FIAF Glossary of Filmographic Terms B.11.6
+    """
+    FIAF Glossary of Filmographic Terms B.11.4
+    """
     MusicConductor = "MusicConductor"
-    # FIAF Glossary of Filmographic Terms B.11.9
+    """
+    FIAF Glossary of Filmographic Terms B.11.6
+    """
     MusicContractor = "MusicContractor"
-    # FIAF Glossary of Filmographic Terms B.11.14
+    """
+    FIAF Glossary of Filmographic Terms B.11.9
+    """
     MusicEditor = "MusicEditor"
-    # FIAF Glossary of Filmographic Terms B.11.7
+    """
+    FIAF Glossary of Filmographic Terms B.11.14
+    """
     MusicPerformer = "MusicPerformer"
-    # FIAF Glossary of Filmographic Terms B.11.3
+    """
+    FIAF Glossary of Filmographic Terms B.11.7
+    """
     MusicSupervisor = "MusicSupervisor"
-    # FIAF Glossary of Filmographic Terms B.11.8
+    """
+    FIAF Glossary of Filmographic Terms B.11.3
+    """
     SingingVoice = "SingingVoice"
-    # FIAF Glossary of Filmographic Terms B.11.12
+    """
+    FIAF Glossary of Filmographic Terms B.11.8
+    """
     SongComposer = "SongComposer"
+    """
+    FIAF Glossary of Filmographic Terms B.11.12
+    """
 
 
 class ProducingActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.2
     """
-    # FIAF Glossary of Filmographic Terms B.2.19
     Advisor = "Advisor"
-    # FIAF Glossary of Filmographic Terms B.2.8
+    """
+    FIAF Glossary of Filmographic Terms B.2.19
+    """
     AssistantProducer = "AssistantProducer"
-    # FIAF Glossary of Filmographic Terms B.2.6
+    """
+    FIAF Glossary of Filmographic Terms B.2.8
+    """
     AssociateProducer = "AssociateProducer"
-    # FIAF Glossary of Filmographic Terms B.2.22
+    """
+    FIAF Glossary of Filmographic Terms B.2.6
+    """
     Cooperation = "Cooperation"
-    # FIAF Glossary of Filmographic Terms B.2.5
+    """
+    FIAF Glossary of Filmographic Terms B.2.22
+    """
     Coproducer = "Coproducer"
-    # FIAF Glossary of Filmographic Terms B.2.4
+    """
+    FIAF Glossary of Filmographic Terms B.2.5
+    """
     ExecutiveProducer = "ExecutiveProducer"
-    # FIAF Glossary of Filmographic Terms B.2.7
+    """
+    FIAF Glossary of Filmographic Terms B.2.4
+    """
     LineProducer = "LineProducer"
-    # FIAF Glossary of Filmographic Terms B.2.12
+    """
+    FIAF Glossary of Filmographic Terms B.2.7
+    """
     LocationManager = "LocationManager"
-    # FIAF Glossary of Filmographic Terms B.2.15
+    """
+    FIAF Glossary of Filmographic Terms B.2.12
+    """
     PostProductionSupervisor = "PostProductionSupervisor"
-    # FIAF Glossary of Filmographic Terms B.2.21
+    """
+    FIAF Glossary of Filmographic Terms B.2.15
+    """
     Presenter = "Presenter"
-    # FIAF Glossary of Filmographic Terms B.2.3
+    """
+    FIAF Glossary of Filmographic Terms B.2.21
+    """
     Producer = "Producer"
-    # FIAF Glossary of Filmographic Terms B.2.11
+    """
+    FIAF Glossary of Filmographic Terms B.2.3
+    """
     ProductionAccountant = "ProductionAccountant"
-    # FIAF Glossary of Filmographic Terms B.2.14
+    """
+    FIAF Glossary of Filmographic Terms B.2.11
+    """
     ProductionAssistant = "ProductionAssistant"
-    # FIAF Glossary of Filmographic Terms B.2.1
+    """
+    FIAF Glossary of Filmographic Terms B.2.14
+    """
     ProductionCompany = "ProductionCompany"
-    # FIAF Glossary of Filmographic Terms B.2.10
+    """
+    FIAF Glossary of Filmographic Terms B.2.1
+    """
     ProductionCoordinator = "ProductionCoordinator"
-    # FIAF Glossary of Filmographic Terms B.2.9
+    """
+    FIAF Glossary of Filmographic Terms B.2.10
+    """
     ProductionManager = "ProductionManager"
-    # FIAF Glossary of Filmographic Terms B.2.16
+    """
+    FIAF Glossary of Filmographic Terms B.2.9
+    """
     Publicist = "Publicist"
-    # FIAF Glossary of Filmographic Terms B.2.17
+    """
+    FIAF Glossary of Filmographic Terms B.2.16
+    """
     SeriesProducer = "SeriesProducer"
-    # FIAF Glossary of Filmographic Terms B.2.20
+    """
+    FIAF Glossary of Filmographic Terms B.2.17
+    """
     Sponsor = "Sponsor"
-    # FIAF Glossary of Filmographic Terms B.2.23
+    """
+    FIAF Glossary of Filmographic Terms B.2.20
+    """
     Studio = "Studio"
-    # FIAF Glossary of Filmographic Terms B.2.13
+    """
+    FIAF Glossary of Filmographic Terms B.2.23
+    """
     TransportationManager = "TransportationManager"
+    """
+    FIAF Glossary of Filmographic Terms B.2.13
+    """
 
 
 class ProductionDesignActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.6
     """
-    # FIAF Glossary of Filmographic Terms B.6.2
     ArtDirector = "ArtDirector"
-    # FIAF Glossary of Filmographic Terms B.6.3
+    """
+    FIAF Glossary of Filmographic Terms B.6.2
+    """
     AssistantArtDirector = "AssistantArtDirector"
-    # FIAF Glossary of Filmographic Terms B.6.8
+    """
+    FIAF Glossary of Filmographic Terms B.6.3
+    """
     ConstructionCoordinator = "ConstructionCoordinator"
-    # FIAF Glossary of Filmographic Terms B.6.12
+    """
+    FIAF Glossary of Filmographic Terms B.6.8
+    """
     CostumeDesigner = "CostumeDesigner"
-    # FIAF Glossary of Filmographic Terms B.6.17
+    """
+    FIAF Glossary of Filmographic Terms B.6.12
+    """
     CostumeMaker = "CostumeMaker"
-    # FIAF Glossary of Filmographic Terms B.6.13
+    """
+    FIAF Glossary of Filmographic Terms B.6.17
+    """
     CostumeSupervisor = "CostumeSupervisor"
-    # FIAF Glossary of Filmographic Terms B.6.18
+    """
+    FIAF Glossary of Filmographic Terms B.6.13
+    """
     CostumeSupplier = "CostumeSupplier"
-    # FIAF Glossary of Filmographic Terms B.6.14
+    """
+    FIAF Glossary of Filmographic Terms B.6.18
+    """
     Costumer = "Costumer"
-    # FIAF Glossary of Filmographic Terms B.6.16
+    """
+    FIAF Glossary of Filmographic Terms B.6.14
+    """
     Gowns = "Gowns"
-    # FIAF Glossary of Filmographic Terms B.6.11
+    """
+    FIAF Glossary of Filmographic Terms B.6.16
+    """
     Greensperson = "Greensperson"
-    # FIAF Glossary of Filmographic Terms B.6.20
+    """
+    FIAF Glossary of Filmographic Terms B.6.11
+    """
     HairStylist = "HairStylist"
-    # FIAF Glossary of Filmographic Terms B.6.9
+    """
+    FIAF Glossary of Filmographic Terms B.6.20
+    """
     LeadPerson = "LeadPerson"
-    # FIAF Glossary of Filmographic Terms B.6.19
+    """
+    FIAF Glossary of Filmographic Terms B.6.9
+    """
     MakeUpArtist = "MakeUpArtist"
-    # FIAF Glossary of Filmographic Terms B.6.1
+    """
+    FIAF Glossary of Filmographic Terms B.6.19
+    """
     ProductionDesigner = "ProductionDesigner"
-    # FIAF Glossary of Filmographic Terms B.6.7
+    """
+    FIAF Glossary of Filmographic Terms B.6.1
+    """
     PropertyMaster = "PropertyMaster"
-    # FIAF Glossary of Filmographic Terms B.6.10
+    """
+    FIAF Glossary of Filmographic Terms B.6.7
+    """
     ScenicArtist = "ScenicArtist"
-    # FIAF Glossary of Filmographic Terms B.6.6
+    """
+    FIAF Glossary of Filmographic Terms B.6.10
+    """
     SetDecorator = "SetDecorator"
-    # FIAF Glossary of Filmographic Terms B.6.5
+    """
+    FIAF Glossary of Filmographic Terms B.6.6
+    """
     SetDesigner = "SetDesigner"
-    # FIAF Glossary of Filmographic Terms B.6.4
+    """
+    FIAF Glossary of Filmographic Terms B.6.5
+    """
     StoryboardArtist = "StoryboardArtist"
-    # FIAF Glossary of Filmographic Terms B.6.21
+    """
+    FIAF Glossary of Filmographic Terms B.6.4
+    """
     TitleDesigner = "TitleDesigner"
-    # FIAF Glossary of Filmographic Terms B.6.15
+    """
+    FIAF Glossary of Filmographic Terms B.6.21
+    """
     WardrobeSupervisor = "WardrobeSupervisor"
+    """
+    FIAF Glossary of Filmographic Terms B.6.15
+    """
 
 
 class PuppetActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.14
     """
-    # FIAF Glossary of Filmographic Terms B.14.7
     Puppeteer = "Puppeteer"
+    """
+    FIAF Glossary of Filmographic Terms B.14.7
+    """
 
 
 class SoundActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.9
     """
-    # FIAF Glossary of Filmographic Terms B.9.4
     BoomOperator = "BoomOperator"
-    # FIAF Glossary of Filmographic Terms B.9.8
+    """
+    FIAF Glossary of Filmographic Terms B.9.4
+    """
     DialogueEditor = "DialogueEditor"
-    # FIAF Glossary of Filmographic Terms B.9.13
+    """
+    FIAF Glossary of Filmographic Terms B.9.8
+    """
     DubbingDirector = "DubbingDirector"
-    # FIAF Glossary of Filmographic Terms B.9.14
+    """
+    FIAF Glossary of Filmographic Terms B.9.13
+    """
     DubbingEditor = "DubbingEditor"
-    # FIAF Glossary of Filmographic Terms B.9.11
+    """
+    FIAF Glossary of Filmographic Terms B.9.14
+    """
     DubbingMixer = "DubbingMixer"
-    # FIAF Glossary of Filmographic Terms B.9.15
+    """
+    FIAF Glossary of Filmographic Terms B.9.11
+    """
     DubbingSpeaker = "DubbingSpeaker"
-    # FIAF Glossary of Filmographic Terms B.9.9
+    """
+    FIAF Glossary of Filmographic Terms B.9.15
+    """
     FoleyArtist = "FoleyArtist"
-    # FIAF Glossary of Filmographic Terms B.9.1
+    """
+    FIAF Glossary of Filmographic Terms B.9.9
+    """
     SoundDesigner = "SoundDesigner"
-    # FIAF Glossary of Filmographic Terms B.9.7
+    """
+    FIAF Glossary of Filmographic Terms B.9.1
+    """
     SoundEditor = "SoundEditor"
-    # FIAF Glossary of Filmographic Terms B.9.5
+    """
+    FIAF Glossary of Filmographic Terms B.9.7
+    """
     SoundEngineer = "SoundEngineer"
-    # FIAF Glossary of Filmographic Terms B.9.3
+    """
+    FIAF Glossary of Filmographic Terms B.9.5
+    """
     SoundRecorderMixer = "SoundRecorderMixer"
-    # FIAF Glossary of Filmographic Terms B.9.2
+    """
+    FIAF Glossary of Filmographic Terms B.9.3
+    """
     SoundSupervisor = "SoundSupervisor"
-    # FIAF Glossary of Filmographic Terms B.9.6
+    """
+    FIAF Glossary of Filmographic Terms B.9.2
+    """
     SupervisingSoundEditor = "SupervisingSoundEditor"
+    """
+    FIAF Glossary of Filmographic Terms B.9.6
+    """
 
 
 class SpecialEffectsActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.8
     """
-    # FIAF Glossary of Filmographic Terms B.8.4
     Animatronics = "Animatronics"
-    # FIAF Glossary of Filmographic Terms B.8.7
+    """
+    FIAF Glossary of Filmographic Terms B.8.4
+    """
     Armorer = "Armorer"
-    # FIAF Glossary of Filmographic Terms B.8.12
+    """
+    FIAF Glossary of Filmographic Terms B.8.7
+    """
     CGIArtist = "CGIArtist"
-    # FIAF Glossary of Filmographic Terms B.8.10
+    """
+    FIAF Glossary of Filmographic Terms B.8.12
+    """
     Compositor = "Compositor"
-    # FIAF Glossary of Filmographic Terms B.8.8
+    """
+    FIAF Glossary of Filmographic Terms B.8.10
+    """
     MatteArtist = "MatteArtist"
-    # FIAF Glossary of Filmographic Terms B.8.3
+    """
+    FIAF Glossary of Filmographic Terms B.8.8
+    """
     MechanicalEffects = "MechanicalEffects"
-    # FIAF Glossary of Filmographic Terms B.8.13
+    """
+    FIAF Glossary of Filmographic Terms B.8.3
+    """
     MotionCapture = "MotionCapture"
-    # FIAF Glossary of Filmographic Terms B.8.5
+    """
+    FIAF Glossary of Filmographic Terms B.8.13
+    """
     Prosthetics = "Prosthetics"
-    # FIAF Glossary of Filmographic Terms B.8.6
+    """
+    FIAF Glossary of Filmographic Terms B.8.5
+    """
     Pyrotechnics = "Pyrotechnics"
-    # FIAF Glossary of Filmographic Terms B.8.9
+    """
+    FIAF Glossary of Filmographic Terms B.8.6
+    """
     RotoscopeArtist = "RotoscopeArtist"
-    # FIAF Glossary of Filmographic Terms B.8.1
+    """
+    FIAF Glossary of Filmographic Terms B.8.9
+    """
     SpecialEffects = "SpecialEffects"
-    # FIAF Glossary of Filmographic Terms B.8.2
+    """
+    FIAF Glossary of Filmographic Terms B.8.1
+    """
     VisualEffects = "VisualEffects"
+    """
+    FIAF Glossary of Filmographic Terms B.8.2
+    """
 
 
 class WritingActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.4
     """
-    # FIAF Glossary of Filmographic Terms B.4.11
     Adaptation = "Adaptation"
-    # FIAF Glossary of Filmographic Terms B.4.5
+    """
+    FIAF Glossary of Filmographic Terms B.4.11
+    """
     BasedonCharactersCreatedby = "BasedonCharactersCreatedby"
-    # FIAF Glossary of Filmographic Terms B.4.6
+    """
+    FIAF Glossary of Filmographic Terms B.4.5
+    """
     Idea = "Idea"
-    # FIAF Glossary of Filmographic Terms B.4.15
+    """
+    FIAF Glossary of Filmographic Terms B.4.6
+    """
     NarrationWriter = "NarrationWriter"
-    # FIAF Glossary of Filmographic Terms B.4.16
+    """
+    FIAF Glossary of Filmographic Terms B.4.15
+    """
     Research = "Research"
-    # FIAF Glossary of Filmographic Terms B.4.3
+    """
+    FIAF Glossary of Filmographic Terms B.4.16
+    """
     ScreenStory = "ScreenStory"
-    # FIAF Glossary of Filmographic Terms B.4.7
+    """
+    FIAF Glossary of Filmographic Terms B.4.3
+    """
     SeriesCreatedby = "SeriesCreatedby"
-    # FIAF Glossary of Filmographic Terms B.4.4
+    """
+    FIAF Glossary of Filmographic Terms B.4.7
+    """
     SourceMaterial = "SourceMaterial"
-    # FIAF Glossary of Filmographic Terms B.4.8
+    """
+    FIAF Glossary of Filmographic Terms B.4.4
+    """
     Stagedby = "Stagedby"
-    # FIAF Glossary of Filmographic Terms B.4.2
+    """
+    FIAF Glossary of Filmographic Terms B.4.8
+    """
     Writer = "Writer"
+    """
+    FIAF Glossary of Filmographic Terms B.4.2
+    """
 
 
 class ManifestationActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Moving Image Cataloguing Manual 2.4.1.1, D.8
     """
-    # FIAF Moving Image Cataloguing Manual D.8.11
     AgentNotIdentified = "AgentNotIdentified"
-    # FIAF Moving Image Cataloguing Manual D.8.6
+    """
+    FIAF Moving Image Cataloguing Manual D.8.11
+    """
     AgentResponsibleForPreservation = "AgentResponsibleForPreservation"
-    # FIAF Moving Image Cataloguing Manual D.8.7
+    """
+    FIAF Moving Image Cataloguing Manual D.8.6
+    """
     AgentResponsibleForReproductionOrTransfer = "AgentResponsibleForReproductionOrTransfer"
-    # FIAF Moving Image Cataloguing Manual D.8.8
+    """
+    FIAF Moving Image Cataloguing Manual D.8.7
+    """
     AgentResponsibleForTheArchivalAvailability = "AgentResponsibleForTheArchivalAvailability"
-    # FIAF Moving Image Cataloguing Manual D.8.9
+    """
+    FIAF Moving Image Cataloguing Manual D.8.8
+    """
     AgentResponsibleForTheMereAvailability = "AgentResponsibleForTheMereAvailability"
-    # FIAF Moving Image Cataloguing Manual D.8.10
+    """
+    FIAF Moving Image Cataloguing Manual D.8.9
+    """
     AgentUnclearOrUndetermined = "AgentUnclearOrUndetermined"
-    # FIAF Moving Image Cataloguing Manual D.8.3
+    """
+    FIAF Moving Image Cataloguing Manual D.8.10
+    """
     Broadcaster = "Broadcaster"
-    # FIAF Moving Image Cataloguing Manual D.8.2
+    """
+    FIAF Moving Image Cataloguing Manual D.8.3
+    """
     DistributorNonTheatrical = "DistributorNonTheatrical"
-    # FIAF Moving Image Cataloguing Manual D.8.1
+    """
+    FIAF Moving Image Cataloguing Manual D.8.2
+    """
     DistributorTheatrical = "DistributorTheatrical"
-    # FIAF Moving Image Cataloguing Manual D.8.5
+    """
+    FIAF Moving Image Cataloguing Manual D.8.1
+    """
     Manufacturer = "Manufacturer"
-    # FIAF Moving Image Cataloguing Manual D.8.4
+    """
+    FIAF Moving Image Cataloguing Manual D.8.5
+    """
     Publisher = "Publisher"
-    # FIAF Moving Image Cataloguing Manual 1.4.1.1, 2.4.1.1, 3.3.1.1
+    """
+    FIAF Moving Image Cataloguing Manual D.8.4
+    """
     UnknownActivity = "UnknownActivity"
+    """
+    FIAF Moving Image Cataloguing Manual 1.4.1.1, 2.4.1.1, 3.3.1.1
+    """
 
 
 class AgentTypeEnum(str, Enum):
@@ -879,154 +1209,258 @@ class ColourTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11
     """
-    # FIAF Moving Image Cataloguing Manual D.7.11
     BlackAndWhite = "BlackAndWhite"
-    # FIAF Moving Image Cataloguing Manual D.7.11
+    """
+    FIAF Moving Image Cataloguing Manual D.7.11
+    """
     BlackAndWhiteTinted = "BlackAndWhiteTinted"
-    # FIAF Moving Image Cataloguing Manual D.7.11
+    """
+    FIAF Moving Image Cataloguing Manual D.7.11
+    """
     BlackAndWhiteTintedAndToned = "BlackAndWhiteTintedAndToned"
-    # FIAF Moving Image Cataloguing Manual D.7.11
+    """
+    FIAF Moving Image Cataloguing Manual D.7.11
+    """
     BlackAndWhiteToned = "BlackAndWhiteToned"
-    # FIAF Moving Image Cataloguing Manual D.7.11
+    """
+    FIAF Moving Image Cataloguing Manual D.7.11
+    """
     Colour = "Colour"
-    # FIAF Moving Image Cataloguing Manual D.7.11
+    """
+    FIAF Moving Image Cataloguing Manual D.7.11
+    """
     ColourBlackAndWhite = "ColourBlackAndWhite"
-    # FIAF Moving Image Cataloguing Manual D.7.11
+    """
+    FIAF Moving Image Cataloguing Manual D.7.11
+    """
     Sepia = "Sepia"
-    # FIAF Moving Image Cataloguing Manual D.7.11
+    """
+    FIAF Moving Image Cataloguing Manual D.7.11
+    """
     Tinted = "Tinted"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.11
+    """
 
 
 class ManufactureEventTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual D.4.7, D.14
     """
-    # FIAF Moving Image Cataloguing Manual D.14
     FilmPrintingEvent = "FilmPrintingEvent"
-    # FIAF Moving Image Cataloguing Manual D.14
+    """
+    FIAF Moving Image Cataloguing Manual D.14
+    """
     MasteringEvent = "MasteringEvent"
-    # FIAF Moving Image Cataloguing Manual D.14
+    """
+    FIAF Moving Image Cataloguing Manual D.14
+    """
     ScanningEvent = "ScanningEvent"
-    # FIAF Moving Image Cataloguing Manual D.14
+    """
+    FIAF Moving Image Cataloguing Manual D.14
+    """
     TelecineEvent = "TelecineEvent"
-    # FIAF Moving Image Cataloguing Manual D.14
+    """
+    FIAF Moving Image Cataloguing Manual D.14
+    """
     UploadingEvent = "UploadingEvent"
-    # FIAF Moving Image Cataloguing Manual D.14
+    """
+    FIAF Moving Image Cataloguing Manual D.14
+    """
     VideoCopyingEvent = "VideoCopyingEvent"
+    """
+    FIAF Moving Image Cataloguing Manual D.14
+    """
 
 
 class PreservationEventTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual D.4.5
     """
-    # FIAF Moving Image Cataloguing Manual D.12
     DigitisationEvent = "DigitisationEvent"
-    # FIAF Moving Image Cataloguing Manual D.12
+    """
+    FIAF Moving Image Cataloguing Manual D.12
+    """
     DuplicationEvent = "DuplicationEvent"
-    # FIAF Moving Image Cataloguing Manual D.12
+    """
+    FIAF Moving Image Cataloguing Manual D.12
+    """
     ReproductionEvent = "ReproductionEvent"
-    # FIAF Moving Image Cataloguing Manual D.4.5
+    """
+    FIAF Moving Image Cataloguing Manual D.12
+    """
     RestorationEvent = "RestorationEvent"
-    # FIAF Moving Image Cataloguing Manual D.12
+    """
+    FIAF Moving Image Cataloguing Manual D.4.5
+    """
     TransferEvent = "TransferEvent"
+    """
+    FIAF Moving Image Cataloguing Manual D.12
+    """
 
 
 class ProductionEventTypeEnum(str, Enum):
     """
     Leave unset for main production event, otherwise see FIAF Moving Image Cataloguing Manual D.4.3, D.11
     """
-    # FIAF Moving Image Cataloguing Manual D.11
     CastingEvent = "CastingEvent"
-    # FIAF Moving Image Cataloguing Manual D.11
+    """
+    FIAF Moving Image Cataloguing Manual D.11
+    """
     IndoorShootingEvent = "IndoorShootingEvent"
-    # FIAF Moving Image Cataloguing Manual D.11
+    """
+    FIAF Moving Image Cataloguing Manual D.11
+    """
     OutdoorShootingEvent = "OutdoorShootingEvent"
-    # FIAF Moving Image Cataloguing Manual D.11
+    """
+    FIAF Moving Image Cataloguing Manual D.11
+    """
     PostProductionEvent = "PostProductionEvent"
+    """
+    FIAF Moving Image Cataloguing Manual D.11
+    """
 
 
 class PublicationEventTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual D.4.1, D.10
     """
-    # FIAF Moving Image Cataloguing Manual D.10
     BroadcastEvent = "BroadcastEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
+    """
+    FIAF Moving Image Cataloguing Manual D.10
+    """
     DistributionEvent = "DistributionEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
+    """
+    FIAF Moving Image Cataloguing Manual D.10
+    """
     HomeVideoPublicationEvent = "HomeVideoPublicationEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
+    """
+    FIAF Moving Image Cataloguing Manual D.10
+    """
     NonTheatricalDistributionEvent = "NonTheatricalDistributionEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
+    """
+    FIAF Moving Image Cataloguing Manual D.10
+    """
     NotForReleaseEvent = "NotForReleaseEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
+    """
+    FIAF Moving Image Cataloguing Manual D.10
+    """
     OnlineTransmissionEvent = "OnlineTransmissionEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
+    """
+    FIAF Moving Image Cataloguing Manual D.10
+    """
     PreReleaseEvent = "PreReleaseEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
+    """
+    FIAF Moving Image Cataloguing Manual D.10
+    """
     ReleaseEvent = "ReleaseEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
+    """
+    FIAF Moving Image Cataloguing Manual D.10
+    """
     TheatricalDistributionEvent = "TheatricalDistributionEvent"
-    # FIAF Moving Image Cataloguing Manual D.10
+    """
+    FIAF Moving Image Cataloguing Manual D.10
+    """
     UnknownEvent = "UnknownEvent"
+    """
+    FIAF Moving Image Cataloguing Manual D.10
+    """
 
 
 class FormatAudioTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    # FIAF Moving Image Cataloguing Manual D.7.2
     number_16mmMagneticTrack = "16mmMagneticTrack"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     number_17FULL_STOP5mmMagneticTrack = "17.5mmMagneticTrack"
-    # FIAF Moving Image Cataloguing Manual D.7.2
     number_35mmMagneticTrack = "35mmMagneticTrack"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     Audiocassette = "Audiocassette"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     HalfInchAudioReel = "HalfInchAudioReel"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     OneInchAudioReel = "OneInchAudioReel"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     QuarterInchAudioReel = "QuarterInchAudioReel"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     TwoInchAudioReel = "TwoInchAudioReel"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
 
 
 class FormatDigitalFileEncodingTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    # FIAF Moving Image Cataloguing Manual D.7.2
     MPEG4 = "MPEG4"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     Quicktime = "Quicktime"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     RealVideo = "RealVideo"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     SVCD = "SVCD"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     VCD = "VCD"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     WindowsMedia = "WindowsMedia"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
 
 
 class FormatDigitalFileTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    # FIAF Moving Image Cataloguing Manual D.7.2
     AVI = "AVI"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     DPX = "DPX"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     DV = "DV"
-    # FIAF Moving Image Cataloguing Manual D.7.2
     MOV = "MOV"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     MP4 = "MP4"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     MXF = "MXF"
-    # Video Object File (MPEG-2 subset)
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     VOB = "VOB"
+    """
+    Video Object File (MPEG-2 subset)
+    """
     WebM = "WebM"
 
 
@@ -1034,64 +1468,104 @@ class FormatFilmTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    # FIAF Moving Image Cataloguing Manual D.7.2
     number_16mmFilm = "16mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     number_17FULL_STOP5mmFilm = "17.5mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     number_35mmFilm = "35mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     number_70mmFilm = "70mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     number_8mmFilm = "8mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     number_9FULL_STOP5mmFilm = "9.5mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     Super16mmFilm = "Super16mmFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     Super8mmFilm = "Super8mmFilm"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
 
 
 class FormatOpticalTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    # FIAF Moving Image Cataloguing Manual D.7.2
     BluRay = "BluRay"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     CD = "CD"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     DVD = "DVD"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     LaserDisc = "LaserDisc"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
 
 
 class FormatVideoTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual D.7.2
     """
-    # FIAF Moving Image Cataloguing Manual D.7.2
     number_1InchCFormat = "1InchCFormat"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     number_2InchQuadruplex = "2InchQuadruplex"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     BetacamSP = "BetacamSP"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     D1 = "D1"
-    # FIAF Moving Image Cataloguing Manual D.7.2
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     D5 = "D5"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     Digital8 = "Digital8"
-    # FIAF Moving Image Cataloguing Manual D.7.2
     DigitalBetacam = "DigitalBetacam"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     DV = "DV"
     DVCAM = "DVCAM"
     DVCPro = "DVCPro"
     DVCPro50 = "DVCPro50"
-    # FIAF Moving Image Cataloguing Manual D.7.2
     DVCPROHD = "DVCPROHD"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     HDCAM = "HDCAM"
-    # FIAF Moving Image Cataloguing Manual D.7.2
     HDCAMSR = "HDCAMSR"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.2
+    """
     HDV = "HDV"
     MiniDV = "MiniDV"
     SVHS = "SVHS"
@@ -1104,20 +1578,34 @@ class FrameRateEnum(str, Enum):
     """
     Frames per second of an item.
     """
-    # FIAF Moving Image Cataloguing Manual D.7.18
     number_16fps = "16fps"
-    # FIAF Moving Image Cataloguing Manual D.7.18
+    """
+    FIAF Moving Image Cataloguing Manual D.7.18
+    """
     number_23FULL_STOP98fps = "23.98fps"
-    # FIAF Moving Image Cataloguing Manual D.7.18
+    """
+    FIAF Moving Image Cataloguing Manual D.7.18
+    """
     number_24fps = "24fps"
-    # FIAF Moving Image Cataloguing Manual D.7.18
+    """
+    FIAF Moving Image Cataloguing Manual D.7.18
+    """
     number_25fps = "25fps"
-    # FIAF Moving Image Cataloguing Manual D.7.18
+    """
+    FIAF Moving Image Cataloguing Manual D.7.18
+    """
     number_30fps = "30fps"
-    # FIAF Moving Image Cataloguing Manual D.7.18
+    """
+    FIAF Moving Image Cataloguing Manual D.7.18
+    """
     number_48fps = "48fps"
-    # FIAF Moving Image Cataloguing Manual D.7.18
+    """
+    FIAF Moving Image Cataloguing Manual D.7.18
+    """
     VariableFrameRate = "VariableFrameRate"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.18
+    """
 
 
 class ItemAccessStatusEnum(str, Enum):
@@ -1126,48 +1614,82 @@ class ItemAccessStatusEnum(str, Enum):
     """
     Archive = "Archive"
     Distribution = "Distribution"
-    # FIAF Moving Image Cataloguing Manual D.7.3
     Master = "Master"
-    # FIAF Moving Image Cataloguing Manual D.7.3
+    """
+    FIAF Moving Image Cataloguing Manual D.7.3
+    """
     Removed = "Removed"
-    # FIAF Moving Image Cataloguing Manual D.7.3
+    """
+    FIAF Moving Image Cataloguing Manual D.7.3
+    """
     Viewing = "Viewing"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.3
+    """
 
 
 class ItemElementTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual D.7.8
     """
-    # FIAF Moving Image Cataloguing Manual D.7.8
     ColourNegative = "ColourNegative"
-    # FIAF Moving Image Cataloguing Manual D.7.8
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     ColourPositive = "ColourPositive"
-    # FIAF Moving Image Cataloguing Manual D.7.8
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     CopperTonedPositive = "CopperTonedPositive"
-    # FIAF Moving Image Cataloguing Manual D.7.8
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     CyanMatrix = "CyanMatrix"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     DCDM = "DCDM"
-    # FIAF Moving Image Cataloguing Manual D.7.8
     DCP = "DCP"
-    # FIAF Moving Image Cataloguing Manual D.7.8
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     DirectBWPositive = "DirectBWPositive"
-    # FIAF Moving Image Cataloguing Manual D.7.8
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     DuplicateNegative = "DuplicateNegative"
-    # FIAF Moving Image Cataloguing Manual D.7.8
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     DuplicatePositive = "DuplicatePositive"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     EditDecisionList = "EditDecisionList"
-    # FIAF Moving Image Cataloguing Manual D.7.8
     ImageNegative = "ImageNegative"
-    # FIAF Moving Image Cataloguing Manual D.7.8
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     Lavender = "Lavender"
-    # FIAF Moving Image Cataloguing Manual D.7.8
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     OriginalNegative = "OriginalNegative"
-    # FIAF Moving Image Cataloguing Manual D.7.8
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     OriginalPositiveReversalFilm = "OriginalPositiveReversalFilm"
-    # FIAF Moving Image Cataloguing Manual D.7.8
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     Positive = "Positive"
-    # FIAF Moving Image Cataloguing Manual D.7.8
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     SoundNegative = "SoundNegative"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.8
+    """
     Subtitles = "Subtitles"
 
 
@@ -1687,28 +2209,48 @@ class LanguageUsageEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual 2.3.3, D.6
     """
-    # Audio description for the visually impaired
     AudioDescription = "AudioDescription"
-    # FIAF Moving Image Cataloguing Manual D.6
+    """
+    Audio description for the visually impaired
+    """
     Captions = "Captions"
+    """
+    FIAF Moving Image Cataloguing Manual D.6
+    """
     ClosingCredits = "ClosingCredits"
-    # FIAF Moving Image Cataloguing Manual 2.3.3
     Dubbed = "Dubbed"
-    # FIAF Moving Image Cataloguing Manual D.6
+    """
+    FIAF Moving Image Cataloguing Manual 2.3.3
+    """
     Intertitles = "Intertitles"
-    # FIAF Moving Image Cataloguing Manual D.6
+    """
+    FIAF Moving Image Cataloguing Manual D.6
+    """
     NoDialogue = "NoDialogue"
+    """
+    FIAF Moving Image Cataloguing Manual D.6
+    """
     OpeningCredits = "OpeningCredits"
-    # Subtitles for the Deaf and Hard of hearing
     SDHSubtitles = "SDHSubtitles"
-    # FIAF Moving Image Cataloguing Manual D.6
+    """
+    Subtitles for the Deaf and Hard of hearing
+    """
     SignedLanguage = "SignedLanguage"
-    # FIAF Moving Image Cataloguing Manual D.6
+    """
+    FIAF Moving Image Cataloguing Manual D.6
+    """
     SpokenLanguage = "SpokenLanguage"
-    # FIAF Moving Image Cataloguing Manual D.6
+    """
+    FIAF Moving Image Cataloguing Manual D.6
+    """
     Subtitles = "Subtitles"
-    # FIAF Moving Image Cataloguing Manual D.6
+    """
+    FIAF Moving Image Cataloguing Manual D.6
+    """
     SungLanguage = "SungLanguage"
+    """
+    FIAF Moving Image Cataloguing Manual D.6
+    """
     VoiceOver = "VoiceOver"
 
 
@@ -1716,174 +2258,306 @@ class PrecisionEnum(str, Enum):
     """
     Qualifier indicating the precision of an extent value or duration
     """
-    # Value may be inaccurate but is regarded to be close to the real thing
     Approximate = "Approximate"
-    # Sources for the given value are deemed unreliable, so it may as well be off the mark
+    """
+    Value may be inaccurate but is regarded to be close to the real thing
+    """
     Uncertain = "Uncertain"
+    """
+    Sources for the given value are deemed unreliable, so it may as well be off the mark
+    """
 
 
 class SoundTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4
     """
-    # FIAF Moving Image Cataloguing Manual D.7.4
     Combined = "Combined"
-    # FIAF Moving Image Cataloguing Manual D.7.4
+    """
+    FIAF Moving Image Cataloguing Manual D.7.4
+    """
     CombinedAsMute = "CombinedAsMute"
-    # FIAF Moving Image Cataloguing Manual D.7.4
+    """
+    FIAF Moving Image Cataloguing Manual D.7.4
+    """
     CombinedAsSound = "CombinedAsSound"
-    # FIAF Moving Image Cataloguing Manual D.7.4
+    """
+    FIAF Moving Image Cataloguing Manual D.7.4
+    """
     MixedSound = "MixedSound"
-    # FIAF Moving Image Cataloguing Manual D.7.4
+    """
+    FIAF Moving Image Cataloguing Manual D.7.4
+    """
     Mute = "Mute"
-    # FIAF Moving Image Cataloguing Manual D.7.4
+    """
+    FIAF Moving Image Cataloguing Manual D.7.4
+    """
     Silent = "Silent"
-    # FIAF Moving Image Cataloguing Manual D.7.4
+    """
+    FIAF Moving Image Cataloguing Manual D.7.4
+    """
     Sound = "Sound"
-    # FIAF Moving Image Cataloguing Manual D.7.4
+    """
+    FIAF Moving Image Cataloguing Manual D.7.4
+    """
     Temporary = "Temporary"
+    """
+    FIAF Moving Image Cataloguing Manual D.7.4
+    """
 
 
 class TitleTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual A.2
     """
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
     AbbreviatedTitle = "AbbreviatedTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
+    FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
     AcquisitionTitle = "AcquisitionTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4
+    """
+    FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
     AlternativeTitle = "AlternativeTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
+    FIAF Moving Image Cataloguing Manual A.2.4
+    """
     CorrectedTitle = "CorrectedTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
+    FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
     PreReleaseTitle = "PreReleaseTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.0
+    """
+    FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
     PreferredTitle = "PreferredTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
+    FIAF Moving Image Cataloguing Manual A.2.0
+    """
     SearchTitle = "SearchTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
+    FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
     SeriesTitle = "SeriesTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.5
+    """
+    FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
     SuppliedDevisedTitle = "SuppliedDevisedTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.2
+    """
+    FIAF Moving Image Cataloguing Manual A.2.5
+    """
     TitleProper = "TitleProper"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
+    FIAF Moving Image Cataloguing Manual A.2.2
+    """
     TranslatedTitle = "TranslatedTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
+    FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
     TransliteratedTitle = "TransliteratedTitle"
-    # FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
+    FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
     WorkingTitle = "WorkingTitle"
+    """
+    FIAF Moving Image Cataloguing Manual A.2.4.1
+    """
 
 
 class UnitEnum(str, Enum):
     """
     Units of measurement. Definitions are taken from the Quantities, Units, Dimensions and Data Types Ontologies (QUDT)
     """
-    # Unit of length defined as being 0.3048 metres
     Feet = "Feet"
-    # Unit for digital information equivalent to 1000 megabytes
+    """
+    Unit of length defined as being 0.3048 metres
+    """
     GigaByte = "GigaByte"
-    # Unit for digital information equivalent to 1000 bytes
+    """
+    Unit for digital information equivalent to 1000 megabytes
+    """
     KiloByte = "KiloByte"
-    # Metric and SI base unit of distance
+    """
+    Unit for digital information equivalent to 1000 bytes
+    """
     Metre = "Metre"
-    # Unit for digital information equivalent to 1000 kilobytes
+    """
+    Metric and SI base unit of distance
+    """
     MegaByte = "MegaByte"
-    # Unit for digital information equivalent to 1000 gigabytes
+    """
+    Unit for digital information equivalent to 1000 kilobytes
+    """
     TeraByte = "TeraByte"
+    """
+    Unit for digital information equivalent to 1000 gigabytes
+    """
 
 
 class VariantTypeEnum(str, Enum):
     """
     FIAF Moving Image Cataloguing Manual D.2
     """
-    # FIAF Moving Image Cataloguing Manual D.2
     AbridgedCondensed = "AbridgedCondensed"
-    # FIAF Moving Image Cataloguing Manual D.2
+    """
+    FIAF Moving Image Cataloguing Manual D.2
+    """
     Augmented = "Augmented"
-    # FIAF Moving Image Cataloguing Manual D.2
+    """
+    FIAF Moving Image Cataloguing Manual D.2
+    """
     BlackAndWhiteCopyOfWorkOriginallyIssuedInColour = "BlackAndWhiteCopyOfWorkOriginallyIssuedInColour"
-    # FIAF Moving Image Cataloguing Manual D.2
+    """
+    FIAF Moving Image Cataloguing Manual D.2
+    """
     Censored = "Censored"
-    # FIAF Moving Image Cataloguing Manual D.2
+    """
+    FIAF Moving Image Cataloguing Manual D.2
+    """
     Colourized = "Colourized"
-    # FIAF Moving Image Cataloguing Manual D.2
+    """
+    FIAF Moving Image Cataloguing Manual D.2
+    """
     DifferentSoundTrack = "DifferentSoundTrack"
-    # FIAF Moving Image Cataloguing Manual D.2
+    """
+    FIAF Moving Image Cataloguing Manual D.2
+    """
     Dubbed = "Dubbed"
-    # FIAF Moving Image Cataloguing Manual D.2
+    """
+    FIAF Moving Image Cataloguing Manual D.2
+    """
     PreservationRestoration = "PreservationRestoration"
-    # FIAF Moving Image Cataloguing Manual D.2
+    """
+    FIAF Moving Image Cataloguing Manual D.2
+    """
     Sonorized = "Sonorized"
-    # FIAF Moving Image Cataloguing Manual D.2
+    """
+    FIAF Moving Image Cataloguing Manual D.2
+    """
     Subtitled = "Subtitled"
+    """
+    FIAF Moving Image Cataloguing Manual D.2
+    """
 
 
 class WorkVariantTypeEnum(str, Enum):
     """
     Work/Variant description type. See also: FIAF Moving Image Cataloguing Manual 1.2.1, D.1
     """
-    # Content that is contained in another content
     Analytic = "Analytic"
-    # Content issued in several independent parts; an ‘umbrella’ work title covering a number of different Works/Variants/Manifestations
+    """
+    Content that is contained in another content
+    """
     Collection = "Collection"
-    # Complete content in one part or intended to be completed in a finite number of parts
+    """
+    Content issued in several independent parts; an ‘umbrella’ work title covering a number of different Works/Variants/Manifestations
+    """
     Monographic = "Monographic"
-    # Content issued in successive parts and intended to be continued indefinitely, or across a span of time. A Work record for a television series is catalogued as a “Serial”, individual episodes may be catalogued as a Monographic record
+    """
+    Complete content in one part or intended to be completed in a finite number of parts
+    """
     Serial = "Serial"
+    """
+    Content issued in successive parts and intended to be continued indefinitely, or across a span of time. A Work record for a television series is catalogued as a “Serial”, individual episodes may be catalogued as a Monographic record
+    """
 
 
 class WorkFormEnum(str, Enum):
     """
     FIAF Glossary of Filmographic Terms D.1
     """
-    # FIAF Glossary of Filmographic Terms D.1.9
     AmateurFilm = "AmateurFilm"
-    # FIAF Glossary of Filmographic Terms D.1.6
+    """
+    FIAF Glossary of Filmographic Terms D.1.9
+    """
     Compilation = "Compilation"
-    # https://d-nb.info/gnd/4012653-5
+    """
+    FIAF Glossary of Filmographic Terms D.1.6
+    """
     Documentary = "Documentary"
-    # FIAF Glossary of Filmographic Terms D.1.13
+    """
+    https://d-nb.info/gnd/4012653-5
+    """
     Excerpt = "Excerpt"
-    # FIAF Glossary of Filmographic Terms D.1.2
+    """
+    FIAF Glossary of Filmographic Terms D.1.13
+    """
     Feature = "Feature"
-    # FIAF Glossary of Filmographic Terms D.1.8
+    """
+    FIAF Glossary of Filmographic Terms D.1.2
+    """
     Featurette = "Featurette"
-    # https://d-nb.info/gnd/1286825091
+    """
+    FIAF Glossary of Filmographic Terms D.1.8
+    """
     Fiction = "Fiction"
-    # FIAF Glossary of Filmographic Terms D.1.10
+    """
+    https://d-nb.info/gnd/1286825091
+    """
     HomeMovie = "HomeMovie"
-    # FIAF Glossary of Filmographic Terms D.1.11
+    """
+    FIAF Glossary of Filmographic Terms D.1.10
+    """
     Outtake = "Outtake"
-    # FIAF Glossary of Filmographic Terms D.1.15
+    """
+    FIAF Glossary of Filmographic Terms D.1.11
+    """
     ScreenTest = "ScreenTest"
-    # FIAF Glossary of Filmographic Terms D.1.4
+    """
+    FIAF Glossary of Filmographic Terms D.1.15
+    """
     Series = "Series"
-    # FIAF Glossary of Filmographic Terms D.1.3
+    """
+    FIAF Glossary of Filmographic Terms D.1.4
+    """
     Short = "Short"
-    # FIAF Glossary of Filmographic Terms D.1.12
+    """
+    FIAF Glossary of Filmographic Terms D.1.3
+    """
     StockFootage = "StockFootage"
-    # FIAF Glossary of Filmographic Terms D.1.7
+    """
+    FIAF Glossary of Filmographic Terms D.1.12
+    """
     Trailer = "Trailer"
-    # FIAF Glossary of Filmographic Terms D.1.14
+    """
+    FIAF Glossary of Filmographic Terms D.1.7
+    """
     UneditedFootage = "UneditedFootage"
-    # FIAF Moving Image Cataloguing Manual E.2.2
+    """
+    FIAF Glossary of Filmographic Terms D.1.14
+    """
     AnthologyFilm = "AnthologyFilm"
-    # FIAF Moving Image Cataloguing Manual E.2.2
+    """
+    FIAF Moving Image Cataloguing Manual E.2.2
+    """
     Commercial = "Commercial"
-    # FIAF Moving Image Cataloguing Manual 0.1.2, D.5.3
+    """
+    FIAF Moving Image Cataloguing Manual E.2.2
+    """
     EducationalFilm = "EducationalFilm"
-    # FIAF Moving Image Cataloguing Manual 0.1.2
+    """
+    FIAF Moving Image Cataloguing Manual 0.1.2, D.5.3
+    """
     EssayFilm = "EssayFilm"
-    # FIAF Moving Image Cataloguing Manual 0.1.2
+    """
+    FIAF Moving Image Cataloguing Manual 0.1.2
+    """
     ExperimentalFilm = "ExperimentalFilm"
-    # FIAF Moving Image Cataloguing Manual D.5.3
+    """
+    FIAF Moving Image Cataloguing Manual 0.1.2
+    """
     IndustrialFilm = "IndustrialFilm"
-    # FIAF Moving Image Cataloguing Manual D.18
+    """
+    FIAF Moving Image Cataloguing Manual D.5.3
+    """
     MusicVideo = "MusicVideo"
-    # http://www.screenonline.org.uk/film/id/476463/index.html
+    """
+    FIAF Moving Image Cataloguing Manual D.18
+    """
     Newsreel = "Newsreel"
+    """
+    http://www.screenonline.org.uk/film/id/476463/index.html
+    """
 
 
 
@@ -1896,8 +2570,7 @@ class CategorizedThing(ConfiguredBaseModel):
                                        'value': '21.T11969/be101407612d022cfdcc'}},
          'from_schema': 'https://www.av-efi.net/av-efi-schema/model'})
 
-    category: Literal["https://www.av-efi.net/av-efi-schema/CategorizedThing","avefi:CategorizedThing"] = Field(default="avefi:CategorizedThing", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/CategorizedThing","avefi:CategorizedThing"] = Field(default="avefi:CategorizedThing", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -1915,40 +2588,34 @@ class MovingImageRecord(CategorizedThing):
                                        'value': '21.T11969/0e3ed2fb51ddeec3cb1f'}},
          'from_schema': 'https://www.av-efi.net/av-efi-schema/model'})
 
-    described_by: Optional[DescriptionResource] = Field(default=None, description="""Also record some metadata about the PID itself rather than the identified object""", json_schema_extra = { "linkml_meta": {'alias': 'described_by',
-         'domain_of': ['MovingImageRecord'],
+    described_by: Optional[DescriptionResource] = Field(default=None, description="""Also record some metadata about the PID itself rather than the identified object""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'slot_uri': 'wdrs:describedby',
          'structured_aliases': {'Responsible': {'in_language': 'en',
                                                 'literal_form': 'Responsible'},
                                 'Verantwortlich': {'in_language': 'de',
                                                    'literal_form': 'Verantwortlich'}}} })
-    has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'alias': 'has_alternative_title',
-         'domain_of': ['MovingImageRecord'],
+    has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 3} })
-    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'alias': 'has_event',
-         'domain_of': ['MovingImageRecord'],
+    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 6} })
-    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'alias': 'has_identifier', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
-    has_primary_title: Optional[Title] = Field(default=None, description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'alias': 'has_primary_title',
-         'domain_of': ['MovingImageRecord'],
+    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    has_primary_title: Optional[Title] = Field(default=None, description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 2,
          'structured_aliases': {'Titel': {'in_language': 'de', 'literal_form': 'Titel'},
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
-    same_as: Optional[list[Union[AuthorityResource,MovingImageResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
-         'domain_of': ['MovingImageRecord',
+    same_as: Optional[list[Union[AuthorityResource,MovingImageResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord',
                        'GeographicName',
                        'Genre',
                        'Subject',
                        'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/MovingImageRecord","avefi:MovingImageRecord"] = Field(default="avefi:MovingImageRecord", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/MovingImageRecord","avefi:MovingImageRecord"] = Field(default="avefi:MovingImageRecord", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -1964,9 +2631,8 @@ class DescriptionResource(ConfiguredBaseModel):
          'from_schema': 'https://www.av-efi.net/av-efi-schema/model',
          'in_subset': ['TypeRegistrySubset']})
 
-    has_history: Optional[str] = Field(default=None, description="""Link to revision history of this PID""", json_schema_extra = { "linkml_meta": {'alias': 'has_history', 'domain_of': ['DescriptionResource']} })
-    has_issuer_id: str = Field(default=..., description="""Identifier for the responsible party as an URI suitable for linked data""", json_schema_extra = { "linkml_meta": {'alias': 'has_issuer_id',
-         'domain_of': ['DescriptionResource'],
+    has_history: Optional[str] = Field(default=None, description="""Link to revision history of this PID""", json_schema_extra = { "linkml_meta": {'domain_of': ['DescriptionResource']} })
+    has_issuer_id: str = Field(default=..., description="""Identifier for the responsible party as an URI suitable for linked data""", json_schema_extra = { "linkml_meta": {'domain_of': ['DescriptionResource'],
          'examples': [{'description': 'Link based on ISIL of the Filmmuseum Düsseldorf '
                                       '(preferred)',
                        'value': 'https://w3id.org/isil/DE-MUS-432511'},
@@ -1975,18 +2641,15 @@ class DescriptionResource(ConfiguredBaseModel):
                        'value': 'https://ld.zdb-services.de/resource/organisations/DE-MUS-432511'}],
          'in_subset': ['TypeRegistrySubset'],
          'slot_uri': 'wdrs:issuedby'} })
-    has_issuer_name: str = Field(default=..., description="""Name of the responsible party""", json_schema_extra = { "linkml_meta": {'alias': 'has_issuer_name',
-         'domain_of': ['DescriptionResource'],
+    has_issuer_name: str = Field(default=..., description="""Name of the responsible party""", json_schema_extra = { "linkml_meta": {'domain_of': ['DescriptionResource'],
          'examples': [{'description': 'Human readable name of the issuer',
                        'value': 'Filmmuseum Düsseldorf'}],
          'in_subset': ['TypeRegistrySubset'],
          'slot_uri': 'dcterms:contributor'} })
-    has_source_key: Optional[list[str]] = Field(default=[], description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'alias': 'has_source_key',
-         'domain_of': ['DescriptionResource'],
+    has_source_key: Optional[list[str]] = Field(default=[], description="""Indicate a dataset this record has been generated or derived from. For example, a converter generating AVefi moving image records from data in some other schema may record the original identifier here.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DescriptionResource'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    last_modified: Optional[datetime ] = Field(default=None, description="""Timestamp (in UTC) for the latest modification to any field in the PID metadata record""", json_schema_extra = { "linkml_meta": {'alias': 'last_modified',
-         'domain_of': ['DescriptionResource'],
+    last_modified: Optional[datetime ] = Field(default=None, description="""Timestamp (in UTC) for the latest modification to any field in the PID metadata record""", json_schema_extra = { "linkml_meta": {'domain_of': ['DescriptionResource'],
          'in_subset': ['TypeRegistrySubset'],
          'slot_uri': 'dcterms:modified'} })
 
@@ -2022,21 +2685,18 @@ class WorkVariant(MovingImageRecord):
          'structured_aliases': {'Werk': {'in_language': 'de', 'literal_form': 'Werk'},
                                 'Work': {'in_language': 'en', 'literal_form': 'Work'}}})
 
-    has_form: Optional[list[WorkFormEnum]] = Field(default=[], description="""Form describes the format and/or purpose of a Work, e.g., “non-fiction”, “short” and “animation”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.1""", json_schema_extra = { "linkml_meta": {'alias': 'has_form',
-         'domain_of': ['WorkVariant'],
+    has_form: Optional[list[WorkFormEnum]] = Field(default=[], description="""Form describes the format and/or purpose of a Work, e.g., “non-fiction”, “short” and “animation”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.1""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 14,
          'structured_aliases': {'Form': {'in_language': 'en', 'literal_form': 'Form'},
                                 'Gattung': {'in_language': 'de',
                                             'literal_form': 'Gattung'}}} })
-    has_genre: Optional[list[Genre]] = Field(default=[], description="""Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters. Examples of genres are “westerns” and “thrillers”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.1""", json_schema_extra = { "linkml_meta": {'alias': 'has_genre',
-         'domain_of': ['WorkVariant'],
+    has_genre: Optional[list[Genre]] = Field(default=[], description="""Genre describes categories of Works, characterized by similar plots, themes, settings, situations, and characters. Examples of genres are “westerns” and “thrillers”. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.1""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 15,
          'structured_aliases': {'Genre': {'in_language': 'default',
                                           'literal_form': 'Genre'}}} })
-    has_subject: Optional[list[Union[Agent, GeographicName, Subject]]] = Field(default=[], description="""Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3""", json_schema_extra = { "linkml_meta": {'alias': 'has_subject',
-         'annotations': {'pid': {'tag': 'pid',
+    has_subject: Optional[list[Union[Agent, GeographicName, Subject]]] = Field(default=[], description="""Subject descriptor terms for the content of a film specifying its period, themes, locations, etc. Not to be confused with Genre. See also: FIAF Moving Image Cataloguing Manual 1.4.3 and FIAF Glossary of Filmographic Terms D.2.3""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/92555879f9ec3adef772'}},
          'any_of': [{'range': 'Subject'},
                     {'range': 'Agent'},
@@ -2048,20 +2708,15 @@ class WorkVariant(MovingImageRecord):
                                                'literal_form': 'Schlagwort'},
                                 'Subject': {'in_language': 'en',
                                             'literal_form': 'Subject'}}} })
-    is_part_of: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17""", json_schema_extra = { "linkml_meta": {'alias': 'is_part_of',
-         'domain_of': ['WorkVariant'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 17} })
-    is_variant_of: Optional[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(default=None, description="""Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5""", json_schema_extra = { "linkml_meta": {'alias': 'is_variant_of',
-         'domain_of': ['WorkVariant'],
+    is_part_of: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant'], 'in_subset': ['TypeRegistrySubset'], 'rank': 17} })
+    is_variant_of: Optional[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(default=None, description="""Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 18,
          'structured_aliases': {'Is variant of': {'in_language': 'en',
                                                   'literal_form': 'Is variant of'},
                                 'Variante von': {'in_language': 'de',
                                                  'literal_form': 'Variante von'}}} })
-    type: WorkVariantTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: WorkVariantTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2072,40 +2727,34 @@ class WorkVariant(MovingImageRecord):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    variant_type: Optional[VariantTypeEnum] = Field(default=None, description="""FIAF Moving Image Cataloguing Manual D.2""", json_schema_extra = { "linkml_meta": {'alias': 'variant_type',
-         'domain_of': ['WorkVariant'],
+    variant_type: Optional[VariantTypeEnum] = Field(default=None, description="""FIAF Moving Image Cataloguing Manual D.2""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 18,
          'structured_aliases': {'Variant type': {'in_language': 'en',
                                                  'literal_form': 'Variant type'},
                                 'Variantentyp': {'in_language': 'de',
                                                  'literal_form': 'Variantentyp'}}} })
-    described_by: Optional[list[DescriptionResource]] = Field(default=[], description="""Also record some metadata about the PID itself rather than the identified object""", json_schema_extra = { "linkml_meta": {'alias': 'described_by',
-         'domain_of': ['MovingImageRecord'],
+    described_by: Optional[list[DescriptionResource]] = Field(default=[], description="""Also record some metadata about the PID itself rather than the identified object""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'slot_uri': 'wdrs:describedby',
          'structured_aliases': {'Responsible': {'in_language': 'en',
                                                 'literal_form': 'Responsible'},
                                 'Verantwortlich': {'in_language': 'de',
                                                    'literal_form': 'Verantwortlich'}}} })
-    has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'alias': 'has_alternative_title',
-         'domain_of': ['MovingImageRecord'],
+    has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 3} })
-    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'alias': 'has_event',
-         'domain_of': ['MovingImageRecord'],
+    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 6} })
-    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'alias': 'has_identifier', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
-    has_primary_title: Title = Field(default=..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'alias': 'has_primary_title',
-         'domain_of': ['MovingImageRecord'],
+    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    has_primary_title: Title = Field(default=..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 2,
          'structured_aliases': {'Titel': {'in_language': 'de', 'literal_form': 'Titel'},
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
-    same_as: Optional[list[Union[EIDRResource, FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
-         'annotations': {'pid': {'tag': 'pid',
+    same_as: Optional[list[Union[EIDRResource, FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/6cd9c85272885fefa9c0'}},
          'any_of': [{'range': 'EIDRResource'},
                     {'range': 'FilmportalResource'},
@@ -2119,8 +2768,7 @@ class WorkVariant(MovingImageRecord):
                        'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/WorkVariant","avefi:WorkVariant"] = Field(default="avefi:WorkVariant", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/WorkVariant","avefi:WorkVariant"] = Field(default="avefi:WorkVariant", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2146,18 +2794,15 @@ class GeographicName(CategorizedThing):
                                     'in_subset': ['TypeRegistrySubset'],
                                     'name': 'same_as'}}})
 
-    has_alternate_name: Optional[list[str]] = Field(default=[], description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""", json_schema_extra = { "linkml_meta": {'alias': 'has_alternate_name',
-         'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent'],
+    has_alternate_name: Optional[list[str]] = Field(default=[], description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""", json_schema_extra = { "linkml_meta": {'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 10,
          'slot_uri': 'schema:alternateName'} })
-    has_name: str = Field(default=..., description="""Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations""", json_schema_extra = { "linkml_meta": {'alias': 'has_name',
-         'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent', 'Title'],
+    has_name: str = Field(default=..., description="""Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations""", json_schema_extra = { "linkml_meta": {'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent', 'Title'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 4,
          'slot_uri': 'schema:name'} })
-    same_as: Optional[list[Union[GNDResource, TGNResource, VIAFResource, WikidataResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
-         'annotations': {'pid': {'tag': 'pid',
+    same_as: Optional[list[Union[GNDResource, TGNResource, VIAFResource, WikidataResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/dd35cd4d748c1785083a'}},
          'any_of': [{'range': 'GNDResource'},
                     {'range': 'TGNResource'},
@@ -2170,8 +2815,7 @@ class GeographicName(CategorizedThing):
                        'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/GeographicName","avefi:GeographicName"] = Field(default="avefi:GeographicName", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/GeographicName","avefi:GeographicName"] = Field(default="avefi:GeographicName", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2193,18 +2837,15 @@ class Genre(ConfiguredBaseModel):
          'structured_aliases': {'Genre': {'in_language': 'default',
                                           'literal_form': 'Genre'}}})
 
-    has_alternate_name: Optional[list[str]] = Field(default=[], description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""", json_schema_extra = { "linkml_meta": {'alias': 'has_alternate_name',
-         'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent'],
+    has_alternate_name: Optional[list[str]] = Field(default=[], description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""", json_schema_extra = { "linkml_meta": {'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 10,
          'slot_uri': 'schema:alternateName'} })
-    has_name: str = Field(default=..., description="""Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations""", json_schema_extra = { "linkml_meta": {'alias': 'has_name',
-         'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent', 'Title'],
+    has_name: str = Field(default=..., description="""Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations""", json_schema_extra = { "linkml_meta": {'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent', 'Title'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 4,
          'slot_uri': 'schema:name'} })
-    same_as: Optional[list[GNDResource]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
-         'domain_of': ['MovingImageRecord',
+    same_as: Optional[list[GNDResource]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord',
                        'GeographicName',
                        'Genre',
                        'Subject',
@@ -2236,18 +2877,15 @@ class Subject(CategorizedThing):
                                 'Subject': {'in_language': 'en',
                                             'literal_form': 'Subject'}}})
 
-    has_alternate_name: Optional[list[str]] = Field(default=[], description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""", json_schema_extra = { "linkml_meta": {'alias': 'has_alternate_name',
-         'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent'],
+    has_alternate_name: Optional[list[str]] = Field(default=[], description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""", json_schema_extra = { "linkml_meta": {'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 10,
          'slot_uri': 'schema:alternateName'} })
-    has_name: str = Field(default=..., description="""Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations""", json_schema_extra = { "linkml_meta": {'alias': 'has_name',
-         'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent', 'Title'],
+    has_name: str = Field(default=..., description="""Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations""", json_schema_extra = { "linkml_meta": {'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent', 'Title'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 4,
          'slot_uri': 'schema:name'} })
-    same_as: Optional[list[Union[AVefiResource, EIDRResource, FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
-         'annotations': {'pid': {'tag': 'pid',
+    same_as: Optional[list[Union[AVefiResource, EIDRResource, FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/8281679d0e53548893b8'}},
          'any_of': [{'range': 'AVefiResource'},
                     {'range': 'EIDRResource'},
@@ -2262,8 +2900,7 @@ class Subject(CategorizedThing):
                        'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/Subject","avefi:Subject"] = Field(default="avefi:Subject", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/Subject","avefi:Subject"] = Field(default="avefi:Subject", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2286,12 +2923,8 @@ class Activity(CategorizedThing):
                                  'name': 'type',
                                  'required': True}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: str = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: str = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2302,8 +2935,7 @@ class Activity(CategorizedThing):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/Activity","avefi:Activity"] = Field(default="avefi:Activity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/Activity","avefi:Activity"] = Field(default="avefi:Activity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2324,12 +2956,8 @@ class AnimationActivity(Activity):
                                  'name': 'type',
                                  'range': 'AnimationActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: AnimationActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: AnimationActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2340,8 +2968,7 @@ class AnimationActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/AnimationActivity","avefi:AnimationActivity"] = Field(default="avefi:AnimationActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/AnimationActivity","avefi:AnimationActivity"] = Field(default="avefi:AnimationActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2362,12 +2989,8 @@ class CastActivity(Activity):
                                  'name': 'type',
                                  'range': 'CastActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: CastActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: CastActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2378,8 +3001,7 @@ class CastActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/CastActivity","avefi:CastActivity"] = Field(default="avefi:CastActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/CastActivity","avefi:CastActivity"] = Field(default="avefi:CastActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2400,12 +3022,8 @@ class CensorshipActivity(Activity):
                                  'name': 'type',
                                  'range': 'CensorshipActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: CensorshipActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: CensorshipActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2416,8 +3034,7 @@ class CensorshipActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/CensorshipActivity","avefi:CensorshipActivity"] = Field(default="avefi:CensorshipActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/CensorshipActivity","avefi:CensorshipActivity"] = Field(default="avefi:CensorshipActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2438,12 +3055,8 @@ class CinematographyActivity(Activity):
                                  'name': 'type',
                                  'range': 'CinematographyActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: CinematographyActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: CinematographyActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2454,8 +3067,7 @@ class CinematographyActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/CinematographyActivity","avefi:CinematographyActivity"] = Field(default="avefi:CinematographyActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/CinematographyActivity","avefi:CinematographyActivity"] = Field(default="avefi:CinematographyActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2476,12 +3088,8 @@ class CopyrightAndDistributionActivity(Activity):
                                  'name': 'type',
                                  'range': 'CopyrightAndDistributionActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: CopyrightAndDistributionActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: CopyrightAndDistributionActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2492,8 +3100,7 @@ class CopyrightAndDistributionActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/CopyrightAndDistributionActivity","avefi:CopyrightAndDistributionActivity"] = Field(default="avefi:CopyrightAndDistributionActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/CopyrightAndDistributionActivity","avefi:CopyrightAndDistributionActivity"] = Field(default="avefi:CopyrightAndDistributionActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2514,12 +3121,8 @@ class DirectingActivity(Activity):
                                  'name': 'type',
                                  'range': 'DirectingActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: DirectingActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: DirectingActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2530,8 +3133,7 @@ class DirectingActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/DirectingActivity","avefi:DirectingActivity"] = Field(default="avefi:DirectingActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/DirectingActivity","avefi:DirectingActivity"] = Field(default="avefi:DirectingActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2552,12 +3154,8 @@ class EditingActivity(Activity):
                                  'name': 'type',
                                  'range': 'EditingActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: EditingActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: EditingActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2568,8 +3166,7 @@ class EditingActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/EditingActivity","avefi:EditingActivity"] = Field(default="avefi:EditingActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/EditingActivity","avefi:EditingActivity"] = Field(default="avefi:EditingActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2590,12 +3187,8 @@ class LaboratoryActivity(Activity):
                                  'name': 'type',
                                  'range': 'LaboratoryActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: LaboratoryActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: LaboratoryActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2606,8 +3199,7 @@ class LaboratoryActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/LaboratoryActivity","avefi:LaboratoryActivity"] = Field(default="avefi:LaboratoryActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/LaboratoryActivity","avefi:LaboratoryActivity"] = Field(default="avefi:LaboratoryActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2628,12 +3220,8 @@ class MusicActivity(Activity):
                                  'name': 'type',
                                  'range': 'MusicActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: MusicActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: MusicActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2644,8 +3232,7 @@ class MusicActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/MusicActivity","avefi:MusicActivity"] = Field(default="avefi:MusicActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/MusicActivity","avefi:MusicActivity"] = Field(default="avefi:MusicActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2666,12 +3253,8 @@ class ProducingActivity(Activity):
                                  'name': 'type',
                                  'range': 'ProducingActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: ProducingActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: ProducingActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2682,8 +3265,7 @@ class ProducingActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/ProducingActivity","avefi:ProducingActivity"] = Field(default="avefi:ProducingActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/ProducingActivity","avefi:ProducingActivity"] = Field(default="avefi:ProducingActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2704,12 +3286,8 @@ class ProductionDesignActivity(Activity):
                                  'name': 'type',
                                  'range': 'ProductionDesignActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: ProductionDesignActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: ProductionDesignActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2720,8 +3298,7 @@ class ProductionDesignActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/ProductionDesignActivity","avefi:ProductionDesignActivity"] = Field(default="avefi:ProductionDesignActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/ProductionDesignActivity","avefi:ProductionDesignActivity"] = Field(default="avefi:ProductionDesignActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2742,12 +3319,8 @@ class PuppetActivity(Activity):
                                  'name': 'type',
                                  'range': 'PuppetActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: PuppetActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: PuppetActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2758,8 +3331,7 @@ class PuppetActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/PuppetActivity","avefi:PuppetActivity"] = Field(default="avefi:PuppetActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/PuppetActivity","avefi:PuppetActivity"] = Field(default="avefi:PuppetActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2780,12 +3352,8 @@ class SoundActivity(Activity):
                                  'name': 'type',
                                  'range': 'SoundActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: SoundActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: SoundActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2796,8 +3364,7 @@ class SoundActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/SoundActivity","avefi:SoundActivity"] = Field(default="avefi:SoundActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/SoundActivity","avefi:SoundActivity"] = Field(default="avefi:SoundActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2818,12 +3385,8 @@ class SpecialEffectsActivity(Activity):
                                  'name': 'type',
                                  'range': 'SpecialEffectsActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: SpecialEffectsActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: SpecialEffectsActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2834,8 +3397,7 @@ class SpecialEffectsActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/SpecialEffectsActivity","avefi:SpecialEffectsActivity"] = Field(default="avefi:SpecialEffectsActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/SpecialEffectsActivity","avefi:SpecialEffectsActivity"] = Field(default="avefi:SpecialEffectsActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2856,12 +3418,8 @@ class WritingActivity(Activity):
                                  'name': 'type',
                                  'range': 'WritingActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: WritingActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: WritingActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2872,8 +3430,7 @@ class WritingActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/WritingActivity","avefi:WritingActivity"] = Field(default="avefi:WritingActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/WritingActivity","avefi:WritingActivity"] = Field(default="avefi:WritingActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2894,12 +3451,8 @@ class ManifestationActivity(Activity):
                                  'name': 'type',
                                  'range': 'ManifestationActivityTypeEnum'}}})
 
-    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'alias': 'has_agent',
-         'domain_of': ['Activity'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 9} })
-    type: ManifestationActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    has_agent: list[Agent] = Field(default=..., description="""Agent involved in some activity related to the moving image resource""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'], 'in_subset': ['TypeRegistrySubset'], 'rank': 9} })
+    type: ManifestationActivityTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2910,8 +3463,7 @@ class ManifestationActivity(Activity):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/ManifestationActivity","avefi:ManifestationActivity"] = Field(default="avefi:ManifestationActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/ManifestationActivity","avefi:ManifestationActivity"] = Field(default="avefi:ManifestationActivity", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -2946,18 +3498,15 @@ class Agent(CategorizedThing):
                                  'range': 'AgentTypeEnum',
                                  'required': True}}})
 
-    has_alternate_name: Optional[list[str]] = Field(default=[], description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""", json_schema_extra = { "linkml_meta": {'alias': 'has_alternate_name',
-         'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent'],
+    has_alternate_name: Optional[list[str]] = Field(default=[], description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""", json_schema_extra = { "linkml_meta": {'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 10,
          'slot_uri': 'schema:alternateName'} })
-    has_name: str = Field(default=..., description="""For natural persons, always use the convention \"family name, given name\"""", json_schema_extra = { "linkml_meta": {'alias': 'has_name',
-         'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent', 'Title'],
+    has_name: str = Field(default=..., description="""For natural persons, always use the convention \"family name, given name\"""", json_schema_extra = { "linkml_meta": {'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent', 'Title'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 4,
          'slot_uri': 'schema:name'} })
-    same_as: Optional[list[Union[FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
-         'annotations': {'pid': {'tag': 'pid',
+    same_as: Optional[list[Union[FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/7e899c043d05318a8ef7'}},
          'any_of': [{'range': 'FilmportalResource'},
                     {'range': 'GNDResource'},
@@ -2970,8 +3519,7 @@ class Agent(CategorizedThing):
                        'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    type: AgentTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: AgentTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -2982,8 +3530,7 @@ class Agent(CategorizedThing):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/Agent","avefi:Agent"] = Field(default="avefi:Agent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/Agent","avefi:Agent"] = Field(default="avefi:Agent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3003,22 +3550,16 @@ class Event(CategorizedThing):
          'from_schema': 'https://www.av-efi.net/av-efi-schema/model',
          'rank': 15})
 
-    has_activity: Optional[list[Union[Activity,AnimationActivity,CastActivity,CensorshipActivity,CinematographyActivity,CopyrightAndDistributionActivity,DirectingActivity,EditingActivity,LaboratoryActivity,MusicActivity,ProducingActivity,ProductionDesignActivity,PuppetActivity,SoundActivity,SpecialEffectsActivity,WritingActivity,ManifestationActivity]]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'alias': 'has_activity',
-         'domain_of': ['Event'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 8} })
-    has_date: Optional[str] = Field(default=None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""", json_schema_extra = { "linkml_meta": {'alias': 'has_date',
-         'domain_of': ['Event'],
+    has_activity: Optional[list[Union[Activity,AnimationActivity,CastActivity,CensorshipActivity,CinematographyActivity,CopyrightAndDistributionActivity,DirectingActivity,EditingActivity,LaboratoryActivity,MusicActivity,ProducingActivity,ProductionDesignActivity,PuppetActivity,SoundActivity,SpecialEffectsActivity,WritingActivity,ManifestationActivity]]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'], 'in_subset': ['TypeRegistrySubset'], 'rank': 8} })
+    has_date: Optional[str] = Field(default=None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'notes': ['https://www.w3.org/TR/xmlschema11-2/#date'],
          'rank': 7} })
-    located_in: Optional[list[GeographicName]] = Field(default=[], description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""", json_schema_extra = { "linkml_meta": {'alias': 'located_in',
-         'domain_of': ['Event'],
+    located_in: Optional[list[GeographicName]] = Field(default=[], description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 7,
          'structured_aliases': {'in': {'in_language': 'default', 'literal_form': 'in'}}} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/Event","avefi:Event"] = Field(default="avefi:Event", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/Event","avefi:Event"] = Field(default="avefi:Event", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3059,8 +3600,7 @@ class ProductionEvent(Event):
                                 'Produktion': {'in_language': 'de',
                                                'literal_form': 'Produktion'}}})
 
-    type: Optional[ProductionEventTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: Optional[ProductionEventTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -3071,8 +3611,7 @@ class ProductionEvent(Event):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    has_activity: Optional[list[Union[AnimationActivity, CastActivity, CinematographyActivity, DirectingActivity, EditingActivity, MusicActivity, ProducingActivity, ProductionDesignActivity, PuppetActivity, SoundActivity, SpecialEffectsActivity, WritingActivity]]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'alias': 'has_activity',
-         'annotations': {'pid': {'tag': 'pid',
+    has_activity: Optional[list[Union[AnimationActivity, CastActivity, CinematographyActivity, DirectingActivity, EditingActivity, MusicActivity, ProducingActivity, ProductionDesignActivity, PuppetActivity, SoundActivity, SpecialEffectsActivity, WritingActivity]]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/000ee0907b3a25f21d22'}},
          'any_of': [{'range': 'AnimationActivity'},
                     {'range': 'CastActivity'},
@@ -3089,18 +3628,15 @@ class ProductionEvent(Event):
          'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 8} })
-    has_date: Optional[str] = Field(default=None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""", json_schema_extra = { "linkml_meta": {'alias': 'has_date',
-         'domain_of': ['Event'],
+    has_date: Optional[str] = Field(default=None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'notes': ['https://www.w3.org/TR/xmlschema11-2/#date'],
          'rank': 7} })
-    located_in: Optional[list[GeographicName]] = Field(default=[], description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""", json_schema_extra = { "linkml_meta": {'alias': 'located_in',
-         'domain_of': ['Event'],
+    located_in: Optional[list[GeographicName]] = Field(default=[], description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 7,
          'structured_aliases': {'in': {'in_language': 'default', 'literal_form': 'in'}}} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/ProductionEvent","avefi:ProductionEvent"] = Field(default="avefi:ProductionEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/ProductionEvent","avefi:ProductionEvent"] = Field(default="avefi:ProductionEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3125,8 +3661,7 @@ class PreservationEvent(Event):
                                  'range': 'PreservationEventTypeEnum',
                                  'required': True}}})
 
-    type: PreservationEventTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: PreservationEventTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -3137,22 +3672,16 @@ class PreservationEvent(Event):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    has_activity: Optional[list[ManifestationActivity]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'alias': 'has_activity',
-         'domain_of': ['Event'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 8} })
-    has_date: Optional[str] = Field(default=None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""", json_schema_extra = { "linkml_meta": {'alias': 'has_date',
-         'domain_of': ['Event'],
+    has_activity: Optional[list[ManifestationActivity]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'], 'in_subset': ['TypeRegistrySubset'], 'rank': 8} })
+    has_date: Optional[str] = Field(default=None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'notes': ['https://www.w3.org/TR/xmlschema11-2/#date'],
          'rank': 7} })
-    located_in: Optional[list[GeographicName]] = Field(default=[], description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""", json_schema_extra = { "linkml_meta": {'alias': 'located_in',
-         'domain_of': ['Event'],
+    located_in: Optional[list[GeographicName]] = Field(default=[], description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 7,
          'structured_aliases': {'in': {'in_language': 'default', 'literal_form': 'in'}}} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/PreservationEvent","avefi:PreservationEvent"] = Field(default="avefi:PreservationEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/PreservationEvent","avefi:PreservationEvent"] = Field(default="avefi:PreservationEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3177,8 +3706,7 @@ class PublicationEvent(Event):
                                  'range': 'PublicationEventTypeEnum',
                                  'required': True}}})
 
-    type: PublicationEventTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: PublicationEventTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -3189,22 +3717,16 @@ class PublicationEvent(Event):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    has_activity: Optional[list[ManifestationActivity]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'alias': 'has_activity',
-         'domain_of': ['Event'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 8} })
-    has_date: Optional[str] = Field(default=None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""", json_schema_extra = { "linkml_meta": {'alias': 'has_date',
-         'domain_of': ['Event'],
+    has_activity: Optional[list[ManifestationActivity]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'], 'in_subset': ['TypeRegistrySubset'], 'rank': 8} })
+    has_date: Optional[str] = Field(default=None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'notes': ['https://www.w3.org/TR/xmlschema11-2/#date'],
          'rank': 7} })
-    located_in: Optional[list[GeographicName]] = Field(default=[], description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""", json_schema_extra = { "linkml_meta": {'alias': 'located_in',
-         'domain_of': ['Event'],
+    located_in: Optional[list[GeographicName]] = Field(default=[], description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 7,
          'structured_aliases': {'in': {'in_language': 'default', 'literal_form': 'in'}}} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/PublicationEvent","avefi:PublicationEvent"] = Field(default="avefi:PublicationEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/PublicationEvent","avefi:PublicationEvent"] = Field(default="avefi:PublicationEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3228,8 +3750,7 @@ class ManufactureEvent(Event):
                                  'name': 'type',
                                  'range': 'ManufactureEventTypeEnum'}}})
 
-    type: Optional[ManufactureEventTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: Optional[ManufactureEventTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -3240,22 +3761,16 @@ class ManufactureEvent(Event):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    has_activity: Optional[list[LaboratoryActivity]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'alias': 'has_activity',
-         'domain_of': ['Event'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 8} })
-    has_date: Optional[str] = Field(default=None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""", json_schema_extra = { "linkml_meta": {'alias': 'has_date',
-         'domain_of': ['Event'],
+    has_activity: Optional[list[LaboratoryActivity]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'], 'in_subset': ['TypeRegistrySubset'], 'rank': 8} })
+    has_date: Optional[str] = Field(default=None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'notes': ['https://www.w3.org/TR/xmlschema11-2/#date'],
          'rank': 7} })
-    located_in: Optional[list[GeographicName]] = Field(default=[], description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""", json_schema_extra = { "linkml_meta": {'alias': 'located_in',
-         'domain_of': ['Event'],
+    located_in: Optional[list[GeographicName]] = Field(default=[], description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 7,
          'structured_aliases': {'in': {'in_language': 'default', 'literal_form': 'in'}}} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/ManufactureEvent","avefi:ManufactureEvent"] = Field(default="avefi:ManufactureEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/ManufactureEvent","avefi:ManufactureEvent"] = Field(default="avefi:ManufactureEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3281,22 +3796,16 @@ class RightsCopyrightRegistrationEvent(Event):
                                 'Rights': {'in_language': 'en',
                                            'literal_form': 'Rights'}}})
 
-    has_activity: list[CopyrightAndDistributionActivity] = Field(default=..., description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'alias': 'has_activity',
-         'domain_of': ['Event'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 8} })
-    has_date: Optional[str] = Field(default=None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""", json_schema_extra = { "linkml_meta": {'alias': 'has_date',
-         'domain_of': ['Event'],
+    has_activity: list[CopyrightAndDistributionActivity] = Field(default=..., description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'], 'in_subset': ['TypeRegistrySubset'], 'rank': 8} })
+    has_date: Optional[str] = Field(default=None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'notes': ['https://www.w3.org/TR/xmlschema11-2/#date'],
          'rank': 7} })
-    located_in: Optional[list[GeographicName]] = Field(default=[], description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""", json_schema_extra = { "linkml_meta": {'alias': 'located_in',
-         'domain_of': ['Event'],
+    located_in: Optional[list[GeographicName]] = Field(default=[], description="""Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 7,
          'structured_aliases': {'in': {'in_language': 'default', 'literal_form': 'in'}}} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/RightsCopyrightRegistrationEvent","avefi:RightsCopyrightRegistrationEvent"] = Field(default="avefi:RightsCopyrightRegistrationEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/RightsCopyrightRegistrationEvent","avefi:RightsCopyrightRegistrationEvent"] = Field(default="avefi:RightsCopyrightRegistrationEvent", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3323,14 +3832,12 @@ class Title(ConfiguredBaseModel):
                                  'range': 'TitleTypeEnum',
                                  'required': True}}})
 
-    has_name: str = Field(default=..., description="""Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations""", json_schema_extra = { "linkml_meta": {'alias': 'has_name',
-         'close_mappings': ['fiaf:hasTitleValue', 'schema:name'],
+    has_name: str = Field(default=..., description="""Human-readable name for a thing. This is to be treated as the preferred display label in a UI context, whereas has_alternate_name can provide additional terms, e.g. for matching in search operations""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fiaf:hasTitleValue', 'schema:name'],
          'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent', 'Title'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 4,
          'slot_uri': 'schema:name'} })
-    has_ordering_name: Optional[str] = Field(default=None, description="""Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name""", json_schema_extra = { "linkml_meta": {'alias': 'has_ordering_name',
-         'domain_of': ['Title'],
+    has_ordering_name: Optional[str] = Field(default=None, description="""Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name""", json_schema_extra = { "linkml_meta": {'domain_of': ['Title'],
          'examples': [{'description': 'For display title: An American in Paris',
                        'value': 'American in Paris, An'},
                       {'description': 'For display title: Star Wars: Episode IX – Der '
@@ -3338,8 +3845,7 @@ class Title(ConfiguredBaseModel):
                        'value': 'Star Wars: Episode 9 – Der Aufstieg Skywalkers'}],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 4} })
-    type: TitleTypeEnum = Field(default=..., description="""FIAF Moving Image Cataloguing Manual A.2""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: TitleTypeEnum = Field(default=..., description="""FIAF Moving Image Cataloguing Manual A.2""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -3361,52 +3867,44 @@ class ManifestationOrItem(MovingImageRecord):
                                        'value': '21.T11969/b4db4a39a902f7abed4f'}},
          'from_schema': 'https://www.av-efi.net/av-efi-schema/model'})
 
-    has_note: Optional[list[str]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual Appendix B""", json_schema_extra = { "linkml_meta": {'alias': 'has_note',
-         'domain_of': ['ManifestationOrItem'],
+    has_note: Optional[list[str]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual Appendix B""", json_schema_extra = { "linkml_meta": {'domain_of': ['ManifestationOrItem'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 29} })
-    has_webresource: Optional[list[str]] = Field(default=[], description="""Link to data provider's own presentation of manifestation or item on the web""", json_schema_extra = { "linkml_meta": {'alias': 'has_webresource',
-         'domain_of': ['ManifestationOrItem'],
+    has_webresource: Optional[list[str]] = Field(default=[], description="""Link to data provider's own presentation of manifestation or item on the web""", json_schema_extra = { "linkml_meta": {'domain_of': ['ManifestationOrItem'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 28,
          'structured_aliases': {'External link': {'in_language': 'en',
                                                   'literal_form': 'External link'},
                                 'Externer Link': {'in_language': 'de',
                                                   'literal_form': 'Externer Link'}}} })
-    described_by: Optional[DescriptionResource] = Field(default=None, description="""Also record some metadata about the PID itself rather than the identified object""", json_schema_extra = { "linkml_meta": {'alias': 'described_by',
-         'domain_of': ['MovingImageRecord'],
+    described_by: Optional[DescriptionResource] = Field(default=None, description="""Also record some metadata about the PID itself rather than the identified object""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'slot_uri': 'wdrs:describedby',
          'structured_aliases': {'Responsible': {'in_language': 'en',
                                                 'literal_form': 'Responsible'},
                                 'Verantwortlich': {'in_language': 'de',
                                                    'literal_form': 'Verantwortlich'}}} })
-    has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'alias': 'has_alternative_title',
-         'domain_of': ['MovingImageRecord'],
+    has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 3} })
-    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'alias': 'has_event',
-         'domain_of': ['MovingImageRecord'],
+    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 6} })
-    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'alias': 'has_identifier', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
-    has_primary_title: Optional[Title] = Field(default=None, description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'alias': 'has_primary_title',
-         'domain_of': ['MovingImageRecord'],
+    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    has_primary_title: Optional[Title] = Field(default=None, description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 2,
          'structured_aliases': {'Titel': {'in_language': 'de', 'literal_form': 'Titel'},
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
-    same_as: Optional[list[Union[AuthorityResource,MovingImageResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
-         'domain_of': ['MovingImageRecord',
+    same_as: Optional[list[Union[AuthorityResource,MovingImageResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord',
                        'GeographicName',
                        'Genre',
                        'Subject',
                        'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/ManifestationOrItem","avefi:ManifestationOrItem"] = Field(default="avefi:ManifestationOrItem", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/ManifestationOrItem","avefi:ManifestationOrItem"] = Field(default="avefi:ManifestationOrItem", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3430,12 +3928,10 @@ class Duration(ConfiguredBaseModel):
                                 'Running Time': {'in_language': 'en',
                                                  'literal_form': 'Running Time'}}})
 
-    has_value: str = Field(default=..., description="""Value of some quantity""", json_schema_extra = { "linkml_meta": {'alias': 'has_value',
-         'domain_of': ['Duration', 'Extent'],
+    has_value: str = Field(default=..., description="""Value of some quantity""", json_schema_extra = { "linkml_meta": {'domain_of': ['Duration', 'Extent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 25} })
-    has_precision: Optional[PrecisionEnum] = Field(default=None, description="""Qualifier indicating the precision of an extent value or duration""", json_schema_extra = { "linkml_meta": {'alias': 'has_precision',
-         'domain_of': ['Duration', 'Extent'],
+    has_precision: Optional[PrecisionEnum] = Field(default=None, description="""Qualifier indicating the precision of an extent value or duration""", json_schema_extra = { "linkml_meta": {'domain_of': ['Duration', 'Extent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 26} })
 
@@ -3454,16 +3950,11 @@ class Extent(ConfiguredBaseModel):
                                 'Länge / Größe': {'in_language': 'de',
                                                   'literal_form': 'Länge / Größe'}}})
 
-    has_unit: UnitEnum = Field(default=..., description="""Unit of some quantity""", json_schema_extra = { "linkml_meta": {'alias': 'has_unit',
-         'domain_of': ['Extent'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 26} })
-    has_value: Decimal = Field(default=..., description="""Value of some quantity""", json_schema_extra = { "linkml_meta": {'alias': 'has_value',
-         'domain_of': ['Duration', 'Extent'],
+    has_unit: UnitEnum = Field(default=..., description="""Unit of some quantity""", json_schema_extra = { "linkml_meta": {'domain_of': ['Extent'], 'in_subset': ['TypeRegistrySubset'], 'rank': 26} })
+    has_value: Decimal = Field(default=..., description="""Value of some quantity""", json_schema_extra = { "linkml_meta": {'domain_of': ['Duration', 'Extent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 25} })
-    has_precision: Optional[PrecisionEnum] = Field(default=None, description="""Qualifier indicating the precision of an extent value or duration""", json_schema_extra = { "linkml_meta": {'alias': 'has_precision',
-         'domain_of': ['Duration', 'Extent'],
+    has_precision: Optional[PrecisionEnum] = Field(default=None, description="""Qualifier indicating the precision of an extent value or duration""", json_schema_extra = { "linkml_meta": {'domain_of': ['Duration', 'Extent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 26} })
 
@@ -3480,8 +3971,7 @@ class Format(CategorizedThing):
          'from_schema': 'https://www.av-efi.net/av-efi-schema/model',
          'rank': 31})
 
-    type: Optional[str] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: Optional[str] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -3492,8 +3982,7 @@ class Format(CategorizedThing):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/Format","avefi:Format"] = Field(default="avefi:Format", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/Format","avefi:Format"] = Field(default="avefi:Format", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3516,8 +4005,7 @@ class Audio(Format):
          'structured_aliases': {'Audio': {'in_language': 'default',
                                           'literal_form': 'Audio'}}})
 
-    type: Optional[FormatAudioTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: Optional[FormatAudioTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -3528,8 +4016,7 @@ class Audio(Format):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/Audio","avefi:Audio"] = Field(default="avefi:Audio", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/Audio","avefi:Audio"] = Field(default="avefi:Audio", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3553,8 +4040,7 @@ class DigitalFile(Format):
                                 'Digital File': {'in_language': 'en',
                                                  'literal_form': 'Digital File'}}})
 
-    type: Optional[FormatDigitalFileTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: Optional[FormatDigitalFileTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -3565,8 +4051,7 @@ class DigitalFile(Format):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/DigitalFile","avefi:DigitalFile"] = Field(default="avefi:DigitalFile", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/DigitalFile","avefi:DigitalFile"] = Field(default="avefi:DigitalFile", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3591,8 +4076,7 @@ class DigitalFileEncoding(Format):
                                 'File Encoding': {'in_language': 'en',
                                                   'literal_form': 'File Encoding'}}})
 
-    type: Optional[FormatDigitalFileEncodingTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: Optional[FormatDigitalFileEncodingTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -3603,8 +4087,7 @@ class DigitalFileEncoding(Format):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/DigitalFileEncoding","avefi:DigitalFileEncoding"] = Field(default="avefi:DigitalFileEncoding", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/DigitalFileEncoding","avefi:DigitalFileEncoding"] = Field(default="avefi:DigitalFileEncoding", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3627,8 +4110,7 @@ class Film(Format):
          'structured_aliases': {'Film': {'in_language': 'default',
                                          'literal_form': 'Film'}}})
 
-    type: Optional[FormatFilmTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: Optional[FormatFilmTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -3639,8 +4121,7 @@ class Film(Format):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/Film","avefi:Film"] = Field(default="avefi:Film", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/Film","avefi:Film"] = Field(default="avefi:Film", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3665,8 +4146,7 @@ class Optical(Format):
                                 'Optisch': {'in_language': 'de',
                                             'literal_form': 'Optisch'}}})
 
-    type: Optional[FormatOpticalTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: Optional[FormatOpticalTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -3677,8 +4157,7 @@ class Optical(Format):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/Optical","avefi:Optical"] = Field(default="avefi:Optical", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/Optical","avefi:Optical"] = Field(default="avefi:Optical", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3701,8 +4180,7 @@ class Video(Format):
          'structured_aliases': {'Video': {'in_language': 'default',
                                           'literal_form': 'Video'}}})
 
-    type: Optional[FormatVideoTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'alias': 'type',
-         'domain_of': ['WorkVariant',
+    type: Optional[FormatVideoTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',
@@ -3713,8 +4191,7 @@ class Video(Format):
                        'Format'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/Video","avefi:Video"] = Field(default="avefi:Video", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/Video","avefi:Video"] = Field(default="avefi:Video", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3748,52 +4225,43 @@ class Manifestation(ManifestationOrItem):
          'structured_aliases': {'Manifestation': {'in_language': 'default',
                                                   'literal_form': 'Manifestation'}}})
 
-    has_item: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Indicate AVefi Items the institution has registered as part of the manifestation""", json_schema_extra = { "linkml_meta": {'alias': 'has_item',
-         'domain_of': ['Manifestation'],
+    has_item: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Indicate AVefi Items the institution has registered as part of the manifestation""", json_schema_extra = { "linkml_meta": {'domain_of': ['Manifestation'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 22} })
-    is_manifestation_of: list[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(default=..., description="""Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation""", json_schema_extra = { "linkml_meta": {'alias': 'is_manifestation_of',
-         'domain_of': ['Manifestation'],
+    is_manifestation_of: list[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(default=..., description="""Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation""", json_schema_extra = { "linkml_meta": {'domain_of': ['Manifestation'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 21} })
-    has_note: Optional[list[str]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual Appendix B""", json_schema_extra = { "linkml_meta": {'alias': 'has_note',
-         'domain_of': ['ManifestationOrItem'],
+    has_note: Optional[list[str]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual Appendix B""", json_schema_extra = { "linkml_meta": {'domain_of': ['ManifestationOrItem'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 29} })
-    has_webresource: Optional[list[str]] = Field(default=[], description="""Link to data provider's own presentation of manifestation or item on the web""", json_schema_extra = { "linkml_meta": {'alias': 'has_webresource',
-         'domain_of': ['ManifestationOrItem'],
+    has_webresource: Optional[list[str]] = Field(default=[], description="""Link to data provider's own presentation of manifestation or item on the web""", json_schema_extra = { "linkml_meta": {'domain_of': ['ManifestationOrItem'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 28,
          'structured_aliases': {'External link': {'in_language': 'en',
                                                   'literal_form': 'External link'},
                                 'Externer Link': {'in_language': 'de',
                                                   'literal_form': 'Externer Link'}}} })
-    described_by: Optional[DescriptionResource] = Field(default=None, description="""Also record some metadata about the PID itself rather than the identified object""", json_schema_extra = { "linkml_meta": {'alias': 'described_by',
-         'domain_of': ['MovingImageRecord'],
+    described_by: Optional[DescriptionResource] = Field(default=None, description="""Also record some metadata about the PID itself rather than the identified object""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'slot_uri': 'wdrs:describedby',
          'structured_aliases': {'Responsible': {'in_language': 'en',
                                                 'literal_form': 'Responsible'},
                                 'Verantwortlich': {'in_language': 'de',
                                                    'literal_form': 'Verantwortlich'}}} })
-    has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'alias': 'has_alternative_title',
-         'domain_of': ['MovingImageRecord'],
+    has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 3} })
-    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'alias': 'has_event',
-         'domain_of': ['MovingImageRecord'],
+    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 6} })
-    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'alias': 'has_identifier', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
-    has_primary_title: Optional[Title] = Field(default=None, description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'alias': 'has_primary_title',
-         'domain_of': ['MovingImageRecord'],
+    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    has_primary_title: Optional[Title] = Field(default=None, description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 2,
          'structured_aliases': {'Titel': {'in_language': 'de', 'literal_form': 'Titel'},
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
-    same_as: Optional[list[Union[EIDRResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=[], description="""Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
-         'annotations': {'pid': {'tag': 'pid',
+    same_as: Optional[list[Union[EIDRResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=[], description="""Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/3b99e7540cf4f5f55cac'}},
          'any_of': [{'range': 'MovingImageResource'}, {'range': 'EIDRResource'}],
          'domain_of': ['MovingImageRecord',
@@ -3803,8 +4271,7 @@ class Manifestation(ManifestationOrItem):
                        'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/Manifestation","avefi:Manifestation"] = Field(default="avefi:Manifestation", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/Manifestation","avefi:Manifestation"] = Field(default="avefi:Manifestation", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -3828,15 +4295,11 @@ class Language(ConfiguredBaseModel):
                                 'Sprache': {'in_language': 'de',
                                             'literal_form': 'Sprache'}}})
 
-    code: Optional[LanguageCodeEnum] = Field(default=None, description="""[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)""", json_schema_extra = { "linkml_meta": {'alias': 'code',
-         'domain_of': ['Language'],
+    code: Optional[LanguageCodeEnum] = Field(default=None, description="""[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)""", json_schema_extra = { "linkml_meta": {'domain_of': ['Language'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 12,
          'see_also': ['https://id.loc.gov/vocabulary/iso639-2.html']} })
-    usage: list[LanguageUsageEnum] = Field(default=..., description="""FIAF Moving Image Cataloguing Manual 2.3.3.2""", json_schema_extra = { "linkml_meta": {'alias': 'usage',
-         'domain_of': ['Language'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 12} })
+    usage: list[LanguageUsageEnum] = Field(default=..., description="""FIAF Moving Image Cataloguing Manual 2.3.3.2""", json_schema_extra = { "linkml_meta": {'domain_of': ['Language'], 'in_subset': ['TypeRegistrySubset'], 'rank': 12} })
 
 
 class Item(ManifestationOrItem):
@@ -3866,66 +4329,57 @@ class Item(ManifestationOrItem):
                                              'literal_form': 'Exemplar'},
                                 'Item': {'in_language': 'en', 'literal_form': 'Item'}}})
 
-    element_type: Optional[ItemElementTypeEnum] = Field(default=None, description="""FIAF Moving Image Cataloguing Manual D.7.8""", json_schema_extra = { "linkml_meta": {'alias': 'element_type',
-         'domain_of': ['Item'],
+    element_type: Optional[ItemElementTypeEnum] = Field(default=None, description="""FIAF Moving Image Cataloguing Manual D.7.8""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 33,
          'structured_aliases': {'Element type': {'in_language': 'en',
                                                  'literal_form': 'Element type'},
                                 'Materialart': {'in_language': 'de',
                                                 'literal_form': 'Materialart'}}} })
-    has_access_status: Optional[ItemAccessStatusEnum] = Field(default=None, description="""Status of item determining access conditions. See also FIAF Moving Image Cataloguing Manual D.7.1""", json_schema_extra = { "linkml_meta": {'alias': 'has_access_status',
-         'domain_of': ['Item'],
+    has_access_status: Optional[ItemAccessStatusEnum] = Field(default=None, description="""Status of item determining access conditions. See also FIAF Moving Image Cataloguing Manual D.7.1""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 36,
          'structured_aliases': {'Status': {'in_language': 'default',
                                            'literal_form': 'Status'}}} })
-    has_colour_type: Optional[ColourTypeEnum] = Field(default=None, description="""FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11""", json_schema_extra = { "linkml_meta": {'alias': 'has_colour_type',
-         'domain_of': ['Item'],
+    has_colour_type: Optional[ColourTypeEnum] = Field(default=None, description="""FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 27,
          'structured_aliases': {'Colour type': {'in_language': 'en',
                                                 'literal_form': 'Colour type'},
                                 'Farbtyp': {'in_language': 'de',
                                             'literal_form': 'Farbtyp'}}} })
-    has_duration: Optional[Duration] = Field(default=None, description="""Total running time of the described object in ISO 8601 duration format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11""", json_schema_extra = { "linkml_meta": {'alias': 'has_duration',
-         'domain_of': ['Item'],
+    has_duration: Optional[Duration] = Field(default=None, description="""Total running time of the described object in ISO 8601 duration format. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 24,
          'structured_aliases': {'Abspieldauer': {'in_language': 'de',
                                                  'literal_form': 'Abspieldauer'},
                                 'Running time': {'in_language': 'en',
                                                  'literal_form': 'Running time'}}} })
-    has_extent: Optional[Extent] = Field(default=None, description="""Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8""", json_schema_extra = { "linkml_meta": {'alias': 'has_extent',
-         'domain_of': ['Item'],
+    has_extent: Optional[Extent] = Field(default=None, description="""Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 24,
          'structured_aliases': {'Extent': {'in_language': 'en',
                                            'literal_form': 'Extent'},
                                 'Länge / Größe': {'in_language': 'de',
                                                   'literal_form': 'Länge / Größe'}}} })
-    has_format: Optional[list[Union[Format,Audio,DigitalFile,DigitalFileEncoding,Film,Optical,Video]]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1""", json_schema_extra = { "linkml_meta": {'alias': 'has_format',
-         'domain_of': ['Item'],
+    has_format: Optional[list[Union[Format,Audio,DigitalFile,DigitalFileEncoding,Film,Optical,Video]]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 23,
          'structured_aliases': {'Format': {'in_language': 'default',
                                            'literal_form': 'Format'}}} })
-    has_frame_rate: Optional[FrameRateEnum] = Field(default=None, description="""Frame Rate describes the number of frames per second of an item. See also: FIAF Moving Image Cataloguing Manual 3.1.5.12.""", json_schema_extra = { "linkml_meta": {'alias': 'has_frame_rate',
-         'domain_of': ['Item'],
+    has_frame_rate: Optional[FrameRateEnum] = Field(default=None, description="""Frame Rate describes the number of frames per second of an item. See also: FIAF Moving Image Cataloguing Manual 3.1.5.12.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 36,
          'structured_aliases': {'BPS': {'in_language': 'de', 'literal_form': 'BPS'},
                                 'Frame rate': {'in_language': 'en',
                                                'literal_form': 'Frame rate'}}} })
-    has_sound_type: Optional[SoundTypeEnum] = Field(default=None, description="""FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4""", json_schema_extra = { "linkml_meta": {'alias': 'has_sound_type',
-         'domain_of': ['Item'],
+    has_sound_type: Optional[SoundTypeEnum] = Field(default=None, description="""FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 27,
          'structured_aliases': {'Sound type': {'in_language': 'en',
                                                'literal_form': 'Sound type'},
                                 'Ton': {'in_language': 'de', 'literal_form': 'Ton'}}} })
-    in_language: Optional[list[Language]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3""", json_schema_extra = { "linkml_meta": {'alias': 'in_language',
-         'domain_of': ['Item'],
+    in_language: Optional[list[Language]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 11,
          'related_mappings': ['fiaf:hasLanguage', 'schema:inLanguage'],
@@ -3933,8 +4387,7 @@ class Item(ManifestationOrItem):
                                              'literal_form': 'Language'},
                                 'Sprache': {'in_language': 'de',
                                             'literal_form': 'Sprache'}}} })
-    is_copy_of: Optional[list[Union[DOIResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=[], description="""Link to AVefi item registered by another institution indicating that the two are known to be copies of each other""", json_schema_extra = { "linkml_meta": {'alias': 'is_copy_of',
-         'annotations': {'pid': {'tag': 'pid',
+    is_copy_of: Optional[list[Union[DOIResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=[], description="""Link to AVefi item registered by another institution indicating that the two are known to be copies of each other""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/4e81c9e20d5eba03f957'}},
          'any_of': [{'range': 'DOIResource'}, {'range': 'MovingImageResource'}],
          'domain_of': ['Item'],
@@ -3944,56 +4397,45 @@ class Item(ManifestationOrItem):
                                             'literal_form': 'Copy of'},
                                 'Kopie von': {'in_language': 'de',
                                               'literal_form': 'Kopie von'}}} })
-    is_derivative_of: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project""", json_schema_extra = { "linkml_meta": {'alias': 'is_derivative_of',
-         'domain_of': ['Item'],
+    is_derivative_of: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 39,
          'structured_aliases': {'Abgeleitet von': {'in_language': 'de',
                                                    'literal_form': 'Abgeleitet von'},
                                 'Derived from': {'in_language': 'en',
                                                  'literal_form': 'Derived from'}}} })
-    is_item_of: Union[MovingImageResource,AVefiResource,LocalResource] = Field(default=..., description="""Indicate AVefi Manifestation the item belongs to. Every item must be associated with a manifestation from the same data provider""", json_schema_extra = { "linkml_meta": {'alias': 'is_item_of',
-         'domain_of': ['Item'],
-         'in_subset': ['TypeRegistrySubset'],
-         'rank': 31} })
-    has_note: Optional[list[str]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual Appendix B""", json_schema_extra = { "linkml_meta": {'alias': 'has_note',
-         'domain_of': ['ManifestationOrItem'],
+    is_item_of: Union[MovingImageResource,AVefiResource,LocalResource] = Field(default=..., description="""Indicate AVefi Manifestation the item belongs to. Every item must be associated with a manifestation from the same data provider""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'], 'in_subset': ['TypeRegistrySubset'], 'rank': 31} })
+    has_note: Optional[list[str]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual Appendix B""", json_schema_extra = { "linkml_meta": {'domain_of': ['ManifestationOrItem'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 29} })
-    has_webresource: Optional[list[str]] = Field(default=[], description="""Link to data provider's own presentation of manifestation or item on the web""", json_schema_extra = { "linkml_meta": {'alias': 'has_webresource',
-         'domain_of': ['ManifestationOrItem'],
+    has_webresource: Optional[list[str]] = Field(default=[], description="""Link to data provider's own presentation of manifestation or item on the web""", json_schema_extra = { "linkml_meta": {'domain_of': ['ManifestationOrItem'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 28,
          'structured_aliases': {'External link': {'in_language': 'en',
                                                   'literal_form': 'External link'},
                                 'Externer Link': {'in_language': 'de',
                                                   'literal_form': 'Externer Link'}}} })
-    described_by: Optional[DescriptionResource] = Field(default=None, description="""Also record some metadata about the PID itself rather than the identified object""", json_schema_extra = { "linkml_meta": {'alias': 'described_by',
-         'domain_of': ['MovingImageRecord'],
+    described_by: Optional[DescriptionResource] = Field(default=None, description="""Also record some metadata about the PID itself rather than the identified object""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'slot_uri': 'wdrs:describedby',
          'structured_aliases': {'Responsible': {'in_language': 'en',
                                                 'literal_form': 'Responsible'},
                                 'Verantwortlich': {'in_language': 'de',
                                                    'literal_form': 'Verantwortlich'}}} })
-    has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'alias': 'has_alternative_title',
-         'domain_of': ['MovingImageRecord'],
+    has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 3} })
-    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'alias': 'has_event',
-         'domain_of': ['MovingImageRecord'],
+    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 6} })
-    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'alias': 'has_identifier', 'domain_of': ['MovingImageRecord'], 'rank': 5} })
-    has_primary_title: Optional[Title] = Field(default=None, description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'alias': 'has_primary_title',
-         'domain_of': ['MovingImageRecord'],
+    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    has_primary_title: Optional[Title] = Field(default=None, description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 2,
          'structured_aliases': {'Titel': {'in_language': 'de', 'literal_form': 'Titel'},
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
-    same_as: Optional[list[Union[DOIResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=[], description="""Another identifier for the same item, e.g. a DOI. Can also be used to link to another AVefi record describing the same item, e.g. when it has changed hands and the new custodian registers its own record for the item""", json_schema_extra = { "linkml_meta": {'alias': 'same_as',
-         'annotations': {'pid': {'tag': 'pid',
+    same_as: Optional[list[Union[DOIResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=[], description="""Another identifier for the same item, e.g. a DOI. Can also be used to link to another AVefi record describing the same item, e.g. when it has changed hands and the new custodian registers its own record for the item""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/b4df5cbef35756648e4d'}},
          'any_of': [{'range': 'MovingImageResource'}, {'range': 'DOIResource'}],
          'domain_of': ['MovingImageRecord',
@@ -4003,8 +4445,7 @@ class Item(ManifestationOrItem):
                        'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/Item","avefi:Item"] = Field(default="avefi:Item", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/Item","avefi:Item"] = Field(default="avefi:Item", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -4022,12 +4463,10 @@ class MovingImageRecordContainer(ConfiguredBaseModel):
          'rank': 100,
          'tree_root': True})
 
-    has_record: Union[MovingImageRecord,WorkVariant,ManifestationOrItem,Manifestation,Item] = Field(default=..., description="""Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual""", json_schema_extra = { "linkml_meta": {'alias': 'has_record',
-         'domain_of': ['MovingImageRecordContainer'],
+    has_record: Union[MovingImageRecord,WorkVariant,ManifestationOrItem,Manifestation,Item] = Field(default=..., description="""Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecordContainer'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1} })
-    URL: Optional[str] = Field(default=None, description="""URL specifying the destination where clients should be redirected to when resolving the PID of a moving image record""", json_schema_extra = { "linkml_meta": {'alias': 'URL',
-         'domain_of': ['MovingImageRecordContainer'],
+    URL: Optional[str] = Field(default=None, description="""URL specifying the destination where clients should be redirected to when resolving the PID of a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecordContainer'],
          'in_subset': ['TypeRegistrySubset']} })
 
 
@@ -4045,12 +4484,10 @@ class AuthorityResource(CategorizedThing):
                                'name': 'id',
                                'required': True}}})
 
-    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['AuthorityResource'],
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['AuthorityResource'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/AuthorityResource","avefi:AuthorityResource"] = Field(default="avefi:AuthorityResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/AuthorityResource","avefi:AuthorityResource"] = Field(default="avefi:AuthorityResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -4068,12 +4505,10 @@ class MovingImageResource(AuthorityResource):
                                        'value': '21.T11969/e15fa59d1733320642b6'}},
          'from_schema': 'https://www.av-efi.net/av-efi-schema/model'})
 
-    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['AuthorityResource'],
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['AuthorityResource'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/MovingImageResource","avefi:MovingImageResource"] = Field(default="avefi:MovingImageResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/MovingImageResource","avefi:MovingImageResource"] = Field(default="avefi:MovingImageResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -4099,12 +4534,10 @@ class AVefiResource(MovingImageResource):
          'todos': ['Possibly change formatter URIs/URLs to the av-efi.net domain when '
                    'the details have been sorted out']})
 
-    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['AuthorityResource'],
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['AuthorityResource'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/AVefiResource","avefi:AVefiResource"] = Field(default="avefi:AVefiResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/AVefiResource","avefi:AVefiResource"] = Field(default="avefi:AVefiResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -4135,12 +4568,10 @@ class DOIResource(AuthorityResource):
          'structured_aliases': {'DOI': {'in_language': 'default',
                                         'literal_form': 'DOI'}}})
 
-    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['AuthorityResource'],
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['AuthorityResource'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/DOIResource","avefi:DOIResource"] = Field(default="avefi:DOIResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/DOIResource","avefi:DOIResource"] = Field(default="avefi:DOIResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -4170,12 +4601,10 @@ class EIDRResource(AuthorityResource):
          'structured_aliases': {'EIDR': {'in_language': 'default',
                                          'literal_form': 'EIDR'}}})
 
-    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['AuthorityResource'],
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['AuthorityResource'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/EIDRResource","avefi:EIDRResource"] = Field(default="avefi:EIDRResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/EIDRResource","avefi:EIDRResource"] = Field(default="avefi:EIDRResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -4206,12 +4635,10 @@ class FilmportalResource(AuthorityResource):
          'structured_aliases': {'Filmportal': {'in_language': 'default',
                                                'literal_form': 'Filmportal'}}})
 
-    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['AuthorityResource'],
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['AuthorityResource'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/FilmportalResource","avefi:FilmportalResource"] = Field(default="avefi:FilmportalResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/FilmportalResource","avefi:FilmportalResource"] = Field(default="avefi:FilmportalResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -4252,12 +4679,10 @@ class GNDResource(AuthorityResource):
          'structured_aliases': {'GND': {'in_language': 'default',
                                         'literal_form': 'GND'}}})
 
-    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['AuthorityResource'],
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['AuthorityResource'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/GNDResource","avefi:GNDResource"] = Field(default="avefi:GNDResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/GNDResource","avefi:GNDResource"] = Field(default="avefi:GNDResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -4285,12 +4710,10 @@ class ISILResource(AuthorityResource):
          'structured_aliases': {'ISIL': {'in_language': 'default',
                                          'literal_form': 'ISIL'}}})
 
-    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['AuthorityResource'],
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['AuthorityResource'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/ISILResource","avefi:ISILResource"] = Field(default="avefi:ISILResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/ISILResource","avefi:ISILResource"] = Field(default="avefi:ISILResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -4310,12 +4733,10 @@ class LocalResource(MovingImageResource):
          'notes': ['Not to be implemented in DTR'],
          'rank': 51})
 
-    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['AuthorityResource'],
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['AuthorityResource'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/LocalResource","avefi:LocalResource"] = Field(default="avefi:LocalResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/LocalResource","avefi:LocalResource"] = Field(default="avefi:LocalResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -4345,12 +4766,10 @@ class TGNResource(AuthorityResource):
          'structured_aliases': {'TGN': {'in_language': 'default',
                                         'literal_form': 'TGN'}}})
 
-    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['AuthorityResource'],
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['AuthorityResource'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/TGNResource","avefi:TGNResource"] = Field(default="avefi:TGNResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/TGNResource","avefi:TGNResource"] = Field(default="avefi:TGNResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -4382,12 +4801,10 @@ class VIAFResource(AuthorityResource):
          'structured_aliases': {'VIAF': {'in_language': 'default',
                                          'literal_form': 'VIAF'}}})
 
-    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['AuthorityResource'],
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['AuthorityResource'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/VIAFResource","avefi:VIAFResource"] = Field(default="avefi:VIAFResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/VIAFResource","avefi:VIAFResource"] = Field(default="avefi:VIAFResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
@@ -4420,12 +4837,10 @@ class WikidataResource(AuthorityResource):
          'structured_aliases': {'Wikidata': {'in_language': 'default',
                                              'literal_form': 'Wikidata'}}})
 
-    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['AuthorityResource'],
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['AuthorityResource'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    category: Literal["https://www.av-efi.net/av-efi-schema/WikidataResource","avefi:WikidataResource"] = Field(default="avefi:WikidataResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'alias': 'category',
-         'designates_type': True,
+    category: Literal["https://www.av-efi.net/av-efi-schema/WikidataResource","avefi:WikidataResource"] = Field(default="avefi:WikidataResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
          'domain_of': ['CategorizedThing'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1,
