@@ -85,7 +85,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "linkml", marker = "extra == 'docs'", specifier = ">=1.8.0" },
+    { name = "linkml", marker = "extra == 'docs'", specifier = ">=1.9.5" },
     { name = "linkml-runtime", marker = "extra == 'dataclasses'", specifier = ">=1.8.0" },
     { name = "mkdocs-material", marker = "extra == 'docs'", specifier = ">=9.5.17" },
     { name = "pydantic", specifier = ">=2.11.0" },
@@ -96,7 +96,7 @@ provides-extras = ["docs", "dataclasses"]
 dev = [
     { name = "deepdiff", specifier = ">=7.0.1" },
     { name = "doit", specifier = ">=0.36.0" },
-    { name = "linkml", specifier = ">=1.8.0" },
+    { name = "linkml", specifier = ">=1.9.5" },
     { name = "mkdocs-material", specifier = ">=9.5.17" },
     { name = "mkdocs-mermaid2-plugin", specifier = ">=1.1.1" },
     { name = "mkdocs-redirects", specifier = ">=1.2.2" },

@@ -14,7 +14,7 @@ license = {text = "MIT"}
 
 [project.optional-dependencies]
 docs = [
-    "linkml>=1.8.0",
+    "linkml>=1.9.5",
     "mkdocs-material>=9.5.17",
 ]
 dataclasses = [
@@ -30,7 +30,7 @@ module-root = "project/python"
 
 [dependency-groups]
 dev = [
-    "linkml>=1.8.0",
+    "linkml>=1.9.5",
     "mkdocs-material>=9.5.17",
     "mkdocs-mermaid2-plugin>=1.1.1",
     "schemasheets>=0.2.1",

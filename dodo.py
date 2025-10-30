@@ -40,7 +40,6 @@ DOCGEN_TEMPLATE_DIR = UTILS_DIR / 'templates' / 'docgen'
 PYDANTIC_TEMPLATE_DIR = UTILS_DIR / 'templates' / 'pydantic'
 PYTHON_DEPENDENCIES = SRC_SCHEMA_DEPENDENCIES.copy()
 PYTHON_DEPENDENCIES.extend(PYDANTIC_TEMPLATE_DIR.glob('*.jinja'))
-PYTHON_DEPENDENCIES.append(UTILS_DIR / 'pydanticgen.py')
 JSON_EXAMPLES = HERE / 'examples' / 'json'
 EXAMPLE_SRC_FILES = [
     JSON_EXAMPLES / 'menschen_am_sonntag_work.json',
@@ -52,6 +51,8 @@ PROJECT_DIR = HERE / 'project'
 JSON_SCHEMA = PROJECT_DIR / 'jsonschema' / SCHEMA_NAME \
     / f"{SRC_MODEL.stem}.schema.json"
 EPIC_VOCAB_DIR = PROJECT_DIR / 'jsonschema' / 'epic' / 'vocabularies'
+PYTHON_MODEL = PROJECT_DIR / 'python' / SCHEMA_NAME / f"{SRC_MODEL.stem}.py"
+PYDANTIC_MODEL = PYTHON_MODEL.with_stem(f"{PYTHON_MODEL.stem}_pydantic_v2")
 TYPESCRIPT_DIR = PROJECT_DIR / 'typescript'
 
 
@@ -137,17 +138,14 @@ def task_python():
             ObjectImport(name="TypeVar"),
         ])
         + Import(module='pydantic', objects=[
-            ObjectImport(name="model_serializer"),
-            ObjectImport(name="SerializationInfo"),
-            ObjectImport(name="SerializerFunctionWrapHandler"),
             ObjectImport(name="TypeAdapter"),
         ])
     )
     for module, cls, target, kwargs in [
             ('linkml.generators.pythongen', 'PythonGenerator',
-             python_model, {}),
-            ('utils.pydanticgen', 'PydanticGenerator',
-             python_model.with_stem(f"{python_model.stem}_pydantic_v2"),
+             PYTHON_MODEL, {}),
+            ('linkml.generators.pydanticgen', 'PydanticGenerator',
+             PYDANTIC_MODEL,
              {
                  'template_dir': str(PYDANTIC_TEMPLATE_DIR),
                  'imports': pydantic_imports,
@@ -181,12 +179,13 @@ def task_rebuild_example():
             f.write(records.model_dump_json(exclude_none=True, indent=2))
             f.write('\n')
 
+    dependencies = EXAMPLE_SRC_FILES.copy()
+    dependencies.append(PYDANTIC_MODEL)
     return {
         'actions': [(
             rebuild_example, [EXAMPLE_SRC_FILES, EXAMPLE_TARGET_FILE],
         )],
-        'task_dep': ['python'],
-        'file_dep': EXAMPLE_SRC_FILES,
+        'file_dep': dependencies,
         'targets': [EXAMPLE_TARGET_FILE],
     }
 
