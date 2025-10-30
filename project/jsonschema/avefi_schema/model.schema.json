@@ -1,5 +1,29 @@
 {
     "$defs": {
+        "AATResource": {
+            "additionalProperties": false,
+            "description": "Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:AATResource"
+                    ],
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "pattern": "^300\\d{6}$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "category"
+            ],
+            "title": "AATResource",
+            "type": "object"
+        },
         "AVefiResource": {
             "additionalProperties": false,
             "description": "Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples",
@@ -2847,6 +2871,9 @@
                     "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
                     "items": {
                         "anyOf": [
+                            {
+                                "$ref": "#/$defs/AATResource"
+                            },
                             {
                                 "$ref": "#/$defs/AVefiResource"
                             },

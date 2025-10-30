@@ -2695,6 +2695,27 @@ export function toMovingImageResource(o: MovingImageResource): MovingImageResour
 }
 
 /**
+ * Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples
+ */
+export interface AATResource extends AuthorityResource {
+}
+
+
+export function isAATResource(o: object): o is AATResource {
+    return (
+        'id' in o &&
+        'category' in o
+    )
+}
+
+export function toAATResource(o: AATResource): AATResource {
+    return {
+        id: o.id ?? null,
+        category: o.category ?? null
+    }
+}
+
+/**
  * Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples
  */
 export interface AVefiResource extends MovingImageResource {

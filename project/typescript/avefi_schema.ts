@@ -1924,6 +1924,13 @@ export interface MovingImageResource extends AuthorityResource {
 
 
 /**
+ * Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples
+ */
+export interface AATResource extends AuthorityResource {
+}
+
+
+/**
  * Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples
  */
 export interface AVefiResource extends MovingImageResource {

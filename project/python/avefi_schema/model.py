@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-10-30T15:46:01
+# Generation date: 2025-10-30T17:51:43
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -158,6 +158,14 @@ class IDString(String):
     type_class_curie = "xsd:string"
     type_name = "IDString"
     type_model_uri = AVEFI.IDString
+
+
+class AATID(String):
+    """ Getty Art & Architecture Thesaurus """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "AATID"
+    type_model_uri = AVEFI.AATID
 
 
 class AVefi(String):
@@ -1765,6 +1773,32 @@ class MovingImageResource(AuthorityResource):
     id: Union[str, IDString] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
+
+        super().__post_init__(**kwargs)
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        self.category = str(self.class_class_curie)
+
+
+@dataclass(repr=False)
+class AATResource(AuthorityResource):
+    """
+    Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AVEFI["AATResource"]
+    class_class_curie: ClassVar[str] = "avefi:AATResource"
+    class_name: ClassVar[str] = "AATResource"
+    class_model_uri: ClassVar[URIRef] = AVEFI.AATResource
+
+    id: Union[str, AATID] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AATID):
+            self.id = AATID(self.id)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -5643,6 +5677,9 @@ slots.Item_same_as = Slot(uri=AVEFI.same_as, name="Item_same_as", curie=AVEFI.cu
 
 slots.AuthorityResource_id = Slot(uri=AVEFI.id, name="AuthorityResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.AuthorityResource_id, domain=AuthorityResource, range=Union[str, IDString])
+
+slots.AATResource_id = Slot(uri=AVEFI.id, name="AATResource_id", curie=AVEFI.curie('id'),
+                   model_uri=AVEFI.AATResource_id, domain=AATResource, range=Union[str, AATID])
 
 slots.AVefiResource_id = Slot(uri=AVEFI.id, name="AVefiResource_id", curie=AVEFI.curie('id'),
                    model_uri=AVEFI.AVefiResource_id, domain=AVefiResource, range=Union[str, AVefi])

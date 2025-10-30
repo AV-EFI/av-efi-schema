@@ -124,7 +124,22 @@ linkml_meta = LinkMLMeta({'default_curi_maps': ['semweb_context'],
                                         'from_schema': 'https://www.av-efi.net/av-efi-schema/model',
                                         'name': 'TypeRegistrySubset'}},
      'title': 'AVefi data model',
-     'types': {'AVefi': {'annotations': {'data_type_properties': {'tag': 'data_type_properties',
+     'types': {'AATID': {'annotations': {'data_type_properties': {'tag': 'data_type_properties',
+                                                                  'value': {'maxLength': 256,
+                                                                            'minLength': 1}}},
+                         'description': 'Getty Art & Architecture Thesaurus',
+                         'examples': [{'description': 'AAT-ID for subject heading '
+                                                      '"labour"',
+                                       'value': '300263340'}],
+                         'from_schema': 'https://www.av-efi.net/av-efi-schema/model',
+                         'in_subset': ['TypeRegistrySubset'],
+                         'name': 'AATID',
+                         'pattern': '^300\\d{6}$',
+                         'see_also': ['https://www.getty.edu/research/tools/vocabularies/aat/index.html',
+                                      'https://vocab.getty.edu/resource?uri=http://vocab.getty.edu/dataset/aat',
+                                      'https://www.wikidata.org/wiki/Property:P1014'],
+                         'typeof': 'string'},
+               'AVefi': {'annotations': {'data_type_properties': {'tag': 'data_type_properties',
                                                                   'value': {'maxLength': 256,
                                                                             'minLength': 1}},
                                          'pid': {'tag': 'pid',
@@ -2608,7 +2623,7 @@ class MovingImageRecord(CategorizedThing):
          'structured_aliases': {'Titel': {'in_language': 'de', 'literal_form': 'Titel'},
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
-    same_as: Optional[list[Union[AuthorityResource,MovingImageResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord',
+    same_as: Optional[list[Union[AuthorityResource,MovingImageResource,AATResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord',
                        'GeographicName',
                        'Genre',
                        'Subject',
@@ -2865,7 +2880,8 @@ class Subject(CategorizedThing):
          'rank': 23,
          'slot_usage': {'same_as': {'annotations': {'pid': {'tag': 'pid',
                                                             'value': '21.T11969/8281679d0e53548893b8'}},
-                                    'any_of': [{'range': 'AVefiResource'},
+                                    'any_of': [{'range': 'AATResource'},
+                                               {'range': 'AVefiResource'},
                                                {'range': 'EIDRResource'},
                                                {'range': 'FilmportalResource'},
                                                {'range': 'GNDResource'},
@@ -2885,9 +2901,10 @@ class Subject(CategorizedThing):
          'in_subset': ['TypeRegistrySubset'],
          'rank': 4,
          'slot_uri': 'schema:name'} })
-    same_as: Optional[list[Union[AVefiResource, EIDRResource, FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
+    same_as: Optional[list[Union[AATResource, AVefiResource, EIDRResource, FilmportalResource, GNDResource, VIAFResource, WikidataResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/8281679d0e53548893b8'}},
-         'any_of': [{'range': 'AVefiResource'},
+         'any_of': [{'range': 'AATResource'},
+                    {'range': 'AVefiResource'},
                     {'range': 'EIDRResource'},
                     {'range': 'FilmportalResource'},
                     {'range': 'GNDResource'},
@@ -3897,7 +3914,7 @@ class ManifestationOrItem(MovingImageRecord):
          'structured_aliases': {'Titel': {'in_language': 'de', 'literal_form': 'Titel'},
                                 'Title': {'in_language': 'en',
                                           'literal_form': 'Title'}}} })
-    same_as: Optional[list[Union[AuthorityResource,MovingImageResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord',
+    same_as: Optional[list[Union[AuthorityResource,MovingImageResource,AATResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord',
                        'GeographicName',
                        'Genre',
                        'Subject',
@@ -4515,6 +4532,38 @@ class MovingImageResource(AuthorityResource):
          'slot_uri': 'rdf:type'} })
 
 
+class AATResource(AuthorityResource):
+    """
+    Getty Thesaurus of Geographic Names ID. Check id slot range documentation for examples
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'formatter_uri_for_rdf_resource': {'tag': 'formatter_uri_for_rdf_resource',
+                                                            'value': 'http://vocab.getty.edu/aat/$1'},
+                         'formatter_url_for_web_resource': {'tag': 'formatter_url_for_web_resource',
+                                                            'value': 'https://vocab.getty.edu/page/aat/$1'},
+                         'provides': {'tag': 'provides',
+                                      'value': ['SubjectHeadingIdentifier']}},
+         'from_schema': 'https://www.av-efi.net/av-efi-schema/model',
+         'in_subset': ['TypeRegistrySubset'],
+         'rank': 51,
+         'see_also': ['https://www.getty.edu/research/tools/vocabularies/aat/index.html',
+                      'https://vocab.getty.edu/resource?uri=http://vocab.getty.edu/dataset/aat',
+                      'https://www.wikidata.org/wiki/Property:P1014'],
+         'slot_usage': {'id': {'in_subset': ['TypeRegistrySubset'],
+                               'name': 'id',
+                               'range': 'AATID'}},
+         'structured_aliases': {'AAT': {'in_language': 'default',
+                                        'literal_form': 'AAT'}}})
+
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['AuthorityResource'],
+         'in_subset': ['TypeRegistrySubset'],
+         'rank': 5} })
+    category: Literal["https://www.av-efi.net/av-efi-schema/AATResource","avefi:AATResource"] = Field(default="avefi:AATResource", description="""Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)""", json_schema_extra = { "linkml_meta": {'designates_type': True,
+         'domain_of': ['CategorizedThing'],
+         'in_subset': ['TypeRegistrySubset'],
+         'rank': 1,
+         'slot_uri': 'rdf:type'} })
+
+
 class AVefiResource(MovingImageResource):
     """
     Handle with the prefix allocated for AVefi (eventually). Check id slot range documentation for examples
@@ -4908,6 +4957,7 @@ Item.model_rebuild()
 MovingImageRecordContainer.model_rebuild()
 AuthorityResource.model_rebuild()
 MovingImageResource.model_rebuild()
+AATResource.model_rebuild()
 AVefiResource.model_rebuild()
 DOIResource.model_rebuild()
 EIDRResource.model_rebuild()
