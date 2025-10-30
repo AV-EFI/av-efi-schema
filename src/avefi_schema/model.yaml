@@ -180,6 +180,26 @@ types:
     description: >-
       ASCII string suitable for identifiers
 
+  AATID:
+    typeof: string
+    pattern: ^300\d{6}$
+    annotations:
+    - tag: data_type_properties
+      value:
+        minLength: 1
+        maxLength: 256
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Getty Art & Architecture Thesaurus
+    examples:
+    - value: 300263340
+      description: AAT-ID for subject heading "labour"
+    see_also:
+    - https://www.getty.edu/research/tools/vocabularies/aat/index.html
+    - https://vocab.getty.edu/resource?uri=http://vocab.getty.edu/dataset/aat
+    - https://www.wikidata.org/wiki/Property:P1014
+
   AVefi:
     typeof: string
     pattern: ^21(\.([0-9A-Za-z])+)*/[!-~]+$
@@ -547,6 +567,7 @@ classes:
         annotations:
         - pid: 21.T11969/8281679d0e53548893b8
         any_of:
+        - range: AATResource
         - range: AVefiResource
         - range: EIDRResource
         - range: FilmportalResource
@@ -1498,6 +1519,33 @@ classes:
     description: >-
       Either a persistent or local identifier for AVefi compliant
       moving image records. See subclasses for details
+
+  AATResource:
+    rank: 51
+    is_a: AuthorityResource
+    slot_usage:
+      id:
+        range: AATID
+        in_subset:
+        - TypeRegistrySubset
+    structured_aliases:
+    - literal_form: AAT
+      in_language: default
+    in_subset:
+    - TypeRegistrySubset
+    annotations:
+    - formatter_uri_for_rdf_resource: http://vocab.getty.edu/aat/$1
+    - formatter_url_for_web_resource: https://vocab.getty.edu/page/aat/$1
+    - tag: provides
+      value:
+      - SubjectHeadingIdentifier
+    description: >-
+      Getty Thesaurus of Geographic Names ID. Check id slot range
+      documentation for examples
+    see_also:
+    - https://www.getty.edu/research/tools/vocabularies/aat/index.html
+    - https://vocab.getty.edu/resource?uri=http://vocab.getty.edu/dataset/aat
+    - https://www.wikidata.org/wiki/Property:P1014
 
   AVefiResource:
     rank: 51
