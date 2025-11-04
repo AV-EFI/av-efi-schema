@@ -184,6 +184,7 @@ types:
     typeof: string
     pattern: ^300\d{6}$
     annotations:
+    - pid: 21.T11969/6cee8108d80467532fec
     - tag: data_type_properties
       value:
         minLength: 1
@@ -372,7 +373,8 @@ types:
     - value: 122530980
       description: VIAF-ID for place "Berlin"
     - value: 7183809
-      description: VIAF-ID for organization "International Federation of Film Archives"
+      description: VIAF-ID for organization "International Federation of Film 
+        Archives"
     - value: 66467014
       description: VIAF-ID for person "Rainer Werner Fassbinder"
     see_also:
@@ -1534,6 +1536,7 @@ classes:
     in_subset:
     - TypeRegistrySubset
     annotations:
+    - pid: 21.T11969/beedb723ef7d35e9443e
     - formatter_uri_for_rdf_resource: http://vocab.getty.edu/aat/$1
     - formatter_url_for_web_resource: https://vocab.getty.edu/page/aat/$1
     - tag: provides
