@@ -257,6 +257,8 @@ def task_json_lc_messages():
 
 def task_docs():
     """Build documentation from LinkML schema."""
+    dependencies = SRC_SCHEMA_DEPENDENCIES.copy()
+    dependencies.extend(DOCGEN_TEMPLATE_DIR.glob('*.jinja'))
     return {
         'actions': [
             gen_doc,
@@ -266,7 +268,7 @@ def task_docs():
             'copy_src_docs',
             'diagram',
         ],
-        'file_dep': SRC_SCHEMA_DEPENDENCIES,
+        'file_dep': dependencies,
         'targets': [SCHEMA_OVERVIEW],
         'clean': [f"rm -rf {DOCS_DIR}"],
     }
