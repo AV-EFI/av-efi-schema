@@ -15,7 +15,7 @@ URI: {{ gen.uri_link(element) }}
 | Value | Meaning | Description |
 | --- | --- | --- |
 {% for pv in element.permissible_values.values() -%}
-| {{ pv.text }} | {{ pv.meaning }} | {{ pv.description|enshorten }} |
+| <span id={{ pv.text | tojson }}>{{ pv.text }}</span> | {{ pv.meaning }} | {{ pv.description|enshorten }} |
 {% endfor %}
 {% else %}
 _This is a dynamic enum_
