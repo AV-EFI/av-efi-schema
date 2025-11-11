@@ -1488,6 +1488,11 @@ enums:
         description: FIAF Moving Image Cataloguing Manual D.8.4
         meaning: fiaf:Publisher
       UnknownActivity:
+        structured_aliases:
+        - literal_form: Unbekannte Tätigkeit
+          in_language: de
+        - literal_form: Unknown Activity
+          in_language: en
         description: >-
           FIAF Moving Image Cataloguing Manual 1.4.1.1, 2.4.1.1,
           3.3.1.1
