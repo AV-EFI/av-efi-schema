@@ -544,6 +544,14 @@ enums:
       Activity types / roles. See also: FIAF Glossary of Filmographic
       Terms B.10
     permissible_values:
+      AssistantEditor:
+        structured_aliases:
+        - literal_form: Redaktionsassistenz
+          in_language: de
+        - literal_form: Assistant Editor
+          in_language: en
+        description: >-
+          Assistant to the Editor, see also the description for Editor
       AssistantFilmEditor:
         structured_aliases:
         - literal_form: Cutterassistent
