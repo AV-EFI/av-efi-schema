@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-10-30T17:51:43
+# Generation date: 2025-11-11T12:29:50
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -2355,6 +2355,9 @@ class EditingActivityTypeEnum(EnumDefinitionImpl):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10
     """
+    AssistantEditor = PermissibleValue(
+        text="AssistantEditor",
+        description="Assistant to the Editor, see also the description for Editor")
     AssistantFilmEditor = PermissibleValue(
         text="AssistantFilmEditor",
         description="FIAF Glossary of Filmographic Terms B.10.2",

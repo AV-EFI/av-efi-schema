@@ -639,6 +639,7 @@
         "EditingActivityTypeEnum": {
             "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10",
             "enum": [
+                "AssistantEditor",
                 "AssistantFilmEditor",
                 "Editor",
                 "FilmEditor"
