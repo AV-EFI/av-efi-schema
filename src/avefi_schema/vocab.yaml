@@ -783,6 +783,11 @@ enums:
         description: FIAF Glossary of Filmographic Terms B.2.12
         meaning: fiaf:LocationManager
       PostProductionSupervisor:
+        structured_aliases:
+        - literal_form: Leitung Postproduktion
+          in_language: de
+        - literal_form: Post-Production Supervisor
+          in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.15
         meaning: fiaf:PostProductionSupervisor
       Presenter:
