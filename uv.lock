@@ -65,10 +65,6 @@ dependencies = [
 dataclasses = [
     { name = "linkml-runtime" },
 ]
-docs = [
-    { name = "linkml" },
-    { name = "mkdocs-material" },
-]
 
 [package.dev-dependencies]
 dev = [
@@ -85,12 +81,10 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "linkml", marker = "extra == 'docs'", specifier = ">=1.9.5" },
     { name = "linkml-runtime", marker = "extra == 'dataclasses'", specifier = ">=1.8.0" },
-    { name = "mkdocs-material", marker = "extra == 'docs'", specifier = ">=9.5.17" },
     { name = "pydantic", specifier = ">=2.11.0" },
 ]
-provides-extras = ["docs", "dataclasses"]
+provides-extras = ["dataclasses"]
 
 [package.metadata.requires-dev]
 dev = [

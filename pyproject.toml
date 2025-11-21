@@ -13,10 +13,6 @@ readme = "README.md"
 license = {text = "MIT"}
 
 [project.optional-dependencies]
-docs = [
-    "linkml>=1.9.5",
-    "mkdocs-material>=9.5.17",
-]
 dataclasses = [
     "linkml-runtime>=1.8.0",
 ]
