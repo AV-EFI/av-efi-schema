@@ -63,7 +63,12 @@ $ uv run doit check_dtr --sync
 ```
 
 This relies on a custom [LinkML generator for the Data Type
-Registry][dtr_gen] which is part of this repository.
+Registry][dtr_gen] which is part of this repository. Please note that
+updates to the Type Registry may result in changes to the schema
+source files in order to record newly generated PIDs for non-existent
+infoTypes. Make sure to commit those changes right away so as not to
+lose the relation between LinkML classes or types and infoTypes in the
+Type Registry.
 
 [LinkML]: https://linkml.io/
 [doit]: https://pydoit.org/
