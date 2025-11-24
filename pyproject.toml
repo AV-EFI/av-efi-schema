@@ -27,11 +27,14 @@ module-root = "project/python"
 [dependency-groups]
 dev = [
     "linkml>=1.9.5",
-    "mkdocs-material>=9.5.17",
-    "mkdocs-mermaid2-plugin>=1.1.1",
     "doit>=0.36.0",
     "ruamel-yaml>=0.18.6",
     "requests>=2.32.3",
     "deepdiff>=7.0.1",
-    "mkdocs-redirects>=1.2.2",
+    "zensical>=0.0.9",
+]
+docs = [
+    "doit>=0.36.0",
+    "linkml>=1.9.5",
+    "zensical>=0.0.9",
 ]

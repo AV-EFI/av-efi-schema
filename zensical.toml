@@ -1,0 +1,111 @@
+[project]
+repo_url = "https://github.com/AV-EFI/av-efi-schema"
+site_name = "AVefi Schema Documentation"
+site_author = "AVefi Working Group"
+site_url = "https://av-efi.github.io/av-efi-schema/"
+xscopyright = """
+Copyright &copy; 2023-2025 AVefi Working Group
+"""
+nav = [
+  { "Home" = "index.md" },
+  { "Design principles" = "design.md" },
+  { "Examples" = "examples.md" },
+]
+
+[project.theme]
+#variant = "classic"
+language = "en"
+
+# Zensical provides a number of feature toggles that change the behavior
+# of the documentation site.
+features = [
+    "content.action.view",
+    "content.code.select",
+    "content.footnote.tooltips",
+
+    # If you have many content tabs that have the same titles (e.g., "Python",
+    # "JavaScript", "Cobol"), this feature causes all of them to switch to
+    # at the same time when the user chooses their language in one.
+    # https://zensical.org/docs/authoring/content-tabs/#linked-content-tabs
+    "content.tabs.link",
+
+    # Turn on this feature to expand all collapsible sections in the
+    # navigation sidebar by default.
+    # https://zensical.org/docs/setup/navigation/#navigation-expansion
+    # "navigation.expand",
+
+    # When section index pages are enabled, documents can be directly attached
+    # to sections, which is particularly useful for providing overview pages.
+    # https://zensical.org/docs/setup/navigation/#section-index-pages
+    "navigation.indexes",
+
+    # When instant navigation is enabled, clicks on all internal links will be
+    # intercepted and dispatched via XHR without fully reloading the page.
+    # https://zensical.org/docs/setup/navigation/#instant-navigation
+    "navigation.instant",
+
+    # With instant prefetching, your site will start to fetch a page once the
+    # user hovers over a link. This will reduce the perceived loading time
+    # for the user.
+    # https://zensical.org/docs/setup/navigation/#instant-prefetching
+    #"navigation.instant.prefetch",
+
+    # In order to provide a better user experience on slow connections when
+    # using instant navigation, a progress indicator can be enabled.
+    # https://zensical.org/docs/setup/navigation/#progress-indicator
+    #"navigation.instant.progress",
+
+    # When navigation paths are activated, a breadcrumb navigation is rendered
+    # above the title of each page
+    # https://zensical.org/docs/setup/navigation/#navigation-path
+    "navigation.path",
+
+    # When pruning is enabled, only the visible navigation items are included
+    # in the rendered HTML, reducing the size of the built site by 33% or more.
+    # https://zensical.org/docs/setup/navigation/#navigation-pruning
+    #"navigation.prune",
+
+    # When sections are enabled, top-level sections are rendered as groups in
+    # the sidebar for viewports above 1220px, but remain as-is on mobile.
+    # https://zensical.org/docs/setup/navigation/#navigation-sections
+    "navigation.sections",
+
+    # When tabs are enabled, top-level sections are rendered in a menu layer
+    # below the header for viewports above 1220px, but remain as-is on mobile.
+    # https://zensical.org/docs/setup/navigation/#navigation-tabs
+    #"navigation.tabs",
+
+    # When sticky tabs are enabled, navigation tabs will lock below the header
+    # and always remain visible when scrolling down.
+    # https://zensical.org/docs/setup/navigation/#sticky-navigation-tabs
+    #"navigation.tabs.sticky",
+
+    # When anchor tracking is enabled, the URL in the address bar is
+    # automatically updated with the active anchor as highlighted in the table
+    # of contents.
+    # https://zensical.org/docs/setup/navigation/#anchor-tracking
+    "navigation.tracking",
+
+    # When search highlighting is enabled and a user clicks on a search result,
+    # Zensical will highlight all occurrences after following the link.
+    # https://zensical.org/docs/setup/search/#search-highlighting
+    "search.highlight",
+]
+
+[[project.theme.palette]]
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to light mode"
+
+[project.theme.icon]
+logo = "avefi_logo_lg.jpg"
+
+[project.markdown_extensions.pymdownx.superfences]
+custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]

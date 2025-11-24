@@ -338,7 +338,7 @@ def task_build_site():
     """Build static site from provided documentation."""
     return {
         'actions': [
-            'mkdocs build',
+            'zensical build --clean',
         ],
         'task_dep': ['docs'],
         'file_dep': [SCHEMA_OVERVIEW],
