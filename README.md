@@ -48,9 +48,12 @@ $ uv sync                      # pull in dependencies on initial setup and occas
 [Lots of messages about required packages]
 $ uv run doit                  # update derivatives in project/ after changes have been made in src/
 $ uv run doit docs             # generate documentation in docs/ directory
-$ uv run doit serve-site       # serve static site of docs locally for testing
-$ uv run doit deploy-site      # deploy static site of docs to GitHub Pages
+$ uv run doit serve_site       # serve static site of docs locally for testing
 ```
+
+Please note that `uv run doit docs` is automatically executed as part
+of the [docs workflow](.github/workflows/docs.yml), hence no need to
+run it locally in order to update the online documentation.
 
 In order to push the latest changes to the Kernel Information Profile
 in the Data Type REgistry, use the following commands:

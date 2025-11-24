@@ -351,17 +351,7 @@ def task_serve_site():
     """Serve documentation on localhost for testing."""
     return {
         'actions': [
-            'mkdocs serve',
-        ],
-        'task_dep': ['build_site'],
-    }
-
-
-def task_deploy_site():
-    """Deploy docs to GitHub Pages."""
-    return {
-        'actions': [
-            'mkdocs gh-deploy',
+            'zensical serve',
         ],
         'task_dep': ['build_site'],
     }
