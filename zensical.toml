@@ -3,7 +3,7 @@ repo_url = "https://github.com/AV-EFI/av-efi-schema"
 site_name = "AVefi Schema Documentation"
 site_author = "AVefi Working Group"
 site_url = "https://av-efi.github.io/av-efi-schema/"
-xscopyright = """
+copyright = """
 Copyright &copy; 2023-2025 AVefi Working Group
 """
 nav = [
@@ -15,6 +15,7 @@ nav = [
 [project.theme]
 #variant = "classic"
 language = "en"
+logo = "avefi_logo_lg.jpg"
 
 # Zensical provides a number of feature toggles that change the behavior
 # of the documentation site.
@@ -101,9 +102,6 @@ toggle.name = "Switch to dark mode"
 scheme = "slate"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to light mode"
-
-[project.theme.icon]
-logo = "avefi_logo_lg.jpg"
 
 [project.markdown_extensions.pymdownx.superfences]
 custom_fences = [
