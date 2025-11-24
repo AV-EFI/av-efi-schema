@@ -19,3 +19,8 @@ updates:
         update-types:
           - "patch"
     open-pull-requests-limit: 10
+  - package-ecosystem: "github-actions"
+    directory: "/" # where to look for .github/workflows directory
+    schedule:
+      interval: "weekly"
+      day: "thursday"
