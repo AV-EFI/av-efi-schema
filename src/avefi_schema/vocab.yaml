@@ -86,6 +86,13 @@ enums:
           in_language: en
         description: FIAF Glossary of Filmographic Terms B.13.15
         meaning: fiaf:Cleanup
+      ComputerAnimation:
+        structured_aliases:
+        - literal_form: Computeranimation
+          in_language: de
+        - literal_form: Computer animation
+          in_language: en
+        description: FIAF Glossary of Filmographic Terms B.13.5
       LeadAnimator:
         structured_aliases:
         - literal_form: Leitender Zeichner
