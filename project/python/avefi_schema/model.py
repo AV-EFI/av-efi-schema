@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-11-11T12:29:50
+# Generation date: 2025-12-04T15:43:47
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -1040,20 +1040,15 @@ class Agent(CategorizedThing):
     class_model_uri: ClassVar[URIRef] = AVEFI.Agent
 
     has_name: Union[str, TextLine] = None
-    type: Union[str, "AgentTypeEnum"] = None
     has_alternate_name: Optional[Union[Union[str, TextLine], list[Union[str, TextLine]]]] = empty_list()
     same_as: Optional[Union[Union[dict, "AuthorityResource"], list[Union[dict, "AuthorityResource"]]]] = empty_list()
+    type: Optional[Union[str, "AgentTypeEnum"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.has_name):
             self.MissingRequiredField("has_name")
         if not isinstance(self.has_name, TextLine):
             self.has_name = TextLine(self.has_name)
-
-        if self._is_empty(self.type):
-            self.MissingRequiredField("type")
-        if not isinstance(self.type, AgentTypeEnum):
-            self.type = AgentTypeEnum(self.type)
 
         if not isinstance(self.has_alternate_name, list):
             self.has_alternate_name = [self.has_alternate_name] if self.has_alternate_name is not None else []
@@ -1062,6 +1057,9 @@ class Agent(CategorizedThing):
         if not isinstance(self.same_as, list):
             self.same_as = [self.same_as] if self.same_as is not None else []
         self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
+
+        if self.type is not None and not isinstance(self.type, AgentTypeEnum):
+            self.type = AgentTypeEnum(self.type)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -2095,6 +2093,9 @@ class AnimationActivityTypeEnum(EnumDefinitionImpl):
         text="Cleanup",
         description="FIAF Glossary of Filmographic Terms B.13.15",
         meaning=FIAF["Cleanup"])
+    ComputerAnimation = PermissibleValue(
+        text="ComputerAnimation",
+        description="FIAF Glossary of Filmographic Terms B.13.5")
     LeadAnimator = PermissibleValue(
         text="LeadAnimator",
         description="FIAF Glossary of Filmographic Terms B.13.10",
@@ -5616,7 +5617,7 @@ slots.Agent_same_as = Slot(uri=AVEFI.same_as, name="Agent_same_as", curie=AVEFI.
                    model_uri=AVEFI.Agent_same_as, domain=Agent, range=Optional[Union[Union[dict, "AuthorityResource"], list[Union[dict, "AuthorityResource"]]]])
 
 slots.Agent_type = Slot(uri=AVEFI.type, name="Agent_type", curie=AVEFI.curie('type'),
-                   model_uri=AVEFI.Agent_type, domain=Agent, range=Union[str, "AgentTypeEnum"])
+                   model_uri=AVEFI.Agent_type, domain=Agent, range=Optional[Union[str, "AgentTypeEnum"]])
 
 slots.ProductionEvent_has_activity = Slot(uri=AVEFI.has_activity, name="ProductionEvent_has_activity", curie=AVEFI.curie('has_activity'),
                    model_uri=AVEFI.ProductionEvent_has_activity, domain=ProductionEvent, range=Optional[Union[Union[dict, Activity], list[Union[dict, Activity]]]])

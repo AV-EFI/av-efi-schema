@@ -488,6 +488,10 @@ class AnimationActivityTypeEnum(str, Enum):
     """
     FIAF Glossary of Filmographic Terms B.13.15
     """
+    ComputerAnimation = "ComputerAnimation"
+    """
+    FIAF Glossary of Filmographic Terms B.13.5
+    """
     LeadAnimator = "LeadAnimator"
     """
     FIAF Glossary of Filmographic Terms B.13.10
@@ -3518,8 +3522,7 @@ class Agent(CategorizedThing):
                                     'name': 'same_as'},
                         'type': {'in_subset': ['TypeRegistrySubset'],
                                  'name': 'type',
-                                 'range': 'AgentTypeEnum',
-                                 'required': True}}})
+                                 'range': 'AgentTypeEnum'}}})
 
     has_alternate_name: Optional[list[str]] = Field(default=[], description="""Alternative human-readable name(s) for a thing. Whereas has_name provides the preferred display name for the described entity, alternatives can be recorded here in order to be indexed in search engines, for instance""", json_schema_extra = { "linkml_meta": {'domain_of': ['GeographicName', 'Genre', 'Subject', 'Agent'],
          'in_subset': ['TypeRegistrySubset'],
@@ -3542,7 +3545,7 @@ class Agent(CategorizedThing):
                        'Agent'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 5} })
-    type: AgentTypeEnum = Field(default=..., description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
+    type: Optional[AgentTypeEnum] = Field(default=None, description="""See specific class documentation for controlled vocabulary applicable to the type slot, respectively""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant',
                        'Activity',
                        'Agent',
                        'ProductionEvent',

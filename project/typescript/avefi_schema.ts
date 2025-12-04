@@ -15,6 +15,8 @@ export enum AnimationActivityTypeEnum {
     CharacterDesigner = "CharacterDesigner",
     /** FIAF Glossary of Filmographic Terms B.13.15 */
     Cleanup = "Cleanup",
+    /** FIAF Glossary of Filmographic Terms B.13.5 */
+    ComputerAnimation = "ComputerAnimation",
     /** FIAF Glossary of Filmographic Terms B.13.10 */
     LeadAnimator = "LeadAnimator",
     /** FIAF Glossary of Filmographic Terms B.13.17 */
@@ -1686,7 +1688,7 @@ export interface Agent extends CategorizedThing {
     /** See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers */
     same_as?: AuthorityResource[],
     /** See specific class documentation for controlled vocabulary applicable to the type slot, respectively */
-    type: string,
+    type?: string,
 }
 
 

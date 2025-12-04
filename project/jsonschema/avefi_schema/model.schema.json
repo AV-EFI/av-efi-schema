@@ -105,7 +105,6 @@
             },
             "required": [
                 "has_name",
-                "type",
                 "category"
             ],
             "title": "Agent",
@@ -162,6 +161,7 @@
                 "Animator",
                 "CharacterDesigner",
                 "Cleanup",
+                "ComputerAnimation",
                 "LeadAnimator",
                 "ModelMaker"
             ],
