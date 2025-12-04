@@ -928,7 +928,6 @@ classes:
         - TypeRegistrySubset
       type:
         range: AgentTypeEnum
-        required: true
         in_subset:
         - TypeRegistrySubset
     related_mappings:
