@@ -771,6 +771,11 @@ enums:
         description: FIAF Glossary of Filmographic Terms B.2.22
         meaning: fiaf:Cooperation
       Coproducer:
+        structured_aliases:
+        - literal_form: Co-Produzent
+          in_language: de
+        - literal_form: Coproducer
+          in_language: en
         description: FIAF Glossary of Filmographic Terms B.2.5
         meaning: fiaf:Coproducer
       ExecutiveProducer:
@@ -1005,6 +1010,11 @@ enums:
         description: FIAF Glossary of Filmographic Terms B.6.9
         meaning: fiaf:LeadPerson
       MakeUpArtist:
+        structured_aliases:
+        - literal_form: Maske
+          in_language: de
+        - literal_form: Make-Up Artist
+          in_language: en
         description: FIAF Glossary of Filmographic Terms B.6.19
         meaning: fiaf:MakeUpArtist
       ProductionDesigner:
@@ -2334,7 +2344,7 @@ enums:
         meaning: fiaf:Removed
       Viewing:
         structured_aliases:
-        - literal_form: Vorführung
+        - literal_form: Sichtung
           in_language: de
         - literal_form: Viewing
           in_language: en
@@ -6629,6 +6639,11 @@ enums:
         description: >-
           FIAF Moving Image Cataloguing Manual E.2.2
       Commercial:
+        structured_aliases:
+        - literal_form: Werbung
+          in_language: de
+        - literal_form: Commercial
+          in_language: en
         description: >-
           FIAF Moving Image Cataloguing Manual E.2.2
       EducationalFilm:
