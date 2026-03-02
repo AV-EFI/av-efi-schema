@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-01-15T13:21:52
+# Generation date: 2026-03-02T15:15:26
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -312,24 +312,18 @@ class MovingImageRecord(CategorizedThing):
         if self.described_by is not None and not isinstance(self.described_by, DescriptionResource):
             self.described_by = DescriptionResource(**as_dict(self.described_by))
 
-        if not isinstance(self.has_alternative_title, list):
-            self.has_alternative_title = [self.has_alternative_title] if self.has_alternative_title is not None else []
-        self.has_alternative_title = [v if isinstance(v, Title) else Title(**as_dict(v)) for v in self.has_alternative_title]
+        self._normalize_inlined_as_list(slot_name="has_alternative_title", slot_type=Title, key_name="has_name", keyed=False)
 
         if not isinstance(self.has_event, list):
             self.has_event = [self.has_event] if self.has_event is not None else []
         self.has_event = [v if isinstance(v, Event) else Event(**as_dict(v)) for v in self.has_event]
 
-        if not isinstance(self.has_identifier, list):
-            self.has_identifier = [self.has_identifier] if self.has_identifier is not None else []
-        self.has_identifier = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.has_identifier]
+        self._normalize_inlined_as_list(slot_name="has_identifier", slot_type=MovingImageResource, key_name="id", keyed=False)
 
         if self.has_primary_title is not None and not isinstance(self.has_primary_title, Title):
             self.has_primary_title = Title(**as_dict(self.has_primary_title))
 
-        if not isinstance(self.same_as, list):
-            self.same_as = [self.same_as] if self.same_as is not None else []
-        self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
+        self._normalize_inlined_as_list(slot_name="same_as", slot_type=AuthorityResource, key_name="id", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -418,17 +412,13 @@ class WorkVariant(MovingImageRecord):
             self.has_form = [self.has_form] if self.has_form is not None else []
         self.has_form = [v if isinstance(v, WorkFormEnum) else WorkFormEnum(v) for v in self.has_form]
 
-        if not isinstance(self.has_genre, list):
-            self.has_genre = [self.has_genre] if self.has_genre is not None else []
-        self.has_genre = [v if isinstance(v, Genre) else Genre(**as_dict(v)) for v in self.has_genre]
+        self._normalize_inlined_as_list(slot_name="has_genre", slot_type=Genre, key_name="has_name", keyed=False)
 
         if not isinstance(self.has_subject, list):
             self.has_subject = [self.has_subject] if self.has_subject is not None else []
         self.has_subject = [v if isinstance(v, CategorizedThing) else CategorizedThing(**as_dict(v)) for v in self.has_subject]
 
-        if not isinstance(self.is_part_of, list):
-            self.is_part_of = [self.is_part_of] if self.is_part_of is not None else []
-        self.is_part_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_part_of]
+        self._normalize_inlined_as_list(slot_name="is_part_of", slot_type=MovingImageResource, key_name="id", keyed=False)
 
         if self.is_variant_of is not None and not isinstance(self.is_variant_of, MovingImageResource):
             self.is_variant_of = MovingImageResource(**as_dict(self.is_variant_of))
@@ -436,13 +426,9 @@ class WorkVariant(MovingImageRecord):
         if self.variant_type is not None and not isinstance(self.variant_type, VariantTypeEnum):
             self.variant_type = VariantTypeEnum(self.variant_type)
 
-        if not isinstance(self.described_by, list):
-            self.described_by = [self.described_by] if self.described_by is not None else []
-        self.described_by = [v if isinstance(v, DescriptionResource) else DescriptionResource(**as_dict(v)) for v in self.described_by]
+        self._normalize_inlined_as_list(slot_name="described_by", slot_type=DescriptionResource, key_name="has_issuer_id", keyed=False)
 
-        if not isinstance(self.same_as, list):
-            self.same_as = [self.same_as] if self.same_as is not None else []
-        self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
+        self._normalize_inlined_as_list(slot_name="same_as", slot_type=AuthorityResource, key_name="id", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -478,9 +464,7 @@ class GeographicName(CategorizedThing):
             self.has_alternate_name = [self.has_alternate_name] if self.has_alternate_name is not None else []
         self.has_alternate_name = [v if isinstance(v, TextLine) else TextLine(v) for v in self.has_alternate_name]
 
-        if not isinstance(self.same_as, list):
-            self.same_as = [self.same_as] if self.same_as is not None else []
-        self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
+        self._normalize_inlined_as_list(slot_name="same_as", slot_type=AuthorityResource, key_name="id", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -516,9 +500,7 @@ class Genre(YAMLRoot):
             self.has_alternate_name = [self.has_alternate_name] if self.has_alternate_name is not None else []
         self.has_alternate_name = [v if isinstance(v, TextLine) else TextLine(v) for v in self.has_alternate_name]
 
-        if not isinstance(self.same_as, list):
-            self.same_as = [self.same_as] if self.same_as is not None else []
-        self.same_as = [v if isinstance(v, GNDResource) else GNDResource(**as_dict(v)) for v in self.same_as]
+        self._normalize_inlined_as_list(slot_name="same_as", slot_type=GNDResource, key_name="id", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -551,9 +533,7 @@ class Subject(CategorizedThing):
             self.has_alternate_name = [self.has_alternate_name] if self.has_alternate_name is not None else []
         self.has_alternate_name = [v if isinstance(v, TextLine) else TextLine(v) for v in self.has_alternate_name]
 
-        if not isinstance(self.same_as, list):
-            self.same_as = [self.same_as] if self.same_as is not None else []
-        self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
+        self._normalize_inlined_as_list(slot_name="same_as", slot_type=AuthorityResource, key_name="id", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -579,9 +559,7 @@ class Activity(CategorizedThing):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.has_agent):
             self.MissingRequiredField("has_agent")
-        if not isinstance(self.has_agent, list):
-            self.has_agent = [self.has_agent] if self.has_agent is not None else []
-        self.has_agent = [v if isinstance(v, Agent) else Agent(**as_dict(v)) for v in self.has_agent]
+        self._normalize_inlined_as_list(slot_name="has_agent", slot_type=Agent, key_name="has_name", keyed=False)
 
         if self._is_empty(self.type):
             self.MissingRequiredField("type")
@@ -1054,9 +1032,7 @@ class Agent(CategorizedThing):
             self.has_alternate_name = [self.has_alternate_name] if self.has_alternate_name is not None else []
         self.has_alternate_name = [v if isinstance(v, TextLine) else TextLine(v) for v in self.has_alternate_name]
 
-        if not isinstance(self.same_as, list):
-            self.same_as = [self.same_as] if self.same_as is not None else []
-        self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
+        self._normalize_inlined_as_list(slot_name="same_as", slot_type=AuthorityResource, key_name="id", keyed=False)
 
         if self.type is not None and not isinstance(self.type, AgentTypeEnum):
             self.type = AgentTypeEnum(self.type)
@@ -1088,16 +1064,12 @@ class Event(CategorizedThing):
     located_in: Optional[Union[Union[dict, GeographicName], list[Union[dict, GeographicName]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if not isinstance(self.has_activity, list):
-            self.has_activity = [self.has_activity] if self.has_activity is not None else []
-        self.has_activity = [v if isinstance(v, Activity) else Activity(**as_dict(v)) for v in self.has_activity]
+        self._normalize_inlined_as_list(slot_name="has_activity", slot_type=Activity, key_name="type", keyed=False)
 
         if self.has_date is not None and not isinstance(self.has_date, ISODate):
             self.has_date = ISODate(self.has_date)
 
-        if not isinstance(self.located_in, list):
-            self.located_in = [self.located_in] if self.located_in is not None else []
-        self.located_in = [v if isinstance(v, GeographicName) else GeographicName(**as_dict(v)) for v in self.located_in]
+        self._normalize_inlined_as_list(slot_name="located_in", slot_type=GeographicName, key_name="has_name", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1127,9 +1099,7 @@ class ProductionEvent(Event):
         if self.type is not None and not isinstance(self.type, ProductionEventTypeEnum):
             self.type = ProductionEventTypeEnum(self.type)
 
-        if not isinstance(self.has_activity, list):
-            self.has_activity = [self.has_activity] if self.has_activity is not None else []
-        self.has_activity = [v if isinstance(v, Activity) else Activity(**as_dict(v)) for v in self.has_activity]
+        self._normalize_inlined_as_list(slot_name="has_activity", slot_type=Activity, key_name="type", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1160,9 +1130,7 @@ class PreservationEvent(Event):
         if not isinstance(self.type, PreservationEventTypeEnum):
             self.type = PreservationEventTypeEnum(self.type)
 
-        if not isinstance(self.has_activity, list):
-            self.has_activity = [self.has_activity] if self.has_activity is not None else []
-        self.has_activity = [v if isinstance(v, ManifestationActivity) else ManifestationActivity(**as_dict(v)) for v in self.has_activity]
+        self._normalize_inlined_as_list(slot_name="has_activity", slot_type=ManifestationActivity, key_name="type", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1194,9 +1162,7 @@ class PublicationEvent(Event):
         if not isinstance(self.type, PublicationEventTypeEnum):
             self.type = PublicationEventTypeEnum(self.type)
 
-        if not isinstance(self.has_activity, list):
-            self.has_activity = [self.has_activity] if self.has_activity is not None else []
-        self.has_activity = [v if isinstance(v, ManifestationActivity) else ManifestationActivity(**as_dict(v)) for v in self.has_activity]
+        self._normalize_inlined_as_list(slot_name="has_activity", slot_type=ManifestationActivity, key_name="type", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1225,9 +1191,7 @@ class ManufactureEvent(Event):
         if self.type is not None and not isinstance(self.type, ManufactureEventTypeEnum):
             self.type = ManufactureEventTypeEnum(self.type)
 
-        if not isinstance(self.has_activity, list):
-            self.has_activity = [self.has_activity] if self.has_activity is not None else []
-        self.has_activity = [v if isinstance(v, LaboratoryActivity) else LaboratoryActivity(**as_dict(v)) for v in self.has_activity]
+        self._normalize_inlined_as_list(slot_name="has_activity", slot_type=LaboratoryActivity, key_name="type", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1255,9 +1219,7 @@ class RightsCopyrightRegistrationEvent(Event):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.has_activity):
             self.MissingRequiredField("has_activity")
-        if not isinstance(self.has_activity, list):
-            self.has_activity = [self.has_activity] if self.has_activity is not None else []
-        self.has_activity = [v if isinstance(v, CopyrightAndDistributionActivity) else CopyrightAndDistributionActivity(**as_dict(v)) for v in self.has_activity]
+        self._normalize_inlined_as_list(slot_name="has_activity", slot_type=CopyrightAndDistributionActivity, key_name="type", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1577,17 +1539,11 @@ class Manifestation(ManifestationOrItem):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.is_manifestation_of):
             self.MissingRequiredField("is_manifestation_of")
-        if not isinstance(self.is_manifestation_of, list):
-            self.is_manifestation_of = [self.is_manifestation_of] if self.is_manifestation_of is not None else []
-        self.is_manifestation_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_manifestation_of]
+        self._normalize_inlined_as_list(slot_name="is_manifestation_of", slot_type=MovingImageResource, key_name="id", keyed=False)
 
-        if not isinstance(self.has_item, list):
-            self.has_item = [self.has_item] if self.has_item is not None else []
-        self.has_item = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.has_item]
+        self._normalize_inlined_as_list(slot_name="has_item", slot_type=MovingImageResource, key_name="id", keyed=False)
 
-        if not isinstance(self.same_as, list):
-            self.same_as = [self.same_as] if self.same_as is not None else []
-        self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
+        self._normalize_inlined_as_list(slot_name="same_as", slot_type=AuthorityResource, key_name="id", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1681,21 +1637,13 @@ class Item(ManifestationOrItem):
         if self.has_sound_type is not None and not isinstance(self.has_sound_type, SoundTypeEnum):
             self.has_sound_type = SoundTypeEnum(self.has_sound_type)
 
-        if not isinstance(self.in_language, list):
-            self.in_language = [self.in_language] if self.in_language is not None else []
-        self.in_language = [v if isinstance(v, Language) else Language(**as_dict(v)) for v in self.in_language]
+        self._normalize_inlined_as_list(slot_name="in_language", slot_type=Language, key_name="usage", keyed=False)
 
-        if not isinstance(self.is_copy_of, list):
-            self.is_copy_of = [self.is_copy_of] if self.is_copy_of is not None else []
-        self.is_copy_of = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.is_copy_of]
+        self._normalize_inlined_as_list(slot_name="is_copy_of", slot_type=AuthorityResource, key_name="id", keyed=False)
 
-        if not isinstance(self.is_derivative_of, list):
-            self.is_derivative_of = [self.is_derivative_of] if self.is_derivative_of is not None else []
-        self.is_derivative_of = [v if isinstance(v, MovingImageResource) else MovingImageResource(**as_dict(v)) for v in self.is_derivative_of]
+        self._normalize_inlined_as_list(slot_name="is_derivative_of", slot_type=MovingImageResource, key_name="id", keyed=False)
 
-        if not isinstance(self.same_as, list):
-            self.same_as = [self.same_as] if self.same_as is not None else []
-        self.same_as = [v if isinstance(v, AuthorityResource) else AuthorityResource(**as_dict(v)) for v in self.same_as]
+        self._normalize_inlined_as_list(slot_name="same_as", slot_type=AuthorityResource, key_name="id", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):

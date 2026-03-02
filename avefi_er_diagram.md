@@ -5,9 +5,9 @@ Activity {
     AVefiCurie category  
 }
 Agent {
-    TextLineList has_alternate_name  
     TextLine has_name  
     AgentTypeEnum type  
+    TextLineList has_alternate_name  
     AVefiCurie category  
 }
 AuthorityResource {
@@ -18,10 +18,10 @@ CategorizedThing {
     AVefiCurie category  
 }
 DescriptionResource {
+    IDStringList has_source_key  
     HttpUri has_history  
     HttpUri has_issuer_id  
     TextLine has_issuer_name  
-    IDStringList has_source_key  
     ISODateTimeUTC last_modified  
 }
 Duration {
@@ -33,9 +33,9 @@ Event {
     AVefiCurie category  
 }
 Extent {
-    UnitEnum has_unit  
     Decimal has_value  
     PrecisionEnum has_precision  
+    UnitEnum has_unit  
 }
 Format {
     IDString type  
@@ -46,32 +46,32 @@ GNDResource {
     AVefiCurie category  
 }
 Genre {
-    TextLineList has_alternate_name  
     TextLine has_name  
+    TextLineList has_alternate_name  
 }
 GeographicName {
-    TextLineList has_alternate_name  
     TextLine has_name  
+    TextLineList has_alternate_name  
     AVefiCurie category  
 }
 Item {
+    ColourTypeEnum has_colour_type  
+    SoundTypeEnum has_sound_type  
     ItemElementTypeEnum element_type  
     ItemAccessStatusEnum has_access_status  
-    ColourTypeEnum has_colour_type  
     FrameRateEnum has_frame_rate  
-    SoundTypeEnum has_sound_type  
-    TextAreaList has_note  
-    HttpUriList has_webresource  
     AVefiCurie category  
+    HttpUriList has_webresource  
+    TextAreaList has_note  
 }
 Language {
     LanguageCodeEnum code  
     LanguageUsageEnumList usage  
 }
 Manifestation {
-    TextAreaList has_note  
-    HttpUriList has_webresource  
     AVefiCurie category  
+    HttpUriList has_webresource  
+    TextAreaList has_note  
 }
 MovingImageResource {
     IDString id  
@@ -83,8 +83,8 @@ Title {
     TitleTypeEnum type  
 }
 WorkVariant {
-    WorkFormEnumList has_form  
     WorkVariantTypeEnum type  
+    WorkFormEnumList has_form  
     VariantTypeEnum variant_type  
     AVefiCurie category  
 }
@@ -100,20 +100,17 @@ Item ||--|o Duration : "has_duration"
 Item ||--|o Extent : "has_extent"
 Item ||--|o Title : "has_primary_title"
 Item ||--|| MovingImageResource : "is_item_of"
-Item ||--}o AuthorityResource : "is_copy_of"
-Item ||--}o AuthorityResource : "same_as"
+Item ||--}o AuthorityResource : "is_copy_of, same_as"
 Item ||--}o Event : "has_event"
 Item ||--}o Format : "has_format"
 Item ||--}o Language : "in_language"
-Item ||--}o MovingImageResource : "has_identifier"
-Item ||--}o MovingImageResource : "is_derivative_of"
+Item ||--}o MovingImageResource : "has_identifier, is_derivative_of"
 Item ||--}o Title : "has_alternative_title"
 Manifestation ||--|o DescriptionResource : "described_by"
 Manifestation ||--|o Title : "has_primary_title"
 Manifestation ||--}o AuthorityResource : "same_as"
 Manifestation ||--}o Event : "has_event"
-Manifestation ||--}o MovingImageResource : "has_identifier"
-Manifestation ||--}o MovingImageResource : "has_item"
+Manifestation ||--}o MovingImageResource : "has_identifier, has_item"
 Manifestation ||--}o Title : "has_alternative_title"
 Manifestation ||--}| MovingImageResource : "is_manifestation_of"
 WorkVariant ||--|o MovingImageResource : "is_variant_of"
@@ -123,8 +120,7 @@ WorkVariant ||--}o CategorizedThing : "has_subject"
 WorkVariant ||--}o DescriptionResource : "described_by"
 WorkVariant ||--}o Event : "has_event"
 WorkVariant ||--}o Genre : "has_genre"
-WorkVariant ||--}o MovingImageResource : "has_identifier"
-WorkVariant ||--}o MovingImageResource : "is_part_of"
+WorkVariant ||--}o MovingImageResource : "has_identifier, is_part_of"
 WorkVariant ||--}o Title : "has_alternative_title"
 
 ```
