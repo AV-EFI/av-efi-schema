@@ -376,7 +376,7 @@ def task_sync_dependencies():
     """Install dependencies according to uv.lock (for developers)."""
     return {
         'actions': [
-            'uv sync',
+            'uv sync --no-python-downloads',
         ],
         'file_dep': ['uv.lock'],
         'task_dep': ['check_for_obsolete_pdm'],
