@@ -4,7 +4,7 @@ site_name = "AVefi Schema Documentation"
 site_author = "AVefi Working Group"
 site_url = "https://av-efi.github.io/av-efi-schema/"
 copyright = """
-Copyright &copy; 2023-2025 AVefi Working Group
+Copyright &copy; 2023-2026 AVefi Working Group
 """
 nav = [
   { "Home" = "index.md" },
