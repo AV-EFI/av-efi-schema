@@ -2,8 +2,10 @@ name: Documentation
 on:
   push:
     branches:
-      - master
       - main
+    paths:
+      - 'src/**'
+      - 'zensical.toml'
 permissions:
   contents: read
   pages: write
