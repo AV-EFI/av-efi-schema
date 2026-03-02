@@ -147,8 +147,9 @@ def task_python():
             ('linkml.generators.pydanticgen', 'PydanticGenerator',
              PYDANTIC_MODEL,
              {
-                 'template_dir': str(PYDANTIC_TEMPLATE_DIR),
+                 'empty_list_for_multivalued_slots': True,
                  'imports': pydantic_imports,
+                 'template_dir': str(PYDANTIC_TEMPLATE_DIR),
              }),
     ]:
         yield {
@@ -225,8 +226,8 @@ def task_json_lc_messages():
                     enum.permissible_values.items()
                     for enum in schema.all_enums().values())):
             label_dict = {
-                attrs.in_language: label
-                for label, attrs in obj.structured_aliases.items()
+                alias.in_language: alias.literal_form
+                for alias in obj.structured_aliases
             }
             if label_dict:
                 for lc_code in ('en', 'de'):
