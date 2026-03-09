@@ -21,6 +21,7 @@ prefixes:
   wdrs: http://www.w3.org/2007/05/powder-s#
 
 emit_prefixes:
+- dcterms
 - fiaf
 - pronom
 - rdfs
@@ -508,6 +509,31 @@ enums:
           in_language: default
         description: FIAF Glossary of Filmographic Terms B.3.5
         meaning: fiaf:Continuity
+      Creator:
+        structured_aliases:
+        - literal_form: Autor/Schöpfer
+          in_language: de
+        - literal_form: Creator
+          in_language: en
+        description: >-
+          An entity responsible (contentwise) for making the film.
+          Creator should be used for agents that have influenced the
+          production of the film and left a personal mark in doing so.
+          Usually, the director is assumed to be the or at least a
+          creator, but under certain circumstances, e.g. in science or
+          educational films, the influence and contribution of others
+          (such as cinematographer, script or even unspecified) may be
+          significant enough to consider them creators as well. Hence,
+          Creator is suitable, for instance, to point out agents
+          beside the director that may possibly have intillectual
+          property rights under German jurisdiction (check see_also
+          section). Note that Writer, especially in the context of
+          feature films, is considered the creator of a pre-product,
+          not the film itself.
+        see_also:
+        - https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#creator
+        - https://www.urheberrecht.de/film/
+        meaning: dcterms:creator
       Director:
         structured_aliases:
         - literal_form: Regie
