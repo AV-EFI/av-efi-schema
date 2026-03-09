@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-02T15:15:26
+# Generation date: 2026-03-09T12:34:14
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -2278,6 +2278,10 @@ class DirectingActivityTypeEnum(EnumDefinitionImpl):
         text="Continuity",
         description="FIAF Glossary of Filmographic Terms B.3.5",
         meaning=FIAF["Continuity"])
+    Creator = PermissibleValue(
+        text="Creator",
+        description="""An entity responsible (contentwise) for making the film. Creator should be used for agents that have influenced the production of the film and left a personal mark in doing so. Usually, the director is assumed to be the or at least a creator, but under certain circumstances, e.g. in science or educational films, the influence and contribution of others (such as cinematographer, script or even unspecified) may be significant enough to consider them creators as well. Hence, Creator is suitable, for instance, to point out agents beside the director that may possibly have intillectual property rights under German jurisdiction (check see_also section). Note that Writer, especially in the context of feature films, is considered the creator of a pre-product, not the film itself.""",
+        meaning=DC["creator"])
     Director = PermissibleValue(
         text="Director",
         description="FIAF Glossary of Filmographic Terms B.3.1",
@@ -2286,6 +2290,9 @@ class DirectingActivityTypeEnum(EnumDefinitionImpl):
         text="FightArranger",
         description="FIAF Glossary of Filmographic Terms B.3.7",
         meaning=FIAF["FightArranger"])
+    Filmmaker = PermissibleValue(
+        text="Filmmaker",
+        description="""A person, family or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film.""")
     SecondUnitDirector = PermissibleValue(
         text="SecondUnitDirector",
         description="FIAF Glossary of Filmographic Terms B.3.3",
@@ -2311,9 +2318,6 @@ class EditingActivityTypeEnum(EnumDefinitionImpl):
         text="AssistantFilmEditor",
         description="FIAF Glossary of Filmographic Terms B.10.2",
         meaning=FIAF["AssistantFilmEditor"])
-    Editor = PermissibleValue(
-        text="Editor",
-        description="""Person responsible content-wise in a non-fiction film production, e.g. a documentary. Unlike a film editor, this activity includes duties like writing a concept, drafting the story, and preparing interviews in preproduction as well as supervising and supporting the camera team""")
     FilmEditor = PermissibleValue(
         text="FilmEditor",
         description="FIAF Glossary of Filmographic Terms B.10.1",
@@ -2738,6 +2742,9 @@ class WritingActivityTypeEnum(EnumDefinitionImpl):
         text="BasedonCharactersCreatedby",
         description="FIAF Glossary of Filmographic Terms B.4.5",
         meaning=FIAF["BasedonCharactersCreatedby"])
+    Editor = PermissibleValue(
+        text="Editor",
+        description="""Person responsible content-wise in a non-fiction film production, e.g. a documentary. Unlike a film editor, this activity includes duties like writing a concept, drafting the story, and preparing interviews in preproduction as well as supervising and supporting the camera team""")
     Idea = PermissibleValue(
         text="Idea",
         description="FIAF Glossary of Filmographic Terms B.4.6",

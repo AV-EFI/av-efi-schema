@@ -4,6 +4,7 @@
   "enum": [
     "Adaptation",
     "BasedonCharactersCreatedby",
+    "Editor",
     "Idea",
     "NarrationWriter",
     "Research",

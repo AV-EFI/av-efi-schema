@@ -5,8 +5,10 @@
     "AssistantDirector",
     "CastingDirector",
     "Continuity",
+    "Creator",
     "Director",
     "FightArranger",
+    "Filmmaker",
     "SecondUnitDirector",
     "StuntArranger"
   ],

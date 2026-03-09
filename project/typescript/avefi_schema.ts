@@ -139,10 +139,14 @@ export enum DirectingActivityTypeEnum {
     CastingDirector = "CastingDirector",
     /** FIAF Glossary of Filmographic Terms B.3.5 */
     Continuity = "Continuity",
+    /** An entity responsible (contentwise) for making the film. Creator should be used for agents that have influenced the production of the film and left a personal mark in doing so. Usually, the director is assumed to be the or at least a creator, but under certain circumstances, e.g. in science or educational films, the influence and contribution of others (such as cinematographer, script or even unspecified) may be significant enough to consider them creators as well. Hence, Creator is suitable, for instance, to point out agents beside the director that may possibly have intillectual property rights under German jurisdiction (check see_also section). Note that Writer, especially in the context of feature films, is considered the creator of a pre-product, not the film itself. */
+    Creator = "Creator",
     /** FIAF Glossary of Filmographic Terms B.3.1 */
     Director = "Director",
     /** FIAF Glossary of Filmographic Terms B.3.7 */
     FightArranger = "FightArranger",
+    /** A person, family or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film. */
+    Filmmaker = "Filmmaker",
     /** FIAF Glossary of Filmographic Terms B.3.3 */
     SecondUnitDirector = "SecondUnitDirector",
     /** FIAF Glossary of Filmographic Terms B.3.6 */
@@ -157,8 +161,6 @@ export enum EditingActivityTypeEnum {
     AssistantEditor = "AssistantEditor",
     /** FIAF Glossary of Filmographic Terms B.10.2 */
     AssistantFilmEditor = "AssistantFilmEditor",
-    /** Person responsible content-wise in a non-fiction film production, e.g. a documentary. Unlike a film editor, this activity includes duties like writing a concept, drafting the story, and preparing interviews in preproduction as well as supervising and supporting the camera team */
-    Editor = "Editor",
     /** FIAF Glossary of Filmographic Terms B.10.1 */
     FilmEditor = "FilmEditor",
 };
@@ -379,6 +381,8 @@ export enum WritingActivityTypeEnum {
     Adaptation = "Adaptation",
     /** FIAF Glossary of Filmographic Terms B.4.5 */
     BasedonCharactersCreatedby = "BasedonCharactersCreatedby",
+    /** Person responsible content-wise in a non-fiction film production, e.g. a documentary. Unlike a film editor, this activity includes duties like writing a concept, drafting the story, and preparing interviews in preproduction as well as supervising and supporting the camera team */
+    Editor = "Editor",
     /** FIAF Glossary of Filmographic Terms B.4.6 */
     Idea = "Idea",
     /** FIAF Glossary of Filmographic Terms B.4.15 */

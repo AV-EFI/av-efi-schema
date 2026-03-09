@@ -553,8 +553,10 @@
                 "AssistantDirector",
                 "CastingDirector",
                 "Continuity",
+                "Creator",
                 "Director",
                 "FightArranger",
+                "Filmmaker",
                 "SecondUnitDirector",
                 "StuntArranger"
             ],
@@ -641,7 +643,6 @@
             "enum": [
                 "AssistantEditor",
                 "AssistantFilmEditor",
-                "Editor",
                 "FilmEditor"
             ],
             "title": "EditingActivityTypeEnum",
@@ -3350,6 +3351,7 @@
             "enum": [
                 "Adaptation",
                 "BasedonCharactersCreatedby",
+                "Editor",
                 "Idea",
                 "NarrationWriter",
                 "Research",
