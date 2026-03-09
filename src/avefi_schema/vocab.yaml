@@ -524,6 +524,19 @@ enums:
           in_language: en
         description: FIAF Glossary of Filmographic Terms B.3.7
         meaning: fiaf:FightArranger
+      Filmmaker:
+        structured_aliases:
+        - literal_form: Filmemacher
+          in_language: de
+        - literal_form: Filmmaker
+          in_language: en
+        description: >-
+          A person, family or organization responsible for creating an
+          independent or personal film. A filmmaker is individually
+          responsible for the conception and execution of all aspects
+          of the film.
+        see_also:
+        - https://www.loc.gov/marc/relators/relaterm.html
       SecondUnitDirector:
         structured_aliases:
         - literal_form: Regisseur des zweiten Drehteams
