@@ -157,8 +157,6 @@ export enum DirectingActivityTypeEnum {
 */
 export enum EditingActivityTypeEnum {
     
-    /** Assistant to the Editor, see also the description for Editor */
-    AssistantEditor = "AssistantEditor",
     /** FIAF Glossary of Filmographic Terms B.10.2 */
     AssistantFilmEditor = "AssistantFilmEditor",
     /** FIAF Glossary of Filmographic Terms B.10.1 */
@@ -379,6 +377,8 @@ export enum WritingActivityTypeEnum {
     
     /** FIAF Glossary of Filmographic Terms B.4.11 */
     Adaptation = "Adaptation",
+    /** Assistant to the Editor, see also the description for Editor */
+    AssistantEditor = "AssistantEditor",
     /** FIAF Glossary of Filmographic Terms B.4.5 */
     BasedonCharactersCreatedby = "BasedonCharactersCreatedby",
     /** Person responsible content-wise in a non-fiction film production, e.g. a documentary. Unlike a film editor, this activity includes duties like writing a concept, drafting the story, and preparing interviews in preproduction as well as supervising and supporting the camera team */

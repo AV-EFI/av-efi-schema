@@ -737,10 +737,6 @@ class EditingActivityTypeEnum(str, Enum):
     """
     Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.10
     """
-    AssistantEditor = "AssistantEditor"
-    """
-    Assistant to the Editor, see also the description for Editor
-    """
     AssistantFilmEditor = "AssistantFilmEditor"
     """
     FIAF Glossary of Filmographic Terms B.10.2
@@ -1132,6 +1128,10 @@ class WritingActivityTypeEnum(str, Enum):
     Adaptation = "Adaptation"
     """
     FIAF Glossary of Filmographic Terms B.4.11
+    """
+    AssistantEditor = "AssistantEditor"
+    """
+    Assistant to the Editor, see also the description for Editor
     """
     BasedonCharactersCreatedby = "BasedonCharactersCreatedby"
     """

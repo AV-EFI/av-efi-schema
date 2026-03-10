@@ -3,6 +3,7 @@
   "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.4",
   "enum": [
     "Adaptation",
+    "AssistantEditor",
     "BasedonCharactersCreatedby",
     "Editor",
     "Idea",
