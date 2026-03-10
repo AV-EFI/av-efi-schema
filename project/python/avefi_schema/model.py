@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-10T11:56:01
+# Generation date: 2026-03-10T17:45:07
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -2280,7 +2280,7 @@ class DirectingActivityTypeEnum(EnumDefinitionImpl):
         meaning=FIAF["Continuity"])
     Creator = PermissibleValue(
         text="Creator",
-        description="""An entity responsible (contentwise) for making the film (see below for details). Creator should be used for agents that have influenced the production of the film and left a personal mark in doing so. Usually, the director is assumed to be the or at least a creator, but under certain circumstances, e.g. in science or educational films, the influence and contribution of others (such as cinematographer, script or even unspecified) may be significant enough to consider them creators as well. Hence, Creator is suitable, for instance, to point out agents beside the director that may possibly have intillectual property rights under German jurisdiction (check see_also section). Note that Writer, especially in the context of feature films, is considered the creator of a pre-product, not the film itself.""",
+        description="""An entity responsible (contentwise) for making the film. Creator should be used for agents that have influenced the production of the film and left a personal mark in doing so. Usually, the director is assumed to be the or at least a creator, but under certain circumstances, e.g. in science or educational films, the influence and contribution of others (such as cinematographer, script or even unspecified) may be significant enough to consider them creators as well. Hence, Creator is suitable, for instance, to point out agents beside the director that may possibly have intillectual property rights under German jurisdiction (check see_also section). Note that Writer, especially in the context of feature films, is considered the creator of a pre-product, not the film itself.""",
         meaning=DC["creator"])
     Director = PermissibleValue(
         text="Director",
