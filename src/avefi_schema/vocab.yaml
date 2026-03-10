@@ -516,7 +516,8 @@ enums:
         - literal_form: Creator
           in_language: en
         description: >-
-          An entity responsible (contentwise) for making the film.
+          An entity responsible (contentwise) for making the film (see
+          below for details).
           Creator should be used for agents that have influenced the
           production of the film and left a personal mark in doing so.
           Usually, the director is assumed to be the or at least a
