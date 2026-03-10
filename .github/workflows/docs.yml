@@ -4,7 +4,9 @@ on:
     branches:
       - main
     paths:
+      - 'dodo.py'
       - 'src/**'
+      - 'utils/templates/docgen/**'
       - 'zensical.toml'
 permissions:
   contents: read
