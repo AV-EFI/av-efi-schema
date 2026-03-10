@@ -12,7 +12,7 @@ URI: {{ gen.uri_link(element) }}
 {% if element.permissible_values -%}
 ## Permissible Values
 
-| Value | Meaning | Description |
+| Value | Meaning | Description (Full text under LinkML Source below) |
 | --- | --- | --- |
 {% for pv in element.permissible_values.values() -%}
 | <span id={{ pv.text | tojson }}>{{ pv.text }}</span> | {{ pv.meaning }} | {{ pv.description|enshorten }} |
