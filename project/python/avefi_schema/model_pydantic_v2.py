@@ -118,7 +118,7 @@ linkml_meta = LinkMLMeta({'default_curi_maps': ['semweb_context'],
                            'prefix_reference': 'http://qudt.org/vocab/unit/'},
                   'wdrs': {'prefix_prefix': 'wdrs',
                            'prefix_reference': 'http://www.w3.org/2007/05/powder-s#'}},
-     'source_file': '/home/eo/src/av-efi/av-efi-schema/src/avefi_schema/model.yaml',
+     'source_file': 'src/avefi_schema/model.yaml',
      'subsets': {'TypeRegistrySubset': {'description': 'Classes that are to be '
                                                        'implemented as infoTypes '
                                                        'in the type registry',
