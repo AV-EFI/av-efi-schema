@@ -36,9 +36,9 @@ jobs:
         run: uv run doit
 
       - name: Check for uncommitted changes
-        run: |
-          [ -z "$(git diff | grep -e '^[-+]' | grep -e '^. *[^#]' \
-          | grep -ve '^+++\|^---')" ] || git diff && false
+        run: >-
+          [ -z "$(git diff | grep -e '^[-+]' | grep -ve '^. *#\|^+++\|^---')" ]
+          || (git diff && false)
         shell: bash
 
       - name: Save uv caches
