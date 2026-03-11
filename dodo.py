@@ -22,7 +22,7 @@ DOIT_CONFIG = {
         'diagram',
     ],
 }
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent.relative_to(Path('').absolute())
 SRC_DOCS_DIR = HERE / 'src' / 'docs'
 DOCS_DIR = HERE / 'docs'
 SCHEMA_OVERVIEW = DOCS_DIR / 'index.md'
@@ -35,7 +35,7 @@ SRC_SCHEMA_DEPENDENCIES = [
     SRC_MODEL,
     SRC_SCHEMA_DIR / 'vocab.yaml',
 ]
-UTILS_DIR = Path('utils')
+UTILS_DIR = HERE / 'utils'
 DOCGEN_TEMPLATE_DIR = UTILS_DIR / 'templates' / 'docgen'
 PYDANTIC_TEMPLATE_DIR = UTILS_DIR / 'templates' / 'pydantic'
 PYTHON_DEPENDENCIES = SRC_SCHEMA_DEPENDENCIES.copy()
