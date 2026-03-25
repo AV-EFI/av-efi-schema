@@ -299,7 +299,7 @@
     "has_sound_type": "Sound",
     "in_language": [
       {
-        "code": "deu",
+        "code": "ger",
         "usage": [
           "Intertitles"
         ]
@@ -311,7 +311,7 @@
         ]
       },
       {
-        "code": "fra",
+        "code": "fre",
         "usage": [
           "Subtitles"
         ]

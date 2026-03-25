@@ -139,13 +139,13 @@ def sample_item(manifestation):
         in_language=[
             efi.Language(
                 usage=[efi.LanguageUsageEnum('Intertitles')],
-                code=efi.LanguageCodeEnum('deu')),
+                code=efi.LanguageCodeEnum('ger')),
             efi.Language(
                 usage=[efi.LanguageUsageEnum('Subtitles')],
                 code=efi.LanguageCodeEnum('eng')),
             efi.Language(
                 usage=[efi.LanguageUsageEnum('Subtitles')],
-                code=efi.LanguageCodeEnum('fra'))
+                code=efi.LanguageCodeEnum('fre'))
         ],
     )
     return item
