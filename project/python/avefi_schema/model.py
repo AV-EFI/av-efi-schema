@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-11T15:05:48
+# Generation date: 2026-03-25T17:23:40
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -3613,9 +3613,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
     bnt = PermissibleValue(
         text="bnt",
         meaning=None)
-    bod = PermissibleValue(
-        text="bod",
-        meaning=None)
     bos = PermissibleValue(
         text="bos",
         meaning=None)
@@ -3663,9 +3660,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
         meaning=None)
     cel = PermissibleValue(
         text="cel",
-        meaning=None)
-    ces = PermissibleValue(
-        text="ces",
         meaning=None)
     cha = PermissibleValue(
         text="cha",
@@ -3748,9 +3742,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
     cus = PermissibleValue(
         text="cus",
         meaning=None)
-    cym = PermissibleValue(
-        text="cym",
-        meaning=None)
     cze = PermissibleValue(
         text="cze",
         meaning=None)
@@ -3768,9 +3759,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
         meaning=None)
     den = PermissibleValue(
         text="den",
-        meaning=None)
-    deu = PermissibleValue(
-        text="deu",
         meaning=None)
     dgr = PermissibleValue(
         text="dgr",
@@ -3814,9 +3802,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
     eka = PermissibleValue(
         text="eka",
         meaning=None)
-    ell = PermissibleValue(
-        text="ell",
-        meaning=None)
     elx = PermissibleValue(
         text="elx",
         meaning=None)
@@ -3832,9 +3817,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
     est = PermissibleValue(
         text="est",
         meaning=None)
-    eus = PermissibleValue(
-        text="eus",
-        meaning=None)
     ewe = PermissibleValue(
         text="ewe",
         meaning=None)
@@ -3846,9 +3828,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
         meaning=None)
     fao = PermissibleValue(
         text="fao",
-        meaning=None)
-    fas = PermissibleValue(
-        text="fas",
         meaning=None)
     fat = PermissibleValue(
         text="fat",
@@ -3867,9 +3846,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
         meaning=None)
     fon = PermissibleValue(
         text="fon",
-        meaning=None)
-    fra = PermissibleValue(
-        text="fra",
         meaning=None)
     fre = PermissibleValue(
         text="fre",
@@ -4015,9 +3991,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
     hup = PermissibleValue(
         text="hup",
         meaning=None)
-    hye = PermissibleValue(
-        text="hye",
-        meaning=None)
     iba = PermissibleValue(
         text="iba",
         meaning=None)
@@ -4069,9 +4042,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
     iro = PermissibleValue(
         text="iro",
         meaning=None)
-    isl = PermissibleValue(
-        text="isl",
-        meaning=None)
     ita = PermissibleValue(
         text="ita",
         meaning=None)
@@ -4113,9 +4083,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
         meaning=None)
     kas = PermissibleValue(
         text="kas",
-        meaning=None)
-    kat = PermissibleValue(
-        text="kat",
         meaning=None)
     kau = PermissibleValue(
         text="kau",
@@ -4315,9 +4282,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
     mis = PermissibleValue(
         text="mis",
         meaning=None)
-    mkd = PermissibleValue(
-        text="mkd",
-        meaning=None)
     mkh = PermissibleValue(
         text="mkh",
         meaning=None)
@@ -4345,12 +4309,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
     mos = PermissibleValue(
         text="mos",
         meaning=None)
-    mri = PermissibleValue(
-        text="mri",
-        meaning=None)
-    msa = PermissibleValue(
-        text="msa",
-        meaning=None)
     mul = PermissibleValue(
         text="mul",
         meaning=None)
@@ -4365,9 +4323,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
         meaning=None)
     mwr = PermissibleValue(
         text="mwr",
-        meaning=None)
-    mya = PermissibleValue(
-        text="mya",
         meaning=None)
     myn = PermissibleValue(
         text="myn",
@@ -4416,9 +4371,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
         meaning=None)
     niu = PermissibleValue(
         text="niu",
-        meaning=None)
-    nld = PermissibleValue(
-        text="nld",
         meaning=None)
     nno = PermissibleValue(
         text="nno",
@@ -4561,9 +4513,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
     rom = PermissibleValue(
         text="rom",
         meaning=None)
-    ron = PermissibleValue(
-        text="ron",
-        meaning=None)
     rum = PermissibleValue(
         text="rum",
         meaning=None)
@@ -4639,9 +4588,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
     sla = PermissibleValue(
         text="sla",
         meaning=None)
-    slk = PermissibleValue(
-        text="slk",
-        meaning=None)
     slo = PermissibleValue(
         text="slo",
         meaning=None)
@@ -4692,9 +4638,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
         meaning=None)
     spa = PermissibleValue(
         text="spa",
-        meaning=None)
-    sqi = PermissibleValue(
-        text="sqi",
         meaning=None)
     srd = PermissibleValue(
         text="srd",
@@ -4935,9 +4878,6 @@ class LanguageCodeEnum(EnumDefinitionImpl):
         meaning=None)
     zha = PermissibleValue(
         text="zha",
-        meaning=None)
-    zho = PermissibleValue(
-        text="zho",
         meaning=None)
     znd = PermissibleValue(
         text="znd",
