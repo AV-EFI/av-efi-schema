@@ -2926,13 +2926,6 @@ enums:
         - literal_form: Bantu languages
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/bnt
-      bod:
-        structured_aliases:
-        - literal_form: Tibetisch
-          in_language: de
-        - literal_form: Tibetan
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/bod
       bos:
         structured_aliases:
         - literal_form: Bosnisch
@@ -3043,13 +3036,6 @@ enums:
         - literal_form: Celtic languages
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/cel
-      ces:
-        structured_aliases:
-        - literal_form: Tschechisch
-          in_language: de
-        - literal_form: Czech
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/ces
       cha:
         structured_aliases:
         - literal_form: Chamorro-Sprache
@@ -3240,13 +3226,6 @@ enums:
         - literal_form: Cushitic languages
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/cus
-      cym:
-        structured_aliases:
-        - literal_form: Kymrisch
-          in_language: de
-        - literal_form: Welsh
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/cym
       cze:
         structured_aliases:
         - literal_form: Tschechisch
@@ -3296,13 +3275,6 @@ enums:
         - literal_form: Slave (Athapascan)
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/den
-      deu:
-        structured_aliases:
-        - literal_form: Deutsch
-          in_language: de
-        - literal_form: German
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/deu
       dgr:
         structured_aliases:
         - literal_form: Dogrib-Sprache
@@ -3393,13 +3365,6 @@ enums:
         - literal_form: Ekajuk
           in_language: default
         meaning: http://id.loc.gov/vocabulary/iso639-2/eka
-      ell:
-        structured_aliases:
-        - literal_form: Neugriechisch
-          in_language: de
-        - literal_form: Greek, Modern (1453-)
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/ell
       elx:
         structured_aliases:
         - literal_form: Elamisch
@@ -3433,13 +3398,6 @@ enums:
         - literal_form: Estonian
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/est
-      eus:
-        structured_aliases:
-        - literal_form: Baskisch
-          in_language: de
-        - literal_form: Basque
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/eus
       ewe:
         structured_aliases:
         - literal_form: Ewe-Sprache
@@ -3466,13 +3424,6 @@ enums:
         - literal_form: Faroese
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/fao
-      fas:
-        structured_aliases:
-        - literal_form: Persisch
-          in_language: de
-        - literal_form: Persian
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/fas
       fat:
         structured_aliases:
         - literal_form: Fante-Sprache
@@ -3515,13 +3466,6 @@ enums:
         - literal_form: Fon
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/fon
-      fra:
-        structured_aliases:
-        - literal_form: Französisch
-          in_language: de
-        - literal_form: French
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/fra
       fre:
         structured_aliases:
         - literal_form: Französisch
@@ -3854,13 +3798,6 @@ enums:
         - literal_form: Hupa
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/hup
-      hye:
-        structured_aliases:
-        - literal_form: Armenisch
-          in_language: de
-        - literal_form: Armenian
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/hye
       iba:
         structured_aliases:
         - literal_form: Iban-Sprache
@@ -3976,13 +3913,6 @@ enums:
         - literal_form: Iroquoian languages
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/iro
-      isl:
-        structured_aliases:
-        - literal_form: Isländisch
-          in_language: de
-        - literal_form: Icelandic
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/isl
       ita:
         structured_aliases:
         - literal_form: Italienisch
@@ -4077,13 +4007,6 @@ enums:
         - literal_form: Kashmiri
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/kas
-      kat:
-        structured_aliases:
-        - literal_form: Georgisch
-          in_language: de
-        - literal_form: Georgian
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/kat
       kau:
         structured_aliases:
         - literal_form: Kanuri-Sprache
@@ -4532,13 +4455,6 @@ enums:
         - literal_form: Uncoded languages
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/mis
-      mkd:
-        structured_aliases:
-        - literal_form: Makedonisch
-          in_language: de
-        - literal_form: Macedonian
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/mkd
       mkh:
         structured_aliases:
         - literal_form: Mon-Khmer-Sprachen (Andere)
@@ -4602,20 +4518,6 @@ enums:
         - literal_form: Mossi
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/mos
-      mri:
-        structured_aliases:
-        - literal_form: Maori-Sprache
-          in_language: de
-        - literal_form: Maori
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/mri
-      msa:
-        structured_aliases:
-        - literal_form: Malaiisch
-          in_language: de
-        - literal_form: Malay
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/msa
       mul:
         structured_aliases:
         - literal_form: Mehrere Sprachen
@@ -4649,13 +4551,6 @@ enums:
         - literal_form: Marwari
           in_language: default
         meaning: http://id.loc.gov/vocabulary/iso639-2/mwr
-      mya:
-        structured_aliases:
-        - literal_form: Birmanisch
-          in_language: de
-        - literal_form: Burmese
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/mya
       myn:
         structured_aliases:
         - literal_form: Maya-Sprachen
@@ -4764,13 +4659,6 @@ enums:
         - literal_form: Niuean
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/niu
-      nld:
-        structured_aliases:
-        - literal_form: Niederländisch
-          in_language: de
-        - literal_form: Dutch |  Flemish
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/nld
       nno:
         structured_aliases:
         - literal_form: Nynorsk
@@ -5099,13 +4987,6 @@ enums:
         - literal_form: Romany
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/rom
-      ron:
-        structured_aliases:
-        - literal_form: Rumänisch
-          in_language: de
-        - literal_form: Romanian |  Moldavian |  Moldovan
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/ron
       rum:
         structured_aliases:
         - literal_form: Rumänisch
@@ -5275,13 +5156,6 @@ enums:
         - literal_form: Slavic languages
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/sla
-      slk:
-        structured_aliases:
-        - literal_form: Slowakisch
-          in_language: de
-        - literal_form: Slovak
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/slk
       slo:
         structured_aliases:
         - literal_form: Slowakisch
@@ -5399,13 +5273,6 @@ enums:
         - literal_form: Spanish |  Castilian
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/spa
-      sqi:
-        structured_aliases:
-        - literal_form: Albanisch
-          in_language: de
-        - literal_form: Albanian
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/sqi
       srd:
         structured_aliases:
         - literal_form: Sardisch
@@ -5950,13 +5817,6 @@ enums:
         - literal_form: Zhuang |  Chuang
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/zha
-      zho:
-        structured_aliases:
-        - literal_form: Chinesisch
-          in_language: de
-        - literal_form: Chinese
-          in_language: en
-        meaning: http://id.loc.gov/vocabulary/iso639-2/zho
       znd:
         structured_aliases:
         - literal_form: Zande-Sprachen
