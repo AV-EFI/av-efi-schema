@@ -2113,7 +2113,14 @@
                 "has_activity": {
                     "description": "Associate activity (and subsequently agents) with event",
                     "items": {
-                        "$ref": "#/$defs/LaboratoryActivity"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/LaboratoryActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/ManifestationActivity"
+                            }
+                        ]
                     },
                     "type": [
                         "array",
@@ -2568,7 +2575,17 @@
                 "has_activity": {
                     "description": "Associate activity (and subsequently agents) with event",
                     "items": {
-                        "$ref": "#/$defs/ManifestationActivity"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/CopyrightAndDistributionActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/LaboratoryActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/ManifestationActivity"
+                            }
+                        ]
                     },
                     "type": [
                         "array",

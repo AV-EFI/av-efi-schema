@@ -1,5 +1,5 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-25T17:23:40
+# Generation date: 2026-04-02T10:32:19
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -1154,7 +1154,7 @@ class PublicationEvent(Event):
     class_model_uri: ClassVar[URIRef] = AVEFI.PublicationEvent
 
     type: Union[str, "PublicationEventTypeEnum"] = None
-    has_activity: Optional[Union[Union[dict, ManifestationActivity], list[Union[dict, ManifestationActivity]]]] = empty_list()
+    has_activity: Optional[Union[Union[dict, Activity], list[Union[dict, Activity]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.type):
@@ -1162,7 +1162,7 @@ class PublicationEvent(Event):
         if not isinstance(self.type, PublicationEventTypeEnum):
             self.type = PublicationEventTypeEnum(self.type)
 
-        self._normalize_inlined_as_list(slot_name="has_activity", slot_type=ManifestationActivity, key_name="type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="has_activity", slot_type=Activity, key_name="type", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -1185,13 +1185,13 @@ class ManufactureEvent(Event):
     class_model_uri: ClassVar[URIRef] = AVEFI.ManufactureEvent
 
     type: Optional[Union[str, "ManufactureEventTypeEnum"]] = None
-    has_activity: Optional[Union[Union[dict, LaboratoryActivity], list[Union[dict, LaboratoryActivity]]]] = empty_list()
+    has_activity: Optional[Union[Union[dict, Activity], list[Union[dict, Activity]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self.type is not None and not isinstance(self.type, ManufactureEventTypeEnum):
             self.type = ManufactureEventTypeEnum(self.type)
 
-        self._normalize_inlined_as_list(slot_name="has_activity", slot_type=LaboratoryActivity, key_name="type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="has_activity", slot_type=Activity, key_name="type", keyed=False)
 
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
@@ -5527,13 +5527,13 @@ slots.PreservationEvent_type = Slot(uri=AVEFI.type, name="PreservationEvent_type
                    model_uri=AVEFI.PreservationEvent_type, domain=PreservationEvent, range=Union[str, "PreservationEventTypeEnum"])
 
 slots.PublicationEvent_has_activity = Slot(uri=AVEFI.has_activity, name="PublicationEvent_has_activity", curie=AVEFI.curie('has_activity'),
-                   model_uri=AVEFI.PublicationEvent_has_activity, domain=PublicationEvent, range=Optional[Union[Union[dict, ManifestationActivity], list[Union[dict, ManifestationActivity]]]])
+                   model_uri=AVEFI.PublicationEvent_has_activity, domain=PublicationEvent, range=Optional[Union[Union[dict, Activity], list[Union[dict, Activity]]]])
 
 slots.PublicationEvent_type = Slot(uri=AVEFI.type, name="PublicationEvent_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.PublicationEvent_type, domain=PublicationEvent, range=Union[str, "PublicationEventTypeEnum"])
 
 slots.ManufactureEvent_has_activity = Slot(uri=AVEFI.has_activity, name="ManufactureEvent_has_activity", curie=AVEFI.curie('has_activity'),
-                   model_uri=AVEFI.ManufactureEvent_has_activity, domain=ManufactureEvent, range=Optional[Union[Union[dict, LaboratoryActivity], list[Union[dict, LaboratoryActivity]]]])
+                   model_uri=AVEFI.ManufactureEvent_has_activity, domain=ManufactureEvent, range=Optional[Union[Union[dict, Activity], list[Union[dict, Activity]]]])
 
 slots.ManufactureEvent_type = Slot(uri=AVEFI.type, name="ManufactureEvent_type", curie=AVEFI.curie('type'),
                    model_uri=AVEFI.ManufactureEvent_type, domain=ManufactureEvent, range=Optional[Union[str, "ManufactureEventTypeEnum"]])
