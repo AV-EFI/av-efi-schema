@@ -1049,7 +1049,12 @@ classes:
     - type
     slot_usage:
       has_activity:
-        range: ManifestationActivity
+        any_of:
+        - range: CopyrightAndDistributionActivity
+        - range: LaboratoryActivity
+        - range: ManifestationActivity
+        annotations:
+        - pid: 21.T11969/31c44536301b54fb172a
         in_subset:
         - TypeRegistrySubset
       type:
@@ -1079,7 +1084,11 @@ classes:
     - type
     slot_usage:
       has_activity:
-        range: LaboratoryActivity
+        any_of:
+        - range: LaboratoryActivity
+        - range: ManifestationActivity
+        annotations:
+        - pid: 21.T11969/c59e999da8229068bc50
         in_subset:
         - TypeRegistrySubset
       type:
