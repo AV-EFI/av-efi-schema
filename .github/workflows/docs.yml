@@ -25,7 +25,7 @@ jobs:
       - run: uv python install
       - run: uv sync --locked --only-group docs
       - run: uv run doit build_site
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
       - uses: actions/deploy-pages@v5
