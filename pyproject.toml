@@ -31,10 +31,10 @@ dev = [
     "ruamel-yaml>=0.18.6",
     "requests>=2.32.3",
     "deepdiff>=7.0.1",
-    "zensical>=0.0.9",
+    "zensical>=0.0.33",
 ]
 docs = [
     "doit>=0.36.0",
     "linkml>=1.10.0",
-    "zensical>=0.0.9",
+    "zensical>=0.0.33",
 ]
