@@ -14,7 +14,7 @@ license = {text = "MIT"}
 
 [project.optional-dependencies]
 dataclasses = [
-    "linkml-runtime>=1.8.0",
+    "linkml-runtime>=1.11.0",
 ]
 
 [build-system]
