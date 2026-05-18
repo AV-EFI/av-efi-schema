@@ -48,6 +48,38 @@
             "title": "AVefiResource",
             "type": "object"
         },
+        "Activity": {
+            "additionalProperties": false,
+            "description": "FIAF Moving Image Cataloguing Manual 1.4.1.1",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:Activity"
+                    ],
+                    "type": "string"
+                },
+                "has_agent": {
+                    "description": "Agent involved in some activity related to the moving image resource",
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively",
+                    "pattern": "^((?![\\\"&\\'])\\S)+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "has_agent",
+                "type",
+                "category"
+            ],
+            "title": "Activity",
+            "type": "object"
+        },
         "Agent": {
             "additionalProperties": false,
             "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
@@ -190,6 +222,30 @@
             "title": "Audio",
             "type": "object"
         },
+        "AuthorityResource": {
+            "additionalProperties": false,
+            "description": "Root class for all identifiers from some kind of authority or public register widely accepted in the community",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:AuthorityResource"
+                    ],
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "pattern": "^((?![\\\"&\\'])\\S)+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "category"
+            ],
+            "title": "AuthorityResource",
+            "type": "object"
+        },
         "CastActivity": {
             "additionalProperties": false,
             "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.7",
@@ -240,6 +296,24 @@
             ],
             "title": "CastActivityTypeEnum",
             "type": "string"
+        },
+        "CategorizedThing": {
+            "additionalProperties": false,
+            "description": "Root for all classes with subclasses in this schema",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:CategorizedThing"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "category"
+            ],
+            "title": "CategorizedThing",
+            "type": "object"
         },
         "CensorshipActivity": {
             "additionalProperties": false,
@@ -428,6 +502,7 @@
             "properties": {
                 "has_history": {
                     "description": "Link to revision history of this PID",
+                    "format": "uri",
                     "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": [
                         "string",
@@ -436,11 +511,19 @@
                 },
                 "has_issuer_id": {
                     "description": "Identifier for the responsible party as an URI suitable for linked data",
+                    "examples": [
+                        "https://w3id.org/isil/DE-MUS-432511",
+                        "https://ld.zdb-services.de/resource/organisations/DE-MUS-432511"
+                    ],
+                    "format": "uri",
                     "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
                 "has_issuer_name": {
                     "description": "Name of the responsible party",
+                    "examples": [
+                        "Filmmuseum D\u00fcsseldorf"
+                    ],
                     "pattern": "^.+$",
                     "type": "string"
                 },
@@ -647,6 +730,101 @@
             "title": "EditingActivityTypeEnum",
             "type": "string"
         },
+        "Event": {
+            "additionalProperties": false,
+            "description": "Significant event in the lifecycle of moving image work / variant, manifestation or item. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the country where the principal offices or production facilities of the production company are located for a production event. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual 1.4.2, 2.4.2, 3.3.2",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:Event"
+                    ],
+                    "type": "string"
+                },
+                "has_activity": {
+                    "description": "Associate activity (and subsequently agents) with event",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AnimationActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/CastActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/CensorshipActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/CinematographyActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/CopyrightAndDistributionActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/DirectingActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/EditingActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/LaboratoryActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MusicActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/ProducingActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/ProductionDesignActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/PuppetActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/SoundActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/SpecialEffectsActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/WritingActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/ManifestationActivity"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_date": {
+                    "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
+                    "pattern": "^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "located_in": {
+                    "description": "Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event",
+                    "items": {
+                        "$ref": "#/$defs/GeographicName"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "category"
+            ],
+            "title": "Event",
+            "type": "object"
+        },
         "Extent": {
             "additionalProperties": false,
             "description": "Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8",
@@ -715,6 +893,32 @@
                 "category"
             ],
             "title": "FilmportalResource",
+            "type": "object"
+        },
+        "Format": {
+            "additionalProperties": false,
+            "description": "FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:Format"
+                    ],
+                    "type": "string"
+                },
+                "type": {
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively",
+                    "pattern": "^((?![\\\"&\\'])\\S)+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "category"
+            ],
+            "title": "Format",
             "type": "object"
         },
         "FormatAudioTypeEnum": {
@@ -1140,6 +1344,7 @@
                 "has_webresource": {
                     "description": "Link to data provider's own presentation of manifestation or item on the web",
                     "items": {
+                        "format": "uri",
                         "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                         "type": "string"
                     },
@@ -1323,6 +1528,11 @@
         "Language": {
             "additionalProperties": false,
             "description": "Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled vocabulary. See also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3",
+            "examples": [
+                "eng",
+                "deu",
+                "ara"
+            ],
             "properties": {
                 "code": {
                     "$ref": "#/$defs/LanguageCodeEnum",
@@ -1858,6 +2068,10 @@
         "LocalResource": {
             "additionalProperties": false,
             "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs",
+            "examples": [
+                "some_fairly/arbitrary-string%for+1.work",
+                "id_for_manifestation"
+            ],
             "properties": {
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
@@ -1995,6 +2209,7 @@
                 "has_webresource": {
                     "description": "Link to data provider's own presentation of manifestation or item on the web",
                     "items": {
+                        "format": "uri",
                         "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                         "type": "string"
                     },
@@ -2099,6 +2314,165 @@
             "title": "ManifestationActivityTypeEnum",
             "type": "string"
         },
+        "ManifestationOrItem": {
+            "additionalProperties": false,
+            "description": "Base class defining common slots for manifestations and items",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:ManifestationOrItem"
+                    ],
+                    "type": "string"
+                },
+                "described_by": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DescriptionResource"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Also record some metadata about the PID itself rather than the identified object"
+                },
+                "has_alternative_title": {
+                    "description": "Additional title(s) associated with the work / variant, manifestation, or item.",
+                    "items": {
+                        "$ref": "#/$defs/Title"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_event": {
+                    "description": "Associate event(s) with a moving image record",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/ProductionEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/PreservationEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/PublicationEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/ManufactureEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/RightsCopyrightRegistrationEvent"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_identifier": {
+                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_note": {
+                    "description": "FIAF Moving Image Cataloguing Manual Appendix B",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_primary_title": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Title"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead."
+                },
+                "has_webresource": {
+                    "description": "Link to data provider's own presentation of manifestation or item on the web",
+                    "items": {
+                        "format": "uri",
+                        "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "same_as": {
+                    "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AATResource"
+                            },
+                            {
+                                "$ref": "#/$defs/DOIResource"
+                            },
+                            {
+                                "$ref": "#/$defs/EIDRResource"
+                            },
+                            {
+                                "$ref": "#/$defs/FilmportalResource"
+                            },
+                            {
+                                "$ref": "#/$defs/GNDResource"
+                            },
+                            {
+                                "$ref": "#/$defs/ISILResource"
+                            },
+                            {
+                                "$ref": "#/$defs/TGNResource"
+                            },
+                            {
+                                "$ref": "#/$defs/VIAFResource"
+                            },
+                            {
+                                "$ref": "#/$defs/WikidataResource"
+                            },
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "category"
+            ],
+            "title": "ManifestationOrItem",
+            "type": "object"
+        },
         "ManufactureEvent": {
             "additionalProperties": false,
             "description": "Manufacture event of a manifestation. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the country where the labratory is located. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.7",
@@ -2169,12 +2543,150 @@
             "title": "ManufactureEventTypeEnum",
             "type": "string"
         },
+        "MovingImageRecord": {
+            "additionalProperties": false,
+            "description": "Base class defining slots that are common to all levels of the WVMI metadata model",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:MovingImageRecord"
+                    ],
+                    "type": "string"
+                },
+                "described_by": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DescriptionResource"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Also record some metadata about the PID itself rather than the identified object"
+                },
+                "has_alternative_title": {
+                    "description": "Additional title(s) associated with the work / variant, manifestation, or item.",
+                    "items": {
+                        "$ref": "#/$defs/Title"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_event": {
+                    "description": "Associate event(s) with a moving image record",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/ProductionEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/PreservationEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/PublicationEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/ManufactureEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/RightsCopyrightRegistrationEvent"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_identifier": {
+                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_primary_title": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Title"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead."
+                },
+                "same_as": {
+                    "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AATResource"
+                            },
+                            {
+                                "$ref": "#/$defs/DOIResource"
+                            },
+                            {
+                                "$ref": "#/$defs/EIDRResource"
+                            },
+                            {
+                                "$ref": "#/$defs/FilmportalResource"
+                            },
+                            {
+                                "$ref": "#/$defs/GNDResource"
+                            },
+                            {
+                                "$ref": "#/$defs/ISILResource"
+                            },
+                            {
+                                "$ref": "#/$defs/TGNResource"
+                            },
+                            {
+                                "$ref": "#/$defs/VIAFResource"
+                            },
+                            {
+                                "$ref": "#/$defs/WikidataResource"
+                            },
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "category"
+            ],
+            "title": "MovingImageRecord",
+            "type": "object"
+        },
         "MovingImageRecordContainer": {
             "additionalProperties": false,
             "description": "A holder for MovingImageRecord objects",
             "properties": {
                 "URL": {
                     "description": "URL specifying the destination where clients should be redirected to when resolving the PID of a moving image record",
+                    "format": "uri",
                     "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": [
                         "string",
@@ -2200,6 +2712,30 @@
                 "has_record"
             ],
             "title": "MovingImageRecordContainer",
+            "type": "object"
+        },
+        "MovingImageResource": {
+            "additionalProperties": false,
+            "description": "Either a persistent or local identifier for AVefi compliant moving image records. See subclasses for details",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:MovingImageResource"
+                    ],
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "pattern": "^((?![\\\"&\\'])\\S)+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "category"
+            ],
+            "title": "MovingImageResource",
             "type": "object"
         },
         "MusicActivity": {
@@ -2940,6 +3476,10 @@
                 },
                 "has_ordering_name": {
                     "description": "Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name",
+                    "examples": [
+                        "American in Paris, An",
+                        "Star Wars: Episode 9 \u2013 Der Aufstieg Skywalkers"
+                    ],
                     "pattern": "^.+$",
                     "type": [
                         "string",
@@ -3365,7 +3905,139 @@
     "$id": "https://www.av-efi.net/av-efi-schema/model",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "metamodel_version": "1.7.0",
+    "description": "Base class defining slots that are common to all levels of the WVMI metadata model",
+    "metamodel_version": "1.11.0",
+    "properties": {
+        "category": {
+            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+            "enum": [
+                "avefi:MovingImageRecord"
+            ],
+            "type": "string"
+        },
+        "described_by": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/DescriptionResource"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "Also record some metadata about the PID itself rather than the identified object"
+        },
+        "has_alternative_title": {
+            "description": "Additional title(s) associated with the work / variant, manifestation, or item.",
+            "items": {
+                "$ref": "#/$defs/Title"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "has_event": {
+            "description": "Associate event(s) with a moving image record",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/ProductionEvent"
+                    },
+                    {
+                        "$ref": "#/$defs/PreservationEvent"
+                    },
+                    {
+                        "$ref": "#/$defs/PublicationEvent"
+                    },
+                    {
+                        "$ref": "#/$defs/ManufactureEvent"
+                    },
+                    {
+                        "$ref": "#/$defs/RightsCopyrightRegistrationEvent"
+                    }
+                ]
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "has_identifier": {
+            "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/AVefiResource"
+                    },
+                    {
+                        "$ref": "#/$defs/LocalResource"
+                    }
+                ]
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "has_primary_title": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/Title"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead."
+        },
+        "same_as": {
+            "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/AATResource"
+                    },
+                    {
+                        "$ref": "#/$defs/DOIResource"
+                    },
+                    {
+                        "$ref": "#/$defs/EIDRResource"
+                    },
+                    {
+                        "$ref": "#/$defs/FilmportalResource"
+                    },
+                    {
+                        "$ref": "#/$defs/GNDResource"
+                    },
+                    {
+                        "$ref": "#/$defs/ISILResource"
+                    },
+                    {
+                        "$ref": "#/$defs/TGNResource"
+                    },
+                    {
+                        "$ref": "#/$defs/VIAFResource"
+                    },
+                    {
+                        "$ref": "#/$defs/WikidataResource"
+                    },
+                    {
+                        "$ref": "#/$defs/AVefiResource"
+                    },
+                    {
+                        "$ref": "#/$defs/LocalResource"
+                    }
+                ]
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        }
+    },
+    "required": [
+        "category"
+    ],
     "title": "AVefi data model",
     "type": "object",
     "version": null
