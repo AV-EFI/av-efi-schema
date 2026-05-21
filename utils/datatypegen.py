@@ -254,11 +254,12 @@ class DataTypeGenerator(generator.Generator):
 
     def get_pid_from_source(self, src_locator):
         annotations = self.get_source_definition(src_locator[:-1])
-        for ann in annotations:
-            pid = ann.get(src_locator[-1])
-            if pid:
-                return pid
-        raise KeyError(f"{src_locator[-1]} not found at {src_locator[:-1]}")
+        try:
+            return annotations[src_locator[-1]]
+        except KeyError as e:
+            raise KeyError(
+                f"{src_locator[-1]} not found at {src_locator[:-1]}",
+            ) from e
 
     def convert_enum(self, enum: meta.EnumDefinition):
         result = {'name': f"{DTR_CONFIG['dtr_name_prefix']}{enum.name}"}
@@ -508,14 +509,10 @@ class DataTypeGenerator(generator.Generator):
                         pass
                 else:
                     idx = 0
-                source_obj.insert(idx, 'annotations', [])
+                source_obj.insert(idx, 'annotations', {})
+            annotations = source_obj['annotations']
             pid_slot = src_locator[-1]
-            for el in source_obj['annotations']:
-                if pid_slot in el:
-                    el.update({pid_slot: pid})
-                    break
-            else:
-                source_obj['annotations'].insert(0, {pid_slot: pid})
+            annotations.update(pid_slot=pid)
             self.save_source_definition(src_locator)
         return data_type
 

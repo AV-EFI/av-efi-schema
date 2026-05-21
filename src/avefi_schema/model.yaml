@@ -50,11 +50,11 @@ types:
     typeof: string
     pattern: ^.+$
     annotations:
-    - pid: 21.T11969/7ac5a4f0445cbffc6a27
-    - tag: data_type_properties
-      value:
-        minLength: 1
-        maxLength: 250
+      pid: 21.T11969/7ac5a4f0445cbffc6a27
+      data_type_properties:
+        value:
+          minLength: 1
+          maxLength: 250
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -64,11 +64,11 @@ types:
   TextArea:
     typeof: string
     annotations:
-    - pid: 21.T11969/8717ca7ca5aff686b379
-    - tag: data_type_properties
-      value:
-        minLength: 1
-        maxLength: 8192
+      pid: 21.T11969/8717ca7ca5aff686b379
+      data_type_properties:
+        value:
+          minLength: 1
+          maxLength: 8192
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -78,10 +78,10 @@ types:
     typeof: uri
     pattern: ^https?://[^/?#]+(/[^?#]*(\?([^#]*))?(#(.*))?)?$
     annotations:
-    - pid: 21.T11969/4f13820c6cdbd8a7136f
-    - tag: data_type_properties
-      value:
-        maxLength: 512
+      pid: 21.T11969/4f13820c6cdbd8a7136f
+      data_type_properties:
+        value:
+          maxLength: 512
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -90,7 +90,7 @@ types:
   AVefiCurie:
     typeof: uriorcurie
     annotations:
-    - pid: 21.T11969/5ccbf9c9c5fc1bc34df8
+      pid: 21.T11969/5ccbf9c9c5fc1bc34df8
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -99,7 +99,7 @@ types:
   Decimal:
     typeof: decimal
     annotations:
-    - pid: 21.T11969/fcbe592c37410a1b261d
+      pid: 21.T11969/fcbe592c37410a1b261d
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -110,7 +110,7 @@ types:
     pattern: 
       ^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$
     annotations:
-    - pid: 21.T11969/90ce854c789144a37fb7
+      pid: 21.T11969/90ce854c789144a37fb7
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -139,19 +139,19 @@ types:
     pattern: 
       ^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([0-1][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|\+00:00)$
     annotations:
-    - pid: 21.T11969/27064b567b4f9f7017ae
+      pid: 21.T11969/27064b567b4f9f7017ae
     in_subset:
     - TypeRegistrySubset
     description: >-
       Timestamp in UTC
     examples:
-    - value: 2024-04-24T16:36:14Z
+    - value: "2024-04-24T16:36:14Z"
 
   ISODurationInHours:
     typeof: string
     pattern: ^PT[1-9]*[0-9][0-9]H[0-5][0-9]M[0-5][0-9]S$
     annotations:
-    - pid: 21.T11969/a9cc3bf7aa659fe0f9e5
+      pid: 21.T11969/a9cc3bf7aa659fe0f9e5
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -170,11 +170,11 @@ types:
     typeof: string
     pattern: ^((?![\"&\'])\S)+$
     annotations:
-    - pid: 21.T11969/4af5369dc8358733d34c
-    - tag: data_type_properties
-      value:
-        minLength: 1
-        maxLength: 256
+      pid: 21.T11969/4af5369dc8358733d34c
+      data_type_properties:
+        value:
+          minLength: 1
+          maxLength: 256
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -184,17 +184,17 @@ types:
     typeof: string
     pattern: ^300\d{6}$
     annotations:
-    - pid: 21.T11969/6cee8108d80467532fec
-    - tag: data_type_properties
-      value:
-        minLength: 1
-        maxLength: 256
+      pid: 21.T11969/6cee8108d80467532fec
+      data_type_properties:
+        value:
+          minLength: 1
+          maxLength: 256
     in_subset:
     - TypeRegistrySubset
     description: >-
       Getty Art & Architecture Thesaurus
     examples:
-    - value: 300263340
+    - value: "300263340"
       description: AAT-ID for subject heading "labour"
     see_also:
     - https://www.getty.edu/research/tools/vocabularies/aat/index.html
@@ -205,11 +205,11 @@ types:
     typeof: string
     pattern: ^21(\.([0-9A-Za-z])+)*/[!-~]+$
     annotations:
-    - pid: 21.T11969/10a6d4dc54ac4827a50b
-    - tag: data_type_properties
-      value:
-        minLength: 1
-        maxLength: 256
+      pid: 21.T11969/10a6d4dc54ac4827a50b
+      data_type_properties:
+        value:
+          minLength: 1
+          maxLength: 256
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -219,11 +219,11 @@ types:
     typeof: string
     pattern: ^10\.[0-9]{4,9}(\.[0-9]+)*(/|%2F)((?![\"&\'])\S)+$
     annotations:
-    - pid: 21.T11969/94dbc30c6c4a38e84e6f
-    - tag: data_type_properties
-      value:
-        minLength: 1
-        maxLength: 256
+      pid: 21.T11969/94dbc30c6c4a38e84e6f
+      data_type_properties:
+        value:
+          minLength: 1
+          maxLength: 256
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -242,11 +242,11 @@ types:
     typeof: string
     pattern: ^10\.5240(/|%2F)((?![\"&\'])\S)+$
     annotations:
-    - pid: 21.T11969/99119b0c92c93022d478
-    - tag: data_type_properties
-      value:
-        minLength: 1
-        maxLength: 256
+      pid: 21.T11969/99119b0c92c93022d478
+      data_type_properties:
+        value:
+          minLength: 1
+          maxLength: 256
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -262,11 +262,11 @@ types:
     typeof: string
     pattern: ^[\da-f]{32}$
     annotations:
-    - pid: 21.T11969/4099938c39f6b2a57877
-    - tag: data_type_properties
-      value:
-        minLength: 1
-        maxLength: 256
+      pid: 21.T11969/4099938c39f6b2a57877
+      data_type_properties:
+        value:
+          minLength: 1
+          maxLength: 256
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -284,26 +284,26 @@ types:
     typeof: string
     pattern: ^[-\dX]+$
     annotations:
-    - pid: 21.T11969/85336bee084e8645831d
-    - tag: data_type_properties
-      value:
-        minLength: 1
-        maxLength: 256
+      pid: 21.T11969/85336bee084e8645831d
+      data_type_properties:
+        value:
+          minLength: 1
+          maxLength: 256
     in_subset:
     - TypeRegistrySubset
     description: >-
       Gemeinsame Normdatei (GND) identifier maintained by Deutsche
       Nationalbibliothek (German National Library)
     examples:
-    - value: 4228455-7
+    - value: "4228455-7"
       description: GND-ID for creative work "Nosferatu"
-    - value: 4018118-2
+    - value: "4018118-2"
       description: GND-ID for place "Frankfurt am Main"
-    - value: 10140798-1
+    - value: "10140798-1"
       description: GND-ID for organization "Deutsche Nationalbibliothek"
-    - value: 118532022
+    - value: "118532022"
       description: GND-ID for person "Rainer Werner Fassbinder"
-    - value: 4187368-3
+    - value: "4187368-3"
       description: GND-ID for subject heading "Vampir"
     see_also:
     - https://www.wikidata.org/entity/P227
@@ -312,11 +312,11 @@ types:
     typeof: string
     pattern: ^[A-Z]{2}-[A-Za-z\-0-9:/]{1,15}$
     annotations:
-    - pid: 21.T11969/0f04aac5809944fbe63f
-    - tag: data_type_properties
-      value:
-        minLength: 1
-        maxLength: 256
+      pid: 21.T11969/0f04aac5809944fbe63f
+      data_type_properties:
+        value:
+          minLength: 1
+          maxLength: 256
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -335,19 +335,19 @@ types:
     typeof: string
     pattern: ^[1-9][0-9]{6}$
     annotations:
-    - pid: 21.T11969/279a437ca7ffc31a26d6
-    - tag: data_type_properties
-      value:
-        minLength: 1
-        maxLength: 256
+      pid: 21.T11969/279a437ca7ffc31a26d6
+      data_type_properties:
+        value:
+          minLength: 1
+          maxLength: 256
     in_subset:
     - TypeRegistrySubset
     description: >-
       Getty Thesaurus of Geographic Names ID
     examples:
-    - value: 7183809
+    - value: "7183809"
       description: TGN-ID for place "Göttingen"
-    - value: 7013260
+    - value: "7013260"
       description: TGN-ID for place "Hannover"
     see_also:
     - https://www.getty.edu/research/tools/vocabularies/tgn/index.html
@@ -358,24 +358,24 @@ types:
     typeof: string
     pattern: ^\d+$
     annotations:
-    - pid: 21.T11969/815abb512b729cbe019d
-    - tag: data_type_properties
-      value:
-        minLength: 1
-        maxLength: 256
+      pid: 21.T11969/815abb512b729cbe019d
+      data_type_properties:
+        value:
+          minLength: 1
+          maxLength: 256
     in_subset:
     - TypeRegistrySubset
     description: >-
       Virtual International Authority File identifier
     examples:
-    - value: 316753491
+    - value: "316753491"
       description: VIAF-ID for creative work "Nosferatu"
-    - value: 122530980
+    - value: "122530980"
       description: VIAF-ID for place "Berlin"
-    - value: 7183809
+    - value: "7183809"
       description: VIAF-ID for organization "International Federation of Film 
         Archives"
-    - value: 66467014
+    - value: "66467014"
       description: VIAF-ID for person "Rainer Werner Fassbinder"
     see_also:
     - https://viaf.org/
@@ -385,11 +385,11 @@ types:
     typeof: string
     pattern: ^[LPQ]\d+$
     annotations:
-    - pid: 21.T11969/fa9d47f9d4107f21daa2
-    - tag: data_type_properties
-      value:
-        minLength: 1
-        maxLength: 256
+      pid: 21.T11969/fa9d47f9d4107f21daa2
+      data_type_properties:
+        value:
+          minLength: 1
+          maxLength: 256
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -417,7 +417,7 @@ classes:
     slots:
     - category
     annotations:
-    - trunk_pid: 21.T11969/be101407612d022cfdcc
+      trunk_pid: 21.T11969/be101407612d022cfdcc
     description: >-
       Root for all classes with subclasses in this schema
 
@@ -432,8 +432,8 @@ classes:
     - has_primary_title
     - same_as
     annotations:
-    - pid: 21.T11969/2e9c01efa0f0f6881365
-    - trunk_pid: 21.T11969/0e3ed2fb51ddeec3cb1f
+      pid: 21.T11969/2e9c01efa0f0f6881365
+      trunk_pid: 21.T11969/0e3ed2fb51ddeec3cb1f
     description: >-
       Base class defining slots that are common to all levels of the
       WVMI metadata model
@@ -446,7 +446,7 @@ classes:
     - has_source_key
     - last_modified
     annotations:
-    - pid: 21.T11969/d0995eaddeeb07f3428d
+      pid: 21.T11969/d0995eaddeeb07f3428d
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -478,7 +478,7 @@ classes:
         - range: VIAFResource
         - range: WikidataResource
         annotations:
-        - pid: 21.T11969/6cd9c85272885fefa9c0
+          pid: 21.T11969/6cd9c85272885fefa9c0
         in_subset:
         - TypeRegistrySubset
       type:
@@ -494,7 +494,7 @@ classes:
     related_mappings:
     - fiaf:WorkVariant
     annotations:
-    - pid: 21.T11969/7529ed598d0bd4fcf3d8
+      pid: 21.T11969/7529ed598d0bd4fcf3d8
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -515,14 +515,14 @@ classes:
         - range: VIAFResource
         - range: WikidataResource
         annotations:
-        - pid: 21.T11969/dd35cd4d748c1785083a
+          pid: 21.T11969/dd35cd4d748c1785083a
         in_subset:
         - TypeRegistrySubset
     related_mappings:
     - fiaf:Country
     - fiaf:Location
     annotations:
-    - pid: 21.T11969/bacbc4ae5eb2ac96982c
+      pid: 21.T11969/bacbc4ae5eb2ac96982c
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -547,7 +547,7 @@ classes:
     - literal_form: Genre
       in_language: default
     annotations:
-    - pid: 21.T11969/e70e5ae724f625a7477f
+      pid: 21.T11969/e70e5ae724f625a7477f
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -567,7 +567,7 @@ classes:
     slot_usage:
       same_as:
         annotations:
-        - pid: 21.T11969/8281679d0e53548893b8
+          pid: 21.T11969/8281679d0e53548893b8
         any_of:
         - range: AATResource
         - range: AVefiResource
@@ -582,7 +582,7 @@ classes:
     - literal_form: Subject
       in_language: en
     annotations:
-    - pid: 21.T11969/a3e99e02ddcb607c5242
+      pid: 21.T11969/a3e99e02ddcb607c5242
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -606,8 +606,8 @@ classes:
         in_subset:
         - TypeRegistrySubset
     annotations:
-    - trunk_pid: 21.T11969/e93415afce13f521e241
-    - pid: 21.T11969/56b195f0220b7e220710
+      trunk_pid: 21.T11969/e93415afce13f521e241
+      pid: 21.T11969/56b195f0220b7e220710
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -624,7 +624,7 @@ classes:
     close_mappings:
     - fiaf:AnimationActivity
     annotations:
-    - pid: 21.T11969/253658316bd6be837db1
+      pid: 21.T11969/253658316bd6be837db1
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -642,7 +642,7 @@ classes:
     close_mappings:
     - fiaf:CastActivity
     annotations:
-    - pid: 21.T11969/c6830294ff6a4d8cbd75
+      pid: 21.T11969/c6830294ff6a4d8cbd75
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -660,7 +660,7 @@ classes:
     close_mappings:
     - fiaf:CensorshipActivity
     annotations:
-    - pid: 21.T11969/46ee382e391c4888ed22
+      pid: 21.T11969/46ee382e391c4888ed22
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -678,7 +678,7 @@ classes:
     close_mappings:
     - fiaf:CinematographyActivity
     annotations:
-    - pid: 21.T11969/bae0899a406a0bd2bdaf
+      pid: 21.T11969/bae0899a406a0bd2bdaf
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -696,7 +696,7 @@ classes:
     close_mappings:
     - fiaf:CopyrightandDistributionActivity
     annotations:
-    - pid: 21.T11969/bc2aab64b865b9d83909
+      pid: 21.T11969/bc2aab64b865b9d83909
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -714,7 +714,7 @@ classes:
     close_mappings:
     - fiaf:DirectingActivity
     annotations:
-    - pid: 21.T11969/484efc6c28cfc7732e75
+      pid: 21.T11969/484efc6c28cfc7732e75
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -732,7 +732,7 @@ classes:
     close_mappings:
     - fiaf:EditingActivity
     annotations:
-    - pid: 21.T11969/8b0add304c707db873f1
+      pid: 21.T11969/8b0add304c707db873f1
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -750,7 +750,7 @@ classes:
     close_mappings:
     - fiaf:LaboratoryActivity
     annotations:
-    - pid: 21.T11969/9d570998dedf7c199c50
+      pid: 21.T11969/9d570998dedf7c199c50
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -768,7 +768,7 @@ classes:
     close_mappings:
     - fiaf:MusicActivity
     annotations:
-    - pid: 21.T11969/92d2e34b5e93501ff9c7
+      pid: 21.T11969/92d2e34b5e93501ff9c7
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -786,7 +786,7 @@ classes:
     close_mappings:
     - fiaf:ProducingActivity
     annotations:
-    - pid: 21.T11969/77193f6b9ff25dfd42f6
+      pid: 21.T11969/77193f6b9ff25dfd42f6
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -804,7 +804,7 @@ classes:
     close_mappings:
     - fiaf:ProductionDesignActivity
     annotations:
-    - pid: 21.T11969/66f94179b4bc0ed8553f
+      pid: 21.T11969/66f94179b4bc0ed8553f
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -822,7 +822,7 @@ classes:
     close_mappings:
     - fiaf:PuppetActivity
     annotations:
-    - pid: 21.T11969/cfe02de2e73e35984272
+      pid: 21.T11969/cfe02de2e73e35984272
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -840,7 +840,7 @@ classes:
     close_mappings:
     - fiaf:SoundActivity
     annotations:
-    - pid: 21.T11969/33a013a7965dfd0337fa
+      pid: 21.T11969/33a013a7965dfd0337fa
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -858,7 +858,7 @@ classes:
     close_mappings:
     - fiaf:SpecialEffectsActivity
     annotations:
-    - pid: 21.T11969/ba0a31696080a881a41e
+      pid: 21.T11969/ba0a31696080a881a41e
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -876,7 +876,7 @@ classes:
     close_mappings:
     - fiaf:WritingActivity
     annotations:
-    - pid: 21.T11969/7b479b9faf0a25d41679
+      pid: 21.T11969/7b479b9faf0a25d41679
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -894,7 +894,7 @@ classes:
     close_mappings:
     - fiaf:ManifestationActivity
     annotations:
-    - pid: 21.T11969/7a9e75d630f9d2d508f8
+      pid: 21.T11969/7a9e75d630f9d2d508f8
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -923,7 +923,7 @@ classes:
         - range: VIAFResource
         - range: WikidataResource
         annotations:
-        - pid: 21.T11969/7e899c043d05318a8ef7
+          pid: 21.T11969/7e899c043d05318a8ef7
         in_subset:
         - TypeRegistrySubset
       type:
@@ -934,7 +934,7 @@ classes:
     - fiaf:Agent
     - foaf:Agent
     annotations:
-    - pid: 21.T11969/77048147e58b6707508a
+      pid: 21.T11969/77048147e58b6707508a
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -953,8 +953,8 @@ classes:
     close_mappings:
     - fiaf:Event
     annotations:
-    - trunk_pid: 21.T11969/c60ff3f44c089ef17142
-    - pid: 21.T11969/28f74ae4dafa9d4dca35
+      trunk_pid: 21.T11969/c60ff3f44c089ef17142
+      pid: 21.T11969/28f74ae4dafa9d4dca35
     description: >-
       Significant event in the lifecycle of moving image work /
       variant, manifestation or item. Always specify the type of event
@@ -986,7 +986,7 @@ classes:
         - range: SpecialEffectsActivity
         - range: WritingActivity
         annotations:
-        - pid: 21.T11969/000ee0907b3a25f21d22
+          pid: 21.T11969/000ee0907b3a25f21d22
         in_subset:
         - TypeRegistrySubset
       type:
@@ -1001,7 +1001,7 @@ classes:
     close_mappings:
     - fiaf:ProductionEvent
     annotations:
-    - pid: 21.T11969/85073ea1c5b995826a3c
+      pid: 21.T11969/85073ea1c5b995826a3c
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1031,7 +1031,7 @@ classes:
     close_mappings:
     - fiaf:PreservationEvent
     annotations:
-    - pid: 21.T11969/267f87868c98b2157407
+      pid: 21.T11969/267f87868c98b2157407
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1054,7 +1054,7 @@ classes:
         - range: LaboratoryActivity
         - range: ManifestationActivity
         annotations:
-        - pid: 21.T11969/31c44536301b54fb172a
+          pid: 21.T11969/31c44536301b54fb172a
         in_subset:
         - TypeRegistrySubset
       type:
@@ -1065,7 +1065,7 @@ classes:
     close_mappings:
     - fiaf:PublicationEvent
     annotations:
-    - pid: 21.T11969/8e1f90c97bb610491c08
+      pid: 21.T11969/8e1f90c97bb610491c08
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1088,7 +1088,7 @@ classes:
         - range: LaboratoryActivity
         - range: ManifestationActivity
         annotations:
-        - pid: 21.T11969/c59e999da8229068bc50
+          pid: 21.T11969/c59e999da8229068bc50
         in_subset:
         - TypeRegistrySubset
       type:
@@ -1098,7 +1098,7 @@ classes:
     close_mappings:
     - fiaf:ManufactureEvent
     annotations:
-    - pid: 21.T11969/d714eff2626e41e41e78
+      pid: 21.T11969/d714eff2626e41e41e78
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1126,7 +1126,7 @@ classes:
     close_mappings:
     - fiaf:RightsCopyrightRegistrationEvent
     annotations:
-    - pid: 21.T11969/87d9e566e2a5a6a9d1d6
+      pid: 21.T11969/87d9e566e2a5a6a9d1d6
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1158,7 +1158,7 @@ classes:
         description: >-
           FIAF Moving Image Cataloguing Manual A.2
     annotations:
-    - pid: 21.T11969/768e0c1c69573fb588f6
+      pid: 21.T11969/768e0c1c69573fb588f6
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1171,7 +1171,7 @@ classes:
     - has_note
     - has_webresource
     annotations:
-    - trunk_pid: 21.T11969/b4db4a39a902f7abed4f
+      trunk_pid: 21.T11969/b4db4a39a902f7abed4f
     description: >-
       Base class defining common slots for manifestations and items
 
@@ -1191,7 +1191,7 @@ classes:
     - literal_form: Running Time
       in_language: en
     annotations:
-    - pid: 21.T11969/df7f2b4d340532f48431
+      pid: 21.T11969/df7f2b4d340532f48431
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1212,7 +1212,7 @@ classes:
     - literal_form: Extent
       in_language: en
     annotations:
-    - pid: 21.T11969/9e169a9a3af6df0758ed
+      pid: 21.T11969/9e169a9a3af6df0758ed
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1226,8 +1226,8 @@ classes:
     slots:
     - type
     annotations:
-    - pid: 21.T11969/9f6ce2fc052b3ae49a80
-    - trunk_pid: 21.T11969/d3869bbc9a1b9f1a0fd1
+      pid: 21.T11969/9f6ce2fc052b3ae49a80
+      trunk_pid: 21.T11969/d3869bbc9a1b9f1a0fd1
     description: >-
       FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1
 
@@ -1245,7 +1245,7 @@ classes:
     close_mappings:
     - fiaf:Audio
     annotations:
-    - pid: 21.T11969/5d0612962482536035d7
+      pid: 21.T11969/5d0612962482536035d7
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1267,7 +1267,7 @@ classes:
     close_mappings:
     - fiaf:DigitalFile
     annotations:
-    - pid: 21.T11969/f24e4ac9459b80d59472
+      pid: 21.T11969/f24e4ac9459b80d59472
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1289,7 +1289,7 @@ classes:
     close_mappings:
     - fiaf:DigitalFileEncoding
     annotations:
-    - pid: 21.T11969/7838de709db400991647
+      pid: 21.T11969/7838de709db400991647
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1309,7 +1309,7 @@ classes:
     close_mappings:
     - fiaf:Film
     annotations:
-    - pid: 21.T11969/80d81e2684b42bb72bc0
+      pid: 21.T11969/80d81e2684b42bb72bc0
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1329,7 +1329,7 @@ classes:
     - literal_form: Optical
       in_language: en
     annotations:
-    - pid: 21.T11969/8492e19b115e84682060
+      pid: 21.T11969/8492e19b115e84682060
     in_subset:
     - TypeRegistrySubset
     description: FIAF Moving Image Cataloguing Manual D.7.2
@@ -1350,7 +1350,7 @@ classes:
     close_mappings:
     - fiaf:Video
     annotations:
-    - pid: 21.T11969/4df1c81c76d3c72a9538
+      pid: 21.T11969/4df1c81c76d3c72a9538
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1368,7 +1368,7 @@ classes:
         - range: MovingImageResource
         - range: EIDRResource
         annotations:
-        - pid: 21.T11969/3b99e7540cf4f5f55cac
+          pid: 21.T11969/3b99e7540cf4f5f55cac
         in_subset:
         - TypeRegistrySubset
         description: >-
@@ -1382,7 +1382,7 @@ classes:
     close_mappings:
     - fiaf:Manifestation
     annotations:
-    - pid: 21.T11969/f3bf8470b8d25586300c
+      pid: 21.T11969/f3bf8470b8d25586300c
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1419,7 +1419,7 @@ classes:
     - literal_form: Language
       in_language: en
     annotations:
-    - pid: 21.T11969/ea0bf80a52047e9d46f5
+      pid: 21.T11969/ea0bf80a52047e9d46f5
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1456,7 +1456,7 @@ classes:
         - range: MovingImageResource
         - range: DOIResource
         annotations:
-        - pid: 21.T11969/b4df5cbef35756648e4d
+          pid: 21.T11969/b4df5cbef35756648e4d
         in_subset:
         - TypeRegistrySubset
         description: >-
@@ -1472,7 +1472,7 @@ classes:
     broad_mappings:
     - fiaf:Item
     annotations:
-    - pid: 21.T11969/e8fb4f7dbead9e73589d
+      pid: 21.T11969/e8fb4f7dbead9e73589d
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1493,7 +1493,7 @@ classes:
     slots:
     - has_record
     annotations:
-    - pid: 21.T11969/873d5c9f6ebbffecf1df
+      pid: 21.T11969/873d5c9f6ebbffecf1df
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1514,8 +1514,8 @@ classes:
         in_subset:
         - TypeRegistrySubset
     annotations:
-    - pid: 21.T11969/a170a3147e7ef872d701
-    - trunk_pid: 21.T11969/899f581d3d58acc1918d
+      pid: 21.T11969/a170a3147e7ef872d701
+      trunk_pid: 21.T11969/899f581d3d58acc1918d
     description: >-
       Root class for all identifiers from some kind of authority or
       public register widely accepted in the community
@@ -1524,8 +1524,8 @@ classes:
     is_a: AuthorityResource
     abstract: true
     annotations:
-    - trunk_pid: 21.T11969/e15fa59d1733320642b6
-    - pid: 21.T11969/efb65a41ee9d746a5e69
+      trunk_pid: 21.T11969/e15fa59d1733320642b6
+      pid: 21.T11969/efb65a41ee9d746a5e69
     description: >-
       Either a persistent or local identifier for AVefi compliant
       moving image records. See subclasses for details
@@ -1544,12 +1544,12 @@ classes:
     in_subset:
     - TypeRegistrySubset
     annotations:
-    - pid: 21.T11969/beedb723ef7d35e9443e
-    - formatter_uri_for_rdf_resource: http://vocab.getty.edu/aat/$1
-    - formatter_url_for_web_resource: https://vocab.getty.edu/page/aat/$1
-    - tag: provides
-      value:
-      - SubjectHeadingIdentifier
+      pid: 21.T11969/beedb723ef7d35e9443e
+      formatter_uri_for_rdf_resource: http://vocab.getty.edu/aat/$1
+      formatter_url_for_web_resource: https://vocab.getty.edu/page/aat/$1
+      provides:
+        value:
+        - SubjectHeadingIdentifier
     description: >-
       Getty Thesaurus of Geographic Names ID. Check id slot range
       documentation for examples
@@ -1570,8 +1570,8 @@ classes:
     - literal_form: AVefi
       in_language: default
     annotations:
-    - pid: 21.T11969/ab7fbf47063917f34150
-    - formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
+      pid: 21.T11969/ab7fbf47063917f34150
+      formatter_uri_for_rdf_resource: https://hdl.handle.net/$1
     todos:
     - >-
       Possibly change formatter URIs/URLs to the av-efi.net domain when
@@ -1594,13 +1594,13 @@ classes:
     - literal_form: DOI
       in_language: default
     annotations:
-    - trunk_pid: 21.T11969/3118e53a91b1a64b2d8c
-    - pid: 21.T11969/eba491f4edadbea9133c
-    - formatter_uri_for_rdf_resource: http://dx.doi.org/$1
-    - formatter_url_for_web_resource: https://doi.org/$1
-    - tag: provides
-      value:
-      - ItemIdentifier
+      trunk_pid: 21.T11969/3118e53a91b1a64b2d8c
+      pid: 21.T11969/eba491f4edadbea9133c
+      formatter_uri_for_rdf_resource: http://dx.doi.org/$1
+      formatter_url_for_web_resource: https://doi.org/$1
+      provides:
+        value:
+        - ItemIdentifier
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1623,12 +1623,12 @@ classes:
     - literal_form: EIDR
       in_language: default
     annotations:
-    - pid: 21.T11969/8f381d5d7eec3f90d236
-    - formatter_uri_for_rdf_resource: http://dx.doi.org/$1
-    - formatter_url_for_web_resource: https://doi.org/$1
-    - tag: provides
-      value:
-      - CreativeWorkIdentifier
+      pid: 21.T11969/8f381d5d7eec3f90d236
+      formatter_uri_for_rdf_resource: http://dx.doi.org/$1
+      formatter_url_for_web_resource: https://doi.org/$1
+      provides:
+        value:
+        - CreativeWorkIdentifier
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1652,13 +1652,13 @@ classes:
     in_subset:
     - TypeRegistrySubset
     annotations:
-    - pid: 21.T11969/03890667c65c11066ac2
-    - formatter_uri_for_rdf_resource: https://www.filmportal.de/$1
-    - formatter_uri_for_web_resource: https://www.filmportal.de/$1
-    - tag: provides
-      value:
-      - CreativeWorkIdentifier
-      - PersonIdentifier
+      pid: 21.T11969/03890667c65c11066ac2
+      formatter_uri_for_rdf_resource: https://www.filmportal.de/$1
+      formatter_uri_for_web_resource: https://www.filmportal.de/$1
+      provides:
+        value:
+        - CreativeWorkIdentifier
+        - PersonIdentifier
     description: >-
       Identifier of the German Filmportal.de. Check id slot range
       documentation for examples
@@ -1678,24 +1678,25 @@ classes:
     - literal_form: GND
       in_language: default
     annotations:
-    - pid: 21.T11969/1e67c576c1bdc5229b7a
-    - formatter_uri_for_rdf_resource: https://d-nb.info/gnd/$1
-    - formatter_url_for_web_resource: https://d-nb.info/gnd/$1
-    - tag: provides
-      value:
-      - CreativeWorkIdentifier
-      - PlaceIdentifier
-      - OrganizationIdentifier
-      - PersonIdentifier
-      - SubjectHeadingIdentifier
-    - alternative_web_resource: https://explore.gnd.network/gnd/$1/relations
-    - tag: other_resources
-      value:
-      - https://d-nb.info/gnd/$1/about/lds
-      - https://hub.culturegraph.org/entityfacts/$1
-      - https://lobid.org/gnd/$1
-    notes: >-
-      API documentation including auto-complete suggestions at
+      pid: 21.T11969/1e67c576c1bdc5229b7a
+      formatter_uri_for_rdf_resource: https://d-nb.info/gnd/$1
+      formatter_url_for_web_resource: https://d-nb.info/gnd/$1
+      provides:
+        value:
+        - CreativeWorkIdentifier
+        - PlaceIdentifier
+        - OrganizationIdentifier
+        - PersonIdentifier
+        - SubjectHeadingIdentifier
+      alternative_web_resource: https://explore.gnd.network/gnd/$1/relations
+      other_resources:
+        value:
+        - https://d-nb.info/gnd/$1/about/lds
+        - https://hub.culturegraph.org/entityfacts/$1
+        - https://lobid.org/gnd/$1
+    notes:
+    - >-
+      API documentation including auto-complete suggestions at:
       https://lobid.org/gnd/api
     in_subset:
     - TypeRegistrySubset
@@ -1719,11 +1720,11 @@ classes:
     in_subset:
     - TypeRegistrySubset
     annotations:
-    - pid: 21.T11969/6a4cf32fdb37e46b2a3c
-    - formatter_url_for_web_resource: https://w3id.org/isil/$1
-    - tag: provides
-      value:
-      - OrganizationIdentifier
+      pid: 21.T11969/6a4cf32fdb37e46b2a3c
+      formatter_url_for_web_resource: https://w3id.org/isil/$1
+      provides:
+        value:
+        - OrganizationIdentifier
     description: >-
       International Standard Identifier for Libraries and Related
       Organizations including (film) archives. Check id slot range
@@ -1762,12 +1763,12 @@ classes:
     in_subset:
     - TypeRegistrySubset
     annotations:
-    - pid: 21.T11969/2296a5d6afe67e99fe50
-    - formatter_uri_for_rdf_resource: http://vocab.getty.edu/tgn/$1
-    - formatter_url_for_web_resource: https://vocab.getty.edu/page/tgn/$1
-    - tag: provides
-      value:
-      - PlaceIdentifier
+      pid: 21.T11969/2296a5d6afe67e99fe50
+      formatter_uri_for_rdf_resource: http://vocab.getty.edu/tgn/$1
+      formatter_url_for_web_resource: https://vocab.getty.edu/page/tgn/$1
+      provides:
+        value:
+        - PlaceIdentifier
     description: >-
       Getty Thesaurus of Geographic Names ID. Check id slot range
       documentation for examples
@@ -1790,15 +1791,15 @@ classes:
     in_subset:
     - TypeRegistrySubset
     annotations:
-    - pid: 21.T11969/b149c96db85b995926fa
-    - formatter_uri_for_rdf_resource: http://viaf.org/viaf/$1
-    - formatter_url_for_web_resource: https://viaf.org/viaf/$1
-    - tag: provides
-      value:
-      - CreativeWorkIdentifier
-      - PlaceIdentifier
-      - OrganizationIdentifier
-      - PersonIdentifier
+      pid: 21.T11969/b149c96db85b995926fa
+      formatter_uri_for_rdf_resource: http://viaf.org/viaf/$1
+      formatter_url_for_web_resource: https://viaf.org/viaf/$1
+      provides:
+        value:
+        - CreativeWorkIdentifier
+        - PlaceIdentifier
+        - OrganizationIdentifier
+        - PersonIdentifier
     description: >-
       Virtual International Authority File identifier hosted by OCLC.
       The data is accumulated from various well established authority
@@ -1822,16 +1823,16 @@ classes:
     in_subset:
     - TypeRegistrySubset
     annotations:
-    - pid: 21.T11969/1c463f1c2cf1187356d8
-    - formatter_uri_for_rdf_resource: https://www.wikidata.org/entity/$1
-    - formatter_url_for_web_resource: https://www.wikidata.org/entity/$1
-    - tag: provides
-      value:
-      - CreativeWorkIdentifier
-      - PlaceIdentifier
-      - OrganizationIdentifier
-      - PersonIdentifier
-      - SubjectHeadingIdentifier
+      pid: 21.T11969/1c463f1c2cf1187356d8
+      formatter_uri_for_rdf_resource: https://www.wikidata.org/entity/$1
+      formatter_url_for_web_resource: https://www.wikidata.org/entity/$1
+      provides:
+        value:
+        - CreativeWorkIdentifier
+        - PlaceIdentifier
+        - OrganizationIdentifier
+        - PersonIdentifier
+        - SubjectHeadingIdentifier
     description: >-
       Identifier for Wikidata entities. Check id slot range
       documentation for examples
@@ -2219,7 +2220,7 @@ slots:
     - literal_form: Subject
       in_language: en
     annotations:
-    - pid: 21.T11969/92555879f9ec3adef772
+      pid: 21.T11969/92555879f9ec3adef772
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -2418,7 +2419,7 @@ slots:
     - literal_form: Copy of
       in_language: en
     annotations:
-    - pid: 21.T11969/4e81c9e20d5eba03f957
+      pid: 21.T11969/4e81c9e20d5eba03f957
     in_subset:
     - TypeRegistrySubset
     description: >-

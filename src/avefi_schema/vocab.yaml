@@ -36,7 +36,7 @@ enums:
   AnimationActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/61e2be9e1b10630ec8e9
+      pid: 21.T11969/61e2be9e1b10630ec8e9
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -114,7 +114,7 @@ enums:
   CastActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/1d88fcb750db34510954
+      pid: 21.T11969/1d88fcb750db34510954
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -225,7 +225,7 @@ enums:
   CensorshipActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/a55b2244a730966727aa
+      pid: 21.T11969/a55b2244a730966727aa
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -244,7 +244,7 @@ enums:
   CinematographyActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/458af5774264a3ccf9c3
+      pid: 21.T11969/458af5774264a3ccf9c3
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -413,7 +413,7 @@ enums:
   CopyrightAndDistributionActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/7cd87e9d647087dafec0
+      pid: 21.T11969/7cd87e9d647087dafec0
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -480,7 +480,7 @@ enums:
   DirectingActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/083dae56f6cde77ce583
+      pid: 21.T11969/083dae56f6cde77ce583
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -583,7 +583,7 @@ enums:
   EditingActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/e0cd019d145f9d101dc2
+      pid: 21.T11969/e0cd019d145f9d101dc2
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -610,7 +610,7 @@ enums:
   LaboratoryActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/1538258db2b6a25c5379
+      pid: 21.T11969/1538258db2b6a25c5379
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -653,7 +653,7 @@ enums:
   MusicActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/5b600206f8fe71d25d37
+      pid: 21.T11969/5b600206f8fe71d25d37
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -750,7 +750,7 @@ enums:
   ProducingActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/9123ce5d44a449bd2278
+      pid: 21.T11969/9123ce5d44a449bd2278
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -925,7 +925,7 @@ enums:
   ProductionDesignActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/bf3997a3ff24f8d29303
+      pid: 21.T11969/bf3997a3ff24f8d29303
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1104,7 +1104,7 @@ enums:
   PuppetActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/37382208913a6c275b78
+      pid: 21.T11969/37382208913a6c275b78
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1123,7 +1123,7 @@ enums:
   SoundActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/e7497835c893138c19ab
+      pid: 21.T11969/e7497835c893138c19ab
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1238,7 +1238,7 @@ enums:
   SpecialEffectsActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/801bee31032d15d2f571
+      pid: 21.T11969/801bee31032d15d2f571
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1343,7 +1343,7 @@ enums:
   WritingActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/d149897ada5f9021f746
+      pid: 21.T11969/d149897ada5f9021f746
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1456,7 +1456,7 @@ enums:
   ManifestationActivityTypeEnum:
     rank: 8
     annotations:
-    - pid: 21.T11969/abc03a90a8cf85e73e13
+      pid: 21.T11969/abc03a90a8cf85e73e13
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1564,7 +1564,7 @@ enums:
   AgentTypeEnum:
     rank: 9
     annotations:
-    - pid: 21.T11969/614549885f28fd7cc7d4
+      pid: 21.T11969/614549885f28fd7cc7d4
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1600,7 +1600,7 @@ enums:
   ColourTypeEnum:
     rank: 27
     annotations:
-    - pid: 21.T11969/b17efd56d34519fa67a3
+      pid: 21.T11969/b17efd56d34519fa67a3
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1672,7 +1672,7 @@ enums:
   ManufactureEventTypeEnum:
     rank: 6
     annotations:
-    - pid: 21.T11969/d54c8c46962fa1283c3a
+      pid: 21.T11969/d54c8c46962fa1283c3a
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1724,7 +1724,7 @@ enums:
   PreservationEventTypeEnum:
     rank: 6
     annotations:
-    - pid: 21.T11969/836d2902fc70ee1d2910
+      pid: 21.T11969/836d2902fc70ee1d2910
     in_subset:
     - TypeRegistrySubset
     description: FIAF Moving Image Cataloguing Manual D.4.5
@@ -1770,7 +1770,7 @@ enums:
   ProductionEventTypeEnum:
     rank: 6
     annotations:
-    - pid: 21.T11969/a16699f403889c81ead6
+      pid: 21.T11969/a16699f403889c81ead6
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1811,7 +1811,7 @@ enums:
   PublicationEventTypeEnum:
     rank: 6
     annotations:
-    - pid: 21.T11969/a4432183d8be13f07165
+      pid: 21.T11969/a4432183d8be13f07165
     in_subset:
     - TypeRegistrySubset
     description: FIAF Moving Image Cataloguing Manual D.4.1, D.10
@@ -1898,7 +1898,7 @@ enums:
   FormatAudioTypeEnum:
     rank: 23
     annotations:
-    - pid: 21.T11969/d614671ddf5e05aaab7b
+      pid: 21.T11969/d614671ddf5e05aaab7b
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -1970,7 +1970,7 @@ enums:
   FormatDigitalFileEncodingTypeEnum:
     rank: 23
     annotations:
-    - pid: 21.T11969/dd216ee55711022b4d1d
+      pid: 21.T11969/dd216ee55711022b4d1d
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -2016,7 +2016,7 @@ enums:
   FormatDigitalFileTypeEnum:
     rank: 23
     annotations:
-    - pid: 21.T11969/09dda04c687ff41172a6
+      pid: 21.T11969/09dda04c687ff41172a6
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -2070,7 +2070,7 @@ enums:
   FormatFilmTypeEnum:
     rank: 23
     annotations:
-    - pid: 21.T11969/013c4b81eb8089f08375
+      pid: 21.T11969/013c4b81eb8089f08375
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -2132,7 +2132,7 @@ enums:
   FormatOpticalTypeEnum:
     rank: 23
     annotations:
-    - pid: 21.T11969/0a72ae83d2a0f903ea67
+      pid: 21.T11969/0a72ae83d2a0f903ea67
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -2166,7 +2166,7 @@ enums:
   FormatVideoTypeEnum:
     rank: 23
     annotations:
-    - pid: 21.T11969/73b565be27200fe2a2c6
+      pid: 21.T11969/73b565be27200fe2a2c6
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -2276,7 +2276,7 @@ enums:
   FrameRateEnum:
     rank: 36
     annotations:
-    - pid: 21.T11969/b5f58314836c2183e8f3
+      pid: 21.T11969/b5f58314836c2183e8f3
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -2349,7 +2349,7 @@ enums:
   ItemAccessStatusEnum:
     rank: 36
     annotations:
-    - pid: 21.T11969/bbff00bbccc0a31e4293
+      pid: 21.T11969/bbff00bbccc0a31e4293
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -2394,7 +2394,7 @@ enums:
   ItemElementTypeEnum:
     rank: 33
     annotations:
-    - pid: 21.T11969/64bb51c89cfafc917b00
+      pid: 21.T11969/64bb51c89cfafc917b00
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -2522,7 +2522,7 @@ enums:
   LanguageCodeEnum:
     rank: 12
     annotations:
-    - pid: 21.T11969/8c58342ed02a2fdbc319
+      pid: 21.T11969/8c58342ed02a2fdbc319
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -2676,8 +2676,8 @@ enums:
         structured_aliases:
         - literal_form: Aramäisch
           in_language: de
-        - literal_form: Official Aramaic (700-300 BCE) |  Imperial Aramaic (700-300
-            BCE)
+        - literal_form: Official Aramaic (700-300 BCE) |  Imperial Aramaic 
+            (700-300 BCE)
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/arc
       arg:
@@ -3117,8 +3117,8 @@ enums:
         structured_aliases:
         - literal_form: Kirchenslawisch
           in_language: de
-        - literal_form: Church Slavic |  Old Slavonic |  Church Slavonic |  Old Bulgarian
-            |  Old Church Slavonic
+        - literal_form: Church Slavic |  Old Slavonic |  Church Slavonic |  Old 
+            Bulgarian |  Old Church Slavonic
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/chu
       chv:
@@ -3861,7 +3861,8 @@ enums:
         structured_aliases:
         - literal_form: Interlingua
           in_language: de
-        - literal_form: Interlingua (International Auxiliary Language Association)
+        - literal_form: Interlingua (International Auxiliary Language 
+            Association)
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/ina
       inc:
@@ -5856,7 +5857,7 @@ enums:
   LanguageUsageEnum:
     rank: 12
     annotations:
-    - pid: 21.T11969/1dd8645fa2ae920f230a
+      pid: 21.T11969/1dd8645fa2ae920f230a
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -5977,7 +5978,7 @@ enums:
   PrecisionEnum:
     rank: 26
     annotations:
-    - pid: 21.T11969/6893bdbf9eaf7ffa3257
+      pid: 21.T11969/6893bdbf9eaf7ffa3257
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -6006,7 +6007,7 @@ enums:
   SoundTypeEnum:
     rank: 27
     annotations:
-    - pid: 21.T11969/1df9ffbf2e16785bb54d
+      pid: 21.T11969/1df9ffbf2e16785bb54d
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -6080,7 +6081,7 @@ enums:
   TitleTypeEnum:
     rank: 2
     annotations:
-    - pid: 21.T11969/3c385b4617432a0b28ed
+      pid: 21.T11969/3c385b4617432a0b28ed
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -6194,7 +6195,7 @@ enums:
   UnitEnum:
     rank: 26
     annotations:
-    - pid: 21.T11969/9b576f3e1ddac38b56f8
+      pid: 21.T11969/9b576f3e1ddac38b56f8
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -6253,7 +6254,7 @@ enums:
   VariantTypeEnum:
     rank: 18
     annotations:
-    - pid: 21.T11969/d22e19770077fc78a6f6
+      pid: 21.T11969/d22e19770077fc78a6f6
     in_subset:
     - TypeRegistrySubset
     description: FIAF Moving Image Cataloguing Manual D.2
@@ -6276,8 +6277,8 @@ enums:
         meaning: fiaf:Augmented
       BlackAndWhiteCopyOfWorkOriginallyIssuedInColour:
         structured_aliases:
-        - literal_form: Schwarzweißkopie eines Werks, das im Original in Farbe ausgegeben
-            wurde
+        - literal_form: Schwarzweißkopie eines Werks, das im Original in Farbe 
+            ausgegeben wurde
           in_language: de
         - literal_form: Black and white copy of work originally issued in colour
           in_language: en
@@ -6343,7 +6344,7 @@ enums:
   WorkVariantTypeEnum:
     rank: 1
     annotations:
-    - pid: 21.T11969/d0a3e7f81a9885e99049
+      pid: 21.T11969/d0a3e7f81a9885e99049
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -6397,7 +6398,7 @@ enums:
   WorkFormEnum:
     rank: 14
     annotations:
-    - pid: 21.T11969/3bf743031ba50f01e936
+      pid: 21.T11969/3bf743031ba50f01e936
     in_subset:
     - TypeRegistrySubset
     description: >-
@@ -6427,8 +6428,7 @@ enums:
           in_language: de
         - literal_form: Documentary
           in_language: en
-        description:
-          https://d-nb.info/gnd/4012653-5
+        description: https://d-nb.info/gnd/4012653-5
       Excerpt:
         structured_aliases:
         - literal_form: Filmausschnitt
