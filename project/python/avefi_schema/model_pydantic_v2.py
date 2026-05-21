@@ -332,8 +332,7 @@ linkml_meta = LinkMLMeta({'default_curi_maps': ['semweb_context'],
                'ISODateTimeUTC': {'annotations': {'pid': {'tag': 'pid',
                                                           'value': '21.T11969/27064b567b4f9f7017ae'}},
                                   'description': 'Timestamp in UTC',
-                                  'examples': [{'value': '2024-04-24 '
-                                                         '16:36:14+00:00'}],
+                                  'examples': [{'value': '2024-04-24T16:36:14Z'}],
                                   'from_schema': 'https://www.av-efi.net/av-efi-schema/model',
                                   'in_subset': ['TypeRegistrySubset'],
                                   'name': 'ISODateTimeUTC',
@@ -4665,7 +4664,7 @@ class GNDResource(AuthorityResource):
                                                 'SubjectHeadingIdentifier']}},
          'from_schema': 'https://www.av-efi.net/av-efi-schema/model',
          'in_subset': ['TypeRegistrySubset'],
-         'notes': ['API documentation including auto-complete suggestions at '
+         'notes': ['API documentation including auto-complete suggestions at: '
                    'https://lobid.org/gnd/api'],
          'rank': 51,
          'see_also': ['https://www.wikidata.org/entity/P227'],
