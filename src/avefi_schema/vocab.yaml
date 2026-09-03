@@ -2506,7 +2506,7 @@ enums:
         meaning: fiaf:Positive
       SoundNegative:
         structured_aliases:
-        - literal_form: Soundpositiv
+        - literal_form: Tonnegativ
           in_language: de
         - literal_form: Sound Negative
           in_language: en
@@ -6222,7 +6222,7 @@ enums:
         meaning: unit:GigaBYTE
       KiloByte:
         structured_aliases:
-        - literal_form: GigaByte
+        - literal_form: KiloByte
           in_language: default
         description: >-
           Unit for digital information equivalent to 1000 bytes
