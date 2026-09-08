@@ -2486,7 +2486,6 @@ enums:
           in_language: de
         - literal_form: Lavender
           in_language: en
-          in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:Lavender
       OriginalNegative:
