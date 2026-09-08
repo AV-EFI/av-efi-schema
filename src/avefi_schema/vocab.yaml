@@ -2418,14 +2418,18 @@ enums:
         meaning: fiaf:ColourPositive
       CopperTonedPositive:
         structured_aliases:
+        - literal_form: Kupfergetontes Positiv
+          in_language: de
         - literal_form: Copper Toned Positive
-          in_language: default
+          in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:CopperTonedPositive
       CyanMatrix:
         structured_aliases:
+        - literal_form: Cyan-Matrix
+          in_language: de
         - literal_form: Cyan Matrix
-          in_language: default
+          in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:CyanMatrix
       DCDM:
@@ -2440,8 +2444,10 @@ enums:
         meaning: fiaf:DCP
       DirectBWPositive:
         structured_aliases:
+        - literal_form: Direktes SW Positiv
+          in_language: de
         - literal_form: Direct BW Positive
-          in_language: default
+          in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:DirectBWPositive
       DuplicateNegative:
@@ -2476,7 +2482,10 @@ enums:
         meaning: fiaf:ImageNegative
       Lavender:
         structured_aliases:
+        - literal_form: Lavendel
+          in_language: de
         - literal_form: Lavender
+          in_language: en
           in_language: default
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:Lavender
@@ -2490,7 +2499,7 @@ enums:
         meaning: fiaf:OriginalNegative
       OriginalPositiveReversalFilm:
         structured_aliases:
-        - literal_form: Originalpositiv (Dia)
+        - literal_form: Originalpositiv (Umkehrfilm)
           in_language: de
         - literal_form: Original Positive (reversal film)
           in_language: en
@@ -5968,10 +5977,8 @@ enums:
         meaning: fiaf:SungLanguage
       VoiceOver:
         structured_aliases:
-        - literal_form: Voiceover
-          in_language: de
         - literal_form: Voice-over
-          in_language: en
+          in_language: default
         todos:
         - Add documentation
 
@@ -6097,7 +6104,7 @@ enums:
         meaning: fiaf:AbbreviatedTitle
       AcquisitionTitle:
         structured_aliases:
-        - literal_form: Erwerbstitel
+        - literal_form: Übernahmetitel
           in_language: de
         - literal_form: Acquisition Title
           in_language: en
@@ -6153,7 +6160,7 @@ enums:
         meaning: fiaf:SeriesTitle
       SuppliedDevisedTitle:
         structured_aliases:
-        - literal_form: Gelieferter/Entworfener Titel
+        - literal_form: Archivtitel
           in_language: de
         - literal_form: Supplied/Devised Title
           in_language: en
@@ -6161,10 +6168,8 @@ enums:
         meaning: fiaf:SuppliedDevisedTitle
       TitleProper:
         structured_aliases:
-        - literal_form: Haupttitel
-          in_language: de
         - literal_form: Title Proper
-          in_language: en
+          in_language: default
         description: FIAF Moving Image Cataloguing Manual A.2.2
         meaning: fiaf:TitleProper
       TranslatedTitle:
@@ -6177,7 +6182,7 @@ enums:
         meaning: fiaf:TranslatedTitle
       TransliteratedTitle:
         structured_aliases:
-        - literal_form: Transkribierter Titel
+        - literal_form: Transliterierter Titel
           in_language: de
         - literal_form: Transliterated Title
           in_language: en
@@ -6261,7 +6266,7 @@ enums:
     permissible_values:
       AbridgedCondensed:
         structured_aliases:
-        - literal_form: Gekürzt/Zusammengefasst
+        - literal_form: Gekürzt
           in_language: de
         - literal_form: Abridged/Condensed
           in_language: en
@@ -6277,8 +6282,7 @@ enums:
         meaning: fiaf:Augmented
       BlackAndWhiteCopyOfWorkOriginallyIssuedInColour:
         structured_aliases:
-        - literal_form: Schwarzweißkopie eines Werks, das im Original in Farbe 
-            ausgegeben wurde
+        - literal_form: Schwarz-Weiß-Kopie eines ursprünglich in Farbe erschienenen Werks
           in_language: de
         - literal_form: Black and white copy of work originally issued in colour
           in_language: en
@@ -6302,7 +6306,7 @@ enums:
         meaning: fiaf:Colourized
       DifferentSoundTrack:
         structured_aliases:
-        - literal_form: Anderer Soundtrack
+        - literal_form: Andere Tonspur
           in_language: de
         - literal_form: Different sound track
           in_language: en
@@ -6318,7 +6322,7 @@ enums:
         meaning: fiaf:Dubbed
       PreservationRestoration:
         structured_aliases:
-        - literal_form: Präservierung/Restaurierung
+        - literal_form: Sicherung/Restaurierung
           in_language: de
         - literal_form: Preservation/Restoration
           in_language: en
@@ -6326,7 +6330,7 @@ enums:
         meaning: fiaf:PreservationRestoration
       Sonorized:
         structured_aliases:
-        - literal_form: Sonorisierung
+        - literal_form: Vertont
           in_language: de
         - literal_form: Sonorized
           in_language: en
@@ -6449,10 +6453,8 @@ enums:
           FIAF Glossary of Filmographic Terms D.1.2
       Featurette:
         structured_aliases:
-        - literal_form: Kurzfilm über Filmherstellung
-          in_language: de
         - literal_form: Featurette
-          in_language: en
+          in_language: default
         meaning: fiaf:Featurette
         description: >-
           FIAF Glossary of Filmographic Terms D.1.8
@@ -6465,8 +6467,10 @@ enums:
         description: https://d-nb.info/gnd/1286825091
       HomeMovie:
         structured_aliases:
+        - literal_form: Heimvideo
+          in_language: de
         - literal_form: Home Movie
-          in_language: default
+          in_language: en
         meaning: fiaf:HomeMovie
         description: >-
           FIAF Glossary of Filmographic Terms D.1.10
@@ -6539,7 +6543,7 @@ enums:
           FIAF Moving Image Cataloguing Manual E.2.2
       Commercial:
         structured_aliases:
-        - literal_form: Werbung
+        - literal_form: Werbespot
           in_language: de
         - literal_form: Commercial
           in_language: en
