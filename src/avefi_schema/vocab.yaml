@@ -6219,14 +6219,14 @@ enums:
         meaning: unit:FT
       GigaByte:
         structured_aliases:
-        - literal_form: GigaByte
+        - literal_form: Gigabyte
           in_language: default
         description: >-
           Unit for digital information equivalent to 1000 megabytes
         meaning: unit:GigaBYTE
       KiloByte:
         structured_aliases:
-        - literal_form: KiloByte
+        - literal_form: Kilobyte
           in_language: default
         description: >-
           Unit for digital information equivalent to 1000 bytes
@@ -6242,14 +6242,14 @@ enums:
         meaning: unit:M
       MegaByte:
         structured_aliases:
-        - literal_form: MegaByte
+        - literal_form: Megabyte
           in_language: default
         description: >-
           Unit for digital information equivalent to 1000 kilobytes
         meaning: unit:MegaBYTE
       TeraByte:
         structured_aliases:
-        - literal_form: TeraByte
+        - literal_form: Terabyte
           in_language: default
         description: >-
           Unit for digital information equivalent to 1000 gigabytes
