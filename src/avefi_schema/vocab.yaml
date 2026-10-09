@@ -6208,6 +6208,12 @@ enums:
     see_also:
     - https://www.qudt.org/doc/DOC_VOCAB-UNITS.html
     permissible_values:
+      Byte:
+        structured_aliases:
+        - literal_form: Byte
+          in_language: default
+        description: >-
+          Unit for digital information
       Feet:
         structured_aliases:
         - literal_form: Fuß
