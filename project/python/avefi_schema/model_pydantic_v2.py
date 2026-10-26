@@ -32,7 +32,7 @@ from pydantic import (
 )
 
 
-metamodel_version = "1.7.0"
+metamodel_version = "1.12.0"
 version = "None"
 
 
@@ -60,7 +60,7 @@ class ConfiguredBaseModel(BaseModel):
                     setattr(_instance, field, None)
         else:
             _instance = self
-        return handler(_instance, info)
+        return handler(_instance)
 
 
 
@@ -2381,6 +2381,10 @@ class UnitEnum(str, Enum):
     """
     Units of measurement. Definitions are taken from the Quantities, Units, Dimensions and Data Types Ontologies (QUDT)
     """
+    Byte = "Byte"
+    """
+    Unit for digital information
+    """
     Feet = "Feet"
     """
     Unit of length defined as being 0.3048 metres
@@ -2609,16 +2613,16 @@ class MovingImageRecord(CategorizedThing):
     has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 3} })
-    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
+    has_event: Optional[list[Union[ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 6} })
-    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    has_identifier: Optional[list[Union[AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
     has_primary_title: Optional[Title] = Field(default=None, description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 2,
          'structured_aliases': [{'in_language': 'de', 'literal_form': 'Titel'},
                                 {'in_language': 'en', 'literal_form': 'Title'}]} })
-    same_as: Optional[list[Union[AuthorityResource,MovingImageResource,AATResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord',
+    same_as: Optional[list[Union[AATResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord',
                        'GeographicName',
                        'Genre',
                        'Subject',
@@ -2714,8 +2718,8 @@ class WorkVariant(MovingImageRecord):
          'rank': 14,
          'structured_aliases': [{'in_language': 'de', 'literal_form': 'Schlagwort'},
                                 {'in_language': 'en', 'literal_form': 'Subject'}]} })
-    is_part_of: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant'], 'in_subset': ['TypeRegistrySubset'], 'rank': 17} })
-    is_variant_of: Optional[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(default=None, description="""Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant'],
+    is_part_of: Optional[list[Union[AVefiResource,LocalResource]]] = Field(default=[], description="""Relate, for instance, episodes to a series / serial. See also: FIAF Moving Image Cataloguing Manual D.17""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant'], 'in_subset': ['TypeRegistrySubset'], 'rank': 17} })
+    is_variant_of: Optional[Union[AVefiResource,LocalResource]] = Field(default=None, description="""Link to the reference WorkVariant for the currently described variant. See also: FIAF Moving Image Cataloguing Manual 1.0.2, 1.1.2, 1.4.5""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkVariant'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 18,
          'structured_aliases': [{'in_language': 'de', 'literal_form': 'Variante von'},
@@ -2744,10 +2748,10 @@ class WorkVariant(MovingImageRecord):
     has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 3} })
-    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
+    has_event: Optional[list[Union[ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 6} })
-    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    has_identifier: Optional[list[Union[AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
     has_primary_title: Title = Field(default=..., description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 2,
@@ -3547,7 +3551,7 @@ class Event(CategorizedThing):
          'from_schema': 'https://www.av-efi.net/av-efi-schema/model',
          'rank': 15})
 
-    has_activity: Optional[list[Union[Activity,AnimationActivity,CastActivity,CensorshipActivity,CinematographyActivity,CopyrightAndDistributionActivity,DirectingActivity,EditingActivity,LaboratoryActivity,MusicActivity,ProducingActivity,ProductionDesignActivity,PuppetActivity,SoundActivity,SpecialEffectsActivity,WritingActivity,ManifestationActivity]]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'], 'in_subset': ['TypeRegistrySubset'], 'rank': 8} })
+    has_activity: Optional[list[Union[AnimationActivity,CastActivity,CensorshipActivity,CinematographyActivity,CopyrightAndDistributionActivity,DirectingActivity,EditingActivity,LaboratoryActivity,MusicActivity,ProducingActivity,ProductionDesignActivity,PuppetActivity,SoundActivity,SpecialEffectsActivity,WritingActivity,ManifestationActivity]]] = Field(default=[], description="""Associate activity (and subsequently agents) with event""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'], 'in_subset': ['TypeRegistrySubset'], 'rank': 8} })
     has_date: Optional[str] = Field(default=None, description="""Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details""", json_schema_extra = { "linkml_meta": {'domain_of': ['Event'],
          'in_subset': ['TypeRegistrySubset'],
          'notes': ['https://www.w3.org/TR/xmlschema11-2/#date'],
@@ -3896,16 +3900,16 @@ class ManifestationOrItem(MovingImageRecord):
     has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 3} })
-    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
+    has_event: Optional[list[Union[ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 6} })
-    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    has_identifier: Optional[list[Union[AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
     has_primary_title: Optional[Title] = Field(default=None, description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 2,
          'structured_aliases': [{'in_language': 'de', 'literal_form': 'Titel'},
                                 {'in_language': 'en', 'literal_form': 'Title'}]} })
-    same_as: Optional[list[Union[AuthorityResource,MovingImageResource,AATResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord',
+    same_as: Optional[list[Union[AATResource,DOIResource,EIDRResource,FilmportalResource,GNDResource,ISILResource,TGNResource,VIAFResource,WikidataResource,AVefiResource,LocalResource]]] = Field(default=[], description="""See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord',
                        'GeographicName',
                        'Genre',
                        'Subject',
@@ -4221,10 +4225,10 @@ class Manifestation(ManifestationOrItem):
          'structured_aliases': [{'in_language': 'default',
                                  'literal_form': 'Manifestation'}]})
 
-    has_item: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Indicate AVefi Items the institution has registered as part of the manifestation""", json_schema_extra = { "linkml_meta": {'domain_of': ['Manifestation'],
+    has_item: Optional[list[Union[AVefiResource,LocalResource]]] = Field(default=[], description="""Indicate AVefi Items the institution has registered as part of the manifestation""", json_schema_extra = { "linkml_meta": {'domain_of': ['Manifestation'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 22} })
-    is_manifestation_of: list[Union[MovingImageResource,AVefiResource,LocalResource]] = Field(default=..., description="""Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation""", json_schema_extra = { "linkml_meta": {'domain_of': ['Manifestation'],
+    is_manifestation_of: list[Union[AVefiResource,LocalResource]] = Field(default=..., description="""Indicate AVefi WorkVariant (possibly more but no less than one) that is subject of the manifestation""", json_schema_extra = { "linkml_meta": {'domain_of': ['Manifestation'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 21} })
     has_note: Optional[list[str]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual Appendix B""", json_schema_extra = { "linkml_meta": {'domain_of': ['ManifestationOrItem'],
@@ -4243,16 +4247,16 @@ class Manifestation(ManifestationOrItem):
     has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 3} })
-    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
+    has_event: Optional[list[Union[ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 6} })
-    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    has_identifier: Optional[list[Union[AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
     has_primary_title: Optional[Title] = Field(default=None, description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 2,
          'structured_aliases': [{'in_language': 'de', 'literal_form': 'Titel'},
                                 {'in_language': 'en', 'literal_form': 'Title'}]} })
-    same_as: Optional[list[Union[EIDRResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=[], description="""Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
+    same_as: Optional[list[Union[EIDRResource, Union[AVefiResource,LocalResource]]]] = Field(default=[], description="""Link to AVefi resource registered by another data provider indicating that the two manifestations are known to be the same. Use this, for instance, when you have cooperated in making a digital restoration of some film work""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/3b99e7540cf4f5f55cac'}},
          'any_of': [{'range': 'MovingImageResource'}, {'range': 'EIDRResource'}],
          'domain_of': ['MovingImageRecord',
@@ -4341,7 +4345,7 @@ class Item(ManifestationOrItem):
          'rank': 24,
          'structured_aliases': [{'in_language': 'de', 'literal_form': 'Länge / Größe'},
                                 {'in_language': 'en', 'literal_form': 'Extent'}]} })
-    has_format: Optional[list[Union[Format,Audio,DigitalFile,DigitalFileEncoding,Film,Optical,Video]]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
+    has_format: Optional[list[Union[Audio,DigitalFile,DigitalFileEncoding,Film,Optical,Video]]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 23,
          'structured_aliases': [{'in_language': 'default', 'literal_form': 'Format'}]} })
@@ -4361,7 +4365,7 @@ class Item(ManifestationOrItem):
          'related_mappings': ['fiaf:hasLanguage', 'schema:inLanguage'],
          'structured_aliases': [{'in_language': 'de', 'literal_form': 'Sprache'},
                                 {'in_language': 'en', 'literal_form': 'Language'}]} })
-    is_copy_of: Optional[list[Union[DOIResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=[], description="""Link to AVefi item registered by another institution indicating that the two are known to be copies of each other""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
+    is_copy_of: Optional[list[Union[DOIResource, Union[AVefiResource,LocalResource]]]] = Field(default=[], description="""Link to AVefi item registered by another institution indicating that the two are known to be copies of each other""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/4e81c9e20d5eba03f957'}},
          'any_of': [{'range': 'DOIResource'}, {'range': 'MovingImageResource'}],
          'domain_of': ['Item'],
@@ -4369,12 +4373,12 @@ class Item(ManifestationOrItem):
          'rank': 39,
          'structured_aliases': [{'in_language': 'de', 'literal_form': 'Kopie von'},
                                 {'in_language': 'en', 'literal_form': 'Copy of'}]} })
-    is_derivative_of: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
+    is_derivative_of: Optional[list[Union[AVefiResource,LocalResource]]] = Field(default=[], description="""Link to AVefi item from which this one has been derived in whole or in part, e.g. as a result of a restoration or digitasation project""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 39,
          'structured_aliases': [{'in_language': 'de', 'literal_form': 'Abgeleitet von'},
                                 {'in_language': 'en', 'literal_form': 'Derived from'}]} })
-    is_item_of: Union[MovingImageResource,AVefiResource,LocalResource] = Field(default=..., description="""Indicate AVefi Manifestation the item belongs to. Every item must be associated with a manifestation from the same data provider""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'], 'in_subset': ['TypeRegistrySubset'], 'rank': 31} })
+    is_item_of: Union[AVefiResource,LocalResource] = Field(default=..., description="""Indicate AVefi Manifestation the item belongs to. Every item must be associated with a manifestation from the same data provider""", json_schema_extra = { "linkml_meta": {'domain_of': ['Item'], 'in_subset': ['TypeRegistrySubset'], 'rank': 31} })
     has_note: Optional[list[str]] = Field(default=[], description="""FIAF Moving Image Cataloguing Manual Appendix B""", json_schema_extra = { "linkml_meta": {'domain_of': ['ManifestationOrItem'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 29} })
@@ -4391,16 +4395,16 @@ class Item(ManifestationOrItem):
     has_alternative_title: Optional[list[Title]] = Field(default=[], description="""Additional title(s) associated with the work / variant, manifestation, or item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 3} })
-    has_event: Optional[list[Union[Event,ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
+    has_event: Optional[list[Union[ProductionEvent,PreservationEvent,PublicationEvent,ManufactureEvent,RightsCopyrightRegistrationEvent]]] = Field(default=[], description="""Associate event(s) with a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 6} })
-    has_identifier: Optional[list[Union[MovingImageResource,AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
+    has_identifier: Optional[list[Union[AVefiResource,LocalResource]]] = Field(default=[], description="""Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'], 'rank': 5} })
     has_primary_title: Optional[Title] = Field(default=None, description="""Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecord'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 2,
          'structured_aliases': [{'in_language': 'de', 'literal_form': 'Titel'},
                                 {'in_language': 'en', 'literal_form': 'Title'}]} })
-    same_as: Optional[list[Union[DOIResource, Union[MovingImageResource,AVefiResource,LocalResource]]]] = Field(default=[], description="""Another identifier for the same item, e.g. a DOI. Can also be used to link to another AVefi record describing the same item, e.g. when it has changed hands and the new custodian registers its own record for the item""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
+    same_as: Optional[list[Union[DOIResource, Union[AVefiResource,LocalResource]]]] = Field(default=[], description="""Another identifier for the same item, e.g. a DOI. Can also be used to link to another AVefi record describing the same item, e.g. when it has changed hands and the new custodian registers its own record for the item""", json_schema_extra = { "linkml_meta": {'annotations': {'pid': {'tag': 'pid',
                                  'value': '21.T11969/b4df5cbef35756648e4d'}},
          'any_of': [{'range': 'MovingImageResource'}, {'range': 'DOIResource'}],
          'domain_of': ['MovingImageRecord',
@@ -4428,7 +4432,7 @@ class MovingImageRecordContainer(ConfiguredBaseModel):
          'rank': 100,
          'tree_root': True})
 
-    has_record: Union[MovingImageRecord,WorkVariant,ManifestationOrItem,Manifestation,Item] = Field(default=..., description="""Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecordContainer'],
+    has_record: Union[WorkVariant,Manifestation,Item] = Field(default=..., description="""Root slot holding the moving image metadata record, i.e. metadata describing a work/variant, manifestation or item. See also the Introduction of the FIAF Moving Image Cataloguing Manual""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecordContainer'],
          'in_subset': ['TypeRegistrySubset'],
          'rank': 1} })
     URL: Optional[str] = Field(default=None, description="""URL specifying the destination where clients should be redirected to when resolving the PID of a moving image record""", json_schema_extra = { "linkml_meta": {'domain_of': ['MovingImageRecordContainer'],

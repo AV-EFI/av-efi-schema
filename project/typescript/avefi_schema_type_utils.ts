@@ -1326,6 +1326,8 @@ export enum TitleTypeEnum {
 */
 export enum UnitEnum {
     
+    /** Unit for digital information */
+    Byte = "Byte",
     /** Unit of length defined as being 0.3048 metres */
     Feet = "Feet",
     /** Unit for digital information equivalent to 1000 megabytes */

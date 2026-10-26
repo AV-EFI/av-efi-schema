@@ -1,5 +1,4 @@
 # Auto generated from model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-21T09:31:55
 # Schema: model
 #
 # id: https://www.av-efi.net/av-efi-schema/model
@@ -67,7 +66,7 @@ from rdflib import (
 from linkml_runtime.linkml_model.types import Datetime, Decimal, String, Uri, Uriorcurie
 from linkml_runtime.utils.metamodelcore import Decimal, URI, URIorCURIE, XSDDateTime
 
-metamodel_version = "1.7.0"
+metamodel_version = "1.12.0"
 version = None
 
 # Namespaces
@@ -259,7 +258,7 @@ class CategorizedThing(YAMLRoot):
     category: Optional[Union[str, AVefiCurie]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
         super().__post_init__(**kwargs)
 
@@ -328,7 +327,7 @@ class MovingImageRecord(CategorizedThing):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -433,7 +432,7 @@ class WorkVariant(MovingImageRecord):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -469,7 +468,7 @@ class GeographicName(CategorizedThing):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -538,7 +537,7 @@ class Subject(CategorizedThing):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -569,7 +568,7 @@ class Activity(CategorizedThing):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -596,7 +595,7 @@ class AnimationActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -623,7 +622,7 @@ class CastActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -650,7 +649,7 @@ class CensorshipActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -677,7 +676,7 @@ class CinematographyActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -704,7 +703,7 @@ class CopyrightAndDistributionActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -731,7 +730,7 @@ class DirectingActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -758,7 +757,7 @@ class EditingActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -785,7 +784,7 @@ class LaboratoryActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -812,7 +811,7 @@ class MusicActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -839,7 +838,7 @@ class ProducingActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -866,7 +865,7 @@ class ProductionDesignActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -893,7 +892,7 @@ class PuppetActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -920,7 +919,7 @@ class SoundActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -947,7 +946,7 @@ class SpecialEffectsActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -974,7 +973,7 @@ class WritingActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1001,7 +1000,7 @@ class ManifestationActivity(Activity):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1040,7 +1039,7 @@ class Agent(CategorizedThing):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1074,7 +1073,7 @@ class Event(CategorizedThing):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1104,7 +1103,7 @@ class ProductionEvent(Event):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1135,7 +1134,7 @@ class PreservationEvent(Event):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1167,7 +1166,7 @@ class PublicationEvent(Event):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1196,7 +1195,7 @@ class ManufactureEvent(Event):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1224,7 +1223,7 @@ class RightsCopyrightRegistrationEvent(Event):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1287,7 +1286,7 @@ class ManifestationOrItem(MovingImageRecord):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1372,7 +1371,7 @@ class Format(CategorizedThing):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1396,7 +1395,7 @@ class Audio(Format):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1420,7 +1419,7 @@ class DigitalFile(Format):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1444,7 +1443,7 @@ class DigitalFileEncoding(Format):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1468,7 +1467,7 @@ class Film(Format):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1492,7 +1491,7 @@ class Optical(Format):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1516,7 +1515,7 @@ class Video(Format):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1548,7 +1547,7 @@ class Manifestation(ManifestationOrItem):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1648,7 +1647,7 @@ class Item(ManifestationOrItem):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1701,7 +1700,7 @@ class AuthorityResource(CategorizedThing):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1723,7 +1722,7 @@ class MovingImageResource(AuthorityResource):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1749,7 +1748,7 @@ class AATResource(AuthorityResource):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1775,7 +1774,7 @@ class AVefiResource(MovingImageResource):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1802,7 +1801,7 @@ class DOIResource(AuthorityResource):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1828,7 +1827,7 @@ class EIDRResource(AuthorityResource):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1854,7 +1853,7 @@ class FilmportalResource(AuthorityResource):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1880,7 +1879,7 @@ class GNDResource(AuthorityResource):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1907,7 +1906,7 @@ class ISILResource(AuthorityResource):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1930,7 +1929,7 @@ class LocalResource(MovingImageResource):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1956,7 +1955,7 @@ class TGNResource(AuthorityResource):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -1983,7 +1982,7 @@ class VIAFResource(AuthorityResource):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 @dataclass(repr=False)
@@ -2009,7 +2008,7 @@ class WikidataResource(AuthorityResource):
         super().__post_init__(**kwargs)
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        self.category = str(self.class_class_curie)
+        self.category = str(self.class_class_curie if self.class_class_curie is not None else self.class_class_uri)
 
 
 # Enumerations
@@ -5081,6 +5080,9 @@ class UnitEnum(EnumDefinitionImpl):
     """
     Units of measurement. Definitions are taken from the Quantities, Units, Dimensions and Data Types Ontologies (QUDT)
     """
+    Byte = PermissibleValue(
+        text="Byte",
+        description="Unit for digital information")
     Feet = PermissibleValue(
         text="Feet",
         description="Unit of length defined as being 0.3048 metres",

@@ -7,7 +7,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:AATResource"
+                        "avefi:AATResource",
+                        "https://www.av-efi.net/av-efi-schema/AATResource"
                     ],
                     "type": "string"
                 },
@@ -31,7 +32,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:AVefiResource"
+                        "avefi:AVefiResource",
+                        "https://www.av-efi.net/av-efi-schema/AVefiResource"
                     ],
                     "type": "string"
                 },
@@ -48,6 +50,39 @@
             "title": "AVefiResource",
             "type": "object"
         },
+        "Activity": {
+            "additionalProperties": false,
+            "description": "FIAF Moving Image Cataloguing Manual 1.4.1.1",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:Activity",
+                        "https://www.av-efi.net/av-efi-schema/Activity"
+                    ],
+                    "type": "string"
+                },
+                "has_agent": {
+                    "description": "Agent involved in some activity related to the moving image resource",
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively",
+                    "pattern": "^((?![\\\"&\\'])\\S)+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "has_agent",
+                "type",
+                "category"
+            ],
+            "title": "Activity",
+            "type": "object"
+        },
         "Agent": {
             "additionalProperties": false,
             "description": "Agent involved in some activity related to the moving image resource. For agents of type \"Person\" specify name according to the convention \"family name, given name\"",
@@ -55,7 +90,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:Agent"
+                        "avefi:Agent",
+                        "https://www.av-efi.net/av-efi-schema/Agent"
                     ],
                     "type": "string"
                 },
@@ -99,7 +135,14 @@
                     ]
                 },
                 "type": {
-                    "$ref": "#/$defs/AgentTypeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AgentTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
@@ -128,7 +171,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:AnimationActivity"
+                        "avefi:AnimationActivity",
+                        "https://www.av-efi.net/av-efi-schema/AnimationActivity"
                     ],
                     "type": "string"
                 },
@@ -175,12 +219,20 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:Audio"
+                        "avefi:Audio",
+                        "https://www.av-efi.net/av-efi-schema/Audio"
                     ],
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/FormatAudioTypeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FormatAudioTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
@@ -190,6 +242,31 @@
             "title": "Audio",
             "type": "object"
         },
+        "AuthorityResource": {
+            "additionalProperties": false,
+            "description": "Root class for all identifiers from some kind of authority or public register widely accepted in the community",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:AuthorityResource",
+                        "https://www.av-efi.net/av-efi-schema/AuthorityResource"
+                    ],
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "pattern": "^((?![\\\"&\\'])\\S)+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "category"
+            ],
+            "title": "AuthorityResource",
+            "type": "object"
+        },
         "CastActivity": {
             "additionalProperties": false,
             "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.7",
@@ -197,7 +274,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:CastActivity"
+                        "avefi:CastActivity",
+                        "https://www.av-efi.net/av-efi-schema/CastActivity"
                     ],
                     "type": "string"
                 },
@@ -241,6 +319,25 @@
             "title": "CastActivityTypeEnum",
             "type": "string"
         },
+        "CategorizedThing": {
+            "additionalProperties": false,
+            "description": "Root for all classes with subclasses in this schema",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:CategorizedThing",
+                        "https://www.av-efi.net/av-efi-schema/CategorizedThing"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "category"
+            ],
+            "title": "CategorizedThing",
+            "type": "object"
+        },
         "CensorshipActivity": {
             "additionalProperties": false,
             "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms C.1",
@@ -248,7 +345,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:CensorshipActivity"
+                        "avefi:CensorshipActivity",
+                        "https://www.av-efi.net/av-efi-schema/CensorshipActivity"
                     ],
                     "type": "string"
                 },
@@ -287,7 +385,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:CinematographyActivity"
+                        "avefi:CinematographyActivity",
+                        "https://www.av-efi.net/av-efi-schema/CinematographyActivity"
                     ],
                     "type": "string"
                 },
@@ -360,7 +459,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:CopyrightAndDistributionActivity"
+                        "avefi:CopyrightAndDistributionActivity",
+                        "https://www.av-efi.net/av-efi-schema/CopyrightAndDistributionActivity"
                     ],
                     "type": "string"
                 },
@@ -405,7 +505,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:DOIResource"
+                        "avefi:DOIResource",
+                        "https://www.av-efi.net/av-efi-schema/DOIResource"
                     ],
                     "type": "string"
                 },
@@ -428,6 +529,7 @@
             "properties": {
                 "has_history": {
                     "description": "Link to revision history of this PID",
+                    "format": "uri",
                     "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": [
                         "string",
@@ -436,11 +538,19 @@
                 },
                 "has_issuer_id": {
                     "description": "Identifier for the responsible party as an URI suitable for linked data",
+                    "examples": [
+                        "https://w3id.org/isil/DE-MUS-432511",
+                        "https://ld.zdb-services.de/resource/organisations/DE-MUS-432511"
+                    ],
+                    "format": "uri",
                     "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": "string"
                 },
                 "has_issuer_name": {
                     "description": "Name of the responsible party",
+                    "examples": [
+                        "Filmmuseum D\u00fcsseldorf"
+                    ],
                     "pattern": "^.+$",
                     "type": "string"
                 },
@@ -479,12 +589,20 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:DigitalFile"
+                        "avefi:DigitalFile",
+                        "https://www.av-efi.net/av-efi-schema/DigitalFile"
                     ],
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/FormatDigitalFileTypeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FormatDigitalFileTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
@@ -501,12 +619,20 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:DigitalFileEncoding"
+                        "avefi:DigitalFileEncoding",
+                        "https://www.av-efi.net/av-efi-schema/DigitalFileEncoding"
                     ],
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/FormatDigitalFileEncodingTypeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FormatDigitalFileEncodingTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
@@ -523,7 +649,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:DirectingActivity"
+                        "avefi:DirectingActivity",
+                        "https://www.av-efi.net/av-efi-schema/DirectingActivity"
                     ],
                     "type": "string"
                 },
@@ -568,7 +695,14 @@
             "description": "Total running time of the described object in ISO 8601 duration format. Check has_value slot range documentation for examples of permissible values. See also: FIAF Moving Image Cataloguing Manual 2.3.5.3, 3.1.5.11",
             "properties": {
                 "has_precision": {
-                    "$ref": "#/$defs/PrecisionEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/PrecisionEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Qualifier indicating the precision of an extent value or duration"
                 },
                 "has_value": {
@@ -590,7 +724,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:EIDRResource"
+                        "avefi:EIDRResource",
+                        "https://www.av-efi.net/av-efi-schema/EIDRResource"
                     ],
                     "type": "string"
                 },
@@ -614,7 +749,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:EditingActivity"
+                        "avefi:EditingActivity",
+                        "https://www.av-efi.net/av-efi-schema/EditingActivity"
                     ],
                     "type": "string"
                 },
@@ -647,12 +783,115 @@
             "title": "EditingActivityTypeEnum",
             "type": "string"
         },
+        "Event": {
+            "additionalProperties": false,
+            "description": "Significant event in the lifecycle of moving image work / variant, manifestation or item. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the country where the principal offices or production facilities of the production company are located for a production event. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual 1.4.2, 2.4.2, 3.3.2",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:Event",
+                        "https://www.av-efi.net/av-efi-schema/Event"
+                    ],
+                    "type": "string"
+                },
+                "has_activity": {
+                    "description": "Associate activity (and subsequently agents) with event",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AnimationActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/CastActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/CensorshipActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/CinematographyActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/CopyrightAndDistributionActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/DirectingActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/EditingActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/LaboratoryActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/MusicActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/ProducingActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/ProductionDesignActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/PuppetActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/SoundActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/SpecialEffectsActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/WritingActivity"
+                            },
+                            {
+                                "$ref": "#/$defs/ManifestationActivity"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_date": {
+                    "description": "Date (or interval/period) when an event has taken place. A subset of ISO 8601 is supported, more specifically, EDTF conformance level 0 as well as qualifiers ? (uncertain date) and ~ (approximate date). See type ISODate definition for details",
+                    "pattern": "^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "located_in": {
+                    "description": "Location associated with an event, e.g. the country where the principal offices or production facilities of the production company are located should be associated with the production event",
+                    "items": {
+                        "$ref": "#/$defs/GeographicName"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "category"
+            ],
+            "title": "Event",
+            "type": "object"
+        },
         "Extent": {
             "additionalProperties": false,
             "description": "Physical length or size of the described object. See also: FIAF Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8",
             "properties": {
                 "has_precision": {
-                    "$ref": "#/$defs/PrecisionEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/PrecisionEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Qualifier indicating the precision of an extent value or duration"
                 },
                 "has_unit": {
@@ -678,12 +917,20 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:Film"
+                        "avefi:Film",
+                        "https://www.av-efi.net/av-efi-schema/Film"
                     ],
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/FormatFilmTypeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FormatFilmTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
@@ -700,7 +947,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:FilmportalResource"
+                        "avefi:FilmportalResource",
+                        "https://www.av-efi.net/av-efi-schema/FilmportalResource"
                     ],
                     "type": "string"
                 },
@@ -715,6 +963,33 @@
                 "category"
             ],
             "title": "FilmportalResource",
+            "type": "object"
+        },
+        "Format": {
+            "additionalProperties": false,
+            "description": "FIAF Moving Image Cataloguing Manual 2.3.4.1, 3.1.5.1",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:Format",
+                        "https://www.av-efi.net/av-efi-schema/Format"
+                    ],
+                    "type": "string"
+                },
+                "type": {
+                    "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively",
+                    "pattern": "^((?![\\\"&\\'])\\S)+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "category"
+            ],
+            "title": "Format",
             "type": "object"
         },
         "FormatAudioTypeEnum": {
@@ -834,7 +1109,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:GNDResource"
+                        "avefi:GNDResource",
+                        "https://www.av-efi.net/av-efi-schema/GNDResource"
                     ],
                     "type": "string"
                 },
@@ -895,7 +1171,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:GeographicName"
+                        "avefi:GeographicName",
+                        "https://www.av-efi.net/av-efi-schema/GeographicName"
                     ],
                     "type": "string"
                 },
@@ -953,7 +1230,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:ISILResource"
+                        "avefi:ISILResource",
+                        "https://www.av-efi.net/av-efi-schema/ISILResource"
                     ],
                     "type": "string"
                 },
@@ -977,7 +1255,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:Item"
+                        "avefi:Item",
+                        "https://www.av-efi.net/av-efi-schema/Item"
                     ],
                     "type": "string"
                 },
@@ -993,11 +1272,25 @@
                     "description": "Also record some metadata about the PID itself rather than the identified object"
                 },
                 "element_type": {
-                    "$ref": "#/$defs/ItemElementTypeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ItemElementTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "FIAF Moving Image Cataloguing Manual D.7.8"
                 },
                 "has_access_status": {
-                    "$ref": "#/$defs/ItemAccessStatusEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ItemAccessStatusEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Status of item determining access conditions. See also FIAF Moving Image Cataloguing Manual D.7.1"
                 },
                 "has_alternative_title": {
@@ -1011,7 +1304,14 @@
                     ]
                 },
                 "has_colour_type": {
-                    "$ref": "#/$defs/ColourTypeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ColourTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "FIAF Moving Image Cataloguing Manual 2.3.4.4, 3.1.5.6, D.7.11"
                 },
                 "has_duration": {
@@ -1092,7 +1392,14 @@
                     ]
                 },
                 "has_frame_rate": {
-                    "$ref": "#/$defs/FrameRateEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FrameRateEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Frame Rate describes the number of frames per second of an item. See also: FIAF Moving Image Cataloguing Manual 3.1.5.12."
                 },
                 "has_identifier": {
@@ -1134,12 +1441,20 @@
                     "description": "Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead."
                 },
                 "has_sound_type": {
-                    "$ref": "#/$defs/SoundTypeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SoundTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "FIAF Moving Image Cataloguing Manual 2.3.4.3, 3.1.5.3, D.7.4"
                 },
                 "has_webresource": {
                     "description": "Link to data provider's own presentation of manifestation or item on the web",
                     "items": {
+                        "format": "uri",
                         "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                         "type": "string"
                     },
@@ -1285,7 +1600,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:LaboratoryActivity"
+                        "avefi:LaboratoryActivity",
+                        "https://www.av-efi.net/av-efi-schema/LaboratoryActivity"
                     ],
                     "type": "string"
                 },
@@ -1323,9 +1639,21 @@
         "Language": {
             "additionalProperties": false,
             "description": "Provide language code from ISO 639-2 (Part 2: Alpha-3) and a list of language usage terms from our controlled vocabulary. See also: FIAF Moving Image Cataloguing Manual 1.3.5, 2.3.3",
+            "examples": [
+                "eng",
+                "deu",
+                "ara"
+            ],
             "properties": {
                 "code": {
-                    "$ref": "#/$defs/LanguageCodeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/LanguageCodeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "[ISO 639-2 code](https://id.loc.gov/vocabulary/iso639-2.html) for the Representation of Names of Languages (Part 2: Alpha-3)"
                 },
                 "usage": {
@@ -1858,11 +2186,16 @@
         "LocalResource": {
             "additionalProperties": false,
             "description": "Some identifier used by data provider to represent relations between work/variant, manifestation and item when PIDs have not been assigned yet. On ingest into AVefi, these identifiers will be replaced by the generated PIDs",
+            "examples": [
+                "some_fairly/arbitrary-string%for+1.work",
+                "id_for_manifestation"
+            ],
             "properties": {
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:LocalResource"
+                        "avefi:LocalResource",
+                        "https://www.av-efi.net/av-efi-schema/LocalResource"
                     ],
                     "type": "string"
                 },
@@ -1886,7 +2219,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:Manifestation"
+                        "avefi:Manifestation",
+                        "https://www.av-efi.net/av-efi-schema/Manifestation"
                     ],
                     "type": "string"
                 },
@@ -1995,6 +2329,7 @@
                 "has_webresource": {
                     "description": "Link to data provider's own presentation of manifestation or item on the web",
                     "items": {
+                        "format": "uri",
                         "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                         "type": "string"
                     },
@@ -2056,7 +2391,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:ManifestationActivity"
+                        "avefi:ManifestationActivity",
+                        "https://www.av-efi.net/av-efi-schema/ManifestationActivity"
                     ],
                     "type": "string"
                 },
@@ -2099,6 +2435,166 @@
             "title": "ManifestationActivityTypeEnum",
             "type": "string"
         },
+        "ManifestationOrItem": {
+            "additionalProperties": false,
+            "description": "Base class defining common slots for manifestations and items",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:ManifestationOrItem",
+                        "https://www.av-efi.net/av-efi-schema/ManifestationOrItem"
+                    ],
+                    "type": "string"
+                },
+                "described_by": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DescriptionResource"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Also record some metadata about the PID itself rather than the identified object"
+                },
+                "has_alternative_title": {
+                    "description": "Additional title(s) associated with the work / variant, manifestation, or item.",
+                    "items": {
+                        "$ref": "#/$defs/Title"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_event": {
+                    "description": "Associate event(s) with a moving image record",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/ProductionEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/PreservationEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/PublicationEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/ManufactureEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/RightsCopyrightRegistrationEvent"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_identifier": {
+                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_note": {
+                    "description": "FIAF Moving Image Cataloguing Manual Appendix B",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_primary_title": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Title"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead."
+                },
+                "has_webresource": {
+                    "description": "Link to data provider's own presentation of manifestation or item on the web",
+                    "items": {
+                        "format": "uri",
+                        "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "same_as": {
+                    "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AATResource"
+                            },
+                            {
+                                "$ref": "#/$defs/DOIResource"
+                            },
+                            {
+                                "$ref": "#/$defs/EIDRResource"
+                            },
+                            {
+                                "$ref": "#/$defs/FilmportalResource"
+                            },
+                            {
+                                "$ref": "#/$defs/GNDResource"
+                            },
+                            {
+                                "$ref": "#/$defs/ISILResource"
+                            },
+                            {
+                                "$ref": "#/$defs/TGNResource"
+                            },
+                            {
+                                "$ref": "#/$defs/VIAFResource"
+                            },
+                            {
+                                "$ref": "#/$defs/WikidataResource"
+                            },
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "category"
+            ],
+            "title": "ManifestationOrItem",
+            "type": "object"
+        },
         "ManufactureEvent": {
             "additionalProperties": false,
             "description": "Manufacture event of a manifestation. Always specify the type of event and if possible a date or a period of time via has_date. Specify located_in as appropriate, e.g. the country where the labratory is located. Involved parties in various roles can be linked via has_activity. See also: FIAF Moving Image Cataloguing Manual D.4.7",
@@ -2106,7 +2602,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:ManufactureEvent"
+                        "avefi:ManufactureEvent",
+                        "https://www.av-efi.net/av-efi-schema/ManufactureEvent"
                     ],
                     "type": "string"
                 },
@@ -2146,7 +2643,14 @@
                     ]
                 },
                 "type": {
-                    "$ref": "#/$defs/ManufactureEventTypeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ManufactureEventTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
@@ -2169,12 +2673,151 @@
             "title": "ManufactureEventTypeEnum",
             "type": "string"
         },
+        "MovingImageRecord": {
+            "additionalProperties": false,
+            "description": "Base class defining slots that are common to all levels of the WVMI metadata model",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:MovingImageRecord",
+                        "https://www.av-efi.net/av-efi-schema/MovingImageRecord"
+                    ],
+                    "type": "string"
+                },
+                "described_by": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DescriptionResource"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Also record some metadata about the PID itself rather than the identified object"
+                },
+                "has_alternative_title": {
+                    "description": "Additional title(s) associated with the work / variant, manifestation, or item.",
+                    "items": {
+                        "$ref": "#/$defs/Title"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_event": {
+                    "description": "Associate event(s) with a moving image record",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/ProductionEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/PreservationEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/PublicationEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/ManufactureEvent"
+                            },
+                            {
+                                "$ref": "#/$defs/RightsCopyrightRegistrationEvent"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_identifier": {
+                    "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_primary_title": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Title"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead."
+                },
+                "same_as": {
+                    "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AATResource"
+                            },
+                            {
+                                "$ref": "#/$defs/DOIResource"
+                            },
+                            {
+                                "$ref": "#/$defs/EIDRResource"
+                            },
+                            {
+                                "$ref": "#/$defs/FilmportalResource"
+                            },
+                            {
+                                "$ref": "#/$defs/GNDResource"
+                            },
+                            {
+                                "$ref": "#/$defs/ISILResource"
+                            },
+                            {
+                                "$ref": "#/$defs/TGNResource"
+                            },
+                            {
+                                "$ref": "#/$defs/VIAFResource"
+                            },
+                            {
+                                "$ref": "#/$defs/WikidataResource"
+                            },
+                            {
+                                "$ref": "#/$defs/AVefiResource"
+                            },
+                            {
+                                "$ref": "#/$defs/LocalResource"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "category"
+            ],
+            "title": "MovingImageRecord",
+            "type": "object"
+        },
         "MovingImageRecordContainer": {
             "additionalProperties": false,
             "description": "A holder for MovingImageRecord objects",
             "properties": {
                 "URL": {
                     "description": "URL specifying the destination where clients should be redirected to when resolving the PID of a moving image record",
+                    "format": "uri",
                     "pattern": "^https?://[^/?#]+(/[^?#]*(\\?([^#]*))?(#(.*))?)?$",
                     "type": [
                         "string",
@@ -2202,6 +2845,31 @@
             "title": "MovingImageRecordContainer",
             "type": "object"
         },
+        "MovingImageResource": {
+            "additionalProperties": false,
+            "description": "Either a persistent or local identifier for AVefi compliant moving image records. See subclasses for details",
+            "properties": {
+                "category": {
+                    "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+                    "enum": [
+                        "avefi:MovingImageResource",
+                        "https://www.av-efi.net/av-efi-schema/MovingImageResource"
+                    ],
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "pattern": "^((?![\\\"&\\'])\\S)+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "category"
+            ],
+            "title": "MovingImageResource",
+            "type": "object"
+        },
         "MusicActivity": {
             "additionalProperties": false,
             "description": "Activity types / roles. See also: FIAF Glossary of Filmographic Terms B.11",
@@ -2209,7 +2877,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:MusicActivity"
+                        "avefi:MusicActivity",
+                        "https://www.av-efi.net/av-efi-schema/MusicActivity"
                     ],
                     "type": "string"
                 },
@@ -2258,12 +2927,20 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:Optical"
+                        "avefi:Optical",
+                        "https://www.av-efi.net/av-efi-schema/Optical"
                     ],
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/FormatOpticalTypeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FormatOpticalTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
@@ -2289,7 +2966,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:PreservationEvent"
+                        "avefi:PreservationEvent",
+                        "https://www.av-efi.net/av-efi-schema/PreservationEvent"
                     ],
                     "type": "string"
                 },
@@ -2352,7 +3030,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:ProducingActivity"
+                        "avefi:ProducingActivity",
+                        "https://www.av-efi.net/av-efi-schema/ProducingActivity"
                     ],
                     "type": "string"
                 },
@@ -2411,7 +3090,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:ProductionDesignActivity"
+                        "avefi:ProductionDesignActivity",
+                        "https://www.av-efi.net/av-efi-schema/ProductionDesignActivity"
                     ],
                     "type": "string"
                 },
@@ -2470,7 +3150,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:ProductionEvent"
+                        "avefi:ProductionEvent",
+                        "https://www.av-efi.net/av-efi-schema/ProductionEvent"
                     ],
                     "type": "string"
                 },
@@ -2540,7 +3221,14 @@
                     ]
                 },
                 "type": {
-                    "$ref": "#/$defs/ProductionEventTypeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProductionEventTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
@@ -2568,7 +3256,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:PublicationEvent"
+                        "avefi:PublicationEvent",
+                        "https://www.av-efi.net/av-efi-schema/PublicationEvent"
                     ],
                     "type": "string"
                 },
@@ -2646,7 +3335,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:PuppetActivity"
+                        "avefi:PuppetActivity",
+                        "https://www.av-efi.net/av-efi-schema/PuppetActivity"
                     ],
                     "type": "string"
                 },
@@ -2685,7 +3375,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:RightsCopyrightRegistrationEvent"
+                        "avefi:RightsCopyrightRegistrationEvent",
+                        "https://www.av-efi.net/av-efi-schema/RightsCopyrightRegistrationEvent"
                     ],
                     "type": "string"
                 },
@@ -2729,7 +3420,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:SoundActivity"
+                        "avefi:SoundActivity",
+                        "https://www.av-efi.net/av-efi-schema/SoundActivity"
                     ],
                     "type": "string"
                 },
@@ -2795,7 +3487,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:SpecialEffectsActivity"
+                        "avefi:SpecialEffectsActivity",
+                        "https://www.av-efi.net/av-efi-schema/SpecialEffectsActivity"
                     ],
                     "type": "string"
                 },
@@ -2845,7 +3538,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:Subject"
+                        "avefi:Subject",
+                        "https://www.av-efi.net/av-efi-schema/Subject"
                     ],
                     "type": "string"
                 },
@@ -2912,7 +3606,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:TGNResource"
+                        "avefi:TGNResource",
+                        "https://www.av-efi.net/av-efi-schema/TGNResource"
                     ],
                     "type": "string"
                 },
@@ -2940,6 +3635,10 @@
                 },
                 "has_ordering_name": {
                     "description": "Provide normalised form, e.g. for sorting by title. Only use this slot if value actually if different from has_name",
+                    "examples": [
+                        "American in Paris, An",
+                        "Star Wars: Episode 9 \u2013 Der Aufstieg Skywalkers"
+                    ],
                     "pattern": "^.+$",
                     "type": [
                         "string",
@@ -2981,6 +3680,7 @@
         "UnitEnum": {
             "description": "Units of measurement. Definitions are taken from the Quantities, Units, Dimensions and Data Types Ontologies (QUDT)",
             "enum": [
+                "Byte",
                 "Feet",
                 "GigaByte",
                 "KiloByte",
@@ -2998,7 +3698,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:VIAFResource"
+                        "avefi:VIAFResource",
+                        "https://www.av-efi.net/av-efi-schema/VIAFResource"
                     ],
                     "type": "string"
                 },
@@ -3039,12 +3740,20 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:Video"
+                        "avefi:Video",
+                        "https://www.av-efi.net/av-efi-schema/Video"
                     ],
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/FormatVideoTypeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FormatVideoTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 }
             },
@@ -3061,7 +3770,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:WikidataResource"
+                        "avefi:WikidataResource",
+                        "https://www.av-efi.net/av-efi-schema/WikidataResource"
                     ],
                     "type": "string"
                 },
@@ -3115,7 +3825,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:WorkVariant"
+                        "avefi:WorkVariant",
+                        "https://www.av-efi.net/av-efi-schema/WorkVariant"
                     ],
                     "type": "string"
                 },
@@ -3288,7 +3999,14 @@
                     "description": "See specific class documentation for controlled vocabulary applicable to the type slot, respectively"
                 },
                 "variant_type": {
-                    "$ref": "#/$defs/VariantTypeEnum",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/VariantTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "FIAF Moving Image Cataloguing Manual D.2"
                 }
             },
@@ -3318,7 +4036,8 @@
                 "category": {
                     "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
                     "enum": [
-                        "avefi:WritingActivity"
+                        "avefi:WritingActivity",
+                        "https://www.av-efi.net/av-efi-schema/WritingActivity"
                     ],
                     "type": "string"
                 },
@@ -3364,8 +4083,141 @@
     },
     "$id": "https://www.av-efi.net/av-efi-schema/model",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
-    "additionalProperties": true,
-    "metamodel_version": "1.7.0",
+    "additionalProperties": false,
+    "description": "Base class defining slots that are common to all levels of the WVMI metadata model",
+    "metamodel_version": "1.12.0",
+    "properties": {
+        "category": {
+            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
+            "enum": [
+                "avefi:MovingImageRecord",
+                "https://www.av-efi.net/av-efi-schema/MovingImageRecord"
+            ],
+            "type": "string"
+        },
+        "described_by": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/DescriptionResource"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "Also record some metadata about the PID itself rather than the identified object"
+        },
+        "has_alternative_title": {
+            "description": "Additional title(s) associated with the work / variant, manifestation, or item.",
+            "items": {
+                "$ref": "#/$defs/Title"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "has_event": {
+            "description": "Associate event(s) with a moving image record",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/ProductionEvent"
+                    },
+                    {
+                        "$ref": "#/$defs/PreservationEvent"
+                    },
+                    {
+                        "$ref": "#/$defs/PublicationEvent"
+                    },
+                    {
+                        "$ref": "#/$defs/ManufactureEvent"
+                    },
+                    {
+                        "$ref": "#/$defs/RightsCopyrightRegistrationEvent"
+                    }
+                ]
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "has_identifier": {
+            "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/AVefiResource"
+                    },
+                    {
+                        "$ref": "#/$defs/LocalResource"
+                    }
+                ]
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "has_primary_title": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/Title"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead."
+        },
+        "same_as": {
+            "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/AATResource"
+                    },
+                    {
+                        "$ref": "#/$defs/DOIResource"
+                    },
+                    {
+                        "$ref": "#/$defs/EIDRResource"
+                    },
+                    {
+                        "$ref": "#/$defs/FilmportalResource"
+                    },
+                    {
+                        "$ref": "#/$defs/GNDResource"
+                    },
+                    {
+                        "$ref": "#/$defs/ISILResource"
+                    },
+                    {
+                        "$ref": "#/$defs/TGNResource"
+                    },
+                    {
+                        "$ref": "#/$defs/VIAFResource"
+                    },
+                    {
+                        "$ref": "#/$defs/WikidataResource"
+                    },
+                    {
+                        "$ref": "#/$defs/AVefiResource"
+                    },
+                    {
+                        "$ref": "#/$defs/LocalResource"
+                    }
+                ]
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        }
+    },
+    "required": [
+        "category"
+    ],
     "title": "AVefi data model",
     "type": "object",
     "version": null
