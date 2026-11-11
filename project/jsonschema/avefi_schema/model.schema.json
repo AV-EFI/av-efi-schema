@@ -4083,7 +4083,7 @@
     },
     "$id": "https://www.av-efi.net/av-efi-schema/model",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
-    "additionalProperties": false,
+    "additionalProperties": true,
     "description": "Base class defining slots that are common to all levels of the WVMI metadata model",
     "metamodel_version": "1.12.0",
     "properties": {
@@ -4222,4 +4222,3 @@
     "type": "object",
     "version": null
 }
-
