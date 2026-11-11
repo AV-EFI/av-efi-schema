@@ -90,13 +90,31 @@ def generate_json_enum_files(dependencies, targets):
 
 
 def task_jsonschema():
-    """Generate derived JSON Schema."""
+    """Generate derived JSON Schema.
+
+    LinkML 1.12 derives the top-level ``additionalProperties`` from the
+    root class, which closes it. Keep the document root open, while
+    every class definition stays closed.
+
+    """
+    def generate_jsonschema(source, target):
+        from linkml.generators.jsonschemagen import JsonSchemaGenerator
+
+        class OpenTopLevelJsonSchemaGenerator(JsonSchemaGenerator):
+            def start_schema(self, inline: bool = False):
+                super().start_schema(inline)
+                self.top_level_schema['additionalProperties'] = True
+
+        gen = OpenTopLevelJsonSchemaGenerator(
+            source,
+            top_class='MovingImageRecord',
+            title_from='title',
+        )
+        with open(target, 'w') as f:
+            f.write(gen.serialize())
+
     return {
-        'actions': [
-            f"gen-json-schema --title-from title"
-            f" --top-class MovingImageRecord {SRC_MODEL}"
-            f" > {{targets}}",
-        ],
+        'actions': [(generate_jsonschema, [SRC_MODEL, JSON_SCHEMA])],
         'task_dep': ['sync_dependencies'],
         'file_dep': SRC_SCHEMA_DEPENDENCIES,
         'targets': [JSON_SCHEMA],
