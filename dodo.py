@@ -38,8 +38,6 @@ SRC_SCHEMA_DEPENDENCIES = [
 UTILS_DIR = HERE / 'utils'
 DOCGEN_TEMPLATE_DIR = UTILS_DIR / 'templates' / 'docgen'
 PYDANTIC_TEMPLATE_DIR = UTILS_DIR / 'templates' / 'pydantic'
-PYTHON_DEPENDENCIES = SRC_SCHEMA_DEPENDENCIES.copy()
-PYTHON_DEPENDENCIES.extend(PYDANTIC_TEMPLATE_DIR.glob('*.jinja'))
 JSON_EXAMPLES = HERE / 'examples' / 'json'
 EXAMPLE_SRC_FILES = [
     JSON_EXAMPLES / 'menschen_am_sonntag_work.json',
@@ -53,6 +51,14 @@ JSON_SCHEMA = PROJECT_DIR / 'jsonschema' / SCHEMA_NAME \
 EPIC_VOCAB_DIR = PROJECT_DIR / 'jsonschema' / 'epic' / 'vocabularies'
 PYTHON_MODEL = PROJECT_DIR / 'python' / SCHEMA_NAME / f"{SRC_MODEL.stem}.py"
 PYDANTIC_MODEL = PYTHON_MODEL.with_stem(f"{PYTHON_MODEL.stem}_pydantic_v2")
+#: Copy of the JSON Schema next to the generated bindings, so that
+#: ``avefi_validate`` ships the schema of its own version as package data
+#: and never has to fetch it.
+PACKAGED_JSON_SCHEMA = PROJECT_DIR / 'python' / SCHEMA_NAME \
+    / 'model.schema.json'
+PYTHON_DEPENDENCIES = SRC_SCHEMA_DEPENDENCIES.copy()
+PYTHON_DEPENDENCIES.extend(PYDANTIC_TEMPLATE_DIR.glob('*.jinja'))
+PYTHON_DEPENDENCIES.append(JSON_SCHEMA)
 TYPESCRIPT_DIR = PROJECT_DIR / 'typescript'
 
 
@@ -92,26 +98,62 @@ def generate_json_enum_files(dependencies, targets):
 def task_jsonschema():
     """Generate derived JSON Schema.
 
-    LinkML 1.12 derives the top-level ``additionalProperties`` from the
-    root class, which closes it. Keep the document root open, while
-    every class definition stays closed.
+    A record is one of the concrete subclasses of ``MovingImageRecord``
+    — a work or variant, a manifestation, or an item. Asking LinkML for
+    ``MovingImageRecord`` describes the abstract class instead: its
+    ``category`` only allows the abstract value, so no record would
+    validate. Replace that root by a union of the concrete classes,
+    while every class definition stays closed.
 
     """
     def generate_jsonschema(source, target):
         from linkml.generators.jsonschemagen import JsonSchemaGenerator
 
-        class OpenTopLevelJsonSchemaGenerator(JsonSchemaGenerator):
-            def start_schema(self, inline: bool = False):
-                super().start_schema(inline)
-                self.top_level_schema['additionalProperties'] = True
-
-        gen = OpenTopLevelJsonSchemaGenerator(
+        gen = JsonSchemaGenerator(
             source,
             top_class='MovingImageRecord',
             title_from='title',
         )
+        document = json.loads(gen.serialize())
+
+        def ancestors(cls):
+            while cls is not None:
+                yield cls.name
+                cls = (
+                    gen.schema.classes[cls.is_a] if cls.is_a else None
+                )
+
+        record_classes = sorted(
+            name
+            for name, cls in gen.schema.classes.items()
+            if not cls.abstract
+            and 'MovingImageRecord' in ancestors(cls)
+        )
+        assert record_classes, 'no concrete MovingImageRecord subclasses'
+        root = {
+            key: document[key]
+            for key in (
+                '$schema',
+                '$id',
+                'title',
+                'metamodel_version',
+                'version',
+            )
+            if key in document
+        }
+        root['description'] = (
+            'An AVefi moving image record: a work or variant, a'
+            ' manifestation, or an item.'
+        )
+        root['type'] = 'object'
+        root['anyOf'] = [
+            {'$ref': f'#/$defs/{name}'} for name in record_classes
+        ]
+        root['$defs'] = document['$defs']
+        content = json.dumps(root, indent=4, sort_keys=True) + '\n'
+        target.parent.mkdir(parents=True, exist_ok=True)
         with open(target, 'w') as f:
-            f.write(gen.serialize())
+            f.write(content)
 
     return {
         'actions': [(generate_jsonschema, [SRC_MODEL, JSON_SCHEMA])],
@@ -130,6 +172,17 @@ def task_python():
     value automatically on instantiation.
 
     """
+    # The validator validates against the JSON schema generated from
+    # the same source as the bindings it uses, so a copy is shipped as
+    # package data. A symlink is resolved relative to the directory
+    # holding it, so climb the two levels from project/python/avefi_schema
+    # back to project/ before descending into project/jsonschema.
+    PACKAGED_JSON_SCHEMA.parent.mkdir(parents=True, exist_ok=True)
+    PACKAGED_JSON_SCHEMA.unlink(missing_ok=True)
+    PACKAGED_JSON_SCHEMA.symlink_to(
+        Path('..', '..') / JSON_SCHEMA.relative_to(PROJECT_DIR)
+    )
+
     from linkml.generators.pydanticgen.template import (
         ObjectImport,
         Import,
@@ -159,11 +212,11 @@ def task_python():
             ObjectImport(name="TypeAdapter"),
         ])
     )
-    for module, cls, target, kwargs in [
+    for module, cls, targets, kwargs in [
             ('linkml.generators.pythongen', 'PythonGenerator',
-             PYTHON_MODEL, {}),
+             [PYTHON_MODEL], {}),
             ('linkml.generators.pydanticgen', 'PydanticGenerator',
-             PYDANTIC_MODEL,
+             [PYDANTIC_MODEL, PACKAGED_JSON_SCHEMA],
              {
                  'empty_list_for_multivalued_slots': True,
                  'imports': pydantic_imports,
@@ -171,14 +224,14 @@ def task_python():
              }),
     ]:
         yield {
-            'name': target,
+            'name': targets[0],
             'actions': [
-                (generate_bindings, [module, cls, SRC_MODEL, target],
+                (generate_bindings, [module, cls, SRC_MODEL, targets[0]],
                  kwargs),
             ],
-            'task_dep': ['sync_dependencies'],
+            'task_dep': ['sync_dependencies', 'jsonschema'],
             'file_dep': PYTHON_DEPENDENCIES,
-            'targets': [target],
+            'targets': targets,
         }
 
 

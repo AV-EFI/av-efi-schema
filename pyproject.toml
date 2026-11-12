@@ -1,16 +1,20 @@
 [project]
 name = "avefi_schema"
-version = "0.1.0"
+version = "0.2.0"
 description = "Schema for persistent film identifiers developed in the AVefi project"
 authors = [
     {name = "AVefi Working Group", email = "contact@av-efi.net"},
 ]
 dependencies = [
     "pydantic>=2.13.3",
+    "jsonschema>=4.23",
 ]
 requires-python = ">=3.10,<3.15"
 readme = "README.md"
 license = {text = "MIT"}
+
+[project.scripts]
+avefi-validate = "avefi_validate.cli:main"
 
 [project.optional-dependencies]
 dataclasses = [
@@ -18,11 +22,31 @@ dataclasses = [
 ]
 
 [build-system]
-requires = ["uv_build>=0.13.1,<0.14.0"]
-build-backend = "uv_build"
+requires = ["hatchling>=1.33.0"]
+build-backend = "hatchling.build"
 
-[tool.uv.build-backend]
-module-root = "project/python"
+[tool.hatch.build.targets.wheel]
+packages = [
+    "project/python/avefi_schema",
+    "src/python/avefi_validate",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/dodo.py",
+    "/examples",
+    "/LICENSE",
+    "/project",
+    "/README.md",
+    "/src",
+    "/tests",
+    "/utils",
+    "/uv.lock",
+    "/zensical.toml",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
 
 [dependency-groups]
 dev = [
@@ -32,6 +56,7 @@ dev = [
     "requests>=2.32.3",
     "deepdiff>=7.0.1",
     "zensical>=0.0.34",
+    "pytest>=8.0",
 ]
 docs = [
     "doit>=0.36.0",

@@ -1,0 +1,588 @@
+[
+  {
+    "category": "avefi:WorkVariant",
+    "described_by": [
+      {
+        "has_issuer_id": "https://w3id.org/isil/DE-MUS-407010",
+        "has_issuer_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+        "last_modified": "2026-03-23 21:38:39.906518+00:00"
+      }
+    ],
+    "has_alternative_title": [
+      {
+        "has_name": "Amalgam I: Knoten",
+        "type": "AlternativeTitle"
+      },
+      {
+        "has_name": "Amalgam II: Gewebe",
+        "type": "AlternativeTitle"
+      },
+      {
+        "has_name": "Amalgam III: Textur",
+        "type": "AlternativeTitle"
+      },
+      {
+        "has_name": "Amalgam IV: Geflecht",
+        "type": "AlternativeTitle"
+      }
+    ],
+    "has_event": [
+      {
+        "category": "avefi:ProductionEvent",
+        "has_activity": [
+          {
+            "category": "avefi:DirectingActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Nekes, Werner",
+                "same_as": [
+                  {
+                    "category": "avefi:FilmportalResource",
+                    "id": "16c1cf4749d946b98fe8da1149546615"
+                  },
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "118738402"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "Director"
+          }
+        ],
+        "has_date": "1975/1976",
+        "located_in": [
+          {
+            "category": "avefi:GeographicName",
+            "has_name": "Bundesrepublik Deutschland (BRD)",
+            "same_as": [
+              {
+                "category": "avefi:GNDResource",
+                "id": "4011889-7"
+              },
+              {
+                "category": "avefi:TGNResource",
+                "id": "7000081"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "has_identifier": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "200011016"
+      },
+      {
+        "category": "avefi:AVefiResource",
+        "id": "21.11155/DC60CDF0-6106-48F7-9B7D-86406987115D"
+      }
+    ],
+    "has_primary_title": {
+      "has_name": "Amalgam",
+      "type": "PreferredTitle"
+    },
+    "has_form": [
+      "ExperimentalFilm",
+      "AnthologyFilm"
+    ],
+    "type": "Serial"
+  },
+  {
+    "category": "avefi:WorkVariant",
+    "described_by": [
+      {
+        "has_issuer_id": "https://w3id.org/isil/DE-MUS-407010",
+        "has_issuer_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+        "last_modified": "2026-03-23 21:38:41.042228+00:00"
+      }
+    ],
+    "has_event": [
+      {
+        "category": "avefi:ProductionEvent",
+        "has_activity": [
+          {
+            "category": "avefi:DirectingActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Nekes, Werner",
+                "same_as": [
+                  {
+                    "category": "avefi:FilmportalResource",
+                    "id": "16c1cf4749d946b98fe8da1149546615"
+                  },
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "118738402"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "Director"
+          },
+          {
+            "category": "avefi:WritingActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Nekes, Werner",
+                "same_as": [
+                  {
+                    "category": "avefi:FilmportalResource",
+                    "id": "16c1cf4749d946b98fe8da1149546615"
+                  },
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "118738402"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "Writer"
+          }
+        ],
+        "has_date": "1975/1976",
+        "located_in": [
+          {
+            "category": "avefi:GeographicName",
+            "has_name": "Bundesrepublik Deutschland (BRD)",
+            "same_as": [
+              {
+                "category": "avefi:GNDResource",
+                "id": "4011889-7"
+              },
+              {
+                "category": "avefi:TGNResource",
+                "id": "7000081"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "has_identifier": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "200326548"
+      }
+    ],
+    "has_primary_title": {
+      "has_name": "Amalgam I. Knoten",
+      "type": "PreferredTitle"
+    },
+    "same_as": [
+      {
+        "category": "avefi:FilmportalResource",
+        "id": "13143dc8a9ed4fbd87fff16e14bed5b8"
+      }
+    ],
+    "has_form": [
+      "ExperimentalFilm"
+    ],
+    "is_part_of": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "200011016"
+      }
+    ],
+    "type": "Analytic"
+  },
+  {
+    "category": "avefi:WorkVariant",
+    "described_by": [
+      {
+        "has_issuer_id": "https://w3id.org/isil/DE-MUS-407010",
+        "has_issuer_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+        "last_modified": "2026-03-23 21:38:41.042699+00:00"
+      }
+    ],
+    "has_event": [
+      {
+        "category": "avefi:ProductionEvent",
+        "has_activity": [
+          {
+            "category": "avefi:DirectingActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Nekes, Werner",
+                "same_as": [
+                  {
+                    "category": "avefi:FilmportalResource",
+                    "id": "16c1cf4749d946b98fe8da1149546615"
+                  },
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "118738402"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "Director"
+          },
+          {
+            "category": "avefi:WritingActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Nekes, Werner",
+                "same_as": [
+                  {
+                    "category": "avefi:FilmportalResource",
+                    "id": "16c1cf4749d946b98fe8da1149546615"
+                  },
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "118738402"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "Writer"
+          }
+        ],
+        "has_date": "1975/1976",
+        "located_in": [
+          {
+            "category": "avefi:GeographicName",
+            "has_name": "Bundesrepublik Deutschland (BRD)",
+            "same_as": [
+              {
+                "category": "avefi:GNDResource",
+                "id": "4011889-7"
+              },
+              {
+                "category": "avefi:TGNResource",
+                "id": "7000081"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "has_identifier": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "200326549"
+      }
+    ],
+    "has_primary_title": {
+      "has_name": "Amalgam II. Gewebe",
+      "type": "PreferredTitle"
+    },
+    "same_as": [
+      {
+        "category": "avefi:FilmportalResource",
+        "id": "82fe84f0ca444564a6bae1a94a69d004"
+      }
+    ],
+    "has_form": [
+      "ExperimentalFilm"
+    ],
+    "is_part_of": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "200011016"
+      }
+    ],
+    "type": "Analytic"
+  },
+  {
+    "category": "avefi:WorkVariant",
+    "described_by": [
+      {
+        "has_issuer_id": "https://w3id.org/isil/DE-MUS-407010",
+        "has_issuer_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+        "last_modified": "2026-03-23 21:38:41.043174+00:00"
+      }
+    ],
+    "has_event": [
+      {
+        "category": "avefi:ProductionEvent",
+        "has_activity": [
+          {
+            "category": "avefi:DirectingActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Nekes, Werner",
+                "same_as": [
+                  {
+                    "category": "avefi:FilmportalResource",
+                    "id": "16c1cf4749d946b98fe8da1149546615"
+                  },
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "118738402"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "Director"
+          },
+          {
+            "category": "avefi:WritingActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Nekes, Werner",
+                "same_as": [
+                  {
+                    "category": "avefi:FilmportalResource",
+                    "id": "16c1cf4749d946b98fe8da1149546615"
+                  },
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "118738402"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "Writer"
+          }
+        ],
+        "has_date": "1975/1976",
+        "located_in": [
+          {
+            "category": "avefi:GeographicName",
+            "has_name": "Bundesrepublik Deutschland (BRD)",
+            "same_as": [
+              {
+                "category": "avefi:GNDResource",
+                "id": "4011889-7"
+              },
+              {
+                "category": "avefi:TGNResource",
+                "id": "7000081"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "has_identifier": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "200326550"
+      }
+    ],
+    "has_primary_title": {
+      "has_name": "Amalgam III. Textur",
+      "type": "PreferredTitle"
+    },
+    "same_as": [
+      {
+        "category": "avefi:FilmportalResource",
+        "id": "b388ecb94f394bd0aa48110dd43bfa3b"
+      }
+    ],
+    "has_form": [
+      "ExperimentalFilm"
+    ],
+    "is_part_of": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "200011016"
+      }
+    ],
+    "type": "Analytic"
+  },
+  {
+    "category": "avefi:WorkVariant",
+    "described_by": [
+      {
+        "has_issuer_id": "https://w3id.org/isil/DE-MUS-407010",
+        "has_issuer_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+        "last_modified": "2026-03-23 21:38:41.043642+00:00"
+      }
+    ],
+    "has_event": [
+      {
+        "category": "avefi:ProductionEvent",
+        "has_activity": [
+          {
+            "category": "avefi:DirectingActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Nekes, Werner",
+                "same_as": [
+                  {
+                    "category": "avefi:FilmportalResource",
+                    "id": "16c1cf4749d946b98fe8da1149546615"
+                  },
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "118738402"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "Director"
+          },
+          {
+            "category": "avefi:WritingActivity",
+            "has_agent": [
+              {
+                "category": "avefi:Agent",
+                "has_name": "Nekes, Werner",
+                "same_as": [
+                  {
+                    "category": "avefi:FilmportalResource",
+                    "id": "16c1cf4749d946b98fe8da1149546615"
+                  },
+                  {
+                    "category": "avefi:GNDResource",
+                    "id": "118738402"
+                  }
+                ],
+                "type": "Person"
+              }
+            ],
+            "type": "Writer"
+          }
+        ],
+        "has_date": "1975/1976",
+        "located_in": [
+          {
+            "category": "avefi:GeographicName",
+            "has_name": "Bundesrepublik Deutschland (BRD)",
+            "same_as": [
+              {
+                "category": "avefi:GNDResource",
+                "id": "4011889-7"
+              },
+              {
+                "category": "avefi:TGNResource",
+                "id": "7000081"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "has_identifier": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "200326551"
+      }
+    ],
+    "has_primary_title": {
+      "has_name": "Amalgam IV. Geflecht",
+      "type": "PreferredTitle"
+    },
+    "same_as": [
+      {
+        "category": "avefi:FilmportalResource",
+        "id": "e2ed4529d25048d2aad577047474c55a"
+      }
+    ],
+    "has_form": [
+      "ExperimentalFilm"
+    ],
+    "is_part_of": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "200011016"
+      }
+    ],
+    "type": "Analytic"
+  },
+  {
+    "category": "avefi:Manifestation",
+    "described_by": {
+      "has_issuer_id": "https://w3id.org/isil/DE-MUS-407010",
+      "has_issuer_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+      "last_modified": "2026-03-23 21:38:41.546922+00:00"
+    },
+    "has_event": [
+      {
+        "category": "avefi:PublicationEvent",
+        "type": "TheatricalDistributionEvent"
+      }
+    ],
+    "has_identifier": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "200052880"
+      },
+      {
+        "category": "avefi:AVefiResource",
+        "id": "21.11155/C50A1A30-745F-46E1-BAF4-959948230DD4"
+      }
+    ],
+    "has_primary_title": {
+      "has_name": "Amalgam",
+      "type": "TitleProper"
+    },
+    "has_item": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "200102439"
+      }
+    ],
+    "is_manifestation_of": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "200011016"
+      }
+    ]
+  },
+  {
+    "category": "avefi:Item",
+    "described_by": {
+      "has_issuer_id": "https://w3id.org/isil/DE-MUS-407010",
+      "has_issuer_name": "Deutsche Kinemathek - Museum für Film und Fernsehen",
+      "last_modified": "2026-03-23 21:38:42.300845+00:00"
+    },
+    "has_identifier": [
+      {
+        "category": "avefi:LocalResource",
+        "id": "200102439"
+      },
+      {
+        "category": "avefi:AVefiResource",
+        "id": "21.11155/4490E314-2987-4ED0-826D-AEEC0FAAF024"
+      }
+    ],
+    "has_primary_title": {
+      "has_name": "Amalgam",
+      "type": "TitleProper"
+    },
+    "has_webresource": [
+      "https://sammlungen.deutsche-kinemathek.de/recherche/itemdetails/sdk200102439"
+    ],
+    "has_access_status": "Master",
+    "has_colour_type": "ColourBlackAndWhite",
+    "has_duration": {
+      "has_value": "PT01H12M00S"
+    },
+    "has_extent": {
+      "has_unit": "Metre",
+      "has_value": 765,
+      "has_precision": "Approximate"
+    },
+    "has_format": [
+      {
+        "category": "avefi:Film",
+        "type": "16mmFilm"
+      }
+    ],
+    "has_frame_rate": "24fps",
+    "is_item_of": {
+      "category": "avefi:LocalResource",
+      "id": "200052880"
+    }
+  }
+]

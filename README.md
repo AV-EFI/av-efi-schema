@@ -20,6 +20,36 @@ there available as the [AVefi Kernel Information Profile][AVefi_KIP].
 [Data Type Registry]: https://faircore4eosc.eu/eosc-core-components/eosc-data-type-registry-dtr
 [AVefi_KIP]: https://typeregistry.lab.pidconsortium.net/#objects/21.T11969/873d5c9f6ebbffecf1df
 
+## Validating records
+
+The [Python bindings](./project/python/avefi_schema/) are distributed
+together with the JSON Schema they were generated from and with a
+validator, so the checks always belong to the version of the schema
+that is installed. Install the package as described in the [example on
+using the Python bindings](./examples/python/README.md), then check
+one or more export files:
+
+```console
+$ avefi-validate export.json
+```
+
+Each file is checked against the packaged JSON Schema and against the
+submission rules that the schema cannot express: field length limits,
+primary title types, identifier uniqueness, and references to local
+identifiers that cannot be resolved within the same file. Add
+`--remove-invalid` to rewrite a file without the invalid records and
+the records that depend on them, or `--placeholder-issuer-id` to also
+reject records that still name a placeholder data provider. The
+command accepts several files and exits non-zero if any of them fails
+the checks.
+
+In this repository, run it through the development environment:
+
+```console
+$ uv sync
+$ uv run avefi-validate examples/json/menschen_am_sonntag_all_in_one.json
+```
+
 ## Developer notes
 
 The schema is developed using the [LinkML framework][LinkML]. The [src

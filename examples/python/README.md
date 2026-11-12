@@ -30,8 +30,10 @@ export files intended for PID registration by another party, they
 typically include local identifiers in order to express relationships
 between the different data records. It is important that all
 references to local identifiers can be resolved within the same file.
-Please refer to the check module in the [efi-conv
-repository](https://github.com/AV-EFI/efi-conv).
+Validate export files with the `avefi-validate` command shipped with
+this distribution before registering identifiers for them; the
+[top-level README](../../README.md#validating-records) describes what
+it checks.
 
 A dataclasses model of the AVefi schema is available too and can be used
 as follows:

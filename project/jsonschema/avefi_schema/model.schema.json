@@ -4083,141 +4083,19 @@
     },
     "$id": "https://www.av-efi.net/av-efi-schema/model",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
-    "additionalProperties": true,
-    "description": "Base class defining slots that are common to all levels of the WVMI metadata model",
-    "metamodel_version": "1.12.0",
-    "properties": {
-        "category": {
-            "description": "Designates type, e.g. to distinguish different identifiers (GNDResource vs. VIAFResource)",
-            "enum": [
-                "avefi:MovingImageRecord",
-                "https://www.av-efi.net/av-efi-schema/MovingImageRecord"
-            ],
-            "type": "string"
+    "anyOf": [
+        {
+            "$ref": "#/$defs/Item"
         },
-        "described_by": {
-            "anyOf": [
-                {
-                    "$ref": "#/$defs/DescriptionResource"
-                },
-                {
-                    "type": "null"
-                }
-            ],
-            "description": "Also record some metadata about the PID itself rather than the identified object"
+        {
+            "$ref": "#/$defs/Manifestation"
         },
-        "has_alternative_title": {
-            "description": "Additional title(s) associated with the work / variant, manifestation, or item.",
-            "items": {
-                "$ref": "#/$defs/Title"
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        },
-        "has_event": {
-            "description": "Associate event(s) with a moving image record",
-            "items": {
-                "anyOf": [
-                    {
-                        "$ref": "#/$defs/ProductionEvent"
-                    },
-                    {
-                        "$ref": "#/$defs/PreservationEvent"
-                    },
-                    {
-                        "$ref": "#/$defs/PublicationEvent"
-                    },
-                    {
-                        "$ref": "#/$defs/ManufactureEvent"
-                    },
-                    {
-                        "$ref": "#/$defs/RightsCopyrightRegistrationEvent"
-                    }
-                ]
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        },
-        "has_identifier": {
-            "description": "Record PID in this slot when exporting data from the PID system. Use local identifiers instead when PIDs have not been registered yet. The latter is suitable for transferring data to the agent responsible for registering PIDs",
-            "items": {
-                "anyOf": [
-                    {
-                        "$ref": "#/$defs/AVefiResource"
-                    },
-                    {
-                        "$ref": "#/$defs/LocalResource"
-                    }
-                ]
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        },
-        "has_primary_title": {
-            "anyOf": [
-                {
-                    "$ref": "#/$defs/Title"
-                },
-                {
-                    "type": "null"
-                }
-            ],
-            "description": "Primary title to be displayed in search results etc. The type should be PreferredTitle for works / variants and TitleProper for manifestations / items. If not available, type must be SuppliedDevisedTitle, instead."
-        },
-        "same_as": {
-            "description": "See [AuthorityResource doucmentation](AuthorityResource.md) for accepted identifiers",
-            "items": {
-                "anyOf": [
-                    {
-                        "$ref": "#/$defs/AATResource"
-                    },
-                    {
-                        "$ref": "#/$defs/DOIResource"
-                    },
-                    {
-                        "$ref": "#/$defs/EIDRResource"
-                    },
-                    {
-                        "$ref": "#/$defs/FilmportalResource"
-                    },
-                    {
-                        "$ref": "#/$defs/GNDResource"
-                    },
-                    {
-                        "$ref": "#/$defs/ISILResource"
-                    },
-                    {
-                        "$ref": "#/$defs/TGNResource"
-                    },
-                    {
-                        "$ref": "#/$defs/VIAFResource"
-                    },
-                    {
-                        "$ref": "#/$defs/WikidataResource"
-                    },
-                    {
-                        "$ref": "#/$defs/AVefiResource"
-                    },
-                    {
-                        "$ref": "#/$defs/LocalResource"
-                    }
-                ]
-            },
-            "type": [
-                "array",
-                "null"
-            ]
+        {
+            "$ref": "#/$defs/WorkVariant"
         }
-    },
-    "required": [
-        "category"
     ],
+    "description": "An AVefi moving image record: a work or variant, a manifestation, or an item.",
+    "metamodel_version": "1.12.0",
     "title": "AVefi data model",
     "type": "object",
     "version": null

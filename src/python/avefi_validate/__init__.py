@@ -1,0 +1,51 @@
+"""Validate AVefi records against the schema they are shipped with.
+
+This package is part of the ``avefi-schema`` distribution, so the JSON
+Schema it validates against is the one generated from the same LinkML
+source as the Python bindings in :mod:`avefi_schema`.
+
+The rules are split by concern:
+
+``schema``
+    Access to the packaged JSON Schema and its fingerprint.
+``documents``
+    Conformance of a single record: schema, identifiers, dates and
+    field length limits.
+``records``
+    Relations between records: identifiers, references, dangling
+    records and the cascade that removes them.
+``removal``
+    The file-level operation that drops invalid records in place.
+``limits``
+    The field length limits enforced by ``documents``.
+
+"""
+
+from .documents import (
+    exceeds_field_limit,
+    has_invalid_date,
+    has_invalid_value,
+    pass_checks,
+    placeholder_issuer_records,
+)
+from .limits import DEFAULT_LIMITS, Limits
+from .records import CheckResult, HashableId
+from .removal import FileCheck, check_file
+from .schema import get_schema_validator, load_schema, schema_fingerprint
+
+__all__ = [
+    "CheckResult",
+    "DEFAULT_LIMITS",
+    "FileCheck",
+    "HashableId",
+    "Limits",
+    "check_file",
+    "exceeds_field_limit",
+    "get_schema_validator",
+    "has_invalid_date",
+    "has_invalid_value",
+    "load_schema",
+    "pass_checks",
+    "placeholder_issuer_records",
+    "schema_fingerprint",
+]
