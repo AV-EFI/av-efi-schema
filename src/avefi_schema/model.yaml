@@ -2,7 +2,7 @@ id: https://www.av-efi.net/av-efi-schema/model
 name: model
 title: AVefi data model
 description: |-
-  Metadata schema for persistent film identifiers developed in the
+  Metadata schema for persistent film identifiers and film related material identifiers developed in the
   AVefi project. See also the corresponding [Entity relation
   diagram](https://github.com/AV-EFI/av-efi-schema/blob/main/avefi_er_diagram.md).
   Additionally, consult the [FIAF Moving Image Cataloguing
@@ -10,7 +10,11 @@ description: |-
   and the [FIAF Glossary of Filmographic
   Terms](https://www.fiafnet.org/images/tinyUpload/E-Resources/Reports-Glossaries-And-Papers/GlossaryMasterCombo19.htm)
   as indicated in the documentation below for definitions, usage
-  instructions and best practices
+  instructions and best practices.
+  For film related materials, see also the [FIAF
+  Film Related Materials
+  documentation](https://fiaf.github.io/film-related-materials/) and the [DDB-LIDO MDS
+  documentation](https://www.minimaldatensatz.de).
 
 imports:
 - linkml:types
@@ -901,6 +905,19 @@ classes:
       Activity types / roles. See also: FIAF Moving Image Cataloguing
       Manual 2.4.1.1, D.8
 
+  ProvenanceActivity:
+    rank: 16
+    is_a: Activity
+    slot_usage:
+      type:
+        range: ProvenanceActivityTypeEnum
+        in_subset:
+        - TypeRegistrySubset
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Activity types / roles.
+
   Agent:
     rank: 18
     is_a: CategorizedThing
@@ -1137,6 +1154,22 @@ classes:
       various roles can be linked via has_activity. See also: FIAF
       Moving Image Cataloguing Manual D.4.4
 
+  ProvenanceEvent:
+    rank: 14
+    is_a: Event
+    slot_usage:
+      has_activity:
+        any_of:
+        - range: ProvenanceActivity
+        annotations:
+          pid: 21.T11969/c59e999da8229068bc50
+        in_subset:
+        - TypeRegistrySubset
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      An event in the history of an object that documents changes in its ownership, custody, location, legal status, or other aspects of its provenance.
+
   Title:
     rank: 11
     slots:
@@ -1206,8 +1239,9 @@ classes:
     - has_unit
     - has_value
     - has_precision
+    - has_dimension
     structured_aliases:
-    - literal_form: Länge / Größe
+    - literal_form: Länge / Größe / Maße
       in_language: de
     - literal_form: Extent
       in_language: en
@@ -1216,8 +1250,10 @@ classes:
     in_subset:
     - TypeRegistrySubset
     description: >-
-      Physical length or size of the described object. See also: FIAF
-      Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
+      Physical length, size or any type of extent of the described object. See also: FIAF
+      Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8 and for Film related materials: DDB-LIDO MDS: Maße (Empfohlen)
+    see_also:
+    - https://lido-schema.org/schema/v1.1/lido-v1.1.html#measurementsSet
 
   Format:
     rank: 31
@@ -1839,6 +1875,287 @@ classes:
     see_also:
     - https://www.wikidata.org/wiki/Wikidata:Identifiers
 
+  #-----------------------------------
+  # Film related material classes
+  #-----------------------------------
+
+  FilmRelatedMaterial:
+    rank: 4
+    is_a: MovingImageRecord
+    slots:
+    - has_mediaresource
+    - has_note
+    - has_object_type
+    - has_physical_characteristics
+    - has_record_type
+    - has_subject
+    - has_webresource
+    - has_access_status
+    - is_film_related_material_of
+    - is_part_of
+    - is_part_of_collection
+    - type
+    slot_usage:
+      described_by:
+        required: true
+        comments:
+        - >-
+          DDB-LIDO MDS: Datensatzerstellende Einrichtung (Pflicht);
+          Verwahrende Einrichtung (Pflicht)
+      has_event:
+        any_of:
+        - range: ManufactureEvent
+        - range: PreservationEvent
+        - range: ProductionEvent
+        - range: PublicationEvent
+        - range: RightsCopyrightRegistrationEvent
+        - range: ProvenanceEvent
+        in_subset:
+        - TypeRegistrySubset
+        comments:
+        - >-
+          DDB-LIDO MDS: Ereignis in der Objektgeschichte [Feldgruppe]
+          (Pflicht)
+      has_identifier:
+        description: >-
+          Record PID in this slot when exporting data from the PID
+          system. Use local identifiers instead when PIDs have not been
+          registered yet. Also record the inventory number here
+        comments:
+        - 'DDB-LIDO MDS: ID Datensatz (Pflicht)'
+      has_primary_title:
+        required: true
+        comments:
+        - 'DDB-LIDO MDS: Objekttitel oder -benennung (Pflicht)'
+      same_as:
+        any_of:
+        - range: GNDResource
+        - range: VIAFResource
+        - range: WikidataResource
+        in_subset:
+        - TypeRegistrySubset
+      type:
+        range: FilmRelatedMaterialTypeEnum
+        required: true
+        in_subset:
+        - TypeRegistrySubset
+        comments:
+        - >-
+          DDB-LIDO MDS: Objekttyp oder -bezeichnung (Pflicht);
+          Mediendatei: Medientyp
+      has_record_type:
+        comments:
+        - 'DDB-LIDO MDS: Datensatzart (Pflicht)'
+      has_subject:
+        range: Subject
+        any_of:
+        - range: Subject
+        comments:
+        - 'DDB-LIDO MDS: Inhaltsschlagwort (Empfohlen)'
+      has_note:
+        comments:
+        - 'DDB-LIDO MDS: Objektbeschreibung (Empfohlen)'
+      is_part_of_collection:
+        comments:
+        - 'DDB-LIDO MDS: Klassifikation (Empfohlen)'
+      has_webresource:
+        comments:
+        - >-
+          DDB-LIDO MDS: Link zum veröffentlichten Metadatensatz
+          (Empfohlen)
+      has_mediaresource:
+        comments:
+        - 'DDB-LIDO MDS: Mediendatei [Feldgruppe] (Pflicht)'
+      is_part_of:
+        range: FilmRelatedMaterial
+      has_object_type:
+        comments:
+        - 'DDB-LIDO MDS: Objekttyp oder -bezeichnung (Pflicht)'
+    structured_aliases:
+    - literal_form: Filmbegleitendes Material
+      in_language: de
+    - literal_form: Film Related Material
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Material related to a film, e.g. posters, stills, scripts,
+      documents, graphic arts/design, 3D objects or costumes. See also:
+      [FIAF Film Related Materials documentation](https://fiaf.github.io/film-related-materials/)
+
+  PhysicalCharacteristics:
+    rank: 34
+    slots:
+    - has_extent
+    - has_material
+    - has_name
+    - has_note
+    - has_technique
+    slot_usage:
+      has_name:
+        required: false
+        description: >-
+          Name of the Film related material as a whole or of the part
+          of it that the physical characteristics refer to
+      has_extent:
+        multivalued: true
+        inlined_as_list: true
+        comments:
+        - 'DDB-LIDO MDS: Maße (Empfohlen)'
+      has_material:
+        comments:
+        - 'DDB-LIDO MDS: Material (Empfohlen)'
+      has_technique:
+        comments:
+        - 'DDB-LIDO MDS: Technik (Empfohlen)'
+    structured_aliases:
+    - literal_form: Physische Eigenschaften
+      in_language: de
+    - literal_form: Physical Characteristics
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Physical characteristics of a Film related material or of a part
+      of it, i.e. extent, material and technique
+
+  Material:
+    rank: 36
+    slots:
+    - has_alternate_name
+    - has_name
+    - same_as
+    slot_usage:
+      same_as:
+        any_of:
+        - range: AATResource
+        - range: AuthorityResource
+        - range: GNDResource
+        - range: VIAFResource
+        - range: WikidataResource
+        in_subset:
+        - TypeRegistrySubset
+    structured_aliases:
+    - literal_form: Material
+      in_language: default
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Material the described object is made of. Provide name and if possible identifier(s) from supported authorities in the
+      same_as slot
+    comments:
+    - 'DDB-LIDO MDS: Material (Empfohlen)'
+
+  Technique:
+    rank: 37
+    slots:
+    - has_alternate_name
+    - has_name
+    - same_as
+    slot_usage:
+      same_as:
+        any_of:
+        - range: AATResource
+        - range: AuthorityResource
+        - range: GNDResource
+        - range: VIAFResource
+        - range: WikidataResource
+        in_subset:
+        - TypeRegistrySubset
+    structured_aliases:
+    - literal_form: Technik
+      in_language: de
+    - literal_form: Technique
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Technique used to make the described object. Provide name and if
+      possible identifier(s) from supported authorities in the
+      same_as slot
+    comments:
+    - 'DDB-LIDO MDS: Technik (Empfohlen)'
+
+  MediaResource:
+    rank: 41
+    slots:
+    - has_alternative_text
+    - has_event
+    - has_rights_statement
+    - has_webresource
+    slot_usage:
+      has_event:
+        range: RightsCopyrightRegistrationEvent
+      has_webresource:
+        multivalued: false
+        comments:
+        - 'DDB-LIDO MDS: Link zur Mediendatei (Pflicht)'
+    structured_aliases:
+    - literal_form: Mediendatei
+      in_language: de
+    - literal_form: Media Resource
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >
+      Digital media file representing the Film related material,
+      including its rights statement and the rights holders. Use
+      has_webresource for the link to the media file
+
+  Collection:
+    rank: 42
+    slots:
+    - has_name
+    - has_webresource
+    slot_usage:
+      has_name:
+        comments:
+        - 'DDB-LIDO MDS: Klassifikation (Empfohlen)'
+    structured_aliases:
+    - literal_form: Sammlung
+      in_language: de
+    - literal_form: Collection
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Collection the described object belongs to, optionally including a
+      link to a web presentation of the collection
+
+  ObjectType:
+    rank: 26
+    is_a: CategorizedThing
+    slots:
+    - has_alternate_name
+    - has_name
+    - same_as
+    slot_usage:
+      has_alternate_name:
+        comments:
+        - 'DDB-LIDO MDS: Objekttyp oder -bezeichnung (Pflicht)'
+      same_as:
+        any_of:
+        - range: AATResource
+        - range: AuthorityResource
+        - range: GNDResource
+        - range: VIAFResource
+        - range: WikidataResource
+        in_subset:
+        - TypeRegistrySubset
+    structured_aliases:
+    - literal_form: Objekttyp
+      in_language: de
+    - literal_form: Object Type
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      More specific type or designation of the described object, complementing the
+      controlled vocabulary of Film related material Type. 
+      Provide name and if possible identifier(s) from supported authorities in the
+      same_as slot. Not to be confused with the broad classification
+      given by the type of the Film related material
+
 slots:
 
   #-----------------------------------
@@ -1984,7 +2301,7 @@ slots:
     in_subset:
     - TypeRegistrySubset
     description: >-
-      See [AuthorityResource doucmentation](AuthorityResource.md) for
+      See [AuthorityResource documentation](AuthorityResource.md) for
       accepted identifiers
 
   described_by:
@@ -2141,8 +2458,8 @@ slots:
     in_subset:
     - TypeRegistrySubset
     description: >-
-      Physical length or size of the described object. See also: FIAF
-      Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8
+      Physical length, size or any type of extent of the described object. See also: FIAF
+      Moving Image Cataloguing Manual 2.3.5.2, 3.1.5.8 and DDB-LIDO MDS: Maße (Empfohlen)
 
   has_unit:
     rank: 26
@@ -2442,7 +2759,7 @@ slots:
     - TypeRegistrySubset
     description: >-
       Link to AVefi item from which this one has been derived in whole
-      or in part, e.g. as a result of a restoration or digitasation
+      or in part, e.g. as a result of a restoration or digitization
       project
 
   element_type:
@@ -2471,3 +2788,162 @@ slots:
     description: >-
       Frame Rate describes the number of frames per second of an item.
       See also: FIAF Moving Image Cataloguing Manual 3.1.5.12.
+
+  #-----------------------------------
+  # Film related material slots
+  #-----------------------------------
+  
+  has_record_type:
+    rank: 40
+    range: RecordTypeEnum
+    structured_aliases:
+    - literal_form: Datensatzart
+      in_language: de
+    - literal_form: Record type
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Indicates whether the record describes a single object or a
+      group (set) of objects
+
+  has_physical_characteristics:
+    rank: 41
+    inlined_as_list: true
+    multivalued: true
+    range: PhysicalCharacteristics
+    structured_aliases:
+    - literal_form: Physische Eigenschaften
+      in_language: de
+    - literal_form: Physical characteristics
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Physical characteristics of the described object or of parts of
+      it
+
+  has_object_type:
+    rank: 42
+    inlined_as_list: true
+    multivalued: true
+    range: ObjectType
+    structured_aliases:
+    - literal_form: Objekttyp
+      in_language: de
+    - literal_form: Object type
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Type(s) or designation(s) of the described object
+
+  has_mediaresource:
+    rank: 43
+    inlined: true
+    range: MediaResource
+    structured_aliases:
+    - literal_form: Mediendatei
+      in_language: de
+    - literal_form: Media resource
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Digital media resource representing the described object
+
+  is_part_of_collection:
+    rank: 44
+    inlined: true
+    range: Collection
+    structured_aliases:
+    - literal_form: Teil der Sammlung
+      in_language: de
+    - literal_form: Part of collection
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Collection the described object belongs to
+
+  has_material:
+    rank: 45
+    inlined_as_list: true
+    multivalued: true
+    range: Material
+    structured_aliases:
+    - literal_form: Material
+      in_language: default
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Material(s) the described object is made of
+
+  has_technique:
+    rank: 46
+    inlined_as_list: true
+    multivalued: true
+    range: Technique
+    structured_aliases:
+    - literal_form: Technik
+      in_language: de
+    - literal_form: Technique
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Technique(s) used in the production/creation of the described object
+
+  has_dimension:
+    rank: 47
+    range: DimensionTypeEnum
+    structured_aliases:
+    - literal_form: Dimension
+      in_language: default
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Dimension that is measured by the extent, e.g. height or width; mainly to be used for Film related materials
+
+  has_rights_statement:
+    rank: 48
+    range: TextLine
+    structured_aliases:
+    - literal_form: Nutzungsrechte
+      in_language: de
+    - literal_form: Rights statement
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Statement on the terms of use of the media file or its metadata,
+      e.g. a Creative Commons license
+    examples:
+    - value: CC BY 4.0
+      description: Creative Commons Attribution 4.0 International
+
+  has_alternative_text:
+    rank: 49
+    range: TextArea
+    structured_aliases:
+    - literal_form: Alternativtext
+      in_language: de
+    - literal_form: Alternative text
+      in_language: en
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Textual alternative describing the media file, e.g. for
+      accessibility purposes
+
+  is_film_related_material_of:
+    rank: 50
+    inlined_as_list: true
+    multivalued: true
+    range: WorkVariant
+    required: true
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Indicate AVefi WorkVariant (possibly more but no less than one)
+      that the Film related material is related to.

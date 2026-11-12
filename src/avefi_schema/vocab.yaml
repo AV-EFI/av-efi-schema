@@ -3,13 +3,14 @@ name: vocab
 title: AVefi schema vocabulary
 description: |-
   Vocabularies used in the AVefi schema for persistent film
-  identifiers
+  identifiers and film related material identifiers
 
 imports:
 - linkml:types
 
 prefixes:
   avefi: https://www.av-efi.net/av-efi-schema/
+  dcterms: http://purl.org/dc/terms/
   fiaf: https://fiafcore.org/ontology/
   foaf: http://xmlns.com/foaf/0.1/
   linkml: https://w3id.org/linkml/
@@ -221,6 +222,30 @@ enums:
           in_language: en
         description: FIAF Glossary of Filmographic Terms B.7.13
         meaning: fiaf:Wrangler
+      Host:
+        structured_aliases:
+        - literal_form: Moderator
+          in_language: de
+        - literal_form: Host
+          in_language: en
+        description: >-
+          A performer who leads a programme, often a broadcast, featuring guests and other
+          performers. (MARC relator: host)
+        meaning: http://vocab.getty.edu/page/aat/300440759
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/hst
+      Interviewee:
+        structured_aliases:
+        - literal_form: Interviewte Person
+          in_language: de
+        - literal_form: Interviewee
+          in_language: en
+        description: >-
+          A person who answers questions in an interview, including interviews for journalism
+          or employment. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300440749
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/ive
 
   CensorshipActivityTypeEnum:
     rank: 8
@@ -476,6 +501,30 @@ enums:
           in_language: en
         description: FIAF Glossary of Filmographic Terms C.2.5
         meaning: fiaf:WorldDistributor
+      OriginalRightsHolder:
+        structured_aliases:
+        - literal_form: Rechteinhaber (ursprünglich)
+          in_language: de
+        - literal_form: Original Rights Holder
+          in_language: en
+        description: >-
+          Original holder of the rights. See LIDO rightsHolder:
+          https://lido-schema.org/schema/latest/lido.html#rightsHolder
+        meaning: https://lido-schema.org/schema/latest/lido.html#rightsHolder
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/cph
+      PresentRightsHolder:
+        structured_aliases:
+        - literal_form: Rechteinhaber (gegenwärtig)
+          in_language: de
+        - literal_form: Present Rights Holder
+          in_language: en
+        description: >-
+          Present holder of the rights. See LIDO rightsHolder:
+          https://lido-schema.org/schema/latest/lido.html#rightsHolder
+        meaning: https://lido-schema.org/schema/latest/lido.html#rightsHolder
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/cph
 
   DirectingActivityTypeEnum:
     rank: 8
@@ -1452,6 +1501,369 @@ enums:
         - ScreenPlay
         description: FIAF Glossary of Filmographic Terms B.4.2
         meaning: fiaf:Writer
+      Signer:
+        structured_aliases:
+        - literal_form: Unterzeichner
+          in_language: de
+        - literal_form: Signer
+          in_language: en
+        description: >-
+          A person who signs a document. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300137375
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/sgn
+      Author:
+        structured_aliases:
+        - literal_form: Autor
+          in_language: de
+        - literal_form: Author
+          in_language: en
+        description: >-
+          A person intellectually responsible for literary compositions such as books, articles,
+          poems, or plays, whether published or not. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300025492
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/aut
+      Translator:
+        structured_aliases:
+        - literal_form: Übersetzer
+          in_language: de
+        - literal_form: Translator
+          in_language: en
+        description: >-
+          An agent who renders a text into another language, or into a more modern form of
+          the same language. (MARC relator: translator)
+        meaning: http://vocab.getty.edu/page/aat/300025601
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/trl
+
+  CreativeActivityTypeEnum:
+    rank: 8
+    in_subset:
+    - TypeRegistrySubset
+    description: Activity types / roles relating to creative.
+    permissible_values:
+      Architect:
+        structured_aliases:
+        - literal_form: Architekt
+          in_language: de
+        - literal_form: Architect
+          in_language: en
+        description: >-
+          A person trained in, or practising, the design and construction of buildings and
+          other habitable structures. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300024987
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/arc
+      Draftsperson:
+        structured_aliases:
+        - literal_form: Zeichner
+          in_language: de
+        - literal_form: Draftsperson
+          in_language: en
+        description: >-
+          An artist who produces drawings using lines and drawing instruments; the additional
+          AAT reference concerns architectural drawings and plans. (Getty AAT)
+        meaning: https://vocab.getty.edu/page/aat/300438663
+        see_also:
+        - https://vocab.getty.edu/page/aat/300112172
+        - http://id.loc.gov/vocabulary/relators/drm
+      Artist:
+        structured_aliases:
+        - literal_form: Künstler
+          in_language: de
+        - literal_form: Artist
+          in_language: en
+        description: >-
+          A person producing works in the visual arts, as distinct from the performing arts.
+          (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300025103
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/art
+      Cartoonist:
+        structured_aliases:
+        - literal_form: Karikaturist
+          in_language: de
+        - literal_form: Cartoonist
+          in_language: en
+        description: >-
+          A person producing drawings that use humour or satire to comment on current events,
+          social life, or politics. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300025110
+      Contributor:
+        structured_aliases:
+        - literal_form: Mitwirkender
+          in_language: de
+        - literal_form: Contributor
+          in_language: en
+        description: >-
+          An agent who contributes to the creation or content of a resource. (Dublin Core Terms)
+        meaning: dcterms:contributor
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/ctb
+      Creator:
+        structured_aliases:
+        - literal_form: Urheber/Schöpfer
+          in_language: de
+        - literal_form: Creator
+          in_language: en
+        description: >-
+          An agent responsible for making a resource. (Dublin Core Terms)
+        meaning: dcterms:creator
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/cre
+      CutPaperArtist:
+        structured_aliases:
+        - literal_form: Scherenschnittkünstler
+          in_language: de
+        - literal_form: Cut-Paper Artist
+          in_language: en
+        description: >-
+          An artist who produces artworks through the medium of cut paper. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300435152
+      Designer:
+        structured_aliases:
+        - literal_form: Designer
+          in_language: de
+        - literal_form: Designer
+          in_language: en
+        description: >-
+          A person who develops drawings, plans, or concepts for works, objects, structures,
+          or systems with artistic or functional considerations. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300025190
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/dsr
+      Engraver:
+        structured_aliases:
+        - literal_form: Graveur
+          in_language: de
+        - literal_form: Engraver
+          in_language: en
+        description: >-
+          A practitioner who incises images or marks into hard materials such as glass or metal;
+          this AAT concept excludes printmaking engravers. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300239410
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/egr
+      GraphicArtist:
+        structured_aliases:
+        - literal_form: Grafiker
+          in_language: de
+        - literal_form: Graphic Artist
+          in_language: en
+        description: >-
+          An artist specialising in printmaking or illustration where line, rather than colour,
+          shapes the design. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300264850
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/art
+      Illustrator:
+        structured_aliases:
+        - literal_form: Illustrator
+          in_language: de
+        - literal_form: Illustrator
+          in_language: en
+        description: >-
+          An artist who creates images, drawings, or prints to clarify or accompany a written
+          account, often in books or periodicals. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300025123
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/ill
+      Painter:
+        structured_aliases:
+        - literal_form: Maler
+          in_language: de
+        - literal_form: Painter
+          in_language: en
+        description: >-
+          An artist who creates images by applying pigments to a surface; distinct from painters
+          working primarily in surface maintenance. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300025136
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/art
+      Photographer:
+        structured_aliases:
+        - literal_form: Fotograf
+          in_language: de
+        - literal_form: Photographer
+          in_language: en
+        description: >-
+          A person specialising in producing photographs, including images created using light-sensitive
+          photographic processes. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300025687
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/pht
+      Sculptor:
+        structured_aliases:
+        - literal_form: Bildhauer
+          in_language: de
+        - literal_form: Sculptor
+          in_language: en
+        description: >-
+          An artist creating primarily three-dimensional forms or images, for example in stone,
+          wood, or metal, including relief works. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300025181
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/scl
+      Winner:
+        structured_aliases:
+        - literal_form: Gewinner
+          in_language: de
+        - literal_form: Winner
+          in_language: en
+        description: >-
+          A person who wins a competition, award, honour, game, or similar distinction. (Getty
+          AAT)
+        meaning: http://vocab.getty.edu/page/aat/300207894
+
+  CorrespondenceActivityTypeEnum:
+    rank: 8
+    in_subset:
+    - TypeRegistrySubset
+    description: Activity types / roles relating to correspondence.
+    permissible_values:
+      Addressee:
+        structured_aliases:
+        - literal_form: Adressat
+          in_language: de
+        - literal_form: Addressee
+          in_language: en
+        description: >-
+          The agent to whom a record resource or instantiation is addressed. (ICA RiC-O: hasAddressee)
+        meaning: https://www.ica.org/standards/RiC/ontology#hasAddressee
+        see_also:
+        - http://vocab.getty.edu/page/aat/300443565
+        - http://id.loc.gov/vocabulary/relators/crp
+      Sender:
+        structured_aliases:
+        - literal_form: Absender
+          in_language: de
+        - literal_form: Sender
+          in_language: en
+        description: >-
+          The agent sending a record resource or instantiation, usually identifiable from the
+          record itself. (ICA RiC-O: hasSender)
+        meaning: https://www.ica.org/standards/RiC/ontology#hasSender
+        see_also:
+        - http://vocab.getty.edu/page/aat/300225705
+        - http://id.loc.gov/vocabulary/relators/crp
+
+  ProvenanceActivityTypeEnum:
+    rank: 8
+    in_subset:
+    - TypeRegistrySubset
+    description: Activity types / roles relating to provenance.
+    permissible_values:
+      Collector:
+        structured_aliases:
+        - literal_form: Sammler
+          in_language: de
+        - literal_form: Collector
+          in_language: en
+        description: >-
+          A person who collects objects, artworks, specimens, or curiosities. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300025234
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/col
+      OriginalOwner:
+        structured_aliases:
+        - literal_form: Ursprünglicher Eigentümer
+          in_language: de
+        - literal_form: Original Owner
+          in_language: en
+        description: >-
+          The first known owner of a cultural heritage work, when the mode of acquisition is
+          unknown or irrelevant. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300417653
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/fmo
+      FormerOwner:
+        structured_aliases:
+        - literal_form: Früherer Eigentümer
+          in_language: de
+        - literal_form: Former Owner
+          in_language: en
+        description: >-
+          An agent who formerly held legal possession of an item. (MARC relator: former owner)
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/fmo
+      Owner:
+        structured_aliases:
+        - literal_form: Eigentümer
+          in_language: de
+        - literal_form: Owner
+          in_language: en
+        description: >-
+          A person with legal title to an item or other property. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300203630
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/own
+      Seller:
+        structured_aliases:
+        - literal_form: Verkäufer
+          in_language: de
+        - literal_form: Seller
+          in_language: en
+        description: >-
+          A former owner who transferred an item to another owner through a sale. (MARC relator:
+          seller)
+        meaning: http://vocab.getty.edu/page/aat/300445696
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/sll
+      Sponsor:
+        structured_aliases:
+        - literal_form: Sponsor
+          in_language: de
+        - literal_form: Sponsor
+          in_language: en
+        description: >-
+          A person or organisation financing, planning, or conducting a project or activity
+          and taking primary responsibility for it. (Getty AAT)
+        meaning: https://vocab.getty.edu/page/aat/300188572
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/spn
+      Provenance:
+        structured_aliases:
+        - literal_form: Provenienz
+          in_language: de
+        - literal_form: Provenance
+          in_language: en
+        description: >-
+          The history of ownership and transmission of an object, including its former locations.
+          This describes a concept, not an agent role. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300055863
+      Donor:
+        structured_aliases:
+        - literal_form: Schenker
+          in_language: de
+        - literal_form: Donor
+          in_language: en
+        description: >-
+          A person or group that gives money, objects, or artworks, for example to a collection.
+          (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300025240
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/dnr
+      Applicant:
+        structured_aliases:
+        - literal_form: Antragsteller
+          in_language: de
+        - literal_form: Applicant
+          in_language: en
+        description: >-
+          An agent who submits an application or is identified as eligible for a resulting
+          right, award, title, or position. (MARC relator: applicant)
+        meaning: http://id.loc.gov/vocabulary/relators/app
+      Patron:
+        structured_aliases:
+        - literal_form: Auftraggeber/Mäzen
+          in_language: de
+        - literal_form: Patron
+          in_language: en
+        description: >-
+          A person or organisation commissioning a work, often supporting an artist or author
+          with money or influence. (MARC relator: patron)
+        meaning: http://id.loc.gov/vocabulary/relators/pat
 
   ManifestationActivityTypeEnum:
     rank: 8
@@ -1560,7 +1972,51 @@ enums:
         description: >-
           FIAF Moving Image Cataloguing Manual 1.4.1.1, 2.4.1.1,
           3.3.1.1
-
+      AgentResponsibleForAdvertisement:
+        structured_aliases:
+        - literal_form: Verantwortlicher für Werbung
+          in_language: de
+        - literal_form: Agent Responsible for Advertisement
+          in_language: en
+        description: >-
+          An organisation offering advertising, branding, marketing, or promotional services.
+          The referenced AAT concept denotes advertising agencies. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300263178
+      AgentResponsibleForRestauration:
+        structured_aliases:
+        - literal_form: Restaurator
+          in_language: de
+        - literal_form: Agent Responsible for Restauration
+          in_language: en
+        description: >-
+          An agent responsible for technical, editorial, or intellectual restoration work to
+          counter deterioration and bring an item near its original condition. (MARC relator:
+          restorationist)
+        meaning: http://id.loc.gov/vocabulary/relators/rsr
+      PhotographicAgency:
+        structured_aliases:
+        - literal_form: Bildagentur
+          in_language: de
+        - literal_form: Photographic Agency
+          in_language: en
+        description: >-
+          A business that represents photographers, arranges assignments, handles image licensing,
+          and supplies photographs to publishers or other clients. (Wikipedia: Photographic
+          agency)
+        meaning: https://en.wikipedia.org/wiki/Photographic_agency
+      Printer:
+        structured_aliases:
+        - literal_form: Drucker
+          in_language: de
+        - literal_form: Printer
+          in_language: en
+        description: >-
+          A person or business involved in commercial printing, as distinct from an artist
+          producing original prints. (Getty AAT)
+        meaning: http://vocab.getty.edu/page/aat/300025732
+        see_also:
+        - http://id.loc.gov/vocabulary/relators/prt
+  
   AgentTypeEnum:
     rank: 9
     annotations:
@@ -2418,14 +2874,18 @@ enums:
         meaning: fiaf:ColourPositive
       CopperTonedPositive:
         structured_aliases:
+        - literal_form: Kupfergetontes Positiv
+          in_language: de
         - literal_form: Copper Toned Positive
-          in_language: default
+          in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:CopperTonedPositive
       CyanMatrix:
         structured_aliases:
+        - literal_form: Cyan-Matrix
+          in_language: de
         - literal_form: Cyan Matrix
-          in_language: default
+          in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:CyanMatrix
       DCDM:
@@ -2440,8 +2900,10 @@ enums:
         meaning: fiaf:DCP
       DirectBWPositive:
         structured_aliases:
+        - literal_form: Direktes SW Positiv
+          in_language: de
         - literal_form: Direct BW Positive
-          in_language: default
+          in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:DirectBWPositive
       DuplicateNegative:
@@ -2476,8 +2938,10 @@ enums:
         meaning: fiaf:ImageNegative
       Lavender:
         structured_aliases:
+        - literal_form: Lavendel
+          in_language: de
         - literal_form: Lavender
-          in_language: default
+          in_language: en
         description: FIAF Moving Image Cataloguing Manual D.7.8
         meaning: fiaf:Lavender
       OriginalNegative:
@@ -2490,7 +2954,7 @@ enums:
         meaning: fiaf:OriginalNegative
       OriginalPositiveReversalFilm:
         structured_aliases:
-        - literal_form: Originalpositiv (Dia)
+        - literal_form: Originalpositiv (Umkehrfilm)
           in_language: de
         - literal_form: Original Positive (reversal film)
           in_language: en
@@ -2676,8 +3140,7 @@ enums:
         structured_aliases:
         - literal_form: Aramäisch
           in_language: de
-        - literal_form: Official Aramaic (700-300 BCE) |  Imperial Aramaic 
-            (700-300 BCE)
+        - literal_form: Official Aramaic (700-300 BCE) |  Imperial Aramaic (700-300 BCE)
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/arc
       arg:
@@ -3117,8 +3580,8 @@ enums:
         structured_aliases:
         - literal_form: Kirchenslawisch
           in_language: de
-        - literal_form: Church Slavic |  Old Slavonic |  Church Slavonic |  Old 
-            Bulgarian |  Old Church Slavonic
+        - literal_form: Church Slavic |  Old Slavonic |  Church Slavonic |  Old Bulgarian
+            |  Old Church Slavonic
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/chu
       chv:
@@ -3861,8 +4324,7 @@ enums:
         structured_aliases:
         - literal_form: Interlingua
           in_language: de
-        - literal_form: Interlingua (International Auxiliary Language 
-            Association)
+        - literal_form: Interlingua (International Auxiliary Language Association)
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/ina
       inc:
@@ -5968,10 +6430,8 @@ enums:
         meaning: fiaf:SungLanguage
       VoiceOver:
         structured_aliases:
-        - literal_form: Voiceover
-          in_language: de
         - literal_form: Voice-over
-          in_language: en
+          in_language: default
         todos:
         - Add documentation
 
@@ -6097,7 +6557,7 @@ enums:
         meaning: fiaf:AbbreviatedTitle
       AcquisitionTitle:
         structured_aliases:
-        - literal_form: Erwerbstitel
+        - literal_form: Übernahmetitel
           in_language: de
         - literal_form: Acquisition Title
           in_language: en
@@ -6153,7 +6613,7 @@ enums:
         meaning: fiaf:SeriesTitle
       SuppliedDevisedTitle:
         structured_aliases:
-        - literal_form: Gelieferter/Entworfener Titel
+        - literal_form: Archivtitel
           in_language: de
         - literal_form: Supplied/Devised Title
           in_language: en
@@ -6161,10 +6621,8 @@ enums:
         meaning: fiaf:SuppliedDevisedTitle
       TitleProper:
         structured_aliases:
-        - literal_form: Haupttitel
-          in_language: de
         - literal_form: Title Proper
-          in_language: en
+          in_language: default
         description: FIAF Moving Image Cataloguing Manual A.2.2
         meaning: fiaf:TitleProper
       TranslatedTitle:
@@ -6177,7 +6635,7 @@ enums:
         meaning: fiaf:TranslatedTitle
       TransliteratedTitle:
         structured_aliases:
-        - literal_form: Transkribierter Titel
+        - literal_form: Transliterierter Titel
           in_language: de
         - literal_form: Transliterated Title
           in_language: en
@@ -6204,6 +6662,12 @@ enums:
     see_also:
     - https://www.qudt.org/doc/DOC_VOCAB-UNITS.html
     permissible_values:
+      Byte:
+        structured_aliases:
+        - literal_form: Byte
+          in_language: default
+        description: >-
+          Unit for digital information
       Feet:
         structured_aliases:
         - literal_form: Fuß
@@ -6215,14 +6679,14 @@ enums:
         meaning: unit:FT
       GigaByte:
         structured_aliases:
-        - literal_form: GigaByte
+        - literal_form: Gigabyte
           in_language: default
         description: >-
           Unit for digital information equivalent to 1000 megabytes
         meaning: unit:GigaBYTE
       KiloByte:
         structured_aliases:
-        - literal_form: KiloByte
+        - literal_form: Kilobyte
           in_language: default
         description: >-
           Unit for digital information equivalent to 1000 bytes
@@ -6238,18 +6702,213 @@ enums:
         meaning: unit:M
       MegaByte:
         structured_aliases:
-        - literal_form: MegaByte
+        - literal_form: Megabyte
           in_language: default
         description: >-
           Unit for digital information equivalent to 1000 kilobytes
         meaning: unit:MegaBYTE
       TeraByte:
         structured_aliases:
-        - literal_form: TeraByte
+        - literal_form: Terabyte
           in_language: default
         description: >-
           Unit for digital information equivalent to 1000 gigabytes
         meaning: unit:TeraBYTE
+      Centimetre:
+        structured_aliases:
+        - literal_form: Zentimeter
+          in_language: de
+        - literal_form: Centimetre
+          in_language: en
+        description: >-
+          Unit of length equal to one hundredth of a metre
+        meaning: unit:CentiM
+      Gram:
+        structured_aliases:
+        - literal_form: Gramm
+          in_language: de
+        - literal_form: Gram
+          in_language: en
+        description: >-
+          Unit of mass equal to one thousandth of a kilogram
+        meaning: unit:GM
+      Kilogram:
+        structured_aliases:
+        - literal_form: Kilogramm
+          in_language: de
+        - literal_form: Kilogram
+          in_language: en
+        description: >-
+          SI base unit of mass
+        meaning: unit:KiloGM
+      Number:
+        structured_aliases:
+        - literal_form: Nummer
+          in_language: de
+        - literal_form: Number
+          in_language: en
+        description: >-
+          Unit for a dimensionless number/count
+        meaning: unit:Num
+
+  FilmRelatedMaterialTypeEnum:
+    rank: 1
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Type of film-related material. See also: FIAF Film Related
+      Materials documentation
+    see_also:
+    - https://fiaf.github.io/film-related-materials/
+    permissible_values:
+      3DObjects:
+        structured_aliases:
+        - literal_form: 3D-Objekte
+          in_language: de
+        - literal_form: 3D objects
+          in_language: en
+        description: FIAF Film Related Materials, objects
+        see_also:
+        - https://fiaf.github.io/film-related-materials/objects/
+      Costumes:
+        structured_aliases:
+        - literal_form: Kostüme
+          in_language: de
+        - literal_form: Costumes
+          in_language: en
+        description: FIAF Film Related Materials, objects
+        see_also:
+        - https://fiaf.github.io/film-related-materials/objects/
+      Documents:
+        structured_aliases:
+        - literal_form: Dokumente
+          in_language: de
+        - literal_form: Documents
+          in_language: en
+        description: FIAF Film Related Materials, documents
+        see_also:
+        - https://fiaf.github.io/film-related-materials/documents/
+      GraphicArtsDesign:
+        structured_aliases:
+        - literal_form: Grafik/Design
+          in_language: de
+        - literal_form: Graphic arts/design
+          in_language: en
+        description: FIAF Film Related Materials, objects
+        see_also:
+        - https://fiaf.github.io/film-related-materials/objects/
+      Posters:
+        structured_aliases:
+        - literal_form: Plakate
+          in_language: de
+        - literal_form: Posters
+          in_language: en
+        description: FIAF Film Related Materials, posters
+        see_also:
+        - https://fiaf.github.io/film-related-materials/posters/
+      Scripts:
+        structured_aliases:
+        - literal_form: Drehbücher
+          in_language: de
+        - literal_form: Scripts
+          in_language: en
+        description: FIAF Film Related Materials, scripts
+        see_also:
+        - https://fiaf.github.io/film-related-materials/scripts/
+      Stills:
+        structured_aliases:
+        - literal_form: Standfotos
+          in_language: de
+        - literal_form: Stills
+          in_language: en
+        description: FIAF Film Related Materials, stills
+        see_also:
+        - https://fiaf.github.io/film-related-materials/stills/
+
+  RecordTypeEnum:
+    rank: 40
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Distinguishes records describing a single object from records
+      describing a group (set) of objects
+    permissible_values:
+      ObjectGroup:
+        structured_aliases:
+        - literal_form: Objektgruppe
+          in_language: de
+        - literal_form: Object Group
+          in_language: en
+        description: Record describes a group (set) of objects
+        meaning: http://terminology.lido-schema.org/lido00453
+      SingleObject:
+        structured_aliases:
+        - literal_form: Einzelobjekt
+          in_language: de
+        - literal_form: Single Object
+          in_language: en
+        description: Record describes a single object
+        meaning: http://terminology.lido-schema.org/lido00141
+
+  DimensionTypeEnum:
+    rank: 26
+    in_subset:
+    - TypeRegistrySubset
+    description: >-
+      Types of dimensions of objects, including size and weight.
+    see_also:
+    - http://vocab.getty.edu/page/aat/300264087
+    permissible_values:
+      Count:
+        structured_aliases:
+        - literal_form: Anzahl
+          in_language: de
+        - literal_form: Count
+          in_language: en
+        meaning: http://vocab.getty.edu/aat/300404433
+      Height:
+        structured_aliases:
+        - literal_form: Höhe
+          in_language: de
+        - literal_form: Height
+          in_language: en
+        meaning: http://vocab.getty.edu/aat/300055644
+      Width:
+        structured_aliases:
+        - literal_form: Breite
+          in_language: de
+        - literal_form: Width
+          in_language: en
+        meaning: http://vocab.getty.edu/aat/300055647
+      Circumference:
+        structured_aliases:
+        - literal_form: Umfang
+          in_language: de
+        - literal_form: Circumference
+          in_language: en
+        meaning: http://vocab.getty.edu/aat/300055623
+      Depth:
+        structured_aliases:
+        - literal_form: Tiefe
+          in_language: de
+        - literal_form: Depth
+          in_language: en
+        meaning: http://vocab.getty.edu/aat/300072633
+      Weight:
+        structured_aliases:
+        - literal_form: Gewicht
+          in_language: de
+        - literal_form: Weight
+          in_language: en
+        meaning: http://vocab.getty.edu/aat/300056240
+      Diameter:
+        structured_aliases:
+        - literal_form: Durchmesser
+          in_language: de
+        - literal_form: Diameter
+          in_language: en
+        meaning: http://vocab.getty.edu/aat/300055624
+
 
   VariantTypeEnum:
     rank: 18
@@ -6261,7 +6920,7 @@ enums:
     permissible_values:
       AbridgedCondensed:
         structured_aliases:
-        - literal_form: Gekürzt/Zusammengefasst
+        - literal_form: Gekürzt
           in_language: de
         - literal_form: Abridged/Condensed
           in_language: en
@@ -6277,8 +6936,7 @@ enums:
         meaning: fiaf:Augmented
       BlackAndWhiteCopyOfWorkOriginallyIssuedInColour:
         structured_aliases:
-        - literal_form: Schwarzweißkopie eines Werks, das im Original in Farbe 
-            ausgegeben wurde
+        - literal_form: Schwarz-Weiß-Kopie eines ursprünglich in Farbe erschienenen Werks
           in_language: de
         - literal_form: Black and white copy of work originally issued in colour
           in_language: en
@@ -6302,7 +6960,7 @@ enums:
         meaning: fiaf:Colourized
       DifferentSoundTrack:
         structured_aliases:
-        - literal_form: Anderer Soundtrack
+        - literal_form: Andere Tonspur
           in_language: de
         - literal_form: Different sound track
           in_language: en
@@ -6318,7 +6976,7 @@ enums:
         meaning: fiaf:Dubbed
       PreservationRestoration:
         structured_aliases:
-        - literal_form: Präservierung/Restaurierung
+        - literal_form: Sicherung/Restaurierung
           in_language: de
         - literal_form: Preservation/Restoration
           in_language: en
@@ -6326,7 +6984,7 @@ enums:
         meaning: fiaf:PreservationRestoration
       Sonorized:
         structured_aliases:
-        - literal_form: Sonorisierung
+        - literal_form: Vertont
           in_language: de
         - literal_form: Sonorized
           in_language: en
@@ -6449,10 +7107,8 @@ enums:
           FIAF Glossary of Filmographic Terms D.1.2
       Featurette:
         structured_aliases:
-        - literal_form: Kurzfilm über Filmherstellung
-          in_language: de
         - literal_form: Featurette
-          in_language: en
+          in_language: default
         meaning: fiaf:Featurette
         description: >-
           FIAF Glossary of Filmographic Terms D.1.8
@@ -6465,8 +7121,10 @@ enums:
         description: https://d-nb.info/gnd/1286825091
       HomeMovie:
         structured_aliases:
+        - literal_form: Heimvideo
+          in_language: de
         - literal_form: Home Movie
-          in_language: default
+          in_language: en
         meaning: fiaf:HomeMovie
         description: >-
           FIAF Glossary of Filmographic Terms D.1.10
@@ -6539,7 +7197,7 @@ enums:
           FIAF Moving Image Cataloguing Manual E.2.2
       Commercial:
         structured_aliases:
-        - literal_form: Werbung
+        - literal_form: Werbespot
           in_language: de
         - literal_form: Commercial
           in_language: en
