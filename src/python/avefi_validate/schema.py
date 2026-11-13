@@ -1,10 +1,9 @@
 """Access to the JSON Schema shipped with this distribution.
 
 The schema is package data: ``dodo.py`` writes
-``project/jsonschema/avefi_schema/model.schema.json`` and copies it
+``project/jsonschema/avefi_schema/model.schema.json`` and links it
 next to the generated bindings, so an installed ``avefi-schema``
-always validates against the schema of its own version. There is no
-cache and no download; upgrading the schema is upgrading the package.
+always validates against the schema of its own version.
 
 """
 

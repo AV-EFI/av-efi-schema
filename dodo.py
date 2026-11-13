@@ -51,9 +51,8 @@ JSON_SCHEMA = PROJECT_DIR / 'jsonschema' / SCHEMA_NAME \
 EPIC_VOCAB_DIR = PROJECT_DIR / 'jsonschema' / 'epic' / 'vocabularies'
 PYTHON_MODEL = PROJECT_DIR / 'python' / SCHEMA_NAME / f"{SRC_MODEL.stem}.py"
 PYDANTIC_MODEL = PYTHON_MODEL.with_stem(f"{PYTHON_MODEL.stem}_pydantic_v2")
-#: Copy of the JSON Schema next to the generated bindings, so that
-#: ``avefi_validate`` ships the schema of its own version as package data
-#: and never has to fetch it.
+#: Link to the JSON Schema next to the generated bindings, so that
+#: ``avefi_validate`` ships the schema of its own version as package data.
 PACKAGED_JSON_SCHEMA = PROJECT_DIR / 'python' / SCHEMA_NAME \
     / 'model.schema.json'
 PYTHON_DEPENDENCIES = SRC_SCHEMA_DEPENDENCIES.copy()
