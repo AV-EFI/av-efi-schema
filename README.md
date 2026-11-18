@@ -100,6 +100,17 @@ infoTypes. Make sure to commit those changes right away so as not to
 lose the relation between LinkML classes or types and infoTypes in the
 Type Registry.
 
+## Versioning
+
+Two numbers describe a release: the data contract version in
+[`src/avefi_schema/model.yaml`](./src/avefi_schema/model.yaml) and the
+artefact version in [`pyproject.toml`](./pyproject.toml). The
+[versioning guide](https://av-efi.github.io/av-efi-schema/versioning/)
+explains the compatibility promise. The contributor workflow and the
+checks that enforce it are in [AGENTS.md](./AGENTS.md) and
+[versioning/README.md](./versioning/README.md); run
+`uv run doit version_check` before pushing.
+
 [LinkML]: https://linkml.io/
 [doit]: https://pydoit.org/
 [uv_install]: https://docs.astral.sh/uv/getting-started/installation/
