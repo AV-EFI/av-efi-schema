@@ -16,6 +16,7 @@ or contributor must follow; usage lives in `README.md`.
 | Purpose | Command |
 |---|---|
 | Install dependencies | `uv sync` |
+| Install git hooks once per clone | `uv run doit install_hooks` |
 | Regenerate derivatives | `uv run doit` |
 | Force every generator (CI parity) | `uv run doit --always-execute` |
 | One target | `uv run doit jsonschema` (`python`, `typescript`, `docs`) |
@@ -42,7 +43,8 @@ or contributor must follow; usage lives in `README.md`.
 6. New types and classes in `TypeRegistrySubset` need DTR PIDs: run
    `uv run doit check_dtr` after adding them.
 7. CI runs pre-commit, `doit --always-execute`, a strict `git status`,
-   the version tests and the gate.
+   the version tests and the gate. The pre-push hook is fast feedback;
+   `--no-verify` skips only that, never CI.
 
 Mechanics: [`versioning/README.md`](versioning/README.md). Public
 promise: [`src/docs/versioning.md`](src/docs/versioning.md).

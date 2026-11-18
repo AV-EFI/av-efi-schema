@@ -511,6 +511,39 @@ def task_version_snapshots():
     }
 
 
+def task_install_hooks():
+    """Install the pre-commit and pre-push hooks (run once per clone)."""
+    def install():
+        import subprocess
+
+        # pre-commit refuses to install while core.hooksPath is set.
+        subprocess.run(
+            ['git', 'config', '--local', '--unset-all', 'core.hooksPath'],
+            check=False,
+        )
+        configured = subprocess.run(
+            ['git', 'config', '--get', 'core.hooksPath'],
+            capture_output=True, text=True,
+        ).stdout.strip()
+        if configured:
+            raise RuntimeError(
+                f"core.hooksPath is set globally to {configured!r};"
+                " unset it before installing hooks"
+            )
+
+        for hook_type in ('pre-commit', 'pre-push'):
+            subprocess.run(
+                ['uv', 'run', 'pre-commit', 'install',
+                 '--hook-type', hook_type],
+                check=True,
+            )
+
+    return {
+        'actions': [install],
+        'uptodate': [False],
+    }
+
+
 def task_version_check():
     """Check that the versions agree with the changes since a base.
 

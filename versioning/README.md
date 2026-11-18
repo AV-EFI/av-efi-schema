@@ -8,7 +8,8 @@ it, and when a human has to decide.
 The short version: edit the schema or the validator, run
 `uv run doit version_snapshots` when acceptance rules moved, bump the
 two versions the way the guide says, add a `CHANGELOG.md` section, then
-run `uv run doit version_check` before pushing.
+push. The pre-push hook regenerates the derivatives and runs the gate
+for you; install it once per clone with `uv run doit install_hooks`.
 
 ## The two numbers
 
@@ -37,6 +38,7 @@ package's eventual `1.0` transition depend on it.
 | Structural schema classifier | `utils/version_contract.py`, `tests/test_version_contract.py` | no |
 | Verdict snapshot | `tests/data/version_contract/`, `tests/test_verdict_snapshot.py` | no |
 | Public surface snapshot | `tests/data/api_surface.json`, `tests/test_api_surface.py` | no |
+| Local hooks | `.pre-commit-config.yaml`, `.githooks/version-gate` | yes |
 | The gate | `utils/version_gate.py`, `tests/test_version_gate.py` | yes |
 
 The gate compares the working tree with a base revision:
@@ -50,6 +52,41 @@ generated JSON Schema, both snapshots and `CHANGELOG.md` with `git
 show`, and takes the changed paths from `git diff --name-only`. It never
 re-runs the generators on the base revision, which is why the generated
 schema is committed.
+
+## Local hooks and CI
+
+The `pre-commit` package owns both hook types. Install them once per
+clone:
+
+    uv run doit install_hooks
+
+`pre-commit install` refuses to run while `core.hooksPath` is set, so
+the task unsets a local value first and fails with a clear message if a
+global value is still in place.
+
+At commit time the standard hooks check trailing whitespace, final
+newlines, and YAML/TOML syntax, and fix whitespace where they can.
+Generated outputs (`project/`, the all-in-one example, and
+`avefi_er_diagram.md`) are excluded from the auto-fix hooks because the
+generators emit trailing whitespace themselves; otherwise the next push
+would regenerate it and fail the dirty check.
+
+At push time `.githooks/version-gate`:
+
+1. refuses to run while tracked changes are uncommitted, because the
+   gate reads the working tree;
+2. runs `uv run doit --always-execute`, which forces every generator
+   even when `.doit.db` thinks the targets are current;
+3. fails if that changed the working tree, so a hand-edited or stale
+   derivative cannot be pushed;
+4. runs `uv run doit version_check --base <merge-base>` against
+   `origin/main`, `upstream/main` or `main` when one exists.
+
+CI runs the same checks in the same order — pre-commit, forced
+generation, a strict `git status`, the version tests and the gate — so
+`git push --no-verify` skips only the faster feedback. The workflow
+picks the merge base for pull requests and `github.event.before` for
+pushes, and falls back to `HEAD~1`.
 
 ## Snapshots
 

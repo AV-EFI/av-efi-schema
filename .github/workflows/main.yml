@@ -1,6 +1,6 @@
 name: Consistency checks
 
-on: [push]
+on: [push, pull_request]
 
 permissions:
   contents: read
@@ -11,16 +11,20 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          # The gate needs history for merge-base and the push base.
+          fetch-depth: 0
 
-      - name: Restore global uv cache
+      - name: Restore caches
         uses: actions/cache/restore@v6
         id: cache-restore
         with:
           path: |
             ~/.cache/uv
+            ~/.cache/pre-commit
             ~/.local/share/uv
             .venv
-          key: uv-${{ hashFiles('uv.lock') }}
+          key: uv-${{ hashFiles('uv.lock', '.pre-commit-config.yaml') }}
           restore-keys: |
             uv-
 
@@ -32,21 +36,47 @@ jobs:
       - name: Install dependencies
         run: uv sync --group dev --locked
 
+      - name: Run pre-commit hooks
+        run: uv run pre-commit run --all-files --show-diff-on-failure
+
       - name: Build derivatives
-        run: uv run doit
+        run: uv run doit --always-execute
 
       - name: Check for uncommitted changes
-        run: >-
-          [ -z "$(git diff | grep -e '^[-+]' | grep -ve '^. *#\|^+++\|^---')" ]
-          || (git diff && false)
+        run: |
+          git status --porcelain --untracked-files=all
+          test -z "$(git status --porcelain --untracked-files=all)"
         shell: bash
 
-      - name: Save uv caches
+      - name: Check version invariants
+        run: >-
+          uv run pytest tests/test_versioning.py
+          tests/test_version_contract.py tests/test_verdict_snapshot.py
+          tests/test_api_surface.py tests/test_version_gate.py
+
+      - name: Check that versions match the changes
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ -n "$BASE_REF" ]; then
+            base=$(git merge-base "origin/$BASE_REF" HEAD)
+          elif [ -n "$BEFORE" ] \
+            && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
+            base=$(git merge-base "$BEFORE" HEAD 2>/dev/null || echo "$BEFORE")
+          else
+            base=$(git rev-parse HEAD~1 2>/dev/null || git rev-parse HEAD)
+          fi
+          uv run doit version_check --base "$base"
+        shell: bash
+
+      - name: Save caches
         if: steps.cache-restore.outputs.cache-hit != 'true'
         uses: actions/cache/save@v6
         with:
           path: |
             ~/.cache/uv
+            ~/.cache/pre-commit
             ~/.local/share/uv
             .venv
-          key: uv-${{ hashFiles('uv.lock') }}
+          key: uv-${{ hashFiles('uv.lock', '.pre-commit-config.yaml') }}

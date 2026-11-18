@@ -131,4 +131,7 @@ The rules a change has to follow are in
 [`AGENTS.md`](https://github.com/AV-EFI/av-efi-schema/blob/main/AGENTS.md).
 The classifier, the snapshots and the gate are documented in
 [`versioning/README.md`](https://github.com/AV-EFI/av-efi-schema/blob/main/versioning/README.md).
-Run `uv run doit version_check` before pushing.
+Install the hooks once per clone with `uv run doit install_hooks`. The
+pre-push hook regenerates the derivatives, refuses to run on an unclean tree,
+and then runs `uv run doit version_check` against the merge base. CI enforces
+the same checks.

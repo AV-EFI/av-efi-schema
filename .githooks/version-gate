@@ -1,0 +1,41 @@
+#!/bin/sh
+# Pre-push gate: regenerate every derivative and check that the result is
+# committed, then enforce the versioning rules.
+#
+# The gate reads the working tree, not the index, so it refuses to run
+# while tracked changes are uncommitted.
+set -eu
+
+base=
+for ref in origin/main upstream/main main; do
+    if git rev-parse --verify --quiet "$ref" >/dev/null; then
+        if base=$(git merge-base HEAD "$ref" 2>/dev/null); then
+            break
+        fi
+    fi
+done
+
+if ! git diff --quiet || ! git diff --cached --quiet; then
+    echo "version gate: commit or stash tracked changes first" >&2
+    exit 1
+fi
+
+before=$(git status --porcelain --untracked-files=all)
+
+uv run doit --always-execute
+
+after=$(git status --porcelain --untracked-files=all)
+if [ "$before" != "$after" ]; then
+    git --no-pager diff
+    printf '%s\n' "$after"
+    echo "version gate: generation changed the working tree;" \
+         "commit the result and push again" >&2
+    exit 1
+fi
+
+if [ -z "$base" ]; then
+    echo "version gate: no main ref found; skipped the version check" >&2
+    exit 0
+fi
+
+exec uv run doit version_check --base "$base"

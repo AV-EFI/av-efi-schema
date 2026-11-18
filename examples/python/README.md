@@ -65,7 +65,7 @@ def main():
     # Initialise helpers
     dumper = JSONDumper()
     loader = JSONLoader()
-    
+
     # ...
 
     # Write data to file

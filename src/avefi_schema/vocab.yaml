@@ -2684,7 +2684,7 @@ enums:
         structured_aliases:
         - literal_form: Aramäisch
           in_language: de
-        - literal_form: Official Aramaic (700-300 BCE) |  Imperial Aramaic 
+        - literal_form: Official Aramaic (700-300 BCE) |  Imperial Aramaic
             (700-300 BCE)
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/arc
@@ -3125,7 +3125,7 @@ enums:
         structured_aliases:
         - literal_form: Kirchenslawisch
           in_language: de
-        - literal_form: Church Slavic |  Old Slavonic |  Church Slavonic |  Old 
+        - literal_form: Church Slavic |  Old Slavonic |  Church Slavonic |  Old
             Bulgarian |  Old Church Slavonic
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/chu
@@ -3869,7 +3869,7 @@ enums:
         structured_aliases:
         - literal_form: Interlingua
           in_language: de
-        - literal_form: Interlingua (International Auxiliary Language 
+        - literal_form: Interlingua (International Auxiliary Language
             Association)
           in_language: en
         meaning: http://id.loc.gov/vocabulary/iso639-2/ina

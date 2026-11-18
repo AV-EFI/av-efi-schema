@@ -1,0 +1,34 @@
+# See https://pre-commit.com for more information.
+#
+# Install both hook types once per clone:
+#
+#     uv run doit install_hooks
+#
+# The version gate runs at pre-push, after the generators, because it
+# reads the working tree. CI enforces the same checks again.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+        # Generated outputs: the generators emit trailing whitespace, so
+        # fixing it here would make the pre-push regeneration dirty again.
+        exclude: &generated >-
+          ^(project/|examples/json/menschen_am_sonntag_all_in_one\.json$|avefi_er_diagram\.md$)
+      - id: end-of-file-fixer
+        exclude: *generated
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+        args: [--maxkb=1024]
+      - id: check-merge-conflict
+
+  - repo: local
+    hooks:
+      - id: version-gate
+        name: version gate
+        entry: sh .githooks/version-gate
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-push]
