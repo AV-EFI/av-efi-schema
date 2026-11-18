@@ -1,0 +1,19 @@
+{
+  "description": "A local identifier containing a space violates the pattern.",
+  "records": [
+    {
+      "category": "avefi:WorkVariant",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w 1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "PreferredTitle"
+      },
+      "type": "Monographic"
+    }
+  ]
+}

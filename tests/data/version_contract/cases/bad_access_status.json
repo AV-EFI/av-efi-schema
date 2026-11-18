@@ -1,0 +1,56 @@
+{
+  "description": "An item whose access status is not in the enum.",
+  "records": [
+    {
+      "category": "avefi:WorkVariant",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "PreferredTitle"
+      },
+      "type": "Monographic"
+    },
+    {
+      "category": "avefi:Manifestation",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "m1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "TitleProper"
+      },
+      "is_manifestation_of": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w1"
+        }
+      ]
+    },
+    {
+      "category": "avefi:Item",
+      "has_access_status": "Unknown",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "i1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "TitleProper"
+      },
+      "is_item_of": {
+        "category": "avefi:LocalResource",
+        "id": "m1"
+      }
+    }
+  ]
+}

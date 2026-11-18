@@ -1,0 +1,67 @@
+{
+  "args": {
+    "placeholder_issuer_id": "https://w3id.org/avefi/issuer/unspecified"
+  },
+  "description": "A file naming the placeholder issuer, rule switched on.",
+  "records": [
+    {
+      "category": "avefi:WorkVariant",
+      "described_by": [
+        {
+          "has_issuer_id": "https://w3id.org/avefi/issuer/unspecified",
+          "has_issuer_name": "Unspecified data provider",
+          "has_source_key": [
+            "k1"
+          ]
+        }
+      ],
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "PreferredTitle"
+      },
+      "type": "Monographic"
+    },
+    {
+      "category": "avefi:Manifestation",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "m1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "TitleProper"
+      },
+      "is_manifestation_of": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w1"
+        }
+      ]
+    },
+    {
+      "category": "avefi:Item",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "i1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "TitleProper"
+      },
+      "is_item_of": {
+        "category": "avefi:LocalResource",
+        "id": "m1"
+      }
+    }
+  ]
+}

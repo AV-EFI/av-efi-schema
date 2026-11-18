@@ -1,0 +1,9 @@
+{
+  "description": "A category the model does not know.",
+  "records": [
+    {
+      "category": "avefi:Unknown",
+      "has_identifier": []
+    }
+  ]
+}

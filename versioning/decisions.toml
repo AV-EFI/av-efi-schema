@@ -1,0 +1,15 @@
+# Reviewed classifications for changes the structural classifier cannot
+# decide.
+#
+# The gate refuses a release while any schema change is inconclusive.
+# Resolve exactly the reported paths, one entry per path per release:
+#
+#   [[change]]
+#   schema_version = "1.3"
+#   path = "/$defs/Curie/properties/id/pattern"
+#   reviewed = "minor"
+#   reason = "the new pattern matches every string the old one matched"
+#
+# schema_version must be the version being released, so an entry cannot
+# be reused by a later release. `reviewed` is the strictest severity the
+# reviewer is willing to defend; it is folded into the required bump.

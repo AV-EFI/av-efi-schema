@@ -1,0 +1,22 @@
+{
+  "description": "An item whose manifestation is absent.",
+  "records": [
+    {
+      "category": "avefi:Item",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "i1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "TitleProper"
+      },
+      "is_item_of": {
+        "category": "avefi:LocalResource",
+        "id": "m1"
+      }
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "analytic_work_without_parent": {
+    "dependants": 1,
+    "invalid": 0,
+    "outcome": "failed",
+    "remaining": 1
+  },
+  "bad_access_status": {
+    "exception": "ValidationError",
+    "outcome": "raised",
+    "stage": "load"
+  },
+  "bad_title_type": {
+    "dependants": 2,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 3
+  },
+  "complete_hierarchy": {
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "passed",
+    "remaining": 3
+  },
+  "dangling_manifestation": {
+    "dependants": 1,
+    "invalid": 0,
+    "outcome": "failed",
+    "remaining": 1
+  },
+  "dangling_work": {
+    "dependants": 1,
+    "invalid": 0,
+    "outcome": "failed",
+    "remaining": 1
+  },
+  "duplicate_identifier": {
+    "exception": "ValueError",
+    "outcome": "raised",
+    "stage": "check"
+  },
+  "duplicate_identifier_removed": {
+    "dependants": 3,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 0
+  },
+  "empty_alternative_name": {
+    "exception": "ValidationError",
+    "outcome": "raised",
+    "stage": "check"
+  },
+  "empty_list": {
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "passed",
+    "remaining": 0
+  },
+  "empty_name": {
+    "exception": "ValidationError",
+    "outcome": "raised",
+    "stage": "check"
+  },
+  "invalid_date": {
+    "exception": "ValidationError",
+    "outcome": "raised",
+    "stage": "check"
+  },
+  "local_id_with_space": {
+    "exception": "ValidationError",
+    "outcome": "raised",
+    "stage": "check"
+  },
+  "missing_identifier": {
+    "exception": "ValueError",
+    "outcome": "raised",
+    "stage": "check"
+  },
+  "missing_primary_title": {
+    "exception": "ValidationError",
+    "outcome": "raised",
+    "stage": "load"
+  },
+  "placeholder_issuer": {
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "failed",
+    "remaining": 3
+  },
+  "placeholder_issuer_off": {
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "passed",
+    "remaining": 3
+  },
+  "reference_cycle": {
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "passed",
+    "remaining": 2
+  },
+  "removed_preserved": {
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "passed",
+    "remaining": 3
+  },
+  "removed_without_pid": {
+    "dependants": 2,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 3
+  },
+  "reversed_period": {
+    "dependants": 0,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 1
+  },
+  "title_at_limit": {
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "passed",
+    "remaining": 3
+  },
+  "title_just_over_limit": {
+    "dependants": 2,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 3
+  },
+  "title_over_limit": {
+    "dependants": 2,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 3
+  },
+  "title_over_limit_removed": {
+    "dependants": 2,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 0
+  },
+  "unresolved_reference": {
+    "dependants": 1,
+    "invalid": 0,
+    "outcome": "failed",
+    "remaining": 1
+  },
+  "unsupported_record": {
+    "exception": "ValidationError",
+    "outcome": "raised",
+    "stage": "load"
+  }
+}

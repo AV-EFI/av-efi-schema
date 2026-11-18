@@ -1,0 +1,220 @@
+{
+  "CheckResult": {
+    "kind": "class",
+    "params": [
+      [
+        "passed",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "invalid",
+        "POSITIONAL_OR_KEYWORD",
+        true
+      ],
+      [
+        "dependants",
+        "POSITIONAL_OR_KEYWORD",
+        true
+      ]
+    ]
+  },
+  "DEFAULT_LIMITS": {
+    "kind": "constant",
+    "type": "Limits"
+  },
+  "FileCheck": {
+    "fields": [
+      [
+        "path",
+        false
+      ],
+      [
+        "records",
+        false
+      ],
+      [
+        "initial_count",
+        false
+      ],
+      [
+        "result",
+        false
+      ],
+      [
+        "unnamed",
+        false
+      ],
+      [
+        "rewritten",
+        true
+      ]
+    ],
+    "kind": "dataclass"
+  },
+  "HashableId": {
+    "kind": "class",
+    "params": [
+      [
+        "identifier",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ]
+    ]
+  },
+  "Limits": {
+    "fields": [
+      [
+        "line_limit",
+        true
+      ],
+      [
+        "text_limit",
+        true
+      ]
+    ],
+    "kind": "dataclass"
+  },
+  "check_file": {
+    "kind": "function",
+    "params": [
+      [
+        "path",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "schema_validator",
+        "KEYWORD_ONLY",
+        false
+      ],
+      [
+        "remove_invalid",
+        "KEYWORD_ONLY",
+        true
+      ],
+      [
+        "preserve_status_removed",
+        "KEYWORD_ONLY",
+        true
+      ],
+      [
+        "placeholder_issuer_id",
+        "KEYWORD_ONLY",
+        true
+      ],
+      [
+        "limits",
+        "KEYWORD_ONLY",
+        true
+      ]
+    ]
+  },
+  "exceeds_field_limit": {
+    "kind": "function",
+    "params": [
+      [
+        "efi_record",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "limits",
+        "POSITIONAL_OR_KEYWORD",
+        true
+      ]
+    ]
+  },
+  "get_schema_validator": {
+    "kind": "function",
+    "params": []
+  },
+  "has_invalid_date": {
+    "kind": "function",
+    "params": [
+      [
+        "efi_record",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ]
+    ]
+  },
+  "has_invalid_value": {
+    "kind": "function",
+    "params": [
+      [
+        "efi_record",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "preserve_status_removed",
+        "POSITIONAL_OR_KEYWORD",
+        true
+      ],
+      [
+        "limits",
+        "POSITIONAL_OR_KEYWORD",
+        true
+      ]
+    ]
+  },
+  "load_schema": {
+    "kind": "function",
+    "params": []
+  },
+  "pass_checks": {
+    "kind": "function",
+    "params": [
+      [
+        "efi_records",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "schema_validator",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "remove_invalid",
+        "POSITIONAL_OR_KEYWORD",
+        true
+      ],
+      [
+        "preserve_status_removed",
+        "POSITIONAL_OR_KEYWORD",
+        true
+      ],
+      [
+        "placeholder_issuer_id",
+        "POSITIONAL_OR_KEYWORD",
+        true
+      ],
+      [
+        "limits",
+        "POSITIONAL_OR_KEYWORD",
+        true
+      ]
+    ]
+  },
+  "placeholder_issuer_records": {
+    "kind": "function",
+    "params": [
+      [
+        "efi_records",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "placeholder_issuer_id",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ]
+    ]
+  },
+  "schema_fingerprint": {
+    "kind": "function",
+    "params": []
+  }
+}

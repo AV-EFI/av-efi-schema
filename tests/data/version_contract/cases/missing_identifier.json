@@ -1,0 +1,14 @@
+{
+  "description": "A record without has_identifier is rejected.",
+  "records": [
+    {
+      "category": "avefi:WorkVariant",
+      "has_identifier": [],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "PreferredTitle"
+      },
+      "type": "Monographic"
+    }
+  ]
+}

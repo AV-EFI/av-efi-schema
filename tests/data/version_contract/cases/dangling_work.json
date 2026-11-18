@@ -1,0 +1,19 @@
+{
+  "description": "A work with no manifestation or item.",
+  "records": [
+    {
+      "category": "avefi:WorkVariant",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "PreferredTitle"
+      },
+      "type": "Monographic"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "description": "A manifestation whose work is absent.",
+  "records": [
+    {
+      "category": "avefi:Manifestation",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "m1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "TitleProper"
+      },
+      "is_manifestation_of": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w1"
+        }
+      ]
+    }
+  ]
+}

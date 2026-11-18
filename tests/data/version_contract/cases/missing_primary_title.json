@@ -1,0 +1,15 @@
+{
+  "description": "A record without the required primary title.",
+  "records": [
+    {
+      "category": "avefi:WorkVariant",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w1"
+        }
+      ],
+      "type": "Monographic"
+    }
+  ]
+}

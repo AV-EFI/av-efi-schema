@@ -1,0 +1,27 @@
+{
+  "description": "An EDTF interval whose end precedes its start.",
+  "records": [
+    {
+      "category": "avefi:WorkVariant",
+      "has_event": [
+        {
+          "category": "avefi:ProductionEvent",
+          "has_activity": [],
+          "has_date": "1976/1975",
+          "located_in": []
+        }
+      ],
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "PreferredTitle"
+      },
+      "type": "Monographic"
+    }
+  ]
+}

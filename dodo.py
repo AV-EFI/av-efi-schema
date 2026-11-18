@@ -482,3 +482,62 @@ def task_check_dtr():
             },
         ],
     }
+
+
+def task_version_snapshots():
+    """Regenerate the validator verdict and public surface snapshots.
+
+    Run this after an intentional change of the acceptance rules, then
+    commit the new snapshots together with the version bump the gate
+    asks for.
+
+    """
+    def generate():
+        from utils import version_snapshots
+
+        outcomes = version_snapshots.collect_verdicts()
+        version_snapshots.write_json(
+            version_snapshots.VERDICT_SNAPSHOT, outcomes)
+        version_snapshots.write_json(
+            version_snapshots.API_SNAPSHOT, version_snapshots.api_snapshot())
+        print(
+            f"recorded {len(outcomes)} verdicts in"
+            f" {version_snapshots.VERDICT_SNAPSHOT}"
+            f" and the public surface in {version_snapshots.API_SNAPSHOT}")
+
+    return {
+        'actions': [generate],
+        'uptodate': [False],
+    }
+
+
+def task_version_check():
+    """Check that the versions agree with the changes since a base.
+
+    Compares the working tree with ``origin/$GITHUB_BASE_REF`` (pull
+    requests), the given ``--base`` revision, or ``HEAD~1``. Needs git
+    history, so it is a CI and pre-push tool rather than a build step.
+
+    """
+    def check(base):
+        from utils.version_gate import main
+
+        code = main(['--base', base] if base else [])
+        if code:
+            raise RuntimeError(f"version check failed (exit code {code})")
+
+    return {
+        'actions': [check],
+        'params': [
+            {
+                'name': 'base',
+                'long': 'base',
+                'type': str,
+                'default': None,
+                'help':
+                'Revision to compare against; defaults to the pull'
+                ' request base or HEAD~1.',
+            },
+        ],
+        'uptodate': [False],
+    }
