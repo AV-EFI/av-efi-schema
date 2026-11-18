@@ -31,6 +31,8 @@ def test_fingerprint_identifies_the_schema():
     ).hexdigest()
     assert fingerprint["source"].startswith("package:")
     assert fingerprint["id"] == schema.load_schema().get("$id")
+    assert fingerprint["package"] == schema.package_version()
+    assert fingerprint["version"] == schema.load_schema().get("version")
 
 
 def test_the_packaged_copy_matches_the_generated_schema():

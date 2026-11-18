@@ -7,7 +7,7 @@ always validates against the schema of its own version.
 
 """
 
-from importlib import resources
+from importlib import metadata, resources
 import hashlib
 import json
 import logging
@@ -23,6 +23,20 @@ SCHEMA_RESOURCE = "model.schema.json"
 SCHEMA_SOURCE = f"package:avefi_schema/{SCHEMA_RESOURCE}"
 
 _VALIDATOR = None
+
+
+def package_version() -> str | None:
+    """Return the version of the installed ``avefi-schema`` distribution.
+
+    ``None`` when the package is used from a source checkout that was
+    never installed, in which case only the schema version and the
+    fingerprint remain available.
+
+    """
+    try:
+        return metadata.version("avefi_schema")
+    except metadata.PackageNotFoundError:
+        return None
 
 
 def schema_bytes() -> bytes:
@@ -64,10 +78,21 @@ def schema_fingerprint() -> dict:
     document a file was checked against, independent of the package
     version.
 
+    Two versions answer two different questions, so both are reported:
+
+    ``package``
+        The distribution version, which identifies the acceptance
+        rules: a validator release may reject records the schema of
+        the same version still accepts.
+    ``version``
+        The version of the schema document itself, which changes only
+        when the data contract changes.
+
     """
     raw = schema_bytes()
     schema = json.loads(raw)
     return {
+        "package": package_version(),
         "source": SCHEMA_SOURCE,
         "id": schema.get("$id"),
         "version": schema.get("version"),

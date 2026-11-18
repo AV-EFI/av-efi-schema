@@ -1,6 +1,6 @@
 [project]
 name = "avefi_schema"
-version = "0.2.0"
+version = "0.3.0"
 description = "Schema for persistent film identifiers developed in the AVefi project"
 authors = [
     {name = "AVefi Working Group", email = "contact@av-efi.net"},

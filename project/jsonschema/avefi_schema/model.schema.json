@@ -4098,5 +4098,5 @@
     "metamodel_version": "1.12.0",
     "title": "AVefi data model",
     "type": "object",
-    "version": null
+    "version": "2.0"
 }

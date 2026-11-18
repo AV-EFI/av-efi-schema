@@ -1,7 +1,7 @@
 {{ python_imports }}
 
 metamodel_version = "{{metamodel_version}}"
-version = "{{version if version else None}}"
+version = {{ (version|tojson) if version else "None" }}
 
 
 {{ base_model }}

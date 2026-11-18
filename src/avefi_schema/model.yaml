@@ -1,5 +1,6 @@
 id: https://www.av-efi.net/av-efi-schema/model
 name: model
+version: "2.0"
 title: AVefi data model
 description: |-
   Metadata schema for persistent film identifiers developed in the

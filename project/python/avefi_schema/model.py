@@ -67,7 +67,7 @@ from linkml_runtime.linkml_model.types import Datetime, Decimal, String, Uri, Ur
 from linkml_runtime.utils.metamodelcore import Decimal, URI, URIorCURIE, XSDDateTime
 
 metamodel_version = "1.12.0"
-version = None
+version = "2.0"
 
 # Namespaces
 AVEFI = CurieNamespace('avefi', 'https://www.av-efi.net/av-efi-schema/')
