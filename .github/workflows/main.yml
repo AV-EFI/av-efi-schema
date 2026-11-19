@@ -33,6 +33,12 @@ jobs:
         with:
           enable-cache: false
 
+      - name: Install the newest Python allowed by requires-python
+        run: |
+          spec=$(sed -n 's/^requires-python[[:space:]]*=[[:space:]]*"\(.*\)"$/\1/p' pyproject.toml)
+          uv python install "$spec"
+          echo "UV_PYTHON=$spec" >> "$GITHUB_ENV"
+
       - name: Install dependencies
         run: uv sync --group dev --locked
 
