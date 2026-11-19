@@ -1,7 +1,7 @@
 """Conformance of a single AVefi record.
 
 Two different things are checked here, and they are kept together
-because they answer the same question for a caller — may this record
+because they answer the same question for a caller -- may this record
 be registered as it stands:
 
 1. the record against the packaged JSON Schema, which is where the
@@ -10,8 +10,11 @@ be registered as it stands:
 2. the rules a record has to satisfy in addition to the schema, such
    as primary title types and the field length limits.
 
-Cross-record relations are in :mod:`avefi_validate.records`; the
-file-level operation is in :mod:`avefi_validate.removal`.
+The checks collect diagnostics instead of raising on the first
+problem: a caller asking "is this file registrable?" is better served
+by the complete list than by the first finding. Cross-record relations
+are in :mod:`avefi_validate.records`; the file-level operation is in
+:mod:`avefi_validate.removal`.
 
 """
 
@@ -23,7 +26,6 @@ import logging
 import re
 
 from avefi_schema import model_pydantic_v2 as efi
-from jsonschema.exceptions import best_match
 
 from .limits import DEFAULT_LIMITS
 from .records import (
@@ -33,8 +35,17 @@ from .records import (
     discard_record,
     purge_dependant_records,
 )
+from .report import Code, Diagnostic, Removal, record_label
 
 log = logging.getLogger(__name__)
+
+#: An EDTF date or interval, as accepted by the submission rules.
+DATE_RE = re.compile(
+    r"^-?([1-9][0-9]{3,}|0[0-9]{3})"
+    r"(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?"
+    r"(/-?([1-9][0-9]{3,}|0[0-9]{3})"
+    r"(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$"
+)
 
 
 def _jsonable(value):
@@ -93,6 +104,339 @@ def placeholder_issuer_records(
     return found
 
 
+def _pointer(path) -> str:
+    """Return an RFC 6901 pointer for a jsonschema path."""
+    parts = [
+        str(part).replace("~", "~0").replace("/", "~1") for part in path
+    ]
+    return "/" + "/".join(parts) if parts else ""
+
+
+def _record_branch(error, record):
+    """Return the ``anyOf``/``oneOf`` branch that belongs to ``record``.
+
+    The root schema is a union over the record categories, so every
+    record is validated against every category and fails all but one.
+    Reporting the errors of the failing categories would drown the one
+    that applies. The branch is identified by its ``$ref``, which names
+    the generated class.
+
+    """
+    if error.validator not in ("anyOf", "oneOf") or not error.context:
+        return None
+    options = error.validator_value
+    if not isinstance(options, list):
+        return None
+    refs = []
+    for option in options:
+        if not isinstance(option, dict) or "$ref" not in option:
+            return None
+        refs.append(option["$ref"])
+    wanted = type(record).__name__.lower()
+    for index, ref in enumerate(refs):
+        if ref.rsplit("/", 1)[-1].lower() == wanted:
+            return [
+                child
+                for child in error.context
+                if list(child.schema_path)[:1] == [index]
+            ]
+    return None
+
+
+def _schema_errors(errors, record):
+    """Flatten the schema errors that apply to ``record``.
+
+    Only the branch matching the record's category is descended into.
+    A nested ``anyOf`` without ``$ref`` alternatives is kept as one
+    diagnostic: expanding every alternative would report constraints
+    from forms the value was never meant to have.
+
+    """
+    result = []
+    for error in errors:
+        branch = _record_branch(error, record)
+        if branch is None:
+            result.append(error)
+        else:
+            result.extend(_schema_errors(branch, record))
+    return result
+
+
+def _schema_message(error) -> str:
+    """Return a readable message without dumping the whole record."""
+    if error.validator in ("anyOf", "oneOf") and error.context:
+        return "value does not match any of the allowed forms"
+    return error.message
+
+
+def schema_diagnostics(efi_record, schema_validator) -> list[Diagnostic]:
+    """Return every schema violation of ``efi_record``."""
+    label = record_label(efi_record)
+    return [
+        Diagnostic(
+            code=Code.SCHEMA_VIOLATION,
+            message=_schema_message(error),
+            record=label,
+            pointer=_pointer(error.absolute_path),
+            params={
+                "keyword": error.validator,
+                "expected": _jsonable(error.validator_value),
+            },
+        )
+        for error in _schema_errors(
+            schema_validator.iter_errors(as_document(efi_record)),
+            efi_record,
+        )
+    ]
+
+
+def _field_limit_diagnostics(record, limits, label) -> list[Diagnostic]:
+    """Return one diagnostic per value beyond a length limit."""
+    diagnostics = []
+    titles = []
+    if record.has_primary_title:
+        titles.append(
+            (
+                "/has_primary_title/has_name",
+                "has_primary_title.has_name",
+                record.has_primary_title.has_name,
+            )
+        )
+    for index, title in enumerate(record.has_alternative_title or []):
+        titles.append(
+            (
+                f"/has_alternative_title/{index}/has_name",
+                f"has_alternative_title.{index}.has_name",
+                title.has_name,
+            )
+        )
+    for pointer, field, value in titles:
+        if len(value) > limits.line_limit:
+            diagnostics.append(
+                Diagnostic(
+                    code=Code.FIELD_TOO_LONG,
+                    message=(
+                        f"title is {len(value)} characters, the limit is"
+                        f" {limits.line_limit}"
+                    ),
+                    record=label,
+                    pointer=pointer,
+                    params={
+                        "field": field,
+                        "limit": limits.line_limit,
+                        "length": len(value),
+                    },
+                )
+            )
+    if record.category != "avefi:WorkVariant":
+        for index, note in enumerate(record.has_note or []):
+            if len(note) >= limits.text_limit:
+                diagnostics.append(
+                    Diagnostic(
+                        code=Code.FIELD_TOO_LONG,
+                        message=(
+                            f"note is {len(note)} characters, the limit is"
+                            f" {limits.text_limit}"
+                        ),
+                        record=label,
+                        pointer=f"/has_note/{index}",
+                        params={
+                            "field": f"has_note.{index}",
+                            "limit": limits.text_limit,
+                            "length": len(note),
+                        },
+                    )
+                )
+    return diagnostics
+
+
+def _date_diagnostics(record, label) -> list[Diagnostic]:
+    """Return one diagnostic per invalid or reversed event date."""
+    diagnostics = []
+    for index, event in enumerate(record.has_event or []):
+        has_date = event.has_date
+        if not has_date:
+            continue
+        if not DATE_RE.search(has_date):
+            diagnostics.append(
+                Diagnostic(
+                    code=Code.DATE_INVALID,
+                    message=f"event date is not a valid EDTF value: {has_date}",
+                    record=label,
+                    pointer=f"/has_event/{index}/has_date",
+                    params={"date": has_date},
+                )
+            )
+            continue
+        if "/" not in has_date:
+            continue
+        parts = has_date.split("/")
+        if len(parts) != 2:
+            continue
+        start = re.sub(r"[^0-9-]", "", parts[0])
+        end = re.sub(r"[^0-9-]", "", parts[1])
+        if start > end:
+            diagnostics.append(
+                Diagnostic(
+                    code=Code.DATE_PERIOD_ORDER,
+                    message=(
+                        f"event period starts after it ends: {has_date}"
+                        f" (start {start} must not exceed end {end})"
+                    ),
+                    record=label,
+                    pointer=f"/has_event/{index}/has_date",
+                    params={"date": has_date, "start": start, "end": end},
+                )
+            )
+    return diagnostics
+
+
+def _empty_name_diagnostics(
+    values, base_pointer, field, label
+) -> list[Diagnostic]:
+    """Return one diagnostic per entry whose ``has_name`` is empty."""
+    diagnostics = []
+    for index, value in enumerate(values or []):
+        if not value.has_name:
+            diagnostics.append(
+                Diagnostic(
+                    code=Code.NAME_EMPTY,
+                    message="has_name is empty",
+                    record=label,
+                    pointer=f"{base_pointer}/{index}/has_name",
+                    params={"field": f"{field}.has_name"},
+                )
+            )
+    return diagnostics
+
+
+def _name_diagnostics(record, label) -> list[Diagnostic]:
+    """Return every empty name below agents, places, genres and subjects."""
+    diagnostics = []
+    for event_index, event in enumerate(record.has_event or []):
+        for activity_index, activity in enumerate(
+            event.has_activity or []
+        ):
+            diagnostics.extend(
+                _empty_name_diagnostics(
+                    activity.has_agent,
+                    f"/has_event/{event_index}/has_activity"
+                    f"/{activity_index}/has_agent",
+                    "has_event.has_activity.has_agent",
+                    label,
+                )
+            )
+        diagnostics.extend(
+            _empty_name_diagnostics(
+                event.located_in,
+                f"/has_event/{event_index}/located_in",
+                "has_event.located_in",
+                label,
+            )
+        )
+    if isinstance(record, efi.WorkVariant):
+        diagnostics.extend(
+            _empty_name_diagnostics(
+                record.has_genre, "/has_genre", "has_genre", label
+            )
+        )
+        diagnostics.extend(
+            _empty_name_diagnostics(
+                record.has_subject, "/has_subject", "has_subject", label
+            )
+        )
+    return diagnostics
+
+
+def _title_type_diagnostics(record, label) -> list[Diagnostic]:
+    """Return a diagnostic when the primary title uses a wrong type."""
+    if not record.has_primary_title:
+        return []
+    if isinstance(record, efi.WorkVariant):
+        allowed = ("PreferredTitle", "SuppliedDevisedTitle")
+    else:
+        allowed = ("TitleProper", "SuppliedDevisedTitle")
+    found = record.has_primary_title.type
+    if found in allowed:
+        return []
+    return [
+        Diagnostic(
+            code=Code.TITLE_PRIMARY_TYPE,
+            message=(
+                f"primary title type is {found!r}, expected one of"
+                f" {allowed}"
+            ),
+            record=label,
+            pointer="/has_primary_title/type",
+            params={"allowed": list(allowed), "found": found},
+        )
+    ]
+
+
+def _removed_status_diagnostics(
+    record, preserve_status_removed, label
+) -> list[Diagnostic]:
+    """Return a diagnostic for a removed item that has no PID yet."""
+    if (
+        preserve_status_removed
+        or not isinstance(record, efi.Item)
+        or record.has_access_status != "Removed"
+    ):
+        return []
+    if any(
+        identifier.category == "avefi:AVefiResource"
+        for identifier in record.has_identifier or []
+    ):
+        return []
+    return [
+        Diagnostic(
+            code=Code.REMOVED_WITHOUT_PID,
+            message=(
+                "access status is Removed but the item has no AVefi PID"
+            ),
+            record=label,
+            pointer="/has_access_status",
+            params={"status": "Removed"},
+        )
+    ]
+
+
+def value_diagnostics(
+    efi_record,
+    preserve_status_removed=False,
+    limits=DEFAULT_LIMITS,
+) -> list[Diagnostic]:
+    """Return every semantic rule ``efi_record`` violates.
+
+    Unlike the former boolean check, this does not stop at the first
+    violation: one record may be too long, carry a reversed period and
+    leave a name empty at the same time, and a caller fixing them wants
+    all three.
+    """
+    label = record_label(efi_record)
+    diagnostics = []
+    diagnostics.extend(_field_limit_diagnostics(efi_record, limits, label))
+    diagnostics.extend(_date_diagnostics(efi_record, label))
+    diagnostics.extend(_name_diagnostics(efi_record, label))
+    diagnostics.extend(_title_type_diagnostics(efi_record, label))
+    diagnostics.extend(
+        _removed_status_diagnostics(
+            efi_record, preserve_status_removed, label
+        )
+    )
+    return diagnostics
+
+
+def _internal_error(label: str, exc: BaseException) -> Diagnostic:
+    """Return a diagnostic for an unexpected failure of one record."""
+    return Diagnostic(
+        code=Code.INTERNAL_ERROR,
+        message=f"unexpected error while checking the record: {exc}",
+        record=label,
+        params={"error": type(exc).__name__},
+    )
+
+
 def pass_checks(
     efi_records: list[efi.MovingImageRecord],
     schema_validator,
@@ -106,6 +450,11 @@ def pass_checks(
     Validate against AVefi schema and check various additional rules
     like field length limits, required identifiers, resolvable
     references, etc.
+
+    Data problems no longer raise: they are collected as diagnostics and
+    the remaining records are still checked. The returned
+    :class:`CheckResult` carries them, together with the counts callers
+    already used.
 
     Note that this function may have obvious side effects on
     ``efi_records`` if ``remove_invalid`` is set to True.
@@ -132,16 +481,20 @@ def pass_checks(
     -------
     CheckResult
         Result carrying ``passed`` (True if all checks have passed
-        successfully), ``invalid`` (number of directly invalid records)
-        and ``dependants`` (number of records removed as a consequence).
+        successfully), ``invalid`` (number of directly invalid records),
+        ``dependants`` (number of records removed as a consequence) and
+        the diagnostics and removals that explain both.
 
     """
     id_lookup = {}
     dependants_by_ref = defaultdict(list)
     all_was_fine = True
     removed_refs = set()
+    invalid_origin = {}
     invalid = 0
     dependants = 0
+    diagnostics: list[Diagnostic] = []
+    removals: list[Removal] = []
     # Removals always happen on this list so that the cascade they cause
     # can be counted even when the caller does not want the file changed.
     # When ``remove_invalid`` is set, ``working`` is the caller's list and
@@ -160,70 +513,72 @@ def pass_checks(
         )
         if unnamed:
             all_was_fine = False
-            log.error(
-                f"{len(unnamed)} record(s) name the placeholder issuer"
-                f" {placeholder_issuer_id}; the data provider has to be"
-                f" named before identifiers are registered for them"
+            for rec in unnamed:
+                diagnostics.append(
+                    Diagnostic(
+                        code=Code.ISSUER_PLACEHOLDER,
+                        message=(
+                            "record names the placeholder issuer"
+                            f" {placeholder_issuer_id}; the data provider"
+                            " has to be named before identifiers are"
+                            " registered for it"
+                        ),
+                        record=record_label(rec),
+                        pointer="/described_by",
+                        params={"issuer_id": placeholder_issuer_id},
+                    )
+                )
+
+    # Check records and track dependencies. A record with data problems
+    # is still examined for every problem, then dropped from the working
+    # set so that its dependants cascade exactly as they would when the
+    # caller asked for a rewrite.
+    for rec in working.copy():
+        label = record_label(rec)
+        record_diagnostics = []
+        try:
+            record_diagnostics.extend(
+                schema_diagnostics(rec, schema_validator)
+            )
+        except Exception as exc:  # noqa: BLE001 - one record must not abort
+            record_diagnostics.append(_internal_error(label, exc))
+        try:
+            record_diagnostics.extend(
+                value_diagnostics(
+                    rec,
+                    preserve_status_removed=preserve_status_removed,
+                    limits=limits,
+                )
+            )
+        except Exception as exc:  # noqa: BLE001 - one record must not abort
+            record_diagnostics.append(_internal_error(label, exc))
+
+        identifiers = list(rec.has_identifier or [])
+        if not identifiers:
+            record_diagnostics.append(
+                Diagnostic(
+                    code=Code.MISSING_IDENTIFIER,
+                    message="has_identifier is missing",
+                    record=label,
+                    pointer="/has_identifier",
+                    params={},
+                )
             )
 
-    # Check records and track dependencies
-    for rec in working.copy():
-        error = best_match(schema_validator.iter_errors(as_document(rec)))
-        if error is not None:
-            raise error
-
-        if not rec.has_identifier:
-            raise ValueError(f"has_identifier is missing in record: {rec}")
-        try:
-            if has_invalid_value(
-                rec,
-                preserve_status_removed=preserve_status_removed,
-                limits=limits,
-            ):
-                all_was_fine = False
-                invalid += 1
-                removed_refs.update(
-                    [HashableId(id_) for id_ in rec.has_identifier]
-                )
-                discard_record(working, rec)
-                continue
-        except Exception as e:
-            raise RuntimeError(
-                f"Error while checking record {rec.has_identifier[0].id}",
-            ) from e
-
-        record_ids = []
-        for identifier in rec.has_identifier:
-            record_id = HashableId(identifier)
-            if record_id in id_lookup or record_id in removed_refs:
-                all_was_fine = False
-                err_msg = f"Identifier is not unique: {record_id}"
-                if remove_invalid:
-                    log.error(err_msg)
-                    invalid += 1
-                    removed_refs.update(
-                        [HashableId(id_) for id_ in rec.has_identifier]
-                    )
-                    discard_record(working, rec)
-                    # Remove the other record with that same ID as well
-                    dependants += purge_dependant_records(
-                        record_id,
-                        working,
-                        id_lookup,
-                        dependants_by_ref,
-                        removed_refs,
-                    )
-                else:
-                    raise ValueError(err_msg)
-                for record_id in record_ids:
-                    with suppress(KeyError):
-                        del id_lookup[record_id]
-                record_ids = []
-                break
-            record_ids.append(record_id)
-            id_lookup[record_id] = (rec, record_ids)
-        if not record_ids:
+        if record_diagnostics:
+            all_was_fine = False
+            invalid += 1
+            diagnostics.extend(record_diagnostics)
+            for identifier in identifiers:
+                ref = HashableId(identifier)
+                removed_refs.add(ref)
+                invalid_origin.setdefault(ref, label)
+            discard_record(working, rec)
+            removals.append(
+                Removal(record=label, reason=Code.REMOVED_AS_INVALID)
+            )
             continue
+
         if isinstance(rec, efi.WorkVariant):
             link_attributes = ("is_part_of", "is_variant_of")
         elif isinstance(rec, efi.Manifestation):
@@ -232,7 +587,62 @@ def pass_checks(
         elif isinstance(rec, efi.Item):
             link_attributes = ("is_item_of", "is_copy_of", "is_derivative_of")
         else:
-            raise ValueError(f"Cannot handle {type(rec)} (record={rec})")
+            all_was_fine = False
+            invalid += 1
+            diagnostics.append(
+                _internal_error(
+                    label, ValueError(f"Cannot handle {type(rec)}")
+                )
+            )
+            discard_record(working, rec)
+            removals.append(
+                Removal(record=label, reason=Code.REMOVED_AS_INVALID)
+            )
+            continue
+
+        record_ids = []
+        duplicate = False
+        for identifier in identifiers:
+            record_id = HashableId(identifier)
+            if record_id in id_lookup or record_id in removed_refs:
+                duplicate = True
+                all_was_fine = False
+                invalid += 1
+                diagnostics.append(
+                    Diagnostic(
+                        code=Code.DUPLICATE_IDENTIFIER,
+                        message=f"identifier is not unique: {record_id}",
+                        record=label,
+                        pointer="/has_identifier",
+                        params={"identifier": str(record_id)},
+                    )
+                )
+                for id_ in identifiers:
+                    ref = HashableId(id_)
+                    removed_refs.add(ref)
+                    invalid_origin.setdefault(ref, label)
+                discard_record(working, rec)
+                removals.append(
+                    Removal(record=label, reason=Code.REMOVED_AS_INVALID)
+                )
+                dependants += purge_dependant_records(
+                    record_id,
+                    working,
+                    id_lookup,
+                    dependants_by_ref,
+                    removed_refs,
+                    removals=removals,
+                    because=label,
+                )
+                for rid in record_ids:
+                    with suppress(KeyError):
+                        del id_lookup[rid]
+                record_ids = []
+                break
+            record_ids.append(record_id)
+            id_lookup[record_id] = (rec, record_ids)
+        if duplicate or not record_ids:
+            continue
         for attr_name in link_attributes:
             attr = getattr(rec, attr_name)
             if attr is None:
@@ -250,18 +660,36 @@ def pass_checks(
             and ref.identifier.category == "avefi:LocalResource"
         ):
             all_was_fine = False
+            dependant_label = _first_dependant_label(
+                ref, dependants_by_ref, id_lookup
+            )
             dependants += purge_dependant_records(
                 ref,
                 working,
                 id_lookup,
                 dependants_by_ref,
                 removed_refs,
+                removals=removals,
+                because=invalid_origin.get(ref, str(ref)),
             )
             if ref not in removed_refs:
-                log.error(f"Unresolvable reference: {ref.identifier.id}")
+                diagnostics.append(
+                    Diagnostic(
+                        code=Code.REFERENCE_UNRESOLVED,
+                        message=(
+                            f"unresolvable reference:"
+                            f" {ref.identifier.id}"
+                        ),
+                        record=dependant_label,
+                        pointer=None,
+                        params={"reference": str(ref)},
+                    )
+                )
 
     # Check for records that should be associated with items but are not
     for rec in working.copy():
+        if not any(candidate is rec for candidate in working):
+            continue
         is_dangling, purged = dangling_record(
             rec,
             working,
@@ -269,11 +697,28 @@ def pass_checks(
             dependants_by_ref,
             removed_refs,
             remove_dangling=True,
+            diagnostics=diagnostics,
+            removals=removals,
         )
         if is_dangling:
             all_was_fine = False
             dependants += purged
-    return CheckResult(all_was_fine, invalid=invalid, dependants=dependants)
+    return CheckResult(
+        all_was_fine,
+        invalid=invalid,
+        dependants=dependants,
+        diagnostics=diagnostics,
+        removals=removals,
+    )
+
+
+def _first_dependant_label(ref, dependants_by_ref, id_lookup) -> str | None:
+    """Return the label of the first record that refers to ``ref``."""
+    for dependant in dependants_by_ref.get(ref, []):
+        entry = id_lookup.get(dependant)
+        if entry is not None:
+            return record_label(entry[0])
+    return None
 
 
 def has_invalid_value(
@@ -281,129 +726,25 @@ def has_invalid_value(
     preserve_status_removed=False,
     limits=DEFAULT_LIMITS,
 ):
-    def any_empty_has_name(elem_generator):
-        if any([not elem.has_name for elem in elem_generator]):
-            log.error(f"Empty has_name in {efi_record.has_identifier[0].id}")
-            return True
-        return False
-
-    if exceeds_field_limit(efi_record, limits=limits):
-        return True
-    if has_invalid_date(efi_record):
-        return True
-    for event in efi_record.has_event:
-        for activity in event.has_activity:
-            if any_empty_has_name(activity.has_agent):
-                return True
-        if any_empty_has_name(event.located_in):
-            return True
-    if isinstance(efi_record, efi.WorkVariant):
-        if any_empty_has_name(efi_record.has_genre):
-            return True
-        if any_empty_has_name(efi_record.has_subject):
-            return True
-        if (
-            efi_record.has_primary_title
-            and efi_record.has_primary_title.type
-            not in (
-                "PreferredTitle",
-                "SuppliedDevisedTitle",
-            )
-        ):
-            log.error(
-                f"Primary title type for work records is supposed to be"
-                f" one of ('PreferredTitle', 'SuppliedDevisedTitle'), found:"
-                f" {efi_record.has_primary_title.type} in record"
-                f" {efi_record.has_identifier[0].id}"
-            )
-            return True
-    else:
-        if (
-            efi_record.has_primary_title
-            and efi_record.has_primary_title.type
-            not in (
-                "TitleProper",
-                "SuppliedDevisedTitle",
-            )
-        ):
-            log.error(
-                f"Primary title type for non-work records is supposed to be"
-                f" one of ('TitleProper', 'SuppliedDevisedTitle'), found:"
-                f" {efi_record.has_primary_title.type} in record"
-                f" {efi_record.has_identifier[0].id}"
-            )
-            return True
-        if (
-            not preserve_status_removed
-            and isinstance(efi_record, efi.Item)
-            and efi_record.has_access_status == "Removed"
-            and not any(
-                ident.category == "avefi:AVefiResource"
-                for ident in efi_record.has_identifier
-            )
-        ):
-            log.error(
-                f"Do not expect has_access_status=Removed for an item"
-                f" without a PID: {efi_record.has_identifier[0].id}"
-            )
-            return True
-    return False
+    """Return whether any semantic rule rejects ``efi_record``."""
+    return bool(
+        value_diagnostics(
+            efi_record,
+            preserve_status_removed=preserve_status_removed,
+            limits=limits,
+        )
+    )
 
 
 def exceeds_field_limit(efi_record, limits=DEFAULT_LIMITS):
-    titles = []
-    if efi_record.has_primary_title:
-        titles.append(efi_record.has_primary_title)
-    titles.extend(efi_record.has_alternative_title)
-    for title in titles:
-        if len(title.has_name) > limits.line_limit:
-            log.error(
-                f"Record {efi_record.has_identifier[0].id} violates limit of"
-                f" {limits.line_limit} characters on title length:"
-                f" {title.has_name}"
-            )
-            return True
-    if efi_record.category != "avefi:WorkVariant":
-        for note in efi_record.has_note:
-            if len(note) >= limits.text_limit:
-                log.error(
-                    f"Record {efi_record.has_identifier[0].id} violates limit"
-                    f" of {limits.text_limit} characters on has_note"
-                    f" entries"
-                )
-                return True
-    return False
+    """Return whether a title or note exceeds its length limit."""
+    return bool(
+        _field_limit_diagnostics(
+            efi_record, limits, record_label(efi_record)
+        )
+    )
 
 
 def has_invalid_date(efi_record):
-    for event in efi_record.has_event:
-        if event.has_date and not re.search(
-            r"^-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?(/-?([1-9][0-9]{3,}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?[?~]?)?$",
-            event.has_date,
-        ):
-            log.error(
-                f"Record {efi_record.has_identifier[0].id} has event(s) with"
-                f" invalid value in has_date: {event.has_date}"
-            )
-            return True
-
-        # Check if this is a period expression (contains '/')
-        if event.has_date and "/" in event.has_date:
-            # Split period and clean each part (keep only digits and hyphens)
-            period_parts = event.has_date.split("/")
-            if len(period_parts) == 2:
-                # Remove all characters except digits and hyphens
-                clean_start = re.sub(r"[^0-9-]", "", period_parts[0])
-                clean_end = re.sub(r"[^0-9-]", "", period_parts[1])
-
-                # Perform lexicographical comparison
-                # Equality is valid, only invalid when start > end
-                if clean_start > clean_end:
-                    log.error(
-                        f"Record {efi_record.has_identifier[0].id} has"
-                        f" event with invalid period: {event.has_date}"
-                        f" (start {clean_start} must be less than or equal to"
-                        f" end {clean_end})"
-                    )
-                    return True
-    return False
+    """Return whether an event carries an invalid or reversed date."""
+    return bool(_date_diagnostics(efi_record, record_label(efi_record)))

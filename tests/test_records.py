@@ -4,7 +4,7 @@ import copy
 
 import pytest
 
-from avefi_validate import CheckResult, pass_checks
+from avefi_validate import CheckResult, Code, pass_checks
 
 from helpers import (
     ITEM,
@@ -42,8 +42,13 @@ class TestRemoveInvalid:
 
     def test_duplicate_identifiers_are_rejected(self, validator):
         duplicate = records(WORK, WORK, MANIFESTATION, ITEM)
-        with pytest.raises(ValueError, match="not unique"):
-            pass_checks(duplicate, validator)
+        result = pass_checks(duplicate, validator)
+        assert not result.passed
+        assert result.invalid == 1
+        assert any(
+            diagnostic.code is Code.DUPLICATE_IDENTIFIER
+            for diagnostic in result.diagnostics
+        )
 
     def test_duplicate_identifiers_are_removed_on_request(self, validator):
         duplicate = records(WORK, WORK, MANIFESTATION, ITEM)

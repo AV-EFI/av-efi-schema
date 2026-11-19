@@ -16,6 +16,8 @@ The rules are split by concern:
     records and the cascade that removes them.
 ``removal``
     The file-level operation that drops invalid records in place.
+``report``
+    The stable, structured description of what a run found.
 ``limits``
     The field length limits enforced by ``documents``.
 
@@ -27,18 +29,34 @@ from .documents import (
     has_invalid_value,
     pass_checks,
     placeholder_issuer_records,
+    schema_diagnostics,
+    value_diagnostics,
 )
 from .limits import DEFAULT_LIMITS, Limits
 from .records import CheckResult, HashableId
 from .removal import FileCheck, check_file
+from .report import (
+    Code,
+    Diagnostic,
+    FileReport,
+    Removal,
+    Report,
+    Severity,
+)
 from .schema import get_schema_validator, load_schema, schema_fingerprint
 
 __all__ = [
     "CheckResult",
+    "Code",
     "DEFAULT_LIMITS",
+    "Diagnostic",
     "FileCheck",
+    "FileReport",
     "HashableId",
     "Limits",
+    "Removal",
+    "Report",
+    "Severity",
     "check_file",
     "exceeds_field_limit",
     "get_schema_validator",
@@ -47,5 +65,7 @@ __all__ = [
     "load_schema",
     "pass_checks",
     "placeholder_issuer_records",
+    "schema_diagnostics",
     "schema_fingerprint",
+    "value_diagnostics",
 ]

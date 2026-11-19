@@ -40,23 +40,28 @@ API_SNAPSHOT = ROOT / "tests" / "data" / "api_surface.json"
 def verdict_outcome(case: dict) -> dict:
     """Return the observable outcome of one case.
 
-    Only stable facts are recorded: the verdict, the counts and the
-    *name* of an exception class. Messages are not part of the contract
-    and must stay free to change.
+    Only stable facts are recorded: the verdict, the counts, the sorted
+    diagnostic codes and the *name* of an exception class. Messages are
+    not part of the contract and must stay free to change.
+
+    The corpus goes through the tolerant loader, the same path the
+    command line uses: a case with one unparseable record still says
+    what happened to the others.
 
     """
     from avefi_validate import pass_checks
-    from avefi_validate.io import loads
+    from avefi_validate.io import loads_with_diagnostics
     from avefi_validate.schema import get_schema_validator
 
     try:
-        records = loads(json.dumps(case["records"]))
+        loaded = loads_with_diagnostics(json.dumps(case["records"]))
     except Exception as exc:  # noqa: BLE001 - the class name is the datum
         return {
             "outcome": "raised",
             "stage": "load",
             "exception": type(exc).__name__,
         }
+    records = loaded.records
 
     args = case.get("args") or {}
     try:
@@ -77,11 +82,14 @@ def verdict_outcome(case: dict) -> dict:
             "exception": type(exc).__name__,
         }
 
+    diagnostics = list(loaded.diagnostics) + list(result.diagnostics)
+    passed = result.passed and not diagnostics
     return {
-        "outcome": "passed" if result.passed else "failed",
+        "outcome": "passed" if passed else "failed",
         "invalid": result.invalid,
         "dependants": result.dependants,
         "remaining": len(records),
+        "codes": sorted({str(diagnostic.code) for diagnostic in diagnostics}),
     }
 
 
@@ -126,6 +134,11 @@ def classify_verdicts(old: dict, new: dict) -> tuple[str, list[str]]:
     direction is a loosening. Both are visible to a consumer, so
     neither is a patch.
 
+    A code that disappears is breaking for a consumer that branches on
+    it, so it counts as major; a new code is additive. Counts changing
+    under the same verdict are a minor change, because they alter what a
+    report says without altering whether a record is accepted.
+
     """
     severity = NONE
     lines = []
@@ -151,7 +164,23 @@ def classify_verdicts(old: dict, new: dict) -> tuple[str, list[str]]:
         else:
             lines.append(f"{name}: same verdict, different detail")
             severity = _worse(severity, MINOR)
+        removed_codes = sorted(set(_codes(before)) - set(_codes(after)))
+        added_codes = sorted(set(_codes(after)) - set(_codes(before)))
+        if removed_codes:
+            lines.append(
+                f"{name}: removed code(s) {', '.join(removed_codes)}"
+            )
+            severity = _worse(severity, MAJOR)
+        elif added_codes:
+            lines.append(f"{name}: added code(s) {', '.join(added_codes)}")
+            severity = _worse(severity, MINOR)
     return severity, lines
+
+
+def _codes(outcome: dict) -> list[str]:
+    """Return the recorded diagnostic codes of an outcome."""
+    codes = outcome.get("codes", [])
+    return [str(code) for code in codes] if isinstance(codes, list) else []
 
 
 def _accepted(outcome: dict) -> bool:

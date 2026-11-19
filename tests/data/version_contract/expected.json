@@ -1,155 +1,236 @@
 {
   "analytic_work_without_parent": {
+    "codes": [
+      "analytic.without_parent"
+    ],
     "dependants": 1,
     "invalid": 0,
     "outcome": "failed",
     "remaining": 1
   },
   "bad_access_status": {
-    "exception": "ValidationError",
-    "outcome": "raised",
-    "stage": "load"
+    "codes": [
+      "record.dangling",
+      "record.unparseable"
+    ],
+    "dependants": 2,
+    "invalid": 0,
+    "outcome": "failed",
+    "remaining": 2
   },
   "bad_title_type": {
+    "codes": [
+      "title.primary_type"
+    ],
     "dependants": 2,
     "invalid": 1,
     "outcome": "failed",
     "remaining": 3
   },
   "complete_hierarchy": {
+    "codes": [],
     "dependants": 0,
     "invalid": 0,
     "outcome": "passed",
     "remaining": 3
   },
   "dangling_manifestation": {
+    "codes": [
+      "reference.unresolved"
+    ],
     "dependants": 1,
     "invalid": 0,
     "outcome": "failed",
     "remaining": 1
   },
   "dangling_work": {
+    "codes": [
+      "record.dangling"
+    ],
     "dependants": 1,
     "invalid": 0,
     "outcome": "failed",
     "remaining": 1
   },
   "duplicate_identifier": {
-    "exception": "ValueError",
-    "outcome": "raised",
-    "stage": "check"
+    "codes": [
+      "identifier.duplicate"
+    ],
+    "dependants": 3,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 4
   },
   "duplicate_identifier_removed": {
+    "codes": [
+      "identifier.duplicate"
+    ],
     "dependants": 3,
     "invalid": 1,
     "outcome": "failed",
     "remaining": 0
   },
   "empty_alternative_name": {
-    "exception": "ValidationError",
-    "outcome": "raised",
-    "stage": "check"
+    "codes": [
+      "schema.violation"
+    ],
+    "dependants": 0,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 1
   },
   "empty_list": {
+    "codes": [],
     "dependants": 0,
     "invalid": 0,
     "outcome": "passed",
     "remaining": 0
   },
   "empty_name": {
-    "exception": "ValidationError",
-    "outcome": "raised",
-    "stage": "check"
+    "codes": [
+      "schema.violation"
+    ],
+    "dependants": 0,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 1
   },
   "invalid_date": {
-    "exception": "ValidationError",
-    "outcome": "raised",
-    "stage": "check"
+    "codes": [
+      "date.invalid",
+      "schema.violation"
+    ],
+    "dependants": 0,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 1
   },
   "local_id_with_space": {
-    "exception": "ValidationError",
-    "outcome": "raised",
-    "stage": "check"
+    "codes": [
+      "schema.violation"
+    ],
+    "dependants": 0,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 1
   },
   "missing_identifier": {
-    "exception": "ValueError",
-    "outcome": "raised",
-    "stage": "check"
+    "codes": [
+      "record.missing_identifier"
+    ],
+    "dependants": 0,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 1
   },
   "missing_primary_title": {
-    "exception": "ValidationError",
-    "outcome": "raised",
-    "stage": "load"
+    "codes": [
+      "record.unparseable"
+    ],
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "failed",
+    "remaining": 0
   },
   "placeholder_issuer": {
+    "codes": [
+      "issuer.placeholder"
+    ],
     "dependants": 0,
     "invalid": 0,
     "outcome": "failed",
     "remaining": 3
   },
   "placeholder_issuer_off": {
+    "codes": [],
     "dependants": 0,
     "invalid": 0,
     "outcome": "passed",
     "remaining": 3
   },
   "reference_cycle": {
+    "codes": [],
     "dependants": 0,
     "invalid": 0,
     "outcome": "passed",
     "remaining": 2
   },
   "removed_preserved": {
+    "codes": [],
     "dependants": 0,
     "invalid": 0,
     "outcome": "passed",
     "remaining": 3
   },
   "removed_without_pid": {
+    "codes": [
+      "access_status.removed_without_pid",
+      "record.dangling"
+    ],
     "dependants": 2,
     "invalid": 1,
     "outcome": "failed",
     "remaining": 3
   },
   "reversed_period": {
+    "codes": [
+      "date.period_order"
+    ],
     "dependants": 0,
     "invalid": 1,
     "outcome": "failed",
     "remaining": 1
   },
   "title_at_limit": {
+    "codes": [],
     "dependants": 0,
     "invalid": 0,
     "outcome": "passed",
     "remaining": 3
   },
   "title_just_over_limit": {
+    "codes": [
+      "field.too_long"
+    ],
     "dependants": 2,
     "invalid": 1,
     "outcome": "failed",
     "remaining": 3
   },
   "title_over_limit": {
+    "codes": [
+      "field.too_long"
+    ],
     "dependants": 2,
     "invalid": 1,
     "outcome": "failed",
     "remaining": 3
   },
   "title_over_limit_removed": {
+    "codes": [
+      "field.too_long"
+    ],
     "dependants": 2,
     "invalid": 1,
     "outcome": "failed",
     "remaining": 0
   },
   "unresolved_reference": {
+    "codes": [
+      "reference.unresolved"
+    ],
     "dependants": 1,
     "invalid": 0,
     "outcome": "failed",
     "remaining": 1
   },
   "unsupported_record": {
-    "exception": "ValidationError",
-    "outcome": "raised",
-    "stage": "load"
+    "codes": [
+      "record.unparseable"
+    ],
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "failed",
+    "remaining": 0
   }
 }

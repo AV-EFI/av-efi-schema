@@ -107,9 +107,15 @@ list plus an optional `args` block:
 ```
 
 `verdict_outcome` records only stable facts: the verdict (`passed`,
-`failed`, `raised`), `stage` and exception *class* for a raise, and the
-`invalid`, `dependants` and `remaining` counts. Messages are not part of
-the contract.
+`failed`, `raised`), `stage` and exception *class* for a raise, the
+`invalid`, `dependants` and `remaining` counts, and the sorted
+diagnostic codes. Messages are not part of the contract.
+
+The corpus goes through the same tolerant loader as the command line,
+so a case with one unparseable record still records what happened to
+the others; it does not raise just because one item is malformed.
+`raised` is reserved for an unexpected failure of the validator
+itself.
 
 Regenerate both snapshots after an intentional rule change:
 
@@ -119,6 +125,10 @@ Or set `UPDATE_SNAPSHOTS=1` for a single test module. Commit the new
 snapshot together with the version bump the gate requires. A narrowing
 that turns a passing case into a failing one is breaking for anyone
 whose data is now rejected, even when the change is a bug fix.
+
+Removing a diagnostic code is also breaking: a consumer that branches
+on it has nothing left to match. Adding one is additive. Both are
+classifier-visible, so the gate asks for the bump the change requires.
 
 ### Public surface
 

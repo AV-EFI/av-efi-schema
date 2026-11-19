@@ -21,8 +21,13 @@ from . import io
 from .documents import pass_checks, placeholder_issuer_records
 from .limits import DEFAULT_LIMITS
 from .records import CheckResult
+from .report import Code, FileReport
 
 log = logging.getLogger(__name__)
+
+#: Diagnostics that no rewrite can repair, because nothing is left to
+#: write, or because the problem is not a property of a record.
+UNREPAIRABLE = (Code.FILE_UNREADABLE, Code.FILE_INVALID_JSON, Code.INTERNAL_ERROR)
 
 
 @dataclass
@@ -31,7 +36,8 @@ class FileCheck:
 
     ``records`` is the (possibly shortened) list the check ran on,
     ``initial_count`` how many records the file held before. The file
-    was rewritten only when ``rewritten`` is true.
+    was rewritten only when ``rewritten`` is true. ``report`` is the
+    same outcome as structured data.
 
     """
 
@@ -41,6 +47,7 @@ class FileCheck:
     result: CheckResult
     unnamed: list[efi.MovingImageRecord] = field(default_factory=list)
     rewritten: bool = False
+    report: FileReport | None = None
 
 
 def check_file(
@@ -81,8 +88,9 @@ def check_file(
 
     """
     path = pathlib.Path(path)
-    records = io.load(path)
-    initial_count = len(records)
+    loaded = io.load_with_diagnostics(path)
+    records = loaded.records
+    initial_count = loaded.initial_count
 
     unnamed = (
         placeholder_issuer_records(records, placeholder_issuer_id)
@@ -99,13 +107,44 @@ def check_file(
         placeholder_issuer_id=placeholder_issuer_id,
         limits=limits,
     )
+    diagnostics = list(loaded.diagnostics) + list(result.diagnostics)
+    removals = list(result.removals)
 
+    # A file changes when parsing dropped items or the checks removed
+    # records that referred to them. ``result.invalid`` and
+    # ``result.dependants`` are computed on a copy when the caller did
+    # not ask for a rewrite, which is why they are consulted here rather
+    # than the length of ``records``.
+    changed = (
+        len(records) != initial_count
+        or result.invalid
+        or result.dependants
+    )
     rewritten = False
-    if remove_invalid and not unnamed and not result.passed:
+    if remove_invalid and not unnamed and changed:
         io.dump(records, path)
         rewritten = True
         log.info("Rewrote %s", path)
 
+    passed = _passed(
+        diagnostics=diagnostics,
+        unnamed=unnamed,
+        remove_invalid=remove_invalid,
+        rewritten=rewritten,
+        changed=changed,
+    )
+    report = FileReport(
+        path=path,
+        sha256=loaded.sha256,
+        initial=initial_count,
+        remaining=len(records) if rewritten else initial_count,
+        invalid=result.invalid,
+        dependants=result.dependants,
+        passed=passed,
+        rewritten=rewritten,
+        diagnostics=diagnostics,
+        removed=removals,
+    )
     return FileCheck(
         path=path,
         records=records,
@@ -113,4 +152,27 @@ def check_file(
         result=result,
         unnamed=unnamed,
         rewritten=rewritten,
+        report=report,
     )
+
+
+def _passed(
+    *,
+    diagnostics,
+    unnamed,
+    remove_invalid,
+    rewritten,
+    changed,
+) -> bool:
+    """Return whether the file may be considered clean after the run."""
+    if unnamed:
+        return False
+    if any(d.code in UNREPAIRABLE for d in diagnostics):
+        return False
+    if not diagnostics:
+        return True
+    if not remove_invalid:
+        return False
+    # A rewrite is what turns failing data into a passing file. If
+    # nothing had to change, there was no problem to repair.
+    return rewritten or not changed

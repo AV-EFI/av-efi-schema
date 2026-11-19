@@ -16,12 +16,77 @@
         "dependants",
         "POSITIONAL_OR_KEYWORD",
         true
+      ],
+      [
+        "diagnostics",
+        "POSITIONAL_OR_KEYWORD",
+        true
+      ],
+      [
+        "removals",
+        "POSITIONAL_OR_KEYWORD",
+        true
       ]
+    ]
+  },
+  "Code": {
+    "kind": "enum",
+    "members": [
+      "ANALYTIC_PARENT_WITHOUT_ITEMS",
+      "ANALYTIC_REFERENCED",
+      "ANALYTIC_WITHOUT_PARENT",
+      "DATE_INVALID",
+      "DATE_PERIOD_ORDER",
+      "DUPLICATE_IDENTIFIER",
+      "FIELD_TOO_LONG",
+      "FILE_INVALID_JSON",
+      "FILE_UNREADABLE",
+      "INTERNAL_ERROR",
+      "ISSUER_PLACEHOLDER",
+      "MISSING_IDENTIFIER",
+      "NAME_EMPTY",
+      "RECORD_DANGLING",
+      "RECORD_UNPARSEABLE",
+      "REFERENCE_UNRESOLVED",
+      "REMOVED_AS_DEPENDANT",
+      "REMOVED_AS_INVALID",
+      "REMOVED_WITHOUT_PID",
+      "SCHEMA_VIOLATION",
+      "TITLE_PRIMARY_TYPE"
     ]
   },
   "DEFAULT_LIMITS": {
     "kind": "constant",
     "type": "Limits"
+  },
+  "Diagnostic": {
+    "fields": [
+      [
+        "code",
+        false
+      ],
+      [
+        "message",
+        false
+      ],
+      [
+        "severity",
+        true
+      ],
+      [
+        "record",
+        true
+      ],
+      [
+        "pointer",
+        true
+      ],
+      [
+        "params",
+        false
+      ]
+    ],
+    "kind": "dataclass"
   },
   "FileCheck": {
     "fields": [
@@ -48,6 +113,55 @@
       [
         "rewritten",
         true
+      ],
+      [
+        "report",
+        true
+      ]
+    ],
+    "kind": "dataclass"
+  },
+  "FileReport": {
+    "fields": [
+      [
+        "path",
+        false
+      ],
+      [
+        "sha256",
+        true
+      ],
+      [
+        "initial",
+        true
+      ],
+      [
+        "remaining",
+        true
+      ],
+      [
+        "invalid",
+        true
+      ],
+      [
+        "dependants",
+        true
+      ],
+      [
+        "passed",
+        true
+      ],
+      [
+        "rewritten",
+        true
+      ],
+      [
+        "diagnostics",
+        false
+      ],
+      [
+        "removed",
+        false
       ]
     ],
     "kind": "dataclass"
@@ -74,6 +188,47 @@
       ]
     ],
     "kind": "dataclass"
+  },
+  "Removal": {
+    "fields": [
+      [
+        "record",
+        false
+      ],
+      [
+        "reason",
+        false
+      ],
+      [
+        "because",
+        true
+      ]
+    ],
+    "kind": "dataclass"
+  },
+  "Report": {
+    "fields": [
+      [
+        "package",
+        true
+      ],
+      [
+        "schema",
+        false
+      ],
+      [
+        "files",
+        false
+      ]
+    ],
+    "kind": "dataclass"
+  },
+  "Severity": {
+    "kind": "enum",
+    "members": [
+      "ERROR",
+      "WARNING"
+    ]
   },
   "check_file": {
     "kind": "function",
@@ -213,8 +368,43 @@
       ]
     ]
   },
+  "schema_diagnostics": {
+    "kind": "function",
+    "params": [
+      [
+        "efi_record",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "schema_validator",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ]
+    ]
+  },
   "schema_fingerprint": {
     "kind": "function",
     "params": []
+  },
+  "value_diagnostics": {
+    "kind": "function",
+    "params": [
+      [
+        "efi_record",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "preserve_status_removed",
+        "POSITIONAL_OR_KEYWORD",
+        true
+      ],
+      [
+        "limits",
+        "POSITIONAL_OR_KEYWORD",
+        true
+      ]
+    ]
   }
 }

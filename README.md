@@ -43,6 +43,14 @@ reject records that still name a placeholder data provider. The
 command accepts several files and exits non-zero if any of them fails
 the checks.
 
+Failures are reported as readable lines by default. Add
+`--format json` to write one structured document to stdout instead, or
+`--report PATH` to write it to a file while keeping the human-readable
+output on stderr. Each finding carries a stable `code`, an RFC 6901
+`pointer` and per-code `params`; the `message` is for people and may
+change. The full contract is in the
+[versioning guide](./src/docs/versioning.md#the-report-contract).
+
 In this repository, run it through the development environment:
 
 ```console

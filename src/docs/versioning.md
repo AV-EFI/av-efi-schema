@@ -82,7 +82,7 @@ the package minor. See [While the package is at 0.x](#while-the-package-is-at-0x
 
 ```python
 {
-    "package": "0.3.0",          # which acceptance rules
+    "package": "0.4.0",          # which acceptance rules
     "source": "package:avefi_schema/model.schema.json",
     "id": "https://www.av-efi.net/av-efi-schema/model",
     "version": "2.0",            # which schema document
@@ -109,6 +109,62 @@ mistakenly reused.
   life of its major version.
 - A change of meaning with no structural trace is announced in the
   changelog; it is not inferable from the schema alone.
+
+## The report contract
+
+`avefi-validate --format json`, or `--report PATH`, writes one document
+describing the run:
+
+```json
+{
+  "tool": {"name": "avefi-validate", "package": "0.4.0"},
+  "schema": {"package": "0.4.0", "version": "2.0", "sha256": "9c3750…"},
+  "files": [
+    {
+      "path": "records.json",
+      "sha256": "…",
+      "counts": {"initial": 3, "remaining": 3, "invalid": 1, "dependants": 2},
+      "passed": false,
+      "rewritten": false,
+      "diagnostics": [
+        {
+          "code": "field.too_long",
+          "severity": "error",
+          "record": "WorkVariant.w1",
+          "pointer": "/has_primary_title/has_name",
+          "params": {"field": "has_primary_title.has_name", "limit": 250, "length": 1000},
+          "message": "title is 1000 characters, the limit is 250"
+        }
+      ],
+      "removed": []
+    }
+  ],
+  "passed": false
+}
+```
+
+The machine-readable part is the `code`, `severity`, `record`,
+`pointer` and the keys of `params`:
+
+- `code` is a member of `avefi_validate.Code`. A code never changes
+  meaning within its major version.
+- `pointer` is an RFC 6901 JSON pointer into the record named by
+  `record`, or `null` when no single field is at fault.
+- The keys of `params` are fixed per code. Values may vary with the
+  data.
+- `message` is a sentence for a person and may change in any release.
+  Do not parse it.
+
+The `removed` list explains every record that left the working set,
+with `record.invalid` for a record that failed its own checks and
+`record.depends_on_invalid` for a record removed only because
+something it refers to failed. `because` names the record that caused
+the cascade.
+
+`passed` is true for a file if it was clean before the run or was
+repaired by `--remove-invalid`; an unreadable file, invalid JSON and a
+placeholder issuer are never repaired. The process exit code is `0`
+when every file passed and `1` otherwise.
 
 ## While the package is at 0.x
 

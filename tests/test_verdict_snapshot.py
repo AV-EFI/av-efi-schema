@@ -75,3 +75,19 @@ def test_a_loosened_case_requires_a_minor_bump():
 def test_a_new_case_is_a_minor_change():
     severity, _ = classify_verdicts({}, {"case": {"outcome": "passed"}})
     assert severity == "minor"
+
+
+def test_removing_a_diagnostic_code_is_breaking():
+    old = {"case": {"outcome": "failed", "codes": ["field.too_long"]}}
+    new = {"case": {"outcome": "failed", "codes": []}}
+    severity, lines = classify_verdicts(old, new)
+    assert severity == "major"
+    assert "case: removed code(s) field.too_long" in lines
+
+
+def test_adding_a_diagnostic_code_is_minor():
+    old = {"case": {"outcome": "failed", "codes": []}}
+    new = {"case": {"outcome": "failed", "codes": ["field.too_long"]}}
+    severity, lines = classify_verdicts(old, new)
+    assert severity == "minor"
+    assert "case: added code(s) field.too_long" in lines

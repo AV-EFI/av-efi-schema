@@ -38,11 +38,14 @@ or contributor must follow; usage lives in `README.md`.
    minor is the breaking slot; patches are verdict-invisible.
 4. Every release adds a `CHANGELOG.md` section with `Schema:`,
    `Validator:` and `Report contract:` lines.
-5. An inconclusive gate result (for example a changed `pattern`) needs
+5. Failure codes, pointers and `params` keys are the report's
+   contractual surface; messages are not. A new code is additive, a
+   removed code is breaking, and neither may change silently.
+6. An inconclusive gate result (for example a changed `pattern`) needs
    a reviewed entry in `versioning/decisions.toml`; do not guess.
-6. New types and classes in `TypeRegistrySubset` need DTR PIDs: run
+7. New types and classes in `TypeRegistrySubset` need DTR PIDs: run
    `uv run doit check_dtr` after adding them.
-7. CI runs pre-commit, `doit --always-execute`, a strict `git status`,
+8. CI runs pre-commit, `doit --always-execute`, a strict `git status`,
    the version tests and the gate. The pre-push hook is fast feedback;
    `--no-verify` skips only that, never CI.
 
