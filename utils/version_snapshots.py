@@ -51,10 +51,13 @@ def verdict_outcome(case: dict) -> dict:
     """
     from avefi_validate import pass_checks
     from avefi_validate.io import loads_with_diagnostics
+    from avefi_validate.normalise import loads_normalised
     from avefi_validate.schema import get_schema_validator
 
+    args = case.get("args") or {}
+    load = loads_normalised if args.get("normalise") else loads_with_diagnostics
     try:
-        loaded = loads_with_diagnostics(json.dumps(case["records"]))
+        loaded = load(json.dumps(case["records"]))
     except Exception as exc:  # noqa: BLE001 - the class name is the datum
         return {
             "outcome": "raised",
@@ -63,7 +66,6 @@ def verdict_outcome(case: dict) -> dict:
         }
     records = loaded.records
 
-    args = case.get("args") or {}
     try:
         result = pass_checks(
             records,
@@ -83,13 +85,16 @@ def verdict_outcome(case: dict) -> dict:
         }
 
     diagnostics = list(loaded.diagnostics) + list(result.diagnostics)
+    codes = {str(diagnostic.code) for diagnostic in diagnostics}
+    if loaded.normalisations:
+        codes.add("value.normalised")
     passed = result.passed and not diagnostics
     return {
         "outcome": "passed" if passed else "failed",
         "invalid": result.invalid,
         "dependants": result.dependants,
         "remaining": len(records),
-        "codes": sorted({str(diagnostic.code) for diagnostic in diagnostics}),
+        "codes": sorted(codes),
     }
 
 

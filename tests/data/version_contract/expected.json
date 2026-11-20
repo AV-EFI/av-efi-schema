@@ -133,6 +133,43 @@
     "outcome": "failed",
     "remaining": 0
   },
+  "normalise_date": {
+    "codes": [
+      "value.normalised"
+    ],
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "passed",
+    "remaining": 3
+  },
+  "normalise_duration": {
+    "codes": [
+      "value.normalised"
+    ],
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "passed",
+    "remaining": 3
+  },
+  "normalise_identifier": {
+    "codes": [
+      "value.normalised"
+    ],
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "passed",
+    "remaining": 3
+  },
+  "normalise_unsupported_duration": {
+    "codes": [
+      "record.depends_on_invalid",
+      "schema.violation"
+    ],
+    "dependants": 2,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 3
+  },
   "placeholder_issuer": {
     "codes": [
       "issuer.placeholder"

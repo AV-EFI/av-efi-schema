@@ -1,0 +1,61 @@
+{
+  "description": "A valid ISO duration that does not use the schema's fixed-hour form.",
+  "args": {
+    "normalise": true
+  },
+  "records": [
+    {
+      "category": "avefi:WorkVariant",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Brücke",
+        "type": "PreferredTitle"
+      },
+      "type": "Monographic"
+    },
+    {
+      "category": "avefi:Manifestation",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "m1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Brücke",
+        "type": "TitleProper"
+      },
+      "is_manifestation_of": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w1"
+        }
+      ]
+    },
+    {
+      "category": "avefi:Item",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "i1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Brücke",
+        "type": "TitleProper"
+      },
+      "is_item_of": {
+        "category": "avefi:LocalResource",
+        "id": "m1"
+      },
+      "has_duration": {
+        "has_value": "PT22M24S"
+      }
+    }
+  ]
+}
