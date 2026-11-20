@@ -22,8 +22,11 @@ for you; install it once per clone with `uv run doit install_hooks`.
 
 The numbers are independent. The schema continues the public schema
 history: the 2023 release was `1.0`, and the LinkML contract starts at
-`2.0`. The package is still `0.x` because the validator's failure
-contract is not stable yet, so schema `2.0` ships in package `0.3.0`.
+`2.0`. The package is still `0.x`; since `0.4.0` it also carries a
+versioned report contract. Each release records its `Schema:`,
+`Validator:` and `Report contract:` lines in `CHANGELOG.md`, so that
+file names the current pairing. Version strings in examples are
+placeholders and are not renumbered per release.
 
 For the package, at `0.x` the minor slot is the breaking slot: both a
 breaking and an additive validator change bump the minor. The
@@ -102,14 +105,20 @@ list plus an optional `args` block:
 {
   "description": "What this case pins down.",
   "records": [ ... ],
-  "args": {"remove_invalid": true, "limits": {"line_limit": 200}}
+  "args": {
+    "remove_invalid": true,
+    "normalise": true,
+    "limits": {"line_limit": 200}
+  }
 }
 ```
 
 `verdict_outcome` records only stable facts: the verdict (`passed`,
 `failed`, `raised`), `stage` and exception *class* for a raise, the
 `invalid`, `dependants` and `remaining` counts, and the sorted
-diagnostic codes. Messages are not part of the contract.
+diagnostic codes. Messages are not part of the contract. A case with
+`normalise` set goes through `loads_normalised`; if it rewrites a
+value, `value.normalised` appears in the recorded codes.
 
 The corpus goes through the same tolerant loader as the command line,
 so a case with one unparseable record still records what happened to
@@ -129,6 +138,9 @@ whose data is now rejected, even when the change is a bug fix.
 Removing a diagnostic code is also breaking: a consumer that branches
 on it has nothing left to match. Adding one is additive. Both are
 classifier-visible, so the gate asks for the bump the change requires.
+A condition that moves from one code to another counts as a removed
+code, because a consumer branching on the old code no longer sees it
+for that condition.
 
 ### Public surface
 

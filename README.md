@@ -43,6 +43,31 @@ reject records that still name a placeholder data provider. The
 command accepts several files and exits non-zero if any of them fails
 the checks.
 
+Validation is strict by default. Add `--normalise` to repair values
+that are unambiguous but do not match the schema's pattern before they
+are checked: `PT22M24S` becomes `PT00H22M24S`, `2024-4-5` becomes
+`2024-04-05`, and a known resolver prefix such as
+`https://www.wikidata.org/entity/` is stripped from an identifier.
+`--normalise` validates the repaired view without writing; combine it
+with `--remove-invalid` to write the repaired file. A value that cannot
+be repaired safely — an empty name, a calendar-dependent `P1M`
+duration, or a timestamp without a timezone — is left for the strict
+checks to report. Each repair is reported as a `value.normalised`
+warning carrying `params.before`, `params.after` and `params.rule`.
+
+The same repair is available to downstream packages:
+
+```python
+from avefi_validate import dump, get_schema_validator, load_normalised, pass_checks
+
+loaded = load_normalised("export.json")
+result = pass_checks(loaded.records, get_schema_validator())
+dump(loaded.records, "export.normalised.json")
+```
+
+`loaded.normalisations` lists every rewrite; `loaded.diagnostics` still
+lists parse problems.
+
 Failures are reported as readable lines by default. Add
 `--format json` to write one structured document to stdout instead, or
 `--report PATH` to write it to a file while keeping the human-readable

@@ -8,7 +8,7 @@ questions.
 | | `schema.version` | package version |
 |---|---|---|
 | Where | `src/avefi_schema/model.yaml` | `pyproject.toml`, distribution metadata |
-| Shape | `MAJOR.MINOR`, a quoted string | full SemVer, e.g. `0.3.1` |
+| Shape | `MAJOR.MINOR`, a quoted string | full SemVer |
 | Means | which **data contract** this is | which **artefact** this is |
 | Answers | "which schema judged this record?" | "is it safe to upgrade?" |
 | Moves when | validity changes | any schema, validator, report or binding change |
@@ -18,7 +18,8 @@ public schema history — the 2023 release was `1.0`, and the LinkML
 contract starts at `2.0` — while the package version describes the
 artefact and is still `0.x`. Neither number bounds the other: a
 release that only tightens the validator moves the package and leaves
-the schema alone, and schema `2.0` may ship in package `0.3.0`.
+the schema alone, and a schema may ship under more than one package
+version.
 
 Two rules follow from that:
 
@@ -82,7 +83,7 @@ the package minor. See [While the package is at 0.x](#while-the-package-is-at-0x
 
 ```python
 {
-    "package": "0.4.0",          # which acceptance rules
+    "package": "<package version>",  # which acceptance rules
     "source": "package:avefi_schema/model.schema.json",
     "id": "https://www.av-efi.net/av-efi-schema/model",
     "version": "2.0",            # which schema document
@@ -90,6 +91,9 @@ the package minor. See [While the package is at 0.x](#while-the-package-is-at-0x
     "sha256": "9c3750…",         # exact schema bytes
 }
 ```
+
+The package version in these examples is a placeholder for the
+installed distribution; `CHANGELOG.md` names the current release.
 
 Store the whole object. `version` alone is not enough once the
 validator has tightened: two records may have been judged against
@@ -109,6 +113,9 @@ mistakenly reused.
   life of its major version.
 - A change of meaning with no structural trace is announced in the
   changelog; it is not inferable from the schema alone.
+- Changing which code a condition reports is a report-contract change:
+  a consumer branching on the old code no longer sees it for that
+  condition.
 
 ## The report contract
 
@@ -117,8 +124,8 @@ describing the run:
 
 ```json
 {
-  "tool": {"name": "avefi-validate", "package": "0.4.0"},
-  "schema": {"package": "0.4.0", "version": "2.0", "sha256": "9c3750…"},
+  "tool": {"name": "avefi-validate", "package": "<package version>"},
+  "schema": {"package": "<package version>", "version": "2.0", "sha256": "9c3750…"},
   "files": [
     {
       "path": "records.json",
@@ -160,6 +167,24 @@ with `record.invalid` for a record that failed its own checks and
 `record.depends_on_invalid` for a record removed only because
 something it refers to failed. `because` names the record that caused
 the cascade.
+
+A record that has no valid dependants left is reported as
+`record.depends_on_invalid` when the input referred to it, with
+`params.referrers` naming the records that pointed at it.
+`record.dangling` is reserved for a record that nothing in the input
+referred to. The two cases are different: an orphan has no children,
+while a rejected parent has children that do not survive validation.
+The same `record.depends_on_invalid` code is used in both `diagnostics`
+and `removed`, so one can be matched against the other.
+
+`--normalise` repairs values that are unambiguous but do not match
+their schema pattern, and reports each repair as a `value.normalised`
+warning with `params.before`, `params.after` and `params.rule` (for
+example `iso-duration`). Warnings describe the difference between the
+file as stored and the file as checked; they do not decide `passed`.
+Strict runs emit no such warning, so their reports are unchanged. A
+value that cannot be repaired safely is left as it was and fails the
+strict checks as before.
 
 `passed` is true for a file if it was clean before the run or was
 repaired by `--remove-invalid`; an unreadable file, invalid JSON and a
