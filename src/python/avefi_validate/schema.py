@@ -12,7 +12,7 @@ import hashlib
 import json
 import logging
 
-from jsonschema.validators import validator_for
+from .engine import build_schema_validator
 
 log = logging.getLogger(__name__)
 
@@ -60,13 +60,14 @@ def get_schema_validator():
     rebuilding it for every checked file would make a large submission
     needlessly slow.
 
+    The Rust engine is preferred when ``jsonschema_rs`` is installed;
+    the pure-Python engine is the fallback.
+
     """
     global _VALIDATOR
     if _VALIDATOR is None:
-        schema = load_schema()
-        cls = validator_for(schema)
-        cls.check_schema(schema)
-        _VALIDATOR = cls(schema)
+        _VALIDATOR = build_schema_validator(load_schema())
+        log.debug("using the %s schema engine", _VALIDATOR.engine)
     return _VALIDATOR
 
 

@@ -159,8 +159,23 @@ The machine-readable part is the `code`, `severity`, `record`,
   `record`, or `null` when no single field is at fault.
 - The keys of `params` are fixed per code. Values may vary with the
   data.
+- A schema violation also carries `params.keyword`, the JSON Schema
+  keyword that failed, and `params.expected`, the schema value the
+  instance was checked against. Both are identical whichever schema
+  engine is installed.
 - `message` is a sentence for a person and may change in any release.
   Do not parse it.
+- The order of `diagnostics` is descriptive. Schema violations are
+  sorted by pointer and keyword so two engines, or two runs, describe
+  the same record alike; consumers should match on `code` and
+  `record`, not on position.
+
+The report does not depend on which schema engine ran. The Rust
+`jsonschema-rs` engine is used when it is installed and the
+pure-Python `jsonschema` engine is the fallback; both produce the same
+codes, pointers and `params`. Messages are generated from those facts
+rather than from the engine's wording, so the engine cannot change a
+report.
 
 The `removed` list explains every record that left the working set,
 with `record.invalid` for a record that failed its own checks and

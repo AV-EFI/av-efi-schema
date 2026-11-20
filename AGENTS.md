@@ -38,9 +38,11 @@ or contributor must follow; usage lives in `README.md`.
    minor is the breaking slot; patches are verdict-invisible.
 4. Every release adds a `CHANGELOG.md` section with `Schema:`,
    `Validator:` and `Report contract:` lines.
-5. Failure codes, pointers and `params` keys are the report's
-   contractual surface; messages are not. A new code is additive, a
-   removed code is breaking, and neither may change silently.
+5. Failure codes, pointers and `params` keys (including
+   `params.keyword` and `params.expected`) are the report's contractual
+   surface; messages and diagnostic order are not. The Rust and Python
+   schema engines must produce the same facts. A new code is additive,
+   a removed code is breaking, and neither may change silently.
 6. An inconclusive gate result (for example a changed `pattern`) needs
    a reviewed entry in `versioning/decisions.toml`; do not guess.
 7. New types and classes in `TypeRegistrySubset` need DTR PIDs: run

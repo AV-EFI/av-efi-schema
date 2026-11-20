@@ -27,6 +27,7 @@ import re
 
 from avefi_schema import model_pydantic_v2 as efi
 
+from .engine import iter_schema_errors
 from .limits import DEFAULT_LIMITS
 from .records import (
     CheckResult,
@@ -158,14 +159,28 @@ def _pointer(path) -> str:
     return "/" + "/".join(parts) if parts else ""
 
 
+def _branch_index(error) -> object:
+    """Return the union branch a context error belongs to."""
+    index = getattr(error, "branch_index", None)
+    if index is not None:
+        return index
+    path = list(getattr(error, "schema_path", ()) or ())
+    return path[0] if path else None
+
+
 def _record_branch(error, record):
     """Return the ``anyOf``/``oneOf`` branch that belongs to ``record``.
 
-    The root schema is a union over the record categories, so every
-    record is validated against every category and fails all but one.
-    Reporting the errors of the failing categories would drown the one
-    that applies. The branch is identified by its ``$ref``, which names
-    the generated class.
+    The root schema is a union over the record categories, so a
+    validator that was handed the root schema validates every record
+    against every category and fails all but one. Reporting the errors
+    of the failing categories would drown the one that applies. The
+    branch is identified by its ``$ref``, which names the generated
+    class.
+
+    Validators from :func:`~avefi_validate.schema.get_schema_validator`
+    are already aimed at the record's branch; this remains for a raw
+    validator a caller passed to :func:`pass_checks`.
 
     """
     if error.validator not in ("anyOf", "oneOf") or not error.context:
@@ -184,7 +199,7 @@ def _record_branch(error, record):
             return [
                 child
                 for child in error.context
-                if list(child.schema_path)[:1] == [index]
+                if _branch_index(child) == index
             ]
     return None
 
@@ -209,16 +224,58 @@ def _schema_errors(errors, record):
 
 
 def _schema_message(error) -> str:
-    """Return a readable message without dumping the whole record."""
-    if error.validator in ("anyOf", "oneOf") and error.context:
+    """Return a readable message from the facts of the violation.
+
+    The text is built from the keyword, the expected value and the
+    structured details, not from the engine's sentence. Both engines
+    therefore produce the same message for the same violation, and a
+    change of engine cannot change a report. Messages are descriptive
+    only; the contract is the code, the pointer and ``params``.
+
+    """
+    keyword = error.validator
+    expected = error.validator_value
+    details = getattr(error, "details", None) or {}
+    if keyword in ("anyOf", "oneOf") and error.context:
         return "value does not match any of the allowed forms"
-    return error.message
+    if keyword == "required":
+        prop = details.get("property")
+        if prop is not None:
+            return f"missing required property {prop!r}"
+    elif keyword == "type":
+        types = expected if isinstance(expected, list) else [expected]
+        return "value is not of type " + ", ".join(
+            repr(item) for item in types
+        )
+    elif keyword == "enum":
+        return f"value is not one of {expected!r}"
+    elif keyword == "pattern":
+        return f"value does not match pattern {expected!r}"
+    elif keyword == "additionalProperties":
+        unexpected = details.get("unexpected") or []
+        if unexpected:
+            return "unexpected properties: " + ", ".join(
+                repr(prop) for prop in unexpected
+            )
+        return "unexpected properties are not allowed"
+    return f"value does not satisfy {keyword!r}"
 
 
 def schema_diagnostics(efi_record, schema_validator) -> list[Diagnostic]:
-    """Return every schema violation of ``efi_record``."""
+    """Return every schema violation of ``efi_record``.
+
+    The record is checked against its own schema branch, and the
+    diagnostics are sorted by pointer and keyword so two engines, or
+    two runs, describe the same record in the same order.
+
+    """
     label = record_label(efi_record)
-    return [
+    errors = iter_schema_errors(
+        schema_validator,
+        as_document(efi_record),
+        type(efi_record).__name__,
+    )
+    diagnostics = [
         Diagnostic(
             code=Code.SCHEMA_VIOLATION,
             message=_schema_message(error),
@@ -229,11 +286,15 @@ def schema_diagnostics(efi_record, schema_validator) -> list[Diagnostic]:
                 "expected": _jsonable(error.validator_value),
             },
         )
-        for error in _schema_errors(
-            schema_validator.iter_errors(as_document(efi_record)),
-            efi_record,
-        )
+        for error in _schema_errors(errors, efi_record)
     ]
+    diagnostics.sort(
+        key=lambda diagnostic: (
+            diagnostic.pointer or "",
+            diagnostic.params.get("keyword") or "",
+        )
+    )
+    return diagnostics
 
 
 def _field_limit_diagnostics(record, limits, label) -> list[Diagnostic]:

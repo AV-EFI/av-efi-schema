@@ -8,6 +8,8 @@ The rules are split by concern:
 
 ``schema``
     Access to the packaged JSON Schema and its fingerprint.
+``engine``
+    The Rust and Python engines behind ``get_schema_validator``.
 ``documents``
     Conformance of a single record: schema, identifiers, dates and
     field length limits.

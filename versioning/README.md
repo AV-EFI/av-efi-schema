@@ -27,6 +27,7 @@ transition depend on that distinction.
 | Structural schema classifier | `utils/version_contract.py`, `tests/test_version_contract.py` | no |
 | Verdict snapshot | `tests/data/version_contract/`, `tests/test_verdict_snapshot.py` | no |
 | Public surface snapshot | `tests/data/api_surface.json`, `tests/test_api_surface.py` | no |
+| Engine parity | `tests/test_schema_engine.py` | no |
 | Local hooks | `.pre-commit-config.yaml`, `.githooks/version-gate` | yes |
 | The gate | `utils/version_gate.py`, `tests/test_version_gate.py` | yes |
 
@@ -134,6 +135,15 @@ for that condition.
 `avefi_validate.__all__`: functions and parameters (name, kind, whether
 a default exists), dataclass fields, enum members. A new helper that no
 corpus case exercises still changes this snapshot.
+
+### Engine parity
+
+`tests/test_schema_engine.py` runs the verdict corpus through both
+schema engines and requires identical codes, pointers, `params`,
+messages and counts. The Rust engine is the default; the Python engine
+is the fallback and the oracle. A keyword whose message is built from
+engine prose, or an error that one engine orders differently, fails
+here before it can reach a report.
 
 ## The classifier
 

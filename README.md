@@ -76,6 +76,14 @@ output on stderr. Each finding carries a stable `code`, an RFC 6901
 change. The full contract is in the
 [versioning guide](./src/docs/versioning.md#the-report-contract).
 
+Schema validation uses the Rust [`jsonschema-rs`][jsonschema_rs] engine
+when it is installed and the pure-Python `jsonschema` engine otherwise.
+The Rust engine is an optional extra, not a hard dependency: install
+`avefi-schema[fast]` where a wheel is available, or the plain package
+everywhere. Both engines report the same codes, pointers,
+`params.keyword`, `params.expected` and counts; messages and the order
+of findings are descriptive.
+
 In this repository, run it through the development environment:
 
 ```console
@@ -143,5 +151,6 @@ cover the contributor rules and the checks that enforce them.
 
 [LinkML]: https://linkml.io/
 [doit]: https://pydoit.org/
+[jsonschema_rs]: https://pypi.org/project/jsonschema-rs/
 [uv_install]: https://docs.astral.sh/uv/getting-started/installation/
 [dtr_gen]: ./utils/README.md
