@@ -52,7 +52,8 @@
       "REMOVED_AS_INVALID",
       "REMOVED_WITHOUT_PID",
       "SCHEMA_VIOLATION",
-      "TITLE_PRIMARY_TYPE"
+      "TITLE_PRIMARY_TYPE",
+      "VALUE_NORMALISED"
     ]
   },
   "DEFAULT_LIMITS": {
@@ -189,6 +190,69 @@
     ],
     "kind": "dataclass"
   },
+  "LoadResult": {
+    "fields": [
+      [
+        "records",
+        false
+      ],
+      [
+        "initial_count",
+        true
+      ],
+      [
+        "diagnostics",
+        false
+      ],
+      [
+        "sha256",
+        true
+      ],
+      [
+        "normalisations",
+        false
+      ]
+    ],
+    "kind": "dataclass"
+  },
+  "Normalisation": {
+    "fields": [
+      [
+        "record",
+        false
+      ],
+      [
+        "pointer",
+        false
+      ],
+      [
+        "before",
+        false
+      ],
+      [
+        "after",
+        false
+      ],
+      [
+        "rule",
+        false
+      ]
+    ],
+    "kind": "dataclass"
+  },
+  "NormalisationResult": {
+    "fields": [
+      [
+        "document",
+        false
+      ],
+      [
+        "changes",
+        true
+      ]
+    ],
+    "kind": "dataclass"
+  },
   "Removal": {
     "fields": [
       [
@@ -249,6 +313,11 @@
         true
       ],
       [
+        "normalise",
+        "KEYWORD_ONLY",
+        true
+      ],
+      [
         "preserve_status_removed",
         "KEYWORD_ONLY",
         true
@@ -261,6 +330,36 @@
       [
         "limits",
         "KEYWORD_ONLY",
+        true
+      ]
+    ]
+  },
+  "dump": {
+    "kind": "function",
+    "params": [
+      [
+        "records",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "to_file",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ]
+    ]
+  },
+  "dumps": {
+    "kind": "function",
+    "params": [
+      [
+        "records",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "indent",
+        "POSITIONAL_OR_KEYWORD",
         true
       ]
     ]
@@ -314,9 +413,69 @@
       ]
     ]
   },
+  "load_normalised": {
+    "kind": "function",
+    "params": [
+      [
+        "source",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "schema",
+        "KEYWORD_ONLY",
+        true
+      ]
+    ]
+  },
   "load_schema": {
     "kind": "function",
     "params": []
+  },
+  "loads_normalised": {
+    "kind": "function",
+    "params": [
+      [
+        "input",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "schema",
+        "KEYWORD_ONLY",
+        true
+      ]
+    ]
+  },
+  "normalise_document": {
+    "kind": "function",
+    "params": [
+      [
+        "document",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "schema",
+        "KEYWORD_ONLY",
+        true
+      ]
+    ]
+  },
+  "normalise_record": {
+    "kind": "function",
+    "params": [
+      [
+        "record",
+        "POSITIONAL_OR_KEYWORD",
+        false
+      ],
+      [
+        "schema",
+        "KEYWORD_ONLY",
+        true
+      ]
+    ]
   },
   "pass_checks": {
     "kind": "function",

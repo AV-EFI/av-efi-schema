@@ -119,3 +119,61 @@ class TestPlaceholderIssuer:
         )
         assert exit_code != 0
         assert target.read_text(encoding="utf-8") == before
+
+
+def _bad_duration(tmp_path):
+    """Return a file whose item carries a valid but non-conforming duration."""
+    item = {
+        **ITEM,
+        "has_duration": {"has_value": "PT22M24S"},
+    }
+    return _write(tmp_path, [WORK, MANIFESTATION, item])
+
+
+class TestNormalise:
+    """Normalising is opt-in and validates the repaired view."""
+
+    def test_strict_validation_still_fails(self, tmp_path, caplog):
+        caplog.set_level(logging.INFO)
+        target = _bad_duration(tmp_path)
+        before = target.read_text(encoding="utf-8")
+        assert main([str(target)]) != 0
+        assert target.read_text(encoding="utf-8") == before
+        assert "value.normalised" not in caplog.text
+
+    def test_normalise_validates_without_writing(self, tmp_path, caplog):
+        caplog.set_level(logging.INFO)
+        target = _bad_duration(tmp_path)
+        before = target.read_text(encoding="utf-8")
+        assert main(["--normalise", str(target)]) == 0
+        assert target.read_text(encoding="utf-8") == before
+        assert "PT22M24S" in caplog.text
+        assert "PT00H22M24S" in caplog.text
+        assert "1 value" in caplog.text
+
+    def test_remove_invalid_writes_the_repaired_file(self, tmp_path):
+        target = _bad_duration(tmp_path)
+        assert main(["--normalise", "--remove-invalid", str(target)]) == 0
+        data = json.loads(target.read_text(encoding="utf-8"))
+        assert data[2]["has_duration"]["has_value"] == "PT00H22M24S"
+        # The rewritten file now passes strict validation.
+        assert main([str(target)]) == 0
+
+    def test_json_report_carries_the_change(self, tmp_path, capsys):
+        target = _bad_duration(tmp_path)
+        assert main(["--normalise", "--format", "json", str(target)]) == 0
+        data = json.loads(capsys.readouterr().out)
+        diagnostic = next(
+            diagnostic
+            for diagnostic in data["files"][0]["diagnostics"]
+            if diagnostic["code"] == "value.normalised"
+        )
+        assert diagnostic["severity"] == "warning"
+        assert diagnostic["record"] == "Item.i1"
+        assert diagnostic["pointer"] == "/has_duration/has_value"
+        assert diagnostic["params"] == {
+            "before": "PT22M24S",
+            "after": "PT00H22M24S",
+            "rule": "iso-duration",
+        }
+        assert data["passed"] is True

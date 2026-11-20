@@ -49,6 +49,15 @@ def build_parser() -> argparse.ArgumentParser:
         help="Rewrite the file without invalid records and their dependants.",
     )
     parser.add_argument(
+        "--normalise",
+        action="store_true",
+        help=(
+            "Repair values that fail their schema pattern before checking."
+            " The repaired view is validated and reported; the file is"
+            " written only with --remove-invalid."
+        ),
+    )
+    parser.add_argument(
         "--preserve-status-removed",
         action="store_true",
         help=(
@@ -116,6 +125,11 @@ def _record(count: int) -> str:
     return "record" if count == 1 else "records"
 
 
+def _value(count: int) -> str:
+    """Return ``value`` or ``values`` to match ``count``."""
+    return "value" if count == 1 else "values"
+
+
 def _log_diagnostics(report: FileReport, verbose: bool) -> None:
     """Write one line per finding to the log."""
     for diagnostic in report.diagnostics:
@@ -138,6 +152,15 @@ def _unparseable(report: FileReport) -> int:
         1
         for diagnostic in report.diagnostics
         if diagnostic.code == Code.RECORD_UNPARSEABLE
+    )
+
+
+def _normalised(report: FileReport) -> int:
+    """Return how many values of ``report`` were normalised."""
+    return sum(
+        1
+        for diagnostic in report.diagnostics
+        if diagnostic.code == Code.VALUE_NORMALISED
     )
 
 
@@ -170,7 +193,32 @@ def _log_summary(outcome, args) -> None:
         return
     if report.passed:
         unparseable = _unparseable(report)
-        if (
+        normalised = _normalised(report)
+        if args.remove_invalid and (
+            result.invalid or result.dependants or report.rewritten
+        ):
+            if normalised:
+                log.info(
+                    "%s: normalised %d %s and removed %d invalid %s and"
+                    " %d dependant %s",
+                    report.path,
+                    normalised,
+                    _value(normalised),
+                    result.invalid,
+                    _record(result.invalid),
+                    result.dependants,
+                    _record(result.dependants),
+                )
+            else:
+                log.info(
+                    "%s: removed %d invalid %s and %d dependant %s",
+                    report.path,
+                    result.invalid,
+                    _record(result.invalid),
+                    result.dependants,
+                    _record(result.dependants),
+                )
+        elif (
             args.remove_invalid
             and unparseable
             and not result.invalid
@@ -182,16 +230,14 @@ def _log_summary(outcome, args) -> None:
                 unparseable,
                 _record(unparseable),
             )
-        elif args.remove_invalid and (
-            result.invalid or result.dependants or report.rewritten
-        ):
+        elif normalised:
             log.info(
-                "%s: removed %d invalid %s and %d dependant %s",
+                "%s: all %d %s passed after normalising %d %s",
                 report.path,
-                result.invalid,
-                _record(result.invalid),
-                result.dependants,
-                _record(result.dependants),
+                report.initial,
+                _record(report.initial),
+                normalised,
+                _value(normalised),
             )
         else:
             log.info(
@@ -266,6 +312,7 @@ def main(argv=None) -> int:
                 path,
                 schema_validator=schema_validator,
                 remove_invalid=args.remove_invalid,
+                normalise=args.normalise,
                 preserve_status_removed=args.preserve_status_removed,
                 placeholder_issuer_id=args.placeholder_issuer_id,
                 limits=limits,

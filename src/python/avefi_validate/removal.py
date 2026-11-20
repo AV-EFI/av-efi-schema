@@ -20,8 +20,9 @@ from avefi_schema import model_pydantic_v2 as efi
 from . import io
 from .documents import pass_checks, placeholder_issuer_records
 from .limits import DEFAULT_LIMITS
+from .normalise import normalise_for_loader
 from .records import CheckResult
-from .report import Code, FileReport
+from .report import Code, Diagnostic, FileReport, Severity
 
 log = logging.getLogger(__name__)
 
@@ -55,6 +56,7 @@ def check_file(
     *,
     schema_validator,
     remove_invalid=False,
+    normalise=False,
     preserve_status_removed=False,
     placeholder_issuer_id: str | None = None,
     limits=DEFAULT_LIMITS,
@@ -71,6 +73,10 @@ def check_file(
     remove_invalid : bool
         Rewrite the file without the invalid records and their
         dependants.
+    normalise : bool
+        Repair values that fail their schema pattern before checking.
+        The repaired view is checked and reported, but the file is
+        written only together with ``remove_invalid``.
     preserve_status_removed : bool
         Accept items with access status Removed even without a PID.
     placeholder_issuer_id : str or None
@@ -88,7 +94,12 @@ def check_file(
 
     """
     path = pathlib.Path(path)
-    loaded = io.load_with_diagnostics(path)
+    if normalise:
+        loaded = io.load_with_diagnostics(
+            path, transform=normalise_for_loader
+        )
+    else:
+        loaded = io.load_with_diagnostics(path)
     records = loaded.records
     initial_count = loaded.initial_count
 
@@ -107,16 +118,38 @@ def check_file(
         placeholder_issuer_id=placeholder_issuer_id,
         limits=limits,
     )
-    diagnostics = list(loaded.diagnostics) + list(result.diagnostics)
+    diagnostics = (
+        list(loaded.diagnostics)
+        + [
+            Diagnostic(
+                code=Code.VALUE_NORMALISED,
+                severity=Severity.WARNING,
+                message=(
+                    f"normalised {change.before!r} to {change.after!r}"
+                    f" with rule {change.rule}"
+                ),
+                record=change.record,
+                pointer=change.pointer,
+                params={
+                    "before": change.before,
+                    "after": change.after,
+                    "rule": change.rule,
+                },
+            )
+            for change in loaded.normalisations
+        ]
+        + list(result.diagnostics)
+    )
     removals = list(result.removals)
 
-    # A file changes when parsing dropped items or the checks removed
-    # records that referred to them. ``result.invalid`` and
-    # ``result.dependants`` are computed on a copy when the caller did
-    # not ask for a rewrite, which is why they are consulted here rather
-    # than the length of ``records``.
+    # A file changes when parsing dropped items, the checks removed
+    # records that referred to them, or normalisation rewrote a value.
+    # ``result.invalid`` and ``result.dependants`` are computed on a
+    # copy when the caller did not ask for a rewrite, which is why they
+    # are consulted here rather than the length of ``records``.
     changed = (
         len(records) != initial_count
+        or bool(loaded.normalisations)
         or result.invalid
         or result.dependants
     )
@@ -167,9 +200,16 @@ def _passed(
     """Return whether the file may be considered clean after the run."""
     if unnamed:
         return False
-    if any(d.code in UNREPAIRABLE for d in diagnostics):
+    errors = [
+        diagnostic
+        for diagnostic in diagnostics
+        if diagnostic.severity == Severity.ERROR
+    ]
+    if any(diagnostic.code in UNREPAIRABLE for diagnostic in errors):
         return False
-    if not diagnostics:
+    # Warnings describe a difference between the file as read and the
+    # file as checked. They are not failures in their own right.
+    if not errors:
         return True
     if not remove_invalid:
         return False
