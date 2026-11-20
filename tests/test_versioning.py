@@ -24,11 +24,17 @@ from avefi_validate.schema import (
     schema_fingerprint,
 )
 from utils.version_contract import SCHEMA_VERSION_RE
-from utils.version_gate import read_package_version, read_schema_version
+from utils.version_gate import (
+    read_package_version,
+    read_report_version,
+    read_schema_version,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_YAML = ROOT / "src" / "avefi_schema" / "model.yaml"
 PYPROJECT = ROOT / "pyproject.toml"
+REPORT_PY = ROOT / "src" / "python" / "avefi_validate" / "report.py"
+CHANGELOG = ROOT / "CHANGELOG.md"
 JSON_SCHEMA = (
     ROOT / "project" / "jsonschema" / "avefi_schema" / "model.schema.json"
 )
@@ -104,6 +110,42 @@ def test_both_versions_are_pep_440():
 
 def test_package_uses_a_full_release_version():
     assert re.search(r"(?m)^version\s*=\s*\"\d+\.\d+\.\d+", PYPROJECT.read_text())
+
+
+def test_the_gate_reads_the_report_contract_version():
+    """The regex reader must see the constant the package exports."""
+    from avefi_validate.report import REPORT_CONTRACT_VERSION
+
+    text = REPORT_PY.read_text(encoding="utf-8")
+    assert read_report_version(text) == REPORT_CONTRACT_VERSION
+    assert SCHEMA_VERSION_RE.match(REPORT_CONTRACT_VERSION)
+
+
+def test_the_changelog_names_the_report_contract():
+    """The current release section agrees with the constant.
+
+    Sections from before the contract existed say ``not yet defined``;
+    once any section carries a number, every later release must too.
+    The gate checks the same fact against git history.
+    """
+    from avefi_validate.report import REPORT_CONTRACT_VERSION
+
+    text = CHANGELOG.read_text(encoding="utf-8")
+    if re.search(r"(?m)^Report contract:\s*[0-9]+\.[0-9]+", text) is None:
+        return
+    version = _package_version()
+    match = re.search(r"(?m)^##\s+" + re.escape(version) + r"\s*$", text)
+    assert match is not None, f"CHANGELOG.md has no section for {version}"
+    rest = text[match.end():]
+    following = re.search(r"(?m)^##\s+", rest)
+    section = rest[: following.start()] if following else rest
+    line = re.search(
+        r"(?m)^Report contract:\s*([0-9]+\.[0-9]+)", section
+    )
+    assert line is not None, (
+        f"the {version} section has no numeric Report contract: line"
+    )
+    assert line.group(1) == REPORT_CONTRACT_VERSION
 
 
 def _nav_targets(value) -> set[str]:

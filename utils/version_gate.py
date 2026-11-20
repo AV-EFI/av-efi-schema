@@ -2,8 +2,8 @@
 
 The repository publishes one artefact that carries three contracts: the
 data contract (the JSON Schema in ``src/avefi_schema``), the acceptance
-rules (``src/python/avefi_validate``) and the public surface of the
-validator. A version number is only useful if it moves when any of them
+rules (``src/python/avefi_validate``) and the report that describes a
+run. A version number is only useful if it moves when any of them
 changes in a way a consumer would notice, so this module compares the
 working tree with a base revision and checks that the numbers tell the
 truth.
@@ -11,8 +11,8 @@ truth.
 The rules are:
 
 ====  ====================================================================
-R1    versions parse, the schema version is ``MAJOR.MINOR``
-R2    neither version decreases
+R1    versions parse, the schema and report versions are ``MAJOR.MINOR``
+R2    no version decreases
 R3    a schema change moves the schema version by the required amount
 R3b   a schema version moved without a schema change
 R4    a schema change also moves the package version
@@ -22,6 +22,7 @@ R7    any change to the schema or the validator moves at least the patch
 R8    a change of the public surface moves the package version
 R9    the changelog has a section for the new version
 R10   inconclusive changes have a reviewed entry in ``decisions.toml``
+R11   a change of the report surface moves the report contract version
 ====  ====================================================================
 
 R5 was retired when the schema version was re-based to ``2.0``: the
@@ -52,9 +53,11 @@ ROOT = Path(__file__).resolve().parent.parent
 
 MODEL_YAML = "src/avefi_schema/model.yaml"
 PYPROJECT = "pyproject.toml"
+REPORT_PY = "src/python/avefi_validate/report.py"
 JSON_SCHEMA = "project/jsonschema/avefi_schema/model.schema.json"
 VERDICTS = "tests/data/version_contract/expected.json"
 API = "tests/data/api_surface.json"
+REPORT_SURFACE = "tests/data/report_surface.json"
 CHANGELOG = "CHANGELOG.md"
 DECISIONS = "versioning/decisions.toml"
 
@@ -67,6 +70,11 @@ PACKAGE_VERSION_RE = re.compile(
     r"(?:[-+][0-9A-Za-z.-]+)?$"
 )
 
+#: The ``MAJOR.MINOR`` report contract version, as a plain assignment.
+REPORT_VERSION_RE = re.compile(
+    r"""(?m)^REPORT_CONTRACT_VERSION\s*=\s*["']([^"']+)["']"""
+)
+
 
 @dataclass(frozen=True)
 class Snapshot:
@@ -74,9 +82,11 @@ class Snapshot:
 
     schema_version: str | None = None
     package_version: str | None = None
+    report_version: str | None = None
     schema: dict = field(default_factory=dict)
     verdicts: dict = field(default_factory=dict)
     api: dict = field(default_factory=dict)
+    report_surface: dict = field(default_factory=dict)
     paths: frozenset[str] = frozenset()
     changelog: str = ""
 
@@ -145,6 +155,7 @@ def evaluate(
     _check_package_moves_with_schema(old, new, report)
     _check_verdicts(old, new, report)
     _check_api(old, new, report)
+    _check_report(old, new, report)
     _check_watched_paths(old, new, report)
     _check_changelog(old, new, report)
     return report
@@ -167,9 +178,18 @@ def _check_versions(old: Snapshot, new: Snapshot, report: Report) -> None:
                 f"package version {new.package_version!r} is not a release",
             )
         )
+    if not contract.SCHEMA_VERSION_RE.match(new.report_version or ""):
+        report.problems.append(
+            (
+                "R1",
+                f"report contract version {new.report_version!r} in"
+                f" {REPORT_PY} is not a MAJOR.MINOR string",
+            )
+        )
     for label, before, after in (
         ("schema", old.schema_version, new.schema_version),
         ("package", old.package_version, new.package_version),
+        ("report contract", old.report_version, new.report_version),
     ):
         if not before or not after:
             continue
@@ -330,6 +350,40 @@ def _check_api(old: Snapshot, new: Snapshot, report: Report) -> None:
     )
 
 
+def _check_report(old: Snapshot, new: Snapshot, report: Report) -> None:
+    """R11: the report surface and its contract version agree."""
+    if not old.report_version or not old.report_surface:
+        if new.report_surface:
+            report.notes.append(
+                "report contract introduced in this change:"
+                " bump check skipped"
+            )
+        return
+    if not new.report_surface:
+        report.problems.append(
+            ("R11", f"{REPORT_SURFACE} is missing")
+        )
+        return
+    severity, lines = snapshots.classify_report(
+        old.report_surface, new.report_surface
+    )
+    report.notes.extend(f"report: {line}" for line in lines)
+    required = _contract_bump(severity)
+    if contract.bump_satisfied(
+        old.report_version, new.report_version or "", required
+    ):
+        return
+    report.problems.append(
+        (
+            "R11",
+            "the report surface changed"
+            f" ({', '.join(lines) or severity}), so the report contract"
+            f" needs a {required} bump; it went {old.report_version} ->"
+            f" {new.report_version}",
+        )
+    )
+
+
 def _check_watched_paths(
     old: Snapshot, new: Snapshot, report: Report
 ) -> None:
@@ -368,7 +422,7 @@ def _check_changelog(old: Snapshot, new: Snapshot, report: Report) -> None:
             )
         )
         return
-    for label in ("Schema:", "Validator:"):
+    for label in ("Schema:", "Validator:", "Report contract:"):
         if not _has_line(section, label):
             report.problems.append(
                 (
@@ -388,6 +442,29 @@ def _check_changelog(old: Snapshot, new: Snapshot, report: Report) -> None:
                 "R9",
                 f"the {new.package_version} section names a schema"
                 f" version other than {new.schema_version}",
+            )
+        )
+    report_line = _line_starting_with(section, "Report contract:")
+    if report_line is None:
+        return
+    match = re.match(
+        r"Report contract:\s*([0-9]+\.[0-9]+)", report_line
+    )
+    if match is None:
+        report.problems.append(
+            (
+                "R9",
+                f"the {new.package_version} section in {CHANGELOG} needs"
+                " a numeric Report contract: line",
+            )
+        )
+    elif new.report_version and match.group(1) != new.report_version:
+        report.problems.append(
+            (
+                "R9",
+                f"the {new.package_version} section names report contract"
+                f" {match.group(1)}, but {REPORT_PY} declares"
+                f" {new.report_version}",
             )
         )
 
@@ -416,6 +493,20 @@ def _line_starting_with(section: str, prefix: str) -> str | None:
         if line.strip().startswith(prefix):
             return line.strip()
     return None
+
+
+def _contract_bump(severity: str) -> str:
+    """Map a verdict to the report-contract component that has to move.
+
+    The contract has ``MAJOR.MINOR`` only, so an additive change moves
+    the minor and anything breaking moves the major. ``PATCH`` cannot
+    occur for a structural report change, but map it defensively.
+    """
+    if severity == contract.NONE:
+        return contract.NONE
+    if severity == contract.MAJOR:
+        return contract.MAJOR
+    return contract.MINOR
 
 
 def _package_bump(severity: str, major: int) -> str:
@@ -465,6 +556,12 @@ _SCHEMA_VERSION_RE = re.compile(
 def read_schema_version(text: str) -> str | None:
     """Return the top-level ``version`` of a LinkML schema document."""
     match = _SCHEMA_VERSION_RE.search(text)
+    return match.group(1) if match else None
+
+
+def read_report_version(text: str) -> str | None:
+    """Return the report contract version declared by ``report.py``."""
+    match = REPORT_VERSION_RE.search(text)
     return match.group(1) if match else None
 
 
@@ -541,9 +638,11 @@ def load_working_tree() -> Snapshot:
     return Snapshot(
         schema_version=read_schema_version(_read_working_tree(MODEL_YAML)),
         package_version=read_package_version(_read_working_tree(PYPROJECT)),
+        report_version=read_report_version(_read_working_tree(REPORT_PY)),
         schema=_json(_read_working_tree(JSON_SCHEMA), {}),
         verdicts=_json(_read_working_tree(VERDICTS), {}),
         api=_json(_read_working_tree(API), {}),
+        report_surface=_json(_read_working_tree(REPORT_SURFACE), {}),
         paths=frozenset(),
         changelog=_read_working_tree(CHANGELOG),
     )
@@ -554,9 +653,11 @@ def load_revision(revision: str) -> Snapshot:
     return Snapshot(
         schema_version=read_schema_version(_read_git(revision, MODEL_YAML)),
         package_version=read_package_version(_read_git(revision, PYPROJECT)),
+        report_version=read_report_version(_read_git(revision, REPORT_PY)),
         schema=_json(_read_git(revision, JSON_SCHEMA), {}),
         verdicts=_json(_read_git(revision, VERDICTS), {}),
         api=_json(_read_git(revision, API), {}),
+        report_surface=_json(_read_git(revision, REPORT_SURFACE), {}),
         paths=frozenset(),
         changelog=_read_git(revision, CHANGELOG),
     )
@@ -602,9 +703,11 @@ def main(argv: list[str] | None = None) -> int:
     new = Snapshot(
         schema_version=new.schema_version,
         package_version=new.package_version,
+        report_version=new.report_version,
         schema=new.schema,
         verdicts=new.verdicts,
         api=new.api,
+        report_surface=new.report_surface,
         paths=changed_paths(base),
         changelog=new.changelog,
     )

@@ -16,13 +16,14 @@ WORK_AND_ITEM = {
         "Item": {"type": "object", "properties": {}},
     }
 }
-def changelog(version: str, schema: str) -> str:
+def changelog(version: str, schema: str, report: str = "1.0") -> str:
     """Return a changelog with one complete release section."""
     return (
         "# Changelog\n\n"
         f"## {version}\n\n"
         f"Schema: {schema} (as released)\n"
         "Validator: unchanged\n"
+        f"Report contract: {report} (as released)\n"
     )
 
 
@@ -34,6 +35,7 @@ def snapshot(**changes) -> Snapshot:
     values = {
         "schema_version": "0.2",
         "package_version": "0.2.0",
+        "report_version": "1.0",
         "schema": WORK,
         "verdicts": {"case": {"outcome": "passed"}},
         "api": {"helper": {"kind": "function", "params": []}},
@@ -190,7 +192,7 @@ def test_r9_requires_a_changelog_section():
     assert "R9" in rules(report)
 
 
-def test_r9_requires_both_lines():
+def test_r9_requires_every_line():
     report = evaluate(
         snapshot(),
         snapshot(
@@ -246,3 +248,99 @@ def test_a_decision_for_another_release_is_not_reused():
         [Decision(schema_version="0.2", path="/$defs/Work/pattern", reviewed="minor")],
     )
     assert "R10" in rules(report)
+
+
+def test_r1_rejects_an_unparseable_report_contract():
+    report = evaluate(snapshot(), snapshot(report_version="1"))
+    assert "R1" in rules(report)
+
+
+def test_r2_rejects_a_decreasing_report_contract():
+    report = evaluate(
+        snapshot(report_version="1.1"), snapshot(report_version="1.0")
+    )
+    assert "R2" in rules(report)
+
+
+def test_r9_requires_a_report_contract_line():
+    report = evaluate(
+        snapshot(),
+        snapshot(
+            package_version="0.2.1",
+            changelog="## 0.2.1\n\nSchema: 0.2\nValidator: unchanged\n",
+        ),
+    )
+    assert "R9" in rules(report)
+
+
+def test_r9_rejects_a_mismatched_report_contract():
+    report = evaluate(
+        snapshot(),
+        snapshot(
+            package_version="0.2.1",
+            changelog=changelog("0.2.1", "0.2", report="1.1"),
+        ),
+    )
+    assert "R9" in rules(report)
+
+
+SURFACE = {
+    "keys": ["files", "passed", "report", "schema", "tool"],
+    "blocks": {"report": ["version"]},
+    "codes": ["name.empty"],
+    "severities": ["error", "warning"],
+    "pointers": {"name.empty": ["/has_primary_title/has_name"]},
+    "params": {"name.empty": ["field"]},
+}
+
+
+def test_r11_removing_a_params_key_needs_a_major_bump():
+    changed = {**SURFACE, "params": {"name.empty": []}}
+    report = evaluate(
+        snapshot(report_surface=SURFACE),
+        snapshot(report_surface=changed, report_version="2.0"),
+    )
+    assert report.ok, report.lines()
+
+
+def test_r11_removing_a_params_key_without_a_major_bump_fails():
+    changed = {**SURFACE, "params": {"name.empty": []}}
+    report = evaluate(
+        snapshot(report_surface=SURFACE),
+        snapshot(report_surface=changed, report_version="1.1"),
+    )
+    assert "R11" in rules(report)
+
+
+def test_r11_an_added_pointer_is_only_a_note():
+    changed = {
+        **SURFACE,
+        "pointers": {
+            "name.empty": [
+                "/has_primary_title",
+                "/has_primary_title/has_name",
+            ]
+        },
+    }
+    report = evaluate(
+        snapshot(report_surface=SURFACE),
+        snapshot(report_surface=changed),
+    )
+    assert report.ok, report.lines()
+    assert any(note.startswith("report:") for note in report.notes)
+
+
+def test_r11_a_new_code_is_additive():
+    changed = {**SURFACE, "codes": ["date.invalid", "name.empty"]}
+    report = evaluate(
+        snapshot(report_surface=SURFACE),
+        snapshot(report_surface=changed, report_version="1.1"),
+    )
+    assert report.ok, report.lines()
+
+
+def test_r11_the_bootstrap_revision_is_exempt():
+    report = evaluate(
+        snapshot(report_surface={}), snapshot(report_surface=SURFACE)
+    )
+    assert report.ok, report.lines()

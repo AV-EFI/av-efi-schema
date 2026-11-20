@@ -1,19 +1,20 @@
 # Versioning: contributor mechanics
 
 The public promise is in
-[`src/docs/versioning.md`](../src/docs/versioning.md): what the two
+[`src/docs/versioning.md`](../src/docs/versioning.md): what the three
 versions mean, which changes bump which, and what a consumer may rely
 on. This page is for people changing the repository: how those rules
 are enforced, how to regenerate the evidence, and when a human has to
 decide. It does not restate the bump rules.
 
 The short version: edit the schema or the validator, run
-`uv run doit version_snapshots` when acceptance rules moved, bump the
-two versions the way the guide says, add a `CHANGELOG.md` section, then
+`uv run doit version_snapshots` when acceptance rules or the report
+surface moved, bump the versions the way the guide says, add a
+`CHANGELOG.md` section, then
 push. The pre-push hook regenerates the derivatives and runs the gate
 for you; install it once per clone with `uv run doit install_hooks`.
 
-The gate reads both versions from the base revision and the working
+The gate reads every version from the base revision and the working
 tree. At `0.x`, the public guide makes the package minor slot the
 breaking slot as well; the classifier still records whether a change is
 breaking or additive, because the changelog and the eventual `1.0`
@@ -27,6 +28,7 @@ transition depend on that distinction.
 | Structural schema classifier | `utils/version_contract.py`, `tests/test_version_contract.py` | no |
 | Verdict snapshot | `tests/data/version_contract/`, `tests/test_verdict_snapshot.py` | no |
 | Public surface snapshot | `tests/data/api_surface.json`, `tests/test_api_surface.py` | no |
+| Report surface snapshot | `tests/data/report_surface.json`, `tests/test_report_surface.py` | no |
 | Engine parity | `tests/test_schema_engine.py` | no |
 | Local hooks | `.pre-commit-config.yaml`, `.githooks/version-gate` | yes |
 | The gate | `utils/version_gate.py`, `tests/test_version_gate.py` | yes |
@@ -37,8 +39,9 @@ The gate compares the working tree with a base revision:
     uv run doit version_check --base origin/main
     GITHUB_BASE_REF=main uv run doit version_check
 
-It reads the base copies of `model.yaml`, `pyproject.toml`, the
-generated JSON Schema, both snapshots and `CHANGELOG.md` with `git
+It reads the base copies of `model.yaml`, `pyproject.toml`,
+`report.py`, the generated JSON Schema, all three snapshots and
+`CHANGELOG.md` with `git
 show`, and takes the changed paths from `git diff --name-only`. It never
 re-runs the generators on the base revision, which is why the generated
 schema is committed.
@@ -113,7 +116,8 @@ the others; it does not raise just because one item is malformed.
 `raised` is reserved for an unexpected failure of the validator
 itself.
 
-Regenerate both snapshots after an intentional rule change:
+Regenerate all three snapshots after an intentional rule or surface
+change:
 
     uv run doit version_snapshots
 
@@ -202,8 +206,8 @@ it is folded into the required bump. Entries for another
 
 | Rule | Meaning |
 |---|---|
-| R1 | both versions parse; the schema version is `MAJOR.MINOR` |
-| R2 | neither version decreases |
+| R1 | every version parses; the schema and report versions are `MAJOR.MINOR` |
+| R2 | no version decreases |
 | R3 | a structural schema change moves the schema version by the required amount |
 | R3b | the schema version did not move without a schema change |
 | R4 | a schema release also moves the package (any increase) |
@@ -211,21 +215,26 @@ it is folded into the required bump. Entries for another
 | R6 | a change of verdicts moves the package by the classified amount |
 | R7 | any edit under `src/avefi_schema/` or `src/python/avefi_validate/` moves at least the patch |
 | R8 | a change of the public surface moves the package by the classified amount |
-| R9 | `CHANGELOG.md` has a section for the new package version with `Schema:` and `Validator:` lines |
+| R9 | `CHANGELOG.md` has a section for the new package version with `Schema:`, `Validator:` and `Report contract:` lines, and the contract line matches `report.py` |
 | R10 | every inconclusive schema change has a matching decision entry |
+| R11 | a change of the report surface moves the report contract by the classified amount |
 
 The bootstrap exception: a base revision whose `model.yaml` has no
-`version` only requires the new one to be set. It applies once, to the
-commit that introduces the mechanism.
+`version`, `pyproject.toml` no release, or `report.py` no
+`REPORT_CONTRACT_VERSION` only requires the new value to be set. It
+applies once, to the commit that introduces the mechanism.
 
 ## Adding a corpus case
 
 1. Write the case under `tests/data/version_contract/cases/`, with a
    `description` that says which rule it pins down.
 2. Run `uv run doit version_snapshots`; the new outcome appears in
-   `expected.json`.
+   `expected.json` and any new pointer or `params` key appears in
+   `report_surface.json`.
 3. Read the outcome: if it is not what you intended, fix the case, not
    the snapshot.
 4. Commit case and snapshot together. A new case alone is a minor
    change; changing an existing outcome is classified by direction
-   (passing → failing is breaking).
+   (passing → failing is breaking). A newly observed pointer or
+   `params` key is only a note, so growing the corpus does not force a
+   report-contract bump.

@@ -1,9 +1,9 @@
 # Versioning
 
-Two numbers describe a release, and they answer two different
+Three numbers describe a release, and they answer three different
 questions.
 
-## Two versions
+## The versions
 
 | | `schema.version` | package version |
 |---|---|---|
@@ -13,19 +13,28 @@ questions.
 | Answers | "which schema judged this record?" | "is it safe to upgrade?" |
 | Moves when | validity changes | any schema, validator, report or binding change |
 
-The two numbers are independent. The schema version continues the
-public schema history — the 2023 release was `1.0`, and the LinkML
-contract starts at `2.0` — while the package version describes the
-artefact and is still `0.x`. Neither number bounds the other: a
-release that only tightens the validator moves the package and leaves
-the schema alone, and a schema may ship under more than one package
-version.
+The schema and package numbers are independent. The schema version
+continues the public schema history — the 2023 release was `1.0`, and
+the LinkML contract starts at `2.0` — while the package version
+describes the artefact and is still `0.x`. Neither number bounds the
+other: a release that only tightens the validator moves the package and
+leaves the schema alone, and a schema may ship under more than one
+package version.
 
-Two rules follow from that:
+A third number, the **report contract**, versions the JSON document
+that `avefi-validate` emits. It is recorded in `report.version` and in
+the changelog, and it is independent of both other numbers: a release
+can move the package without changing the document's shape, and a
+report change moves the contract even when the schema stays put. It
+currently reads `1.0`.
+
+Three rules follow from that:
 
 1. When the schema moves, the package moves in the same release, by
    the bump its own changes require.
-2. Neither number ever decreases.
+2. No number ever decreases.
+3. When the report surface moves, the report contract moves by its own
+   rules, described below.
 
 ## The schema promise
 
@@ -64,6 +73,16 @@ Validator changes (package version, schema version unchanged):
 | Public helper added | minor |
 | Public name, parameter or field removed or renamed | major |
 | Wording, refactor, or documentation with the same verdicts | patch |
+
+Report contract changes (`report.version`):
+
+| Change | Bump |
+|---|---|
+| Remove or rename a block, code, severity, pointer shape or `params` key | major |
+| Change what an existing code means | major |
+| Add a block, code or severity | minor |
+| Add a pointer shape or `params` key, or a corpus case that observes one | neither |
+| Message wording, parameter values, diagnostic order | neither |
 
 Two rules make the numbers usable:
 
@@ -125,6 +144,7 @@ describing the run:
 ```json
 {
   "tool": {"name": "avefi-validate", "package": "<package version>"},
+  "report": {"version": "1.0"},
   "schema": {"package": "<package version>", "version": "2.0", "sha256": "9c3750…"},
   "files": [
     {
@@ -169,6 +189,17 @@ The machine-readable part is the `code`, `severity`, `record`,
   sorted by pointer and keyword so two engines, or two runs, describe
   the same record alike; consumers should match on `code` and
   `record`, not on position.
+
+The contract starts at `1.0`. Adding a block, a code or a severity is
+additive and moves the minor; removing or renaming one, or removing a
+pointer shape or `params` key that a code used to report, is breaking
+and moves the major. A newly observed pointer shape or `params` key is
+recorded without a bump, because the corpus that observes it can grow;
+the guarantee is that what has been observed never disappears.
+Messages, values and diagnostic order are outside the contract.
+`report.version` names the contract, so a consumer needs no mapping
+from package versions, and every release records the same number on
+its `Report contract:` line in the changelog.
 
 The report does not depend on which schema engine ran. The Rust
 `jsonschema-rs` engine is used when it is installed and the
