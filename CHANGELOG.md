@@ -8,6 +8,17 @@ onwards records both, plus the state of the report contract.
 See [the versioning guide](src/docs/versioning.md) for what the numbers
 promise.
 
+## 0.4.1
+
+The environment variable that forces a schema engine is spelled
+`AVEFI_VALIDATE_ENGINE`. The previous name carried a third `F`, so a
+caller that set it was silently ignored.
+
+Schema: 2.0 (unchanged)
+Validator: patch — the engine override reads `AVEFI_VALIDATE_ENGINE`;
+acceptance rules, codes, pointers and `params` are unchanged
+Report contract: 1.0 (unchanged)
+
 ## 0.4.0
 
 Validation now describes its result as data. A bad record no longer

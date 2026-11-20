@@ -82,23 +82,23 @@ def _errors(validator, document, category):
 
 def test_the_rust_engine_is_the_default_when_installed(monkeypatch):
     pytest.importorskip("jsonschema_rs")
-    monkeypatch.delenv("AVEFFI_VALIDATE_ENGINE", raising=False)
+    monkeypatch.delenv("AVEFI_VALIDATE_ENGINE", raising=False)
     monkeypatch.setattr("avefi_validate.schema._VALIDATOR", None)
     assert get_schema_validator().engine == "rust"
 
 
 def test_an_engine_can_be_selected(monkeypatch):
-    monkeypatch.setenv("AVEFFI_VALIDATE_ENGINE", "python")
+    monkeypatch.setenv("AVEFI_VALIDATE_ENGINE", "python")
     assert build_schema_validator(SCHEMA).engine == "python"
-    monkeypatch.setenv("AVEFFI_VALIDATE_ENGINE", "rust")
+    monkeypatch.setenv("AVEFI_VALIDATE_ENGINE", "rust")
     assert build_schema_validator(SCHEMA).engine == "rust"
 
 
 def test_a_missing_rust_engine_falls_back(monkeypatch):
-    monkeypatch.delenv("AVEFFI_VALIDATE_ENGINE", raising=False)
+    monkeypatch.delenv("AVEFI_VALIDATE_ENGINE", raising=False)
     monkeypatch.setitem(sys.modules, "jsonschema_rs", None)
     assert build_schema_validator(SCHEMA).engine == "python"
-    monkeypatch.setenv("AVEFFI_VALIDATE_ENGINE", "rust")
+    monkeypatch.setenv("AVEFI_VALIDATE_ENGINE", "rust")
     with pytest.raises(ImportError):
         build_schema_validator(SCHEMA)
 
@@ -239,7 +239,7 @@ def test_a_raw_python_validator_still_works(python_engine):
 
 def test_the_documented_normalise_then_validate_flow_uses_rust(monkeypatch):
     pytest.importorskip("jsonschema_rs")
-    monkeypatch.delenv("AVEFFI_VALIDATE_ENGINE", raising=False)
+    monkeypatch.delenv("AVEFI_VALIDATE_ENGINE", raising=False)
     monkeypatch.setattr("avefi_validate.schema._VALIDATOR", None)
     case = json.loads(
         (CASES_DIR / "normalise_duration.json").read_text(encoding="utf-8")

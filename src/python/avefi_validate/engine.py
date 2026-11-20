@@ -26,7 +26,7 @@ log = logging.getLogger(__name__)
 
 #: Environment variable that forces an engine. Intended for tests and
 #: debugging; the default is the Rust engine when it is installed.
-ENGINE_ENV = "AVEFFI_VALIDATE_ENGINE"
+ENGINE_ENV = "AVEFI_VALIDATE_ENGINE"
 
 
 @dataclass
@@ -265,7 +265,7 @@ def build_schema_validator(schema: dict):
 
     The Rust engine wins when ``jsonschema_rs`` can be imported. The
     Python engine is the fallback, so a platform without a wheel still
-    validates, only more slowly. ``AVEFFI_VALIDATE_ENGINE`` forces one
+    validates, only more slowly. ``AVEFI_VALIDATE_ENGINE`` forces one
     of them; an unknown value is ignored with a warning.
 
     """
