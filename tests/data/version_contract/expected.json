@@ -11,6 +11,7 @@
   "bad_access_status": {
     "codes": [
       "record.dangling",
+      "record.depends_on_invalid",
       "record.unparseable"
     ],
     "dependants": 2,
@@ -165,7 +166,7 @@
   "removed_without_pid": {
     "codes": [
       "access_status.removed_without_pid",
-      "record.dangling"
+      "record.depends_on_invalid"
     ],
     "dependants": 2,
     "invalid": 1,

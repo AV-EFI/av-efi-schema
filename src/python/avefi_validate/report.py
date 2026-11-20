@@ -71,7 +71,9 @@ class Code(StrEnum):
     # The validator itself could not finish a record.
     INTERNAL_ERROR = "internal.error"
 
-    # Why a record left the working set.
+    # Why a record left the working set. ``REMOVED_AS_DEPENDANT`` is
+    # also the diagnostic for a record that no longer has valid
+    # dependants but was referred to by records that were rejected.
     REMOVED_AS_INVALID = "record.invalid"
     REMOVED_AS_DEPENDANT = "record.depends_on_invalid"
 

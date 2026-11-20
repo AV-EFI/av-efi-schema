@@ -139,6 +139,90 @@ class TestRemovalReasons:
         )
 
 
+class TestRejectedDependants:
+    """A parent whose children were rejected is not an orphan."""
+
+    def _invalid_item(self):
+        item = copy.deepcopy(ITEM)
+        item["has_primary_title"]["has_name"] = ""
+        return item
+
+    def test_manifestation_reports_rejected_item_as_referrer(
+        self, validator
+    ):
+        result = pass_checks(
+            records(WORK, MANIFESTATION, self._invalid_item()), validator
+        )
+        diagnostic = next(
+            d for d in result.diagnostics if d.record == "Manifestation.m1"
+        )
+        assert diagnostic.code is Code.REMOVED_AS_DEPENDANT
+        assert str(diagnostic.code) == "record.depends_on_invalid"
+        assert diagnostic.params["referrers"] == ["Item.i1"]
+        assert not any(
+            d.code is Code.RECORD_DANGLING
+            and d.record == "Manifestation.m1"
+            for d in result.diagnostics
+        )
+
+    def test_work_reports_the_rejected_manifestation_as_referrer(
+        self, validator
+    ):
+        result = pass_checks(
+            records(WORK, MANIFESTATION, self._invalid_item()), validator
+        )
+        diagnostic = next(
+            d for d in result.diagnostics if d.record == "WorkVariant.w1"
+        )
+        assert diagnostic.code is Code.REMOVED_AS_DEPENDANT
+        assert diagnostic.params["referrers"] == ["Manifestation.m1"]
+
+    def test_genuine_orphan_keeps_record_dangling(self, validator):
+        result = pass_checks(records(WORK), validator)
+        diagnostic = next(
+            d for d in result.diagnostics if d.record == "WorkVariant.w1"
+        )
+        assert diagnostic.code is Code.RECORD_DANGLING
+        assert "referrers" not in diagnostic.params
+
+    def test_cascade_removal_names_the_referrer(self, validator):
+        result = pass_checks(
+            records(WORK, MANIFESTATION, self._invalid_item()),
+            validator,
+            remove_invalid=True,
+        )
+        removals = {
+            (removal.record, removal.reason, removal.because)
+            for removal in result.removals
+        }
+        assert (
+            "Manifestation.m1",
+            Code.REMOVED_AS_DEPENDANT,
+            "Item.i1",
+        ) in removals
+        assert (
+            "WorkVariant.w1",
+            Code.REMOVED_AS_DEPENDANT,
+            "Manifestation.m1",
+        ) in removals
+
+    def test_json_reports_the_referrers(self, tmp_path, capsys):
+        target = tmp_path / "records.json"
+        target.write_text(
+            json.dumps([WORK, MANIFESTATION, self._invalid_item()]),
+            encoding="utf-8",
+        )
+        assert main(["--format", "json", str(target)]) != 0
+        data = json.loads(capsys.readouterr().out)
+        diagnostic = next(
+            diagnostic
+            for diagnostic in data["files"][0]["diagnostics"]
+            if diagnostic["code"] == "record.depends_on_invalid"
+            and diagnostic["record"] == "Manifestation.m1"
+        )
+        assert diagnostic["params"]["referrers"] == ["Item.i1"]
+
+
 class TestReportDocument:
     def test_diagnostic_serialises_every_contractual_key(self):
         diagnostic = Diagnostic(

@@ -185,6 +185,7 @@ def dangling_record(
     remove_dangling=False,
     diagnostics: list[Diagnostic] | None = None,
     removals: list[Removal] | None = None,
+    input_referrers: dict[HashableId, set[str]] | None = None,
 ) -> tuple[bool, int]:
     """Return whether the record is dangling and how many it purged.
 
@@ -193,6 +194,14 @@ def dangling_record(
     with a PID, and records referenced by some child record. Excepted
     are works of type analytic, which are dangling unless linked to a
     parent with at least one child that is not a work.
+
+    ``input_referrers`` maps an identifier to the labels of the input
+    records that refer to it, before anything was removed. When a
+    record has no dependants left but did have referrers in the input,
+    it is reported as ``record.depends_on_invalid`` rather than
+    ``record.dangling``: the children existed, they were rejected.
+    ``record.dangling`` therefore means that nothing in the input
+    referred to the record at all.
 
     When ``remove_dangling`` is set, a dangling record and its
     dependants are purged, and ``purged`` counts the records removed.
@@ -215,6 +224,7 @@ def dangling_record(
     ):
         is_dangling = False
         purged = 0
+        cascade_referrers: list[str] = []
         if rec.category == "avefi:WorkVariant" and rec.type == "Analytic":
             # No manifestation should link to an analytic work.
             if any(
@@ -318,19 +328,43 @@ def dangling_record(
                         )
                         is_dangling = True
         else:
+            cascade_referrers = sorted(
+                {
+                    referrer
+                    for id_ in ids
+                    for referrer in (input_referrers or {}).get(id_, ())
+                }
+            )
+            if cascade_referrers:
+                code = Code.REMOVED_AS_DEPENDANT
+                message = (
+                    f"no valid dependants for {rec.category}"
+                    f" {ids[0].identifier.id}:"
+                    f" {len(cascade_referrers)} referring record(s)"
+                    " were rejected"
+                )
+                params = {
+                    "category": rec.category,
+                    "identifier": ids[0].identifier.id,
+                    "referrers": cascade_referrers,
+                }
+            else:
+                code = Code.RECORD_DANGLING
+                message = (
+                    f"no items associated with {rec.category}"
+                    f" {ids[0].identifier.id}"
+                )
+                params = {
+                    "category": rec.category,
+                    "identifier": ids[0].identifier.id,
+                }
             _append(
                 diagnostics,
                 Diagnostic(
-                    code=Code.RECORD_DANGLING,
-                    message=(
-                        f"no items associated with {rec.category}"
-                        f" {ids[0].identifier.id}"
-                    ),
+                    code=code,
+                    message=message,
                     record=label,
-                    params={
-                        "category": rec.category,
-                        "identifier": ids[0].identifier.id,
-                    },
+                    params=params,
                 ),
             )
             is_dangling = True
@@ -348,12 +382,21 @@ def dangling_record(
                     else:
                         refs.append(HashableId(ref))
             if removals is not None:
-                removals.append(
-                    Removal(
-                        record=label,
-                        reason=Code.REMOVED_AS_INVALID,
+                if cascade_referrers:
+                    removals.append(
+                        Removal(
+                            record=label,
+                            reason=Code.REMOVED_AS_DEPENDANT,
+                            because=cascade_referrers[0],
+                        )
                     )
-                )
+                else:
+                    removals.append(
+                        Removal(
+                            record=label,
+                            reason=Code.REMOVED_AS_INVALID,
+                        )
+                    )
             purged = purge_dependant_records(
                 ids[0],
                 record_list,
@@ -387,6 +430,7 @@ def dangling_record(
                             remove_dangling=True,
                             diagnostics=diagnostics,
                             removals=removals,
+                            input_referrers=input_referrers,
                         )
                         purged += parent_purged
         return is_dangling, purged

@@ -104,6 +104,52 @@ def placeholder_issuer_records(
     return found
 
 
+def _link_attributes(record):
+    """Return the attributes that point from ``record`` to another record.
+
+    These are the relations that make the referenced record's holder a
+    dependant. ``Manifestation.has_item`` is the reverse direction and
+    is deliberately not included: an item counts as a dependant through
+    its own ``is_item_of``.
+
+    """
+    if isinstance(record, efi.WorkVariant):
+        return ("is_part_of", "is_variant_of")
+    if isinstance(record, efi.Manifestation):
+        return ("is_manifestation_of", "same_as")
+    if isinstance(record, efi.Item):
+        return ("is_item_of", "is_copy_of", "is_derivative_of")
+    return ()
+
+
+def _as_identifiers(value):
+    """Return ``value`` as a list of identifier objects."""
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return value
+    return [value]
+
+
+def _declared_referrers(efi_records):
+    """Map each referenced id to the labels that refer to it.
+
+    Built from the input before any record is removed. It is what lets
+    a record whose dependants were all rejected be told apart from one
+    that never had any: ``dependants_by_ref`` only knows the survivors.
+
+    """
+    referrers = defaultdict(set)
+    for record in efi_records:
+        label = record_label(record)
+        for attr_name in _link_attributes(record):
+            for identifier in _as_identifiers(
+                getattr(record, attr_name, None)
+            ):
+                referrers[HashableId(identifier)].add(label)
+    return referrers
+
+
 def _pointer(path) -> str:
     """Return an RFC 6901 pointer for a jsonschema path."""
     parts = [
@@ -495,6 +541,11 @@ def pass_checks(
     dependants = 0
     diagnostics: list[Diagnostic] = []
     removals: list[Removal] = []
+    # The relations as they were declared in the input. The working set
+    # loses them as records are rejected, so this snapshot is what lets
+    # a parent with rejected children be distinguished from a genuine
+    # orphan.
+    input_referrers = _declared_referrers(efi_records)
     # Removals always happen on this list so that the cascade they cause
     # can be counted even when the caller does not want the file changed.
     # When ``remove_invalid`` is set, ``working`` is the caller's list and
@@ -579,14 +630,8 @@ def pass_checks(
             )
             continue
 
-        if isinstance(rec, efi.WorkVariant):
-            link_attributes = ("is_part_of", "is_variant_of")
-        elif isinstance(rec, efi.Manifestation):
-            # Ignore has_item here
-            link_attributes = ("is_manifestation_of", "same_as")
-        elif isinstance(rec, efi.Item):
-            link_attributes = ("is_item_of", "is_copy_of", "is_derivative_of")
-        else:
+        link_attributes = _link_attributes(rec)
+        if not link_attributes:
             all_was_fine = False
             invalid += 1
             diagnostics.append(
@@ -644,12 +689,9 @@ def pass_checks(
         if duplicate or not record_ids:
             continue
         for attr_name in link_attributes:
-            attr = getattr(rec, attr_name)
-            if attr is None:
-                attr = []
-            elif not isinstance(attr, list):
-                attr = [attr]
-            for identifier in attr:
+            for identifier in _as_identifiers(
+                getattr(rec, attr_name, None)
+            ):
                 ref = HashableId(identifier)
                 dependants_by_ref[ref].append(record_id)
 
@@ -699,6 +741,7 @@ def pass_checks(
             remove_dangling=True,
             diagnostics=diagnostics,
             removals=removals,
+            input_referrers=input_referrers,
         )
         if is_dangling:
             all_was_fine = False
