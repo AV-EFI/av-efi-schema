@@ -4,6 +4,7 @@ import copy
 import json
 
 from avefi_validate import (
+    REPORT_CONTRACT_VERSION,
     Code,
     Diagnostic,
     FileReport,
@@ -265,6 +266,7 @@ class TestReportDocument:
         )
         data = report.to_dict()
         assert data["tool"] == {"name": "avefi-validate", "package": "0.4.0"}
+        assert data["report"] == {"version": REPORT_CONTRACT_VERSION}
         assert data["schema"] == {"version": "2.0"}
         assert data["passed"] is False
         assert data["files"][0]["counts"]["invalid"] == 1
@@ -288,6 +290,7 @@ class TestJsonOutput:
         data = json.loads(captured.out)
         assert data["passed"] is True
         assert data["tool"]["name"] == "avefi-validate"
+        assert data["report"]["version"] == REPORT_CONTRACT_VERSION
         assert data["files"][0]["counts"]["initial"] == 3
 
     def test_report_path_writes_the_document_there(

@@ -253,6 +253,10 @@
     ],
     "kind": "dataclass"
   },
+  "REPORT_CONTRACT_VERSION": {
+    "kind": "constant",
+    "type": "str"
+  },
   "Removal": {
     "fields": [
       [

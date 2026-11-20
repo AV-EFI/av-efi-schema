@@ -82,6 +82,14 @@ class Code(StrEnum):
 #: Name used in the ``tool`` block of a report document.
 TOOL_NAME = "avefi-validate"
 
+#: Version of the report document's own contract.
+#:
+#: This is independent of the schema version and of the package version.
+#: It moves when the shape of the document or the meaning of a code,
+#: pointer or ``params`` key changes, and never otherwise. Clients read
+#: it from ``report.version`` and do not have to map package versions.
+REPORT_CONTRACT_VERSION = "1.0"
+
 
 def _jsonable(value: Any) -> Any:
     """Return ``value`` in a form ``json.dumps`` accepts.
@@ -232,6 +240,7 @@ class Report:
         """Return the run report as JSON-compatible data."""
         return {
             "tool": {"name": TOOL_NAME, "package": self.package},
+            "report": {"version": REPORT_CONTRACT_VERSION},
             "schema": dict(self.schema),
             "files": [file.to_dict() for file in self.files],
             "passed": self.passed,
@@ -242,6 +251,7 @@ __all__ = [
     "Code",
     "Diagnostic",
     "FileReport",
+    "REPORT_CONTRACT_VERSION",
     "Removal",
     "Report",
     "Severity",
