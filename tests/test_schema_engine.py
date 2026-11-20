@@ -235,3 +235,17 @@ def test_a_raw_python_validator_still_works(python_engine):
     assert [diagnostic.code for diagnostic in direct] == [
         "schema.violation"
     ]
+
+
+def test_the_documented_normalise_then_validate_flow_uses_rust(monkeypatch):
+    pytest.importorskip("jsonschema_rs")
+    monkeypatch.delenv("AVEFFI_VALIDATE_ENGINE", raising=False)
+    monkeypatch.setattr("avefi_validate.schema._VALIDATOR", None)
+    case = json.loads(
+        (CASES_DIR / "normalise_duration.json").read_text(encoding="utf-8")
+    )
+    loaded = loads_normalised(json.dumps(case["records"]))
+    validator = get_schema_validator()
+    assert validator.engine == "rust"
+    assert loaded.normalisations
+    assert pass_checks(loaded.records, validator).passed

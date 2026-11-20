@@ -55,7 +55,12 @@ duration, or a timestamp without a timezone — is left for the strict
 checks to report. Each repair is reported as a `value.normalised`
 warning carrying `params.before`, `params.after` and `params.rule`.
 
-The same repair is available to downstream packages:
+The same repair is available to downstream packages. Install the Rust
+engine so loading and validation run at full speed:
+
+```console
+$ pip install "avefi-schema[fast]"
+```
 
 ```python
 from avefi_validate import dump, get_schema_validator, load_normalised, pass_checks
@@ -65,6 +70,8 @@ result = pass_checks(loaded.records, get_schema_validator())
 dump(loaded.records, "export.normalised.json")
 ```
 
+`get_schema_validator()` selects the Rust engine when it is installed
+and falls back to the pure-Python engine otherwise.
 `loaded.normalisations` lists every rewrite; `loaded.diagnostics` still
 lists parse problems.
 
