@@ -4,20 +4,28 @@ on:
     branches:
       - main
     paths:
+      - '.github/workflows/docs.yml'
       - 'dodo.py'
       - 'src/**'
       - 'utils/templates/docgen/**'
       - 'zensical.toml'
+  workflow_dispatch:
 permissions:
   contents: read
   pages: write
   id-token: write
+# Deployments of the same site are queued, not cancelled: a cancelled
+# deployment can leave the pages environment in an unclear state.
+concurrency:
+  group: pages
+  cancel-in-progress: false
 jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment-retry.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/configure-pages@v6
       - uses: actions/checkout@v7
@@ -28,4 +36,18 @@ jobs:
       - uses: actions/upload-pages-artifact@v5
         with:
           path: site
-      - uses: actions/deploy-pages@v5
+      # The artifact results service occasionally does not list a
+      # just-uploaded artifact yet. deploy-pages fails before creating
+      # a deployment in that case, so a second attempt is safe.
+      - name: Deploy to GitHub Pages
+        id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
+      - name: Wait before retrying the deployment
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 30
+      # Not continue-on-error: if this also fails, the job must fail.
+      - name: Deploy to GitHub Pages (retry)
+        id: deployment-retry
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v5
