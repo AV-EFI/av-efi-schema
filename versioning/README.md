@@ -1,9 +1,11 @@
 # Versioning: contributor mechanics
 
 The public promise is in
-[`src/docs/versioning.md`](../src/docs/versioning.md). This page is for
-people changing the repository: what each check does, how to regenerate
-it, and when a human has to decide.
+[`src/docs/versioning.md`](../src/docs/versioning.md): what the two
+versions mean, which changes bump which, and what a consumer may rely
+on. This page is for people changing the repository: how those rules
+are enforced, how to regenerate the evidence, and when a human has to
+decide. It does not restate the bump rules.
 
 The short version: edit the schema or the validator, run
 `uv run doit version_snapshots` when acceptance rules moved, bump the
@@ -11,27 +13,11 @@ two versions the way the guide says, add a `CHANGELOG.md` section, then
 push. The pre-push hook regenerates the derivatives and runs the gate
 for you; install it once per clone with `uv run doit install_hooks`.
 
-## The two numbers
-
-| | `src/avefi_schema/model.yaml` → `version:` | `pyproject.toml` → `version` |
-|---|---|---|
-| Shape | quoted `MAJOR.MINOR` string | full SemVer |
-| Means | which data contract this is | which artefact this is |
-| Moves when | validity changes | any schema, validator, report or binding change |
-| Rule | independent of the package version | moves in the same release when the schema moves |
-
-The numbers are independent. The schema continues the public schema
-history: the 2023 release was `1.0`, and the LinkML contract starts at
-`2.0`. The package is still `0.x`; since `0.4.0` it also carries a
-versioned report contract. Each release records its `Schema:`,
-`Validator:` and `Report contract:` lines in `CHANGELOG.md`, so that
-file names the current pairing. Version strings in examples are
-placeholders and are not renumbered per release.
-
-For the package, at `0.x` the minor slot is the breaking slot: both a
-breaking and an additive validator change bump the minor. The
-classifier still records which is which, because the changelog and the
-package's eventual `1.0` transition depend on it.
+The gate reads both versions from the base revision and the working
+tree. At `0.x`, the public guide makes the package minor slot the
+breaking slot as well; the classifier still records whether a change is
+breaking or additive, because the changelog and the eventual `1.0`
+transition depend on that distinction.
 
 ## What enforces it
 
@@ -153,7 +139,9 @@ corpus case exercises still changes this snapshot.
 
 `utils/version_contract.py` normalises away descriptions, titles,
 comments, examples, defaults and deprecations, then walks the two
-documents. The decided rows:
+documents. This is the implementation behind the public “what bumps
+what” table: the guide states the promise, and this table is what the
+classifier can actually prove. The decided rows:
 
 | Change | Verdict |
 |---|---|

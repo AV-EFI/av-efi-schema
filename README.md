@@ -135,17 +135,11 @@ Type Registry.
 
 ## Versioning
 
-Two numbers describe a release: the data contract version in
-[`src/avefi_schema/model.yaml`](./src/avefi_schema/model.yaml) and the
-artefact version in [`pyproject.toml`](./pyproject.toml). The
+The data-contract version and the package version are independent. The
 [versioning guide](https://av-efi.github.io/av-efi-schema/versioning/)
-explains the compatibility promise. The contributor workflow and the
-checks that enforce it are in [AGENTS.md](./AGENTS.md) and
-[versioning/README.md](./versioning/README.md). Install the hooks once per
-clone with `uv run doit install_hooks`; the pre-push hook regenerates the
-derivatives, fails on an unclean tree, and runs `uv run doit version_check`.
-CI repeats all of it, so the local hooks are fast feedback rather than the
-authority.
+states the compatibility promise and the report contract.
+[AGENTS.md](./AGENTS.md) and [versioning/README.md](./versioning/README.md)
+cover the contributor rules and the checks that enforce them.
 
 [LinkML]: https://linkml.io/
 [doit]: https://pydoit.org/
