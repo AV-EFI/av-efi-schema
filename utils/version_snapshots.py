@@ -1,16 +1,17 @@
 """Snapshots of the behaviour a version number promises.
 
-Two things are invisible in a structural diff of the schema but decide
-what a consumer can rely on:
+Three things are invisible in a structural diff of the schema but
+decide what a consumer can rely on:
 
 * what the validator decides for a fixed corpus of records;
-* the public surface of ``avefi_validate``.
+* the public surface of ``avefi_validate``;
+* the shape of the report document.
 
-Freezing both turns "did the validator change?" into "did an expected
-outcome change?", which is the question SemVer actually answers. The
-direction of a change also gives the severity: a case that used to
-pass and now fails is a tightening, which is breaking for anyone whose
-data now gets rejected.
+Freezing all three turns "did the validator change?" into "did an
+expected outcome change?", which is the question SemVer actually
+answers. The direction of a change also gives the severity: a case
+that used to pass and now fails is a tightening, which is breaking for
+anyone whose data now gets rejected.
 
 Regenerate the snapshots with ``doit version_snapshots`` and commit the
 result *together with* the version bump the change requires.
@@ -21,6 +22,7 @@ from __future__ import annotations
 import dataclasses
 import inspect
 import json
+import re
 from dataclasses import replace
 from enum import Enum
 from pathlib import Path
@@ -32,9 +34,38 @@ ROOT = Path(__file__).resolve().parent.parent
 CASES_DIR = ROOT / "tests" / "data" / "version_contract" / "cases"
 VERDICT_SNAPSHOT = ROOT / "tests" / "data" / "version_contract" / "expected.json"
 API_SNAPSHOT = ROOT / "tests" / "data" / "api_surface.json"
+REPORT_SURFACE = ROOT / "tests" / "data" / "report_surface.json"
 
 
 # --- verdict corpus -----------------------------------------------------
+
+
+def _load_case(case: dict):
+    """Load one corpus case through the tolerant loader."""
+    from avefi_validate.io import loads_with_diagnostics
+    from avefi_validate.normalise import loads_normalised
+
+    args = case.get("args") or {}
+    load = loads_normalised if args.get("normalise") else loads_with_diagnostics
+    return load(json.dumps(case["records"]))
+
+
+def _check_loaded(case: dict, loaded):
+    """Run the submission checks for one loaded case."""
+    from avefi_validate import pass_checks
+    from avefi_validate.schema import get_schema_validator
+
+    args = case.get("args") or {}
+    return pass_checks(
+        loaded.records,
+        get_schema_validator(),
+        remove_invalid=bool(args.get("remove_invalid", False)),
+        preserve_status_removed=bool(
+            args.get("preserve_status_removed", False)
+        ),
+        placeholder_issuer_id=args.get("placeholder_issuer_id"),
+        limits=_limits(args.get("limits")),
+    )
 
 
 def verdict_outcome(case: dict) -> dict:
@@ -49,15 +80,8 @@ def verdict_outcome(case: dict) -> dict:
     what happened to the others.
 
     """
-    from avefi_validate import pass_checks
-    from avefi_validate.io import loads_with_diagnostics
-    from avefi_validate.normalise import loads_normalised
-    from avefi_validate.schema import get_schema_validator
-
-    args = case.get("args") or {}
-    load = loads_normalised if args.get("normalise") else loads_with_diagnostics
     try:
-        loaded = load(json.dumps(case["records"]))
+        loaded = _load_case(case)
     except Exception as exc:  # noqa: BLE001 - the class name is the datum
         return {
             "outcome": "raised",
@@ -67,16 +91,7 @@ def verdict_outcome(case: dict) -> dict:
     records = loaded.records
 
     try:
-        result = pass_checks(
-            records,
-            get_schema_validator(),
-            remove_invalid=bool(args.get("remove_invalid", False)),
-            preserve_status_removed=bool(
-                args.get("preserve_status_removed", False)
-            ),
-            placeholder_issuer_id=args.get("placeholder_issuer_id"),
-            limits=_limits(args.get("limits")),
-        )
+        result = _check_loaded(case, loaded)
     except Exception as exc:  # noqa: BLE001 - the class name is the datum
         return {
             "outcome": "raised",
@@ -191,6 +206,148 @@ def _codes(outcome: dict) -> list[str]:
 def _accepted(outcome: dict) -> bool:
     """Whether the outcome reports no problem with the records."""
     return outcome.get("outcome") == "passed"
+
+
+# --- report surface -----------------------------------------------------
+
+
+def report_surface() -> dict:
+    """Return the shape of the report document, without any values.
+
+    The snapshot records what a consumer is entitled to branch on: the
+    keys of every block, the codes and severities, and the pointer
+    shapes and ``params`` keys observed for each code. Messages and
+    values are deliberately absent, because they may change in any
+    release.
+
+    Pointer and ``params`` data come from the verdict corpus, so they
+    are evidence rather than a declaration: a code that no case
+    exercises carries empty lists.
+    """
+    from avefi_validate.removal import normalisation_diagnostics
+    from avefi_validate.report import (
+        Code,
+        Diagnostic,
+        FileReport,
+        Removal,
+        Report,
+        Severity,
+    )
+    from avefi_validate.schema import schema_fingerprint
+
+    empty = Report().to_dict()
+    file = FileReport(path=Path(".")).to_dict()
+    diagnostic = Diagnostic(Code.INTERNAL_ERROR, "").to_dict()
+    removal = Removal(record="", reason=Code.REMOVED_AS_INVALID).to_dict()
+
+    pointers = {code.value: set() for code in Code}
+    params = {code.value: set() for code in Code}
+    for path in sorted(CASES_DIR.glob("*.json")):
+        case = json.loads(path.read_text(encoding="utf-8"))
+        try:
+            loaded = _load_case(case)
+            result = _check_loaded(case, loaded)
+        except Exception:  # noqa: BLE001 - a broken case has no surface
+            continue
+        for item in (
+            list(loaded.diagnostics)
+            + normalisation_diagnostics(loaded)
+            + list(result.diagnostics)
+        ):
+            code = str(item.code)
+            pointers.setdefault(code, set()).add(_pointer_shape(item.pointer))
+            params.setdefault(code, set()).update(
+                str(key) for key in item.params
+            )
+
+    return {
+        "keys": sorted(empty),
+        "blocks": {
+            "tool": sorted(empty["tool"]),
+            "report": sorted(empty["report"]),
+            "schema": sorted(schema_fingerprint()),
+            "file": sorted(file),
+            "counts": sorted(file["counts"]),
+            "diagnostic": sorted(diagnostic),
+            "removal": sorted(removal),
+        },
+        "codes": sorted(code.value for code in Code),
+        "severities": sorted(severity.value for severity in Severity),
+        "pointers": {
+            code: sorted(values) for code, values in sorted(pointers.items())
+        },
+        "params": {
+            code: sorted(values) for code, values in sorted(params.items())
+        },
+    }
+
+
+def _pointer_shape(pointer: str | None) -> str:
+    """Return a pointer with concrete list indices removed."""
+    if pointer is None:
+        return "<none>"
+    return re.sub(r"/\d+", "/*", pointer)
+
+
+def classify_report(old: dict, new: dict) -> tuple[str, list[str]]:
+    """Return the bump a change of the report surface requires.
+
+    A removed key, code, severity or per-code ``params`` key breaks a
+    consumer that reads it, so it is major. An added block, code or
+    severity is additive and needs a minor bump.
+
+    An added pointer shape or ``params`` key is only a note. Those come
+    from the verdict corpus, which grows as cases are added; treating
+    that growth as a contract change would make every new case a
+    release. A *removed* pointer or key is still breaking, because it
+    used to be observed and consumed.
+
+    """
+    severity = NONE
+    lines: list[str] = []
+
+    def record(level: str, line: str) -> None:
+        nonlocal severity
+        lines.append(line)
+        severity = _worse(severity, level)
+
+    def compare(label: str, before, after, additive: str) -> None:
+        removed = sorted(set(before) - set(after))
+        added = sorted(set(after) - set(before))
+        if removed:
+            record(MAJOR, f"{label}: removed {', '.join(removed)}")
+        if added:
+            record(additive, f"{label}: added {', '.join(added)}")
+
+    compare("top level", old.get("keys", []), new.get("keys", []), MINOR)
+    blocks = sorted(
+        set(old.get("blocks", {})) | set(new.get("blocks", {}))
+    )
+    for block in blocks:
+        compare(
+            f"{block} block",
+            old.get("blocks", {}).get(block, []),
+            new.get("blocks", {}).get(block, []),
+            MINOR,
+        )
+    compare("codes", old.get("codes", []), new.get("codes", []), MINOR)
+    compare(
+        "severities",
+        old.get("severities", []),
+        new.get("severities", []),
+        MINOR,
+    )
+    for field, label in (("pointers", "pointer"), ("params", "params key")):
+        before = old.get(field, {})
+        after = new.get(field, {})
+        for code in sorted(set(before) | set(after)):
+            compare(
+                f"{code} {label}",
+                before.get(code, []),
+                after.get(code, []),
+                NONE,
+            )
+    return severity, lines
 
 
 # --- public surface -----------------------------------------------------
@@ -381,12 +538,15 @@ def _worse(left: str, right: str) -> str:
 __all__ = [
     "API_SNAPSHOT",
     "CASES_DIR",
+    "REPORT_SURFACE",
     "VERDICT_SNAPSHOT",
     "api_snapshot",
     "classify_api",
+    "classify_report",
     "classify_verdicts",
     "collect_verdicts",
     "load_verdicts",
+    "report_surface",
     "verdict_outcome",
     "write_json",
 ]

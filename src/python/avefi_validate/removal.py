@@ -51,6 +51,34 @@ class FileCheck:
     report: FileReport | None = None
 
 
+def normalisation_diagnostics(loaded: io.LoadResult) -> list[Diagnostic]:
+    """Return one warning per value the loader rewrote.
+
+    Normalisation changes are recorded on the load result rather than as
+    diagnostics. The report needs them in diagnostic form so a consumer
+    sees one stable code with the same pointer and ``params`` keys as
+    the rest of the document.
+    """
+    return [
+        Diagnostic(
+            code=Code.VALUE_NORMALISED,
+            severity=Severity.WARNING,
+            message=(
+                f"normalised {change.before!r} to {change.after!r}"
+                f" with rule {change.rule}"
+            ),
+            record=change.record,
+            pointer=change.pointer,
+            params={
+                "before": change.before,
+                "after": change.after,
+                "rule": change.rule,
+            },
+        )
+        for change in loaded.normalisations
+    ]
+
+
 def check_file(
     path: pathlib.Path | str,
     *,
@@ -120,24 +148,7 @@ def check_file(
     )
     diagnostics = (
         list(loaded.diagnostics)
-        + [
-            Diagnostic(
-                code=Code.VALUE_NORMALISED,
-                severity=Severity.WARNING,
-                message=(
-                    f"normalised {change.before!r} to {change.after!r}"
-                    f" with rule {change.rule}"
-                ),
-                record=change.record,
-                pointer=change.pointer,
-                params={
-                    "before": change.before,
-                    "after": change.after,
-                    "rule": change.rule,
-                },
-            )
-            for change in loaded.normalisations
-        ]
+        + normalisation_diagnostics(loaded)
         + list(result.diagnostics)
     )
     removals = list(result.removals)

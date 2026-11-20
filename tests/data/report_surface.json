@@ -1,0 +1,207 @@
+{
+  "blocks": {
+    "counts": [
+      "dependants",
+      "initial",
+      "invalid",
+      "remaining"
+    ],
+    "diagnostic": [
+      "code",
+      "message",
+      "params",
+      "pointer",
+      "record",
+      "severity"
+    ],
+    "file": [
+      "counts",
+      "diagnostics",
+      "passed",
+      "path",
+      "removed",
+      "rewritten",
+      "sha256"
+    ],
+    "removal": [
+      "because",
+      "reason",
+      "record"
+    ],
+    "report": [
+      "version"
+    ],
+    "schema": [
+      "id",
+      "metamodel_version",
+      "package",
+      "sha256",
+      "source",
+      "version"
+    ],
+    "tool": [
+      "name",
+      "package"
+    ]
+  },
+  "codes": [
+    "access_status.removed_without_pid",
+    "analytic.parent_without_items",
+    "analytic.referenced_by_manifestation",
+    "analytic.without_parent",
+    "date.invalid",
+    "date.period_order",
+    "field.too_long",
+    "file.invalid_json",
+    "file.unreadable",
+    "identifier.duplicate",
+    "internal.error",
+    "issuer.placeholder",
+    "name.empty",
+    "record.dangling",
+    "record.depends_on_invalid",
+    "record.invalid",
+    "record.missing_identifier",
+    "record.unparseable",
+    "reference.unresolved",
+    "schema.violation",
+    "title.primary_type",
+    "value.normalised"
+  ],
+  "keys": [
+    "files",
+    "passed",
+    "report",
+    "schema",
+    "tool"
+  ],
+  "params": {
+    "access_status.removed_without_pid": [
+      "status"
+    ],
+    "analytic.parent_without_items": [],
+    "analytic.referenced_by_manifestation": [],
+    "analytic.without_parent": [
+      "identifier",
+      "parent"
+    ],
+    "date.invalid": [
+      "date"
+    ],
+    "date.period_order": [
+      "date",
+      "end",
+      "start"
+    ],
+    "field.too_long": [
+      "field",
+      "length",
+      "limit"
+    ],
+    "file.invalid_json": [],
+    "file.unreadable": [],
+    "identifier.duplicate": [
+      "identifier"
+    ],
+    "internal.error": [],
+    "issuer.placeholder": [
+      "issuer_id"
+    ],
+    "name.empty": [],
+    "record.dangling": [
+      "category",
+      "identifier"
+    ],
+    "record.depends_on_invalid": [
+      "category",
+      "identifier",
+      "referrers"
+    ],
+    "record.invalid": [],
+    "record.missing_identifier": [],
+    "record.unparseable": [
+      "errors",
+      "index"
+    ],
+    "reference.unresolved": [
+      "reference"
+    ],
+    "schema.violation": [
+      "expected",
+      "keyword"
+    ],
+    "title.primary_type": [
+      "allowed",
+      "found"
+    ],
+    "value.normalised": [
+      "after",
+      "before",
+      "rule"
+    ]
+  },
+  "pointers": {
+    "access_status.removed_without_pid": [
+      "/has_access_status"
+    ],
+    "analytic.parent_without_items": [],
+    "analytic.referenced_by_manifestation": [],
+    "analytic.without_parent": [
+      "/is_part_of"
+    ],
+    "date.invalid": [
+      "/has_event/*/has_date"
+    ],
+    "date.period_order": [
+      "/has_event/*/has_date"
+    ],
+    "field.too_long": [
+      "/has_primary_title/has_name"
+    ],
+    "file.invalid_json": [],
+    "file.unreadable": [],
+    "identifier.duplicate": [
+      "/has_identifier"
+    ],
+    "internal.error": [],
+    "issuer.placeholder": [
+      "/described_by"
+    ],
+    "name.empty": [],
+    "record.dangling": [
+      "<none>"
+    ],
+    "record.depends_on_invalid": [
+      "<none>"
+    ],
+    "record.invalid": [],
+    "record.missing_identifier": [
+      "/has_identifier"
+    ],
+    "record.unparseable": [
+      "<none>"
+    ],
+    "reference.unresolved": [
+      "<none>"
+    ],
+    "schema.violation": [
+      "/has_alternative_title/*/has_name",
+      "/has_duration",
+      "/has_event/*",
+      "/has_identifier/*",
+      "/has_primary_title/has_name"
+    ],
+    "title.primary_type": [
+      "/has_primary_title/type"
+    ],
+    "value.normalised": [
+      "/has_duration/has_value",
+      "/has_event/*/has_date",
+      "/same_as/*/id"
+    ]
+  },
+  "severities": [
+    "error",
+    "warning"
+  ]
+}

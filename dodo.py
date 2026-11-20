@@ -485,7 +485,7 @@ def task_check_dtr():
 
 
 def task_version_snapshots():
-    """Regenerate the validator verdict and public surface snapshots.
+    """Regenerate the validator verdict, public surface and report snapshots.
 
     Run this after an intentional change of the acceptance rules, then
     commit the new snapshots together with the version bump the gate
@@ -500,10 +500,14 @@ def task_version_snapshots():
             version_snapshots.VERDICT_SNAPSHOT, outcomes)
         version_snapshots.write_json(
             version_snapshots.API_SNAPSHOT, version_snapshots.api_snapshot())
+        version_snapshots.write_json(
+            version_snapshots.REPORT_SURFACE,
+            version_snapshots.report_surface())
         print(
             f"recorded {len(outcomes)} verdicts in"
-            f" {version_snapshots.VERDICT_SNAPSHOT}"
-            f" and the public surface in {version_snapshots.API_SNAPSHOT}")
+            f" {version_snapshots.VERDICT_SNAPSHOT},"
+            f" the public surface in {version_snapshots.API_SNAPSHOT}"
+            f" and the report surface in {version_snapshots.REPORT_SURFACE}")
 
     return {
         'actions': [generate],
