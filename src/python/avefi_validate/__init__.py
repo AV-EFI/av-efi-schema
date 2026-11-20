@@ -20,6 +20,9 @@ The rules are split by concern:
     The stable, structured description of what a run found.
 ``limits``
     The field length limits enforced by ``documents``.
+``normalise``
+    Optional repair of values that fail their schema pattern, and a
+    loader that applies it before parsing.
 
 """
 
@@ -32,7 +35,16 @@ from .documents import (
     schema_diagnostics,
     value_diagnostics,
 )
+from .io import LoadResult, dump, dumps
 from .limits import DEFAULT_LIMITS, Limits
+from .normalise import (
+    Normalisation,
+    NormalisationResult,
+    load_normalised,
+    loads_normalised,
+    normalise_document,
+    normalise_record,
+)
 from .records import CheckResult, HashableId
 from .removal import FileCheck, check_file
 from .report import (
@@ -54,15 +66,24 @@ __all__ = [
     "FileReport",
     "HashableId",
     "Limits",
+    "LoadResult",
+    "Normalisation",
+    "NormalisationResult",
     "Removal",
     "Report",
     "Severity",
     "check_file",
+    "dump",
+    "dumps",
     "exceeds_field_limit",
     "get_schema_validator",
     "has_invalid_date",
     "has_invalid_value",
+    "load_normalised",
     "load_schema",
+    "loads_normalised",
+    "normalise_document",
+    "normalise_record",
     "pass_checks",
     "placeholder_issuer_records",
     "schema_diagnostics",

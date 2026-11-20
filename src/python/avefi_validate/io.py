@@ -27,7 +27,8 @@ class LoadResult:
     ``initial_count`` is the number of items in the JSON document,
     including items that failed validation. ``diagnostics`` explains
     every item that was skipped and any reason the file could not be
-    read at all.
+    read at all. ``normalisations`` lists the values an optional
+    transform rewrote before the records were built.
 
     """
 
@@ -35,9 +36,12 @@ class LoadResult:
     initial_count: int = 0
     diagnostics: list[Diagnostic] = field(default_factory=list)
     sha256: str | None = None
+    normalisations: list = field(default_factory=list)
 
 
-def load_with_diagnostics(source: pathlib.Path | str) -> LoadResult:
+def load_with_diagnostics(
+    source: pathlib.Path | str, *, transform=None
+) -> LoadResult:
     """Load AVefi records, keeping as much of the file as possible.
 
     ``load`` raises on the first problem, which is right for a caller
@@ -49,6 +53,13 @@ def load_with_diagnostics(source: pathlib.Path | str) -> LoadResult:
     file-level diagnostic. A list is parsed item by item; each item that
     pydantic rejects becomes a ``record.unparseable`` diagnostic and is
     skipped. A JSON object is treated as a single record.
+
+    ``transform`` is an optional callable applied to the parsed JSON
+    document before the records are built. It returns
+    ``(document, changes)``; the changes are passed through in
+    ``LoadResult.normalisations``. The loader itself stays unaware of
+    what the transform does.
+
     """
     path = pathlib.Path(source)
     try:
@@ -77,16 +88,19 @@ def load_with_diagnostics(source: pathlib.Path | str) -> LoadResult:
             ],
             sha256=digest,
         )
-    result = loads_with_diagnostics(text)
+    result = loads_with_diagnostics(text, transform=transform)
     result.sha256 = digest
     return result
 
 
-def loads_with_diagnostics(input: str) -> LoadResult:
+def loads_with_diagnostics(input: str, *, transform=None) -> LoadResult:
     """Load AVefi records from a JSON string, keeping every usable item.
 
     This is the per-item counterpart of :func:`loads`. It never raises
     for malformed input; the reason is returned as a diagnostic.
+
+    ``transform`` is applied to the parsed document before the records
+    are built, and its changes are returned in ``normalisations``.
     """
     try:
         document = json.loads(input)
@@ -104,6 +118,10 @@ def loads_with_diagnostics(input: str) -> LoadResult:
                 )
             ]
         )
+
+    normalisations = []
+    if transform is not None:
+        document, normalisations = transform(document)
 
     items = document if isinstance(document, list) else [document]
     records = []
@@ -141,6 +159,7 @@ def loads_with_diagnostics(input: str) -> LoadResult:
         records=records,
         initial_count=len(items),
         diagnostics=diagnostics,
+        normalisations=list(normalisations),
     )
 
 

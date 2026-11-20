@@ -49,6 +49,7 @@ class Code(StrEnum):
 
     # One record, against the schema and the submission rules.
     SCHEMA_VIOLATION = "schema.violation"
+    VALUE_NORMALISED = "value.normalised"
     MISSING_IDENTIFIER = "record.missing_identifier"
     DUPLICATE_IDENTIFIER = "identifier.duplicate"
     FIELD_TOO_LONG = "field.too_long"
