@@ -35,8 +35,9 @@ $ avefi-validate export.json
 
 Each file is checked against the packaged JSON Schema and against the
 submission rules that the schema cannot express: field length limits,
-primary title types, identifier uniqueness, and references to local
-identifiers that cannot be resolved within the same file. Add
+primary title types, identifier uniqueness, references to local
+identifiers that cannot be resolved within the same file, and
+references that form a cycle no registration order can satisfy. Add
 `--remove-invalid` to rewrite a file without the invalid records and
 the records that depend on them, or `--placeholder-issuer-id` to also
 reject records that still name a placeholder data provider. The

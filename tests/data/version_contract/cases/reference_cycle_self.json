@@ -1,0 +1,25 @@
+{
+  "description": "An analytic work that is part of itself.",
+  "records": [
+    {
+      "category": "avefi:WorkVariant",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "PreferredTitle"
+      },
+      "is_part_of": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w1"
+        }
+      ],
+      "type": "Analytic"
+    }
+  ]
+}

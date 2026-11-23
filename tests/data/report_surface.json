@@ -63,6 +63,7 @@
     "record.invalid",
     "record.missing_identifier",
     "record.unparseable",
+    "reference.cycle",
     "reference.unresolved",
     "schema.violation",
     "title.primary_type",
@@ -123,6 +124,10 @@
       "errors",
       "index"
     ],
+    "reference.cycle": [
+      "members",
+      "relations"
+    ],
     "reference.unresolved": [
       "reference"
     ],
@@ -180,6 +185,11 @@
     ],
     "record.unparseable": [
       "<none>"
+    ],
+    "reference.cycle": [
+      "/is_derivative_of",
+      "/is_part_of",
+      "/is_variant_of"
     ],
     "reference.unresolved": [
       "<none>"

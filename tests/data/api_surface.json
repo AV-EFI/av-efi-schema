@@ -47,6 +47,7 @@
       "NAME_EMPTY",
       "RECORD_DANGLING",
       "RECORD_UNPARSEABLE",
+      "REFERENCE_CYCLE",
       "REFERENCE_UNRESOLVED",
       "REMOVED_AS_DEPENDANT",
       "REMOVED_AS_INVALID",
@@ -59,6 +60,10 @@
   "DEFAULT_LIMITS": {
     "kind": "constant",
     "type": "Limits"
+  },
+  "DIRECTED_RELATIONS": {
+    "kind": "constant",
+    "type": "dict"
   },
   "Diagnostic": {
     "fields": [
@@ -88,6 +93,10 @@
       ]
     ],
     "kind": "dataclass"
+  },
+  "EQUIVALENCE_RELATIONS": {
+    "kind": "constant",
+    "type": "dict"
   },
   "FileCheck": {
     "fields": [

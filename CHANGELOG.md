@@ -8,6 +8,25 @@ onwards records both, plus the state of the report contract.
 See [the versioning guide](src/docs/versioning.md) for what the numbers
 promise.
 
+## 0.5.0
+
+Submissions whose references form a cycle are now rejected. A record
+that is part of itself, or a group of records linked into a loop
+through `is_part_of`, `is_variant_of`, `is_manifestation_of`,
+`is_item_of` or `is_derivative_of`, cannot be registered in any order
+and is reported as `reference.cycle` for every member, carrying
+`params.members` and `params.relations`. The symmetric `same_as` and
+`is_copy_of` links may still be mutual; a record that links to itself
+through either is rejected as a one-member cycle.
+
+Schema: 2.0 (unchanged)
+Validator: minor — references that form a cycle are rejected, so input
+accepted before now fails; `DIRECTED_RELATIONS` and
+`EQUIVALENCE_RELATIONS` are exported so a consumer can share the
+validator's definition of which links order records
+Report contract: 1.1 — adds the `reference.cycle` code with
+`params.members` and `params.relations`
+
 ## 0.4.1
 
 The environment variable that forces a schema engine is spelled

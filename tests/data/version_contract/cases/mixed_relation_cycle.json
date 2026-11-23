@@ -1,0 +1,43 @@
+{
+  "description": "A part-of link and a variant-of link close a cycle.",
+  "records": [
+    {
+      "category": "avefi:WorkVariant",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w1"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "PreferredTitle"
+      },
+      "is_part_of": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w2"
+        }
+      ],
+      "type": "Analytic"
+    },
+    {
+      "category": "avefi:WorkVariant",
+      "has_identifier": [
+        {
+          "category": "avefi:LocalResource",
+          "id": "w2"
+        }
+      ],
+      "has_primary_title": {
+        "has_name": "Die Br\u00fccke",
+        "type": "PreferredTitle"
+      },
+      "is_variant_of": {
+        "category": "avefi:LocalResource",
+        "id": "w1"
+      },
+      "type": "Monographic"
+    }
+  ]
+}

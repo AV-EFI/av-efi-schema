@@ -35,6 +35,7 @@ from .records import (
     dangling_record,
     discard_record,
     purge_dependant_records,
+    reference_cycles,
 )
 from .report import Code, Diagnostic, Removal, record_label
 
@@ -787,6 +788,63 @@ def pass_checks(
                         pointer=None,
                         params={"reference": str(ref)},
                     )
+                )
+
+    # Reject records whose references form a cycle. Mutual ``same_as``
+    # and ``is_copy_of`` links describe two records of the same kind and
+    # are allowed; a hierarchy or derivation that loops back on itself
+    # cannot be registered in any order.
+    cycles = reference_cycles(working, id_lookup)
+    by_label = {record_label(rec): rec for rec in working}
+    for cycle in cycles:
+        all_was_fine = False
+        pointers = dict(cycle.pointers)
+        ids_by_label = {}
+        for label in cycle.members:
+            rec = by_label[label]
+            invalid += 1
+            diagnostics.append(
+                Diagnostic(
+                    code=Code.REFERENCE_CYCLE,
+                    message=(
+                        "records form a reference cycle: "
+                        + ", ".join(cycle.members)
+                    ),
+                    record=label,
+                    pointer=pointers[label],
+                    params={
+                        "members": list(cycle.members),
+                        "relations": list(cycle.relations),
+                    },
+                )
+            )
+            discard_record(working, rec)
+            removals.append(
+                Removal(record=label, reason=Code.REMOVED_AS_INVALID)
+            )
+            record_ids = [
+                HashableId(identifier)
+                for identifier in rec.has_identifier or []
+            ]
+            ids_by_label[label] = record_ids
+            for ref in record_ids:
+                removed_refs.add(ref)
+                invalid_origin.setdefault(ref, label)
+        # Drop the members from the lookup before purging so that only
+        # records outside the cycle are removed as dependants.
+        for record_ids in ids_by_label.values():
+            for ref in record_ids:
+                id_lookup.pop(ref, None)
+        for label in cycle.members:
+            for ref in ids_by_label[label]:
+                dependants += purge_dependant_records(
+                    ref,
+                    working,
+                    id_lookup,
+                    dependants_by_ref,
+                    removed_refs,
+                    removals=removals,
+                    because=label,
                 )
 
     # Check for records that should be associated with items but are not

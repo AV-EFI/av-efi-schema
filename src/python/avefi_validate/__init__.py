@@ -14,8 +14,9 @@ The rules are split by concern:
     Conformance of a single record: schema, identifiers, dates and
     field length limits.
 ``records``
-    Relations between records: identifiers, references, dangling
-    records and the cascade that removes them.
+    Relations between records: the directed and equivalence relation
+    tables, identifiers, references, cycles, dangling records and the
+    cascade that removes them.
 ``removal``
     The file-level operation that drops invalid records in place.
 ``report``
@@ -47,7 +48,12 @@ from .normalise import (
     normalise_document,
     normalise_record,
 )
-from .records import CheckResult, HashableId
+from .records import (
+    CheckResult,
+    DIRECTED_RELATIONS,
+    EQUIVALENCE_RELATIONS,
+    HashableId,
+)
 from .removal import FileCheck, check_file
 from .report import (
     Code,
@@ -64,7 +70,9 @@ __all__ = [
     "CheckResult",
     "Code",
     "DEFAULT_LIMITS",
+    "DIRECTED_RELATIONS",
     "Diagnostic",
+    "EQUIVALENCE_RELATIONS",
     "FileCheck",
     "FileReport",
     "HashableId",

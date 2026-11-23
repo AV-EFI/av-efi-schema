@@ -223,6 +223,14 @@ while a rejected parent has children that do not survive validation.
 The same `record.depends_on_invalid` code is used in both `diagnostics`
 and `removed`, so one can be matched against the other.
 
+`reference.cycle` marks every record in a strongly connected component
+of the reference graph. A cycle cannot be registered in any order, so
+every member is reported and removed as invalid, and records that
+depend on a member are removed with it. Only hierarchy and derivation
+links are ordered: `same_as` and `is_copy_of` are symmetric, so mutual
+links are accepted, while any relation that points at its own record is
+a one-member cycle.
+
 `--normalise` repairs values that are unambiguous but do not match
 their schema pattern, and reports each repair as a `value.normalised`
 warning with `params.before`, `params.after` and `params.rule` (for

@@ -106,6 +106,22 @@
     "outcome": "failed",
     "remaining": 1
   },
+  "is_copy_of_mutual": {
+    "codes": [],
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "passed",
+    "remaining": 4
+  },
+  "is_derivative_of_cycle": {
+    "codes": [
+      "reference.cycle"
+    ],
+    "dependants": 0,
+    "invalid": 2,
+    "outcome": "failed",
+    "remaining": 4
+  },
   "local_id_with_space": {
     "codes": [
       "schema.violation"
@@ -132,6 +148,15 @@
     "invalid": 0,
     "outcome": "failed",
     "remaining": 0
+  },
+  "mixed_relation_cycle": {
+    "codes": [
+      "reference.cycle"
+    ],
+    "dependants": 0,
+    "invalid": 2,
+    "outcome": "failed",
+    "remaining": 2
   },
   "normalise_date": {
     "codes": [
@@ -187,11 +212,22 @@
     "remaining": 3
   },
   "reference_cycle": {
-    "codes": [],
+    "codes": [
+      "reference.cycle"
+    ],
     "dependants": 0,
-    "invalid": 0,
-    "outcome": "passed",
-    "remaining": 2
+    "invalid": 2,
+    "outcome": "failed",
+    "remaining": 0
+  },
+  "reference_cycle_self": {
+    "codes": [
+      "reference.cycle"
+    ],
+    "dependants": 0,
+    "invalid": 1,
+    "outcome": "failed",
+    "remaining": 1
   },
   "removed_preserved": {
     "codes": [],
@@ -218,6 +254,13 @@
     "invalid": 1,
     "outcome": "failed",
     "remaining": 1
+  },
+  "same_as_mutual": {
+    "codes": [],
+    "dependants": 0,
+    "invalid": 0,
+    "outcome": "passed",
+    "remaining": 5
   },
   "title_at_limit": {
     "codes": [],

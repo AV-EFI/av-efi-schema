@@ -61,6 +61,7 @@ class Code(StrEnum):
 
     # Relations between records.
     REFERENCE_UNRESOLVED = "reference.unresolved"
+    REFERENCE_CYCLE = "reference.cycle"
     RECORD_DANGLING = "record.dangling"
     ANALYTIC_REFERENCED = "analytic.referenced_by_manifestation"
     ANALYTIC_WITHOUT_PARENT = "analytic.without_parent"
@@ -88,7 +89,7 @@ TOOL_NAME = "avefi-validate"
 #: It moves when the shape of the document or the meaning of a code,
 #: pointer or ``params`` key changes, and never otherwise. Clients read
 #: it from ``report.version`` and do not have to map package versions.
-REPORT_CONTRACT_VERSION = "1.0"
+REPORT_CONTRACT_VERSION = "1.1"
 
 
 def _jsonable(value: Any) -> Any:
