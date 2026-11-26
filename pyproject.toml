@@ -21,7 +21,7 @@ dataclasses = [
     "linkml-runtime>=1.10.0",
 ]
 fast = [
-    "jsonschema-rs>=0.61,<0.62",
+    "jsonschema-rs>=0.61,<0.64",
 ]
 
 [build-system]
@@ -61,7 +61,7 @@ dev = [
     "zensical>=0.0.34",
     "pytest>=8.0",
     "pre-commit>=4.0",
-    "jsonschema-rs>=0.61,<0.62",
+    "jsonschema-rs>=0.61,<0.64",
 ]
 docs = [
     "doit>=0.36.0",
